@@ -73,7 +73,7 @@
     </author>
     <relatedArtifact>
         <type value="depends-on"/>
-        <resource value="Library/omtk-modelinfo"/>
+        <resource value="http://example.org/fhir/Library/omtk-modelinfo"/>
     </relatedArtifact>
     <relatedArtifact>
         <type value="documentation"/>

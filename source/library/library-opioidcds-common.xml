@@ -78,7 +78,7 @@
    </relatedArtifact>
    <relatedArtifact>
       <type value="depends-on"/>
-      <resource value="Library/omtk-logic"/>
+      <resource value="http://example.org/fhir/Library/omtk-logic"/>
    </relatedArtifact>
    <relatedArtifact>
       <type value="documentation"/>

@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="3"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="anonymous"/>
@@ -77,17 +77,21 @@
   <derivation value="specialization"/>
   <differential>
     <element id="Library">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Library is a fairly general artifact that can be used to convey specific items like compiled CQL or Java packages, as well as a container, through the use of the composed-of related artifacts to convey groups like catalogs, quality programs, or composite artifacts."/>
+      </extension>
       <path value="Library"/>
       <short value="Represents a library of quality improvement components"/>
       <definition value="The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
-        <key value="lib-0"/>
+        <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
         <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Library"/>
       </constraint>
       <mapping>
         <identity value="rim"/>
@@ -187,7 +191,7 @@
       <type>
         <code value="string"/>
       </type>
-      <condition value="inv-0"/>
+      <condition value="cnl-0"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
@@ -223,6 +227,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
     <element id="Library.status">
       <path value="Library.status"/>
@@ -238,9 +246,6 @@
       <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The lifecycle status of an artifact."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PublicationStatus"/>
         </extension>
@@ -300,9 +305,6 @@
       </type>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of knowledge asset this library contains."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="LibraryType"/>
         </extension>
@@ -320,6 +322,9 @@
       </mapping>
     </element>
     <element id="Library.subject[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Subject was added in R4 across all the knowledge artifacts to support content that focused on resource types other than patient, such as Location, Organization, or even Encounter, or Procedure, depending on the use case."/>
+      </extension>
       <path value="Library.subject[x]"/>
       <short value="Type of individual the library content is focused on"/>
       <definition value="A code or group definition that describes the intended subject of the contents of the library."/>
@@ -334,9 +339,6 @@
       </type>
       <meaningWhenMissing value="Patient"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The possible types of subjects for a library (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubjectType"/>
         </extension>
@@ -344,6 +346,10 @@
         <description value="The possible types of subjects for a library (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
     <element id="Library.date">
       <path value="Library.date"/>
@@ -457,6 +463,9 @@
       </mapping>
     </element>
     <element id="Library.jurisdiction">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Although jurisdiction was originally modeled as a type of useContext, it was specifically pulled out into its own element because of how often it is used. This is true across all the conformance resources."/>
+      </extension>
       <path value="Library.jurisdiction"/>
       <short value="Intended jurisdiction for library (if applicable)"/>
       <definition value="A legal or geographic region in which the library is intended to be used."/>
@@ -468,9 +477,6 @@
       </type>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Countries and regions within which this artifact is targeted for use."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Jurisdiction"/>
         </extension>
@@ -629,6 +635,9 @@
       </mapping>
     </element>
     <element id="Library.topic">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Although topic could be modeled as a type of useContext, it was specifically modeled as an element because it is central to indexing support."/>
+      </extension>
       <path value="Library.topic"/>
       <short value="E.g. Education, Treatment, Assessment, etc."/>
       <definition value="Descriptive topics related to the content of the library. Topics provide a high-level categorization of the library that can be useful for filtering and searching."/>
@@ -639,9 +648,6 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DefinitionTopic"/>
         </extension>
@@ -677,6 +683,10 @@
       <type>
         <code value="ContactDetail"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT]"/>
+      </mapping>
     </element>
     <element id="Library.reviewer">
       <path value="Library.reviewer"/>

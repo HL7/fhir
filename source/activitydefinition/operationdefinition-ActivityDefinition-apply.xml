@@ -3,10 +3,10 @@
 <OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="ActivityDefinition-apply"/>
   <meta>
-    <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="3"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
@@ -37,12 +37,12 @@
     <valueMarkdown value="The result of invoking this operation is a resource of the type specified by the activity definition, with all the definitions resolved as appropriate for the type of resource. Any dynamicValue elements will be evaluated (in the order in which they appear in the resource) and the results applied to the returned resource.  If the ActivityDefinition includes library references, those libraries will be available to the evaluated expressions. If those libraries have parameters, those parameters will be bound by name to the parameters given to the operation. In addition, parameters to the $apply operation are available within dynamicValue expressions as context variables, accessible by the name of the parameter, prefixed with a percent (%) symbol. For a more detailed description, refer to the ActivityDefinition resource"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/ActivityDefinition-apply"/>
-  <version value="4.0.1"/>
+  <version value="4.5.0"/>
   <name value="apply"/>
   <title value="Apply"/>
   <status value="draft"/>
   <kind value="operation"/>
-  <date value="2021-01-17T07:06:13+11:00"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>

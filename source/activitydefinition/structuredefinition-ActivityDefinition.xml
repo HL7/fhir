@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="3"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="anonymous"/>
@@ -77,17 +77,21 @@
   <derivation value="specialization"/>
   <differential>
     <element id="ActivityDefinition">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Although there is currently only one definitional resource defined (ActivityDefinition), the concept is general, and this was a deliberate design decision to avoid the overhead of defining and maintaining a different definitional resource for every category of request. We anticipate that as the use cases of ActivityDefinition require more specialized elements to be added, the resource may be split."/>
+      </extension>
       <path value="ActivityDefinition"/>
       <short value="The definition of a specific activity to be taken, independent of any particular patient or context"/>
       <definition value="This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
-        <key value="adf-0"/>
+        <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
         <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
       </constraint>
       <mapping>
         <identity value="workflow"/>
@@ -194,7 +198,7 @@
       <type>
         <code value="string"/>
       </type>
-      <condition value="inv-0"/>
+      <condition value="cnl-0"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
@@ -230,6 +234,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="ActivityDefinition.status">
       <path value="ActivityDefinition.status"/>
@@ -245,9 +253,6 @@
       <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The lifecycle status of an artifact."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PublicationStatus"/>
         </extension>
@@ -297,9 +302,12 @@
       </mapping>
     </element>
     <element id="ActivityDefinition.subject[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="As part of R4, the subject element was introduced in all the knowledge resources to support content expressed on resources other than patient, such as Location, Organization, and even Encounter and Procedure.&#xA;The subject element was expanded in R4B to support a canonical reference to the new product definition resources."/>
+      </extension>
       <path value="ActivityDefinition.subject[x]"/>
       <short value="Type of individual the activity definition is intended for"/>
-      <definition value="A code or group definition that describes the intended subject of the activity being defined."/>
+      <definition value="A code, group definition, or canonical reference that describes  or identifies the intended subject of the activity being defined.  Canonical references are allowed to support the definition of protocols for drug and substance quality specifications, and is allowed to reference a MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, or PackagedProductDefinition resource."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -309,11 +317,11 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
+      <type>
+        <code value="canonical"/>
+      </type>
       <meaningWhenMissing value="Patient"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The possible types of subjects for an activity (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubjectType"/>
         </extension>
@@ -324,6 +332,10 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Definition.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?) { only applies for subject Patient? }"/>
       </mapping>
     </element>
     <element id="ActivityDefinition.date">
@@ -438,6 +450,9 @@
       </mapping>
     </element>
     <element id="ActivityDefinition.jurisdiction">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Jurisdiction was originally modeled as a type of useContext, but was broken out as a separate element for ease of reference."/>
+      </extension>
       <path value="ActivityDefinition.jurisdiction"/>
       <short value="Intended jurisdiction for activity definition (if applicable)"/>
       <definition value="A legal or geographic region in which the activity definition is intended to be used."/>
@@ -449,9 +464,6 @@
       </type>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Countries and regions within which this artifact is targeted for use."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Jurisdiction"/>
         </extension>
@@ -513,6 +525,9 @@
       </mapping>
     </element>
     <element id="ActivityDefinition.copyright">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="There is ongoing discussion about the uses of copyright, particularly around modeling information such as license, copyright, and disclaimers."/>
+      </extension>
       <path value="ActivityDefinition.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the activity definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the activity definition."/>
@@ -610,6 +625,9 @@
       </mapping>
     </element>
     <element id="ActivityDefinition.topic">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Topic was originally modeled as a type of useContext, but was broken out as a separate element for ease of reference."/>
+      </extension>
       <path value="ActivityDefinition.topic"/>
       <short value="E.g. Education, Treatment, Assessment, etc."/>
       <definition value="Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching."/>
@@ -620,9 +638,6 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DefinitionTopic"/>
         </extension>
@@ -636,6 +651,9 @@
       </mapping>
     </element>
     <element id="ActivityDefinition.author">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Author was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+      </extension>
       <path value="ActivityDefinition.author"/>
       <short value="Who authored the content"/>
       <definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
@@ -650,6 +668,9 @@
       </mapping>
     </element>
     <element id="ActivityDefinition.editor">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Editor was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+      </extension>
       <path value="ActivityDefinition.editor"/>
       <short value="Who edited the content"/>
       <definition value="An individual or organization primarily responsible for internal coherence of the content."/>
@@ -658,8 +679,15 @@
       <type>
         <code value="ContactDetail"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT] { not a great match, but there does not appear to be an editor concept in V3 participation }"/>
+      </mapping>
     </element>
     <element id="ActivityDefinition.reviewer">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Reviewer was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+      </extension>
       <path value="ActivityDefinition.reviewer"/>
       <short value="Who reviewed the content"/>
       <definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
@@ -674,6 +702,9 @@
       </mapping>
     </element>
     <element id="ActivityDefinition.endorser">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Endorser was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+      </extension>
       <path value="ActivityDefinition.endorser"/>
       <short value="Who endorsed the content"/>
       <definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
@@ -730,9 +761,6 @@
       </type>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The kind of activity the definition is describing."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActivityDefinitionKind"/>
         </extension>
@@ -756,6 +784,10 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".templateId"/>
+      </mapping>
     </element>
     <element id="ActivityDefinition.code">
       <path value="ActivityDefinition.code"/>
@@ -770,9 +802,6 @@
       </type>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Detailed type of the activity; e.g. CBC."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActivityDefinitionType"/>
         </extension>
@@ -795,9 +824,6 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes indicating the degree of authority/intentionality associated with a request."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RequestIntent"/>
         </extension>
@@ -805,6 +831,10 @@
         <description value="Codes indicating the degree of authority/intentionality associated with a request."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/request-intent"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".moodCode { of the realized Activity }"/>
+      </mapping>
     </element>
     <element id="ActivityDefinition.priority">
       <path value="ActivityDefinition.priority"/>
@@ -816,9 +846,6 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies the level of importance to be assigned to actioning the request."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RequestPriority"/>
         </extension>
@@ -826,6 +853,10 @@
         <description value="Identifies the level of importance to be assigned to actioning the request."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".priority { of the realized activity }"/>
+      </mapping>
     </element>
     <element id="ActivityDefinition.doNotPerform">
       <path value="ActivityDefinition.doNotPerform"/>
@@ -840,6 +871,10 @@
       <isModifier value="true"/>
       <isModifierReason value="If true this element negates the specified action. For Example,  instead of a request for a procedure, it is a request for the procedure to not occur."/>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".negationInd { of the realized activity }"/>
+      </mapping>
     </element>
     <element id="ActivityDefinition.timing[x]">
       <path value="ActivityDefinition.timing[x]"/>
@@ -913,9 +948,6 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of participant in the activity."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActivityParticipantType"/>
         </extension>
@@ -938,15 +970,12 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines roles played by participants for the action."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActivityParticipantRole"/>
         </extension>
         <strength value="example"/>
         <description value="Defines roles played by participants for the action."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-role"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/action-participant-role"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -954,6 +983,9 @@
       </mapping>
     </element>
     <element id="ActivityDefinition.product[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Elements here deliberately lean towards medication and service requests, as some of the most commonly needed activity types."/>
+      </extension>
       <path value="ActivityDefinition.product[x]"/>
       <short value="What&#39;s administered/supplied"/>
       <definition value="Identifies the food, drug or other product being consumed or supplied in the activity."/>
@@ -963,14 +995,12 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
       </type>
       <type>
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Code describing the type of substance or medication."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActivityProduct"/>
         </extension>
@@ -1026,9 +1056,6 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A code that identifies the anatomical location."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BodySite"/>
         </extension>
@@ -1042,6 +1069,9 @@
       </mapping>
     </element>
     <element id="ActivityDefinition.specimenRequirement">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="These requirements are used for lab catalogs. See also SpecimenDefinition and ObservationDefinition."/>
+      </extension>
       <path value="ActivityDefinition.specimenRequirement"/>
       <short value="What specimens are required to perform this action"/>
       <definition value="Defines specimen requirements for the action to be performed, such as required specimens for a lab test."/>
@@ -1052,6 +1082,10 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
     <element id="ActivityDefinition.observationRequirement">
       <path value="ActivityDefinition.observationRequirement"/>
@@ -1064,6 +1098,10 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
     <element id="ActivityDefinition.observationResultRequirement">
       <path value="ActivityDefinition.observationResultRequirement"/>
@@ -1075,6 +1113,10 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
     <element id="ActivityDefinition.transform">
       <path value="ActivityDefinition.transform"/>

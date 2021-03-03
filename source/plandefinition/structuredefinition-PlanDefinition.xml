@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="3"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="business"/>
@@ -44,12 +44,17 @@
       <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
     </telecom>
   </contact>
-  <description value="This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols."/>
+  <description value="This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical and non-clinical artifacts such as clinical decision support rules, order sets, protocols, and drug quality specifications."/>
   <fhirVersion value="4.0.1"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
     <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
   </mapping>
   <mapping>
     <identity value="w5"/>
@@ -60,11 +65,6 @@
     <identity value="objimpl"/>
     <uri value="http://hl7.org/fhir/object-implementation"/>
     <name value="Object Implementation Information"/>
-  </mapping>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -77,24 +77,32 @@
   <derivation value="specialization"/>
   <differential>
     <element id="PlanDefinition">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="The PlanDefinition resource was originally modeled as a KnowledgeArtifact resource, was then broken out into separate resources for OrderSet, DocumentationTemplate, and DecisionSupportRule, and then collapsed back into the current PlanDefinition structure. The resource is a FHIR rendering of the CDS KnowledgeArtifact specification, and can be used to model various types of decision support artifacts including order sets, documentation templates, decision support rules, protocols, and workflows. There is ongoing work to construct a bi-directional mapping between BPMN, CMMN, and DMN and PlanDefinition in various flavors."/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,0"/>
       </extension>
       <path value="PlanDefinition"/>
       <short value="The definition of a plan for a series of actions, independent of any specific patient or context"/>
-      <definition value="This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols."/>
+      <definition value="This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical and non-clinical artifacts such as clinical decision support rules, order sets, protocols, and drug quality specifications."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
-        <key value="pdf-0"/>
+        <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
         <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Definition"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act[classCode=GROUPER;moodCode=DEFN]"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -121,6 +129,10 @@
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".identifier[scope=BUSN;reliability=ISS]"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.identifier">
       <path value="PlanDefinition.identifier"/>
@@ -141,6 +153,10 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".identifier"/>
       </mapping>
       <mapping>
         <identity value="objimpl"/>
@@ -166,6 +182,10 @@
         <identity value="w5"/>
         <map value="FiveWs.version"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.name">
       <path value="PlanDefinition.name"/>
@@ -178,8 +198,12 @@
       <type>
         <code value="string"/>
       </type>
-      <condition value="inv-0"/>
+      <condition value="cnl-0"/>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.title">
       <path value="PlanDefinition.title"/>
@@ -196,6 +220,10 @@
         <identity value="workflow"/>
         <map value="Definition.title"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".title"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.subtitle">
       <path value="PlanDefinition.subtitle"/>
@@ -206,6 +234,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.type">
       <path value="PlanDefinition.type"/>
@@ -218,9 +250,6 @@
       </type>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of PlanDefinition."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PlanDefinitionType"/>
         </extension>
@@ -228,6 +257,10 @@
         <description value="The type of PlanDefinition."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/plan-definition-type"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.status">
       <path value="PlanDefinition.status"/>
@@ -243,9 +276,6 @@
       <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The lifecycle status of an artifact."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PublicationStatus"/>
         </extension>
@@ -263,6 +293,10 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".status"/>
       </mapping>
     </element>
     <element id="PlanDefinition.experimental">
@@ -285,11 +319,18 @@
         <identity value="w5"/>
         <map value="FiveWs.class"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.subject[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="As part of R4, the subject element was introduced in all the knowledge resources to support content expressed on resources other than patient, such as Location, Organization, and even Encounter and Procedure.&#xA;The subject element was expanded in R4B to support a canonical reference to the new product definition resources."/>
+      </extension>
       <path value="PlanDefinition.subject[x]"/>
       <short value="Type of individual the plan definition is focused on"/>
-      <definition value="A code or group definition that describes the intended subject of the plan definition."/>
+      <definition value="A code, group definition, or canonical reference that describes  or identifies the intended subject of the plan definition. Canonical references are allowed to support the definition of protocols for drug and substance quality specifications, and is allowed to reference a MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, or PackagedProductDefinition resource."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -299,11 +340,16 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
+      </type>
       <meaningWhenMissing value="Patient"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubjectType"/>
         </extension>
@@ -314,6 +360,10 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Definition.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
       </mapping>
     </element>
     <element id="PlanDefinition.date">
@@ -336,6 +386,10 @@
         <identity value="w5"/>
         <map value="FiveWs.recorded"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].time"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.publisher">
       <path value="PlanDefinition.publisher"/>
@@ -357,6 +411,10 @@
         <identity value="w5"/>
         <map value="FiveWs.witness"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].role"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.contact">
       <path value="PlanDefinition.contact"/>
@@ -373,6 +431,10 @@
         <identity value="workflow"/>
         <map value="Definition.contact"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=CALLBCK].role"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.description">
       <path value="PlanDefinition.description"/>
@@ -388,6 +450,10 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Definition.description"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
       </mapping>
     </element>
     <element id="PlanDefinition.useContext">
@@ -406,8 +472,15 @@
         <identity value="workflow"/>
         <map value="Definition.useContext"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.jurisdiction">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Jurisdiction was originally modeled as a type of useContext, but was broken out as a separate element for ease of reference."/>
+      </extension>
       <path value="PlanDefinition.jurisdiction"/>
       <short value="Intended jurisdiction for plan definition (if applicable)"/>
       <definition value="A legal or geographic region in which the plan definition is intended to be used."/>
@@ -419,9 +492,6 @@
       </type>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Countries and regions within which this artifact is targeted for use."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Jurisdiction"/>
         </extension>
@@ -435,6 +505,10 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Definition.jurisdiction"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
       </mapping>
     </element>
     <element id="PlanDefinition.purpose">
@@ -456,6 +530,10 @@
         <map value="FiveWs.why[x]"/>
       </mapping>
       <mapping>
+        <identity value="rim"/>
+        <map value=".reasonCode.text"/>
+      </mapping>
+      <mapping>
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
       </mapping>
@@ -469,8 +547,15 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.copyright">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="There is ongoing discussion about the uses of copyright, particularly around modeling information such as license, copyright, and disclaimers."/>
+      </extension>
       <path value="PlanDefinition.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the plan definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the plan definition."/>
@@ -485,6 +570,10 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Definition.copyright"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
       </mapping>
       <mapping>
         <identity value="objimpl"/>
@@ -506,6 +595,10 @@
         <map value="Definition.approvalDate"/>
       </mapping>
       <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;approval&quot;].effectiveTime"/>
+      </mapping>
+      <mapping>
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
       </mapping>
@@ -524,6 +617,10 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Definition.lastReviewDate"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;; subsetCode=&quot;RECENT&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;review&quot;].effectiveTime"/>
       </mapping>
       <mapping>
         <identity value="objimpl"/>
@@ -547,11 +644,18 @@
         <map value="Definition.effectivePeriod"/>
       </mapping>
       <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+      <mapping>
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
       </mapping>
     </element>
     <element id="PlanDefinition.topic">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Topic was originally modeled as a type of useContext, but was broken out as a separate element for ease of reference."/>
+      </extension>
       <path value="PlanDefinition.topic"/>
       <short value="E.g. Education, Treatment, Assessment"/>
       <definition value="Descriptive topics related to the content of the plan definition. Topics provide a high-level categorization of the definition that can be useful for filtering and searching."/>
@@ -562,9 +666,6 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DefinitionTopic"/>
         </extension>
@@ -576,8 +677,15 @@
         <identity value="workflow"/>
         <map value="Definition.subject[x]"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.author">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Author was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+      </extension>
       <path value="PlanDefinition.author"/>
       <short value="Who authored the content"/>
       <definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
@@ -592,6 +700,9 @@
       </mapping>
     </element>
     <element id="PlanDefinition.editor">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Editor was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+      </extension>
       <path value="PlanDefinition.editor"/>
       <short value="Who edited the content"/>
       <definition value="An individual or organization primarily responsible for internal coherence of the content."/>
@@ -600,8 +711,15 @@
       <type>
         <code value="ContactDetail"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT]"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.reviewer">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Reviewer was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+      </extension>
       <path value="PlanDefinition.reviewer"/>
       <short value="Who reviewed the content"/>
       <definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
@@ -616,6 +734,9 @@
       </mapping>
     </element>
     <element id="PlanDefinition.endorser">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Endorser was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+      </extension>
       <path value="PlanDefinition.endorser"/>
       <short value="Who endorsed the content"/>
       <definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
@@ -640,6 +761,10 @@
       <type>
         <code value="RelatedArtifact"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DOC,RSON,PREV, DRIV, USE, COMP] {successor would be PREV w/ inversionInd=true; No support for citation}"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.library">
       <path value="PlanDefinition.library"/>
@@ -651,6 +776,10 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.goal">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -661,13 +790,17 @@
       </extension>
       <path value="PlanDefinition.goal"/>
       <short value="What the plan is trying to accomplish"/>
-      <definition value="Goals that describe what the activities within the plan are intended to achieve. For example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc."/>
+      <definition value="A goal describes an expected outcome that activities within the plan are intended to achieve. For example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, meeting the acceptance criteria for a test as specified by a quality specification, etc."/>
       <requirements value="Goal information needs to be captured for order sets, protocols, and care plan definitions to better describe the objectives of the protocol activities and to guide the creation of specific goals within the derived care plans and orders."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.goal.category">
       <path value="PlanDefinition.goal.category"/>
@@ -679,9 +812,6 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Example codes for grouping goals for filtering or presentation."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalCategory"/>
         </extension>
@@ -689,6 +819,10 @@
         <description value="Example codes for grouping goals for filtering or presentation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/goal-category"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.goal.description">
       <path value="PlanDefinition.goal.description"/>
@@ -701,9 +835,6 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Describes goals that can be achieved."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalDescription"/>
         </extension>
@@ -711,6 +842,10 @@
         <description value="Describes goals that can be achieved."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.goal.priority">
       <path value="PlanDefinition.goal.priority"/>
@@ -722,9 +857,6 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Indicates the level of importance associated with reaching or sustaining a goal."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalPriority"/>
         </extension>
@@ -732,6 +864,10 @@
         <description value="Indicates the level of importance associated with reaching or sustaining a goal."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/goal-priority"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.goal.start">
       <path value="PlanDefinition.goal.start"/>
@@ -743,9 +879,6 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies the types of events that might trigger the start of a goal."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalStartEvent"/>
         </extension>
@@ -753,6 +886,10 @@
         <description value="Identifies the types of events that might trigger the start of a goal."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/goal-start-event"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.goal.addresses">
       <path value="PlanDefinition.goal.addresses"/>
@@ -764,9 +901,6 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies problems, conditions, issues, or concerns that goals may address."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalAddresses"/>
         </extension>
@@ -774,6 +908,10 @@
         <description value="Identifies problems, conditions, issues, or concerns that goals may address."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.goal.documentation">
       <path value="PlanDefinition.goal.documentation"/>
@@ -784,6 +922,10 @@
       <type>
         <code value="RelatedArtifact"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.goal.target">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -797,6 +939,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.goal.target.measure">
       <path value="PlanDefinition.goal.target.measure"/>
@@ -808,9 +954,6 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies types of parameters that can be tracked to determine goal achievement."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GoalTargetMeasure"/>
         </extension>
@@ -818,11 +961,15 @@
         <description value="Identifies types of parameters that can be tracked to determine goal achievement."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.goal.target.detail[x]">
       <path value="PlanDefinition.goal.target.detail[x]"/>
       <short value="The target value to be achieved"/>
-      <definition value="The target value of the measure to be achieved to signify fulfillment of the goal, e.g. 150 pounds or 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any value at or above the low value."/>
+      <definition value="The target value of the measure to be achieved to signify fulfillment of the goal, e.g. 150 pounds or 7.0%, or in the case of pharmaceutical quality - NMT 0.6%, Clear solution, etc. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any value at or above the low value."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -834,6 +981,10 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.goal.target.due">
       <path value="PlanDefinition.goal.target.due"/>
@@ -844,14 +995,21 @@
       <type>
         <code value="Duration"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="There is ongoing discussion about the overlap between the action element here and the ActivityDefinition. In general, ActivityDefinition is intended to support reusable, structural definition of activities, where action supports simple inline declaration. In addition, ActivityDefinition is atomic, so if there need to be constraints or dependencies expressed, that needs to be done within the actions of a PlanDefinition."/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="360,0"/>
       </extension>
       <path value="PlanDefinition.action"/>
       <short value="Action defined by the plan"/>
-      <definition value="An action or group of actions to be taken as part of the plan."/>
+      <definition value="An action or group of actions to be taken as part of the plan. For example, in clinical care, an action would be to prescribe a particular indicated medication, or perform a particular test as appropriate. In pharmaceutical quality, an action would be the test that needs to be performed on a drug product as defined in the quality specification."/>
       <comment value="Note that there is overlap between many of the elements defined here and the ActivityDefinition resource. When an ActivityDefinition is referenced (using the definition element), the overlapping elements in the plan override the content of the referenced ActivityDefinition unless otherwise documented in the specific elements. See the PlanDefinition resource for more detailed information."/>
       <min value="0"/>
       <max value="*"/>
@@ -861,6 +1019,10 @@
       <mapping>
         <identity value="workflow"/>
         <map value="{Is a contained Definition}"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act[classCode=ACT; moodCode=DEFN]"/>
       </mapping>
     </element>
     <element id="PlanDefinition.action.prefix">
@@ -872,11 +1034,15 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.title">
       <path value="PlanDefinition.action.title"/>
       <short value="User-visible title"/>
-      <definition value="The title of the action displayed to a user."/>
+      <definition value="The textual description of the action displayed to a user. For example, when the action is a test to be performed, the title would be the title of the test such as Assay by HPLC."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -885,6 +1051,10 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Definition.title"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".title"/>
       </mapping>
     </element>
     <element id="PlanDefinition.action.description">
@@ -900,6 +1070,10 @@
         <identity value="workflow"/>
         <map value="Definition.description"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.textEquivalent">
       <path value="PlanDefinition.action.textEquivalent"/>
@@ -914,6 +1088,10 @@
         <identity value="workflow"/>
         <map value="Definition.description"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.priority">
       <path value="PlanDefinition.action.priority"/>
@@ -925,9 +1103,6 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Identifies the level of importance to be assigned to actioning the request."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="RequestPriority"/>
         </extension>
@@ -935,16 +1110,32 @@
         <description value="Identifies the level of importance to be assigned to actioning the request."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".priority"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.code">
       <path value="PlanDefinition.action.code"/>
       <short value="Code representing the meaning of the action or sub-actions"/>
-      <definition value="A code that provides meaning for the action or action group. For example, a section may have a LOINC code for the section of a documentation template."/>
+      <definition value="A code that provides a meaning, grouping, or classification for the action or action group. For example, a section may have a LOINC code for the section of a documentation template. In pharmaceutical quality, an action (Test) such as pH could be classified as a physical property."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ActionCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Provides examples of actions to be performed."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-code"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".classCode"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.reason">
       <path value="PlanDefinition.action.reason"/>
@@ -956,6 +1147,18 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ActionReasonCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Provides examples of reasons for actions to be performed."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-reason-code"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".reasonCode"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.documentation">
       <path value="PlanDefinition.action.documentation"/>
@@ -966,21 +1169,29 @@
       <type>
         <code value="RelatedArtifact"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.goalId">
       <path value="PlanDefinition.action.goalId"/>
       <short value="What goals this action supports"/>
-      <definition value="Identifies goals that this action supports. The reference must be to a goal element defined within this plan definition."/>
+      <definition value="Identifies goals that this action supports. The reference must be to a goal element defined within this plan definition. In pharmaceutical quality, a goal represents acceptance criteria (Goal) for a given action (Test), so the goalId would be the unique id of a defined goal element establishing the acceptance criteria for the action."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="id"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.subject[x]">
       <path value="PlanDefinition.action.subject[x]"/>
       <short value="Type of individual the action is focused on"/>
-      <definition value="A code or group definition that describes the intended subject of the action and its children, if any."/>
+      <definition value="A code, group definition, or canonical reference that describes the intended subject of the action and its children, if any. Canonical references are allowed to support the definition of protocols for drug and substance quality specifications, and is allowed to reference a MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, or PackagedProductDefinition resource."/>
       <comment value="The subject of an action overrides the subject at a parent action or on the root of the PlanDefinition if specified.&#xA;&#xA;In addition, because the subject needs to be resolved during realization, use of subjects in actions (or in the ActivityDefinition referenced by the action) resolves based on the set of subjects supplied in context and by type (i.e. the patient subject would resolve to a resource of type Patient)."/>
       <requirements value="Multiple steps in a protocol often have different groups of steps that are focused on testing different things. The subject of an action specifies the focus of the action and any child actions."/>
       <min value="0"/>
@@ -992,11 +1203,11 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
+      <type>
+        <code value="canonical"/>
+      </type>
       <meaningWhenMissing value="Patient"/>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubjectType"/>
         </extension>
@@ -1008,6 +1219,10 @@
         <identity value="workflow"/>
         <map value="Definition.subject"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.trigger">
       <path value="PlanDefinition.action.trigger"/>
@@ -1018,6 +1233,10 @@
       <type>
         <code value="TriggerDefinition"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.condition">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -1032,6 +1251,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.condition.kind">
       <path value="PlanDefinition.action.condition.kind"/>
@@ -1044,9 +1267,6 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines the kinds of conditions that can appear on actions."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionConditionKind"/>
         </extension>
@@ -1054,6 +1274,10 @@
         <description value="Defines the kinds of conditions that can appear on actions."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-condition-kind"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.condition.expression">
       <path value="PlanDefinition.action.condition.expression"/>
@@ -1065,6 +1289,10 @@
       <type>
         <code value="Expression"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.input">
       <path value="PlanDefinition.action.input"/>
@@ -1075,6 +1303,10 @@
       <type>
         <code value="DataRequirement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.output">
       <path value="PlanDefinition.action.output"/>
@@ -1085,6 +1317,10 @@
       <type>
         <code value="DataRequirement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.relatedAction">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -1099,6 +1335,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.relatedAction.actionId">
       <path value="PlanDefinition.action.relatedAction.actionId"/>
@@ -1109,6 +1349,10 @@
       <type>
         <code value="id"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.relatedAction.relationship">
       <path value="PlanDefinition.action.relatedAction.relationship"/>
@@ -1120,9 +1364,6 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines the types of relationships between actions."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionRelationshipType"/>
         </extension>
@@ -1130,6 +1371,10 @@
         <description value="Defines the types of relationships between actions."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-relationship-type"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.relatedAction.offset[x]">
       <path value="PlanDefinition.action.relatedAction.offset[x]"/>
@@ -1143,6 +1388,10 @@
       <type>
         <code value="Range"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.timing[x]">
       <path value="PlanDefinition.action.timing[x]"/>
@@ -1168,6 +1417,10 @@
       <type>
         <code value="Timing"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.participant">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -1181,6 +1434,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PFM]"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.participant.type">
       <path value="PlanDefinition.action.participant.type"/>
@@ -1192,9 +1449,6 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of participant for the action."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionParticipantType"/>
         </extension>
@@ -1202,6 +1456,10 @@
         <description value="The type of participant for the action."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".role.classCode"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.participant.role">
       <path value="PlanDefinition.action.participant.role"/>
@@ -1213,16 +1471,17 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines roles played by participants for the action."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionParticipantRole"/>
         </extension>
         <strength value="example"/>
         <description value="Defines roles played by participants for the action."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-role"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/action-participant-role"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".role.code"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.type">
       <path value="PlanDefinition.action.type"/>
@@ -1234,9 +1493,6 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of action to be performed."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionType"/>
         </extension>
@@ -1244,6 +1500,10 @@
         <description value="The type of action to be performed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-type"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".moodCode { Maybe? this is effectively Create, Update, or Delete }"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.groupingBehavior">
       <path value="PlanDefinition.action.groupingBehavior"/>
@@ -1255,9 +1515,6 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines organization behavior of a group."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionGroupingBehavior"/>
         </extension>
@@ -1265,6 +1522,10 @@
         <description value="Defines organization behavior of a group."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-grouping-behavior"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.selectionBehavior">
       <path value="PlanDefinition.action.selectionBehavior"/>
@@ -1276,9 +1537,6 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines selection behavior of a group."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionSelectionBehavior"/>
         </extension>
@@ -1286,6 +1544,10 @@
         <description value="Defines selection behavior of a group."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-selection-behavior"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.requiredBehavior">
       <path value="PlanDefinition.action.requiredBehavior"/>
@@ -1297,9 +1559,6 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines expectations around whether an action or action group is required."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionRequiredBehavior"/>
         </extension>
@@ -1307,6 +1566,10 @@
         <description value="Defines expectations around whether an action or action group is required."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-required-behavior"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.precheckBehavior">
       <path value="PlanDefinition.action.precheckBehavior"/>
@@ -1318,9 +1581,6 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines selection frequency behavior for an action or group."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionPrecheckBehavior"/>
         </extension>
@@ -1328,6 +1588,10 @@
         <description value="Defines selection frequency behavior for an action or group."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-precheck-behavior"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.cardinalityBehavior">
       <path value="PlanDefinition.action.cardinalityBehavior"/>
@@ -1339,9 +1603,6 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Defines behavior for an action or a group for how many times that item may be repeated."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActionCardinalityBehavior"/>
         </extension>
@@ -1349,6 +1610,10 @@
         <description value="Defines behavior for an action or a group for how many times that item may be repeated."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-cardinality-behavior"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.definition[x]">
       <path value="PlanDefinition.action.definition[x]"/>
@@ -1370,6 +1635,10 @@
         <identity value="workflow"/>
         <map value="Definition.derivedFrom"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act[classCode=ACT; moodCode=DEFN]"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.transform">
       <path value="PlanDefinition.action.transform"/>
@@ -1382,6 +1651,10 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureMap"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.dynamicValue">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -1396,6 +1669,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.dynamicValue.path">
       <path value="PlanDefinition.action.dynamicValue.path"/>
@@ -1407,6 +1684,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.dynamicValue.expression">
       <path value="PlanDefinition.action.dynamicValue.expression"/>
@@ -1418,6 +1699,10 @@
       <type>
         <code value="Expression"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.action">
       <path value="PlanDefinition.action.action"/>
@@ -1429,6 +1714,10 @@
       <mapping>
         <identity value="workflow"/>
         <map value="{InverseRelationship of Definition.partOf}"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
       </mapping>
     </element>
   </differential>

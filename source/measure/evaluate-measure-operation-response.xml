@@ -15,7 +15,7 @@
   </contained>
   <status value="complete"/>
   <type value="summary"/>
-  <measure value="Measure/CMS146"/>
+  <measure value="http://example.org/fhir/Measure/CMS146"/>
   <reporter>
     <reference value="#reporter"/>
   </reporter>

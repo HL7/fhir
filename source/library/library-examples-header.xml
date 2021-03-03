@@ -41,6 +41,14 @@
 			<td>The FHIR model information file used by the CQL-to-ELM translator to validate CQL written against the FHIR data model.</td>
 			<td><a href="library-fhir-model-definition-content.xml">XML Information Model</a></td>
 		</tr>
+		<tr>
+			<td>FHIR Helpers </td>
+			<td>This library defines functions to convert between FHIR
+			 data types and CQL system-defined types, as well as functions to support
+			 FHIRPath implementation. For more information, the FHIRHelpers wiki page:
+			 https://github.com/cqframework/clinical_quality_language/wiki/FHIRHelpers</td>
+			<td><a href="library-fhir-helpers-content.cql">CQL Source</a></td>
+		</tr>
 	</tbody>
 </table>
 

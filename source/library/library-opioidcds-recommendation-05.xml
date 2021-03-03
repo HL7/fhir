@@ -78,7 +78,7 @@
    </relatedArtifact>
    <relatedArtifact>
       <type value="depends-on"/>
-      <resource value="Library/opioidcds-common"/>
+      <resource value="http://example.org/fhir/Library/opioidcds-common"/>
    </relatedArtifact>
    <relatedArtifact>
       <type value="documentation"/>
