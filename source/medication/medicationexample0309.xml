@@ -10,7 +10,7 @@
   <code>
     <coding>
       <system value="http://hl7.org/fhir/sid/ndc"/>
-      <code value="50580-506-02"/>
+      <code value="50580-608-02"/>
       <display value="Tylenol PM"/>
     </coding>
   </code>
@@ -63,7 +63,7 @@
         <denominator>
           <value value="1"/>
           <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-          <code value="Tab"/>
+          <code value="TAB"/>
         </denominator>
       </strength>
     </ingredient>

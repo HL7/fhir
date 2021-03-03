@@ -126,7 +126,7 @@
                 <value value="20"/>
                 <unit value="mEq"/>
                 <system value="http://unitsofmeasure.org"/>
-                <code value="mEq"/>
+                <code value="meq"/>
             </doseQuantity>
             <rateRatio>
                 <numerator>

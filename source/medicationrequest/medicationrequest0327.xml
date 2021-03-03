@@ -49,7 +49,7 @@
                 <value value="1"/>
                 <unit value="patch"/>
                 <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-                <code value="patch"/>
+                <code value="PATCH"/>
             </doseQuantity>
         </doseAndRate>
         
@@ -63,7 +63,7 @@
             <value value="6"/>
             <unit value="patch"/>
             <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-            <code value="patch"/>
+            <code value="PATCH"/>
         </quantity>
         <expectedSupplyDuration>
             <value value="14"></value>

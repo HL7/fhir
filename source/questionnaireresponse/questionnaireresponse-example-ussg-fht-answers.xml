@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <QuestionnaireResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="ussg-fht-answers"/>
-  <questionnaire value="Questionnaire/ussg-fht"/>
+  <questionnaire value="http://hl7.org/fhir/Questionnaire/ussg-fht"/>
   <status value="in-progress"/>
   <subject>
     <reference value="http://hl7.org/fhir/Patient/proband"/>

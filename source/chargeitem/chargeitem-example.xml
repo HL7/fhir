@@ -81,8 +81,12 @@
 	<reason>
 			<coding>
 				<system value= "http://hl7.org/fhir/sid/icd-10"/>
+				<!--
 				<code value= "123456"/>
 				<display value="DIAG-1"/>	
+				-->
+				<code value= "I51.6"/>
+				<display value= "Cardiovascular disease, unspecified"/>
 			</coding>
 	</reason>
 	<service>

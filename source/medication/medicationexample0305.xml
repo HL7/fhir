@@ -10,7 +10,7 @@
   <code>
     <coding>
       <system value="http://hl7.org/fhir/sid/ndc"/>
-      <code value="2501-813-16"/>
+      <code value="24208-813-10"/>
       <display value="Timoptic 5mg/ml solution"/>
     </coding>
   </code>

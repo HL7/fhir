@@ -13010,6 +13010,10 @@
     <display value="Emulsion for injection"/>
     <display value="Injection emulsion (qualifier value)"/>
   </concept>
+  <concept id="385268001" display="Oral dose form">
+    <display value="Oral dose form"/>
+    <display value="Oral dose form (dose form)"/>
+  </concept>
   <concept id="385356007" display="Tumour stage finding">
     <display value="Tumor stage finding (finding)"/>
     <display value="Tumour stage finding"/>

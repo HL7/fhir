@@ -7,7 +7,7 @@
     <medicationCodeableConcept>
         <coding>
             <system value="http://hl7.org/fhir/sid/ndc"/>
-            <code value="60505-7001-2"/>
+            <code value="0406-9025-76"/>
             <display value="fentanyl 25mcg/hour Patch, Extended Release (Apotex)"/>
         </coding>
     </medicationCodeableConcept>
@@ -64,7 +64,7 @@
                 <value value="1"/>
                 <unit value="patch"/>
                 <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-                <code value="patch"/>
+                <code value="PATCH"/>
             </doseQuantity>
         </doseAndRate>
 

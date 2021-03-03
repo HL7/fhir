@@ -869,7 +869,7 @@ e: {
     "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 0 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display</b></td></tr></table></div>"
   },
   "status" : "active",
-  "description" : "Value Set Contents (Expansion) for ICD-10 Codes at Thu, Jan 21, 2021 13:24+1100",
+  "description" : "Value Set Contents (Expansion) for ICD-10 Codes at Wed, Mar 3, 2021 17:38+1100",
   "expansion" : {
     "identifier" : "urn:uuid:6fbadd45-29e1-47e6-bc1c-8b3d7e9b1c7a",
     "timestamp" : "2021-01-18T21:36:25.234Z",
@@ -949,5 +949,26 @@ v: {
   "display" : "",
   "severity" : "error",
   "error" : "Code \"M47.816\" not found; The code \"M47.816\" is not valid in the system http://hl7.org/fhir/sid/icd-10; The code provided (http://hl7.org/fhir/sid/icd-10#M47.816) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10",
+  "code" : "I51.6",
+  "display" : "Cardiovascular disease, unspecified"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Cardiovascular disease, unspecified",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10",
+  "code" : "K07.3"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Anomalies of tooth position",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------

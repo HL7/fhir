@@ -102,7 +102,7 @@
     </security>
     <resource>
       <type value="Measure"/>
-      <profile value="StructureDefinition/Measure"/>
+      <profile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       <interaction>
         <code value="read"/>
         <documentation value="Read allows clients to get the logical definitions of the measures"/>
@@ -124,16 +124,16 @@
       <searchParam>
         <name value="version"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Measure-version"/>
-        <type value="string"/>
+        <type value="token"/>
       </searchParam>
     </resource>
     <operation>
       <name value="evaluate-measure"/>
-      <definition value="OperationDefinition/Measure-evaluate-measure"/>
+      <definition value="http://hl7.org/fhir/OperationDefinition/Measure-evaluate-measure"/>
     </operation>
     <operation>
 		<name value="data-requirements"/>
-		<definition value="OperationDefinition/Measure-data-requirements"/>
+		<definition value="http://hl7.org/fhir/OperationDefinition/Measure-data-requirements"/>
 	</operation>
   </rest>
 </CapabilityStatement>

@@ -43,7 +43,7 @@
       <link value="http://hl7.org/fhir/http.html#update"/>
       <link value="http://hl7.org/fhir/http.html#delete"/>
       <link value="http://hl7.org/fhir/http.html#history"/>
-      <capabilities value="CapabilityStatement/example"/>
+      <capabilities value="http://hl7.org/fhir/CapabilityStatement/example"/>
     </capability>
   </metadata>
   <fixture id="fixture-patient-create">
