@@ -61,7 +61,7 @@
       <path value="Resource.id"/>
       <short value="Logical id of this artifact"/>
       <definition value="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."/>
-      <comment value="The only time that a resource does not have an id is when it is being submitted to the server using a create operation."/>
+      <comment value="Typically, the resource has an id except for cases like the create operation, conditional updates."/>
       <min value="0"/>
       <max value="1"/>
       <type>
