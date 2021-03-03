@@ -72,7 +72,7 @@
       <valueString value="library-fhir-model-definition"/>
     </extension>
     <item>
-      <reference value="Library/library-fhir-model-definition"/>
+      <reference value="Library/FHIR-ModelInfo"/>
       <display value="FHIRModel"/>
     </item>
   </entry>
@@ -96,7 +96,7 @@
       <valueString value="library-fhir-helpers"/>
     </extension>
     <item>
-      <reference value="Library/library-fhir-helpers"/>
+      <reference value="Library/FHIRHelpers"/>
       <display value="FHIRHelpers"/>
     </item>
   </entry>
