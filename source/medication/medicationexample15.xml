@@ -10,12 +10,15 @@
   <contained>
     <Substance>
       <id value="sub04"/>
+      <instance value="true"/>
       <code>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="386906001"/>
-          <display value="Capecitabine (substance)"/>
-        </coding>
+        <concept>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="386906001"/>
+            <display value="Capecitabine (substance)"/>
+          </coding>
+        </concept>
       </code>
     </Substance>
   </contained>

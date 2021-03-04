@@ -26,7 +26,7 @@
                         <numerator>
                             <value value="2"/>
                             <system value="http://unitsofmeasure.org"/>
-                            <code value="mEq"/>
+                            <code value="meq"/>
                         </numerator>
                         <denominator>
                             <value value="1"/>
