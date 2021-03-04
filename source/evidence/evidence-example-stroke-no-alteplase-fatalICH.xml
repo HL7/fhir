@@ -14,12 +14,23 @@
   <status value="draft"/>
   <useContext>
     <code>
-      <system>http://terminology.hl7.org/CodeSystem/usage-context-type</system>
-      <code>focus</code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
     </code>
     <valueCodeableConcept>
-      <text>Stroke</text>
+      <text value="Stroke"/>
     </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://snomed.info/sct"/>
+      <code value="1386000"/>
+      <display value="Intracranial hemorrhage"/>
+    </code>
+    <valueRange>
+      <low><value value="0"/><unit value="d"/></low>
+      <high><value value="7"/><unit value="d"/></high>
+    </valueRange>
   </useContext>
   <relatedArtifact>
 	<type value="citation"/>
