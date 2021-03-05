@@ -34,7 +34,7 @@
     </unit>
     <decimalPrecision value="0"/>
   </quantitativeDetails>
-  <qualifiedValues>
+  <qualifiedValue>
     <context>
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/referencerange-meaning"/>
@@ -48,8 +48,8 @@
         <value value="50"/>
       </low>
     </range>
-  </qualifiedValues>
-  <qualifiedValues>
+  </qualifiedValue>
+  <qualifiedValue>
     <context>
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/referencerange-meaning"/>
@@ -63,5 +63,5 @@
         <value value="40"/>
       </high>
     </range>
-  </qualifiedValues>
+  </qualifiedValue>
 </ObservationDefinition>

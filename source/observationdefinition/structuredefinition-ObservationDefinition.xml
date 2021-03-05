@@ -651,8 +651,8 @@
         <map value="OM2-3"/>
       </mapping>
     </element>
-    <element id="ObservationDefinition.qualifiedValues">
-      <path value="ObservationDefinition.qualifiedValues"/>
+    <element id="ObservationDefinition.qualifiedValue">
+      <path value="ObservationDefinition.qualifiedValue"/>
       <short value="Set of qualified values for observation results"/>
       <definition value="A set of qualified values associated with a context and a set of conditions -  provides a range for quantitative and ordinal observations and a collection of value sets for qualitative observations."/>
       <min value="0"/>
@@ -661,8 +661,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="ObservationDefinition.qualifiedValues.context">
-      <path value="ObservationDefinition.qualifiedValues.context"/>
+    <element id="ObservationDefinition.qualifiedValue.context">
+      <path value="ObservationDefinition.qualifiedValue.context"/>
       <short value="Context qualifier for the set of qualified values"/>
       <definition value="A concept defining the context for this set of qualified values."/>
       <min value="0"/>
@@ -678,8 +678,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/referencerange-meaning"/>
       </binding>
     </element>
-    <element id="ObservationDefinition.qualifiedValues.appliesTo">
-      <path value="ObservationDefinition.qualifiedValues.appliesTo"/>
+    <element id="ObservationDefinition.qualifiedValue.appliesTo">
+      <path value="ObservationDefinition.qualifiedValue.appliesTo"/>
       <short value="Targetted population for the set of qualified values"/>
       <definition value="The target population this  set of qualified values applies to."/>
       <comment value="If this element is not present then the global population is assumed."/>
@@ -696,8 +696,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/referencerange-appliesto"/>
       </binding>
     </element>
-    <element id="ObservationDefinition.qualifiedValues.gender">
-      <path value="ObservationDefinition.qualifiedValues.gender"/>
+    <element id="ObservationDefinition.qualifiedValue.gender">
+      <path value="ObservationDefinition.qualifiedValue.gender"/>
       <short value="male | female | other | unknown"/>
       <definition value="The gender this  set of qualified values applies to."/>
       <min value="0"/>
@@ -723,8 +723,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
       </binding>
     </element>
-    <element id="ObservationDefinition.qualifiedValues.age">
-      <path value="ObservationDefinition.qualifiedValues.age"/>
+    <element id="ObservationDefinition.qualifiedValue.age">
+      <path value="ObservationDefinition.qualifiedValue.age"/>
       <short value="Applicable age range for the set of qualified values"/>
       <definition value="The age range this  set of qualified values applies to."/>
       <comment value="Some analytes vary greatly over age."/>
@@ -734,8 +734,8 @@
         <code value="Range"/>
       </type>
     </element>
-    <element id="ObservationDefinition.qualifiedValues.gestationalAge">
-      <path value="ObservationDefinition.qualifiedValues.gestationalAge"/>
+    <element id="ObservationDefinition.qualifiedValue.gestationalAge">
+      <path value="ObservationDefinition.qualifiedValue.gestationalAge"/>
       <short value="Applicable gestational age range for the set of qualified values"/>
       <definition value="The gestational age this  set of qualified values applies to."/>
       <min value="0"/>
@@ -744,8 +744,8 @@
         <code value="Range"/>
       </type>
     </element>
-    <element id="ObservationDefinition.qualifiedValues.condition">
-      <path value="ObservationDefinition.qualifiedValues.condition"/>
+    <element id="ObservationDefinition.qualifiedValue.condition">
+      <path value="ObservationDefinition.qualifiedValue.condition"/>
       <short value="Condition associated with the set of qualified values"/>
       <definition value="Text based condition for which the the set of qualified values is valid."/>
       <min value="0"/>
@@ -754,8 +754,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="ObservationDefinition.qualifiedValues.rangeCategory">
-      <path value="ObservationDefinition.qualifiedValues.rangeCategory"/>
+    <element id="ObservationDefinition.qualifiedValue.rangeCategory">
+      <path value="ObservationDefinition.qualifiedValue.rangeCategory"/>
       <short value="reference | critical | absolute"/>
       <definition value="The category of range of values for continuous or ordinal observations that match the criteria of this set of qualified values."/>
       <min value="0"/>
@@ -775,8 +775,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-range-category"/>
       </binding>
     </element>
-    <element id="ObservationDefinition.qualifiedValues.range">
-      <path value="ObservationDefinition.qualifiedValues.range"/>
+    <element id="ObservationDefinition.qualifiedValue.range">
+      <path value="ObservationDefinition.qualifiedValue.range"/>
       <short value="The range for continuous or ordinal observations"/>
       <definition value="The range of values defined for continuous or ordinal observations that match the criteria of this set of qualified values."/>
       <requirements value="The unit may be not relevant for ordinal values. In case it is there, it is the same as quantitativeDetails.unit."/>
@@ -786,8 +786,8 @@
         <code value="Range"/>
       </type>
     </element>
-    <element id="ObservationDefinition.qualifiedValues.validCodedValueSet">
-      <path value="ObservationDefinition.qualifiedValues.validCodedValueSet"/>
+    <element id="ObservationDefinition.qualifiedValue.validCodedValueSet">
+      <path value="ObservationDefinition.qualifiedValue.validCodedValueSet"/>
       <short value="Value set of valid coded values as part of this set of qualified values"/>
       <definition value="The set of valid coded results for qualitative observations  that match the criteria of this set of qualified values."/>
       <min value="0"/>
@@ -797,8 +797,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </type>
     </element>
-    <element id="ObservationDefinition.qualifiedValues.normalCodedValueSet">
-      <path value="ObservationDefinition.qualifiedValues.normalCodedValueSet"/>
+    <element id="ObservationDefinition.qualifiedValue.normalCodedValueSet">
+      <path value="ObservationDefinition.qualifiedValue.normalCodedValueSet"/>
       <short value="Value set of normal coded values as part of this set of qualified values"/>
       <definition value="The set of normal coded results for qualitative observations  that match the criteria of this set of qualified values."/>
       <min value="0"/>
@@ -808,8 +808,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </type>
     </element>
-    <element id="ObservationDefinition.qualifiedValues.abnormalCodedValueSet">
-      <path value="ObservationDefinition.qualifiedValues.abnormalCodedValueSet"/>
+    <element id="ObservationDefinition.qualifiedValue.abnormalCodedValueSet">
+      <path value="ObservationDefinition.qualifiedValue.abnormalCodedValueSet"/>
       <short value="Value set of abnormal coded values as part of this set of qualified values"/>
       <definition value="The set of abnormal coded results for qualitative observations  that match the criteria of this set of qualified values."/>
       <min value="0"/>
@@ -819,8 +819,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </type>
     </element>
-    <element id="ObservationDefinition.qualifiedValues.criticalCodedValueSet">
-      <path value="ObservationDefinition.qualifiedValues.criticalCodedValueSet"/>
+    <element id="ObservationDefinition.qualifiedValue.criticalCodedValueSet">
+      <path value="ObservationDefinition.qualifiedValue.criticalCodedValueSet"/>
       <short value="Value set of critical coded values as part of this set of qualified values"/>
       <definition value="The set of critical coded results for qualitative observations  that match the criteria of this set of qualified values."/>
       <min value="0"/>
@@ -909,13 +909,13 @@
       <max value="1"/>
       <contentReference value="#ObservationDefinition.quantitativeDetails"/>
     </element>
-    <element id="ObservationDefinition.component.qualifiedValues">
-      <path value="ObservationDefinition.component.qualifiedValues"/>
+    <element id="ObservationDefinition.component.qualifiedValue">
+      <path value="ObservationDefinition.component.qualifiedValue"/>
       <short value="Set of qualified values for observation results"/>
       <definition value="A set of qualified values associated with a context and a set of conditions -  provides a range for quantitative and ordinal observations and a collection of value sets for qualitative observations."/>
       <min value="0"/>
       <max value="*"/>
-      <contentReference value="#ObservationDefinition.qualifiedValues"/>
+      <contentReference value="#ObservationDefinition.qualifiedValue"/>
     </element>
   </differential>
 </StructureDefinition>
