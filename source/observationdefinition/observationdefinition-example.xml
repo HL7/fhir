@@ -34,13 +34,22 @@
     </unit>
     <decimalPrecision value="0"/>
   </quantitativeDetails>
-  <qualifiedInterval>
-    <category value="reference"/>
+  <qualifiedValue>
+    <context>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/referencerange-meaning"/>
+        <code value="normal"/>
+        <display value="Normal Range"/>
+      </coding>
+    </context>
+    <rangeCategory value="reference"/>
     <range>
       <low>
         <value value="50"/>
       </low>
     </range>
+  </qualifiedValue>
+  <qualifiedValue>
     <context>
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/referencerange-meaning"/>
@@ -48,20 +57,11 @@
         <display value="Normal Range"/>
       </coding>
     </context>
-  </qualifiedInterval>
-  <qualifiedInterval>
-    <category value="critical"/>
+    <rangeCategory value="critical"/>
     <range>
       <high>
         <value value="40"/>
       </high>
     </range>
-    <context>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/referencerange-meaning"/>
-        <code value="normal"/>
-        <display value="Normal Range"/>
-      </coding>
-    </context>
-  </qualifiedInterval>
+  </qualifiedValue>
 </ObservationDefinition>
