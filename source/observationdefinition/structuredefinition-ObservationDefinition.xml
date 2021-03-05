@@ -421,7 +421,6 @@
       <path value="ObservationDefinition.code"/>
       <short value="Type of observation"/>
       <definition value="Describes what will be observed. Sometimes this is called the observation &quot;name&quot;."/>
-      <alias value="Name"/>
       <min value="1"/>
       <max value="1"/>
       <type>
