@@ -78,6 +78,14 @@
       <comment value="An instance of this resource informs the consumer of a health-related service (such as a lab diagnostic test or panel) about how the observations used or produced by this service will look like."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="cnl-0"/>
+        <severity value="warning"/>
+        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
       <mapping>
         <identity value="v2"/>
         <map value="OM2&#xA;OM3&#xA;OMC"/>
@@ -129,9 +137,23 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="ObservationDefinition.name">
+      <path value="ObservationDefinition.name"/>
+      <short value="Name for this ObservationDefinition (computer friendly)"/>
+      <definition value="A natural language name identifying the ObservationDefinition. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+      <requirements value="Support human navigation and code generation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <condition value="cnl-0"/>
+      <isSummary value="true"/>
+    </element>
     <element id="ObservationDefinition.title">
       <path value="ObservationDefinition.title"/>
-      <short value="Name for this ObservationDefinition (Human friendly)"/>
+      <short value="Name for this ObservationDefinition (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the ObservationDefinition."/>
       <min value="0"/>
       <max value="1"/>
