@@ -60,13 +60,13 @@ An collection Bundle showing an example of a complex Micro Isolate and Sensitivi
     </p>
 	<ul>
 		<li>
-			<a href="diagnosticreport-genetics-example-2-familyhistory.html">An example of a genetics test report with Family member history</a>
+			<a href="bundle-dg2.html">An example of a genetics test report with Family member history</a>
 		</li>
 		<li>
-			<a href="diagnosticreport-hla-genetics-results-example.html">An example of a HLA genotyping results report </a>
+			<a href="bundle-hla-1.html">An example of a HLA genotyping results report </a>
 		</li>
 		<li>
-			<a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.html">An example of a comprehensive bone marrow report</a>
+			<a href="bundle-comprehensive-bone-marrow-report.html">An example of a comprehensive bone marrow report</a>
 		</li>
 		<li>
 			<a href="diagnosticreport-example-pgx.html">An example of a PGx haplotype report</a>

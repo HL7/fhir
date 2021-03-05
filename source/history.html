@@ -111,7 +111,7 @@ notes: do not list revision in the version
       <p>Changes to Constraints and generated definitions (fixing problems in validation, no impact on implementations, except for code generators):</p>
       <ul>
        <li><!-- GF#24917 -->Fix expressions for Search parameters SubstanceSpecification-code and <a href="structuredefinition.html#search">StructureDefinition-ext-context</a> <span style="font-size: 10px">[<%GFT#24917%>]</span></li>
-       <li><!-- GF#20463 -->Fix the definition of the <a href="patient-extensions.html#search">Mother's Maiden name search parameter</a> from 
+       <li><!-- GF#20463 -->Fix the definition of the <a href="patient-profiles.html#search">Mother's Maiden name search parameter</a> from 
          <code>extension(http://hl7.org/fhir/SearchParameter/patient-extensions-Patient-mothersMaidenName)</code> to <code> extension('http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName') <span style="font-size: 10px">[<%GFT#20463%>]</span></code></li>
        <li><!-- GF#23069 -->Fix the extension context for <a href="extension-iso21090-nullFlavor.html">iso21090-nullFlavor</a> and <a href="extension-iso21090-preferred.html">iso21090-preferred</a> to any Element, not any Resource <span style="font-size: 10px">[<%GFT#23069%>]</span></li>
        <li><!-- GF#20470 -->Remove MultipleAnd/MultipleOr/Modifiers from generated Search Parameters <span style="font-size: 10px">[<%GFT#20470%>]</span></li>
@@ -225,16 +225,16 @@ notes: do not list revision in the version
            <li><a href="insuranceplan.html">InsurancePlan</a></li>
            <li><a href="invoice.html">Invoice</a></li>
            <li><a href="medicationknowledge.html">MedicationKnowledge</a></li>
-           <li><a href="medicinalproduct.html">MedicinalProduct</a></li>
-           <li><a href="medicinalproductauthorization.html">MedicinalProductAuthorization</a></li>
-           <li><a href="medicinalproductcontraindication.html">MedicinalProductContraindication</a></li>
-           <li><a href="medicinalproductindication.html">MedicinalProductIndication</a></li>
-           <li><a href="medicinalproductingredient.html">MedicinalProductIngredient</a></li>
-           <li><a href="medicinalproductinteraction.html">MedicinalProductInteraction</a></li>
-           <li><a href="medicinalproductmanufactured.html">MedicinalProductManufactured</a></li>
-           <li><a href="medicinalproductpackaged.html">MedicinalProductPackaged</a></li>
-           <li><a href="medicinalproductpharmaceutical.html">MedicinalProductPharmaceutical</a></li>
-           <li><a href="medicinalproductundesirableeffect.html">MedicinalProductUndesirableEffect</a></li>
+           <li>MedicinalProduct</li>
+           <li>MedicinalProductAuthorization</li>
+           <li>MedicinalProductContraindication</li>
+           <li>MedicinalProductIndication</li>
+           <li>MedicinalProductIngredient</li>
+           <li>MedicinalProductInteraction</li>
+           <li>MedicinalProductManufactured</li>
+           <li>MedicinalProductPackaged</li>
+           <li>MedicinalProductPharmaceutical</li>
+           <li>MedicinalProductUndesirableEffect</li>
            <li><a href="observationdefinition.html">ObservationDefinition</a></li>
            <li><a href="organizationaffiliation.html">OrganizationAffiliation</a></li>
            <li>ResearchDefinition</li>
@@ -399,8 +399,8 @@ notes: do not list revision in the version
        <li>New Resources: <a href="catalogentry.html">CatalogEntry</a>, <a href="specimendefinition.html">SpecimenDefinition</a>, <a href="observationdefinition.html">ObservationDefinition</a>, 
           <a href="examplescenario.html">ExampleScenario</a>, <a href="terminologycapabilities.html">TerminologyCapabilities</a>, UserSession, <a href="invoice.html">Invoice</a>, 
           <a href="insuranceplan.html">InsurancePlan</a>, OccupationalData, <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <a href="verificationresult.html">VerificationResult</a>, 
-          MedicinalProduct, <a href="medicinalproductauthorization.html">MedicinalProductAuthorization</a> <!--a href="medicinalproductclinicals.html"-->MedicinalProductClinicals<!--/a-->, 
-          <a href="medicinalproductingredient.html">MedicinalProductIngredient</a>, <a href="medicinalproductpackaged.html">MedicinalProductPackaged</a>, 
+          MedicinalProduct, MedicinalProductAuthorization <!--a href="medicinalproductclinicals.html"-->MedicinalProductClinicals<!--/a-->, 
+          MedicinalProductIngredient, MedicinalProductPackaged, 
           <!-- a href="medicinalproductpharmaceutical.html"-->MedicinalProductPharmaceutical<!--/a--> <!--a href="medicinalproductdevicespec.html"-->MedicinalProductDeviceSpec<!--/a-->, 
           SubstanceSpecification, SubstancePolymer, SubstanceReferenceInformation, 
           <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>, ItemInstance 
