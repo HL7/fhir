@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<MolecularSequence>
+<MolecularSequence xmlns="http://hl7.org/fhir">
     <id value="coord-1-base"/>
     <type value="dna"/>
     <coordinateSystem value="1"/>
