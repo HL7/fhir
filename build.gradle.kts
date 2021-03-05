@@ -39,7 +39,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.hl7.fhir", "kindling", "0.0.11-SNAPSHOT")
+    implementation("org.hl7.fhir", "kindling", "1.0.0-SNAPSHOT")
 }
 
 task("publish", JavaExec::class) {
