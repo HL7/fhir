@@ -13,11 +13,11 @@
   <status value="draft" />
   <useContext>
     <code>
-      <system>http://terminology.hl7.org/CodeSystem/usage-context-type</system>
-      <code>focus</code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
     </code>
     <valueCodeableConcept>
-      <text>Stroke</text>
+      <text value="Stroke"/>
     </valueCodeableConcept>
   </useContext>
   <actual value="false"/>
