@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+
+[%settitle UML Definition%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12">
+
+<%fmtheader uml%>
+
+<a name="root"></a>
+<h2>UML definition</h2>
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
+[%normative page infrastructure%]
+
+<a name="uml"></a>
+<h3>UML</h3>
+<p>
+The UML diagrams represent the Resource and Type defined in this specification in UML.
+</p>
+<p>
+Each type is represented as a class with a name and an ancestor class (except for <a href="element.html">Element</a> and <a href="resource.html">Resource</a>, which have no ancestor).
+In addition, types may be marked as abstract, aor assigned stereotypes that describe how they used. 
+</p>
+<p>
+Classes also have a zero or 
+more attributes defined, where each attribute has the following properties:
+</p>
+<ul>
+ <li><code>name</code>: the name of the attribute</li>
+ <li><code>type</code>: the type of the attribute - either another type defined in the speification, or (for <a href="datatypes.html#primitive">primitive types</a>) a type from XML Schema</li>
+ <li><code>[cardinality]</code>: [min..max] control over the attribute cardinality. Attributes with Max cardinality >1 (usually <code>*</code>) are ordered, though
+   the meaning of the order might not be known or defined</li>
+ <li><code>« stereotypes »</code>: these provide additional detail about the element - see below</li>
+</ul>
+<p>
+In addition, classes have zero or more associations, which are always aggregations, and have the following properties:
+</p>
+<ul>
+ <li><code>name</code>: the name of the association (which is the name of the element that represents it in XML/JSON)</li>
+ <li><code>[cardinality]</code>: [min..max] control over the association cardinality. Associations with Max cardinality >1 (usually <code>*</code>) are ordered, though
+   the meaning of the order might not be known or defined</li>
+</ul>
+
+
+
+<svg height="200.0" width="741.9" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="shadow13" height="200%" width="200%" y="0" x="0">
+      <feOffset result="offOut" dx="3" dy="3" in="SourceGraphic"/>
+      <feColorMatrix result="matrixOut" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" type="matrix" in="offOut"/>
+      <feGaussianBlur result="blurOut" stdDeviation="2" in="matrixOut"/>
+      <feBlend in2="blurOut" in="SourceGraphic" mode="normal"/>
+    </filter>
+  </defs>
+  <g>
+      <rect height="64.0" style="fill:#f0f8ff;stroke:black;stroke-width:1" width="213.2" filter="url(#shadow13)" rx="4" y="0.0" ry="4" x="190.0"/>
+      <line style="stroke:dimgrey;stroke-width:1" y1="28.0" y2="28.0" x2="403.2" x1="190.0"/>
+      <text fill="black" class="diagram-class-title" y="20.0" x="296.6">
+        <a xlink:href="#uml">NameA</a>
+      </text>
+      <text fill="black" class="diagram-class-detail" y="42.0" x="196.0">
+        <a xlink:href="datatypes-definitions.html#Timing.event">
+          <title>Documentation</title>element</a> : <a xlink:href="#uml">[type]</a> [0..*]</text>
+      <text fill="black" class="diagram-class-detail" y="56.0" x="196.0">
+        <a xlink:href="datatypes-definitions.html#Timing.code">
+          <title>Documentation</title>nameB</a> : <a xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a xlink:href="#uml">
+          <title>Value Set Description (Strength=Preferred)</title>Value Set Name</a>? »</text><g>
+        <rect height="65.0" style="fill:#f0f8ff;stroke:black;stroke-width:1" width="241.89999999999998" filter="url(#shadow13)" rx="4" y="110.0" ry="4" x="200.0"/>
+        <line style="stroke:dimgrey;stroke-width:1" y1="138.0" y2="138.0" x2="441.9" x1="200.0"/>
+        <text fill="black" class="diagram-class-title" y="130.0" x="320.95">NameC</text>
+        <text fill="black" class="diagram-class-detail" y="152.0" x="206.0">
+          <a xlink:href="datatypes-definitions.html#Timing.repeat.bounds_x_">
+            <title>Documentation</title>value[x]</a> : <a xlink:href="formats.html#umlchoice">Type</a> [0..1] « <a xlink:href="#uml">Type1</a>|<a xlink:href="#uml">Type2</a>|<a xlink:href="#">Type3</a> »</text>
+        <text fill="black" class="diagram-class-detail" y="166.0" x="206.0">
+          <a xlink:href="#uml">
+            <title>Docuementation</title>reference</a> : <a xlink:href="references.html">Reference</a> [0..1] « <a xlink:href="#uml">Resource1</a>|<a xlink:href="#uml">Resource2</a> »</text>
+    </g>
+  </g>
+  <line style="stroke:navy;stroke-width:1" y1="64.0" y2="110.0" x2="307.578612716763" x1="301.1040462427746"/>
+  <polygon transform="rotate(81.98816698671709 301.1040462427746 64.0)" style="fill:navy;stroke:navy;stroke-width:1" points="301.1040462427746,64.0 307.1040462427746,68.0 313.1040462427746,64.0 307.1040462427746,60.0 301.1040462427746,64.0"/>
+  <rect height="18.0" style="fill:white;stroke:black;stroke-width:0" width="24.0" y="80.0" x="292.0"/>
+  <text fill="black" class="diagram-class-linkage" y="90.0" x="304.0">
+    <a xlink:href="datatypes-definitions.html#Timing.repeat">
+      <title>Documentation</title>nameC</a>
+  </text>
+  <text fill="black" class="diagram-class-linkage" y="106.0" x="307.578612716763">[0..1]</text>
+</svg>
+
+<p>
+The elements and the data types are hyperlinks to the formal definitions of the parts. 
+</p>
+<p>
+Note that the order of elements in XML (the only serialization where order is required to be correct)
+cannot be inferred from the UML diagram - the attributes will be in the order presented, but the 
+order in which the associations are serialized, which are interspersed with the attributes, cannotbe determined.
+Also, it cannot be determined whether a UML property becomes an element or an attribute in the XML representation.
+</p>
+
+
+<a name="stereotypes"></a>
+<h2>Stereotypes - Class</h2>
+<p>
+This specification uses a number of stereotypes to further define the types and resources. 
+The following stereotypes are used on classes.
+</p>
+<a name="interface"></a>
+<a name="interfaces"></a>
+<h3>Interface</h3>
+
+<p>
+Some of the abstract types are labeled with the stereotype <code>«Interface»</code>. This indicates that in addition 
+to being abstract, the definitions associated with the class have no implementation. As such: 
+</p>
+<ul>
+  <li>There is no implementation of the interface described by the definition</li>
+  <li>Any classes the implement the interface redeclare any attributes and associations that are on the interface, and gives them an order</li>
+  <li>Such re-declarations will be consistent with the interface but may be a subset of the value domain e.g. the cardinality of an attribute may be 0..* on the interface, and 0..1 on a particular resource</li>
+  <li>In addition, the resource might not implement the attribute at all - this is equivalent to constraining the attribute to a cardinality of 0..0 - not used with this resource</li>
+  <li>Since the interface supports both read and write, the interface is described using attributes not operations</li>
+  <li>The interface resources also define search parameters, invariants and other information about the resources that are all inherited by the resources the implement these interfaces</li>
+</ul>
+
+<p>
+Notes for implementers:
+</p>
+<ul>
+  <li>The interfaces are declared as part of a single hierarchy. This specification itself does not define any multiple inheritance</li>
+  <li>Some reference implementations may wish to represent the interfaces as classes internally - the best way to handle this depends on language features</li>
+</ul>
+
+<a name="pattern"></a>
+<a name="patterns"></a>
+<h3>Pattern</h3>
+<p>
+Some of types are labeled with the stereotype <code>«Pattern»</code>. This indicates that in addition 
+to being abstract, and an interface, classes that follow the interface do so loosely. As such: 
+</p>
+<ul>
+  <li>There is no direct implementation of the interfaces</li>
+  <li>The relationship between the attributes and associations may be indirect - e.g. attributes may be renamed, restructured, or have different value domains</li>
+  <li>Such patterns are there primarily to provide document general design intentions, which are subject to ongoing harmonization with observed real world requirements</li>
+  <li>The relationship between the patterns and the resources that follow them is found in the <a href="formats.html#mappings">mappings for the resources</a></li>
+</ul>
+<p>
+Notes for implementers:
+</p>
+<ul>
+  <li>It is possible to implement these interfaces, but in general implementers should expect to write code manually to implement the mappings, and have arrangements for dealing with differences such as adding 'canDoX' to the interface</li>
+</ul>
+
+<a name="stereotypes"></a>
+<h2>Stereotypes - Attributes</h2>
+
+<p>
+There are three stereotypes for attributes, both of which constrain the value domain of the assigned data type. These three 
+stereotypes can be differentiated by examining the contents of the stereotype.
+</p>
+<p>
+Note that where these stereotypes are allowed, they are usually present and populated.
+</p>
+
+<a name="choice"></a>
+<h3>Type Choice</h3>
+<p>
+If the data type assigned to an attribute is <a href="#abstract">abstract</a>, then a stereotype may be provided that 
+indicates which concrete sub-types are allowed to be used for this particular element. If this stereotype is provided, only the specified 
+types are allowed. Note: as such, this is equivalent to an OCL constraint on the attribute. 
+</p>
+<p>
+The format of this stereotype is a list of types defined within this specification (concrete specializations of <a href="datatypes.html#Type">Type</a>) 
+separated by the <code>|</code> character.
+</p>
+
+<a name="reference"></a>
+<h3>Target Reference Type</h3>
+<p>
+If the data type assigned to an attribute is a reference to another resource (one of 
+<a href="references.html#Reference">Reference</a>, <a href="datatypes.html#canonical">canonical</a> or <a href="datatypes.html#CodeableReference">CodeableReference</a>), 
+then a stereotype may be provided that indicates which kinds of resources the references are allowed to refer to. If this stereotype is provided, only the specified 
+resources are allowed to be referenced. Note: as such, this is conceptually equivalent to an OCL constraint on the attribute, but the rules can only be evaluated by
+fetching the target of the reference from the specified URL and examining it's content. 
+</p>
+<p>
+The format of this stereotype is a list of resource types defined within this specification (concrete specializations of <a href="resource.html#Resource">Resource</a>) 
+separated by the <code>|</code> character.
+</p>
+
+<a name="vocabulary"></a>
+<a name="binding"></a>
+<h3>Vocabulary Binding</h3>
+<p>
+If the data type associated with the attribute is one of the <a href="terminologies.html#type-list">data types that can be bound to a value set</a>,
+then a stereotype may be provided that restricts the codes that may be present in the attribute. If this stereotype is provided, the rules as defined 
+by the binding must be followed. Note: there is no OCL equivalent for this stereotype. 
+</p>
+
+<p>
+This stereotype has two parts: the value set name (which is a link to the value set), 
+and a symbol that denotes the strength of the binding:
+</p>
+<ul>
+ <li>??: <a href="terminologies.html#example">Example</a> Binding</li>
+ <li>?: <a href="terminologies.html#example">Preferred</a> Binding</li>
+ <li>+: <a href="terminologies.html#example">Extensible</a> Binding</li>
+ <li>!: <a href="terminologies.html#example">Required</a> Binding</li>
+</ul>
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>
