@@ -8,11 +8,14 @@
 	<contained>
 		<Substance>
 			<id value="hep"/>
+      <instance value="false"/>
 			<code>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/v3-EntityCode"/>
-					<code value="HEPL"/>
-				</coding>
+        <concept>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-EntityCode"/>
+            <code value="HEPL"/>
+          </coding>
+        </concept>
 			</code>
 		</Substance>
 	</contained>

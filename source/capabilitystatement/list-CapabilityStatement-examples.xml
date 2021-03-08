@@ -112,22 +112,4 @@
       <display value="MessageDefinition"/>
     </item>
   </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="System which records information about EHR events"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="conformance-ehrs-rle"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/registered">
-      <valueBoolean value="true"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/ig">
-      <valueCode value="ehrsrle"/>
-    </extension>
-    <item>
-      <reference value="CapabilityStatement/conformance-ehrs-rle"/>
-      <display value="EHRS FM Record Lifecycle Event"/>
-    </item>
-  </entry>
 </List>
