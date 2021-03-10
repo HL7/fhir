@@ -5,36 +5,36 @@ plugins {
 }
 
 repositories {
-    jcenter()
-    google()
-    mavenCentral()
-    maven {
-        url = uri("https://dl.bintray.com/labra/maven")
-    }
-    maven {
-        url = uri("https://jitpack.io")
-    }
-    maven {
-        url = uri("https://plugins.gradle.org/m2/")
-    }
+//    jcenter()
+//    google()
+//    mavenCentral()
+//    maven {
+//        url = uri("https://dl.bintray.com/labra/maven")
+//    }
+//    maven {
+//        url = uri("https://jitpack.io")
+//    }
+//    maven {
+//        url = uri("https://plugins.gradle.org/m2/")
+//    }
     maven {
         url = uri("https://oss.sonatype.org/content/repositories/snapshots/")
     }
-    maven {
-        url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
-    }
+//    maven {
+//        url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+//    }
 }
 
 dependencies {
     implementation("org.hl7.fhir:kindling:${property("kindlingVersion")}")
-    implementation("ca.uhn.hapi.fhir:org.hl7.fhir.utilities:${property("coreVersion")}")
-    implementation("ca.uhn.hapi.fhir:org.hl7.fhir.dstu2:${property("coreVersion")}")
-    implementation("ca.uhn.hapi.fhir:org.hl7.fhir.dstu2016may:${property("coreVersion")}")
-    implementation("ca.uhn.hapi.fhir:org.hl7.fhir.dstu3:${property("coreVersion")}")
-    implementation("ca.uhn.hapi.fhir:org.hl7.fhir.r4:${property("coreVersion")}")
-    implementation("ca.uhn.hapi.fhir:org.hl7.fhir.r5:${property("coreVersion")}")
-    implementation("ca.uhn.hapi.fhir:org.hl7.fhir.convertors:${property("coreVersion")}")
-    implementation("ca.uhn.hapi.fhir:org.hl7.fhir.validation:${property("coreVersion")}")
+//    implementation("ca.uhn.hapi.fhir:org.hl7.fhir.utilities:${property("coreVersion")}")
+//    implementation("ca.uhn.hapi.fhir:org.hl7.fhir.dstu2:${property("coreVersion")}")
+//    implementation("ca.uhn.hapi.fhir:org.hl7.fhir.dstu2016may:${property("coreVersion")}")
+//    implementation("ca.uhn.hapi.fhir:org.hl7.fhir.dstu3:${property("coreVersion")}")
+//    implementation("ca.uhn.hapi.fhir:org.hl7.fhir.r4:${property("coreVersion")}")
+//    implementation("ca.uhn.hapi.fhir:org.hl7.fhir.r5:${property("coreVersion")}")
+//    implementation("ca.uhn.hapi.fhir:org.hl7.fhir.convertors:${property("coreVersion")}")
+//    implementation("ca.uhn.hapi.fhir:org.hl7.fhir.validation:${property("coreVersion")}")
 }
 
 task("publish", JavaExec::class) {
