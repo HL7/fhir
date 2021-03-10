@@ -164,8 +164,10 @@ These resources have been significantly refactored based on feedback from the U.
 The list of allowed targets for Reference or Canonical elements has been extended for the following elements:
 </p>
 <ul>
-  <li><a href="activitydefinition-definitions.html#ActivityDefinition.product_x_">ActivityDefinition.product</a> - Added Ingredient (per <a href="http://jira.hl7.org/browse/FHIR-28433">FHIR-28433</a></li>
+  <li><a href="activitydefinition-definitions.html#ActivityDefinition.product_x_">ActivityDefinition.product</a> - Added Ingredient (per <a href="http://jira.hl7.org/browse/FHIR-28433">FHIR-28433</a>)</li>
+  <li><a href="diagnosticreport-definitions.html#DiagnosticReport.subject_x_">DiagnosticReport.subject</a> - Added Medication, Organization, Practitioner, Procedure and Substance (per <a href="http://jira.hl7.org/browse/FHIR-29266">FHIR-29266</a> and <a href="http://jira.hl7.org/browse/FHIR-29930">FHIR-29930</a>)</li>
   <li><a href="group-definitions.html#Group.member.entity">Group.member.entity</a> - Added Group (per <a href="http://jira.hl7.org/browse/FHIR-30767">FHIR-30767</a>)</li>
+  <li><a href="observation-definitions.html#Observation.subject_x_">Observation.subject</a> - Added Medication, Organization, Practitioner, Procedure and Substance (per <a href="http://jira.hl7.org/browse/FHIR-29930">FHIR-29930</a>)</li>
   <li><a href="plandefinition-definitions.html#PlanDefinition.subject_x_">PlanDefinition.subjectCanonical</a> - Added MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, PackagedProductDefinition (per <a href="http://jira.hl7.org/browse/FHIR-28432">FHIR-28432</a>)<br/><b>NOTE:</b> support for Canonical as a type for PlanDefinition.subject[x] and PlanDefinition.action.subject[x] is new in R4B</li>
   <li><a href=""></a> - Added </li>
 </ul>
@@ -190,8 +192,10 @@ The following resources have had their maturity levels increased to level 3+, wh
   These are minor changes to documentation that don't strictly fall within the banner of "technical corrections" but have no direct impact on implementation:
 </p>
 <ul>
-  <li>Added an alert box to <a href="conceptmap.html">ConceptMap</a> advising implementers to be aware of forthcoming R5 changes that might influence how they choose to adopt R4 (per <a href="http://jira.hl7.org/browse/FHIR-29960">FHIR-29960</a>)</li>
-  <li>Changed the work group responsible for the <a href="namingsystem.html">NamingSystem</a> resource (per <a href="http://jira.hl7.org/browse/FHIR-29113">FHIR-29113</a>)</li>
+  <li><a href="conceptmap.html">ConceptMap</a> - Added an alert box advising implementers to be aware of forthcoming R5 changes that might influence how they choose to adopt R4 (per <a href="http://jira.hl7.org/browse/FHIR-29960">FHIR-29960</a>)</li>
+  <li><a href="diagnosticreport.html">DiagnosticReport</a> - Added product quality tests to scope &amp; usage section (per <a href="http://jira.hl7.org/browse/FHIR-29318">FHIR-29318</a>)</li>
+
+  <li><a href="namingsystem.html">NamingSystem</a> - Changed the work group responsible for the resource (per <a href="http://jira.hl7.org/browse/FHIR-29113">FHIR-29113</a>)</li>
 </ul>
 
 <a name="extensions"> </a>
@@ -238,8 +242,6 @@ These technical corrections are not really subject to ballot (though if you beli
 <tr><td colspan="2"><b>Pages</b></td></tr>
 <tr><td><a href="search.html">search</a><a href="http://jira.hl7.org/browse/FHIR-28313">FHIR-28313</a> - Added the _source search parameter to the summary table</td></tr>
 </table>
-
-
 
 </div>   
 
