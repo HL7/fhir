@@ -9,14 +9,14 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/patient-birthTime"/>
-  <version value="4.0.1"/>
+  <version value="4.1.0"/>
   <name value="birthTime"/>
   <title value="Birth Time"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
   <publisher value="HL7"/>
   <description value="The time of day that the Patient was born. This includes the date to ensure that the timezone information can be communicated effectively."/>
-  <fhirVersion value="4.0.1"/>
+  <fhirVersion value="4.1.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

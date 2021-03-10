@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/observation-geneticsInterpretation"/>
-  <version value="4.0.1"/>
+  <version value="4.1.0"/>
   <name value="Interpretation"/>
   <status value="draft"/>
   <date value="2016-03-14"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="Clinical Interpretations for variant. It&#39;s a reference to an Observation resource."/>
-  <fhirVersion value="4.0.1"/>
+  <fhirVersion value="4.1.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

@@ -9,7 +9,7 @@
     <valueInteger value="5"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-    <valueCode value="4.0.1"/>
+    <valueCode value="4.0.0"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="normative"/>
@@ -40,7 +40,7 @@
     <valueMarkdown value="Note that the $lookup operation is more than just a code system search  - the server finds the concept, and gathers the return information from the underlying code system definitions."/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CodeSystem-lookup"/>
-  <version value="4.0.1"/>
+  <version value="4.1.0"/>
   <name value="lookup"/>
   <title value="Concept Look Up &amp; Decomposition"/>
   <status value="draft"/>

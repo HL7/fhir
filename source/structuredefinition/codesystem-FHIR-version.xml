@@ -174,10 +174,10 @@
           <td>FHIR Release 4 (Normative + STU).</td>
         </tr>
         <tr>
-          <td style="white-space:nowrap">4.0.1
+          <td style="white-space:nowrap"><valueCode value="4.0.0"/>
             <a name="FHIR-version-4.460.461"> </a>
           </td>
-          <td>4.0.1</td>
+          <td><valueCode value="4.0.0"/></td>
           <td>FHIR Release 4 Technical Correction.</td>
         </tr>
       </table>
@@ -200,7 +200,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1310"/>
   </identifier>
-  <version value="4.0.1"/>
+  <version value="4.1.0"/>
   <name value="FHIRVersion"/>
   <title value="FHIRVersion"/>
   <status value="active"/>
@@ -316,8 +316,8 @@
     <definition value="FHIR Release 4 (Normative + STU)."/>
   </concept>
   <concept>
-    <code value="4.0.1"/>
-    <display value="4.0.1"/>
+    <code value="<valueCode value="4.0.0"/>"/>
+    <display value="<valueCode value="4.0.0"/>"/>
     <definition value="FHIR Release 4 Technical Correction."/>
   </concept>
 </CodeSystem>

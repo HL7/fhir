@@ -10,20 +10,21 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:0b5903af-a008-4780-8179-52c268784af8",
-    "timestamp" : "2018-12-14T03:48:38.062Z",
+    "identifier" : "urn:uuid:035a5957-8005-4cdd-a61f-d5ac309d5cd6",
+    "timestamp" : "2021-03-10T01:18:09.601Z",
     "parameter" : [{
       "name" : "limitedExpansion",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "includeDesignations",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "excludeNested",
-      "valueString" : "-1"
+      "valueBoolean" : true
     }],
     "contains" : [{
       "system" : "urn:iso:std:iso:4217",
@@ -951,16 +952,17 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:e7f90f81-a1b9-4120-8f71-84f486351622",
-    "timestamp" : "2018-12-14T03:59:26.654Z",
+    "identifier" : "urn:uuid:880bae01-0d90-47ca-a2b2-21759028b390",
+    "timestamp" : "2021-03-10T01:46:00.261Z",
     "parameter" : [{
       "name" : "limitedExpansion",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "includeDesignations",
-      "valueString" : "-1"
+      "valueBoolean" : true
     }],
     "contains" : [{
       "system" : "urn:iso:std:iso:4217",

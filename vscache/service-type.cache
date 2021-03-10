@@ -10,24 +10,25 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:35719011-542d-4199-ae8d-e7678146c032",
-    "timestamp" : "2018-12-14T03:56:24.431Z",
+    "identifier" : "urn:uuid:48a9f02c-713b-4e18-a4bc-5519dc7acdc9",
+    "timestamp" : "2021-03-10T01:41:30.198Z",
     "parameter" : [{
       "name" : "limitedExpansion",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "includeDesignations",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "excludeNested",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-type?version=4.0.1"
+      "valueString" : "http://terminology.hl7.org/CodeSystem/service-type|4.0.1"
     }],
     "contains" : [{
       "extension" : [{
@@ -351,7 +352,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "36",
-      "display" : "Kindergarten Inclusion Support"
+      "display" : "Kindergarten Inclusion Support "
     },
     {
       "extension" : [{
@@ -999,7 +1000,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "108",
-      "display" : "Non-resid. Alcohol/Drug Treatment"
+      "display" : "Non-resid. Alcohol/Drug Treatment "
     },
     {
       "extension" : [{
@@ -1026,7 +1027,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "111",
-      "display" : "Residential Alcohol/Drug Treatment"
+      "display" : "Residential Alcohol/Drug Treatment "
     },
     {
       "extension" : [{
@@ -1440,7 +1441,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "157",
-      "display" : "Anatomical Pathology"
+      "display" : "Anatomical Pathology "
     },
     {
       "extension" : [{
@@ -2205,7 +2206,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "242",
-      "display" : "Aged Persons Mental"
+      "display" : "Aged Persons Mental "
     },
     {
       "extension" : [{
@@ -2214,7 +2215,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "243",
-      "display" : "Aged Persons Mental"
+      "display" : "Aged Persons Mental "
     },
     {
       "extension" : [{
@@ -2223,7 +2224,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "244",
-      "display" : "Aged Persons Mental"
+      "display" : "Aged Persons Mental "
     },
     {
       "extension" : [{
@@ -2655,7 +2656,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "292",
-      "display" : "Community Child And"
+      "display" : "Community Child And "
     },
     {
       "extension" : [{
@@ -3555,7 +3556,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "394",
-      "display" : "Occupational Health"
+      "display" : "Occupational Health "
     },
     {
       "extension" : [{
@@ -4329,7 +4330,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "480",
-      "display" : "Gastroenterology"
+      "display" : "Gastroenterology "
     },
     {
       "extension" : [{
@@ -4491,7 +4492,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "500",
-      "display" : "Before and/or After"
+      "display" : "Before and/or After "
     },
     {
       "extension" : [{
@@ -4554,7 +4555,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "507",
-      "display" : "Dose administration"
+      "display" : "Dose administration "
     },
     {
       "extension" : [{
@@ -4631,7 +4632,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Cardiac Rehabilitation Service"
+        "valueString" : "Cardiac Rehabilitation Service "
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "533",
@@ -4662,7 +4663,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "536",
-      "display" : "Art therapy"
+      "display" : "Art therapy "
     },
     {
       "extension" : [{
@@ -4937,7 +4938,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Men's Health Clinic"
+        "valueString" : "Men's Health Clinic "
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "568",
@@ -5409,20 +5410,21 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:a001cbd4-3c42-443a-820c-a0e6f4937f93",
-    "timestamp" : "2018-12-14T04:03:26.716Z",
+    "identifier" : "urn:uuid:dabd921f-35ea-4ff3-a754-626de909c5fa",
+    "timestamp" : "2021-03-10T02:03:44.133Z",
     "parameter" : [{
       "name" : "limitedExpansion",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "includeDesignations",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/service-type?version=4.0.1"
+      "valueString" : "http://terminology.hl7.org/CodeSystem/service-type|4.0.1"
     }],
     "contains" : [{
       "extension" : [{
@@ -5746,7 +5748,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "36",
-      "display" : "Kindergarten Inclusion Support"
+      "display" : "Kindergarten Inclusion Support "
     },
     {
       "extension" : [{
@@ -6394,7 +6396,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "108",
-      "display" : "Non-resid. Alcohol/Drug Treatment"
+      "display" : "Non-resid. Alcohol/Drug Treatment "
     },
     {
       "extension" : [{
@@ -6421,7 +6423,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "111",
-      "display" : "Residential Alcohol/Drug Treatment"
+      "display" : "Residential Alcohol/Drug Treatment "
     },
     {
       "extension" : [{
@@ -6835,7 +6837,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "157",
-      "display" : "Anatomical Pathology"
+      "display" : "Anatomical Pathology "
     },
     {
       "extension" : [{
@@ -7600,7 +7602,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "242",
-      "display" : "Aged Persons Mental"
+      "display" : "Aged Persons Mental "
     },
     {
       "extension" : [{
@@ -7609,7 +7611,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "243",
-      "display" : "Aged Persons Mental"
+      "display" : "Aged Persons Mental "
     },
     {
       "extension" : [{
@@ -7618,7 +7620,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "244",
-      "display" : "Aged Persons Mental"
+      "display" : "Aged Persons Mental "
     },
     {
       "extension" : [{
@@ -8050,7 +8052,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "292",
-      "display" : "Community Child And"
+      "display" : "Community Child And "
     },
     {
       "extension" : [{
@@ -8950,7 +8952,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "394",
-      "display" : "Occupational Health"
+      "display" : "Occupational Health "
     },
     {
       "extension" : [{
@@ -9724,7 +9726,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "480",
-      "display" : "Gastroenterology"
+      "display" : "Gastroenterology "
     },
     {
       "extension" : [{
@@ -9886,7 +9888,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "500",
-      "display" : "Before and/or After"
+      "display" : "Before and/or After "
     },
     {
       "extension" : [{
@@ -9949,7 +9951,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "507",
-      "display" : "Dose administration"
+      "display" : "Dose administration "
     },
     {
       "extension" : [{
@@ -10026,7 +10028,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Cardiac Rehabilitation Service"
+        "valueString" : "Cardiac Rehabilitation Service "
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "533",
@@ -10057,7 +10059,7 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "536",
-      "display" : "Art therapy"
+      "display" : "Art therapy "
     },
     {
       "extension" : [{
@@ -10332,7 +10334,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Men's Health Clinic"
+        "valueString" : "Men's Health Clinic "
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-type",
       "code" : "568",
