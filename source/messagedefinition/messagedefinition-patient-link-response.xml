@@ -44,8 +44,8 @@
 		</coding>
 	</jurisdiction>
 	<purpose value="Optional response message that may provide additional information on the outcome of the patient link operation."/>
-	<copyright value="� HL7.org 2011+"/>
-	<base value="MessageDefinition/example" />
+	<copyright value="HL7.org 2011+"/>
+	<base value="http://hl7.org/fhir/MessageDefinition/example" />
 		  <eventCoding>
     <system value="http://example.org/fhir/message-events"/>
     <code value="admin-notify"/>
@@ -53,7 +53,7 @@
 	<category value="consequence"/>
 	<focus>
 		<code value="Patient"/>
-		<profile value="StructureDefinition/example" />
+		<profile value="http://hl7.org/fhir/StructureDefinition/example" />
 		<min value="2"/>
 		<max value="2"/>
 	</focus>

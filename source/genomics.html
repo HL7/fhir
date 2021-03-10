@@ -276,7 +276,7 @@ Source: <a href="sequence-complex-variant.xml.html">XML</a>, <a href="sequence-c
 <h3>Description</h3>
 
 <p>
-The <a href="observation-genetic.html">Observation-genetics profile</a> Observation-genetics profile is used to interpret variants from sequence resource. Clinical usage may need more specific representation of variant at locus or structural variant in whole genome.
+The <a href="observation-genetics.html">Observation-genetics profile</a> Observation-genetics profile is used to interpret variants from sequence resource. Clinical usage may need more specific representation of variant at locus or structural variant in whole genome.
 </p>
 <p>
   Some of the attributes of the profile follow:
@@ -284,7 +284,7 @@ The <a href="observation-genetic.html">Observation-genetics profile</a> Observat
     <li>The observation-geneticsSequence extension will refer to the MolecularSequence resource for sequence information related to this variant.</li>
     <li>The observation-geneticsInterpretation extension will refer to an Observation instance which contains clinical interpretations for the variant described.</li>
     <li>The code, effective[x], issued, performer, method, specimen elements can be used to describe how the genetic observation (variant and sequence data) is obtained.</li>
-    <li>Other extensions are used to describe attributes of this variant such as Genomics Source Class, Amino Acid Change Type, etc. These are mappings from v2 and lonic code reference with details can be found in this <a href="observation-genetic.html#content">list </a>.</li>
+    <li>Other extensions are used to describe attributes of this variant such as Genomics Source Class, Amino Acid Change Type, etc. These are mappings from v2 and lonic code reference with details can be found in this <a href="observation-genetics.html#content">list </a>.</li>
   </ul>
 </p>
 <p>
@@ -378,7 +378,7 @@ Source: <a href="observation-example-genetics-3.xml.html">XML</a>, <a href="obse
 [%!profile-diff diagnosticreport-genetics%]
 
 <p>
-This <a href="diagnosticreport-genetic.html">DiagnosticReport-genetics</a> is built on top of DiagnosticReport. The new profile is used to describe a genetics test report. The result element in DiagnosticReport will refer to the Observation resource that can lead to a bundle of genetic observations. The element of code, effective[x], issued, performer, request, specimen are be used to describe the details of the genetic test. Extensions about AssessedCondition and FamilyMemberHistory are added. Overall, this profile extends the DiagnosticReport resource to enable reporting of structured genetic test results. In addition, it denotes condition context for genetic testing, which may influence reported variants and interpretations for large genomic testing panels.
+This <a href="diagnosticreport-genetics.html">DiagnosticReport-genetics</a> is built on top of DiagnosticReport. The new profile is used to describe a genetics test report. The result element in DiagnosticReport will refer to the Observation resource that can lead to a bundle of genetic observations. The element of code, effective[x], issued, performer, request, specimen are be used to describe the details of the genetic test. Extensions about AssessedCondition and FamilyMemberHistory are added. Overall, this profile extends the DiagnosticReport resource to enable reporting of structured genetic test results. In addition, it denotes condition context for genetic testing, which may influence reported variants and interpretations for large genomic testing panels.
 </p>
 <p>
 <ul>
@@ -419,19 +419,19 @@ This <a href="diagnosticreport-genetic.html">DiagnosticReport-genetics</a> is bu
 
 <h3>Usage Examples</h3>
 <p>
-An <a href="diagnosticreport-genetics-example-2-familyhistory.html">example</a> of a genetic test report for a patient with FamilyHistory.
+An <a href="bundle-dg2.html">example</a> of a genetic test report for a patient with FamilyHistory.
 </p>
 
 <p>
-Source: <a href="diagnosticreport-genetics-example-2-familyhistory.xml.html">XML</a>, <a href="diagnosticreport-genetics-example-2-familyhistory.json.html">JSON</a>, <a href="diagnosticreport-genetics-example-2-familyhistory.ttl.html">Turtle</a>.
+Source: <a href="bundle-dg2.xml.html">XML</a>, <a href="bundle-dg2.json.html">JSON</a>, <a href="bundle-dg2.ttl.html">Turtle</a>.
 </p>
 
 <p>
-  An <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.html">example</a> of a comprehensive bone marrow report.
+  An <a href="bundle-comprehensive-bone-marrow-report.html">example</a> of a comprehensive bone marrow report.
 </p>
 
 <p>
-Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.html">XML</a>, <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.json.html">JSON</a>, <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.ttl.html">Turtle</a>.
+Source: <a href="bundle-comprehensive-bone-marrow-report.xml.html">XML</a>, <a href="bundle-comprehensive-bone-marrow-report.json.html">JSON</a>, <a href="bundle-comprehensive-bone-marrow-report.ttl.html">Turtle</a>.
 </p>
 
 <a name="servicerequest-genetics"></a>
@@ -648,7 +648,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
 <h3>Usage Example</h3>
 
 <p>
-  <a href="diagnosticreport-hla-genetics-results-example.html">Example </a> of a HLA genotyping report
+  <a href="bundle-hla-1.html">Example </a> of a HLA genotyping report
   <ul>
     <li>that was requested in a Diagnostic Request,</li>
     <li>with results for HLA-A, HLA-B, HLA-C loci, </li>
@@ -660,7 +660,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
   </ul>
 </p>
 <p>
-  Source: <a href="diagnosticreport-hla-genetics-results-example.xml.html">XML</a>, <a href="diagnosticreport-hla-genetics-results-example.json.html">JSON</a>, <a href="diagnosticreport-hla-genetics-results-example.ttl.html">Turtle</a>.
+  Source: <a href="bundle-hla-1.xml.html">XML</a>, <a href="bundle-hla-1.json.html">JSON</a>, <a href="bundle-hla-1.ttl.html">Turtle</a>.
 </p>
 
 

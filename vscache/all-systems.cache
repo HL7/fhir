@@ -452,7 +452,7 @@ e: {
   "status" : "draft",
   "experimental" : false,
   "date" : "2018-12-14T14:47:58+11:00",
-  "description" : "Value Set Contents (Expansion) for DataElement SDC Object Class at Tue, Mar 2, 2021 17:47+1100",
+  "description" : "Value Set Contents (Expansion) for DataElement SDC Object Class at Thu, Mar 4, 2021 08:02+1100",
   "expansion" : {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
@@ -45225,6 +45225,22 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "application/elm+xml",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "application/elm+json"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:ietf:bcp:13"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "application/elm+json",
   "severity" : null,
   "error" : ""
 }

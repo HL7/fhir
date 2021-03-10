@@ -50,7 +50,7 @@ The Characteristics of the <code>ValueSet</code> resource are derived from Forma
  with metadata in the HL7 Value Set Definition specification. Value set resources can be converted to CTS2 
  value set or code system instances.</li>
  <li>The value set resource is aligned with the <a href="https://confluence.hl7.org/display/VOC/Characteristics+of+a+Value+Set+Definition+%28VSD%29+Project">Value Set Definition</a> (VSD) project. 
- Not all of the elements defined by the VSD are part of the base resource - some are defined as part of the <a href="valueset-extensions.html">ValueSet Extensions</a>.
+ Not all of the elements defined by the VSD are part of the base resource - some are defined as part of the <a href="valueset-profiles.html">ValueSet Extensions</a>.
  In the ValueSet resource, the <code>compose</code> element is the VSD "Content Logical definition".</li>
 </ul>
 </div>

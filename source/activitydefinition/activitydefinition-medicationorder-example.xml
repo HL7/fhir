@@ -13,20 +13,18 @@
         </coding>
         <text value="citalopram"/>
       </code>
-        <doseForm>
+        <form>
           <coding>
             <system value="http://snomed.info/sct"/>
             <code value="385055001"/>
             <display value="Tablet dose form"/>
           </coding>
           <text value="Tablet dose form"/>
-        </doseForm>
+        </form>
         <ingredient>
-          <item>
-            <reference>
+          <itemReference>
             <reference value="#citalopramSubstance"/>
-            </reference>
-          </item>
+          </itemReference>
           <strengthRatio>
             <numerator>
               <value value="20"/>
