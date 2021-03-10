@@ -21,11 +21,11 @@ This resulting R4B release will be strictly backward compatible with R4, except 
 </p>
 <blockquote class="stu-note">
   <p>
-    <b>STU Note:</b> One of the resources with substantive (and breaking changes) made as part of this release falls outside the originally intended scope scope of R4B - <a href="substance.html">Substance</a>.  The FHIR Management Group has chosen to allow the ballot to proceed with these breaking changes in place, however it reserves the right to revert some or all of the breaking changes in order to allow R4B to be safely substitutable for R4 outside the medication regulation and evidence based medicine communities.  Balloters are encouraged to comment on the impact of allowing R4 to be updated with the breaking changes to this resource, as well as the impact of rolling back these breaking changes.  Further details can be found <a href="#substance">below</a>.
+    <b>STU Note:</b> One of the resources with substantive (and breaking changes) made as part of this release falls outside the originally intended scope of R4B - <a href="substance.html">Substance</a>.  The FHIR Management Group has chosen to allow the ballot to proceed with these breaking changes in place, however it reserves the right to revert some or all the breaking changes to allow R4B to be safely substitutable for R4 outside the medication regulation and evidence-based medicine communities.  Balloters are encouraged to comment on the impact of allowing R4 to be updated with the breaking changes to this resource, as well as the impact of rolling back these breaking changes.  Further details can be found <a href="#substance">below</a>.
   </p>
 </blockquote>
 <ul>
-  <li><i>Breaking changes:</i> Net new resources and/or significant revision to resources in the <a href="#ebm">Evidence Based Medicine</a> and the <a href="#meddef">Medication Definition</a> spaces</li>
+  <li><i>Breaking changes:</i> Net new resources and/or significant revision to resources in the <a href="#ebm">Evidence-Based Medicine</a> and the <a href="#meddef">Medication Definition</a> spaces</li>
   <li><i>Non-breaking enhancements</i>:
     <ul>
       <li>Minor enhancements to other existing resources, specifically the alteration of resources to allow <a href="#targets">additional targets</a> for reference elements</li>
@@ -52,19 +52,19 @@ All content within this specification falls under one of the following ballot st
  <li><span style="background-color: #e6ffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Normative</b></span>: Content that is subject to normative ballot rules. Once passed, <a href="versions.html#change">strict rules</a> are imposed on future change to help ensure inter-version compatibility</li>
  <li><span style="background-color: #fff5e6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Trial Use</b></span>: Content that is undergoing <a href="versions.html#maturity">FHIR maturity Model</a> based testing. In a future ballot cycle, once sufficiently mature, it will be balloted as normative</li>
  <li><span style="background-color: #ffffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Informative</b></span>: Content that is advisory (e.g. implementers are not required to conform to the content), or navigational content - tables of contents, generated lists, etc.</li>
- <li><span style="background-color: #efefef; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Draft</b></span>: Content added late in the balloting process that has no formal standing, but is published for visibility. It might not be suitable for use in production systems.</li>
+ <li><span style="background-color: #efefef; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Draft</b></span>: Content added late in the balloting process that has no formal standing but is published for visibility. It might not be suitable for use in production systems.</li>
  <li><span style="background-color: #ffcccc; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Deprecated</b></span>: Content that is in the process of being removed (see <a href="versions.html#deprecation">deprecation</a>).</li>
  <li><span style="background-color: #e6ffff; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>External</b></span>: Content that is replicated from external standards (e.g. HL7 v2, DICOM) and is not subject to ballot comment</li>
 </ul>
 
 <p>
-Note that this ballot is a Standard for Trial Use (STU) ballot.  Thus all changes made to normative artifacts as part of this release, are considered as 'STU' until validated by normative ballot as part of R5.
+Note that this ballot is a Standard for Trial Use (STU) ballot.  Thus, all changes made to normative artifacts as part of this release, are considered as 'STU' until validated by normative ballot as part of R5.
 </p>
 
 <a name="process"> </a>
 <h3>Ballot process</h3>
 <p>
-This ballot will be the first HL7 ballot to trial HL7's new <a href="https://confluence.hl7.org/display/HL7/Jira+Ballot+Process">Jira balloting process</a>.  As such, ballot comments will need to be submitted in Jira and, in general, balloting spreadsheets will not be used.  Some organizational and affiliate balloters may continue to use spreadsheets, but will be responsible for importing them into Jira themselves and may have slightly different processes for consoliding ballots to take that into account.  The ballot desktop will be used for voter registration, but will not be available for vote submission.  Voters are encouraged to view the <a href="https://youtu.be/Qb-02MWgugM">recorded tutorial</a> on Jira balloting in addition to reading through the instructions on <a href="https://confluence.hl7.org/display/HL7/Specification+Feedback">submitting Jira feedback</a> and <a href="https://confluence.hl7.org/display/HL7/Jira+Ballot+Process">using Jira balloting</a>.  A webinar will be held part-way through the ballot cycle to provide an opportunity to ask questions about the process.  Questions can also be raised on the <a href="https://chat.fhir.org/#narrow/stream/184932-JIRA.2FConfluence">Jira/Confluence</a> stream on http://chat.fhir.org.
+This ballot will be the first HL7 ballot to trial HL7's new <a href="https://confluence.hl7.org/display/HL7/Jira+Ballot+Process">Jira balloting process</a>.  As such, ballot comments will need to be submitted in Jira and, in general, balloting spreadsheets will not be used.  Some organizational and affiliate balloters may continue to use spreadsheets but will be responsible for importing them into Jira themselves and may have slightly different processes for consolidating ballots to take that into account.  The ballot desktop will be used for voter registration but will not be available for vote submission.  Voters are encouraged to view the <a href="https://youtu.be/Qb-02MWgugM">recorded tutorial</a> on Jira balloting in addition to reading through the instructions on <a href="https://confluence.hl7.org/display/HL7/Specification+Feedback">submitting Jira feedback</a> and <a href="https://confluence.hl7.org/display/HL7/Jira+Ballot+Process">using Jira balloting</a>.  A webinar will be held part-way through the ballot cycle to provide an opportunity to ask questions about the process.  Questions can also be raised on the <a href="https://chat.fhir.org/#narrow/stream/184932-JIRA.2FConfluence">Jira/Confluence</a> stream on http://chat.fhir.org.
 </p>
 <p>
 Because this is a limited-scope ballot, votes can only be submitted on those resources and pages that fall within the scope of the ballot.  Specifically:
@@ -87,13 +87,13 @@ The detailed list of changes included in this specification is as follows:
 </p>
 
 <a name="ebm"></a>
-<h4>Evidence Based Medicine (EBM) changes</h4>
+<h4>Evidence-Based Medicine (EBM) changes</h4>
 <p>
 The resources in this space were extremely draft when R4 was first published.  There has been no uptake of the resources as they were published.  The community has provided significant feedback, including connectathon work, and there is a desire by the community to have official 'Standard for Trial Use' releases of these resources.  The <a href="versions.html#maturity">maturity level</a> for the resources in this space have been increased to '1'.  Changes are as follows:
 </p>
 <ul>
   <li>Significantly revamped the design of the <a href="evidence.html">Evidence</a> and <a href="evidencevariable.html">EvidenceVariable</a> resources</li>
-  <li>Added the <a href="citation.html">Citation</a> and <a href="evidencereport.html">EvidenceResport</a> resources</li>
+  <li>Added the <a href="citation.html">Citation</a> and <a href="evidencereport.html">EvidenceReport</a> resources</li>
   <li>Removed the EffectEvidenceSynthesis and RiskEvidenceSynthesis resources</li>
   <li>Added the <a href="ordereddistribution.html">OrderedDistribution</a> and <a href="statistic.html">Statistic</a> 'special' data types </li>
 </ul>
@@ -101,7 +101,7 @@ The resources in this space were extremely draft when R4 was first published.  T
 <a name="meddef"></a>
 <h4>Medication Definition changes</h4>
 <p>
-These resources have been significantly refactored based on feedback from the U.S. Federal Drug Administration (FDA), the European Medicines Agency (EMA), Health Canada and others.  The community has indicated that the versions of the 'Medication Definition' resources as published in R4 were not implementable as published and have not been implemented - as such a significant refactoring is still 'compatible' with R4.  All resources have had adjustments to data elements, data types, definitions, code bindings, etc.  The maturity level of these resources have also been increased.  High level changes include:
+These resources have been significantly refactored based on feedback from the U.S. Federal Drug Administration (FDA), the European Medicines Agency (EMA), Health Canada and others.  The community has indicated that the versions of the 'Medication Definition' resources as published in R4 were not implementable as published and have not been implemented - as such a significant refactoring is still 'compatible' with R4.  All resources have had adjustments to data elements, data types, definitions, code bindings, etc.  The maturity levels of these resources have also been increased.  High level changes include:
 </p>
 <ul>
   <li>Renamed (and in some cases merged) resources as follows:
@@ -134,7 +134,7 @@ These resources have been significantly refactored based on feedback from the U.
     and updated the <a href="datatypes.html">Data types</a> page to include references to them
   </li>
   <li>Removed SubstanceAmount and SubstanceMoiety special data types (not needed anymore)</li>
-  <li>Removed a number of Substance-related resources as "not yet ready for use".  It's not clear whether or how these concepts will be re-introduced:
+  <li>Removed several Substance-related resources as "not yet ready for use".  It is not clear whether or how these concepts will be re-introduced:
     <ul>
       <li>SubstanceNucleicAcid</li>
       <li>SubstancePolymer</li>
@@ -146,13 +146,13 @@ These resources have been significantly refactored based on feedback from the U.
   <li>Added <a href="nutritionproduct.html">NutritionProduct</a> as a new resource that will eventually be used several places, but for now is needed in the Medication Definition/Regulation space</li>
   <li>
     <a name="substance"> </a>
-    <b>BREAKING CHANGES TO <a href="substance.html">Substance</a></b> driven by the use of Substance as part of the medication definition and regulation process.  Specifially:
+    <b>BREAKING CHANGES TO <a href="substance.html">Substance</a></b> driven by using Substance as part of the medication definition and regulation process.  Specifically:
     <ul>
       <li>Changed order of appearance of element Substance.instance</li>
       <li>Changed Substance.code from CodeableConcept to CodeableReference&lt;SubstanceDefinition></li>
       <li>Changed Substance.instance from a complex element to a simple boolean</li>
       <li>Eliminated Substance.instance.identifier and Substance.instance.expiry</li>
-      <li>Moved Substance.instane.quantity to be Substance.quantity</li>
+      <li>Moved Substance.instance.quantity to be Substance.quantity</li>
     </ul>
   </li>
   <li>Defined the <a href="medication-definition-module.html">Medication Definition module</a> page to give guidance on how the medication definition resources fit together</li>
@@ -173,7 +173,7 @@ The list of allowed targets for Reference or Canonical elements has been extende
 </ul>
 
 <a name="maturity"> </a>
-<h4>Resource changes to accomodate changes to maturity level</h4>
+<h4>Resource changes to accommodate changes to maturity level</h4>
 <p>
 The following resources have had their maturity levels increased to level 3+, which involved non-substantive changes including adding missing RIM mappings where appropriate, minor clean-up of definitions and usage notes, corrections to examples, and defining example bindings (and associated code systems and value sets) when needed.  Note that additional maturity levels may be adjusted prior to R4B publication where such changes are driven by implementation experience or other factors and do not involve substantive change to resources. 
 </p>
@@ -189,7 +189,7 @@ The following resources have had their maturity levels increased to level 3+, wh
 <a name="doc"> </a>
 <h4>Documentation changes</h4>
 <p>
-  These are minor changes to documentation that don't strictly fall within the banner of "technical corrections" but have no direct impact on implementation:
+  These are minor changes to documentation that do not strictly fall within the banner of "technical corrections" but have no direct impact on implementation:
 </p>
 <ul>
   <li><a href="conceptmap.html">ConceptMap</a> - Added an alert box advising implementers to be aware of forthcoming R5 changes that might influence how they choose to adopt R4 (per <a href="http://jira.hl7.org/browse/FHIR-29960">FHIR-29960</a>)</li>
@@ -207,40 +207,40 @@ The following resources have had their maturity levels increased to level 3+, wh
 <a name="tcs"> </a>
 <h4>Technical corrections</h4>
 <p>
-These technical corrections are not really subject to ballot (though if you believe any are erroneous, please submit a comment referencing this page.  They are listed here for information purposes.  The technical corrections made here generally align with the FHIR Management Group's policy of only making technical corrections that influence tooling behavior.  Wording clarifications, spelling errors, etc. generally are only applied to future versions unless especially likely to create dangerous situations in the previous release.
+These technical corrections are not subject to ballot and are listed here for information purposes only.  However, if you believe any are erroneous, please submit a comment referencing this page.  The technical corrections made here generally align with the FHIR Management Group's policy of only making technical corrections that influence tooling behavior.  Wording clarifications, spelling errors, etc. generally are only applied to future versions unless especially likely to create dangerous situations in the previous release.
 </p>
 
 <table class="grid">
 <tr><td colspan="2"><b>Resources</b></td></tr>
-<tr><td><a href="allergyintolerance.html">AllergyIntolerance</a></td><td><a href="http://jira.hl7.org/browse/FHIR-23008">FHIR-23008</a> - Corrected FHIRPath and XPath expressions for ait-1 and ait-2 constraints</td></tr>
+<tr><td><a href="allergyintolerance.html">AllergyIntolerance</a></td><td><a href="http://jira.hl7.org/browse/FHIR-23008">FHIR-23008</a> - Corrected FHIRPath and Schematron XPath expressions for ait-1 and ait-2 constraints</td></tr>
 <tr><td><a href="bundle.html">Bundle</a></td><td><a href="http://jira.hl7.org/browse/FHIR-25525">FHIR-25525</a> - Correct bdl-8 to allow fullUrl to be missing</td></tr>
-<tr><td><a href="capabilitystatement.html">CapabilityStatement</a></td><td><a href="http://jira.hl7.org/browse/FHIR-19955">FHIR-19955</a> - Correct schematron on cpb-15 and cpb-16 constraints</td></tr>
-<tr><td><a href="condition.html">Condition</a></td><td><a href="http://jira.hl7.org/browse/FHIR-23008">FHIR-23008</a> - Corrected FHIRPath and XPath expressions for con-3 constraint</td></tr>
+<tr><td><a href="capabilitystatement.html">CapabilityStatement</a></td><td><a href="http://jira.hl7.org/browse/FHIR-19955">FHIR-19955</a> - Correct Schematron XPath on cpb-15 and cpb-16 constraints</td></tr>
+<tr><td><a href="condition.html">Condition</a></td><td><a href="http://jira.hl7.org/browse/FHIR-23008">FHIR-23008</a> - Corrected FHIRPath and Schematron XPath expressions for con-3 constraint</td></tr>
 <tr><td><a href="consent.html">Consent</a></td><td><a href="http://jira.hl7.org/browse/FHIR-27940">FHIR-27940</a> - Corrected invalid example value
   <br/><a href="http://jira.hl7.org/browse/FHIR-30793">FHIR-30793</a> - Corrected documentation referring to removed 'except' element.
-  <br/><a href="http://jira.hl7.org/browse/FHIR-31482">FHIR-31482</a> - Removed extra closing brackets from ppc-2, ppc-3, ppc-4 and ppc-5 constraint XPaths</td></tr>
+  <br/><a href="http://jira.hl7.org/browse/FHIR-31482">FHIR-31482</a> - Removed extra closing brackets from ppc-2, ppc-3, ppc-4 and ppc-5 constraint Schematron XPaths</td></tr>
 <tr><td><a href="deviceusestatement.html">DeviceUseStatement</a></td><td><a href="http://jira.hl7.org/browse/FHIR-26900">FHIR-26900</a> - Correct 'patient' search parameter to be only Patients</td></tr>
-<tr><td><a href="domainresource.html">DomainResource</a></td><td><a href="http://jira.hl7.org/browse/FHIR-26307">FHIR-26307</a> - Correct dom-3 XPath and FHIRPath expressions
+<tr><td><a href="domainresource.html">DomainResource</a></td><td><a href="http://jira.hl7.org/browse/FHIR-26307">FHIR-26307</a> - Correct dom-3 Schematron XPath and FHIRPath expressions
   <br/><a href="http://jira.hl7.org/browse/FHIR-26593">FHIR-26593</a> - Correct dom-3 to require that referenced contained elements have an id'</td></tr>
 <tr><td><a href="library.html">Library</a></td><td><a href="http://jira.hl7.org/browse/FHIR-29829">FHIR-29829</a> - Correct URLs in FHIRHelpers and FHIRModelInfo libraries</td></tr>
-<tr><td><a href="parameters.html">Parameters</a></td><td><a href="http://jira.hl7.org/browse/FHIR-21180">FHIR-21180</a> - Correct schematron for inv-1 constraint</td></tr>
+<tr><td><a href="parameters.html">Parameters</a></td><td><a href="http://jira.hl7.org/browse/FHIR-21180">FHIR-21180</a> - Correct Schematron XPath for inv-1 constraint</td></tr>
 <tr><td><a href="patient.html">Patient</a></td><td><a href="http://jira.hl7.org/browse/FHIR-20462">FHIR-20462</a> - Corrected url for motherMaidenName search parameter</td></tr>
-<tr><td><a href="questionnaire.html">Questionnaire</a></td><td><a href="http://jira.hl7.org/browse/FHIR-25390">FHIR-25390</a> - Corected capitalization in que-7 FHIRPath expression
+<tr><td><a href="questionnaire.html">Questionnaire</a></td><td><a href="http://jira.hl7.org/browse/FHIR-25390">FHIR-25390</a> - Corrected capitalization in que-7 FHIRPath expression
   <br/><a href="http://jira.hl7.org/browse/FHIR-26831">FHIR-26831</a> - Corrected FHIRPath expression for que-12 constraint
   <br/><a href="http://jira.hl7.org/browse/FHIR-29595">FHIR-29595</a> - Corrected context invariant in questionnaire-displaycategory extension
-  <br/><a href="http://jira.hl7.org/browse/FHIR-31483">FHIR-31483</a> - Corrected que-5 constraint XPath</td></tr>
+  <br/><a href="http://jira.hl7.org/browse/FHIR-31483">FHIR-31483</a> - Corrected que-5 constraint Schematron XPath</td></tr>
 <tr><td><a href="resource.html">Resource</a></td><td><a href="http://jira.hl7.org/browse/FHIR-31387">FHIR-31387</a> - Create SearchParameter instance for _list search parameter</td></tr>
 <tr><td><a href="riskassessment.html">RiskAssessment</a></td><td><a href="http://jira.hl7.org/browse/FHIR-25796">FHIR-25796</a> - Corrected FHIRPath expression for ras-2 constraint</td></tr>
-<tr><td><a href="structuredefinition.html">StructureDefinition</a></td><td><a href="http://jira.hl7.org/browse/FHIR-20391">FHIR-20391</a> - Corrected XPath expression for sdf-20 constraint
+<tr><td><a href="structuredefinition.html">StructureDefinition</a></td><td><a href="http://jira.hl7.org/browse/FHIR-20391">FHIR-20391</a> - Corrected Schematron XPath expression for sdf-20 constraint
   <br/><a href="http://jira.hl7.org/browse/FHIR-26877">FHIR-26877</a> - Removed incorrect sdf-8 escaping in expression
   <br/><a href="http://jira.hl7.org/browse/FHIR-28312">FHIR-28312</a> - Corrected type for 'profile' parameter in $validate operation to be canonical, not uri</td></tr>
 <tr><td colspan="2"><b>Data Types</b></td></tr>
-<tr><td><a href="datatypes.html#duration">Duration</a></td><td><a href="http://jira.hl7.org/browse/FHIR-28415">FHIR-28415</a> - Corrected XPath for drt-1 constraint</td></tr>
+<tr><td><a href="datatypes.html#duration">Duration</a></td><td><a href="http://jira.hl7.org/browse/FHIR-28415">FHIR-28415</a> - Corrected Schematron XPath for drt-1 constraint</td></tr>
 <tr><td><a href="element.html">Element</a></td><td><a href="http://jira.hl7.org/browse/FHIR-26565">FHIR-26565</a> - Change global-1 to allow empty Parameters instance</td></tr>
-<tr><td><a href="elementdefinition.html">ElementDefinition</a></td><td><a href="http://jira.hl7.org/browse/FHIR-19968">FHIR-19968</a>, <a href="http://jira.hl7.org/browse/FHIR-26306">FHIR-26306</a> - Correct XPath for eld-19</td></tr>
-<tr><td><a href="metadatatypes.html#TriggerDefinition">TriggerDefinition</a></td><td><a href="http://jira.hl7.org/browse/FHIR-25088">FHIR-25088</a> - Correct trd-3 constraint XPath</td></tr>
+<tr><td><a href="elementdefinition.html">ElementDefinition</a></td><td><a href="http://jira.hl7.org/browse/FHIR-19968">FHIR-19968</a>, <a href="http://jira.hl7.org/browse/FHIR-26306">FHIR-26306</a> - Correct Schematron XPath for eld-19</td></tr>
+<tr><td><a href="metadatatypes.html#TriggerDefinition">TriggerDefinition</a></td><td><a href="http://jira.hl7.org/browse/FHIR-25088">FHIR-25088</a> - Correct trd-3 constraint Schematron XPath</td></tr>
 <tr><td colspan="2"><b>Pages</b></td></tr>
-<tr><td><a href="search.html">search</a><a href="http://jira.hl7.org/browse/FHIR-28313">FHIR-28313</a> - Added the _source search parameter to the summary table</td></tr>
+<tr><td><a href="search.html">search</a></td><td><a href="http://jira.hl7.org/browse/FHIR-28313">FHIR-28313</a> - Added the _source search parameter to the summary table</td></tr>
 </table>
 
 </div>   
