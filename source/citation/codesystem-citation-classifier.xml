@@ -194,7 +194,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1497"/>
   </identifier>
-  <version value="4.5.0"/>
+  <version value="4.1.0"/>
   <name value="CitationClassifier"/>
   <title value="CitationClassifier"/>
   <status value="draft"/>

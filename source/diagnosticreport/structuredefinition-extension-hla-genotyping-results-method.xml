@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-method"/>
-  <version value="4.0.1"/>
+  <version value="4.1.0"/>
   <name value="method"/>
   <status value="draft"/>
   <date value="2015-10-09"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="The platform, methodology and software applied at the time of the&#xD;genotyping."/>
-  <fhirVersion value="4.0.1"/>
+  <fhirVersion value="4.1.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

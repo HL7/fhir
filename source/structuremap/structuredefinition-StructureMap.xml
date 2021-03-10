@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/StructureMap"/>
-  <version value="4.0.1"/>
+  <version value="4.1.0"/>
   <name value="StructureMap"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="A Map of relationships between 2 structures that can be used to transform data."/>
-  <fhirVersion value="4.0.1"/>
+  <fhirVersion value="4.1.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

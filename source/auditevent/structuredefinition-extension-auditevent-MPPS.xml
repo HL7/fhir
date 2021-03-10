@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/auditevent-MPPS"/>
-  <version value="4.0.1"/>
+  <version value="4.1.0"/>
   <name value="MPPS"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="An MPPS Instance UID associated with this entity."/>
-  <fhirVersion value="4.0.1"/>
+  <fhirVersion value="4.1.0"/>
   <mapping>
     <identity value="dicom"/>
     <uri value="http://nema.org/dicom"/>

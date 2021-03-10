@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/observation-geneticsCopyNumberEvent"/>
-  <version value="4.0.1"/>
+  <version value="4.1.0"/>
   <name value="CopyNumberEvent"/>
   <status value="draft"/>
   <date value="2016-03-14"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="A variation that increases or decreases the copy number of a given region ([SO:0001019](http://www.sequenceontology.org/browser/current_svn/term/SO:0001019)). Values: amplification/deletion/LOH."/>
-  <fhirVersion value="4.0.1"/>
+  <fhirVersion value="4.1.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

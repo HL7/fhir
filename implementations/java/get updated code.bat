@@ -1,2 +1,0 @@
-copy ..\..\temp\java\org.hl7.fhir.r4\src\org\hl7\fhir\r4\model\*.java org.hl7.fhir.r4\src\org\hl7\fhir\r4\model\
-copy ..\..\temp\java\org.hl7.fhir.r4\src\org\hl7\fhir\r4\formats\*.java org.hl7.fhir.r4\src\org\hl7\fhir\r4\formats\

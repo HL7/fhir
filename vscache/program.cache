@@ -10,24 +10,25 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:942ad671-f739-4112-b157-0a56b1f37e70",
-    "timestamp" : "2018-12-14T03:53:08.657Z",
+    "identifier" : "urn:uuid:dfeba1c4-7ef0-4f38-8265-da0d2f063801",
+    "timestamp" : "2021-03-10T01:26:32.024Z",
     "parameter" : [{
       "name" : "limitedExpansion",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "includeDesignations",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "excludeNested",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/program?version=4.0.1"
+      "valueString" : "http://terminology.hl7.org/CodeSystem/program|4.0.1"
     }],
     "contains" : [{
       "system" : "http://terminology.hl7.org/CodeSystem/program",
@@ -270,20 +271,21 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:a999b4a9-7a5c-46a8-91f0-1685530da0c8",
-    "timestamp" : "2018-12-14T03:59:28.130Z",
+    "identifier" : "urn:uuid:f295805e-4383-4614-8b65-44b67fb0fcf1",
+    "timestamp" : "2021-03-10T01:46:03.058Z",
     "parameter" : [{
       "name" : "limitedExpansion",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "includeDesignations",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/program?version=4.0.1"
+      "valueString" : "http://terminology.hl7.org/CodeSystem/program|4.0.1"
     }],
     "contains" : [{
       "system" : "http://terminology.hl7.org/CodeSystem/program",

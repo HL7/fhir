@@ -119,7 +119,7 @@
     </CodeSystem> 
   </contained>
   <url value="http://hl7.org/fhir/ValueSet/example-hierarchical"/>
-  <version value="4.0.1"/>
+  <version value="4.1.0"/>
 	<name value="Example Hierarchical ValueSet"/>
   <status value="draft"/>
 	<experimental value="true"/>

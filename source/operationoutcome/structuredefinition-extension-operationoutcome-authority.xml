@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/operationoutcome-authority"/>
-  <version value="4.0.1"/>
+  <version value="4.1.0"/>
   <name value="authority"/>
   <title value="Rule Reference"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="A reference to where the rule is defined (based on the authoritative URLs in the applicable conformance resources)."/>
-  <fhirVersion value="4.0.1"/>
+  <fhirVersion value="4.1.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
