@@ -14,8 +14,39 @@
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
-Welcome to the second round of the FHIR Release 4 (R4) ballot, which is working toward our first release planned to include normative content. 
-The R4 release of FHIR will have content with different ballot statuses: 
+Welcome to the FHIR R4B ballot.  This is a special, limited scope ballot in which most content remains strictly compatible with <a href="http://hl7.org/fhir/r4">R4</a>.  However, it advances and revamps a limited set of content to allow advancing the maturity level of this content faster than could be achieved by waiting for the next major release (R5), currently slated for final publication in spring of 2022.
+</p>
+<p>
+This resulting R4B release will be strictly backward compatible with R4, except as described in the changes listed below:
+</p>
+<blockquote class="stu-note">
+  <p>
+    <b>STU Note:</b> One of the resources with substantive (and breaking changes) made as part of this release falls outside the originally intended scope scope of R4B - <a href="substance.html">Substance</a>.  The FHIR Management Group has chosen to allow the ballot to proceed with these breaking changes in place, however it reserves the right to revert some or all of the breaking changes in order to allow R4B to be safely substitutable for R4 outside the medication regulation and evidence based medicine communities.  Balloters are encouraged to comment on the impact of allowing R4 to be updated with the breaking changes to this resource, as well as the impact of rolling back these breaking changes.  Further details can be found <a href="#substance">below</a>.
+  </p>
+</blockquote>
+<ul>
+  <li><i>Breaking changes:</i> Net new resources and/or significant revision to resources in the <a href="#ebm">Evidence Based Medicine</a> and the <a href="#meddef">Medication Definition</a> spaces</li>
+  <li><i>Non-breaking enhancements</i>:
+    <ul>
+      <li>Minor enhancements to other existing resources, specifically the alteration of resources to allow <a href="#targets">additional targets</a> for reference elements</li>
+      <li>Non-substantive changes related to incrementing the <a href="#maturity">maturity level</a> of certain resources</li>
+      <li><a href="#doc">Documentation changes</a></li>
+      <li><a href="#extensions">Extension changes</a></li>
+    </ul>
+  </li>
+  <li><i>Formatting &amp; technical corrections</i>
+    <ul>
+      <li>A limited set of <a href="#tcs">Technical Corrections</a> addressing formal artifact and computable rule representations used by tools</li>
+      <li>Some enhancements around publication formatting, including the full integration of <a href="http://terminology.hl7.org">terminology.hl7.org</a> (THO) as a shared source for HL7 terminology, which moves certain content out of the FHIR specification and into the THO implementation guide</li>
+      <li>Correction of many examples to address issues identified through the improved capabilities of the FHIR validator</li>
+    </ul>
+  </li>
+</ul>
+
+<a name="status"> </a>
+<h3>Ballot statuses</h3>
+<p>
+All content within this specification falls under one of the following ballot statuses: 
 </p>
 <ul>
  <li><span style="background-color: #e6ffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Normative</b></span>: Content that is subject to normative ballot rules. Once passed, <a href="versions.html#change">strict rules</a> are imposed on future change to help ensure inter-version compatibility</li>
@@ -26,460 +57,191 @@ The R4 release of FHIR will have content with different ballot statuses:
  <li><span style="background-color: #e6ffff; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>External</b></span>: Content that is replicated from external standards (e.g. HL7 v2, DICOM) and is not subject to ballot comment</li>
 </ul>
 
-<a name="process"></a>
-<h3>The FHIR R4 Ballot Process</h3>
-
 <p>
-The FHIR R4 ballot process is significantly more complex than previous ballots because of the introduction of 
-content on the normative track.
-</p>
-<p>
-Three ballot periods are anticipated:
-</p>
-<table class="grid">
- <tr>
-   <td>Draft Ballot</td>
-   <td>Dec 2017 - Jan 2018</td>
-   <td>This first ballot was mainly a development ballot for the FHIR team. It allowed for:
-     <ul>
-       <li>The community to review the packaging and publication of the normative content</li>
-       <li>The FHIR Management Group to hone ballot procedures</li>
-       <li>Ongoing review of the FHIR content - particularly that marked as candidate-normative</li>
-     </ul>  
-   </td>
-  </tr>
- <tr>
-   <td>Full FHIR Ballot</td>
-   <td>Apr 2018 - May 2018</td>
-   <td>The full R4 ballot. It included:
-     <ul>
-       <li>Multiple packages of normative content (see below)</li>
-       <li>The rest of the content balloted for "Trial Use"</li>
-     </ul>  
-   </td>
-  </tr>
- <tr>
-   <td><b>Follow up Ballot</b></td>
-   <td>Aug 2018 - Sep 2018</td>
-   <td>A follow up ballot
-     <ul>
-       <li>Reballoting of normative content where substantive changes were required in response to ballot and implementer feedback</li>
-       <li>Additional significant new (added post the full FHIR ballot) or significantly revised content balloted for "Trial Use"</li>
-     </ul>  
-     <b>This is the current ballot</b>
-   </td>
-  </tr>
-</table>
-
-<p>
-The key driver of this complexity is the introduction of normative content. HL7's 
-ballot rules for normative content require that if any substantive changes are
-made as a result of ballot reconciliation, the content must be reballoted.
-(Note that 'substantive changes' means any change that is likely to change
-implementations - a very low bar). 
-</p>
-<p>
-In the past, normative ballots have undergone many cycles of balloting, a process
-that can take years. The FHIR ballot will be different, in that there are 2 ballot
-cycles allowed; any normative content that cannot pass ballot with 2 cycles will
-fall back to Trial Use for R4, and HL7 will try again for FHIR R5. Note that 
-the content on the normative track has already undergone extensive testing,
-production implementation, and previous ballots.
-</p>
-<p>
-To facilitate this process, the ballot is broken up into multiple normative 
-packages:
-</p>
-<table class="rows">
- <tr>
-   <th>Infrastructure</th>
-   <td>Abstract base types, data types, formats, the RESTful API, and content and typing rules</td>
-  </tr>
- <tr>
-   <th>Terminology and Conformance</th>
-   <td>The terminology infrastructure and the base resources that define FHIR implementations</td>
-  </tr>
- <tr>
-   <th>Patient</th>
-   <td>The Patient resource and related content</td>
-  </tr>
- <tr>
-   <th>Observation</th>
-   <td>The Observation resource and related content</td>
-  </tr>
-</table>
-<p>
-A full list of the pages that are in each normative package can be found below.
-Any content that is not in these packages is considered to be part of the general 
-Trial Use Ballot.
-</p>
-<p>
-In addition to these ballots of the core FHIR specification, several implementation guides are undergoing ballot as well.
+Note that this ballot is a Standard for Trial Use (STU) ballot.  Thus all changes made to normative artifacts as part of this release, are considered as 'STU' until validated by normative ballot as part of R5.
 </p>
 
-<a name="background"></a>
-<h3>R4 Ballot Background</h3>
-
+<a name="process"> </a>
+<h3>Ballot process</h3>
 <p>
-Release 4 of the FHIR specification provides thousands of significant changes and enhancements 
-from the third FHIR Standard for Trial Use specification HL7 published in May, 2017.  
-These changes resulted from committee meetings, connectathons, over a thousand change proposals, and 
-collaborations with other standards organizations.  A <a href="history.html#v1.6.0">summary of changes</a>  
-and a <a href="diff.html">complete list of changes to resources and data types</a> are available, along with 
-<a href="r3maps.html">transforms</a> between R3 and R4 for many resources.
+This ballot will be the first HL7 ballot to trial HL7's new <a href="https://confluence.hl7.org/display/HL7/Jira+Ballot+Process">Jira balloting process</a>.  As such, ballot comments will need to be submitted in Jira and, in general, balloting spreadsheets will not be used.  Some organizational and affiliate balloters may continue to use spreadsheets, but will be responsible for importing them into Jira themselves and may have slightly different processes for consoliding ballots to take that into account.  The ballot desktop will be used for voter registration, but will not be available for vote submission.  Voters are encouraged to view the <a href="https://youtu.be/Qb-02MWgugM">recorded tutorial</a> on Jira balloting in addition to reading through the instructions on <a href="https://confluence.hl7.org/display/HL7/Specification+Feedback">submitting Jira feedback</a> and <a href="https://confluence.hl7.org/display/HL7/Jira+Ballot+Process">using Jira balloting</a>.  A webinar will be held part-way through the ballot cycle to provide an opportunity to ask questions about the process.  Questions can also be raised on the <a href="https://chat.fhir.org/#narrow/stream/184932-JIRA.2FConfluence">Jira/Confluence</a> stream on http://chat.fhir.org.
 </p>
 <p>
-The FHIR specification is presented as a series of interlinked HTML pages.  They can either be reviewed online or can be
-<a href="fhir-spec.zip">downloaded</a> for exploration on your own device.  (175MB zip, ~1GB unzipped). The scope of
-this FHIR Ballot is any page where the URL starts with http://hl7.org/fhir/2018Sep, though balloters must pay careful
-attention to which ballot package content is in (see below, or the <a href="toc.html">Table of Contents</a>).
-</p>
-<p>
-A few notes to consider when balloting:
+Because this is a limited-scope ballot, votes can only be submitted on those resources and pages that fall within the scope of the ballot.  Specifically:
 </p>
 <ul>
-  <li>Pay close attention to the ballot status and FMM level of the artifacts.  More scrutiny is appropriate for higher-maturity artifacts.  
-  While feedback is welcome for all content, expect draft and low maturity content to be a bit rough around the edges.</li>
-  <li>Not all of the existing outstanding issues will be resolved prior to the ballot passing.  Some may be left open to allow feedback 
-  from the early adopter community.</li>
-  <li>While many applications have used the FHIR specification in production, the functionality it covers is not yet complete.  
-  Resources may evolve and new ones will be introduced over time.  Refer to <a href="versions.html">FHIR 
-  Timelines</a> for additional guidance on expectations around the evolution of the FHIR specification.  Also look at the road maps on the module pages.</li>
-</ul>
-
-<h3>Balloting Guidelines</h3>
-<p>
-HL7 ballot rules require that participants sign up prior to opening of the ballot.  If you did not sign up in advance, you
-can still submit comments using the <a href="http://hl7.org/fhir-issues">Propose a Change</a>
-link at the bottom of each page of the specification.  Feedback from balloters will be given priority but all suggestions will be
-considered as much as time allows.  (And be sure to <a href="https://confluence.hl7.org/display/FHIR/Mailing+List+Instructions">sign up</a> 
-to the FHIR list-server and/or follow the <a href="https://twitter.com/hashtag/fhir">#FHIR</a> hash-tag so you don't miss the chance to 
-vote in the next ballot cycle.)
-</p>
-<p>
-If you are signed up to ballot, you can download the balloting spreadsheet from the <a href="http://www.hl7.org/participate/onlineballoting.cfm">Ballot Desktop</a>.
-All ballot feedback must be provided using the spreadsheet template provided.  (There's a help tab that explains the meaning of each of the columns.)
-For FHIR, you have the option of making your comments directly in the spreadsheet or submitting your comment using the FHIR
-<a href="http://hl7.org/fhir-issues">Change Tracker</a> tool.  <b></b>  If you take the latter approach, you <b>must</b> include a reference to each tracker item in your
-ballot spreadsheet along with a vote (negative, affirmative typo, etc.).  The other columns can (and should) be left blank.  All spreadsheets must be submitted along with an overall vote
-by end of day Eastern time on the designated ballot closure date for the comments to be considered as part of ballot disposition.
-</p>
-<p style="background-color:yellow">
-  <b>IMPORTANT:</b> We encourage  balloters to capture their comments using the HL7 issue tracker
-  and to use the spreadsheet only to list their tracker item numbers and votes.  (If you include additional information beyond tracker item and vote, we 
-  need to cross-check to ensure the content is aligned, which eliminates any savings.  So if you keep additional columns for internal review, please wipe them before submission.)
-  Tracker-based comment submission dramatically reduces administrative overhead in managing the ballot.
-  It also means that you can receive automatic notifications when your comment is scheduled for discussion, commented on, or resolved.  
-</p>
-
-<p>
-When submitting your ballot feedback, if you have a general comment on something that you see occurring multiple times, please include 
-at least a couple of specific locations where you see the issue.  As much as possible, capture each separate concern as a distinct row 
-in the ballot sheet or separate <a href="http://hl7.org/fhir-issues">tracker item</a>.  (If using tracker items for your submissions, you <b>MUST</b> still
-submit a ballot spreadsheet referencing the relevant tracker items.)  It makes our job of reconciling much easier.  Also, don't forget to 
-fill in the section numbers (gray numbers to the left of each heading) and URLs.  Only one URL should be placed in the "url" element or column.  
-If you want to reference additional URLs, include them in the text of your ballot comment.
-</p>
-<p>
-If you have questions that are interfering with the ability to review the specification or submit ballot comments, please contact one of 
-the co-chairs of the FHIR Management Group: <a href="mailto:lloyd@lmckenzie.com">Lloyd McKenzie</a> or 
-<a href="mailto:david.hay25@gmail.com">David Hay</a>.
-</p>
-<p>
-Thanks for taking the time to review the FHIR specification.  We appreciate any feedback you can provide.
-</p>
-
-<a name="round2"></a>
-<h3>Rules for Round 2 Ballot (Follow up ballot)</h3>
-
-<p>
-This is the round 2 ballot for FHIR R4. As such, the scope of this second ballot for the R4 cycle is limited to the changes 
-made from the 2018-May ballot cycle. Feedback not related to changes made will most likely be found "not related" and/or deferred to consideration as part of R5.
-</p>
-<p>
-To assist balloters, for the Normative ballot, each substantitive change made is listed, along with links to the 
-page and the task that prompted the change. Also, diff links are provided to assist with reviewing the non-substantitive
-changes. 
-</p>
-<p>
-For the Trial-Use ballot, the significant new content areas or changes are indicated.
-</p>
-
-<a name="maps"></a>
-<p>
-The specification has been updated to include R3/R4 maps and difference analysis, but 
-these have not been updated. This will be done proper to publication of the final 
-specification. In the meantime, balloters are welcome to comment on suggested 
-improvements to the mappings and difference statements, but these cannot be the 
-basis for negative votes. Contributions may also be made directly 
-(join the <a href="https://chat.fhir.org/#narrow/stream/133-R3.2FR4-Conversion.20work">conversation at chat.fhir.org</a>).
-</p>
-
-<a name="diffs"></a>
-<p>
-The lists below provide 2 "diff" links - these are links that ask a W3C differencing engine to compare the 2 pages of the specification. There are two different types of link:
-</p>
-<ul>
- <li><a no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px" href="#self" title="Difference to R3">ΔR</a>: Difference analysis from R3 (last full release)</li>
- <li><a no-external="true" style="border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px" href="#self" title="Difference to last ballot">ΔB</a>: Difference analysis from the first normative ballot</li>
+  <li><b>Resources:</b> AdministrableProductDefinition, Citation, ClinicalUseIssue, Evidence, EvidenceReport, EvidenceVariable, Ingredient, ManufacturedItemDefinition, MedicinalProductDefinition, PackagedProductDefinition, RegulatedAuthorization, Substance, SubstanceDefinition</li>
+  <li><b>Pages:</b> (NA), (many), Ballot Intro, Clinical Reasoning Module, Datatypes, Downloads, Home (index), Medication Definition Module, Table of Contents (toc)</li>
 </ul>
 <p>
-The W3C differencing engine is the best free html diff engine that we know of, but does have issues. In particular, when reviewing differences 
-for resources and types, the special presentation forms (tables, svg) which are rich in rendering metadata makes the difference analysis a little
-confusing or even unreliable in places. Reviewers will find it easier to looks the differences for the definitions rather that the tables 
-structures - e.g. when reviewing based on the diffs, review the definitions page changes first.
-</p>
-
-<a name="normative"></a>
-<h3>Normative Ballot Packages</h3>
-
-<a name="infrastructure"></a>
-<h4>Infrastructure</h4>
-
-<p>Abstract base types, data types, formats, the RESTful API, and content and typing rules</p>
-
-<p style="padding: 5px; border-radius: 5px; border: 2px solid maroon; background: #ffffe6; max-width: 790px">
-Please consult the <a href="#round2">Round 2 ballot guide above</a> before commenting on this ballot.
-</p>
-
-[%normative-pages infrastructure%]
-
-<p><b>Substantive Changes since the first Normative ballot</b></p>
-
-<table class="grid">
- <tr><td><b>Description</b></td> <td><b>Committee + Tasks</b></td> <td><b>Pages</b></td> </tr>
- 
- <tr style="background-color: #eeeeee"><td colspan="3"><b>Scope Changes</b></td></tr>
- <tr><td>Mark <code>Managing Resource Identity</code> as trial-use, not normative (move normative parts to <a href="resource.html">Resource</a>)</td><td>FHIR-I: [%GF#16466%]</td> <td>[%diff managing.html Managing Resource Identity%]</td></tr> 
- 
- <tr style="background-color: #eeeeee"><td colspan="3"><b>Base Documentation</b></td></tr>
- <tr><td>Make it explicit about canonical URLs with fragments</td> <td>FHIR-I: [%GF#17357%]</td> <td>[%diff references.html#canonical References%]</td></tr>
- <tr><td>Added reference.type</td><td>FHIR-I: [%GF#13543%]</td> <td>[%diff references.html#type References between Resources%]</td></tr> 
- <tr><td>Clarify definition of is-modifier + impacts on modifier extensions<br/>Note: this led to <b style="color: maroon">breaking changes</b> on a few extensions (changed from modifierExtension to normal extension)</td><td>FHIR-I: [%GF#16188%]</td> <td>[%diff conformance-rules.html Conformance Rules%], [%diff extensibility.html#modifiers Extensibility%]</td></tr> 
- <tr><td>Multiple language support on narratives</td><td>FHIR-I: [%GF#15759%]</td> <td>[%diff narrative.html#languages Narrative%]</td></tr> 
- <tr><td>Rules around extensible bindings (intended to be clarifications, but may be substantive for some)</td><td>Vocab: [%GF#17402%]</td> <td>[%diff terminologies.html#extensible Using Codes%]</td></tr> 
- <tr><td>Enhance/extend rules around changes between versions</td><td>FHIR-I: [%GF#13089%]</td> <td>[%diff versions.html#rules Version Management Policy%]</td></tr> 
- <tr><td>Add note about namespaces in types in FHIRPath consequence to FHIRPath changes</td><td>FHIR-I: [%GF#15876%]</td> <td>[%diff fhirpath.html#types FHIRPath%]</td></tr> 
- <tr><td>Add draft Terminology Service API to FHIRPath</td> <td>FHIR-I: [%GF#15777%]</td> <td>[%diff fhirpath.html FHIRPath%]</td></tr>
- <tr><td>Fix missing code for 1.0.2 <a href="codesystem-fhir-version.html">FHIR versions Code System</a></td> <td>FHIR-I: [%GF#16318%]</td> <td>[%diff codesystem-fhir-version.html FHIR versions Code System%]</td></tr>
-
- <tr style="background-color: #eeeeee"><td colspan="3"><b>RESTful API</b></td></tr>
- <tr><td>Add fhirVersion parameter to application/fhir mime type</td> <td>FHIR-I: [%GF#16165%]</td> <td>[%diff http.html#version-parameter RESTful API%]</td></tr>
- <tr><td>Fix HTTP response status codes for If-Match header <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#16096%]</td> <td>[%diff http.html Search%]</td></tr>
- <tr><td>Clarify about 406 and 415 status codes <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#16329%]</td> <td>[%diff http.html Restful API%], [%diff formats.html Formats%]</td></tr>
- <tr><td>Rewrite intermediaries section, and refocus on custom headers</td> <td>FHIR-I: [%GF#14162%]</td> <td>[%diff http.html#custom RESTful API%]</td></tr> 
- <tr><td>Clarify version requirements in Location header</td> <td>FHIR-I: [%GF#13915%]</td> <td>[%diff http.html#create RESTful API%]</td></tr> 
- <tr><td>Describe use of :below on reference for searching canonicals</td> <td>FHIR-I: [%GF#14195%]</td> <td>[%diff http.html#versions RESTful API%]</td></tr> 
- <tr><td>Change rules around optionality of Bundle.entry.request and .response <b style="color: maroon">Breaking change!</b></td><td>FHIR-I: [%GF#14551%]</td> <td>[%diff http.html#transaction RESTful API%]</td></tr> 
- <tr><td>Add _list parameter to history interaction</td><td>FHIR-I: [%GF#16022%]</td> <td>[%diff http.html#history RESTful API%]</td></tr> 
- <tr><td>Add conformance language about errors and operation outcome</td><td>FHIR-I: [%GF#14495%]</td> <td>[%diff http.html RESTful API%]</td></tr> 
- <tr><td>Mark Conditional Create, Update, Patch, and Delete as Trial-use</td><td>FHIR-I: [%GF#16448%]</td> <td>[%diff http.html RESTful API%]</td></tr> 
- <tr><td>Add mode parameter to /metadata</td> <td>FHIR-I: [%GF#14444%]</td> <td>[%diff http.html RESTful API%]</td></tr> 
-
- <tr style="background-color: #eeeeee"><td colspan="3"><b>Search Page</b></td></tr>
- <tr><td>Rename the "recurse" modifier on _include to "iterate" <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#13602%]</td> <td>[%diff search.html Search%]</td></tr>
- <tr><td>Add rule that search parameter names cannot differ only by case</td> <td>FHIR-I: [%GF#14961%]</td> <td>[%diff search.html Search%]</td></tr>
- <tr><td>Describe use of exponential form when searching numbers (+ clarifications for precision)</td> <td>FHIR-I: [%GF#16369%]</td> <td>[%diff search.html#decimal Search%]</td></tr>
- <tr><td>Describe use of :below on token for searching mime types</td> <td>FHIR-I: [%GF#16970%]</td> <td>[%diff search.html#mimetype Search%]</td></tr> 
- <tr><td>Introduce <code>special</code> search parameter type</td><td>FHIR-I: [%GF#17488%]</td> <td>[%diff search.html#types Search%]</td></tr> 
- <tr><td>Note about timezones (not substantive?)</td><td>FHIR-I: [%GF#16550%]</td> <td>[%diff search.html#timezones Search%]</td></tr> 
- <tr><td>Details about searching on versions</td><td>FHIR-I: [%GF#16361%]</td> <td>[%diff search.html#versions Search%]</td></tr> 
-
- <tr style="background-color: #eeeeee"><td colspan="3"><b>Operations</b></td></tr>
- <tr><td>Remove support for operations on historical resources <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#17258%]</td> <td>[%diff operations.html Operations%]</td></tr>
- <tr><td>Add the $versions operation</td><td>FHIR-I: [%GF#17009%]</td> <td>[%diff capabilitystatement-operations.html Capability Statement Operations%]</td></tr> 
-
- <tr style="background-color: #eeeeee"><td colspan="3"><b>Data Types</b></td></tr>
- <tr><td>Fix OID regex</td><td>FHIR-I: [%GF#16023%]</td> <td>[%diff datatypes.html#oid OID Data type%]</td></tr> 
- <tr><td>Allow exponential form for decimals (with corresponding consequences for precision)</td> <td>FHIR-I: [%GF#16874%]</td> <td>[%diff datatypes.html#decimal Data Types%], [%diff xml.html#decimal XML%]</td></tr>
- <tr><td>Change Money Type to make it simpler <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#16297%]</td> <td>[%diff datatypes.html#Money Data Types%]</td></tr>
- <tr><td>Change Identifier.type codes to use v2 codes now that they are defined <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#9239%], [%GF#16898%]</td> <td>[%diff valueset-identifier-type.html Identifier Type ValueSet%]</td></tr>
- <tr><td>Change Annotation.text to support markdown</td><td>FHIR-I: [%GF#16965%]</td> <td>[%diff datatypes.html#Annotation Annotation Data type%]</td></tr> 
- <tr><td>Add minutes to Duration value set</td><td>FHIR-I: [%GF#15868%]</td> <td>[%diff valueset-duration-units.html Duration Value Set%]</td></tr> 
- <tr><td>Addition of expression in metadatatypes (not normative, but appears in multiple places)</td><td>FHIR-I: [%GF#17227%]</td> <td>[%diff metadatatypes.html#Expression Metadata Types%]</td></tr> 
-
- <tr style="background-color: #eeeeee"><td colspan="3"><b>ElementDefinition</b></td></tr>
- <tr><td>Make it clear and consistent that ElementDefinition specializes BackboneElement</td> <td>FHIR-I: [%GF#17404%]</td> <td>[%diff elementdefinition.html#custom ElementDefinition%]</td></tr> 
- <tr><td>Clarify use of slicing entry</td><td>FHIR-I: [%GF#16309%]</td> <td>[%diff elementdefinition.html#slicing ElementDefinition%]</td></tr> 
- <tr><td>Make <code>ElementDefinition.constraint.expression</code> optional, and <code>ElementDefinition.constraint.xpath</code> trial-use</td><td>FHIR-I: [%GF#16862%]</td> <td>[%diff elementdefinition.html ElementDefinition%]</td></tr> 
- <tr><td>Add <code>ElementDefinition.sliceIsConstraining</code> (trial-use)</td><td>FHIR-I: [%GF#13545%]</td> <td>[%diff elementdefinition.html ElementDefinition%]</td></tr> 
- <tr><td>Change ElementDefinition.binding.valueSet to only be of type Canonical <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#16055%]</td> <td>[%diff elementdefinition.html Element Definition%]</td></tr>
- <tr><td>Add a note restricting use of ElementDefinition.contentReference</td> <td>FHIR-I: [%GF#14958%]</td> <td>[%diff elementdefinition.html ElementDefinition%]</td></tr>
- <tr><td>Make additional constraint on valid Element names</td> <td>FHIR-I: [%GF#15678%]</td> <td>[%diff elementdefinition.html ElementDefinition%]</td></tr>
-
- <tr style="background-color: #eeeeee"><td colspan="3"><b>Resources</b></td></tr>
- <tr><td>Make it clear that contained resources can't contain security labels</td> <td>FHIR-I: [%GF#16622%]</td> <td>[%diff resource.html Resource%]</td></tr>
- <tr><td>Contained resources MAY contain narrative</td><td>FHIR-I: [%GF#13870%]</td> <td>[%diff domainresource.html#contained Domain Resource%]</td></tr> 
- <tr><td>Remove restriction on Bundle containing multiple versions of the same resource <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#17085%]</td> <td>[%diff bundle.html Bundle%]</td></tr>
- <tr><td>Add <code>deleted</code> as an issue type</td> <td>FHIR-I: [%GF#17327%]</td> <td>[%diff valueset-issue-type.html Issue Type ValueSet%]</td></tr>
- <tr><td>New codes, adjustments, and fixed definitions to codes for OperationOutcome.issue.code</td> <td>FHIR-I: [%GF#16922%], [%GF#17329%]</td> <td>[%diff codesystem-issue-type.html Issue Type Code System%]</td></tr>
- <tr><td>Deprecate OperationOutcome.location</td><td>FHIR-I: [%GF#17589%]</td> <td>[%diff operationoutcome.html OperationOutcome%]</td></tr> 
- <tr><td>Rename Binary.content to Binary.data and exclude it from summary (which makes it optional) <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#16998%], [%GF#16898%]</td> <td>[%diff binary.html Binary Resource%]</td></tr> 
-</table>
-
-<a name="terminology"></a>
-<a name="conformance"></a>
-<h4>Terminology and Conformance</h4>
-<p>The terminology infrastructure, and the base resources that specify content</p>
-
-<p style="padding: 5px; border-radius: 5px; border: 2px solid maroon; background: #ffffe6; max-width: 790px">
-Please consult the <a href="#round2">Round 2 ballot guide above</a> before commenting on this ballot.
-</p>
-
-[%normative-pages conformance%]
-
-<p><b>Substantive Changes since the first Normative ballot</b></p>
-
-
-<table class="grid">
- <tr><td><b>Description</b></td> <td><b>Committee + Tasks</b></td> <td><b>Pages</b></td>  </tr>
- 
- <tr style="background-color: #eeeeee"><td colspan="3"><b>Scope Changes / General</b></td></tr>
- <tr><td>Remove ConceptMap from Normative package</td> <td>Vocab: [%GF#16363%]</td> <td>[%diff conceptmap.html ConceptMap%]</td></tr> 
- <tr><td>Change the canonical URL for all v2 and v3 CodeSystems and ValueSets to <code>http://terminology.hl7.org</code> (from the Unified Terminology Process)  <b style="color: maroon">Breaking change!</b></td> <td>(no task: Vocab committee decision)</td> <td>todo</td> </tr>
- 
- <tr style="background-color: #eeeeee"><td colspan="3"><b>CodeSystem</b></td></tr>
- <tr><td>Remove codesystem-deprecated extension</td> <td>Vocab: [%GF#12312%]</td> <td>[%diff codesystem.html CodeSystem%]</td></tr>
- <tr><td>Rationalise ordinal value extensions (not normative) <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#17350%]</td> <td>(later removed)</td></tr>
- <tr><td>Mark section "Code systems with detailed metadata" informative</td> <td>Vocab: [%GF#16335%]</td> <td>[%diff codesystem.html#detailed-metadata CodeSystem%]</td></tr> 
- 
- <tr style="background-color: #eeeeee"><td colspan="3"><b>ValueSet</b></td></tr>
- <tr><td>Remove ValueSet.$expand profile parameter, and add parameters from ExpansionProfile <b style="color: maroon">Breaking change!</b></td> <td>Vocab: [%GF#16337%] &amp; [%GF#16490%]</td> <td>[%diff valueset-operation-expand.html ValueSet.$expand%]</td></tr>
- <tr><td>Remove ValueSet.$expand.limitedExpansion parameter, and document how to use count instead <b style="color: maroon">Breaking change!</b></td> <td>Vocab: [%GF#16449%]</td> <td>[%diff valueset-operation-expand.html ValueSet $expand operation%]</td></tr>
- <tr><td>Document Valueset.expansion.parameters better, along with new requirements</td> <td>Vocab: [%GF#16841%], [%GF#16484%], [%GF#16445%]</td> <td>[%diff valueset.html#parameters ValueSet%]</td></tr> 
- <tr><td>Move Valueset.extensible to an extension</td> <td>Vocab: [%GF#16427%]</td> <td>[%diff valueset.html ValueSet%]</td></tr> 
- <tr><td>Add note about Supplements and future rules around expansions </td> <td>Vocab: [%GF#16832%]</td> <td>[%diff valueset.html#expansions ValueSet%], [%diff codesystem.html#supplements CodeSystem%]</td></tr> 
- <tr><td>Add datetime as an allowed type for ValueSet.expansion.parameter.value</td> <td>Vocab: [%GF#17616%]</td> <td>[%diff valueset.html ValueSet%]</td></tr> 
- <tr><td>Add "Any Version" special value for ValueSet.compose.include.version</td> <td>Vocab: [%GF#15998%]</td> <td>[%diff valueset.html ValueSet%]</td></tr> 
- <tr><td>Allow a value set to contain neither compose or expansion (metadata only) <b style="color: maroon">Breaking change?</b></td> <td>Vocab: [%GF#17475%]</td> <td>[%diff valueset.html ValueSet%]</td></tr> 
- <tr><td>Add contextDirection as a parameter for $expand</td> <td>Vocab: [%GF#17321%]</td> <td>[%diff valueset-operation-expand.html ValueSet.#expand%]</td></tr> 
- 
- <tr style="background-color: #eeeeee"><td colspan="3"><b>StructureDefinition</b></td></tr>
- <tr><td>Update StructureDefinition invariants</td> <td>FHIR-I: [%GF#17185%]</td> <td>[%diff structuredefinition.html StructureDefinition.kind%]</td></tr>
- 
- <tr style="background-color: #eeeeee"><td colspan="3"><b>CapabilityStatement</b></td></tr>
- <tr><td>Mark many attributes in CapabilityStatement as trial-use</td> <td>FHIR-I: [%GF#14444%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr> 
- <tr><td>Fix minor errors in CapabilityStatement invariants</td> <td>FHIR-I: [%GF#13551%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
- <tr><td>Make <code>CapabilityStatement.rest.resource.searchParam.definition</code> mandatory for search parameters defined in the FHIR Specification <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#16359%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
- <tr><td>Add <a href="capabilitystatement-definitions.html#CapabilityStatement.implementation.custodian">CapabilityStatement.implementation.custodian</a></td> <td>FHIR-I: [%GF#16342%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
- <tr><td>Change all documentation elements in CapabilityStatement to use markdown</td> <td>FHIR-I: [%GF#14170%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
- <tr><td>Add CapabilityStatement.imports</td> <td>FHIR-I: [%GF#14299%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
- <tr><td>Fix search parameter generation so that context related search parameters are defined</td> <td>FHIR-I: [%GF#17215%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
- <tr><td>Revoke constraint <code>cpb-8</code> on CapabilityStatement.rest cardinality</td> <td>FHIR-I: [%GF#10205%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr> 
- 
- <tr style="background-color: #eeeeee"><td colspan="3"><b>OperationDefinition</b></td></tr>
- <tr><td>Add OperationDefinition.title</td> <td>FHIR-I: [%GF#15982%]</td> <td>[%diff operationdefinition.html OperationDefinition%]</td></tr> 
- <tr><td>Add OperationDefinition.parameter.referencedFrom </td> <td>FHIR-I: [%GF#17508%]</td> <td>[%diff operationdefinition.html OperationDefinition%]</td></tr> 
-
-</table>
-
-<a name="patient"></a>
-<h4>Patient</h4>
-<p>The Patient resource, and related content</p>
-
-<p style="padding: 5px; border-radius: 5px; border: 2px solid maroon; background: #ffffe6; max-width: 790px">
-Please consult the <a href="#round2">Round 2 ballot guide above</a> before commenting on this ballot. 
-Patient is being reballoted solely because of changes driven by terminology standardization, 
-which means that the <a href="datatypes.html#Coding">Coding.system</a> values for 
-<a href="patient-definitions.html#Patient.maritalStatus">Patient.maritalStatus</a> and 
-<a href="patient-definitions.html#Patient.contact.relationship">Patient.contact.relationship</a>. There is no other change.
-</p>
-
-[%normative-pages patient%]
-
-<p><b>Substantive Changes since the first ballot</b></p>
-
-<table class="grid">
- <tr><td><b>Description</b></td> <td><b>Committee + Tasks</b></td> <td><b>Pages</b></td> </tr>
- <tr><td>Change the canonical URL for all v2 and v3 CodeSystems and ValueSets to <code>http://terminology.hl7.org</code> (from the Unified Terminology Process)</td> <td>(no task: Vocab committee decision)</td> <td>todo</td> </tr>
-</table>
-
-<a name="observation"></a>
-<h4>Observation</h4>
-<p>The Observation resource, and related content</p>
-
-<p style="padding: 5px; border-radius: 5px; border: 2px solid maroon; background: #ffffe6; max-width: 790px">
-Please consult the <a href="#round2">Round 2 ballot guide above</a> before commenting on this ballot.
-</p>
-
-[%normative-pages observation%]
-<p><b>Substantive Changes since the first ballot</b></p>
-
-<table class="grid">
- <tr><td><b>Description</b></td> <td><b>Committee + Tasks</b></td> <td><b>Pages</b></td> </tr>
- <tr><td>Change the canonical URL for all v2 and v3 CodeSystems and ValueSets to <code>http://terminology.hl7.org</code> (from the Unified Terminology Process)</td> <td>(no task: Vocab committee decision)</td> <td>todo</td> </tr>
- 
-<tr>
-<td> Updated the definition of <code>subject</code> and added a note to the FHIR safety page about not being surprised by the <code>focus</code>  element.</td>
-<td>OO: [%GF#16136%]</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
-<tr>
-<td>Created a standard extension event-relatedArtifact to reference other knowledge resources used for citations and documentation of the Observation instance.</td>
-<td>OO: [%GF#15824%]</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
-<tr>
-<td>Created a standard extension event-supportingInfo to reference other resources <em>from the patient record</em>  that were used in creating the Observation instance.</td>
-<td>OO: [%GF#16172%]</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
-<tr>
-<td>Created a standard extension observation-precondition to reference other observations that must be known to correctly interpret the observation.</td>
-<td>OO: [%GF#17228%]</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
-<tr>
-<td>The code system for value set observation-interpretation is changed from HL7 Version 2 Table 0078 to v3-ObservationInterpretation as part of the HL7 <a href="https://confluence.hl7.org/display/VOC/Unified+Terminology+Governance+Project+%28UTG%29+Page">Unified Terminology Governance Project</a>.   Added clarifying text to indicate that all use cases <em>where interpretations are relevant</em> might not be covered by the observation-interpretation value set. <b style="color: maroon">Breaking change!</b></td>
-<td>OO: [%GF#16186%], UTG Process</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
-<tr>
-<td>Changed cardinality of <code>Observation.interpretation</code> and <code>Observation.component.interpretation</code> from 0..1 to 0..*</td>
-<td>OO: [%GF#16231%]</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
-<tr>
-<td>Added guidance on how other observations or code translations provide additional context that may alter the semantics of the observation.</td>
-<td>OO: [%GF#17578%]</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
-<tr>
-<td>Changed <code>Observation.context</code> to <code>Observation.encounter</code> and  changed type from <code>Reference(EncounterIEpisodeOfCare)</code> to  <code>Reference(Encounter)</code>.  Update search parameter definition and add a standard extension event-episodeOfCare.  <b style="color: maroon">Breaking change!</b></td>
-<td>OO: [%GF#17661%]</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
-
-</table>
-
-
-<a name="stu"></a>
-<h4>Trial-Use R4</h4>
-<p>
-This ballot includes everything else not listed above, including 
-draft, informative and externally derived content. Balloters 
-are welcome to comment about these, though there is no difference
-between  ballot comments on these content and normal content. 
+All feedback related to this ballot must be submitted using the <a href="https://jira.hl7.org/browse/FHIR">FHIR Specification Feedback</a> Jira project and must reference one of the above resources or pages.  If commenting on a technical correction or non-substantive change made as part of this release that is relevant to a different artifact or page, simply list the "Ballot Intro" page as one of the relevant pages.
 </p>
 <p>
-There have been many changes to the content; balloters should
-use the "Ballot Comparison" link at the bottom of page to compare
-the differences. For implementer convenience, <b>some of the 
-more signficant</b> (not all) changes are listed here:
+Because this is only an STU ballot, only one ballot cycle is anticipated, with final publication of R4B planned for late Q2 or sometime in Q3, 2021.
+</p>
+
+<a name="details"> </a>
+<h3>Change details</h3>
+<p>
+The detailed list of changes included in this specification is as follows:
+</p>
+
+<a name="ebm"></a>
+<h4>Evidence Based Medicine (EBM) changes</h4>
+<p>
+The resources in this space were extremely draft when R4 was first published.  There has been no uptake of the resources as they were published.  The community has provided significant feedback, including connectathon work, and there is a desire by the community to have official 'Standard for Trial Use' releases of these resources.  The <a href="versions.html#maturity">maturity level</a> for the resources in this space have been increased to '1'.  Changes are as follows:
 </p>
 <ul>
- <li>New Resources: <a href="medicationknowledge.html">MedicationKnowledge</a>, <a href="devicedefinition.html">DeviceDefinition</a>, <a href="chargeitemdefinition.html">ChargeItemDefinition</a></li>
- <li>Renamed Resources: <code>OrganizationRole</code> to <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <code>EligibilityRequest</code> to <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a>, 
-   <code>EligibilityResponse</code> to <a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a>, and <code>ProductPlan</code> to <a href="insuranceplan.html">InsurancePlan</a></li>
- <li>Significant rework around devices - in the <a href="device.html">Device</a> resource, remove <code>DeviceComponent</code> + new resource <a href="devicedefinition.html">DeviceDefinition</a></li>
- <li>Update maps/diffs to R3 (see <a href="#maps">note</a> above)</li>
- <li>New page listing <a href="best-practices.html">best practices</a></li>
- <li>A sweeping change to code system and value set URLs to align with new terminology infrastructure</li>
- <li>Add <a href="versioning.html">information</a> and <a href="capabilitystatement-operation-versions.html">operations</a> related to supporting multiple versions of FHIR</li>
- <li>Rewrite <a href="async.html">Asynchronous Pattern Operation</a></li>
- <li>New <a href="security.html">security notes</a> about suggested best practices, and new <a href="safety.html">safety notes</a> about deleting records</li>
- <li>Lots of changes to <a href="financial-module.html">Financial Resources</a> (especially <a href="contract.html">Contract</a>)</li>
-</ul> 
+  <li>Significantly revamped the design of the <a href="evidence.html">Evidence</a> and <a href="evidencevariable.html">EvidenceVariable</a> resources</li>
+  <li>Added the <a href="citation.html">Citation</a> and <a href="evidencereport.html">EvidenceResport</a> resources</li>
+  <li>Removed the EffectEvidenceSynthesis and RiskEvidenceSynthesis resources</li>
+  <li>Added the <a href="ordereddistribution.html">OrderedDistribution</a> and <a href="statistic.html">Statistic</a> 'special' data types </li>
+</ul>
+
+<a name="meddef"></a>
+<h4>Medication Definition changes</h4>
+<p>
+These resources have been significantly refactored based on feedback from the U.S. Federal Drug Administration (FDA), the European Medicines Agency (EMA), Health Canada and others.  The community has indicated that the versions of the 'Medication Definition' resources as published in R4 were not implementable as published and have not been implemented - as such a significant refactoring is still 'compatible' with R4.  All resources have had adjustments to data elements, data types, definitions, code bindings, etc.  The maturity level of these resources have also been increased.  High level changes include:
+</p>
+<ul>
+  <li>Renamed (and in some cases merged) resources as follows:
+    <ul>
+      <li>MedicinalProduct -> <a href="medicalproductdefinition.html">MedicinalProductDefinition</a></li>
+      <li>MedicinalProductAuthorization -> <a href="regulatedauthorization.html">RegulatedAuthorization</a></li>
+      <li>MedicinalProductContraindication, MedicinalProductIndication, MedicinalProductInteraction, MedicinalProductUndesireableEffect -> <a href="clinicaluseissue.html">ClinicalUseIssue</a></li>
+      <li>MedicinalProductIngredient -> <a href="ingredient.html">Ingredient</a></li>
+      <li>MedicinalProductManufactured -> <a href="manufactureditemdefinition.html">ManufacturedItemDefinition</a></li>
+      <li>MedicinalProductPackaged -> <a href="packagedproductdefinition.html">PackagedProductDefinition</a></li>
+      <li>MedicinalProductPharmaceutical -> <a href="administrableproductdefinition.html">AdministrableProductDefinition</a></li>
+      <li>SubstanceSpecification -> <a href="substancedefinition.html">SubstanceDefinition</a></li>
+    </ul>
+  </li>
+  <li>Added some medication-definition-specific "special" data types now used in the above resources:
+    <ul>
+      <li><a href="marketingstatus.html">MarketingStatus</a></li>
+      <li><a href="prodcharacteristic.html">ProdCharacteristic</a></li>
+      <li><a href="productshelflife.html">ProductShelfLife</a></li>
+    </ul>
+    and updated the <a href="datatypes.html">Data types</a> page to include references to them
+  </li>
+  <li>Introduced the <a href="codeablereference.html">CodeableReference</a> data type, pre-adopting it from R5 as it is used in some of the Medication Definition resources (and updated the <a href="datatypes.html">data types</a> page to reference it).</li>
+  <li>Introduced some medication-definition-specific "special" data types now used in the above resources:
+    <ul>
+      <li><a href="marketingstatus.html">MarketingStatus</a></li>
+      <li><a href="prodcharacteristic.html">ProdCharacteristic</a></li>
+      <li><a href="productshelflife.html">ProductShelfLife</a></li>
+    </ul>
+    and updated the <a href="datatypes.html">Data types</a> page to include references to them
+  </li>
+  <li>Removed SubstanceAmount and SubstanceMoiety special data types (not needed anymore)</li>
+  <li>Removed a number of Substance-related resources as "not yet ready for use".  It's not clear whether or how these concepts will be re-introduced:
+    <ul>
+      <li>SubstanceNucleicAcid</li>
+      <li>SubstancePolymer</li>
+      <li>SubstanceProtein</li>
+      <li>SubstanceReferenceInformation</li>
+      <li>SubstanceSourceMaterial</li>
+    </ul>
+  </li>
+  <li>Added <a href="nutritionproduct.html">NutritionProduct</a> as a new resource that will eventually be used several places, but for now is needed in the Medication Definition/Regulation space</li>
+  <li>
+    <a name="substance"> </a>
+    <b>BREAKING CHANGES TO <a href="substance.html">Substance</a></b> driven by the use of Substance as part of the medication definition and regulation process.  Specifially:
+    <ul>
+      <li>Changed order of appearance of element Substance.instance</li>
+      <li>Changed Substance.code from CodeableConcept to CodeableReference&lt;SubstanceDefinition></li>
+      <li>Changed Substance.instance from a complex element to a simple boolean</li>
+      <li>Eliminated Substance.instance.identifier and Substance.instance.expiry</li>
+      <li>Moved Substance.instane.quantity to be Substance.quantity</li>
+    </ul>
+  </li>
+  <li>Defined the <a href="medication-definition-module.html">Medication Definition module</a> page to give guidance on how the medication definition resources fit together</li>
+</ul>
+
+<a name="targets"> </a>
+<h4>Resource elements with additional targets</h4>
+<p>
+The list of allowed targets for Reference or Canonical elements has been extended for the following elements:
+</p>
+<ul>
+  <li><a href="activitydefinition-definitions.html#ActivityDefinition.product_x_">ActivityDefinition.product</a> - Added Ingredient (per <a href="http://jira.hl7.org/browse/FHIR-28433">FHIR-28433</a>)</li>
+  <li><a href="diagnosticreport-definitions.html#DiagnosticReport.subject_x_">DiagnosticReport.subject</a> - Added Medication, Organization, Practitioner, Procedure and Substance (per <a href="http://jira.hl7.org/browse/FHIR-29266">FHIR-29266</a> and <a href="http://jira.hl7.org/browse/FHIR-29930">FHIR-29930</a>)</li>
+  <li><a href="group-definitions.html#Group.member.entity">Group.member.entity</a> - Added Group (per <a href="http://jira.hl7.org/browse/FHIR-30767">FHIR-30767</a>)</li>
+  <li><a href="observation-definitions.html#Observation.subject_x_">Observation.subject</a> - Added Medication, Organization, Practitioner, Procedure and Substance (per <a href="http://jira.hl7.org/browse/FHIR-29930">FHIR-29930</a>)</li>
+  <li><a href="plandefinition-definitions.html#PlanDefinition.subject_x_">PlanDefinition.subjectCanonical</a> - Added MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, PackagedProductDefinition (per <a href="http://jira.hl7.org/browse/FHIR-28432">FHIR-28432</a>)<br/><b>NOTE:</b> support for Canonical as a type for PlanDefinition.subject[x] and PlanDefinition.action.subject[x] is new in R4B</li>
+  <li><a href=""></a> - Added </li>
+</ul>
+
+<a name="maturity"> </a>
+<h4>Resource changes to accomodate changes to maturity level</h4>
+<p>
+The following resources have had their maturity levels increased to level 3+, which involved non-substantive changes including adding missing RIM mappings where appropriate, minor clean-up of definitions and usage notes, corrections to examples, and defining example bindings (and associated code systems and value sets) when needed.  Note that additional maturity levels may be adjusted prior to R4B publication where such changes are driven by implementation experience or other factors and do not involve substantive change to resources. 
+</p>
+<ul>
+  <li><a href="activitydefinition.html">ActivityDefinition</a> - (per <a href="http://jira.hl7.org/browse/FHIR-30797">FHIR-30797</a>)</li>
+  <li><a href="library.html">Library</a> (per <a href="http://jira.hl7.org/browse/FHIR-30800">FHIR-30800</a>)</li>
+  <li><a href="measure.html">Measure</a> (per <a href="http://jira.hl7.org/browse/FHIR-30803">FHIR-30803</a>)</li>
+  <li><a href="measurereport.html">MeasureReport</a> (per <a href="http://jira.hl7.org/browse/FHIR-30804">FHIR-30804</a>)</li>
+  <li><a href="namingsystem.html">NamingSystem</a> (per <a href="http://jira.hl7.org/browse/FHIR-29945">FHIR-29945</a>)</li>
+  <li><a href="plandefinition.html">PlanDefinition</a> (per <a href="http://jira.hl7.org/browse/FHIR-30801">FHIR-30801</a>)</li>
+</ul>
+
+<a name="doc"> </a>
+<h4>Documentation changes</h4>
+<p>
+  These are minor changes to documentation that don't strictly fall within the banner of "technical corrections" but have no direct impact on implementation:
+</p>
+<ul>
+  <li><a href="conceptmap.html">ConceptMap</a> - Added an alert box advising implementers to be aware of forthcoming R5 changes that might influence how they choose to adopt R4 (per <a href="http://jira.hl7.org/browse/FHIR-29960">FHIR-29960</a>)</li>
+  <li><a href="diagnosticreport.html">DiagnosticReport</a> - Added product quality tests to scope &amp; usage section (per <a href="http://jira.hl7.org/browse/FHIR-29318">FHIR-29318</a>)</li>
+
+  <li><a href="namingsystem.html">NamingSystem</a> - Changed the work group responsible for the resource (per <a href="http://jira.hl7.org/browse/FHIR-29113">FHIR-29113</a>)</li>
+</ul>
+
+<a name="extensions"> </a>
+<h4>Extension changes</h4>
+<ul>
+  <li>Expand context of use for <a href="extension-cqf-strengthofrecommendation.html">cqf-strengthOfRecommendation</a> and <a href="extension-cqf-qualityofevidence.html">cqf-qualityOfEvidence</a> to all elements, rather than just Attachment to support application on PlanDefinition.action.repeat (per <a href="http://jira.hl7.org/browse/FHIR-30114">FHIR-30114</a>)</li>
+</ul>
+
+<a name="tcs"> </a>
+<h4>Technical corrections</h4>
+<p>
+These technical corrections are not really subject to ballot (though if you believe any are erroneous, please submit a comment referencing this page.  They are listed here for information purposes.  The technical corrections made here generally align with the FHIR Management Group's policy of only making technical corrections that influence tooling behavior.  Wording clarifications, spelling errors, etc. generally are only applied to future versions unless especially likely to create dangerous situations in the previous release.
+</p>
+
+<table class="grid">
+<tr><td colspan="2"><b>Resources</b></td></tr>
+<tr><td><a href="allergyintolerance.html">AllergyIntolerance</a></td><td><a href="http://jira.hl7.org/browse/FHIR-23008">FHIR-23008</a> - Corrected FHIRPath and XPath expressions for ait-1 and ait-2 constraints</td></tr>
+<tr><td><a href="bundle.html">Bundle</a></td><td><a href="http://jira.hl7.org/browse/FHIR-25525">FHIR-25525</a> - Correct bdl-8 to allow fullUrl to be missing</td></tr>
+<tr><td><a href="capabilitystatement.html">CapabilityStatement</a></td><td><a href="http://jira.hl7.org/browse/FHIR-19955">FHIR-19955</a> - Correct schematron on cpb-15 and cpb-16 constraints</td></tr>
+<tr><td><a href="condition.html">Condition</a></td><td><a href="http://jira.hl7.org/browse/FHIR-23008">FHIR-23008</a> - Corrected FHIRPath and XPath expressions for con-3 constraint</td></tr>
+<tr><td><a href="consent.html">Consent</a></td><td><a href="http://jira.hl7.org/browse/FHIR-27940">FHIR-27940</a> - Corrected invalid example value
+  <br/><a href="http://jira.hl7.org/browse/FHIR-30793">FHIR-30793</a> - Corrected documentation referring to removed 'except' element.
+  <br/><a href="http://jira.hl7.org/browse/FHIR-31482">FHIR-31482</a> - Removed extra closing brackets from ppc-2, ppc-3, ppc-4 and ppc-5 constraint XPaths</td></tr>
+<tr><td><a href="deviceusestatement.html">DeviceUseStatement</a></td><td><a href="http://jira.hl7.org/browse/FHIR-26900">FHIR-26900</a> - Correct 'patient' search parameter to be only Patients</td></tr>
+<tr><td><a href="domainresource.html">DomainResource</a></td><td><a href="http://jira.hl7.org/browse/FHIR-26307">FHIR-26307</a> - Correct dom-3 XPath and FHIRPath expressions
+  <br/><a href="http://jira.hl7.org/browse/FHIR-26593">FHIR-26593</a> - Correct dom-3 to require that referenced contained elements have an id'</td></tr>
+<tr><td><a href="library.html">Library</a></td><td><a href="http://jira.hl7.org/browse/FHIR-29829">FHIR-29829</a> - Correct URLs in FHIRHelpers and FHIRModelInfo libraries</td></tr>
+<tr><td><a href="parameters.html">Parameters</a></td><td><a href="http://jira.hl7.org/browse/FHIR-21180">FHIR-21180</a> - Correct schematron for inv-1 constraint</td></tr>
+<tr><td><a href="patient.html">Patient</a></td><td><a href="http://jira.hl7.org/browse/FHIR-20462">FHIR-20462</a> - Corrected url for motherMaidenName search parameter</td></tr>
+<tr><td><a href="questionnaire.html">Questionnaire</a></td><td><a href="http://jira.hl7.org/browse/FHIR-25390">FHIR-25390</a> - Corected capitalization in que-7 FHIRPath expression
+  <br/><a href="http://jira.hl7.org/browse/FHIR-26831">FHIR-26831</a> - Corrected FHIRPath expression for que-12 constraint
+  <br/><a href="http://jira.hl7.org/browse/FHIR-29595">FHIR-29595</a> - Corrected context invariant in questionnaire-displaycategory extension
+  <br/><a href="http://jira.hl7.org/browse/FHIR-31483">FHIR-31483</a> - Corrected que-5 constraint XPath</td></tr>
+<tr><td><a href="resource.html">Resource</a></td><td><a href="http://jira.hl7.org/browse/FHIR-31387">FHIR-31387</a> - Create SearchParameter instance for _list search parameter</td></tr>
+<tr><td><a href="riskassessment.html">RiskAssessment</a></td><td><a href="http://jira.hl7.org/browse/FHIR-25796">FHIR-25796</a> - Corrected FHIRPath expression for ras-2 constraint</td></tr>
+<tr><td><a href="structuredefinition.html">StructureDefinition</a></td><td><a href="http://jira.hl7.org/browse/FHIR-20391">FHIR-20391</a> - Corrected XPath expression for sdf-20 constraint
+  <br/><a href="http://jira.hl7.org/browse/FHIR-26877">FHIR-26877</a> - Removed incorrect sdf-8 escaping in expression
+  <br/><a href="http://jira.hl7.org/browse/FHIR-28312">FHIR-28312</a> - Corrected type for 'profile' parameter in $validate operation to be canonical, not uri</td></tr>
+<tr><td colspan="2"><b>Data Types</b></td></tr>
+<tr><td><a href="datatypes.html#duration">Duration</a></td><td><a href="http://jira.hl7.org/browse/FHIR-28415">FHIR-28415</a> - Corrected XPath for drt-1 constraint</td></tr>
+<tr><td><a href="element.html">Element</a></td><td><a href="http://jira.hl7.org/browse/FHIR-26565">FHIR-26565</a> - Change global-1 to allow empty Parameters instance</td></tr>
+<tr><td><a href="elementdefinition.html">ElementDefinition</a></td><td><a href="http://jira.hl7.org/browse/FHIR-19968">FHIR-19968</a>, <a href="http://jira.hl7.org/browse/FHIR-26306">FHIR-26306</a> - Correct XPath for eld-19</td></tr>
+<tr><td><a href="metadatatypes.html#TriggerDefinition">TriggerDefinition</a></td><td><a href="http://jira.hl7.org/browse/FHIR-25088">FHIR-25088</a> - Correct trd-3 constraint XPath</td></tr>
+<tr><td colspan="2"><b>Pages</b></td></tr>
+<tr><td><a href="search.html">search</a><a href="http://jira.hl7.org/browse/FHIR-28313">FHIR-28313</a> - Added the _source search parameter to the summary table</td></tr>
+</table>
 
 </div>   
 
