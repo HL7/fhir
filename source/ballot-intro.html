@@ -77,6 +77,9 @@ Because this is a limited-scope ballot, votes can only be submitted on those res
 All feedback related to this ballot must be submitted using the <a href="https://jira.hl7.org/browse/FHIR">FHIR Specification Feedback</a> Jira project and must reference one of the above resources or pages.  If commenting on a technical correction or non-substantive change made as part of this release that is relevant to a different artifact or page, simply list the "Ballot Intro" page as one of the relevant pages.
 </p>
 <p>
+If you have feedback about the FHIR core specification <i>NOT</i> related to the scope of this ballot, feel free to propose changes using Jira in the <a href="https://jira.hl7.org/browse/FHIR">usual manner</a> - just don't try to vote on them.  Note that comments about the FHIR core specification outside the scope of this ballot should ideally be based on the FHIR <a href="http://build.fhir.org">continuous integration build</a>, rather than on this R4B release snapshot.
+</p>
+<p>
 Because this is only an STU ballot, only one ballot cycle is anticipated, with final publication of R4B planned for late Q2 or sometime in Q3, 2021.
 </p>
 
@@ -106,7 +109,7 @@ These resources have been significantly refactored based on feedback from the U.
 <ul>
   <li>Renamed (and in some cases merged) resources as follows:
     <ul>
-      <li>MedicinalProduct -> <a href="medicalproductdefinition.html">MedicinalProductDefinition</a></li>
+      <li>MedicinalProduct -> <a href="medicinalproductdefinition.html">MedicinalProductDefinition</a></li>
       <li>MedicinalProductAuthorization -> <a href="regulatedauthorization.html">RegulatedAuthorization</a></li>
       <li>MedicinalProductContraindication, MedicinalProductIndication, MedicinalProductInteraction, MedicinalProductUndesireableEffect -> <a href="clinicaluseissue.html">ClinicalUseIssue</a></li>
       <li>MedicinalProductIngredient -> <a href="ingredient.html">Ingredient</a></li>
@@ -124,15 +127,7 @@ These resources have been significantly refactored based on feedback from the U.
     </ul>
     and updated the <a href="datatypes.html">Data types</a> page to include references to them
   </li>
-  <li>Introduced the <a href="codeablereference.html">CodeableReference</a> data type, pre-adopting it from R5 as it is used in some of the Medication Definition resources (and updated the <a href="datatypes.html">data types</a> page to reference it).</li>
-  <li>Introduced some medication-definition-specific "special" data types now used in the above resources:
-    <ul>
-      <li><a href="marketingstatus.html">MarketingStatus</a></li>
-      <li><a href="prodcharacteristic.html">ProdCharacteristic</a></li>
-      <li><a href="productshelflife.html">ProductShelfLife</a></li>
-    </ul>
-    and updated the <a href="datatypes.html">Data types</a> page to include references to them
-  </li>
+  <li>Introduced the <a href="references.html#codeablereference">CodeableReference</a> data type, pre-adopting it from R5 as it is used in some of the Medication Definition resources (and updated the <a href="datatypes.html">data types</a> page to reference it).</li>
   <li>Removed SubstanceAmount and SubstanceMoiety special data types (not needed anymore)</li>
   <li>Removed several Substance-related resources as "not yet ready for use".  It is not clear whether or how these concepts will be re-introduced:
     <ul>
@@ -178,7 +173,7 @@ The list of allowed targets for Reference or Canonical elements has been extende
 The following resources have had their maturity levels increased to level 3+, which involved non-substantive changes including adding missing RIM mappings where appropriate, minor clean-up of definitions and usage notes, corrections to examples, and defining example bindings (and associated code systems and value sets) when needed.  Note that additional maturity levels may be adjusted prior to R4B publication where such changes are driven by implementation experience or other factors and do not involve substantive change to resources. 
 </p>
 <ul>
-  <li><a href="activitydefinition.html">ActivityDefinition</a> - (per <a href="http://jira.hl7.org/browse/FHIR-30797">FHIR-30797</a>)</li>
+  <li><a href="activitydefinition.html">ActivityDefinition</a> (per <a href="http://jira.hl7.org/browse/FHIR-30797">FHIR-30797</a>)</li>
   <li><a href="library.html">Library</a> (per <a href="http://jira.hl7.org/browse/FHIR-30800">FHIR-30800</a>)</li>
   <li><a href="measure.html">Measure</a> (per <a href="http://jira.hl7.org/browse/FHIR-30803">FHIR-30803</a>)</li>
   <li><a href="measurereport.html">MeasureReport</a> (per <a href="http://jira.hl7.org/browse/FHIR-30804">FHIR-30804</a>)</li>
