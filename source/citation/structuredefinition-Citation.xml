@@ -895,15 +895,6 @@
         <code value="markdown"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.copyright">
-      <path value="Citation.citedArtifact.copyright"/>
-      <short value="Placeholder"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
     <element id="Citation.citedArtifact.part">
       <path value="Citation.citedArtifact.part"/>
       <short value="An alternative variant of the citation"/>
@@ -1600,6 +1591,26 @@
         <code value="positiveInt"/>
       </type>
     </element>
+    <element id="Citation.citedArtifact.contributorship.entry.correspondingContact">
+      <path value="Citation.citedArtifact.contributorship.entry.correspondingContact"/>
+      <short value="Indication of which author is the corresponding author for the article cited"/>
+      <definition value="Indication of which author is the corresponding author for the article cited."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.entry.listOrder">
+      <path value="Citation.citedArtifact.contributorship.entry.listOrder"/>
+      <short value="Used to code order of authors"/>
+      <definition value="Used to code order of authors."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
     <element id="Citation.citedArtifact.contributorship.summary">
       <path value="Citation.citedArtifact.contributorship.summary"/>
       <short value="Used to record a display of the author/contributor list without separate coding for each list member"/>
@@ -1673,6 +1684,7 @@
     </element>
     <element id="Citation.citedArtifact.note">
       <path value="Citation.citedArtifact.note"/>
+      <short value="Placeholder"/>
       <min value="0"/>
       <max value="*"/>
       <type>
