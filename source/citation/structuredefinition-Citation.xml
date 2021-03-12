@@ -208,21 +208,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PublicationStatus"/>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
         <strength value="required"/>
-        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.status"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
     </element>
     <element id="Citation.experimental">
       <path value="Citation.experimental"/>
@@ -350,17 +338,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Jurisdiction"/>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
         <strength value="extensible"/>
-        <description value="Countries and regions within which this artifact is targeted for use."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
       </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.jurisdiction"/>
-      </mapping>
     </element>
     <element id="Citation.purpose">
       <path value="Citation.purpose"/>
@@ -469,7 +449,6 @@
           <valueString value="CitationSummaryStyle"/>
         </extension>
         <strength value="extensible"/>
-        <description value="The format for display of the citation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/citation-summary-style"/>
       </binding>
     </element>
@@ -501,6 +480,13 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitationClassificationType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/citation-classification-type"/>
+      </binding>
     </element>
     <element id="Citation.classification.classifier">
       <path value="Citation.classification.classifier"/>
@@ -547,6 +533,13 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitationStatusType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/citation-status-type"/>
+      </binding>
     </element>
     <element id="Citation.statusDate">
       <path value="Citation.statusDate"/>
@@ -565,6 +558,13 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitationActivityType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/citation-activity-type"/>
+      </binding>
     </element>
     <element id="Citation.statusDate.actual">
       <path value="Citation.statusDate.actual"/>
@@ -600,7 +600,7 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="string"/>
       </type>
     </element>
     <element id="Citation.relatesTo.classifier">
@@ -611,6 +611,13 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ArtifactRelatesToClassifier"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relates-to-classifier"/>
+      </binding>
     </element>
     <element id="Citation.relatesTo.target[x]">
       <path value="Citation.relatesTo.target[x]"/>
@@ -713,6 +720,13 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitedArtifactStatusType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-status-type"/>
+      </binding>
     </element>
     <element id="Citation.citedArtifact.statusDate">
       <path value="Citation.citedArtifact.statusDate"/>
@@ -731,6 +745,13 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitedArtifactActivityType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-activity-type"/>
+      </binding>
     </element>
     <element id="Citation.citedArtifact.statusDate.actual">
       <path value="Citation.citedArtifact.statusDate.actual"/>
@@ -946,7 +967,7 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="string"/>
       </type>
     </element>
     <element id="Citation.citedArtifact.relatesTo.classifier">
@@ -957,6 +978,13 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ArtifactRelatesToClassifier"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relates-to-classifier"/>
+      </binding>
     </element>
     <element id="Citation.citedArtifact.relatesTo.target[x]">
       <path value="Citation.citedArtifact.relatesTo.target[x]"/>
@@ -1320,6 +1348,13 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitedArtifactClassificationType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-classification-type"/>
+      </binding>
     </element>
     <element id="Citation.citedArtifact.classification.classifier">
       <path value="Citation.citedArtifact.classification.classifier"/>
@@ -1490,7 +1525,7 @@
           <valueString value="ArtifactContributionType"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/citation-contribution"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-contribution-type"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.role">
@@ -1528,6 +1563,13 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ArtifactContributionInstanceType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-contribution-instance-type"/>
+      </binding>
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.contributionInstance.time">
       <path value="Citation.citedArtifact.contributorship.entry.contributionInstance.time"/>
