@@ -14115,6 +14115,11 @@
     <display value="Assess tracheostomy care"/>
     <display value="Tracheostomy care assessment (procedure)"/>
   </concept>
+  <concept id="410536001" display="Contraindicated">
+    <display value="Contraindicated (qualifier value)"/>
+    <display value="Contraindicated"/>
+    <display value="Contra-indicated"/>
+  </concept>
   <concept id="410606002" display="Social service procedure">
     <display value="Social service procedure (procedure)"/>
     <display value="Social service procedure"/>
