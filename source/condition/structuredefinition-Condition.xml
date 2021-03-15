@@ -554,11 +554,12 @@
     </element>
     <element id="Condition.recordedDate">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#11089, GF#17285."/>
+        <valueString value="GF#11089, GF#17285, J#27808"/>
       </extension>
       <path value="Condition.recordedDate"/>
       <short value="Date record was first recorded"/>
       <definition value="The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date."/>
+      <comment value="If the recordedDate is known via a sending system, it is preferred that the receiving system preserve the date.  If the recorded date is not provided by the sending system, it is acceptable for the receiving system to assert their system-generated date."/>
       <min value="0"/>
       <max value="1"/>
       <type>
