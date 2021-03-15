@@ -584,12 +584,20 @@
     </element>
     <element id="Citation.relatesTo.code">
       <path value="Citation.relatesTo.code"/>
-      <short value="replaces | amends | appends | transforms | replaced-with | amended-with | appended-with | transformed-with | derived-from | transformed-into | composed-of | part-of | supports | supported-with | depends-on | similar-to"/>
+      <short value="SEE COMMENTS"/>
+      <comment value="replaces | amends | appends | transforms | replaced-with | amended-with | appended-with | transformed-with | derived-from | transformed-into | composed-of | part-of | supports | supported-with | depends-on | similar-to"/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ArtifactRelationshipType"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
+      </binding>
     </element>
     <element id="Citation.relatesTo.classifier">
       <path value="Citation.relatesTo.classifier"/>
@@ -945,12 +953,20 @@
     </element>
     <element id="Citation.citedArtifact.relatesTo.code">
       <path value="Citation.citedArtifact.relatesTo.code"/>
-      <short value="replaces | amends | appends | transforms | replaced-with | amended-with | appended-with | transformed-with | derived-from | transformed-into | composed-of | part-of | supports | supported-with | depends-on | similar-to"/>
+      <short value="SEE COMMENTS"/>
+      <comment value="replaces | amends | appends | transforms | replaced-with | amended-with | appended-with | transformed-with | derived-from | transformed-into | composed-of | part-of | supports | supported-with | depends-on | similar-to"/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ArtifactRelationshipType"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
+      </binding>
     </element>
     <element id="Citation.citedArtifact.relatesTo.classifier">
       <path value="Citation.citedArtifact.relatesTo.classifier"/>
