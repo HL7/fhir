@@ -77,7 +77,7 @@
         <valueCode value="0,40"/>
       </extension>
       <path value="Citation"/>
-      <short value="A citation of a publication"/>
+      <short value="A description of identification, location, or contributorship of a publication (article or artifact)"/>
       <definition value="The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources."/>
       <min value="0"/>
       <max value="*"/>
@@ -256,7 +256,7 @@
     </element>
     <element id="Citation.publisher">
       <path value="Citation.publisher"/>
-      <short value="The publisher of the Citation, not the publisher of the article being cited"/>
+      <short value="The publisher of the Citation, not the publisher of the article or artifact being cited"/>
       <definition value="The name of the organization or individual that published the citation."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the citation is the organization or individual primarily responsible for the maintenance and upkeep of the citation. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the citation. This item SHOULD be populated unless the information is available from context."/>
       <requirements value="Helps establish the &quot;authority/credibility&quot; of the citation.  May also allow for contact."/>
@@ -277,7 +277,7 @@
     </element>
     <element id="Citation.contact">
       <path value="Citation.contact"/>
-      <short value="Contact details for the publisher"/>
+      <short value="Contact details for the publisher of the Citation Resource"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
       <comment value="May be a web site, an email address, a telephone number, etc."/>
       <min value="0"/>
@@ -308,7 +308,7 @@
     </element>
     <element id="Citation.useContext">
       <path value="Citation.useContext"/>
-      <short value="The context that the content is intended to support"/>
+      <short value="The context that the Citation Resource content is intended to support"/>
       <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate citation instances."/>
       <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
       <requirements value="Assist in searching for appropriate content."/>
@@ -465,7 +465,7 @@
     </element>
     <element id="Citation.classification">
       <path value="Citation.classification"/>
-      <short value="Placeholder One"/>
+      <short value="The assignment to an organizing scheme"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -474,7 +474,7 @@
     </element>
     <element id="Citation.classification.type">
       <path value="Citation.classification.type"/>
-      <short value="Placeholder Two"/>
+      <short value="The kind of classifier (e.g. publication type, keyword)"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -490,8 +490,7 @@
     </element>
     <element id="Citation.classification.classifier">
       <path value="Citation.classification.classifier"/>
-      <short value="Used for many classifiers including PublicationType, CitationSubset, MeshHeading, Chemical"/>
-      <definition value="Used for many classifiers including PublicationType, CitationSubset, MeshHeading, Chemical."/>
+      <short value="The specific classification value"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -505,20 +504,9 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/citation-classifier"/>
       </binding>
     </element>
-    <element id="Citation.relatedArtifact">
-      <path value="Citation.relatedArtifact"/>
-      <short value="Link or citation to artifact associated with the referenced material"/>
-      <definition value="Link or citation to artifact associated with the referenced material."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="RelatedArtifact"/>
-      </type>
-    </element>
     <element id="Citation.note">
       <path value="Citation.note"/>
       <short value="Used for general notes and annotations not coded elsewhere"/>
-      <definition value="Used for general notes and annotations not coded elsewhere."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -527,7 +515,7 @@
     </element>
     <element id="Citation.currentState">
       <path value="Citation.currentState"/>
-      <short value="Placeholder"/>
+      <short value="The status of the citation"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -543,7 +531,7 @@
     </element>
     <element id="Citation.statusDate">
       <path value="Citation.statusDate"/>
-      <short value="Placeholder"/>
+      <short value="An effective date or period for a status of the citation"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -552,7 +540,7 @@
     </element>
     <element id="Citation.statusDate.activity">
       <path value="Citation.statusDate.activity"/>
-      <short value="Placeholder"/>
+      <short value="Classification of the status"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -568,7 +556,7 @@
     </element>
     <element id="Citation.statusDate.actual">
       <path value="Citation.statusDate.actual"/>
-      <short value="Placeholder"/>
+      <short value="Either occurred or expected"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -577,7 +565,7 @@
     </element>
     <element id="Citation.statusDate.period">
       <path value="Citation.statusDate.period"/>
-      <short value="Placeholder"/>
+      <short value="When the status started and/or ended"/>
       <comment value="For an instance, place the same value in both start and end elements."/>
       <min value="1"/>
       <max value="1"/>
@@ -587,7 +575,7 @@
     </element>
     <element id="Citation.relatesTo">
       <path value="Citation.relatesTo"/>
-      <short value="Placeholder"/>
+      <short value="Artifact related to the Citation Resource"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -596,16 +584,24 @@
     </element>
     <element id="Citation.relatesTo.code">
       <path value="Citation.relatesTo.code"/>
-      <short value="replaces | amends | appends | transforms | replaced-with | amended-with | appended-with | transformed-with | derived-from | transformed-into | composed-of | part-of | supports | supported-with | depends-on"/>
+      <short value="SEE COMMENTS"/>
+      <comment value="replaces | amends | appends | transforms | replaced-with | amended-with | appended-with | transformed-with | derived-from | transformed-into | composed-of | part-of | supports | supported-with | depends-on | similar-to"/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ArtifactRelationshipType"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
+      </binding>
     </element>
     <element id="Citation.relatesTo.classifier">
       <path value="Citation.relatesTo.classifier"/>
-      <short value="Placeholder"/>
+      <short value="The clasification of the related artifact"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -621,7 +617,7 @@
     </element>
     <element id="Citation.relatesTo.target[x]">
       <path value="Citation.relatesTo.target[x]"/>
-      <short value="Placeholder"/>
+      <short value="The article or artifact that the Citation Resource is related to"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -634,10 +630,13 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
+      <type>
+        <code value="Attachment"/>
+      </type>
     </element>
     <element id="Citation.citedArtifact">
       <path value="Citation.citedArtifact"/>
-      <short value="Placeholder"/>
+      <short value="The article or artifact being described"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -945,7 +944,7 @@
     </element>
     <element id="Citation.citedArtifact.relatesTo">
       <path value="Citation.citedArtifact.relatesTo"/>
-      <short value="Placeholder"/>
+      <short value="Artifact related to the Citation Resource"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -954,16 +953,24 @@
     </element>
     <element id="Citation.citedArtifact.relatesTo.code">
       <path value="Citation.citedArtifact.relatesTo.code"/>
-      <short value="replaces | amends | appends | transforms | replaced-with | amended-with | appended-with | transformed-with | derived-from | transformed-into | composed-of | part-of | supports | supported-with | depends-on"/>
+      <short value="SEE COMMENTS"/>
+      <comment value="replaces | amends | appends | transforms | replaced-with | amended-with | appended-with | transformed-with | derived-from | transformed-into | composed-of | part-of | supports | supported-with | depends-on | similar-to"/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="code"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ArtifactRelationshipType"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
+      </binding>
     </element>
     <element id="Citation.citedArtifact.relatesTo.classifier">
       <path value="Citation.citedArtifact.relatesTo.classifier"/>
-      <short value="Placeholder"/>
+      <short value="The clasification of the related artifact"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -979,7 +986,7 @@
     </element>
     <element id="Citation.citedArtifact.relatesTo.target[x]">
       <path value="Citation.citedArtifact.relatesTo.target[x]"/>
-      <short value="Placeholder"/>
+      <short value="The article or artifact that the cited artifact is related to"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -991,6 +998,9 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
       </type>
     </element>
     <element id="Citation.citedArtifact.publicationForm">
@@ -1243,6 +1253,15 @@
         <strength value="preferred"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
       </binding>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.accessionNumber">
+      <path value="Citation.citedArtifact.publicationForm.accessionNumber"/>
+      <short value="Placeholder"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
     <element id="Citation.citedArtifact.publicationForm.pageString">
       <path value="Citation.citedArtifact.publicationForm.pageString"/>
