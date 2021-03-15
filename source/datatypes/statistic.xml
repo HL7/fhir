@@ -19,7 +19,6 @@
   
   <TabRatio>775</TabRatio>
   <ActiveSheet>1</ActiveSheet>
-  <DoNotCalculateBeforeSave/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -255,16 +254,6 @@
     <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
    </Borders>
    <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s89">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
-   </Borders>
    <Interior/>
   </Style>
   <Style ss:ID="s90">
@@ -1250,6 +1239,55 @@
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
   </Style>
+  <Style ss:ID="s221">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s222">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+  </Style>
+  <Style ss:ID="s223">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+  </Style>
+  <Style ss:ID="s224">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s225">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R49C1"/>
@@ -1279,9 +1317,9 @@
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R86C24"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R88C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="86" ss:StyleID="s70" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="88" ss:StyleID="s70" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s71" ss:Width="392.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s70" ss:Width="77.0"/>
    <Column ss:StyleID="s70" ss:Width="29.0"/>
@@ -1433,6 +1471,22 @@
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="32">
+    <Cell><Data ss:Type="String">Statistic.category</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Associated category for categorical variable"</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s225"><Data ss:Type="String">When the measured variable is handled categorically, the category element is used to define which category the statistic is reporting</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s222"><Data ss:Type="String">Simple strings can be used for descriptive purposes. Exact matching to EvidenceVariable.category.name for the Evidence.variableDefinition[variableRole=measuredVariable].observed=Reference(EvidenceVariable) could facilitate validation within datasets.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Statistic.quantity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1459,20 +1513,28 @@
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="80" ss:StyleID="s79">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Statistic.numberOfEvents</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="80">
+    <Cell><Data ss:Type="String">Statistic.numberOfEvents</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">unsignedInt</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s89"><Data ss:Type="String">The number of events associated with the statistic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">When the number of events is the statistic, use Statistic.quantity and set Statistic.type.coding.code=C25463 and Statistic.type.coding.display=Count. When the statistic is a Proportion, use Statistic.numberOfEvents instead of Statistic.sampleSize.numeratorCount and enter an integer as the value. When the statistic is an Event Rate (where individual participants may have 2 or more events), use Statistic.numberOfEvents to record the total number of events rather than the number of participants with events. When the statistic is any statistic associated with a number of events expressed as an integer, use Statistic.numberOfEvents instead of Statistic.sampleSize.numeratorCount and enter an integer as the value.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s221"><Data ss:Type="String">The number of events associated with the statistic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s222"><Data ss:Type="String">The number of events associated with the statistic, where the unit of analysis is different from numberAffected, sampleSize.knownDataCount and sampleSize.numberOfParticipants</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s222"><Data ss:Type="String">When the number of events is the statistic, use Statistic.quantity and set Statistic.type.coding.code=C25463 and Statistic.type.coding.display=Count. When the statistic is an Event Rate (where individual participants may have 2 or more events), use Statistic.numberOfEvents to record the total number of events rather than the number of participants with events.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s223"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s224"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="105">
+    <Cell><Data ss:Type="String">Statistic.numberAffected</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">unsignedInt</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">The number of participants affected</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">The number of participants affected where the unit of analysis is the same as sampleSize.knownDataCount and sampleSize.numberOfParticipants</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">When the number affected is the statistic, use Statistic.quantity and set Statistic.type.coding.code=C25463 and Statistic.type.coding.display=Count. When the statistic is a Proportion, use Statistic.numberAffected and enter an integer as the value. When the statistic is an Event Rate (where individual participants may have 2 or more events), use Statistic.numberAffected to record the number of participants with events rather than the total number of events.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="32" ss:StyleID="s91">
     <Cell ss:StyleID="s90"><Data ss:Type="String">Statistic.sampleSize</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3223,7 +3285,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>6</TopRowBottomPane>
+   <TopRowBottomPane>3</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3231,7 +3293,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R86C24">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R88C24">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
