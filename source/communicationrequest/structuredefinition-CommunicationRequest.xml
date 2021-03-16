@@ -228,6 +228,43 @@
         <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN].reasonCOde"/>
       </mapping>
     </element>
+    <element id="CommunicationRequest.intent">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#27153."/>
+      </extension>
+      <path value="CommunicationRequest.intent"/>
+      <short value="proposal | plan | order  (immutable)"/>
+      <definition value="Indicates the level of authority/intentionality associated with the CommunicationRequest and where the request fits into the workflow chain."/>
+      <comment value="This element is expected to be immutable.  E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance &#39;basedOn&#39; the prior instance should be created with the new &#39;intent&#39; value.&#xA;&#xA;One exception to this is that the granularity of CommunicationRequest.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur."/>
+      <requirements value="Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &quot;the time the request is recommended to occur&quot; vs. &quot;the time the request is authorized to occur&quot; or &quot;who is recommended to perform the request&quot; vs. &quot;who is authorized to perform the request"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CommunicationRequestIntent"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+          <valueMarkdown value="J#27153"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes indicating the degree of authority/intentionality associated with a request."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-intent"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.intent"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
     <element id="CommunicationRequest.category">
       <path value="CommunicationRequest.category"/>
       <short value="Message category"/>
