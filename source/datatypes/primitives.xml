@@ -137,7 +137,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">instant</Data></Cell>
     <Cell><Data ss:Type="String">An instant in time - known at least to the second</Data></Cell>
-    <Cell><Data ss:Type="String">Note: This is intended for where precisely observed times are required, typically system logs etc., and not human-reported times - for them, see date and dateTime (which can be as precise as instant, but is not required to be) below. Time zone is always required</Data></Cell>
+    <Cell><Data ss:Type="String">Note: This is intended for where precisely observed times are required, typically system logs etc., and not human-reported times - for them, see date and dateTime (which can be as precise as instant, but is not required to be) below. UTC offset is always required</Data></Cell>
     <Cell><Data ss:Type="String">dateTime</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))</Data></Cell>
@@ -166,7 +166,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="59" ss:StyleID="s62">
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s66"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String"><Font html:Color="#000000">A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  </Font><B><Font html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
+    <Cell ss:StyleID="s66"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String"><Font html:Color="#000000">A date or partial date (e.g. just year or year + month). There is no UTC offset. The format is a union of the schema types gYear, gYearMonth and date.  </Font><B><Font html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">xs:gYear, xs:gYearMonth, xs:date</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?</Data></Cell>
@@ -176,7 +176,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="110" ss:StyleID="s62">
     <Cell><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:StyleID="s67"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String">       <Font html:Color="#000000">A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.  </Font><Font>       </Font><B>        <Font html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
+    <Cell ss:StyleID="s67"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String">       <Font html:Color="#000000">A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a UTC offset SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.  </Font><Font>       </Font><B>        <Font html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">xs:gYear, xs:gYearMonth, xs:date, xs:dateTime</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?</Data></Cell>
