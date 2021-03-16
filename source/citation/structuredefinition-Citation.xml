@@ -582,9 +582,9 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="Citation.relatesTo.code">
-      <path value="Citation.relatesTo.code"/>
-      <short value="SEE COMMENTS"/>
+    <element id="Citation.relatesTo.relationshipType">
+      <path value="Citation.relatesTo.relationshipType"/>
+      <short value="(See comments for the codes)"/>
       <comment value="replaces | amends | appends | transforms | replaced-with | amended-with | appended-with | transformed-with | derived-from | transformed-into | composed-of | part-of | supports | supported-with | depends-on | similar-to"/>
       <min value="1"/>
       <max value="1"/>
@@ -595,12 +595,12 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ArtifactRelationshipType"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
       </binding>
     </element>
-    <element id="Citation.relatesTo.classifier">
-      <path value="Citation.relatesTo.classifier"/>
+    <element id="Citation.relatesTo.targetClassifier">
+      <path value="Citation.relatesTo.targetClassifier"/>
       <short value="The clasification of the related artifact"/>
       <min value="0"/>
       <max value="*"/>
@@ -609,9 +609,9 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ArtifactRelatesToClassifier"/>
+          <valueString value="ArtifactClassifier"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relates-to-classifier"/>
       </binding>
     </element>
@@ -671,8 +671,7 @@
     </element>
     <element id="Citation.citedArtifact.dateAccessed">
       <path value="Citation.citedArtifact.dateAccessed"/>
-      <short value="When the citation was cited"/>
-      <definition value="When the citation was cited."/>
+      <short value="When the cited artifact was accessed"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -682,8 +681,7 @@
     </element>
     <element id="Citation.citedArtifact.version">
       <path value="Citation.citedArtifact.version"/>
-      <short value="An alternative variant of the citation"/>
-      <definition value="An alternative variant of the citation."/>
+      <short value="The defined version of the cited artifact"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -692,8 +690,7 @@
     </element>
     <element id="Citation.citedArtifact.version.value">
       <path value="Citation.citedArtifact.version.value"/>
-      <short value="Used to describe the specific variation, such as version number or subpart specification"/>
-      <definition value="Used to describe the specific variation, such as version number or subpart specification."/>
+      <short value="The version number or other version identifier"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -702,8 +699,7 @@
     </element>
     <element id="Citation.citedArtifact.version.baseCitation">
       <path value="Citation.citedArtifact.version.baseCitation"/>
-      <short value="Base citation layer"/>
-      <definition value="Base citation layer."/>
+      <short value="Citation for the main version of the cited artifact"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -713,7 +709,7 @@
     </element>
     <element id="Citation.citedArtifact.currentState">
       <path value="Citation.citedArtifact.currentState"/>
-      <short value="Placeholder"/>
+      <short value="The status of the cited artifact"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -729,7 +725,7 @@
     </element>
     <element id="Citation.citedArtifact.statusDate">
       <path value="Citation.citedArtifact.statusDate"/>
-      <short value="Placeholder"/>
+      <short value="An effective date or period for a status of the cited artifact"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -738,7 +734,7 @@
     </element>
     <element id="Citation.citedArtifact.statusDate.activity">
       <path value="Citation.citedArtifact.statusDate.activity"/>
-      <short value="Placeholder"/>
+      <short value="Classification of the status"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -754,7 +750,7 @@
     </element>
     <element id="Citation.citedArtifact.statusDate.actual">
       <path value="Citation.citedArtifact.statusDate.actual"/>
-      <short value="Placeholder"/>
+      <short value="Either occurred or expected"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -763,7 +759,7 @@
     </element>
     <element id="Citation.citedArtifact.statusDate.period">
       <path value="Citation.citedArtifact.statusDate.period"/>
-      <short value="Placeholder"/>
+      <short value="When the status started and/or ended"/>
       <comment value="For an instance, place the same value in both start and end elements."/>
       <min value="1"/>
       <max value="1"/>
@@ -773,7 +769,7 @@
     </element>
     <element id="Citation.citedArtifact.title">
       <path value="Citation.citedArtifact.title"/>
-      <short value="The title of the article or artifact"/>
+      <short value="The title details of the article or artifact"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -782,8 +778,8 @@
     </element>
     <element id="Citation.citedArtifact.title.type">
       <path value="Citation.citedArtifact.title.type"/>
-      <short value="Used to express the reason and specific aspect for any variant title, such as language"/>
-      <definition value="Used to express the reason and specific aspect for any variant title, such as language and specific language."/>
+      <short value="The kind of title"/>
+      <definition value="Used to express the reason or specific aspect for the title."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -800,7 +796,6 @@
     <element id="Citation.citedArtifact.title.language">
       <path value="Citation.citedArtifact.title.language"/>
       <short value="Used to express the specific language"/>
-      <definition value="Used to express the specific language."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -819,8 +814,7 @@
     </element>
     <element id="Citation.citedArtifact.title.text">
       <path value="Citation.citedArtifact.title.text"/>
-      <short value="Full title of the article"/>
-      <definition value="Full title of the article."/>
+      <short value="The title of the article or artifact"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -829,8 +823,7 @@
     </element>
     <element id="Citation.citedArtifact.abstract">
       <path value="Citation.citedArtifact.abstract"/>
-      <short value="Publisher-provided summary of the article"/>
-      <definition value="Publisher-provided summary of the article."/>
+      <short value="Summary of the article or artifact"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -839,8 +832,8 @@
     </element>
     <element id="Citation.citedArtifact.abstract.type">
       <path value="Citation.citedArtifact.abstract.type"/>
-      <short value="Used to express the reason for an additional or variant abstract, such as language"/>
-      <definition value="Used to express the reason for an additional or variant abstract, such as language."/>
+      <short value="The kind of abstract"/>
+      <definition value="Used to express the reason or specific aspect for the abstract."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -857,7 +850,6 @@
     <element id="Citation.citedArtifact.abstract.language">
       <path value="Citation.citedArtifact.abstract.language"/>
       <short value="Used to express the specific language"/>
-      <definition value="Used to express the specific language."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -877,7 +869,6 @@
     <element id="Citation.citedArtifact.abstract.text">
       <path value="Citation.citedArtifact.abstract.text"/>
       <short value="Abstract content"/>
-      <definition value="Abstract content."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -887,7 +878,15 @@
     <element id="Citation.citedArtifact.abstract.copyright">
       <path value="Citation.citedArtifact.abstract.copyright"/>
       <short value="Copyright notice for the abstract"/>
-      <definition value="Copyright information for the abstract text."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.copyright">
+      <path value="Citation.citedArtifact.copyright"/>
+      <short value="Copyright notice for the full article or artifact"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -896,8 +895,7 @@
     </element>
     <element id="Citation.citedArtifact.part">
       <path value="Citation.citedArtifact.part"/>
-      <short value="An alternative variant of the citation"/>
-      <definition value="An alternative variant of the citation."/>
+      <short value="The component of the article or artifact"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -906,8 +904,7 @@
     </element>
     <element id="Citation.citedArtifact.part.type">
       <path value="Citation.citedArtifact.part.type"/>
-      <short value="Used to describe the reason for the variant citation, such as version or subpart specification"/>
-      <definition value="Used to describe the reason for the variant citation, such as version or subpart specification."/>
+      <short value="The kind of component"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -923,8 +920,7 @@
     </element>
     <element id="Citation.citedArtifact.part.value">
       <path value="Citation.citedArtifact.part.value"/>
-      <short value="Used to describe the specific variation, such as version number or subpart specification"/>
-      <definition value="Used to describe the specific variation, such as version number or subpart specification."/>
+      <short value="The specification of the component"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -933,8 +929,7 @@
     </element>
     <element id="Citation.citedArtifact.part.baseCitation">
       <path value="Citation.citedArtifact.part.baseCitation"/>
-      <short value="Base citation layer"/>
-      <definition value="Base citation layer."/>
+      <short value="The citation for the full article or artifact"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -944,32 +939,32 @@
     </element>
     <element id="Citation.citedArtifact.relatesTo">
       <path value="Citation.citedArtifact.relatesTo"/>
-      <short value="Artifact related to the Citation Resource"/>
+      <short value="The artifact related to the cited artifact"/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.relatesTo.code">
-      <path value="Citation.citedArtifact.relatesTo.code"/>
-      <short value="SEE COMMENTS"/>
+    <element id="Citation.citedArtifact.relatesTo.relationshipType">
+      <path value="Citation.citedArtifact.relatesTo.relationshipType"/>
+      <short value="(See comments for the codes)"/>
       <comment value="replaces | amends | appends | transforms | replaced-with | amended-with | appended-with | transformed-with | derived-from | transformed-into | composed-of | part-of | supports | supported-with | depends-on | similar-to"/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ArtifactRelationshipType"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
       </binding>
     </element>
-    <element id="Citation.citedArtifact.relatesTo.classifier">
-      <path value="Citation.citedArtifact.relatesTo.classifier"/>
+    <element id="Citation.citedArtifact.relatesTo.targetClassifier">
+      <path value="Citation.citedArtifact.relatesTo.targetClassifier"/>
       <short value="The clasification of the related artifact"/>
       <min value="0"/>
       <max value="*"/>
@@ -978,9 +973,9 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ArtifactRelatesToClassifier"/>
+          <valueString value="ArtifactClassifier"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relates-to-classifier"/>
       </binding>
     </element>
@@ -1006,7 +1001,6 @@
     <element id="Citation.citedArtifact.publicationForm">
       <path value="Citation.citedArtifact.publicationForm"/>
       <short value="If multiple, used to represent alternative forms of the article that are not separate citations"/>
-      <definition value="If multiple, used to represent alternative forms of the article that are not separate citations."/>
       <comment value="A common use is a journal article with a publication date and pagination for a print version and a different publication date for the online version of the same article."/>
       <min value="0"/>
       <max value="*"/>
@@ -1016,8 +1010,7 @@
     </element>
     <element id="Citation.citedArtifact.publicationForm.publishedIn">
       <path value="Citation.citedArtifact.publicationForm.publishedIn"/>
-      <short value="The collection the cited article is published in"/>
-      <definition value="The collection the cited article is published in."/>
+      <short value="The collection the cited article or artifact is published in"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1026,8 +1019,7 @@
     </element>
     <element id="Citation.citedArtifact.publicationForm.publishedIn.type">
       <path value="Citation.citedArtifact.publicationForm.publishedIn.type"/>
-      <short value="Periodical, database, or book"/>
-      <definition value="Periodical, database, or book."/>
+      <short value="Kind of container (e.g. Periodical, database, or book)"/>
       <comment value="Journals and newspapers are coded as Periodical."/>
       <min value="0"/>
       <max value="1"/>
@@ -1045,7 +1037,6 @@
     <element id="Citation.citedArtifact.publicationForm.publishedIn.identifier">
       <path value="Citation.citedArtifact.publicationForm.publishedIn.identifier"/>
       <short value="Journal identifiers include ISSN, ISO Abbreviation and NLMuniqueID; Book identifiers include ISBN"/>
-      <definition value="Journal identifiers include ISSN, ISO Abbreviation and NLMuniqueID; Book identifiers include ISBN."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1055,7 +1046,6 @@
     <element id="Citation.citedArtifact.publicationForm.publishedIn.title">
       <path value="Citation.citedArtifact.publicationForm.publishedIn.title"/>
       <short value="Name of the database or title of the book or journal"/>
-      <definition value="Name of the database or title of the book or journal."/>
       <comment value="ClinicalTrials.gov is a name of a database."/>
       <min value="0"/>
       <max value="1"/>
@@ -1066,7 +1056,6 @@
     <element id="Citation.citedArtifact.publicationForm.publishedIn.publisher">
       <path value="Citation.citedArtifact.publicationForm.publishedIn.publisher"/>
       <short value="Name of the publisher"/>
-      <definition value="Name of the publisher."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1077,7 +1066,6 @@
     <element id="Citation.citedArtifact.publicationForm.publishedIn.publisherLocation">
       <path value="Citation.citedArtifact.publicationForm.publishedIn.publisherLocation"/>
       <short value="Geographic location of the publisher"/>
-      <definition value="Geographic location of the publisher."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1087,7 +1075,6 @@
     <element id="Citation.citedArtifact.publicationForm.publishedIn.startDate">
       <path value="Citation.citedArtifact.publicationForm.publishedIn.startDate"/>
       <short value="When the database was first available or when the book was published"/>
-      <definition value="When the database was first available or when the book was published."/>
       <comment value="Date can be specific to database version or book edition if specified in the name."/>
       <min value="0"/>
       <max value="1"/>
@@ -1098,7 +1085,6 @@
     <element id="Citation.citedArtifact.publicationForm.periodicRelease">
       <path value="Citation.citedArtifact.publicationForm.periodicRelease"/>
       <short value="The specific issue in which the cited article resides"/>
-      <definition value="The specific issue in which the cited article resides."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1108,7 +1094,7 @@
     <element id="Citation.citedArtifact.publicationForm.periodicRelease.citedMedium">
       <path value="Citation.citedArtifact.publicationForm.periodicRelease.citedMedium"/>
       <short value="Internet or Print"/>
-      <definition value="Describes the form of the medium cited. Common codes are &quot;Internet&quot; or &quot;Print.&quot;."/>
+      <definition value="Describes the form of the medium cited. Common codes are &quot;Internet&quot; or &quot;Print&quot;."/>
       <comment value="National Library of Medicine uses the codes &quot;Internet&quot; or &quot;Print&quot;."/>
       <min value="0"/>
       <max value="1"/>
@@ -1126,7 +1112,6 @@
     <element id="Citation.citedArtifact.publicationForm.periodicRelease.volume">
       <path value="Citation.citedArtifact.publicationForm.periodicRelease.volume"/>
       <short value="Volume number of journal in which the article is published"/>
-      <definition value="Volume number of journal in which the article is published."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1136,7 +1121,6 @@
     <element id="Citation.citedArtifact.publicationForm.periodicRelease.issue">
       <path value="Citation.citedArtifact.publicationForm.periodicRelease.issue"/>
       <short value="Issue, part or supplement of journal in which the article is published"/>
-      <definition value="Issue, part or supplement of journal in which the article is published."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1146,7 +1130,6 @@
     <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication">
       <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication"/>
       <short value="Defining the date on which the issue of the journal was published"/>
-      <definition value="Defining the date on which the issue of the journal was published."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1156,7 +1139,6 @@
     <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.date">
       <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.date"/>
       <short value="Date on which the issue of the journal was published"/>
-      <definition value="Date on which the issue of the journal was published."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1166,7 +1148,6 @@
     <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.year">
       <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.year"/>
       <short value="Year on which the issue of the journal was published"/>
-      <definition value="Year on which the issue of the journal was published."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1176,7 +1157,6 @@
     <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.month">
       <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.month"/>
       <short value="Month on which the issue of the journal was published"/>
-      <definition value="Month on which the issue of the journal was published."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1186,7 +1166,6 @@
     <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.day">
       <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.day"/>
       <short value="Day on which the issue of the journal was published"/>
-      <definition value="Day on which the issue of the journal was published."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1206,7 +1185,6 @@
     <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.text">
       <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.text"/>
       <short value="Text representation of the date of which the issue of the journal was published"/>
-      <definition value="Text representation of the date of which the issue of the journal was published."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1226,7 +1204,6 @@
     <element id="Citation.citedArtifact.publicationForm.lastRevisionDate">
       <path value="Citation.citedArtifact.publicationForm.lastRevisionDate"/>
       <short value="The date the article was last revised or updated in the database"/>
-      <definition value="The date the article was last revised or updated in the database."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1236,7 +1213,6 @@
     <element id="Citation.citedArtifact.publicationForm.language">
       <path value="Citation.citedArtifact.publicationForm.language"/>
       <short value="Language in which this form of the article is published"/>
-      <definition value="Language in which this form of the article is published."/>
       <comment value="Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute)."/>
       <min value="0"/>
       <max value="*"/>
@@ -1256,7 +1232,7 @@
     </element>
     <element id="Citation.citedArtifact.publicationForm.accessionNumber">
       <path value="Citation.citedArtifact.publicationForm.accessionNumber"/>
-      <short value="Placeholder"/>
+      <short value="Entry number or identifier for inclusion in a database"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1266,7 +1242,6 @@
     <element id="Citation.citedArtifact.publicationForm.pageString">
       <path value="Citation.citedArtifact.publicationForm.pageString"/>
       <short value="Used for full display of pagination"/>
-      <definition value="Used for full display of pagination."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1276,7 +1251,6 @@
     <element id="Citation.citedArtifact.publicationForm.firstPage">
       <path value="Citation.citedArtifact.publicationForm.firstPage"/>
       <short value="Used for isolated representation of first page"/>
-      <definition value="Used for isolated representation of first page."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1286,7 +1260,6 @@
     <element id="Citation.citedArtifact.publicationForm.lastPage">
       <path value="Citation.citedArtifact.publicationForm.lastPage"/>
       <short value="Used for isolated representation of last page"/>
-      <definition value="Used for isolated representation of last page."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1305,8 +1278,7 @@
     </element>
     <element id="Citation.citedArtifact.webLocation">
       <path value="Citation.citedArtifact.webLocation"/>
-      <short value="Used for any URL for the article cited"/>
-      <definition value="Used for any URL for the article cited."/>
+      <short value="Used for any URL for the article or artifact cited"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1316,7 +1288,6 @@
     <element id="Citation.citedArtifact.webLocation.type">
       <path value="Citation.citedArtifact.webLocation.type"/>
       <short value="Code the reason for different URLs, e.g. abstract and full-text"/>
-      <definition value="Code the reason for different URLs, e.g. abstract and full-text."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1333,7 +1304,6 @@
     <element id="Citation.citedArtifact.webLocation.url">
       <path value="Citation.citedArtifact.webLocation.url"/>
       <short value="The specific URL"/>
-      <definition value="The specific URL."/>
       <comment value="Persistent URLs, like doi, are preferred."/>
       <min value="0"/>
       <max value="1"/>
@@ -1343,7 +1313,7 @@
     </element>
     <element id="Citation.citedArtifact.classification">
       <path value="Citation.citedArtifact.classification"/>
-      <short value="Placeholder"/>
+      <short value="The assignment to an organizing scheme"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1352,7 +1322,7 @@
     </element>
     <element id="Citation.citedArtifact.classification.type">
       <path value="Citation.citedArtifact.classification.type"/>
-      <short value="Placeholder"/>
+      <short value="The kind of classifier (e.g. publication type, keyword)"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1368,8 +1338,7 @@
     </element>
     <element id="Citation.citedArtifact.classification.classifier">
       <path value="Citation.citedArtifact.classification.classifier"/>
-      <short value="Used for many classifiers including PublicationType, CitationSubset, MeshHeading, Chemical"/>
-      <definition value="Used for many classifiers including PublicationType, CitationSubset, MeshHeading, Chemical."/>
+      <short value="The specific classification value"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1397,7 +1366,6 @@
     <element id="Citation.citedArtifact.contributorship.complete">
       <path value="Citation.citedArtifact.contributorship.complete"/>
       <short value="Indicates if the list includes all authors and/or contributors"/>
-      <definition value="Indicates if the list includes all authors and/or contributors."/>
       <comment value="If list is incomplete &quot;et al&quot; can be appended to Contributorship.summary.value for display purposes."/>
       <min value="0"/>
       <max value="1"/>
@@ -1430,7 +1398,6 @@
     <element id="Citation.citedArtifact.contributorship.entry.initials">
       <path value="Citation.citedArtifact.contributorship.entry.initials"/>
       <short value="Initials for forename"/>
-      <definition value="Initials for forename."/>
       <comment value="This element is used in Medline based citations, but not supported fully by FHIR HumanName datatype."/>
       <min value="0"/>
       <max value="1"/>
@@ -1441,7 +1408,6 @@
     <element id="Citation.citedArtifact.contributorship.entry.collectiveName">
       <path value="Citation.citedArtifact.contributorship.entry.collectiveName"/>
       <short value="Used for collective or corporate name as an author"/>
-      <definition value="Used for collective or corporate name as an author."/>
       <comment value="This element is used in Medline based citations, but not supported fully by FHIR HumanName datatype."/>
       <min value="0"/>
       <max value="1"/>
@@ -1473,7 +1439,6 @@
     <element id="Citation.citedArtifact.contributorship.entry.affiliationInfo.affiliation">
       <path value="Citation.citedArtifact.contributorship.entry.affiliationInfo.affiliation"/>
       <short value="Display for the organization"/>
-      <definition value="Display for the organization."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1483,7 +1448,6 @@
     <element id="Citation.citedArtifact.contributorship.entry.affiliationInfo.role">
       <path value="Citation.citedArtifact.contributorship.entry.affiliationInfo.role"/>
       <short value="Role within the organization, such as professional title"/>
-      <definition value="Role within the organization, such as professional title."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1493,7 +1457,6 @@
     <element id="Citation.citedArtifact.contributorship.entry.affiliationInfo.identifier">
       <path value="Citation.citedArtifact.contributorship.entry.affiliationInfo.identifier"/>
       <short value="Identifier for the organization"/>
-      <definition value="Identifier for the organization."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1512,7 +1475,7 @@
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.telecom">
       <path value="Citation.citedArtifact.contributorship.entry.telecom"/>
-      <short value="Email or telephone contact methods for"/>
+      <short value="Email or telephone contact methods for the author or contributor"/>
       <definition value="Email or telephone contact methods for the author or contributor."/>
       <min value="0"/>
       <max value="*"/>
@@ -1522,7 +1485,7 @@
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.contributionType">
       <path value="Citation.citedArtifact.contributorship.entry.contributionType"/>
-      <short value="The specific contributions"/>
+      <short value="The specific contribution"/>
       <definition value="This element identifies the specific nature of an individual&#x2019;s contribution with respect to the cited work."/>
       <comment value="The CreDiT taxonomy provides a way to encode contribution information inside article XML files. The purpose of CRediT is to provide transparency in contributions to scholarly published work, to enable improved systems of attribution, credit, and accountability."/>
       <min value="0"/>
@@ -1540,9 +1503,7 @@
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.role">
       <path value="Citation.citedArtifact.contributorship.entry.role"/>
-      <short value="Used to identify non-author contributors"/>
-      <definition value="False, missing, or empty elements implies authorship."/>
-      <comment value="Set as &quot;true&quot; to identify non-author contributors."/>
+      <short value="The role of the contributor (e.g. author, editor, reviewer)"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1558,7 +1519,7 @@
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.contributionInstance">
       <path value="Citation.citedArtifact.contributorship.entry.contributionInstance"/>
-      <short value="Placeholder"/>
+      <short value="Contributions with accounting for time or number"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1567,7 +1528,7 @@
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.contributionInstance.type">
       <path value="Citation.citedArtifact.contributorship.entry.contributionInstance.type"/>
-      <short value="Placeholder"/>
+      <short value="The specific contribution"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1583,7 +1544,7 @@
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.contributionInstance.time">
       <path value="Citation.citedArtifact.contributorship.entry.contributionInstance.time"/>
-      <short value="Placeholder"/>
+      <short value="The time that the contribution was made"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1592,8 +1553,7 @@
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.correspondingContact">
       <path value="Citation.citedArtifact.contributorship.entry.correspondingContact"/>
-      <short value="Indication of which author is the corresponding author for the article cited"/>
-      <definition value="Indication of which author is the corresponding author for the article cited."/>
+      <short value="Indication of which contributor is the corresponding contributor for the role"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1603,7 +1563,6 @@
     <element id="Citation.citedArtifact.contributorship.entry.listOrder">
       <path value="Citation.citedArtifact.contributorship.entry.listOrder"/>
       <short value="Used to code order of authors"/>
-      <definition value="Used to code order of authors."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1613,7 +1572,6 @@
     <element id="Citation.citedArtifact.contributorship.summary">
       <path value="Citation.citedArtifact.contributorship.summary"/>
       <short value="Used to record a display of the author/contributor list without separate coding for each list member"/>
-      <definition value="Used to record a display of the author/contributor list without separate coding for each list member."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1640,7 +1598,6 @@
     <element id="Citation.citedArtifact.contributorship.summary.style">
       <path value="Citation.citedArtifact.contributorship.summary.style"/>
       <short value="The format for the display string"/>
-      <definition value="The format for the display string."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1657,7 +1614,6 @@
     <element id="Citation.citedArtifact.contributorship.summary.source">
       <path value="Citation.citedArtifact.contributorship.summary.source"/>
       <short value="Used to code the producer or rule for creating the display string"/>
-      <definition value="Used to code the producer or rule for creating the display string."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1674,7 +1630,6 @@
     <element id="Citation.citedArtifact.contributorship.summary.value">
       <path value="Citation.citedArtifact.contributorship.summary.value"/>
       <short value="The display string for the author list, contributor list, or contributorship statement"/>
-      <definition value="The display string for the author list, contributor list, or contributorship statement."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1683,7 +1638,7 @@
     </element>
     <element id="Citation.citedArtifact.note">
       <path value="Citation.citedArtifact.note"/>
-      <short value="Placeholder"/>
+      <short value="Any additional information or content for the article or artifact"/>
       <min value="0"/>
       <max value="*"/>
       <type>

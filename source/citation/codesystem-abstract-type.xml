@@ -105,6 +105,20 @@
           <td>Longer version of the abstract</td>
         
         </tr>
+		        
+        <tr>
+          
+          <td style="white-space:nowrap">different-publisher
+            
+            <a name="different-publisher"> </a>
+          
+          </td>
+          
+          <td>Different publisher for abstract</td>
+          
+          <td>Abstract produced by a different publisher than the cited artifact</td>
+        
+        </tr>
 		                		        
         <tr>
           
@@ -225,7 +239,12 @@
     <code value="long-abstract"/>
     <display value="Longer abstract"/>
     <definition value="Longer version of the abstract"/>
-  </concept>  
+  </concept>
+  <concept>
+    <code value="different-publisher"/>
+    <display value="Different publisher for abstract"/>
+    <definition value="Abstract produced by a different publisher than the cited artifact"/>
+  </concept>
   <concept>
     <code value="language"/>
     <display value="Different language"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="artifact-relates-to-classifier"/>
+  <id value="artifact-classifier"/>
   <meta>
     <lastUpdated value="2021-03-11T10:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -11,7 +11,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       
       
-      <p>This code system http://terminology.hl7.org/CodeSystem/artifact-relates-to-classifier defines the following codes:</p>
+      <p>This code system http://terminology.hl7.org/CodeSystem/artifact-classifier defines the following codes:</p>
       
       
       <table class="codes">
@@ -56,7 +56,7 @@
           <td style="white-space:nowrap">default
             
             
-            <a name="artifact-relates-to-classifier-default"> </a>
+            <a name="artifact-classifier-default"> </a>
           
           
           </td>
@@ -85,14 +85,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://terminology.hl7.org/CodeSystem/artifact-relates-to-classifier"/>
+  <url value="http://terminology.hl7.org/CodeSystem/artifact-classifier"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
   <version value="4.5.0"/>
-  <name value="ArtifactRelatesToClassifier"/>
-  <title value="ArtifactRelatesToClassifier"/>
+  <name value="ArtifactClassifier"/>
+  <title value="ArtifactClassifier"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-03-11T10:55:11.085+11:00"/>
@@ -107,9 +107,9 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Artifact relates to classifier"/>
+  <description value="Artifact classifier"/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relates-to-classifier"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/artifact-classifier"/>
   <content value="complete"/>
   <concept>
     <code value="default"/>
