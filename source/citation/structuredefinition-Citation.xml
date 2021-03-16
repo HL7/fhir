@@ -779,7 +779,7 @@
     <element id="Citation.citedArtifact.title.type">
       <path value="Citation.citedArtifact.title.type"/>
       <short value="The kind of title"/>
-      <definition value="Used to express the reason or specific aspect for the title"/>
+      <definition value="Used to express the reason or specific aspect for the title."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -833,7 +833,7 @@
     <element id="Citation.citedArtifact.abstract.type">
       <path value="Citation.citedArtifact.abstract.type"/>
       <short value="The kind of abstract"/>
-      <definition value="Used to express the reason or specific aspect for the abstract"/>
+      <definition value="Used to express the reason or specific aspect for the abstract."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1094,7 +1094,7 @@
     <element id="Citation.citedArtifact.publicationForm.periodicRelease.citedMedium">
       <path value="Citation.citedArtifact.publicationForm.periodicRelease.citedMedium"/>
       <short value="Internet or Print"/>
-      <definition value="Describes the form of the medium cited. Common codes are &quot;Internet&quot; or &quot;Print.&quot;."/>
+      <definition value="Describes the form of the medium cited. Common codes are &quot;Internet&quot; or &quot;Print&quot;."/>
       <comment value="National Library of Medicine uses the codes &quot;Internet&quot; or &quot;Print&quot;."/>
       <min value="0"/>
       <max value="1"/>
