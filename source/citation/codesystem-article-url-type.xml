@@ -52,13 +52,13 @@
         
         <tr>
           
-          <td style="white-space:nowrap">abstract-cited
+          <td style="white-space:nowrap">abstract-version
             
-            <a name="article-url-type-abstract-cited"> </a>
+            <a name="article-url-type-abstract-version"> </a>
           
           </td>
           
-          <td>Abstract Cited</td>
+          <td>Abstract Version</td>
           
           <td>URL to reach a specific version of the abstract for the article.</td>
         
@@ -66,9 +66,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">DOI-based
+          <td style="white-space:nowrap">doi-based
             
-            <a name="article-url-type-DOI-based"> </a>
+            <a name="article-url-type-doi-based"> </a>
           
           </td>
           
@@ -94,13 +94,13 @@
         
         <tr>
           
-          <td style="white-space:nowrap">full-text-cited
+          <td style="white-space:nowrap">full-text-version
             
-            <a name="article-url-type-full-text-cited"> </a>
+            <a name="article-url-type-full-text-version"> </a>
           
           </td>
           
-          <td>Full-Text Cited</td>
+          <td>Full-Text Version</td>
           
           <td>URL to reach a specific version of the full-text of the article.</td>
         
@@ -108,27 +108,26 @@
         
         <tr>
           
-          <td style="white-space:nowrap">PDF
+          <td style="white-space:nowrap">pdf
             
-            <a name="article-url-type-PDF"> </a>
+            <a name="article-url-type-pdf"> </a>
           
           </td>
           
           <td>PDF</td>
           
           <td>URL to reach the full-text of the article in PDF form.</td>
-        
         </tr>
         
         <tr>
           
-          <td style="white-space:nowrap">PDF-cited
+          <td style="white-space:nowrap">pdf-version
             
-            <a name="article-url-type-PDF-cited"> </a>
+            <a name="article-url-type-pdf-version"> </a>
           
           </td>
           
-          <td>PDF-Cited</td>
+          <td>PDF Version</td>
           
           <td>URL to reach a specific version of the full-text of the article in PDF form.</td>
         
@@ -150,31 +149,87 @@
         
         <tr>
           
-          <td style="white-space:nowrap">JSON
+          <td style="white-space:nowrap">json
             
-            <a name="article-url-type-JSON"> </a>
+            <a name="article-url-type-json"> </a>
           
           </td>
           
           <td>JSON</td>
           
-          <td>URL to reach computable content in JSON format.</td>
+          <td>URL to reach the computable content in JSON format.</td>
         
         </tr>
         
         <tr>
           
-          <td style="white-space:nowrap">XML
+          <td style="white-space:nowrap">json-version
             
-            <a name="article-url-type-XML"> </a>
+            <a name="article-url-type-json-version"> </a>
+          
+          </td>
+          
+          <td>JSON Version</td>
+          
+          <td>URL to reach a specific version computable content in JSON format.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">xml
+            
+            <a name="article-url-type-xml"> </a>
           
           </td>
           
           <td>XML</td>
           
-          <td>URL to reach computable content in XML format.</td>
+          <td>URL to reach the computable content in XML format.</td>
         
         </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">xml-version
+            
+            <a name="article-url-typexml-version"> </a>
+          
+          </td>
+          
+          <td>JSON Version</td>
+          
+          <td>URL to reach a specific version computable content in XML format.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">compressed-file
+            
+            <a name="article-url-type-compressed-file"> </a>
+          
+          </td>
+          
+          <td>Compressed file</td>
+          
+          <td>Compressed archive file (e.g. a zip file) that contains multiple files</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">supplementary-file-directory
+            
+            <a name="article-url-type-supplementary-file-directory"> </a>
+          
+          </td>
+          
+          <td>Supplementary File Directory</td>
+          
+          <td>Supplementary File Directory</td>
+        
+        </tr>      
       
       </table>
     
@@ -221,12 +276,12 @@
     <definition value="URL to reach the abstract for the article."/>
   </concept>
   <concept>
-    <code value="abstract-cited"/>
-    <display value="Abstract Cited"/>
+    <code value="abstract-version"/>
+    <display value="Abstract Version"/>
     <definition value="URL to reach a specific version of the abstract for the article."/>
   </concept>
   <concept>
-    <code value="DOI-based"/>
+    <code value="doi-based"/>
     <display value="DOI Based"/>
     <definition value="URL derived from DOI."/>
   </concept>
@@ -236,18 +291,18 @@
     <definition value="URL to reach the full-text of the article."/>
   </concept>
   <concept>
-    <code value="full-text-cited"/>
-    <display value="Full-Text Cited"/>
+    <code value="full-text-version"/>
+    <display value="Full-Text Version"/>
     <definition value="URL to reach a specific version of the full-text of the article."/>
   </concept>
   <concept>
-    <code value="PDF"/>
+    <code value="pdf"/>
     <display value="PDF"/>
     <definition value="URL to reach the full-text of the article in PDF form."/>
   </concept>
   <concept>
-    <code value="PDF-cited"/>
-    <display value="PDF-Cited"/>
+    <code value="pdf-version"/>
+    <display value="PDF Version"/>
     <definition value="URL to reach a specific version of the full-text of the article in PDF form."/>
   </concept>
   <concept>
@@ -256,13 +311,33 @@
     <definition value="Used when URL type is not specified, commonly when only a single URL is provided."/>
   </concept>
   <concept>
-    <code value="JSON"/>
+    <code value="json"/>
     <display value="JSON"/>
     <definition value="URL to reach computable content in JSON format."/>
   </concept>
   <concept>
-    <code value="XML"/>
+    <code value="json-version"/>
+    <display value="JSON Version"/>
+    <definition value="URL to reach computable content in JSON format."/>
+  </concept>
+  <concept>
+    <code value="xml"/>
     <display value="XML"/>
     <definition value="URL to reach computable content in XML format."/>
+  </concept>
+  <concept>
+    <code value="xml-version"/>
+    <display value="XML"/>
+    <definition value="URL to reach computable content in XML format."/>
+  </concept>
+  <concept>
+    <code value="compressed-file"/>
+    <display value="Compressed file"/>
+    <definition value="Compressed archive file (e.g. a zip file) that contains multiple files"/>
+  </concept>
+  <concept>
+    <code value="supplementary-file-directory"/>
+    <display value="Supplementary file directory"/>
+    <definition value="Supplementary file directory"/>
   </concept>
 </CodeSystem>

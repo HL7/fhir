@@ -88,7 +88,7 @@
           
           <td>Short abstract</td>
           
-          <td>Brief abstract</td>
+          <td>Brief abstract, for use when abstracts are provided in different sizes or lengths</td>
         
         </tr>
 		        
@@ -102,7 +102,21 @@
           
           <td>Long abstract</td>
           
-          <td>Longer version of the abstract</td>
+          <td>Long version of the abstract, for use when abstracts are provided in different sizes or lengths</td>
+        
+        </tr>
+		                		        
+        <tr>
+          
+          <td style="white-space:nowrap">plain-language
+            
+            <a name="abstract-type-plain-language"> </a>
+          
+          </td>
+          
+          <td>Plain language</td>
+          
+          <td>Additional form of abstract written for the general public</td>
         
         </tr>
 		        
@@ -130,7 +144,7 @@
           
           <td>Different language</td>
           
-          <td>Additional form of abstract in a different language.</td>
+          <td>Additional form of abstract in a different language</td>
         
         </tr>
         
@@ -144,7 +158,7 @@
           
           <td>Different language derived from autotranslation</td>
 
-          <td>Machine translated form of abstract in a different language, language element codes the language into which it was translated by machine.</td>
+          <td>Machine translated form of abstract in a different language, language element codes the language into which it was translated by machine</td>
         
         </tr>
         
@@ -158,7 +172,7 @@
           
           <td>Different text in additional Medline entry</td>
           
-          <td>Alternative form of abstract in two or more Medline entries.</td>
+          <td>Alternative form of abstract in two or more Medline entries</td>
         
         </tr>
         
@@ -172,7 +186,7 @@
           
           <td>Different text in an earlier version</td>
           
-          <td>Alternative form of abstract in an earlier version such as epub ahead of print.</td>
+          <td>Alternative form of abstract in an earlier version such as epub ahead of print</td>
         
         </tr>
       
@@ -211,7 +225,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Used to express the reason and specific aspect for the variant abstract, such as language and specific language."/>
+  <description value="Used to express the reason and specific aspect for the variant abstract, such as language and specific language"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/abstract-type"/>
   <content value="complete"/>
@@ -233,12 +247,17 @@
   <concept>
     <code value="short-abstract"/>
     <display value="Short abstract"/>
-    <definition value="Brief abstract"/>
+    <definition value="Brief abstract, for use when abstracts are provided in different sizes or lengths"/>
   </concept>
   <concept>
     <code value="long-abstract"/>
-    <display value="Longer abstract"/>
-    <definition value="Longer version of the abstract"/>
+    <display value="Long abstract"/>
+    <definition value="Long version of the abstract, for use when abstracts are provided in different sizes or lengths"/>
+  </concept>
+  <concept>
+    <code value="plain-language"/>
+    <display value="Plain language"/>
+    <definition value="Additional form of abstract written for the general public"/>
   </concept>
   <concept>
     <code value="different-publisher"/>
@@ -248,21 +267,21 @@
   <concept>
     <code value="language"/>
     <display value="Different language"/>
-    <definition value="Additional form of abstract in a different language."/>
+    <definition value="Additional form of abstract in a different language"/>
   </concept>
   <concept>
     <code value="autotranslated"/>
     <display value="Different language derived from autotranslation"/>
-    <definition value="Machine translated form of abstract in a different language, language element codes the language into which it was translated by machine."/>
+    <definition value="Machine translated form of abstract in a different language, language element codes the language into which it was translated by machine"/>
   </concept>
   <concept>
     <code value="duplicate-pmid"/>
     <display value="Different text in additional Medline entry"/>
-    <definition value="Alternative form of abstract in two or more Medline entries."/>
+    <definition value="Alternative form of abstract in two or more Medline entries"/>
   </concept>
   <concept>
     <code value="earlier-abstract"/>
     <display value="Different text in an earlier version"/>
-    <definition value="Alternative form of abstract in an earlier version such as epub ahead of print."/>
+    <definition value="Alternative form of abstract in an earlier version such as epub ahead of print"/>
   </concept>
 </CodeSystem>
