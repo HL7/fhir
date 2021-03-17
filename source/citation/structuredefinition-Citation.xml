@@ -498,10 +498,10 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="CitationClassifier"/>
+          <valueString value="CitationArtifactClassifier"/>
         </extension>
-        <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/citation-classifier"/>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
       </binding>
     </element>
     <element id="Citation.note">
@@ -550,7 +550,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CitationActivityType"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/citation-activity-type"/>
       </binding>
     </element>
@@ -609,10 +609,10 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ArtifactClassifier"/>
+          <valueString value="CitationArtifactClassifier"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relates-to-classifier"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
       </binding>
     </element>
     <element id="Citation.relatesTo.target[x]">
@@ -841,10 +841,10 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AbstractType"/>
+          <valueString value="CitedArtifactAbstractType"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/abstract-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-abstract-type"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.abstract.language">
@@ -973,10 +973,10 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ArtifactClassifier"/>
+          <valueString value="CitationArtifactClassifier"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relates-to-classifier"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.relatesTo.target[x]">
@@ -1346,10 +1346,10 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="CitationClassifier"/>
+          <valueString value="CitationArtifactClassifier"/>
         </extension>
-        <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/citation-classifier"/>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.contributorship">

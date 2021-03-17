@@ -53,19 +53,59 @@
         <tr>
           
           
-          <td style="white-space:nowrap">default
+          <td style="white-space:nowrap">reviewed
             
             
-            <a name="artifact-contribution-instance-type-default"> </a>
+            <a name="artifact-contribution-instance-type-reviewed"> </a>
           
           
           </td>
           
           
-          <td>Default</td>
+          <td>Reviewed</td>
           
           
-          <td>Default</td>
+          <td>Reviewed</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">approved
+            
+            
+            <a name="artifact-contribution-instance-type-approved"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Approved</td>
+          
+          
+          <td>Approved</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">edited
+            
+            
+            <a name="artifact-contribution-instance-type-edited"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Edited</td>
+          
+          
+          <td>Edited</td>
         
         
         </tr>
@@ -112,8 +152,18 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/artifact-contribution-instance-type"/>
   <content value="complete"/>
   <concept>
-    <code value="default"/>
-    <display value="Default"/>
-    <definition value="Default"/>
+    <code value="reviewed"/>
+    <display value="Reviewed"/>
+    <definition value="Reviewed"/>
+  </concept>
+  <concept>
+    <code value="approved"/>
+    <display value="Approved"/>
+    <definition value="Approved"/>
+  </concept>
+  <concept>
+    <code value="edited"/>
+    <display value="Edited"/>
+    <definition value="Edited"/>
   </concept>
 </CodeSystem>

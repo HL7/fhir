@@ -135,6 +135,20 @@
         
         <tr>
           
+          <td style="white-space:nowrap">webpage
+            
+            <a name="article-url-type-webpage"> </a>
+          
+          </td>
+          
+          <td>Webpage</td>
+          
+          <td>Used when URL type is a webpage, but other codes do not apply.</td>
+        
+        </tr>
+        
+        <tr>
+          
           <td style="white-space:nowrap">not-specified
             
             <a name="article-url-type-not-specified"> </a>
@@ -171,7 +185,7 @@
           
           <td>JSON Version</td>
           
-          <td>URL to reach a specific version computable content in JSON format.</td>
+          <td>URL to reach a specific version of computable content in JSON format.</td>
         
         </tr>
         
@@ -199,7 +213,35 @@
           
           <td>JSON Version</td>
           
-          <td>URL to reach a specific version computable content in XML format.</td>
+          <td>URL to reach a specific version of computable content in XML format.</td>
+        
+        </tr>
+		
+        <tr>
+          
+          <td style="white-space:nowrap">supplement
+            
+            <a name="article-url-type-supplement"> </a>
+          
+          </td>
+          
+          <td>Supplement</td>
+          
+          <td>Supplement</td>
+        
+        </tr>   
+        
+        <tr>
+          
+          <td style="white-space:nowrap">supplementary-file-directory
+            
+            <a name="article-url-type-supplementary-file-directory"> </a>
+          
+          </td>
+          
+          <td>Supplementary File Directory</td>
+          
+          <td>Supplementary File Directory</td>
         
         </tr>
         
@@ -216,20 +258,6 @@
           <td>Compressed archive file (e.g. a zip file) that contains multiple files</td>
         
         </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">supplementary-file-directory
-            
-            <a name="article-url-type-supplementary-file-directory"> </a>
-          
-          </td>
-          
-          <td>Supplementary File Directory</td>
-          
-          <td>Supplementary File Directory</td>
-        
-        </tr>      
       
       </table>
     
@@ -306,6 +334,11 @@
     <definition value="URL to reach a specific version of the full-text of the article in PDF form."/>
   </concept>
   <concept>
+    <code value="webpage"/>
+    <display value="Webpage"/>
+    <definition value="Used when URL type is a webpage, but other codes do not apply."/>
+  </concept>
+  <concept>
     <code value="not-specified"/>
     <display value="Not Specified"/>
     <definition value="Used when URL type is not specified, commonly when only a single URL is provided."/>
@@ -318,7 +351,7 @@
   <concept>
     <code value="json-version"/>
     <display value="JSON Version"/>
-    <definition value="URL to reach computable content in JSON format."/>
+    <definition value="URL to reach a specific version of computable content in JSON format."/>
   </concept>
   <concept>
     <code value="xml"/>
@@ -328,16 +361,21 @@
   <concept>
     <code value="xml-version"/>
     <display value="XML"/>
-    <definition value="URL to reach computable content in XML format."/>
+    <definition value="URL to reach a specific version of computable content in XML format."/>
   </concept>
   <concept>
-    <code value="compressed-file"/>
-    <display value="Compressed file"/>
-    <definition value="Compressed archive file (e.g. a zip file) that contains multiple files"/>
+    <code value="supplement"/>
+    <display value="Supplement"/>
+    <definition value="Supplement"/>
   </concept>
   <concept>
     <code value="supplementary-file-directory"/>
     <display value="Supplementary file directory"/>
     <definition value="Supplementary file directory"/>
+  </concept>
+  <concept>
+    <code value="compressed-file"/>
+    <display value="Compressed file"/>
+    <definition value="Compressed archive file (e.g. a zip file) that contains multiple files"/>
   </concept>
 </CodeSystem>

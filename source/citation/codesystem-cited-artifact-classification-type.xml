@@ -53,19 +53,99 @@
         <tr>
           
           
-          <td style="white-space:nowrap">default
+          <td style="white-space:nowrap">publication-type
             
             
-            <a name="cited-artifact-classification-type-default"> </a>
+            <a name="cited-artifact-classification-type-publication-type"> </a>
           
           
           </td>
           
           
-          <td>Default</td>
+          <td>Publication type</td>
           
           
-          <td>Default</td>
+          <td>Publication type</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">mesh-heading
+            
+            
+            <a name="cited-artifact-classification-type-mesh-heading"> </a>
+          
+          
+          </td>
+          
+          
+          <td>MeSH heading</td>
+          
+          
+          <td>MeSH heading</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">keyword
+            
+            
+            <a name="cited-artifact-classification-type-keyword"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Keyword</td>
+          
+          
+          <td>Keyword</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">citation-subset
+            
+            
+            <a name="cited-artifact-classification-type-citation-subset"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Citation subset</td>
+          
+          
+          <td>Citation subset</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">chemical
+            
+            
+            <a name="cited-artifact-classification-type-chemical"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Chemical</td>
+          
+          
+          <td>Chemical</td>
         
         
         </tr>
@@ -112,8 +192,28 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-classification-type"/>
   <content value="complete"/>
   <concept>
-    <code value="default"/>
-    <display value="Default"/>
-    <definition value="Default"/>
+    <code value="publication-type"/>
+    <display value="Publication type"/>
+    <definition value="Publication type"/>
+  </concept>
+  <concept>
+    <code value="mesh-heading"/>
+    <display value="MeSH heading"/>
+    <definition value="MeSH heading"/>
+  </concept>
+  <concept>
+    <code value="keyword"/>
+    <display value="Keyword"/>
+    <definition value="Keyword"/>
+  </concept>
+  <concept>
+    <code value="citation-subset"/>
+    <display value="Citation subset"/>
+    <definition value="Citation subset"/>
+  </concept>
+  <concept>
+    <code value="chemical"/>
+    <display value="Chemical"/>
+    <definition value="Chemical"/>
   </concept>
 </CodeSystem>

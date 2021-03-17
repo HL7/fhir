@@ -47,28 +47,244 @@
           </td>
         
         
-        </tr>
-        
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">default
-            
-            
-            <a name="citation-status-type-default"> </a>
-          
-          
+        </tr>        <tr>
+
+          <td style="white-space:nowrap">received
+
+            <a name="received"> </a>
+
           </td>
-          
-          
-          <td>Default</td>
-          
-          
-          <td>Default</td>
-        
-        
+
+          <td>Received</td>
+
+          <td>Received</td>
+
         </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">accepted
+
+            <a name="accepted"> </a>
+
+          </td>
+
+          <td>Accepted</td>
+
+          <td>Accepted</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">epublish
+
+            <a name="epublish"> </a>
+
+          </td>
+
+          <td>Epublish</td>
+
+          <td>Epublish</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">ppublish
+
+            <a name="ppublish"> </a>
+
+          </td>
+
+          <td>Ppublish</td>
+
+          <td>Ppublish</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">revised
+
+            <a name="revised"> </a>
+
+          </td>
+
+          <td>Revised</td>
+
+          <td>Revised</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">aheadofprint
+
+            <a name="aheadofprint"> </a>
+
+          </td>
+
+          <td>Aheadofprint</td>
+
+          <td>Aheadofprint</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">retracted
+
+            <a name="retracted"> </a>
+
+          </td>
+
+          <td>Retracted</td>
+
+          <td>Retracted</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">ecollection
+
+            <a name="ecollection"> </a>
+
+          </td>
+
+          <td>Ecollection</td>
+
+          <td>Ecollection</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">pmc
+
+            <a name="pmc"> </a>
+
+          </td>
+
+          <td>Pmc</td>
+
+          <td>Pmc</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">pmcr
+
+            <a name="pmcr"> </a>
+
+          </td>
+
+          <td>Pmcr</td>
+
+          <td>Pmcr</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">pubmed
+
+            <a name="pubmed"> </a>
+
+          </td>
+
+          <td>Pubmed</td>
+
+          <td>Pubmed</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">pubmedr
+
+            <a name="pubmedr"> </a>
+
+          </td>
+
+          <td>Pubmedr</td>
+
+          <td>Pubmedr</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">premedline
+
+            <a name="premedline"> </a>
+
+          </td>
+
+          <td>Premedline</td>
+
+          <td>Premedline</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">medline
+
+            <a name="medline"> </a>
+
+          </td>
+
+          <td>Medline</td>
+
+          <td>Medline</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">medliner
+
+            <a name="medliner"> </a>
+
+          </td>
+
+          <td>Medliner</td>
+
+          <td>Medliner</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">entrez
+
+            <a name="entrez"> </a>
+
+          </td>
+
+          <td>Entrez</td>
+
+          <td>Entrez</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">pmc-release
+
+            <a name="pmc-release"> </a>
+
+          </td>
+
+          <td>Pmc release</td>
+
+          <td>Pmc release</td>
+
+        </tr>
+
       
       
       </table>
@@ -110,10 +326,89 @@
   <description value="Citation status type"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/citation-status-type"/>
-  <content value="complete"/>
+  <content value="complete"/>  <concept>
+    <code value="received"/>
+    <display value="Received"/>
+    <definition value="Received"/>
+  </concept>
   <concept>
-    <code value="default"/>
-    <display value="Default"/>
-    <definition value="Default"/>
+    <code value="accepted"/>
+    <display value="Accepted"/>
+    <definition value="Accepted"/>
+  </concept>
+  <concept>
+    <code value="epublish"/>
+    <display value="Epublish"/>
+    <definition value="Epublish"/>
+  </concept>
+  <concept>
+    <code value="ppublish"/>
+    <display value="Ppublish"/>
+    <definition value="Ppublish"/>
+  </concept>
+  <concept>
+    <code value="revised"/>
+    <display value="Revised"/>
+    <definition value="Revised"/>
+  </concept>
+  <concept>
+    <code value="aheadofprint"/>
+    <display value="Aheadofprint"/>
+    <definition value="Aheadofprint"/>
+  </concept>
+  <concept>
+    <code value="retracted"/>
+    <display value="Retracted"/>
+    <definition value="Retracted"/>
+  </concept>
+  <concept>
+    <code value="ecollection"/>
+    <display value="Ecollection"/>
+    <definition value="Ecollection"/>
+  </concept>
+  <concept>
+    <code value="pmc"/>
+    <display value="Pmc"/>
+    <definition value="Pmc"/>
+  </concept>
+  <concept>
+    <code value="pmcr"/>
+    <display value="Pmcr"/>
+    <definition value="Pmcr"/>
+  </concept>
+  <concept>
+    <code value="pubmed"/>
+    <display value="Pubmed"/>
+    <definition value="Pubmed"/>
+  </concept>
+  <concept>
+    <code value="pubmedr"/>
+    <display value="Pubmedr"/>
+    <definition value="Pubmedr"/>
+  </concept>
+  <concept>
+    <code value="premedline"/>
+    <display value="Premedline"/>
+    <definition value="Premedline"/>
+  </concept>
+  <concept>
+    <code value="medline"/>
+    <display value="Medline"/>
+    <definition value="Medline"/>
+  </concept>
+  <concept>
+    <code value="medliner"/>
+    <display value="Medliner"/>
+    <definition value="Medliner"/>
+  </concept>
+  <concept>
+    <code value="entrez"/>
+    <display value="Entrez"/>
+    <definition value="Entrez"/>
+  </concept>
+  <concept>
+    <code value="pmc-release"/>
+    <display value="Pmc release"/>
+    <definition value="Pmc release"/>
   </concept>
 </CodeSystem>
