@@ -53,19 +53,19 @@
         <tr>
           
           
-          <td style="white-space:nowrap">default
+          <td style="white-space:nowrap">citation-source
             
             
-            <a name="citation-classification-type-default"> </a>
+            <a name="citation-classification-type-citation-source"> </a>
           
           
           </td>
           
           
-          <td>Default</td>
+          <td>Citation Source</td>
           
           
-          <td>Default</td>
+          <td>Citation repository where this citation was created or copied from</td>
         
         
         </tr>
@@ -112,8 +112,8 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/citation-classification-type"/>
   <content value="complete"/>
   <concept>
-    <code value="default"/>
-    <display value="Default"/>
-    <definition value="Default"/>
+    <code value="citation-source"/>
+    <display value="Citation Source"/>
+    <definition value="Citation repository where this citation was created or copied from"/>
   </concept>
 </CodeSystem>

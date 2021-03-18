@@ -38,9 +38,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">authorString
+          <td style="white-space:nowrap">author-string
             
-            <a name="contributor-summary-type-authorString"> </a>
+            <a name="contributor-summary-type-author-string"> </a>
           
           </td>
           
@@ -52,15 +52,29 @@
         
         <tr>
           
-          <td style="white-space:nowrap">contributorshipStatement
+          <td style="white-space:nowrap">contributorship-statement
             
-            <a name="contributor-summary-type-contributorshipStatement"> </a>
+            <a name="contributor-summary-type-contributorship-statement"> </a>
           
           </td>
           
           <td>Contributorship statement</td>
           
           <td>Compiled summary of contributions.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">acknowledgment
+            
+            <a name="contributor-summary-type-acknowledgment"> </a>
+          
+          </td>
+          
+          <td>Acknowledgment</td>
+          
+          <td>Statement of acknowledgment of contributions beyond those compiled for formal contributorship statements.</td>
         
         </tr>
       
@@ -112,5 +126,10 @@
     <code value="contributorshipStatement"/>
     <display value="Contributorship statement"/>
     <definition value="Compiled summary of contributions."/>
+  </concept>
+  <concept>
+    <code value="acknowledgment"/>
+    <display value="Acknowledgment"/>
+    <definition value="Statement of acknowledgment of contributions beyond those compiled for formal contributorship statements."/>
   </concept>
 </CodeSystem>
