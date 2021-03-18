@@ -162,13 +162,10 @@
       </mapping>
     </element>
     <element id="MedicationUsage.status">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="The Taken attribute was removed to align with Workflow and was replaced with the status of not-Taken."/>
-      </extension>
       <path value="MedicationUsage.status"/>
-      <short value="active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken"/>
-      <definition value="A code representing the patient or other source&#39;s judgment about the state of the medication used that this usage is about.  Generally, this will be active or completed."/>
-      <comment value="MedicationUsage is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationUsage.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the Medication Usage itself (for example, entered in error).&#xD;&#xD;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <short value="completed | entered-in-error | unknown"/>
+      <definition value="A code representing the status of recording the medication usage."/>
+      <comment value="This status concerns just the recording of the medication usage.  MedicationUsage.adherence should be used for indicating a patient's adherence to the information in this resource.&#xD;&#xD;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -205,7 +202,7 @@
       <path value="MedicationUsage.statusReason"/>
       <short value="Reason for current status"/>
       <definition value="Captures the reason for the current state of the MedicationUsage."/>
-      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-taken&quot;, &quot;on-hold&quot;, &quot;cancelled&quot; or &quot;entered-in-error&quot;. The reason for performing the event at all is captured in reasonCode, not here."/>
+      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;entered-in-error&quot;. The reason for performing the event at all is captured in reasonCode, not here."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -511,15 +508,24 @@
         <map value="refer dosageInstruction mapping"/>
       </mapping>
     </element>
-    <element id="MedicationUsage.takenAsOrdered">
-      <path value="MedicationUsage.takenAsOrdered"/>
-      <short value="Indicates if the medication is being consumed or administered as prescribed"/>
-      <definition value="Indicates if the medication is being consumed or administered as prescribed."/>
+    <element id="MedicationUsage.adherence">
+      <path value="MedicationUsage.adherence"/>
+      <short value="Indicates if the medication is being consumed or administered as instructed"/>
+      <definition value="Indicates if the medication is being consumed or administered as instructed."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="boolean"/>
+        <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationUsageAdherence"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A coded concept identifying whether the medication is being consumed or administered as instructed"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-usage-adherence"/>
+      </binding>
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=PERT].target[classCode=OBV,moodCode=EVN].value[xsi:type=BL]"/>
