@@ -52,9 +52,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">dataCuration
+          <td style="white-space:nowrap">data-curation
             
-            <a name="artifact-contribution-type-dataCuration"> </a>
+            <a name="artifact-contribution-type-data-curation"> </a>
           
           </td>
           
@@ -66,9 +66,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">formalAnalysis
+          <td style="white-space:nowrap">formal-analysis
             
-            <a name="artifact-contribution-type-formalAnalysis"> </a>
+            <a name="artifact-contribution-type-formal-analysis"> </a>
           
           </td>
           
@@ -80,9 +80,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">fundingAcquisition
+          <td style="white-space:nowrap">funding-acquisition
             
-            <a name="artifact-contribution-type-fundingAcquisition"> </a>
+            <a name="artifact-contribution-type-funding-acquisition"> </a>
           
           </td>
           
@@ -122,9 +122,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">projectAdministration
+          <td style="white-space:nowrap">project-administration
             
-            <a name="artifact-contribution-type-projectAdministration"> </a>
+            <a name="artifact-contribution-type-project-administration"> </a>
           
           </td>
           
@@ -206,9 +206,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">writingOriginalDraft
+          <td style="white-space:nowrap">writing-original-draft
             
-            <a name="artifact-contribution-type-writingOriginalDraft"> </a>
+            <a name="artifact-contribution-type-writing-original-draft"> </a>
           
           </td>
           
@@ -220,9 +220,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">writingReviewEditing
+          <td style="white-space:nowrap">writing-review-editing
             
-            <a name="artifact-contribution-type-writingReviewEditing"> </a>
+            <a name="artifact-contribution-type-writing-review-editing"> </a>
           
           </td>
           
@@ -277,17 +277,17 @@
     <definition value="Conceptualization (see https://jats4r.org/credit-taxonomy)."/>
   </concept>
   <concept>
-    <code value="dataCuration"/>
+    <code value="data-curation"/>
     <display value="Data curation"/>
     <definition value="Data curation (see https://jats4r.org/credit-taxonomy)."/>
   </concept>
   <concept>
-    <code value="formalAnalysis"/>
+    <code value="formal-analysis"/>
     <display value="Formal analysis"/>
     <definition value="Formal analysis (see https://jats4r.org/credit-taxonomy)."/>
   </concept>
   <concept>
-    <code value="fundingAcquisition"/>
+    <code value="funding-acquisition"/>
     <display value="Funding acquisition"/>
     <definition value="Funding acquisition (see https://jats4r.org/credit-taxonomy)."/>
   </concept>
@@ -302,7 +302,7 @@
     <definition value="Methodology (see https://jats4r.org/credit-taxonomy)."/>
   </concept>
   <concept>
-    <code value="projectAdministration"/>
+    <code value="project-administration"/>
     <display value="Project administration"/>
     <definition value="Project administration (see https://jats4r.org/credit-taxonomy)."/>
   </concept>
@@ -332,12 +332,12 @@
     <definition value="Visualization (see https://jats4r.org/credit-taxonomy)."/>
   </concept>
   <concept>
-    <code value="writingOriginalDraft"/>
+    <code value="writing-original-draft"/>
     <display value="Writing - original draft"/>
     <definition value="Writing - original draft (see https://jats4r.org/credit-taxonomy)."/>
   </concept>
   <concept>
-    <code value="writingReviewEditing"/>
+    <code value="writing-review-editing"/>
     <display value="Writing - review &amp; editing"/>
     <definition value="Writing - review &amp; editing (see https://jats4r.org/credit-taxonomy)."/>
   </concept>

@@ -233,9 +233,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">FHIR-resource
+          <td style="white-space:nowrap">fhir-resource
             
-            <a name="citation-classifier-FHIR-resource"> </a>
+            <a name="citation-classifier-fhir-resource"> </a>
           
           </td>
           
@@ -347,7 +347,7 @@
     <definition value="The article cited is the protocol of an activity and not the results or findings."/>
   </concept>
   <concept>
-    <code value="FHIR-resource"/>
+    <code value="fhir-resource"/>
     <display value="FHIR Resource"/>
     <definition value="The article cited is a FHIR resource."/>
   </concept>
