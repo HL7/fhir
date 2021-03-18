@@ -525,7 +525,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CitationStatusType"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/citation-status-type"/>
       </binding>
     </element>
@@ -548,10 +548,10 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="CitationActivityType"/>
+          <valueString value="CitedArtifactActivityType"/>
         </extension>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/citation-activity-type"/>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-activity-type"/>
       </binding>
     </element>
     <element id="Citation.statusDate.actual">
