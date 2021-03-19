@@ -15,6 +15,9 @@ holder.txt
 # Compiled class file
 *.class
 
+# RSA files
+*.rsa
+
 # Log file
 *.log
 
