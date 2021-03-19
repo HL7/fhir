@@ -14,7 +14,7 @@ See also: [FHIR Build Process][Link-Wiki]
 
 ##### If running commands on the terminal is a frightening prospect for you...
 
-We provide executable script files for windows (publish.bat) and mac (publish.sh).
+We provide executable script files for Windows (publish.bat) and Mac (publish.sh).
 
 ### Command line parameters
 
@@ -50,7 +50,7 @@ separate branch on [build.fhir.org/branches][Link-BuildFhirOrgBranches], where i
 Once merged to master, the [master branch pipeline][Link-AzureMasterPipeline] runs. If successful, the published specification is uploaded to the main 
 [build.fhir.org][Link-BuildFhirOrgMaster] webpage.
 
-The only exception to the above is the build for R4B. The [R4B pipline][Link-AzureR4BPipeline] detects changes to the [R4B branch][Link-R4BGithub] in github, and 
+The only exception to the above is the build for `R4B`. The [R4B pipline][Link-AzureR4BPipeline] detects changes to the [R4B branch][Link-R4BGithub] in github, and 
 publishes any changes from that branch to [build.fhir.org/R4B][Link-BuildFhirOrgR4B].
 
 ### Maintenance
