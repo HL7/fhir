@@ -44,7 +44,7 @@ For example, if you wanted to publish without generating the spec, just running 
 
 ### Publishing Globally
 
-Each time a pull request is open, the [pull request pipeline][Link-AzurePRPipeline] runs. If the pipeline successfully publishes, it uploads the build as a 
+Each time a pull request is opened, the [pull request pipeline][Link-AzurePRPipeline] runs. If the pipeline successfully publishes, it uploads the build as a 
 separate branch on [build.fhir.org/branches][Link-BuildFhirOrgBranches], where it can be reviewed to ensure accuracy.
 
 Once merged to master, the [master branch pipeline][Link-AzureMasterPipeline] runs. If successful, the published specification is uploaded to the main 
