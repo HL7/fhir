@@ -37,7 +37,7 @@ If the QuestionnaireResponse refers to a Questionnaire:
  <li>The linkage between the questions and groups in the two resources is established using the <code>linkId</code> element</li>
  <li>When a QuestionnaireResponse references a Questionnaire, all the items in the questionnaire SHOULD be included in the QuestionnaireResponse 
    if they are relevant to the interpretation of the  answers, including items of type = <code>display</code>. This might also include items 
-   that were <a href="questionnaire-definitions.html#Questionnaire.item.enableWhen">>not enabled</a> when the Questionnaire was answered, though of course these will not have answers</li>
+   that were <a href="questionnaire-definitions.html#Questionnaire.item.enableWhen">not enabled</a> when the Questionnaire was answered, though of course these will not have answers</li>
 </ul>
 
 <a name="nesting"> </a>
