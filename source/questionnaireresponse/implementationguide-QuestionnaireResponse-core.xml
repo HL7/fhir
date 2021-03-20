@@ -36,7 +36,7 @@
     </resource>
     <resource>
       <reference>
-        <reference value="SearchParameter/questionnaireresponse-extensions-QuestionnaireResponse-item-subject"/>
+        <reference value="SearchParameter/questionnaireresponse-item-subject"/>
       </reference>
     </resource>
   </definition>
