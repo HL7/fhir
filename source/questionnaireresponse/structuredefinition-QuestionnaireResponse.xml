@@ -391,7 +391,7 @@
       <constraint>
         <key value="qrs-1"/>
         <severity value="error"/>
-        <human value="Nested item can&#39;t be beneath both item and answer"/>
+        <human value="Item cannot contain both item and answer"/>
         <expression value="(answer.exists() and item.exists()).not()"/>
         <xpath value="not(exists(f:answer) and exists(f:item))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
