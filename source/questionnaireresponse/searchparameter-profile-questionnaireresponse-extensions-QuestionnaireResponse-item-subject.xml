@@ -11,6 +11,6 @@
   <code value="item-subject"/>
   <base value="QuestionnaireResponse"/>
   <type value="reference"/>
-  <expression value="QuestionnaireResponse.item.where(hasExtension(&#39;http://hl7.org/fhir/StructureDefinition/questionnaireresponse-isSubject&#39;)).answer.value.ofType(Reference)"/>
+  <expression value="QuestionnaireResponse.item.where(extension('http://hl7.org/fhir/StructureDefinition/questionnaireresponse-isSubject').exists()).answer.value.ofType(Reference)"/>
   <xpathUsage value="normal"/>
 </SearchParameter>
