@@ -270,7 +270,35 @@
 
           <td>Similar to</td>
 
-        </tr>		
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">cites
+            
+            <a name="citation-classifier-cites"> </a>
+          
+          </td>
+          
+          <td>Cites</td>
+          
+          <td>Cites</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">cited-by
+            
+            <a name="citation-classifier-cited-by"> </a>
+          
+          </td>
+          
+          <td>Cited by</td>
+          
+          <td>Cited by</td>
+        
+        </tr>
       
       </table>
     
@@ -390,5 +418,15 @@
     <code value="similar-to"/>
     <display value="Similar to"/>
     <definition value="Similar to"/>
+  </concept>
+  <concept>
+    <code value="cites"/>
+    <display value="Cites"/>
+    <definition value="Cites"/>
+  </concept>
+  <concept>
+    <code value="cited-by"/>
+    <display value="Cited by"/>
+    <definition value="Cited by"/>
   </concept>
 </CodeSystem>

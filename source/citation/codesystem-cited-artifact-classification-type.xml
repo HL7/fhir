@@ -149,6 +149,26 @@
         
         
         </tr>
+		
+        <tr>
+          
+          
+          <td style="white-space:nowrap">publishing-model
+            
+            
+            <a name="cited-artifact-classification-type-publishing-model"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Publishing Model</td>
+          
+          
+          <td>Used for PubModel attribute in Medline</td>
+        
+        
+        </tr>
       
       
       </table>
@@ -215,5 +235,10 @@
     <code value="chemical"/>
     <display value="Chemical"/>
     <definition value="Chemical"/>
+  </concept>
+  <concept>
+    <code value="publishing-model"/>
+    <display value="Publishing Model"/>
+    <definition value="Used for PubModel attribute in Medline"/>
   </concept>
 </CodeSystem>
