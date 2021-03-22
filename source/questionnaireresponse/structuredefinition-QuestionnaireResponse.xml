@@ -381,7 +381,7 @@
 			<path value="QuestionnaireResponse.item"/>
 			<short value="Groups and questions"/>
 			<definition value="A group or question item from the original questionnaire for which answers are provided."/>
-			<comment value="Groups cannot have answers and therefore must nest directly within item. When dealing with questions, nesting must occur within each answer because some questions may have multiple answers (and the nesting occurs for each answer)."/>
+			<comment value="Groups cannot have answers and therefore must nest directly within item. When dealing with questions, nesting must occur within each answer because some questions may have multiple answers (and the nesting occurs for each answer).\nWhen dealing with repeating items, each group repetition will be handled by a separate item.  However, repeating questions are handled with a single question item and potentially multiple answers."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
