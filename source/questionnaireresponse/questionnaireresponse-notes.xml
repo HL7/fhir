@@ -11,8 +11,8 @@ the subject and the source of information.</li>
 <li>The QuestionnaireResponse's <i>encounter</i> element can be used to link to the encounter when the questionnaire response was authored. This can be relevant since the
 encounter gives context to the answers and can be used to relate information in the QuestionnaireResponse to orders and observations that were done during the same Encounter.</li>
 <li>The QuestionnaireResponse's <i>language</i> element can be used to indicate the language in which the patient completed the survey/questionnaire</li>
-<li>The order of questions within groups, groups within groups and groups within questions is relevant and must be retained for display and capture.  The hierarchy items within the Questionnaire SHALL mirror 
-the hierarchy of the corresponding Questionnaire (if any).</li>
+<li>The order of questions within groups, groups within groups and groups within questions is relevant and must be retained for display and capture.  The hierarchy of the items within the QuestionnaireResponse SHALL mirror 
+the hierarchy of the items in the corresponding Questionnaire (if any).</li>
 <li>For use of QuestionnaireResponse.item.definition, see notes on <a href="questionnaire.html#definition">Questionnaire</a></li>
 <li>Because of the lack of explicit support for Questionnaires in <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a>, 
 <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> Documents frequently used named sections with
