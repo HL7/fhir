@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<a name="notes"></a>
+<a name="notes"> </a>
 <h2>
 Notes
 </h2>
@@ -23,7 +23,7 @@ Observations to model questionnaires. Such use cases should now utilize the Ques
 Refer to additional guidance provided in the <a href="questionnaire.html">Questionnaire</a> resource dealing with the design of questionnaires.
 </p>
 
-<a name="link"></a>
+<a name="link"> </a>
 <h3>
 Links to Questionnaire
 </h3>
@@ -37,10 +37,20 @@ If the QuestionnaireResponse refers to a Questionnaire:
  <li>The linkage between the questions and groups in the two resources is established using the <code>linkId</code> element</li>
  <li>When a QuestionnaireResponse references a Questionnaire, all the items in the questionnaire SHOULD be included in the QuestionnaireResponse 
    if they are relevant to the interpretation of the  answers, including items of type = <code>display</code>. This might also include items 
-   that were <a href="questionnaire-definitions.html#Questionnaire.item.enableWhen">>not enabled</a> when the Questionnaire was answered, though of course these will not have answers</li>
+   that were <a href="questionnaire-definitions.html#Questionnaire.item.enableWhen">not enabled</a> when the Questionnaire was answered, though of course these will not have answers</li>
 </ul>
 
-<a name="security"></a>
+<a name="nesting"> </a>
+<h3>
+Nested Items
+</h3>
+<p>
+QuestioinnaireResponse has two different mechanisms to support nesting of items - <code>item.item</code> and <code>item.answer.item</code>.  The former is used when nesting items within a
+'group' and the latter is always used when nesting items within a question.  This is because items nested within a question always nest within each <i>answer</i> to the question.  If the
+question allows multiple answers, each will have its own set of nested items.
+</p>
+
+<a name="security"> </a>
 <h3>
 Security
 </h3>
@@ -50,7 +60,7 @@ this selection may be done in an uncontrolled environment.  Systems should ensur
 rendering or executing any attached content.
 </p>
 
-<a name="access"></a>
+<a name="access"> </a>
 <h3>
 Access Control
 </h3>

@@ -288,12 +288,12 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EligibilityOutcome"/>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+<!--        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
-        </extension>
+        </extension>-->
         <strength value="required"/>
         <description value="The outcome of the processing."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/eligibility-outcome"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/eligibility-outcome|4.5.0"/>
       </binding>
     </element>
     <element id="CoverageEligibilityResponse.disposition">

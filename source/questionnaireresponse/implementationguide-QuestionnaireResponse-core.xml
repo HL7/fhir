@@ -34,10 +34,5 @@
         <reference value="StructureDefinition/questionnaireresponse-completionMode"/>
       </reference>
     </resource>
-    <resource>
-      <reference>
-        <reference value="SearchParameter/questionnaireresponse-extensions-QuestionnaireResponse-item-subject"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>
