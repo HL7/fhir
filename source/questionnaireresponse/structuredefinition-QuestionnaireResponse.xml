@@ -435,6 +435,7 @@
 			<path value="QuestionnaireResponse.item.text"/>
 			<short value="Name for group or question text"/>
 			<definition value="Text that is displayed above the contents of the group or as the text of the question being answered."/>
+			<comment value="The text for an item SHOULD be identical to the text from the corresponding Questionnaire.item. This can't be strictly enforced because it's possible for the Questionnaire to be updated subsequent to the QuestionnaireResponse having been created, however the intention is that the text in the QuestionnaireResponse reflects what the user saw when completing the Questionnaire."/>
 			<requirements value="Allows the questionnaire response to be read without access to the questionnaire."/>
 			<min value="0"/>
 			<max value="1"/>
