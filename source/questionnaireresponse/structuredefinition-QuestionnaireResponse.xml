@@ -529,6 +529,7 @@
 			<path value="QuestionnaireResponse.item.answer.item"/>
 			<short value="Child items of question"/>
 			<definition value="Nested groups and/or questions found within this particular answer."/>
+			<comment value="Only used when nesting beneath a question - see item.item for nesting beneath groups"/>
 			<requirements value="It is useful to have &quot;sub-questions&quot;, questions which normally appear when certain answers are given and which collect additional details."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -542,6 +543,7 @@
 			<path value="QuestionnaireResponse.item.item"/>
 			<short value="Child items of group item"/>
 			<definition value="Sub-questions, sub-groups or display items nested beneath a group."/>
+			<comment value="Only used when nesting beneath a group - see item.answer.item for nesting beneath questions"/>
 			<requirements value="Reports can consist of complex nested groups."/>
 			<min value="0"/>
 			<max value="*"/>
