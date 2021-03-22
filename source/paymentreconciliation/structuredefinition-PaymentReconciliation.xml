@@ -245,12 +245,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PaymentOutcome"/>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
         <strength value="required"/>
         <description value="The outcome of the processing."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/payment-outcome"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/payment-outcome|4.5.0"/>
       </binding>
     </element>
     <element id="PaymentReconciliation.disposition">
