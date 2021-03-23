@@ -584,8 +584,7 @@
     </element>
     <element id="Citation.relatesTo.relationshipType">
       <path value="Citation.relatesTo.relationshipType"/>
-      <short value="(See comments for the codes)"/>
-      <comment value="replaces | amends | appends | transforms | replaced-with | amended-with | appended-with | transformed-with | derived-from | transformed-into | composed-of | part-of | supports | supported-with | depends-on | similar-to"/>
+      <short value="How the Citation resource relates to the target artifact"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -948,8 +947,7 @@
     </element>
     <element id="Citation.citedArtifact.relatesTo.relationshipType">
       <path value="Citation.citedArtifact.relatesTo.relationshipType"/>
-      <short value="(See comments for the codes)"/>
-      <comment value="replaces | amends | appends | transforms | replaced-with | amended-with | appended-with | transformed-with | derived-from | transformed-into | composed-of | part-of | supports | supported-with | depends-on | similar-to"/>
+      <short value="How the cited artifact resource relates to the target artifact"/>
       <min value="1"/>
       <max value="1"/>
       <type>
