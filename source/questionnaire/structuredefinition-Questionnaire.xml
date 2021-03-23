@@ -350,7 +350,7 @@
     </element>
     <element id="Questionnaire.date">
       <path value="Questionnaire.date"/>
-      <short value="Date last changed"/>
+      <short value="Date last formally published"/>
       <definition value="The date  (and optionally time) when the questionnaire was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the questionnaire changes."/>
       <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the questionnaire. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
       <alias value="Revision Date"/>
@@ -864,7 +864,9 @@
       <path value="Questionnaire.item.enableWhen"/>
       <short value="Only allow data when"/>
       <definition value="A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true."/>
-      <comment value="If multiple repetitions of this extension are present, the item should be enabled when the condition for *any* of the repetitions is true.  I.e. treat &quot;enableWhen&quot;s as being joined by an &quot;or&quot; clause.  This element is a modifier because if enableWhen is present for an item, &quot;required&quot; is ignored unless one of the enableWhen conditions is met. When an item is disabled, all of its descendants are disabled, regardless of what their own enableWhen logic might evaluate to."/>
+      <comment value="If multiple repetitions of this extension are present, the interpretation is driven by enableBehavior (either all repetitions must evaluate to true for this item to be enabled, or only one must evaluate to true for the item to be 
+enabled).  If the enableWhen.question has multiple answers, the condition evaluates to true if *any* of the answers for the referenced item match the enableWhen condition.\n
+This element is a modifier because if enableWhen is present for an item, &quot;required&quot; is ignored unless one of the enableWhen conditions is met. When an item is disabled, all of its descendants are disabled, regardless of what their own enableWhen logic might evaluate to.  If enableWhen logic depends on an item that is disabled, the logic should proceed as though the item is not valued - even if a default value or other value might be retained in memory in the event of the item being re-enabled."/>
       <requirements value="Allows questionnaires to adapt based on answers to other questions. E.g. If physical gender is specified as a male, no need to capture pregnancy history.  Also allows conditional display of instructions or groups of questions."/>
       <min value="0"/>
       <max value="*"/>
@@ -1094,8 +1096,8 @@
       </extension>
       <path value="Questionnaire.item.answerOption"/>
       <short value="Permitted answer"/>
-      <definition value="One of the permitted answers for a &quot;choice&quot; or &quot;open-choice&quot; question."/>
-      <comment value="This element can be used when the value set machinery of answerValueSet is deemed too cumbersome or when there&#39;s a need to capture possible answers that are not codes."/>
+      <definition value="One of the permitted answers for the question."/>
+      <comment value="This element can be used when the value set machinery of answerValueSet is deemed too cumbersome or when there's a need to capture possible answers that are not codes."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1151,7 +1153,6 @@
       <path value="Questionnaire.item.answerOption.initialSelected"/>
       <short value="Whether option is selected by default"/>
       <definition value="Indicates whether the answer value is selected when the list of possible answers is initially shown."/>
-      <comment value="Use this instead of initial[v] if answerValueSet is present."/>
       <min value="0"/>
       <max value="1"/>
       <type>

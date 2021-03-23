@@ -117,6 +117,11 @@
       <display value="Help-Button"/>
       <definition value="Text is displayed in a dialog box or similar control if invoked by pushing a button or some other UI-appropriate action to request &#39;help&#39; for a question, group or the questionnaire as a whole (depending what the text is nested within)"/>
     </concept>
+    <concept>
+      <code value="legal"/>
+      <display value="legal-Button"/>
+      <definition value="Text is displayed in a dialog box or similar control if invoked by pushing a button or some other UI-appropriate action to request 'legal' info for a question, group or the questionnaire as a whole (depending what the text is nested within)"/>
+    </concept>
   </concept>
   <concept>
     <code value="question"/>
