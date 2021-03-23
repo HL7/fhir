@@ -350,7 +350,7 @@
     </element>
     <element id="Questionnaire.date">
       <path value="Questionnaire.date"/>
-      <short value="Date last changed"/>
+      <short value="Date last formally published"/>
       <definition value="The date  (and optionally time) when the questionnaire was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the questionnaire changes."/>
       <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the questionnaire. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
       <alias value="Revision Date"/>
