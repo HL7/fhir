@@ -48,7 +48,9 @@
 			<path value="Extension"/>
 			<short value="Filter to apply when looking up references"/>
 			<definition value="Identifies a filter to apply when looking up candidate answers for the question."/>
-			<comment value="The filter may include $subj and/or $encounter which should be substituted by the implementer with the subject and/or encounter id relevant in the context in which the questionnaire is being populated.\n**This extension has been replaced by the Structured Data Capture candidateExpression extension.**"/>
+			<comment value="The filter may include $subj and/or $encounter which should be substituted by the implementer with the subject and/or encounter id relevant in the context in which the questionnaire is being populated.
+			
+**This extension has been replaced by the Structured Data Capture candidateExpression extension.**"/>
 			<min value="0"/>
 			<max value="1"/>
 			<mapping>
