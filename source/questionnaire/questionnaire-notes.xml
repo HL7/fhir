@@ -69,6 +69,12 @@ can be used to identify the Questionnaire as the data source for the other resou
 <code>Observation.valueQuantity</code> can be created.
 </p>
 
+<a name="profiling"> </a>
+<h3>Profiling Questionnaires</h3>
+<p>
+<a href="profiling.html">Profiling</a> can be used to define the constraints of a set of Questionnaires - for example that a particular system only supports Questionnaires where answers have certain data types, only recognizes certain extensions, mandates the presence of certain metadata, etc.  However, profiling should NOT be used to define the content of a specific Questionnaire instance.  To define a Questionnaire instance, simply create an instance of Questionnaire as you would any other resource.
+</p>
+
 <a name="structure"> </a>
 <h3>Structure of the Questionnaire</h3>
 <p>
