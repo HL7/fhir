@@ -1151,7 +1151,6 @@
       <path value="Questionnaire.item.answerOption.initialSelected"/>
       <short value="Whether option is selected by default"/>
       <definition value="Indicates whether the answer value is selected when the list of possible answers is initially shown."/>
-      <comment value="Use this instead of initial[v] if answerValueSet is present."/>
       <min value="0"/>
       <max value="1"/>
       <type>
