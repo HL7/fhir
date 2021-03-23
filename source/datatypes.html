@@ -1057,9 +1057,8 @@ from the period applies (e.g. "give to the patient between 2 and 4 pm on 24-Jun 
 [%dt Period 7%]
 <p>
 If the <code>start</code> element is  missing, the start of the period is not
-known. If the <code>end</code> element is missing, it means that the period is ongoing,
-or the start may be in the past, and the end date in the future, which means that period
-is expected/planned to end at the specified time
+known. If the <code>end</code> element is missing, it means that the period is ongoing.
+Alternatively, this may be represented by having an explicit end in the future, in which case this means the period is expected/planned to end at the specified time.
 </p>
 <p>
 The end value includes any matching date/time. For example, the period
@@ -1120,7 +1119,7 @@ Identifier
 See also <a href="datatypes-examples.html#Identifier">Examples</a>, <a href="datatypes-definitions.html#Identifier">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Identifier">Mappings</a>, <a href="datatypes-extras.html#Identifier">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Identifier">R3 Conversions</a>.
 </p>
 <p>
-A numeric or alphanumeric string that is associated with a single object or entity within a given system.
+A string, typically numeric or alphanumeric, that is associated with a single object or entity within a given system.
 Typically, identifiers are used to connect content in resources to external content available in other frameworks or protocols.
 Identifiers are associated with objects and may be changed or retired due to human or system process and
 errors.
@@ -1168,7 +1167,7 @@ others would appear on <a href="servicerequest.html">ServiceRequest</a>.
 If the identifier value itself is naturally a globally unique URI (e.g. an OID, a UUID, or a URI with no trailing local part),
 then the <code>system</code> SHALL be "<code>urn:ietf:rfc:3986</code>", and the URI is in the <code>value</code>
 (OIDs and UUIDs using urn:oid: and urn:uuid: - see <a href="datatypes-mappings.html#ii">note on the V3 mapping</a> and the <a href="datatypes-examples.html#Identifier">examples</a>).
-Naturally globally unique identifiers are those for which no <a href="identifier-registry.html">system has been assigned</a> and where the value of the identifier is reasonably 
+Naturally globally unique identifiers are those for which no other <a href="identifier-registry.html">system has been assigned</a> and where the value of the identifier is reasonably 
 expected to not be re-used.  Typically, these are absolute URIs of some kind.
 </p>
 <p>
@@ -1232,7 +1231,7 @@ This table summarizes where common parts of a person's name are found.
  <tr><td>Patronymic</td><td>bin Osman</td><td>Family Name</td></tr>
  <tr><td>Multiple family names</td><td>Carreño Quiñones</td><td>Family Name. See note below about decomposition of family name</td></tr>
  <tr><td>Initials</td><td>Q.</td><td>Given Name as initial ("." recommended)</td></tr>
- <tr><td>Nick Name</td><td>Jock</td><td>Given name, with Use = common</td></tr>
+ <tr><td>Nick Name</td><td>Jock</td><td>Given name, with Use = nickname</td></tr>
  <tr><td>Qualifications</td><td>PhD</td><td>Suffix</td></tr>
  <tr><td>Honorifics</td><td>Senior</td><td>Suffix</td></tr>
  <tr><td>Voorvoegsel / Nobility</td><td>van Beethoven</td><td>Family Name. See note below about decomposition of family name</td></tr>
@@ -1396,6 +1395,28 @@ the specified duration or in relation to some repeating real-world event. If no 
 the schedule will terminate on some criteria that are expressed elsewhere.
 </p>
 <p>
+Many systems avoid the complexity of the Timing structure by using a text field for timing instructions.
+This maps to <code>Timing.code.text</code>. For example, the text instruction "take medication in
+the morning on weekends and days off work' would be represented as:
+</p>
+<pre class="json">
+  "timing": {
+    "code" : {
+      "text" : "Take medication in the morning on weekends and days off work"
+    }    
+  }
+</pre>
+<p>
+Note, though, that some systems include timing details in 
+something like 'Dosage instructions' which is wider than just Timing; those systems do not use the 
+Timing data type. Other systems use a set of 'common' codes - including, but usually not limited to, 
+widely understood acronyms such as "BID". If a <code>Timing.code</code> is
+provided, the code is understood to be a complete statement of whatever is specified in the structured timing
+data (except for <code>Timing.repeat.bounds</code>, which applies to the code), and either the code or the
+data may be used to interpret the <code>Timing</code>. A structured timing specification SHOULD be provided whenever
+possible, unless the code is BID, TID, QID, AM or PM, which have a ubiquitous meaning.
+</p>
+<p>
 This table summarizes some common uses of the Timing Data Type criteria.
 </p>
 <table class="grid">
@@ -1419,28 +1440,7 @@ This table summarizes some common uses of the Timing Data Type criteria.
  <tr><td>Take every second day, in the morning, until 20 have been taken</td><td></td>  <td></td>  <td>1</td>     <td></td>                    <td>2</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td>MORN</td>      <td></td>               <td></td>               <td>20</td></tr>
 </table>
 
-<p>
-Many systems avoid the complexity of the Timing structure by using a text field for timing instructions.
-This maps to <code>Timing.code.text</code>. For example, the text instruction "take medication in
-the morning on weekends and days off work' would be represented as:
-</p>
-<pre class="json">
-  "timing": {
-    "code" : {
-      "text" : "Take medication in the morning on weekends and days off work"
-    }    
-  }
-</pre>
-<p>
-Note, though, that some systems include timing details in 
-something like 'Dosage instructions' which is wider than just Timing; those systems do not use the 
-Timing data type. Other systems use a set of 'common' codes - including, but usually not limited to, 
-widely understood acronyms such as "BID". If a <code>Timing.code</code> is
-provided, the code is understood to be a complete statement of whatever is specified in the structured timing
-data (except for <code>Timing.repeat.bounds</code>, which applies to the code), and either the code or the
-data may be used to interpret the <code>Timing</code>. A structured timing specification SHOULD be provided whenever
-possible, unless the code is BID, TID, QID, AM or PM, which have a ubiquitous meaning.
-</p>
+
 <p>
 This table shows the relationship between the <a href="valueset-timing-abbreviation.html">codes provided as
 part of the base specification</a>, and the structured data portions of the Timing type:

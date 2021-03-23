@@ -4676,7 +4676,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="128">
+   <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell ss:StyleID="s127"><Data ss:Type="String">variable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire;Questionnaire.item;Questionnaire.item.item</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5137,7 +5137,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>22</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
+   <LeftColumnRightPane>16</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
