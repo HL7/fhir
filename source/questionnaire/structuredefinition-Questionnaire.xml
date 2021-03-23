@@ -1004,13 +1004,13 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
       <path value="Questionnaire.item.required"/>
       <short value="Whether the item must be included in data results"/>
       <definition value="An indication, if true, that the item must be present in a &quot;completed&quot; QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire."/>
-      <comment value="Questionnaire.item.required only has meaning for elements that are conditionally enabled with enableWhen if the condition evaluates to true.  If an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one child element). The value may come from the ElementDefinition referred to by .definition."/>
+      <comment value="Questionnaire.item.required only has meaning for elements that are conditionally enabled with enableWhen if the condition evaluates to true.  It also only has meaning if the parent element is present.  If a non-required 'group' item contains a 'required' question item, it's completely fine to omit the group (because it's not required) despite it having a required child.  Similarly, if an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one descendant item with a populated answer). The value may come from the ElementDefinition referred to by .definition."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
-      <meaningWhenMissing value="Items are generally assumed not to be required unless explicitly specified. Systems SHOULD always populate this value"/>
+      <meaningWhenMissing value="Items are assumed not to be required unless explicitly specified, though extensions may impose additional expectations"/>
       <condition value="que-6"/>
       <mapping>
         <identity value="rim"/>
