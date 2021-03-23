@@ -865,7 +865,8 @@
       <short value="Only allow data when"/>
       <definition value="A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true."/>
       <comment value="If multiple repetitions of this extension are present, the interpretation is driven by enableBehavior (either all repetitions must evaluate to true for this item to be enabled, or only one must evaluate to true for the item to be 
-enabled).  If the enableWhen.question has multiple answers, the condition evaluates to true if *any* of the answers for the referenced item match the enableWhen condition.\n
+enabled).  If the enableWhen.question has multiple answers, the condition evaluates to true if *any* of the answers for the referenced item match the enableWhen condition.
+
 This element is a modifier because if enableWhen is present for an item, &quot;required&quot; is ignored unless one of the enableWhen conditions is met. When an item is disabled, all of its descendants are disabled, regardless of what their own enableWhen logic might evaluate to.  If enableWhen logic depends on an item that is disabled, the logic should proceed as though the item is not valued - even if a default value or other value might be retained in memory in the event of the item being re-enabled."/>
       <requirements value="Allows questionnaires to adapt based on answers to other questions. E.g. If physical gender is specified as a male, no need to capture pregnancy history.  Also allows conditional display of instructions or groups of questions."/>
       <min value="0"/>
@@ -994,6 +995,29 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
         <strength value="required"/>
         <description value="Controls how multiple enableWhen values are interpreted -  whether all or any must be true."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-enable-behavior"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.disabledDisplay">
+      <path value="Questionnaire.item.disabledDisplay"/>
+      <short value="hidden | protected"/>
+      <definition value="Indicates if and how items that are disabled (because enableWhen evaluates to 'false') should be displayed."/>
+      <comment value="If not specified, rendering behavior is up to the client.  This element is only meaningful if enableWhen or an equivalent extension is present"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DisabledDisplay"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Defines how disabled elements should be rendered"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-disabled-display"/>
       </binding>
       <mapping>
         <identity value="rim"/>
