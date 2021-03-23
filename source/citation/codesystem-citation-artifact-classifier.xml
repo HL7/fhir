@@ -1,38 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="citation-classifier"/>
+  <id value="citation-artifact-classifier"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    <lastUpdated value="2021-03-11T10:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
-      <p>This code system http://terminology.hl7.org/CodeSystem/citation-classifier defines the following codes:</p>
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/citation-artifact-classifier defines the following codes:</p>
+      
       
       <table class="codes">
         
+        
         <tr>
+          
           
           <td style="white-space:nowrap">
             
+            
             <b>Code</b>
+          
           
           </td>
           
+          
           <td>
+            
             
             <b>Display</b>
           
+          
           </td>
+          
           
           <td>
             
+            
             <b>Definition</b>
           
+          
           </td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">dataset
+            
+            <a name="article-url-type-dataset"> </a>
+          
+          </td>
+          
+          <td>Dataset</td>
+          
+          <td>Dataset</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">webpage
+            
+            <a name="article-url-type-webpage"> </a>
+          
+          </td>
+          
+          <td>Webpage</td>
+          
+          <td>Webpage</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">journal-article
+            
+            <a name="article-url-type-journal-article"> </a>
+          
+          </td>
+          
+          <td>Journal article</td>
+          
+          <td>Journal article</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">executable-app
+            
+            <a name="article-url-type-executable-app"> </a>
+          
+          </td>
+          
+          <td>Executable app</td>
+          
+          <td>Executable app</td>
         
         </tr>
         
@@ -164,9 +233,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">FHIR-resource
+          <td style="white-space:nowrap">fhir-resource
             
-            <a name="citation-classifier-FHIR-resource"> </a>
+            <a name="citation-classifier-fhir-resource"> </a>
           
           </td>
           
@@ -176,30 +245,32 @@
         
         </tr>
       
+      
       </table>
+    
     
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-activity">
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://terminology.hl7.org/CodeSystem/citation-classifier"/>
+  <url value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1497"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
   <version value="4.5.0"/>
-  <name value="CitationClassifier"/>
-  <title value="CitationClassifier"/>
+  <name value="CitationArtifactClassifier"/>
+  <title value="CitationArtifactClassifier"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2021-03-11T10:55:11.085+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -211,10 +282,25 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Used for many classifiers including PublicationType, CitationSubset, MeshHeading, Chemical."/>
+  <description value="Citation artifact classifier"/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/citation-classifier"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
   <content value="complete"/>
+  <concept>
+    <code value="webpage"/>
+    <display value="Webpage"/>
+    <definition value="Webpage"/>
+  </concept>
+  <concept>
+    <code value="D016428"/>
+    <display value="Journal article"/>
+    <definition value="Journal article"/>
+  </concept>
+  <concept>
+    <code value="executable-app"/>
+    <display value="Executable app"/>
+    <definition value="Executable app"/>
+  </concept>
   <concept>
     <code value="D000076942"/>
     <display value="Preprint"/>
@@ -261,7 +347,7 @@
     <definition value="The article cited is the protocol of an activity and not the results or findings."/>
   </concept>
   <concept>
-    <code value="FHIR-resource"/>
+    <code value="fhir-resource"/>
     <display value="FHIR Resource"/>
     <definition value="The article cited is a FHIR resource."/>
   </concept>

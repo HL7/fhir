@@ -49,25 +49,130 @@
         
         </tr>
         
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">default
-            
-            
-            <a name="cited-artifact-status-type-default"> </a>
-          
-          
+                <tr>
+
+          <td style="white-space:nowrap">submitted
+
+            <a name="submitted"> </a>
+
           </td>
-          
-          
-          <td>Default</td>
-          
-          
-          <td>Default</td>
-        
-        
+
+          <td>Submitted</td>
+
+          <td>Submitted</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">pre-review
+
+            <a name="pre-review"> </a>
+
+          </td>
+
+          <td>Pre review</td>
+
+          <td>Pre review</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">under-review
+
+            <a name="under-review"> </a>
+
+          </td>
+
+          <td>Under review</td>
+
+          <td>Under review</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">post-review-pre-published
+
+            <a name="post-review-pre-published"> </a>
+
+          </td>
+
+          <td>Post review pre published</td>
+
+          <td>Post review pre published</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">published-early-form
+
+            <a name="published-early-form"> </a>
+
+          </td>
+
+          <td>Published early form</td>
+
+          <td>Published early form</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">published-final-form
+
+            <a name="published-final-form"> </a>
+
+          </td>
+
+          <td>Published final form</td>
+
+          <td>Published final form</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">rejected
+
+            <a name="rejected"> </a>
+
+          </td>
+
+          <td>Rejected</td>
+
+          <td>Rejected</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">withdrawn
+
+            <a name="withdrawn"> </a>
+
+          </td>
+
+          <td>Withdrawn</td>
+
+          <td>Withdrawn</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">retracted
+
+            <a name="retracted"> </a>
+
+          </td>
+
+          <td>Retracted</td>
+
+          <td>Retracted</td>
+
         </tr>
       
       
@@ -110,10 +215,49 @@
   <description value="Cited Artifact Status Type"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-status-type"/>
-  <content value="complete"/>
+  <content value="complete"/>  <concept>
+    <code value="submitted"/>
+    <display value="Submitted"/>
+    <definition value="Submitted"/>
+  </concept>
   <concept>
-    <code value="default"/>
-    <display value="Default"/>
-    <definition value="Default"/>
+    <code value="pre-review"/>
+    <display value="Pre review"/>
+    <definition value="Pre review"/>
+  </concept>
+  <concept>
+    <code value="under-review"/>
+    <display value="Under review"/>
+    <definition value="Under review"/>
+  </concept>
+  <concept>
+    <code value="post-review-pre-published"/>
+    <display value="Post review pre published"/>
+    <definition value="Post review pre published"/>
+  </concept>
+  <concept>
+    <code value="published-early-form"/>
+    <display value="Published early form"/>
+    <definition value="Published early form"/>
+  </concept>
+  <concept>
+    <code value="published-final-form"/>
+    <display value="Published final form"/>
+    <definition value="Published final form"/>
+  </concept>
+  <concept>
+    <code value="rejected"/>
+    <display value="Rejected"/>
+    <definition value="Rejected"/>
+  </concept>
+  <concept>
+    <code value="withdrawn"/>
+    <display value="Withdrawn"/>
+    <definition value="Withdrawn"/>
+  </concept>
+  <concept>
+    <code value="retracted"/>
+    <display value="Retracted"/>
+    <definition value="Retracted"/>
   </concept>
 </CodeSystem>

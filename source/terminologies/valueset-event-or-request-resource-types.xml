@@ -2,7 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="event-or-request-resource-types"/>
-  <name value="Event Or Request Resource Types"/>
+  <name value="EventOrRequestResourceTypes"/>
+  <title value="Event Or Request Resource Types"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>

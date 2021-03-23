@@ -69,6 +69,12 @@ can be used to identify the Questionnaire as the data source for the other resou
 <code>Observation.valueQuantity</code> can be created.
 </p>
 
+<a name="profiling"> </a>
+<h3>Profiling Questionnaires</h3>
+<p>
+<a href="profiling.html">Profiling</a> can be used to define the constraints of a set of Questionnaires - for example that a particular system only supports Questionnaires where answers have certain data types, only recognizes certain extensions, mandates the presence of certain metadata, etc.  However, profiling should NOT be used to define the content of a specific Questionnaire instance.  To define a Questionnaire instance, simply create an instance of Questionnaire as you would any other resource.
+</p>
+
 <a name="structure"> </a>
 <h3>Structure of the Questionnaire</h3>
 <p>
@@ -123,13 +129,33 @@ Items can be directly linked to an <a href="elementdefinition.html">ElementDefin
 which provides details for the item. If a definition is provided, then the following element values can be derived from the definition:
 </p>
 <ul>
-<li>concept (from ElementDefinition.code)</li>
-<li>type (from ElementDefinition.type)</li>
-<li>required (from ElementDefinition.min)</li>
-<li>repeats (from ElementDefinition.max)</li>
+<li>code (from ElementDefinition.code)</li>
+<li>text (from ElementDefinition.label)</li>
+<li>required (inferred from ElementDefinition.min)</li>
+<li>repeats (inferred from ElementDefinition.max)</li>
 <li>maxLength (from ElementDefinition.maxLength)</li>
 <li>answerValueSet (from ElementDefinition.binding.valueSet)</li>
+<li>initial.value[x] or fixed[x] (from ElementDefinition.defaultValue[x] - depending on whether readOnly is set)</li>
 </ul>
+<p>
+QuestionnaireResponse.item.type corresponds to ElementDefinition.type, however item.type is madatory in Questionniare, so it
+can't be 'populated' because it must exist for the item to exist at all.  However, the values specified for item.type and ElementDefinition.type  do need to correspond.  Complex types such as Address or anything based
+on BackboneElement would correspond to 'group', while simple types would normally map directly.
+</p>
+<p>
+In addition, extensions and elements that have corresponding extensions should also propagate.  Specifically:
+</p>
+<ul>
+  <li>Any extensions that have a context of both ElementDefinition and Questionnaire.item (e.g. <a href="extension-maxsize.html">maxSize</a>) should propagate</li>
+  <li>Any extensions defined for Questionnaire.item that directly correspond to elements on ElementDefinition should also propagate.  E.g.:
+    <ul>
+      <li>ElementDefinition.minValue[x] -> <a href="extension-minvalue.html">minValue</a></li>
+      <li>ElementDefinition.maxValue[x] -> <a href="extension-maxvalue.html">maxValue</a></li>
+      <li>There are Questionnaire extensions defined in the <a href="http://hl7.org/fhir/uv/sdc">SDC IG</a> that correspond to min, max, type.targetProfile and constraint</li>
+    </ul>
+  </li>
+</ul>
+
 <p>
 Any information provided in these elements overrides the information from the definition, and some are always required to be populated so that invariants can be enforced, etc. 
 The url refers to an ElementDefinition in  <a href="structuredefinition.html">StructureDefinition</a>, and always starts with the canonical URL for the target resource.
@@ -139,7 +165,7 @@ of a fragment identifier, the first/root element definition in the target is the
 </p> 
 <table class="grid">
  <tr><td>Value of definition</td><td>Explanation</td></tr>
- <tr><td><code>http://hl7.org/fhir/StructureDefinition/Observation#Observation.comment</code></td><td>A reference to the standard Observation element <code>comment</code></td></tr>
+ <tr><td><code>http://hl7.org/fhir/StructureDefinition/Observation#Observation.effectiveDateTime</code></td><td>A reference to the standard Observation element <code>effectiveDateTime</code></td></tr>
  <tr><td><code>http://example.org/definitions/xxx</code></td><td>A reference to the <a href="structuredefinition.html#logical">logical model</a> "xxx" that represents a data element</td></tr>
  <tr><td><code>http://example.org/StructureDefinition/Oedema#Observation.category:XXX</code></td><td>A reference to slice <code>XXX</code> on the Observation <code>category</code> element on an Oedema Scale profile</td></tr>
  <tr><td><code>http://example.org/StructureDefinition/Oedema|2.0#Observation.category:XXX</code></td><td>A reference to slice <code>XXX</code> on the Observation <code>category</code> element on an Oedema Scale profile, specifying version 2.0</td></tr>
@@ -154,7 +180,9 @@ Note that LOINC codes <a href="loinc.html#dataelements">implicitly</a> define lo
 NOTE: Even if a standard question definition is provided<!--s are referenced using <code>concept</code> or the <code>deReference</code> extension-->, information such as the question text,
 data type and value set SHOULD still be declared for the question.  Systems processing the questionnaire might not have access to or support the ability to look
 up the question definitions from external sources.  If the information is not included in-line within the questionnaire, other systems might not be able to render
-or use the Questionnaire.
+or use the Questionnaire.  The <a href="extension-questionnaire-definitionBased.html">questionnaire-definitionBased</a> extension can be used to flag that a questionnaire requires the
+ability to resolve and use item.definition information to fully understand the Questionnaire.  Systems that validate, render or otherwise process the questionnaire SHOULD check for this
+extension.
 </p>
 <p>
 If an external definition <!--reference (<code>concept</code> or <code>deReference</code> extension)--> is included along with question information such as question text, data type or

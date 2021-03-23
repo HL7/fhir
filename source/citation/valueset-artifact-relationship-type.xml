@@ -41,8 +41,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
   </identifier>
   <version value="4.5.0"/>
-  <name value="ArtifactRelationshipTypeType"/>
-  <title value="ArtifactRelationshipTypeType"/>
+  <name value="ArtifactRelationshipType"/>
+  <title value="ArtifactRelationshipType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-03-11T10:55:11.085+11:00"/>

@@ -38,9 +38,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">Vancouver
+          <td style="white-space:nowrap">vancouver
             
-            <a name="citation-summary-style-Vancouver"> </a>
+            <a name="citation-summary-style-vancouver"> </a>
           
           </td>
           
@@ -52,9 +52,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">AMA11
+          <td style="white-space:nowrap">ama11
             
-            <a name="citation-summary-style-AMA11"> </a>
+            <a name="citation-summary-style-ama11"> </a>
           
           </td>
           
@@ -66,9 +66,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">APA7
+          <td style="white-space:nowrap">apa7
             
-            <a name="citation-summary-style-APA7"> </a>
+            <a name="citation-summary-style-apa7"> </a>
           
           </td>
           
@@ -80,9 +80,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">APA6
+          <td style="white-space:nowrap">apa6
             
-            <a name="citation-summary-style-APA6"> </a>
+            <a name="citation-summary-style-apa6"> </a>
           
           </td>
           
@@ -94,9 +94,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">ASA6
+          <td style="white-space:nowrap">asa6
             
-            <a name="citation-summary-style-ASA6"> </a>
+            <a name="citation-summary-style-asa6"> </a>
           
           </td>
           
@@ -108,9 +108,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">MLA8
+          <td style="white-space:nowrap">mla8
             
-            <a name="citation-summary-style-MLA8"> </a>
+            <a name="citation-summary-style-mla8"> </a>
           
           </td>
           
@@ -122,9 +122,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">Cochrane
+          <td style="white-space:nowrap">cochrane
             
-            <a name="citation-summary-style-Cochrane"> </a>
+            <a name="citation-summary-style-cochrane"> </a>
           
           </td>
           
@@ -136,9 +136,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">Elsevier-Harvard
+          <td style="white-space:nowrap">elsevier-harvard
             
-            <a name="citation-summary-style-Elsevier-Harvard"> </a>
+            <a name="citation-summary-style-elsevier-harvard"> </a>
           
           </td>
           
@@ -150,9 +150,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">Nature
+          <td style="white-space:nowrap">nature
             
-            <a name="citation-summary-style-Nature"> </a>
+            <a name="citation-summary-style-nature"> </a>
           
           </td>
           
@@ -164,9 +164,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">ACS
+          <td style="white-space:nowrap">acs
             
-            <a name="citation-summary-style-ACS"> </a>
+            <a name="citation-summary-style-acs"> </a>
           
           </td>
           
@@ -178,9 +178,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">ChicagoA17
+          <td style="white-space:nowrap">chicago-a-17
             
-            <a name="citation-summary-style-ChicagoA17"> </a>
+            <a name="citation-summary-style-chicago-a-17"> </a>
           
           </td>
           
@@ -193,15 +193,13 @@ Author Date</td>
         
         <tr>
           
-          <td style="white-space:nowrap">ChicagoB17
+          <td style="white-space:nowrap">chicago-b-17
             
-            <a name="citation-summary-style-ChicagoB17"> </a>
+            <a name="citation-summary-style-chicago-b-17"> </a>
           
           </td>
           
-          <td>Chicago Style
-Version 17
-Full note</td>
+          <td>Chicago Style Version 17 Full note</td>
           
           <td>Used by Business, History and the Fine Arts.</td>
         
@@ -209,9 +207,9 @@ Full note</td>
         
         <tr>
           
-          <td style="white-space:nowrap">IEEE
+          <td style="white-space:nowrap">ieee
             
-            <a name="citation-summary-style-IEEE"> </a>
+            <a name="citation-summary-style-ieee"> </a>
           
           </td>
           
@@ -223,15 +221,15 @@ Full note</td>
         
         <tr>
           
-          <td style="white-space:nowrap">CompPub
+          <td style="white-space:nowrap">comppub
             
-            <a name="citation-summary-style-CompPub"> </a>
+            <a name="citation-summary-style-comppub"> </a>
           
           </td>
           
           <td>Computable Publishing</td>
           
-          <td>Citation style to report human-readable and machine-readable access paths.</td>
+          <td>Citation style to report human-readable and/or machine-readable access paths, example: Alper BS, Dehnbostel J, Shahin K. 14-day mortality remdesivir vs placebo meta-analysis (ACTT-1, Wang et al, WHO SOLIDARITY).  Fast Evidence Interoperability Resources (FEvIR) Platform, entry 55, version 4. Created 2020 Dec 17. Revised 2020 Dec 21. Accessed 2021 Mar 13. Computable resource at: https://fevir.net/resources/Evidence/55.</td>
         
         </tr>
       
@@ -275,73 +273,73 @@ Full note</td>
   <valueSet value="http://hl7.org/fhir/ValueSet/citation-summary-style"/>
   <content value="complete"/>
   <concept>
-    <code value="Vancouver"/>
+    <code value="vancouver"/>
     <display value="Vancouver style"/>
     <definition value="Citation style used by International Committee of Medical Journal Editors and maintained by US National Library of Medicine."/>
   </concept>
   <concept>
-    <code value="AMA11"/>
+    <code value="ama11"/>
     <display value="American Medical Association 11th edition"/>
     <definition value="Medicine."/>
   </concept>
   <concept>
-    <code value="APA7"/>
+    <code value="apa7"/>
     <display value="American Psychological Association 7th edition"/>
     <definition value="APA 7th edition (October 2019) used by Education, Psychology and Sciences."/>
   </concept>
   <concept>
-    <code value="APA6"/>
+    <code value="apa6"/>
     <display value="American Psychological Association 6th edition"/>
     <definition value="APA 6th edition used by Education, Psychology and Sciences."/>
   </concept>
   <concept>
-    <code value="ASA6"/>
+    <code value="asa6"/>
     <display value="American Sociological Association 6th edition"/>
     <definition value="Sociology."/>
   </concept>
   <concept>
-    <code value="MLA8"/>
+    <code value="mla8"/>
     <display value="Modern Language Association 8th edition"/>
     <definition value="MLA 8th edition used by the Humanities."/>
   </concept>
   <concept>
-    <code value="Cochrane"/>
+    <code value="cochrane"/>
     <display value="Cochrane Style"/>
     <definition value="Used by Cochrane reviews, example: Huang, M, Tang T, Pang, P, Li, M, Ma R, Lu, J, et al. Treating COVID-19 with Chloroquine. J Mol Cell Biol 2020; 12(4):322&#x2013;5."/>
   </concept>
   <concept>
-    <code value="Elsevier-Harvard"/>
+    <code value="elsevier-harvard"/>
     <display value="Elsevier-Harvard Style"/>
     <definition value="Biology ecology."/>
   </concept>
   <concept>
-    <code value="Nature"/>
+    <code value="nature"/>
     <display value="Nature Referencing style"/>
     <definition value="Biology."/>
   </concept>
   <concept>
-    <code value="ACS"/>
+    <code value="acs"/>
     <display value="American Chemical Society"/>
     <definition value="Chemistry."/>
   </concept>
   <concept>
-    <code value="ChicagoA17"/>
-    <display value="Chicago Style Version 17&#xA;Author Date"/>
+    <code value="chicago-a-17"/>
+    <display value="Chicago Style Version 17 Author Date"/>
     <definition value="Used by Business, History and the Fine Arts."/>
   </concept>
   <concept>
-    <code value="ChicagoB17"/>
-    <display value="Chicago Style&#xA;Version 17&#xA;Full note"/>
+    <code value="chicago-b-17"/>
+    <display value="Chicago Style Version 17 Full note"/>
     <definition value="Used by Business, History and the Fine Arts."/>
   </concept>
   <concept>
-    <code value="IEEE"/>
+    <code value="ieee"/>
     <display value="Institute of Electrical and Electronics Engineers"/>
     <definition value="IT, Engineering."/>
   </concept>
   <concept>
-    <code value="CompPub"/>
+    <code value="comppub"/>
     <display value="Computable Publishing"/>
-    <definition value="Citation style to report human-readable and machine-readable access paths."/>
+    <definition value="Citation style to report human-readable and/or machine-readable access paths, example: Alper BS, Dehnbostel J, Shahin K. 14-day mortality remdesivir vs placebo meta-analysis (ACTT-1, Wang et al, WHO SOLIDARITY).  Fast Evidence Interoperability Resources (FEvIR) Platform, entry 55, version 4. Created 2020 Dec 17. Revised 2020 Dec 21. Accessed 2021 Mar 13. Computable resource at: https://fevir.net/resources/Evidence/55."/>
   </concept>
 </CodeSystem>

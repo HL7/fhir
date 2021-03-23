@@ -16,7 +16,6 @@
       
       <table class="codes">
         
-        
         <tr>
           
           
@@ -49,27 +48,257 @@
         
         </tr>
         
+                <tr>
+
+          <td style="white-space:nowrap">replaces
+
+            <a name="replaces"> </a>
+
+          </td>
+
+          <td>Replaces</td>
+
+          <td>Replaces</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">amends
+
+            <a name="amends"> </a>
+
+          </td>
+
+          <td>Amends</td>
+
+          <td>Amends</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">appends
+
+            <a name="appends"> </a>
+
+          </td>
+
+          <td>Appends</td>
+
+          <td>Appends</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">transforms
+
+            <a name="transforms"> </a>
+
+          </td>
+
+          <td>Transforms</td>
+
+          <td>Transforms</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">replaced-with
+
+            <a name="replaced-with"> </a>
+
+          </td>
+
+          <td>Replaced with</td>
+
+          <td>Replaced with</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">amended-with
+
+            <a name="amended-with"> </a>
+
+          </td>
+
+          <td>Amended with</td>
+
+          <td>Amended with</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">appended-with
+
+            <a name="appended-with"> </a>
+
+          </td>
+
+          <td>Appended with</td>
+
+          <td>Appended with</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">transformed-with
+
+            <a name="transformed-with"> </a>
+
+          </td>
+
+          <td>Transformed with</td>
+
+          <td>Transformed with</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">derived-from
+
+            <a name="derived-from"> </a>
+
+          </td>
+
+          <td>Derived from</td>
+
+          <td>Derived from</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">transformed-into
+
+            <a name="transformed-into"> </a>
+
+          </td>
+
+          <td>Transformed into</td>
+
+          <td>Transformed into</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">composed-of
+
+            <a name="composed-of"> </a>
+
+          </td>
+
+          <td>Composed of</td>
+
+          <td>Composed of</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">part-of
+
+            <a name="part-of"> </a>
+
+          </td>
+
+          <td>Part of</td>
+
+          <td>Part of</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">supports
+
+            <a name="supports"> </a>
+
+          </td>
+
+          <td>Supports</td>
+
+          <td>Supports</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">supported-with
+
+            <a name="supported-with"> </a>
+
+          </td>
+
+          <td>Supported with</td>
+
+          <td>Supported with</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">depends-on
+
+            <a name="depends-on"> </a>
+
+          </td>
+
+          <td>Depends on</td>
+
+          <td>Depends on</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">similar-to
+
+            <a name="similar-to"> </a>
+
+          </td>
+
+          <td>Similar to</td>
+
+          <td>Similar to</td>
+
+        </tr>
         
         <tr>
           
-          
-          <td style="white-space:nowrap">default
+          <td style="white-space:nowrap">cites
             
-            
-            <a name="artifact-relationship-type-default"> </a>
-          
+            <a name="citation-classifier-cites"> </a>
           
           </td>
           
+          <td>Cites</td>
           
-          <td>Default</td>
-          
-          
-          <td>Default</td>
-        
+          <td>Cites</td>
         
         </tr>
-      
+        
+        <tr>
+          
+          <td style="white-space:nowrap">cited-by
+            
+            <a name="citation-classifier-cited-by"> </a>
+          
+          </td>
+          
+          <td>Cited by</td>
+          
+          <td>Cited by</td>
+        
+        </tr>
       
       </table>
     
@@ -110,10 +339,94 @@
   <description value="Artifact Relationship Type"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
-  <content value="complete"/>
+  <content value="complete"/>  <concept>
+    <code value="replaces"/>
+    <display value="Replaces"/>
+    <definition value="Replaces"/>
+  </concept>
   <concept>
-    <code value="default"/>
-    <display value="Default"/>
-    <definition value="Default"/>
+    <code value="amends"/>
+    <display value="Amends"/>
+    <definition value="Amends"/>
+  </concept>
+  <concept>
+    <code value="appends"/>
+    <display value="Appends"/>
+    <definition value="Appends"/>
+  </concept>
+  <concept>
+    <code value="transforms"/>
+    <display value="Transforms"/>
+    <definition value="Transforms"/>
+  </concept>
+  <concept>
+    <code value="replaced-with"/>
+    <display value="Replaced with"/>
+    <definition value="Replaced with"/>
+  </concept>
+  <concept>
+    <code value="amended-with"/>
+    <display value="Amended with"/>
+    <definition value="Amended with"/>
+  </concept>
+  <concept>
+    <code value="appended-with"/>
+    <display value="Appended with"/>
+    <definition value="Appended with"/>
+  </concept>
+  <concept>
+    <code value="transformed-with"/>
+    <display value="Transformed with"/>
+    <definition value="Transformed with"/>
+  </concept>
+  <concept>
+    <code value="derived-from"/>
+    <display value="Derived from"/>
+    <definition value="Derived from"/>
+  </concept>
+  <concept>
+    <code value="transformed-into"/>
+    <display value="Transformed into"/>
+    <definition value="Transformed into"/>
+  </concept>
+  <concept>
+    <code value="composed-of"/>
+    <display value="Composed of"/>
+    <definition value="Composed of"/>
+  </concept>
+  <concept>
+    <code value="part-of"/>
+    <display value="Part of"/>
+    <definition value="Part of"/>
+  </concept>
+  <concept>
+    <code value="supports"/>
+    <display value="Supports"/>
+    <definition value="Supports"/>
+  </concept>
+  <concept>
+    <code value="supported-with"/>
+    <display value="Supported with"/>
+    <definition value="Supported with"/>
+  </concept>
+  <concept>
+    <code value="depends-on"/>
+    <display value="Depends on"/>
+    <definition value="Depends on"/>
+  </concept>
+  <concept>
+    <code value="similar-to"/>
+    <display value="Similar to"/>
+    <definition value="Similar to"/>
+  </concept>
+  <concept>
+    <code value="cites"/>
+    <display value="Cites"/>
+    <definition value="Cites"/>
+  </concept>
+  <concept>
+    <code value="cited-by"/>
+    <display value="Cited by"/>
+    <definition value="Cited by"/>
   </concept>
 </CodeSystem>
