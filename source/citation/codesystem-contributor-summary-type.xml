@@ -118,12 +118,12 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/contributor-summary-type"/>
   <content value="complete"/>
   <concept>
-    <code value="authorString"/>
+    <code value="author-string"/>
     <display value="Author string"/>
     <definition value="Display of the author list as a complete string."/>
   </concept>
   <concept>
-    <code value="contributorshipStatement"/>
+    <code value="contributorship-statement"/>
     <display value="Contributorship statement"/>
     <definition value="Compiled summary of contributions."/>
   </concept>

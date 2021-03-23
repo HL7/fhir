@@ -44,7 +44,7 @@
       <definition value="The method used to perform this procedure."/>
       <comment value="Improve definition. Add mappings."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
     </element>
     <element id="Extension.extension">
       <path value="Extension.extension"/>

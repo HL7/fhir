@@ -17,6 +17,11 @@
   <definition>
     <resource>
       <reference>
+        <reference value="StructureDefinition/questionnaire-definitionBased"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/questionnaire-minOccurs"/>
       </reference>
     </resource>
