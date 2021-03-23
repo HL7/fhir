@@ -32,11 +32,6 @@
     <definition value="The text provides guidance on how the information should be or will be handled from a security/confidentiality/access control perspective when completed"/>
   </concept>
   <concept>
-    <code value="help"/>
-    <display value="Help"/>
-    <definition value="The text provides additional guidance on populating the containing item.  Help text isn&#39;t necessarily expected to be rendered as part of the form, but may instead be made available through fly-over, pop-up button, link to a &quot;help&quot; page, etc."/>
-  </concept>
-  <concept>
     <code value="legal"/>
     <display value="legal"/>
     <definition value="Indicates copyright, trademark, patent, regulations regarding completion, retention or use, or other legal text related to the item"/>
