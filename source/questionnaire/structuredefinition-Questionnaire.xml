@@ -1094,8 +1094,8 @@
       </extension>
       <path value="Questionnaire.item.answerOption"/>
       <short value="Permitted answer"/>
-      <definition value="One of the permitted answers for a &quot;choice&quot; or &quot;open-choice&quot; question."/>
-      <comment value="This element can be used when the value set machinery of answerValueSet is deemed too cumbersome or when there&#39;s a need to capture possible answers that are not codes."/>
+      <definition value="One of the permitted answers for the question."/>
+      <comment value="This element can be used when the value set machinery of answerValueSet is deemed too cumbersome or when there's a need to capture possible answers that are not codes."/>
       <min value="0"/>
       <max value="*"/>
       <type>
