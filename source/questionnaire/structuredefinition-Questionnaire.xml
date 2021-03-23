@@ -892,7 +892,7 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
       <path value="Questionnaire.item.enableWhen.question"/>
       <short value="Question that determines whether item is enabled"/>
       <definition value="The linkId for the question whose answer (or lack of answer) governs whether this item is enabled."/>
-      <comment value="If multiple question occurrences are present for the same question (same linkId), then this refers to the nearest question occurrence reachable by tracing first the &quot;ancestor&quot; axis and then the &quot;preceding&quot; axis and then the &quot;following&quot; axis."/>
+      <comment value="If multiple question occurrences are present for the same question (same linkId), then this refers to the nearest question occurrence reachable by tracing first the &quot;ancestor&quot; axis and then the &quot;preceding&quot; axis and then the &quot;following&quot; axis.  If there are multiple items with the same linkId and all are equadistant (e.g. a question references a question that appears in a separate repeating group), that is an error.  (Consider using the enableWhenExpression extension to define logic to handle such a situation.)"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -928,7 +928,7 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
     <element id="Questionnaire.item.enableWhen.answer[x]">
       <path value="Questionnaire.item.enableWhen.answer[x]"/>
       <short value="Value for question comparison based on operator"/>
-      <definition value="A value that the referenced question is tested using the specified operator in order for the item to be enabled."/>
+      <definition value="A value that the referenced question is tested using the specified operator in order for the item to be enabled.  If there are multiple answers, a match on any of the answers suffices.  If different behavior is desired (all must match, at least 2 must match, etc.), consider using the enableWhenExpression extension."/>
       <min value="1"/>
       <max value="1"/>
       <type>
