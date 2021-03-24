@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="valueset-otherName"/>
+  <id value="valueset-otherTitle"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/valueset-otherName"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/valueset-otherTitle"/>
   <version value="4.5.0"/>
-  <name value="otherName"/>
+  <name value="otherTitle"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="Natural language names identifying the value set. These names should be usable as an identifier for the module by machine processing applications such as code generation."/>
+  <description value="Human readable titles for the valueset."/>
   <fhirVersion value="4.5.0"/>
   <mapping>
     <identity value="rim"/>
@@ -33,18 +33,18 @@
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="Alternative names"/>
-      <definition value="Machine readable names for the valueset."/>
+      <short value="Alternative titles"/>
+      <definition value="Human readable titles for the valueset."/>
       <min value="0"/>
       <max value="*"/>
       <isModifier value="false"/>
     </element>
-    <element id="Extension.extension:name">
+    <element id="Extension.extension:title">
       <path value="Extension.extension"/>
-      <sliceName value="name"/>
-      <short value="Support human navigation and code generation."/>
-      <definition value="A natural language name identifying the value set. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly. A name should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a name."/>
+      <sliceName value="title"/>
+      <short value="Human readable, short and specific"/>
+      <definition value="This title is intended to be human readable, short and as specific as possible and to convey the purpose of the value set.  It is considered to be the title of the value set."/>
+      <comment value="This need not be unique. However some use cases require uniqueness within a namespace and therefore best practice would be to make the name unique."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -52,18 +52,18 @@
       </type>
       <isModifier value="false"/>
     </element>
-    <element id="Extension.extension:name.extension">
+    <element id="Extension.extension:title.extension">
       <path value="Extension.extension.extension"/>
       <max value="0"/>
     </element>
-    <element id="Extension.extension:name.url">
+    <element id="Extension.extension:title.url">
       <path value="Extension.extension.url"/>
       <type>
         <code value="uri"/>
       </type>
-      <fixedUri value="name"/>
+      <fixedUri value="title"/>
     </element>
-    <element id="Extension.extension:name.value[x]">
+    <element id="Extension.extension:title.value[x]">
       <path value="Extension.extension.value[x]"/>
       <min value="1"/>
       <type>
@@ -73,9 +73,9 @@
     <element id="Extension.extension:preferred">
       <path value="Extension.extension"/>
       <sliceName value="preferred"/>
-      <short value="Which name is preferred for this language"/>
-      <definition value="Flag that this Name in this Name Language is the preferred machine-processing friendly signifier in this language."/>
-      <comment value="There may be multiple machine-processing friendly names in a given language, and this flag indicates which of them is preferred for the given language."/>
+      <short value="Which Title is preferred for this language"/>
+      <definition value="Flag that this Title in this Title Language is the preferred human-readable signifier in this language."/>
+      <comment value="There may be multiple human readable titles in a given language, and this flag indicates which of them is preferred for the given language."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -103,7 +103,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url"/>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/valueset-otherName"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/valueset-otherTitle"/>
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>

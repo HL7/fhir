@@ -299,6 +299,34 @@
           <td>Cited by</td>
         
         </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">retracts
+            
+            <a name="citation-classifier-retracts"> </a>
+          
+          </td>
+          
+          <td>Retracts</td>
+          
+          <td>Retracts</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">retracted-by
+            
+            <a name="citation-classifier-retracted-by"> </a>
+          
+          </td>
+          
+          <td>Retracted by</td>
+          
+          <td>Retracted by</td>
+        
+        </tr>
       
       </table>
     
@@ -428,5 +456,15 @@
     <code value="cited-by"/>
     <display value="Cited by"/>
     <definition value="Cited by"/>
+  </concept>
+  <concept>
+    <code value="retracts"/>
+    <display value="Retracts"/>
+    <definition value="Retracts"/>
+  </concept>
+  <concept>
+    <code value="retracted-by"/>
+    <display value="Retracted by"/>
+    <definition value="Retracted by"/>
   </concept>
 </CodeSystem>

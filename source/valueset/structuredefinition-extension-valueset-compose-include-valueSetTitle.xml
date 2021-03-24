@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="valueset-systemName"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -8,28 +7,27 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/valueset-systemName"/>
+  <url value="http://example.org/fhir/StructureDefinition/valueset-compose-include-ValueSetTitle" />
+  <name value="valueset-compose-include-ValueSetTitle" />
   <version value="4.5.0"/>
-  <name value="systemName"/>
-  <status value="retired"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <status value="draft" />
   <publisher value="HL7"/>
-  <description value="The human-readable name for the code system."/>
-  <fhirVersion value="4.5.0"/>
+  <description value="Human readable name for the included Value Set." />
+  <fhirVersion value="4.5.0" />
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
     <name value="RIM Mapping"/>
   </mapping>
-  <kind value="complex-type"/>
-  <abstract value="false"/>
+  <kind value="complex-type" />
+  <abstract value="false" />
   <context>
-    <type value="element"/>
-    <expression value="ValueSet.compose.include"/>
+    <type value="element" />
+    <expression value="ValueSet.compose.include.valueSet" />
   </context>
-  <type value="Extension"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
-  <derivation value="constraint"/>
+  <type value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint" />
   <differential>
     <element id="Extension">
       <path value="Extension"/>
@@ -44,14 +42,14 @@
       <max value="0"/>
     </element>
     <element id="Extension.url">
-      <path value="Extension.url"/>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/valueset-systemName"/>
+      <path value="Extension.url" />
+      <fixedUri value="http://example.org/fhir/StructureDefinition/valueset-compose-include-ValueSetTitle" />
     </element>
     <element id="Extension.value[x]">
-      <path value="Extension.value[x]"/>
-      <min value="1"/>
+      <path value="Extension.value[x]" />
+	  <min value="1"/>
       <type>
-        <code value="string"/>
+        <code value="string" />
       </type>
     </element>
   </differential>
