@@ -47,12 +47,12 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/valueset-workflowStatusDescription"/>
+        <reference value="StructureDefinition/valueset-workflowStatus"/>
       </reference>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/valueset-status-activityStatusDate"/>
+        <reference value="StructureDefinition/valueset-activityStatusDate"/>
       </reference>
     </resource>
     <resource>
@@ -88,6 +88,11 @@
     <resource>
       <reference>
         <reference value="StructureDefinition/valueset-conceptOrder"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-systemName"/>
       </reference>
     </resource>
     <resource>
@@ -183,31 +188,6 @@
     <resource>
       <reference>
         <reference value="StructureDefinition/valueset-rules-text"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/valueset-otherTitle"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/valueset-systemTitle"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/valueset-systemName"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/valueset-compose-minimumMultiplicity"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/valueset-compose-maximumMultiplicity"/>
       </reference>
     </resource>
     <resource>
