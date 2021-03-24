@@ -41,7 +41,7 @@
 			<path value="Extension"/>
 			<short value="Unit choices"/>
 			<definition value="A set of units that the user may choose when providing a quantity value."/>
-			<comment value="Provide either unitOption(s) or unitValueSet.  If either of the extensions are present, the units for a Quantity element are constrained to only the units listed by the extensions - i.e. it is treated as a &quot;required&quot;, not an &quot;extensible&quot; binding.  In the absence of either, any unit is valid."/>
+			<comment value="Provide either unitOption(s) or unitValueSet.  If either of the extensions are present, the units for a Quantity element are constrained to only the units listed by the extensions - i.e. it is treated as a &quot;required&quot;, not an &quot;extensible&quot; binding.  In the absence of either, any unit is valid.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior#unitValusSet)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<mapping>
