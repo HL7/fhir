@@ -55,11 +55,6 @@
       <definition value="Questions within the group are columns in the table with each group repetition as a row.  Used for single-answer questions."/>
     </concept>
     <concept>
-      <code value="atable"/>
-      <display value="Answer Table"/>
-      <definition value="This table has one row - for the question.  Permitted answers are columns.  Used for choice questions."/>
-    </concept>
-    <concept>
       <code value="header"/>
       <display value="Header"/>
       <definition value="The group is to be continuously visible at the top of the questionnaire"/>
@@ -76,8 +71,8 @@
     </concept>
   </concept>
   <concept>
-    <code value="text"/>
-    <definition value="UI controls relevant to rendering questionnaire text items"/>
+    <code value="display"/>
+    <definition value="UI controls relevant to rendering questionnaire display items"/>
     <property>
       <code value="abstract"/>
       <valueBoolean value="true"/>
@@ -85,42 +80,42 @@
     <concept>
       <code value="inline"/>
       <display value="In-line"/>
-      <definition value="Text is displayed as a paragraph in a sequential position between sibling items (default behavior)"/>
+      <definition value="Display item is rendered as a paragraph in a sequential position between sibling items (default behavior)"/>
     </concept>
     <concept>
       <code value="prompt"/>
       <display value="Prompt"/>
-      <definition value="Text is displayed immediately below or within the answer-entry area of the containing question item (typically as a guide for what to enter)"/>
+      <definition value="Display item is rendered immediately below or within the answer-entry area of the containing question item (typically as a guide for what to enter)"/>
     </concept>
     <concept>
       <code value="unit"/>
       <display value="Unit"/>
-      <definition value="Text is displayed adjacent (horizontally or vertically) to the answer space for the parent question, typically to indicate a unit of measure"/>
+      <definition value="Display item is rendered adjacent (horizontally or vertically) to the answer space for the parent question, typically to indicate a unit of measure"/>
     </concept>
     <concept>
       <code value="lower"/>
       <display value="Lower-bound"/>
-      <definition value="Text is displayed to the left of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the &#39;lower&#39; bound.  E.g. &#39;Strongly disagree&#39;"/>
+      <definition value="Display item is rendered to the left of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the &#39;lower&#39; bound.  E.g. &#39;Strongly disagree&#39;"/>
     </concept>
     <concept>
       <code value="upper"/>
       <display value="Upper-bound"/>
-      <definition value="Text is displayed to the right of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the &#39;upper&#39; bound.  E.g. &#39;Strongly agree&#39;"/>
+      <definition value="Display item is rendered to the right of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the &#39;upper&#39; bound.  E.g. &#39;Strongly agree&#39;"/>
     </concept>
     <concept>
       <code value="flyover"/>
       <display value="Fly-over"/>
-      <definition value="Text is temporarily visible over top of an item if the mouse is positioned over top of the text for the containing item"/>
+      <definition value="Display item is temporarily visible over top of an item if the mouse is positioned over top of the text for the containing item"/>
     </concept>
     <concept>
       <code value="help"/>
       <display value="Help-Button"/>
-      <definition value="Text is displayed in a dialog box or similar control if invoked by pushing a button or some other UI-appropriate action to request &#39;help&#39; for a question, group or the questionnaire as a whole (depending what the text is nested within)"/>
+      <definition value="Display item is rendered in a dialog box or similar control if invoked by pushing a button or some other UI-appropriate action to request &#39;help&#39; for a question, group or the questionnaire as a whole (depending what the display item is nested within)"/>
     </concept>
     <concept>
       <code value="legal"/>
       <display value="legal-Button"/>
-      <definition value="Text is displayed in a dialog box or similar control if invoked by pushing a button or some other UI-appropriate action to request 'legal' info for a question, group or the questionnaire as a whole (depending what the text is nested within)"/>
+      <definition value="Display item is rendered in a dialog box or similar control if invoked by pushing a button or some other UI-appropriate action to request 'legal' info for a question, group or the questionnaire as a whole (depending what the display item is nested within)"/>
     </concept>
   </concept>
   <concept>
