@@ -726,7 +726,7 @@
       <constraint>
         <key value="que-11"/>
         <severity value="error"/>
-        <human value="If one or more answerOption is present, initial[x] must be missing"/>
+        <human value="If one or more answerOption is present, initial[x] cannot be present.  Use answerOption.initialSelected instead"/>
         <expression value="answerOption.empty() or initial.empty()"/>
         <xpath value="not(f:answerOption) or not(count(f:*[starts-with(local-name(.), &#39;initial&#39;)]))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
