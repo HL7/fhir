@@ -20,9 +20,7 @@
       <value value="http://www.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Provides a computable unit of measure associated with numeric questions to support subsequent computation on responses. This is for use on items of type integer and decimal, and its purpose is to support converting the integer or decimal answer into a Quantity when extracting the data into a resource.
-  
-  If a 'display' value is provided for valueCoding of this extension and the associated question item does not have a child 'display' item with an itemControl extension of 'unit', then form fillers SHOULD take the display value of this extension and use it as as the unit display."/>
+  <description value="Provides a computable unit of measure associated with numeric questions to support subsequent computation on responses. This is for use on items of type integer and decimal, and it&#39;s purpose is to support converting the integer or decimal answer into a Quantity when extracting the data into a resource."/>
   <fhirVersion value="4.5.0"/>
   <mapping>
     <identity value="rim"/>
