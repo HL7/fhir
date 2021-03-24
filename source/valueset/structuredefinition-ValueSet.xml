@@ -729,7 +729,7 @@
     </element>
     <element id="ValueSet.compose.include.filter.op">
       <path value="ValueSet.compose.include.filter.op"/>
-      <short value="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists | child-of"/>
+      <short value="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | child-of | exists"/>
       <definition value="The kind of operation to perform as a part of the filter criteria."/>
       <comment value="In case filter.property represents a property of the system, the operation applies to the selected property. In case filter.property represents a filter of the system, the operation SHALL match one of the CodeSystem.filter.operator values."/>
       <min value="1"/>
