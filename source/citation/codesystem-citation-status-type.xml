@@ -53,7 +53,7 @@
 
           <td style="white-space:nowrap">pubmed-pubstatus-received
 
-            <a name="pubmed-pubstatus-received"> </a>
+            <a name="citation-status-type-pubmed-pubstatus-received"> </a>
 
           </td>
 
@@ -67,7 +67,7 @@
 
           <td style="white-space:nowrap">pubmed-pubstatus-accepted
 
-            <a name="pubmed-pubstatus-accepted"> </a>
+            <a name="citation-status-type-pubmed-pubstatus-accepted"> </a>
 
           </td>
 
@@ -81,7 +81,7 @@
 
           <td style="white-space:nowrap">pubmed-pubstatus-epublish
 
-            <a name="pubmed-pubstatus-epublish"> </a>
+            <a name="citation-status-type-pubmed-pubstatus-epublish"> </a>
 
           </td>
 
@@ -95,7 +95,7 @@
 
           <td style="white-space:nowrap">"pubmed-pubstatus-ppublish
 
-            <a name="pubmed-pubstatus-ppublish"> </a>
+            <a name="citation-status-type-pubmed-pubstatus-ppublish"> </a>
 
           </td>
 
@@ -109,7 +109,7 @@
 
           <td style="white-space:nowrap">pubmed-pubstatus-revised
 
-            <a name="pubmed-pubstatus-revised"> </a>
+            <a name="citation-status-type-pubmed-pubstatus-revised"> </a>
 
           </td>
 
@@ -123,7 +123,7 @@
 
           <td style="white-space:nowrap">pubmed-pubstatus-aheadofprint
 
-            <a name="pubmed-pubstatus-aheadofprint"> </a>
+            <a name="citation-status-type-pubmed-pubstatus-aheadofprint"> </a>
 
           </td>
 
@@ -137,7 +137,7 @@
 
           <td style="white-space:nowrap">pubmed-pubstatus-retracted
 
-            <a name="pubmed-pubstatus-retracted"> </a>
+            <a name="citation-status-type-pubmed-pubstatus-retracted"> </a>
 
           </td>
 
@@ -151,7 +151,7 @@
 
           <td style="white-space:nowrap">pubmed-pubstatus-ecollection
 
-            <a name="pubmed-pubstatus-ecollection"> </a>
+            <a name="citation-status-type-pubmed-pubstatus-ecollection"> </a>
 
           </td>
 
@@ -165,7 +165,7 @@
 
           <td style="white-space:nowrap">pubmed-pubstatus-pmc
 
-            <a name="pubmed-pubstatus-pmc"> </a>
+            <a name="citation-status-type-pubmed-pubstatus-pmc"> </a>
 
           </td>
 
@@ -179,7 +179,7 @@
 
           <td style="white-space:nowrap">pubmed-pubstatus-pmcr
 
-            <a name="pubmed-pubstatus-pmcr"> </a>
+            <a name="citation-status-type-pubmed-pubstatus-pmcr"> </a>
 
           </td>
 
@@ -193,7 +193,7 @@
 
           <td style="white-space:nowrap">pubmed-pubstatus-pubmed
 
-            <a name="pubmed-pubstatus-pubmed"> </a>
+            <a name="citation-status-type-pubmed-pubstatus-pubmed"> </a>
 
           </td>
 
@@ -207,7 +207,7 @@
 
           <td style="white-space:nowrap">pubmed-pubstatus-pubmedr
 
-            <a name="pubmed-pubstatus-pubmedr"> </a>
+            <a name="citation-status-type-pubmed-pubstatus-pubmedr"> </a>
 
           </td>
 
@@ -221,7 +221,7 @@
 
           <td style="white-space:nowrap">pubmed-pubstatus-premedline
 
-            <a name="pubmed-pubstatus-premedline"> </a>
+            <a name="citation-status-type-pubmed-pubstatus-premedline"> </a>
 
           </td>
 
@@ -235,7 +235,7 @@
 
           <td style="white-space:nowrap">pubmed-pubstatus-medline
 
-            <a name="pubmed-pubstatus-medline"> </a>
+            <a name="citation-status-type-pubmed-pubstatus-medline"> </a>
 
           </td>
 
@@ -249,7 +249,7 @@
 
           <td style="white-space:nowrap">pubmed-pubstatus-medliner
 
-            <a name="pubmed-pubstatus-medliner"> </a>
+            <a name="citation-status-type-pubmed-pubstatus-medliner"> </a>
 
           </td>
 
@@ -263,7 +263,7 @@
 
           <td style="white-space:nowrap">pubmed-pubstatus-entrez
 
-            <a name="pubmed-pubstatus-entrez"> </a>
+            <a name="citation-status-type-pubmed-pubstatus-entrez"> </a>
 
           </td>
 
@@ -277,7 +277,7 @@
 
           <td style="white-space:nowrap">pubmed-pubstatus-pmc-release
 
-            <a name="pubmed-pubstatus-pmc-release"> </a>
+            <a name="citation-status-type-pubmed-pubstatus-pmc-release"> </a>
 
           </td>
 
@@ -291,7 +291,7 @@
 
           <td style="white-space:nowrap">medline-completed
 
-            <a name="medline-completed"> </a>
+            <a name="citation-status-type-medline-completed"> </a>
 
           </td>
 
@@ -305,7 +305,7 @@
 
           <td style="white-space:nowrap">medline-in-process
 
-            <a name="medline-in-process"> </a>
+            <a name="citation-status-type-medline-in-process"> </a>
 
           </td>
 
@@ -319,7 +319,7 @@
 
           <td style="white-space:nowrap">medline-pubmed-not-medline
 
-            <a name="medline-pubmed-not-medline"> </a>
+            <a name="citation-status-type-medline-pubmed-not-medline"> </a>
 
           </td>
 
@@ -333,7 +333,7 @@
 
           <td style="white-space:nowrap">medline-in-data-review
 
-            <a name="medline-in-data-review"> </a>
+            <a name="citation-status-type-medline-in-data-review"> </a>
 
           </td>
 
@@ -347,7 +347,7 @@
 
           <td style="white-space:nowrap">medline-publisher
 
-            <a name="medline-publisher"> </a>
+            <a name="citation-status-type-medline-publisher"> </a>
 
           </td>
 
@@ -361,7 +361,7 @@
 
           <td style="white-space:nowrap">medline-medline
 
-            <a name="medline-medline"> </a>
+            <a name="citation-status-type-medline-medline"> </a>
 
           </td>
 
@@ -375,7 +375,7 @@
 
           <td style="white-space:nowrap">medline-oldmedline
 
-            <a name="medline-oldmedline"> </a>
+            <a name="citation-status-type-medline-oldmedline"> </a>
 
           </td>
 
@@ -389,27 +389,27 @@
 
           <td style="white-space:nowrap">pubmed-publication-status-ppublish
 
-            <a name="pubmed-publication-status-ppublish"> </a>
+            <a name="citation-status-type-pubmed-publication-status-ppublish"> </a>
 
           </td>
 
           <td>PubMed PublicationStatus of ppublish</td>
 
-          <td>PubMed PublicationStatus of ppublish</td>
+          <td>published in print</td>
 
         </tr>
 
         <tr>
 
-          <td style="white-space:nowrap">pubmed-publication-status-epublcih
+          <td style="white-space:nowrap">pubmed-publication-status-epublish
 
-            <a name="pubmed-publication-status-epublcih"> </a>
+            <a name="citation-status-type-pubmed-publication-status-epublish"> </a>
 
           </td>
 
-          <td>PubMed PublicationStatus of epublcih</td>
+          <td>PubMed PublicationStatus of epublish</td>
 
-          <td>PubMed PublicationStatus of epublcih</td>
+          <td>electronically published only, never published in print</td>
 
         </tr>
 
@@ -417,13 +417,13 @@
 
           <td style="white-space:nowrap">pubmed-publication-status-ahead-of-print
 
-            <a name="pubmed-publication-status-ahead-of-print"> </a>
+            <a name="citation-status-type-pubmed-publication-status-ahead-of-print"> </a>
 
           </td>
 
           <td>PubMed PublicationStatus of ahead of print</td>
 
-          <td>PubMed PublicationStatus of ahead of print</td>
+          <td>electronically published, but followed by print</td>
 
         </tr>
 		      
@@ -590,16 +590,16 @@
   <concept>
     <code value="pubmed-publication-status-ppublish"/>
     <display value="PubMed PublicationStatus of ppublish"/>
-    <definition value="PubMed PublicationStatus of ppublish"/>
+    <definition value="published in print"/>
   </concept>
   <concept>
-    <code value="pubmed-publication-status-epublcih"/>
-    <display value="PubMed PublicationStatus of epublcih"/>
-    <definition value="PubMed PublicationStatus of epublcih"/>
+    <code value="pubmed-publication-status-epublish"/>
+    <display value="PubMed PublicationStatus of epublish"/>
+    <definition value="electronically published only, never published in print"/>
   </concept>
   <concept>
     <code value="pubmed-publication-status-ahead-of-print"/>
     <display value="PubMed PublicationStatus of ahead of print"/>
-    <definition value="PubMed PublicationStatus of ahead of print"/>
+    <definition value="electronically published, but followed by print"/>
   </concept>
 </CodeSystem>
