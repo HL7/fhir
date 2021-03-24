@@ -311,6 +311,14 @@ extension can be used to define the numeric weighting of a code defined in a val
 <a href="clinicalreasoning-topics-using-expressions.html">Using Expressions</a> and <a href="clinicalreasoning-knowledge-artifact-representation.html#documentation-template">Documentation Template</a> 
 topics in the Clinical Reasoning module.</p>
 
+<a name="workflow"> </a>
+<h3>Questionnaire workflow</h3>
+<p>
+Once a Questionnaire is defined, there's often a need to 'assign' a Questionnaire to a particular individual to request them to complete it.  This is not done using the Questionnaire resource
+directly.  Instead, the Questionnaire is referenced as an 'input' or argument using one of FHIR's <a href="workflow-communications.html">workflow patterns</a>.  The most common mechanism is by
+defining a stand-alone Task that references the Questionnaire and seeks completion.  The SDC implementation guide defines profiles and guidance for using this mechanism.
+</p>
+
 <a name="advanced"> </a>
 <h3>More advanced questionnaires</h3>
 <p>
