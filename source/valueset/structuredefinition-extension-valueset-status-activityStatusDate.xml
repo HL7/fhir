@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="valueset-activityStatusDate"/>
+  <id value="valueset-status-activityStatusDate"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/valueset-activityStatusDate"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/valueset-status-activityStatusDate"/>
   <version value="4.5.0"/>
   <name value="activityStatusDate"/>
   <status value="draft"/>
@@ -45,7 +45,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url"/>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/valueset-activityStatusDate"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/valueset-status-activityStatusDate"/>
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>
