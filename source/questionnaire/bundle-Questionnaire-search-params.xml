@@ -5,19 +5,59 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Questionnaire-code"/>
+        <id value="Questionnaire-questionnaire-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Questionnaire.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Questionnaire-questionnaire-code"/>
+        <description value="A code that matches one of the Questionnaire.code codings"/>
+        <code value="questionnaire-code"/>
+        <type value="token"/>
+        <expression value="Questionnaire.code"/>
+        <xpath value="f:Questionnaire/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Questionnaire-item-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Questionnaire.item.code"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Questionnaire-code"/>
-        <description value="A code that corresponds to one of its items in the questionnaire"/>
-        <code value="code"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Questionnaire-item-code"/>
+        <description value="A code that corresponds to one of the items in the questionnaire"/>
+        <code value="item-code"/>
         <type value="token"/>
         <expression value="Questionnaire.item.code"/>
         <xpath value="f:Questionnaire/f:item/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Questionnaire-combo-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Questionnaire.code,Questionnaire.item.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Questionnaire-combo-code"/>
+        <description value="A code that corresponds to one of its items in the questionnaire"/>
+        <code value="combo-code"/>
+        <type value="token"/>
+        <expression value="Questionnaire.code | Questionnaire.item.code"/>
+        <xpath value="f:Questionnaire/f:code | f:Questionnaire/f:item/f:code"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
