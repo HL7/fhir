@@ -22,6 +22,11 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/questionnaire-optionRestriction"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/questionnaire-minOccurs"/>
       </reference>
     </resource>
