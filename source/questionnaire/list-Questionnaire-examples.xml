@@ -87,4 +87,16 @@
 			<display value="PHQ-9"/>
 		</item>
 	</entry>
+	<entry>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+			<valueString value="Questionnaire for Practitioner information with metadata inferred from definitions"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+			<valueString value="questionnaire-example-practitioner-info"/>
+		</extension>
+		<item>
+			<reference value="Questionnaire/example-practitioner-info"/>
+			<display value="Practtitioner info 'definition' example"/>
+		</item>
+	</entry>
 </List>
