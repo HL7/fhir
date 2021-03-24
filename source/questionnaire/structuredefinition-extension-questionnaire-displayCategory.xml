@@ -37,7 +37,7 @@
     <type value="element"/>
     <expression value="Questionnaire.item.item"/>
   </context>
-  <contextInvariant value="type!=&#39;display&#39;"/>
+  <contextInvariant value="type=&#39;display&#39;"/>
   <type value="Extension"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
   <derivation value="constraint"/>
