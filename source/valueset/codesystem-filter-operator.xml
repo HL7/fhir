@@ -187,6 +187,22 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
           <td/>
         
         </tr>
+		
+		<tr>
+          
+          <td style="white-space:nowrap">child-of
+            
+            <a name="filter-operator-child-of"> </a>
+          
+          </td>
+          
+          <td>Child Of</td>
+          
+          <td>Only concepts with a direct hierarchical relationship to the index code and no other concepts. This does not include the index code in the output.</td>
+          
+          <td/>
+        
+        </tr>
       
       </table>
     

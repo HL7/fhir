@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="valueset-trusted-expansion"/>
+  <id value="valueset-compose-creationDate"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/valueset-trusted-expansion"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/valueset-compose-creationDate"/>
   <version value="4.5.0"/>
-  <name value="trusted-expansion"/>
+  <name value="creationDate"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="Indicates an authoritative source for performing value set expansions."/>
+  <description value="Placeholder."/>
   <fhirVersion value="4.5.0"/>
   <mapping>
     <identity value="rim"/>
@@ -25,7 +25,7 @@
   <abstract value="false"/>
   <context>
     <type value="element"/>
-    <expression value="ValueSet"/>
+    <expression value="ValueSet.compose"/>
   </context>
   <type value="Extension"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
@@ -33,11 +33,9 @@
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="Reference to a trusted expansion"/>
-      <definition value="Indicates an authoritative source for performing value set expansions."/>
-      <comment value="If the designated &quot;authoritative source&quot; (as specified in the valueset-authoritativeSource extension, if present) is unable to provide a valid expansion, this extension indicates the base URL of a FHIR server that is an alternate trusted source where the value set expansion may be obtained.  This may be via a ValueSet $expand operation request (if supported by the server), or via the ValueSet endpoint directly which will return an instance of the ValueSet resource containing a persisted expansion (and the parameters that expansion is based on). &#xA;&#xA;This extension should only be used if the &quot;authoritative source&quot; (valueset-authoritativeSource extension) does not have a FHIR service which is capable of generating or returning a valid FHIR value set expansion."/>
+      <definition value="Placeholder."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <isModifier value="false"/>
     </element>
     <element id="Extension.extension">
@@ -46,13 +44,13 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url"/>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/valueset-trusted-expansion"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/valueset-compose-creationDate"/>
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>
       <min value="1"/>
       <type>
-        <code value="url"/>
+        <code value="string"/>
       </type>
     </element>
   </differential>

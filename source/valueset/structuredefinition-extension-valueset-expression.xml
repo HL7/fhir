@@ -34,8 +34,8 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="An alternative computable expression of the value set content"/>
-      <definition value="An expression that provides an alternative definition of the content of the value set. There are two different ways to use this expression extension: If both an expression and a compose element is present, the compose is understood the make the same statement as the expression. If there is no compose, the expression is the only definition of the value set, and the value set can only be processed by a server that understands the expression syntax, it that is computable."/>
-      <comment value="The expression may be a reference or the actual expression, and ss expected to be a computable format (use the [rules-text extension](extension-valueset-rules-text.html) for a non-computable description)."/>
+      <definition value="An expression that provides an alternative definition of the content of the value set (compose). There are two different ways to use this expression extension: If both an expression (this extension) and a compose element is present, the compose is understood to the make the same statement as the expression. If there is no compose, the expression is the only definition of the value set, and the value set can only be processed by a server that understands the expression syntax, the expression is computable."/>
+      <comment value="The expression may be a reference or the actual expression, and is expected to be in a computable format. Use the [rules-text extension](extension-valueset-rules-text.html) for a non-computable expression of the value set definition (compose)."/>
       <min value="0"/>
       <max value="1"/>
     </element>
