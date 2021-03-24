@@ -865,8 +865,7 @@
       <short value="Only allow data when"/>
       <definition value="A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true."/>
       <comment value="If multiple repetitions of this extension are present, the interpretation is driven by enableBehavior (either all repetitions must evaluate to true for this item to be enabled, or only one must evaluate to true for the item to be 
-enabled).  If the enableWhen.question has multiple answers, the condition evaluates to true if *any* of the answers for the referenced item match the enableWhen condition.
-
+enabled).  If the enableWhen.question has multiple answers, the condition evaluates to true if *any* of the answers for the referenced item match the enableWhen condition.\n
 This element is a modifier because if enableWhen is present for an item, &quot;required&quot; is ignored unless one of the enableWhen conditions is met. When an item is disabled, all of its descendants are disabled, regardless of what their own enableWhen logic might evaluate to.  If enableWhen logic depends on an item that is disabled, the logic should proceed as though the item is not valued - even if a default value or other value might be retained in memory in the event of the item being re-enabled."/>
       <requirements value="Allows questionnaires to adapt based on answers to other questions. E.g. If physical gender is specified as a male, no need to capture pregnancy history.  Also allows conditional display of instructions or groups of questions."/>
       <min value="0"/>
@@ -893,7 +892,7 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
       <path value="Questionnaire.item.enableWhen.question"/>
       <short value="Question that determines whether item is enabled"/>
       <definition value="The linkId for the question whose answer (or lack of answer) governs whether this item is enabled."/>
-      <comment value="If multiple question occurrences are present for the same question (same linkId), then this refers to the nearest question occurrence reachable by tracing first the &quot;ancestor&quot; axis and then the &quot;preceding&quot; axis and then the &quot;following&quot; axis.  If there are multiple items with the same linkId and all are equadistant (e.g. a question references a question that appears in a separate repeating group), that is an error.  (Consider using the enableWhenExpression extension to define logic to handle such a situation.)"/>
+      <comment value="If multiple question occurrences are present for the same question (same linkId), then this refers to the nearest question occurrence reachable by tracing first the &quot;ancestor&quot; axis and then the &quot;preceding&quot; axis and then the &quot;following&quot; axis."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -929,7 +928,7 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
     <element id="Questionnaire.item.enableWhen.answer[x]">
       <path value="Questionnaire.item.enableWhen.answer[x]"/>
       <short value="Value for question comparison based on operator"/>
-      <definition value="A value that the referenced question is tested using the specified operator in order for the item to be enabled.  If there are multiple answers, a match on any of the answers suffices.  If different behavior is desired (all must match, at least 2 must match, etc.), consider using the enableWhenExpression extension."/>
+      <definition value="A value that the referenced question is tested using the specified operator in order for the item to be enabled."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1001,40 +1000,17 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
         <map value="N/A - MIF rather than RIM level"/>
       </mapping>
     </element>
-    <element id="Questionnaire.item.disabledDisplay">
-      <path value="Questionnaire.item.disabledDisplay"/>
-      <short value="hidden | protected"/>
-      <definition value="Indicates if and how items that are disabled (because enableWhen evaluates to 'false') should be displayed."/>
-      <comment value="If not specified, rendering behavior is up to the client.  This element is only meaningful if enableWhen or an equivalent extension is present"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DisabledDisplay"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Defines how disabled elements should be rendered"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-disabled-display"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A - MIF rather than RIM level"/>
-      </mapping>
-    </element>
     <element id="Questionnaire.item.required">
       <path value="Questionnaire.item.required"/>
       <short value="Whether the item must be included in data results"/>
       <definition value="An indication, if true, that the item must be present in a &quot;completed&quot; QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire."/>
-      <comment value="Questionnaire.item.required only has meaning for elements that are conditionally enabled with enableWhen if the condition evaluates to true.  It also only has meaning if the parent element is present.  If a non-required 'group' item contains a 'required' question item, it's completely fine to omit the group (because it's not required) despite it having a required child.  Similarly, if an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one descendant item with a populated answer). The value may come from the ElementDefinition referred to by .definition."/>
+      <comment value="Questionnaire.item.required only has meaning for elements that are conditionally enabled with enableWhen if the condition evaluates to true.  If an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one child element). The value may come from the ElementDefinition referred to by .definition."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
-      <meaningWhenMissing value="Items are assumed not to be required unless explicitly specified, though extensions may impose additional expectations"/>
+      <meaningWhenMissing value="Items are generally assumed not to be required unless explicitly specified. Systems SHOULD always populate this value"/>
       <condition value="que-6"/>
       <mapping>
         <identity value="rim"/>

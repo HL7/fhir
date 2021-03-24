@@ -108,22 +108,6 @@ Detailed instructions should be conveyed by a nested "display" item.  It's not n
 display items and questions or groups, with the expectation that users will see the display text before encountering the following questions. 
 </p>
 
-<a name="group"> </a>
-<h3>Group properties</h3>
-<p>
-Some properties defined at the 'group' level will impact the behavior of everything within the group.  For example, if a 'group' item is marked as readOnly=true, then all items within that
-group are automatically treated as readOnly - even if they explicitly declare readOnly=false.  The same holds for enableWhen.  If a group is 'disabled' based on its enableWhen settings, then
-all child items are automatically disabled - regardless of whether they have enableWhen declared or how those enableWhen conditions might resolve.  Some extensions (e.g. the SDC 'hidden'
-extension) behave in the same manner.  Systems MAY choose to raise errors or warnings if questionnaires have conflicting settings.  E.g. if a group is marked as readOnly=true and a descendant
-item explicitly declares readOnly=false.  This wouldn't be because the behavior is unclear, but more to draw the author's attention to the fact that their desired behavior for the child will
-not be realized due to the setting of the ancestor group.
-</p>
-<p>
-Behavior of parent 'question' items (i.e. questions with child groups or questions) can also influence descendant elements, but not as strongly.  If a question is readOnly, that doesn't mean that
-child items are also readOnly.  However, if a question is disabled, all descendant items are also disabled.  Similarly, a 'hidden' question, would hide child elements as well.
-</p>
-
-
 <a name="identifiers"> </a>
 <h3>Identifiers within Questionnaire</h3>
 <p>There are three different "identifying" elements within Questionnaire: <code>identifier</code>, <code>id</code> and <code>linkId</code>.  Each serves very distinct
