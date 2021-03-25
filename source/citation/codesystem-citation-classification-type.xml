@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="citation-classification-type"/>
+  <meta>
+    <lastUpdated value="2021-03-11T10:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/citation-classification-type defines the following codes:</p>
+      
+      
+      <table class="codes">
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">
+            
+            
+            <b>Code</b>
+          
+          
+          </td>
+          
+          
+          <td>
+            
+            
+            <b>Display</b>
+          
+          
+          </td>
+          
+          
+          <td>
+            
+            
+            <b>Definition</b>
+          
+          
+          </td>
+        
+        
+        </tr>
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">citation-source
+            
+            
+            <a name="citation-classification-type-citation-source"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Citation Source</td>
+          
+          
+          <td>Citation repository where this citation was created or copied from</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">Print
+            
+            
+            <a name="citation-classification-type-Print"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Print</td>
+          
+          
+          <td>the journal is published in print format only</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">Print Electronic
+            
+            
+            <a name="citation-classification-type-Print-Electronic"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Print Electronic</td>
+          
+          
+          <td>the journal is published in both print and electronic format</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">Electronic
+            
+            
+            <a name="citation-classification-type-Electronic"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Electronic</td>
+          
+          
+          <td>the journal is published in electronic format only</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">Electronic-Print
+            
+            
+            <a name="citation-classification-type-Electronic-Print"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Electronic-Print</td>
+          
+          
+          <td>the journal is published first in electronic format followed by print (this value is currently used for just one journal, Nucleic Acids Research)</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">Electronic-eCollection
+            
+            
+            <a name="citation-classification-type-Electronic-eCollection"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Electronic-eCollection</td>
+          
+          
+          <td>used for electronic-only journals that publish individual articles first and then later collect them into an &quot;issue&quot; date that is typically called an eCollection.</td>
+        
+        
+        </tr>
+      
+      
+      </table>
+    
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/citation-classification-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.5.0"/>
+  <name value="CitationClassificationType"/>
+  <title value="CitationClassificationType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-03-11T10:55:11.085+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Citation classification type"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/citation-classification-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="citation-source"/>
+    <display value="Citation Source"/>
+    <definition value="Citation repository where this citation was created or copied from"/>
+  </concept>
+  <concept>
+    <code value="Print"/>
+    <display value="Print"/>
+    <definition value="the journal is published in print format only"/>
+  </concept>
+  <concept>
+    <code value="Print-Electronic"/>
+    <display value="Print Electronic"/>
+    <definition value="the journal is published in both print and electronic format"/>
+  </concept>
+  <concept>
+    <code value="Electronic"/>
+    <display value="Electronic"/>
+    <definition value="the journal is published in electronic format only"/>
+  </concept>
+  <concept>
+    <code value="Electronic-Print"/>
+    <display value="Electronic-Print"/>
+    <definition value="the journal is published first in electronic format followed by print (this value is currently used for just one journal, Nucleic Acids Research)"/>
+  </concept>
+  <concept>
+    <code value="Electronic-eCollection"/>
+    <display value="Electronic-eCollection"/>
+    <definition value="used for electronic-only journals that publish individual articles first and then later collect them into an &quot;issue&quot; date that is typically called an eCollection."/>
+  </concept>
+</CodeSystem>

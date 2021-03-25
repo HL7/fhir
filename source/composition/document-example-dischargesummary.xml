@@ -448,12 +448,9 @@
         </text>
       <!--   The patient details will generally be in the Document resource in the Document bundle, but could just as easily
         point to a patient resource on a server  -->
-        <status value='active'/>
+        <status value='completed'/>
 	<!--   a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
         within the document bundle or simply a reference to a remote server. See comment in the contained resource  -->
-        <statusReason>
-          <text value="Management of Asthma"/>
-        </statusReason>
         <medication>
           <concept>
           <text value="Ventolin Inhaler"/>
@@ -464,10 +461,11 @@
           <display value="Peter Patient"/>
         </subject>
         <dateAsserted value="2013-05-05T16:13:03Z"/>
-
-
-
-
+        <reason>
+					<concept>
+          <text value="Management of Asthma"/>
+				</concept>
+        </reason>
        </MedicationUsage>
     </resource>
   </entry>

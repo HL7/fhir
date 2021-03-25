@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="citation-contribution"/>
+  <id value="artifact-contribution-type"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -10,7 +10,7 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
-      <p>This code system http://terminology.hl7.org/CodeSystem/citation-contribution defines the following codes:</p>
+      <p>This code system http://terminology.hl7.org/CodeSystem/artifact-contribution-type defines the following codes:</p>
       
       <table class="codes">
         
@@ -40,7 +40,7 @@
           
           <td style="white-space:nowrap">conceptualization
             
-            <a name="citation-contribution-conceptualization"> </a>
+            <a name="artifact-contribution-type-conceptualization"> </a>
           
           </td>
           
@@ -52,9 +52,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">dataCuration
+          <td style="white-space:nowrap">data-curation
             
-            <a name="citation-contribution-dataCuration"> </a>
+            <a name="artifact-contribution-type-data-curation"> </a>
           
           </td>
           
@@ -66,9 +66,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">formalAnalysis
+          <td style="white-space:nowrap">formal-analysis
             
-            <a name="citation-contribution-formalAnalysis"> </a>
+            <a name="artifact-contribution-type-formal-analysis"> </a>
           
           </td>
           
@@ -80,9 +80,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">fundingAcquisition
+          <td style="white-space:nowrap">funding-acquisition
             
-            <a name="citation-contribution-fundingAcquisition"> </a>
+            <a name="artifact-contribution-type-funding-acquisition"> </a>
           
           </td>
           
@@ -96,7 +96,7 @@
           
           <td style="white-space:nowrap">investigation
             
-            <a name="citation-contribution-investigation"> </a>
+            <a name="artifact-contribution-type-investigation"> </a>
           
           </td>
           
@@ -110,7 +110,7 @@
           
           <td style="white-space:nowrap">methodology
             
-            <a name="citation-contribution-methodology"> </a>
+            <a name="artifact-contribution-type-methodology"> </a>
           
           </td>
           
@@ -122,9 +122,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">projectAdministration
+          <td style="white-space:nowrap">project-administration
             
-            <a name="citation-contribution-projectAdministration"> </a>
+            <a name="artifact-contribution-type-project-administration"> </a>
           
           </td>
           
@@ -138,7 +138,7 @@
           
           <td style="white-space:nowrap">resources
             
-            <a name="citation-contribution-resources"> </a>
+            <a name="artifact-contribution-type-resources"> </a>
           
           </td>
           
@@ -152,7 +152,7 @@
           
           <td style="white-space:nowrap">software
             
-            <a name="citation-contribution-software"> </a>
+            <a name="artifact-contribution-type-software"> </a>
           
           </td>
           
@@ -166,7 +166,7 @@
           
           <td style="white-space:nowrap">supervision
             
-            <a name="citation-contribution-supervision"> </a>
+            <a name="artifact-contribution-type-supervision"> </a>
           
           </td>
           
@@ -180,7 +180,7 @@
           
           <td style="white-space:nowrap">validation
             
-            <a name="citation-contribution-validation"> </a>
+            <a name="artifact-contribution-type-validation"> </a>
           
           </td>
           
@@ -194,7 +194,7 @@
           
           <td style="white-space:nowrap">visualization
             
-            <a name="citation-contribution-visualization"> </a>
+            <a name="artifact-contribution-type-visualization"> </a>
           
           </td>
           
@@ -206,9 +206,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">writingOriginalDraft
+          <td style="white-space:nowrap">writing-original-draft
             
-            <a name="citation-contribution-writingOriginalDraft"> </a>
+            <a name="artifact-contribution-type-writing-original-draft"> </a>
           
           </td>
           
@@ -220,9 +220,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">writingReviewEditing
+          <td style="white-space:nowrap">writing-review-editing
             
-            <a name="citation-contribution-writingReviewEditing"> </a>
+            <a name="artifact-contribution-type-writing-review-editing"> </a>
           
           </td>
           
@@ -245,14 +245,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://terminology.hl7.org/CodeSystem/citation-contribution"/>
+  <url value="http://terminology.hl7.org/CodeSystem/artifact-contribution-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1505"/>
   </identifier>
   <version value="4.5.0"/>
-  <name value="CitationContribution"/>
-  <title value="CitationContribution"/>
+  <name value="ArtifactContributionType"/>
+  <title value="ArtifactContributionType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -269,7 +269,7 @@
   </contact>
   <description value="Citation contribution."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/citation-contribution"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/artifact-contribution-type"/>
   <content value="complete"/>
   <concept>
     <code value="conceptualization"/>
@@ -277,17 +277,17 @@
     <definition value="Conceptualization (see https://jats4r.org/credit-taxonomy)."/>
   </concept>
   <concept>
-    <code value="dataCuration"/>
+    <code value="data-curation"/>
     <display value="Data curation"/>
     <definition value="Data curation (see https://jats4r.org/credit-taxonomy)."/>
   </concept>
   <concept>
-    <code value="formalAnalysis"/>
+    <code value="formal-analysis"/>
     <display value="Formal analysis"/>
     <definition value="Formal analysis (see https://jats4r.org/credit-taxonomy)."/>
   </concept>
   <concept>
-    <code value="fundingAcquisition"/>
+    <code value="funding-acquisition"/>
     <display value="Funding acquisition"/>
     <definition value="Funding acquisition (see https://jats4r.org/credit-taxonomy)."/>
   </concept>
@@ -302,7 +302,7 @@
     <definition value="Methodology (see https://jats4r.org/credit-taxonomy)."/>
   </concept>
   <concept>
-    <code value="projectAdministration"/>
+    <code value="project-administration"/>
     <display value="Project administration"/>
     <definition value="Project administration (see https://jats4r.org/credit-taxonomy)."/>
   </concept>
@@ -332,12 +332,12 @@
     <definition value="Visualization (see https://jats4r.org/credit-taxonomy)."/>
   </concept>
   <concept>
-    <code value="writingOriginalDraft"/>
+    <code value="writing-original-draft"/>
     <display value="Writing - original draft"/>
     <definition value="Writing - original draft (see https://jats4r.org/credit-taxonomy)."/>
   </concept>
   <concept>
-    <code value="writingReviewEditing"/>
+    <code value="writing-review-editing"/>
     <display value="Writing - review &amp; editing"/>
     <definition value="Writing - review &amp; editing (see https://jats4r.org/credit-taxonomy)."/>
   </concept>

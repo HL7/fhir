@@ -1,43 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="citation-variant-type"/>
+  <id value="citation-artifact-classifier"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    <lastUpdated value="2021-03-11T10:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <ul>
+        
         <li>Include all codes defined in 
-          <a href="codesystem-citation-variant-type.html">
-            <code>http://terminology.hl7.org/CodeSystem/citation-variant-type</code>
+          
+          <a href="codesystem-citation-artifact-classifier.html">
+            
+            <code>http://terminology.hl7.org/CodeSystem/citation-artifact-classifier</code>
+          
           </a>
+        
         </li>
+      
       </ul>
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-activity">
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/citation-variant-type"/>
+  <url value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1484"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
   </identifier>
   <version value="4.5.0"/>
-  <name value="CitationVariantType"/>
-  <title value="CitationVariantType"/>
+  <name value="CitationArtifactClassifier"/>
+  <title value="CitationArtifactClassifier"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2021-03-11T10:55:11.085+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -49,11 +57,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="To describe the reason for the variant citation, such as version number or subpart specification."/>
+  <description value="Citation artifact classifier"/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/citation-variant-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
     </include>
   </compose>
 </ValueSet>

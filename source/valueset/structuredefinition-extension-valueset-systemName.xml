@@ -11,7 +11,7 @@
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-systemName"/>
   <version value="4.5.0"/>
   <name value="systemName"/>
-  <status value="draft"/>
+  <status value="retired"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
   <description value="The human-readable name for the code system."/>
