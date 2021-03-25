@@ -270,7 +270,63 @@
 
           <td>Similar to</td>
 
-        </tr>		
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">cites
+            
+            <a name="citation-classifier-cites"> </a>
+          
+          </td>
+          
+          <td>Cites</td>
+          
+          <td>Cites</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">cited-by
+            
+            <a name="citation-classifier-cited-by"> </a>
+          
+          </td>
+          
+          <td>Cited by</td>
+          
+          <td>Cited by</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">retracts
+            
+            <a name="citation-classifier-retracts"> </a>
+          
+          </td>
+          
+          <td>Retracts</td>
+          
+          <td>Retracts</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">retracted-by
+            
+            <a name="citation-classifier-retracted-by"> </a>
+          
+          </td>
+          
+          <td>Retracted by</td>
+          
+          <td>Retracted by</td>
+        
+        </tr>
       
       </table>
     
@@ -390,5 +446,25 @@
     <code value="similar-to"/>
     <display value="Similar to"/>
     <definition value="Similar to"/>
+  </concept>
+  <concept>
+    <code value="cites"/>
+    <display value="Cites"/>
+    <definition value="Cites"/>
+  </concept>
+  <concept>
+    <code value="cited-by"/>
+    <display value="Cited by"/>
+    <definition value="Cited by"/>
+  </concept>
+  <concept>
+    <code value="retracts"/>
+    <display value="Retracts"/>
+    <definition value="Retracts"/>
+  </concept>
+  <concept>
+    <code value="retracted-by"/>
+    <display value="Retracted by"/>
+    <definition value="Retracted by"/>
   </concept>
 </CodeSystem>

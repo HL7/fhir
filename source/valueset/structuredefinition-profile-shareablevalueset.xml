@@ -102,8 +102,6 @@
     <element id="ValueSet.publisher">
       <path value="ValueSet.publisher"/>
       <alias value="steward"/>
-      <min value="1"/>
-      <max value="1"/>
       <type>
         <code value="string"/>
       </type>
@@ -111,8 +109,6 @@
     <element id="ValueSet.description">
       <path value="ValueSet.description"/>
       <alias value="scope"/>
-      <min value="1"/>
-      <max value="1"/>
       <type>
         <code value="markdown"/>
       </type>
