@@ -677,9 +677,9 @@
 			<constraint>
 				<key value="que-5"/>
 				<severity value="error"/>
-				<human value="Only &#39;choice&#39; and &#39;open-choice&#39; items can have answerValueSet"/>
-				<expression value="(type =&#39;choice&#39; or type = &#39;open-choice&#39; or type = &#39;decimal&#39; or type = &#39;integer&#39; or type = &#39;date&#39; or type = &#39;dateTime&#39; or type = &#39;time&#39; or type = &#39;string&#39; or type = &#39;quantity&#39;) or (answerValueSet.empty() and answerOption.empty())"/>
-				<xpath value="f:type/@value=(&#39;choice&#39;,&#39;open-choice&#39;,&#39;decimal&#39;,&#39;integer&#39;,&#39;date&#39;,&#39;dateTime&#39;,&#39;time&#39;,&#39;string&#39;,&#39;quantity&#39;,&#39;) or not(f:answerOption or f:answerValueSet)"/>
+				<human value="Only coding, decimal, integer, date, dateTime, time, string or quantity  items can have answerOption or answerValueSet"/>
+				<expression value="(type=&#39;coding&#39; or type = &#39;decimal&#39; or type = &#39;integer&#39; or type = &#39;date&#39; or type = &#39;dateTime&#39; or type = &#39;time&#39; or type = &#39;string&#39; or type = &#39;quantity&#39;) or (answerValueSet.empty() and answerOption.empty())"/>
+				<xpath value="f:type/@value=(&#39;coding&#39;,&#39;decimal&#39;,&#39;integer&#39;,&#39;date&#39;,&#39;dateTime&#39;,&#39;time&#39;,&#39;string&#39;,&#39;quantity&#39;,&#39;) or not(f:answerOption or f:answerValueSet)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>
@@ -702,8 +702,8 @@
 				<key value="que-10"/>
 				<severity value="error"/>
 				<human value="Maximum length can only be declared for simple question types"/>
-				<expression value="(type in (&#39;boolean&#39; | &#39;decimal&#39; | &#39;integer&#39; | &#39;string&#39; | &#39;text&#39; | &#39;url&#39; | &#39;open-choice&#39;)) or maxLength.empty()"/>
-				<xpath value="f:type/@value=(&#39;boolean&#39;, &#39;decimal&#39;, &#39;integer&#39;, &#39;open-choice&#39;, &#39;string&#39;, &#39;text&#39;, &#39;url&#39;) or not(f:maxLength)"/>
+				<expression value="(type in (&#39;boolean&#39; | &#39;decimal&#39; | &#39;integer&#39; | &#39;string&#39; | &#39;text&#39; | &#39;url&#39;)) or answerConstraint='optionOrString' or maxLength.empty()"/>
+				<xpath value="f:type/@value=(&#39;boolean&#39;, &#39;decimal&#39;, &#39;integer&#39;, &#39;string&#39;, &#39;text&#39;, &#39;url&#39;) or f:answerConstraint/@value='openOrString' or not(f:maxLength)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>
@@ -725,7 +725,7 @@
 			<constraint>
 				<key value="que-11"/>
 				<severity value="error"/>
-				<human value="If one or more answerOption is present, initial[x] cannot be present.  Use answerOption.initialSelected instead"/>
+				<human value="If one or more answerOption is present, initial cannot be present.  Use answerOption.initialSelected instead"/>
 				<expression value="answerOption.empty() or initial.empty()"/>
 				<xpath value="not(f:answerOption) or not(count(f:*[starts-with(local-name(.), &#39;initial&#39;)]))"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
@@ -736,6 +736,14 @@
 				<human value="If there are more than one enableWhen, enableBehavior must be specified"/>
 				<expression value="enableWhen.count() &gt; 2 implies enableBehavior.exists()"/>
 				<xpath value="not(f:answerOption) or not(count(f:*[starts-with(local-name(.), &#39;initial&#39;)]))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+			</constraint>
+			<constraint>
+				<key value="que-14"/>
+				<severity value="error"/>
+				<human value="Can only have answerConstraint if answerOption or answerValueset are present"/>
+				<expression value="answerConstraint.exists() implies answerOption.exists() or answerValueset.exists()"/>
+				<xpath value="not(exists(f:answerConstraint)) or exists(f:answerOption) or exists(f:answerValueSet)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<mapping>
@@ -754,6 +762,7 @@
 			<type>
 				<code value="string"/>
 			</type>
+			<condition value="que-2"/>	
 			<mapping>
 				<identity value="rim"/>
 				<map value=".id"/>
@@ -835,7 +844,7 @@
 		<element id="Questionnaire.item.type">
 			<path value="Questionnaire.item.type"/>
 			<short value="group | display | boolean | decimal | integer | date | dateTime +"/>
-			<definition value="The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.)."/>
+			<definition value="The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, Coding, etc.)."/>
 			<comment value="Additional constraints on the type of answer can be conveyed by extensions. The value may come from the ElementDefinition referred to by .definition."/>
 			<requirements value="Defines the format in which the user is to be prompted for the answer."/>
 			<min value="1"/>
@@ -850,6 +859,31 @@
 				<strength value="required"/>
 				<description value="Distinguishes groups from questions and display text and indicates data type for questions."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/item-type"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A - MIF rather than RIM level"/>
+			</mapping>
+		</element>
+		<element id="Questionnaire.item.answerConstraint">
+			<path value="Questionnaire.item.answerConstraint"/>
+			<short value="optionsOnly | optionsOrType | optionsOrString"/>
+			<definition value="For items that have a defined set of allowed answers (via answerOption or answerValueset), indicates whether values *other* than those specified can be selected."/>
+			<requirements value="Introduces the ability for questions to have 'other' answers"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<meaningWhenMissing value="If not specified, answerConstraint is presumed to be 'optionsOnly'"/>
+			<condition value="que-14"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="QuestionnaireAnswerConstraint"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Indicates differnt modes for restricting values when options or valueset are specified"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-answer-constraint"/>
 			</binding>
 			<mapping>
 				<identity value="rim"/>
@@ -1098,7 +1132,7 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 		<element id="Questionnaire.item.answerValueSet">
 			<path value="Questionnaire.item.answerValueSet"/>
 			<short value="Valueset containing permitted answers"/>
-			<definition value="A reference to a value set containing a list of codes representing permitted answers for a &quot;choice&quot; or &quot;open-choice&quot; question."/>
+			<definition value="A reference to a value set containing a list of values representing permitted answers for a question."/>
 			<comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](loinc.html#alist). The value may come from the ElementDefinition referred to by .definition."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1194,7 +1228,7 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 			<path value="Questionnaire.item.initial"/>
 			<short value="Initial value(s) when item is first rendered"/>
 			<definition value="One or more values that should be pre-populated in the answer when initially rendering the questionnaire for user input."/>
-			<comment value="The user is allowed to change the value and override the default (unless marked as read-only). If the user doesn&#39;t change the value, then this initial value will be persisted when the QuestionnaireResponse is initially created.  Note that initial values can influence results.  The data type of initial[x] must agree with the item.type, and only repeating items can have more then one initial value."/>
+			<comment value="The user is allowed to change the value and override the default (unless marked as read-only). If the user doesn&#39;t change the value, then this initial value will be persisted when the QuestionnaireResponse is initially created.  Note that initial values can influence results.  The data type of initial.answer[x] must agree with the item.type, and only repeating items can have more then one initial value."/>
 			<requirements value="In some workflows, having defaults saves time."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -1202,6 +1236,7 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 				<code value="BackboneElement"/>
 			</type>
 			<condition value="que-8"/>
+			<condition value="que-11"/>
 			<condition value="que-13"/>
 			<mapping>
 				<identity value="rim"/>

@@ -16,7 +16,7 @@
 			<linkId value="Practitioner.gender"/>
 			<definition value="http://hl7.org/fhir/StructureDefinition/Practitioner#Practitioner.gender"/>
 			<text value="Gender"/>
-			<type value="choice"/>
+			<type value="coding"/>
 		</item>
 		<item>
 			<linkId value="Practitioner.birthDate"/>
