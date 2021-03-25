@@ -30,7 +30,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Common US Driver&#39;s license identification"/>
+      <valueString value="Examples of naming systems for Common US identification"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="namingsystem-registry"/>
