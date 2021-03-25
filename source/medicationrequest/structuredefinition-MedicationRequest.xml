@@ -1035,6 +1035,27 @@
         <map value="Supply.text"/>
       </mapping>
     </element>
+    <element id="MedicationRequest.dispenseRequest.doseAdministrationAid">
+      <path value="MedicationRequest.dispenseRequest.doseAdministrationAid"/>
+      <short value="Type of adherence packaging to use for the dispense"/>
+      <definition value="Provides information about the type of adherence packaging to be supplied for the medication dispense."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationRequestDoseAdministrationAid"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-dose-aid"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Supply.administerableMedication.product.asContent.container.code"/>
+      </mapping>
+    </element>
     <element id="MedicationRequest.substitution">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,200"/>
