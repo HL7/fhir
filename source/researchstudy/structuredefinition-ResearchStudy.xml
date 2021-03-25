@@ -378,6 +378,9 @@
       <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
       <isSummary value="true"/>
       <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
         <strength value="required"/>
         <description value="Codes that convey the current publication status of the research study resource."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
@@ -760,7 +763,7 @@
     <!--Classification -->
     <element id="ResearchStudy.classification">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="40,200"/>
+        <valueCode value="40,220"/>
       </extension>
       <path value="ResearchStudy.classification"/>
       <short value="Classification for the study"/>
@@ -1123,7 +1126,7 @@
       <short value="Allows the arm for the study and the arm for the subject to be linked easily"/>
       <definition value="Allows the arm for the study and the arm for the subject to be linked easily."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="uri"/>
       </type>
