@@ -127,9 +127,9 @@
 
           </td>
 
-          <td>PubMed Pubstatus of Ahead of print</td>
+          <td>PubMed Pubstatus of aheadofprint</td>
 
-          <td>PubMed Pubstatus of Ahead of print</td>
+          <td>PubMed Pubstatus of aheadofprint</td>
 
         </tr>
 
@@ -415,13 +415,13 @@
 
         <tr>
 
-          <td style="white-space:nowrap">pubmed-publication-status-ahead-of-print
+          <td style="white-space:nowrap">pubmed-publication-status-aheadofprint
 
-            <a name="citation-status-type-pubmed-publication-status-ahead-of-print"> </a>
+            <a name="citation-status-type-pubmed-publication-status-aheadofprint"> </a>
 
           </td>
 
-          <td>PubMed PublicationStatus of ahead of print</td>
+          <td>PubMed PublicationStatus of aheadofprint</td>
 
           <td>electronically published, but followed by print</td>
 
@@ -494,8 +494,8 @@
   </concept>
   <concept>
     <code value="pubmed-pubstatus-aheadofprint"/>
-    <display value="PubMed Pubstatus of Ahead of print"/>
-    <definition value="PubMed Pubstatus of Ahead of print"/>
+    <display value="PubMed Pubstatus of aheadofprint"/>
+    <definition value="PubMed Pubstatus of aheadofprint"/>
   </concept>
   <concept>
     <code value="pubmed-pubstatus-retracted"/>
@@ -598,8 +598,8 @@
     <definition value="electronically published only, never published in print"/>
   </concept>
   <concept>
-    <code value="pubmed-publication-status-ahead-of-print"/>
-    <display value="PubMed PublicationStatus of ahead of print"/>
+    <code value="pubmed-publication-status-aheadofprint"/>
+    <display value="PubMed PublicationStatus of aheadofprint"/>
     <definition value="electronically published, but followed by print"/>
   </concept>
 </CodeSystem>
