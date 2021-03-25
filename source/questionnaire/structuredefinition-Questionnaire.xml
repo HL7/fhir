@@ -865,31 +865,6 @@
 				<map value="N/A - MIF rather than RIM level"/>
 			</mapping>
 		</element>
-		<element id="Questionnaire.item.answerConstraint">
-			<path value="Questionnaire.item.answerConstraint"/>
-			<short value="optionsOnly | optionsOrType | optionsOrString"/>
-			<definition value="For items that have a defined set of allowed answers (via answerOption or answerValueset), indicates whether values *other* than those specified can be selected."/>
-			<requirements value="Introduces the ability for questions to have 'other' answers"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<meaningWhenMissing value="If not specified, answerConstraint is presumed to be 'optionsOnly'"/>
-			<condition value="que-14"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="QuestionnaireAnswerConstraint"/>
-				</extension>
-				<strength value="required"/>
-				<description value="Indicates differnt modes for restricting values when options or valueset are specified"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-answer-constraint"/>
-			</binding>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
 		<element id="Questionnaire.item.enableWhen">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
 				<valueCode value="down"/>
@@ -1124,6 +1099,31 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 				<identity value="v2"/>
 				<map value="N/A"/>
 			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A - MIF rather than RIM level"/>
+			</mapping>
+		</element>
+		<element id="Questionnaire.item.answerConstraint">
+			<path value="Questionnaire.item.answerConstraint"/>
+			<short value="optionsOnly | optionsOrType | optionsOrString"/>
+			<definition value="For items that have a defined set of allowed answers (via answerOption or answerValueset), indicates whether values *other* than those specified can be selected."/>
+			<requirements value="Introduces the ability for questions to have 'other' answers"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<meaningWhenMissing value="If not specified, answerConstraint is presumed to be 'optionsOnly'"/>
+			<condition value="que-14"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="QuestionnaireAnswerConstraint"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Indicates differnt modes for restricting values when options or valueset are specified"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-answer-constraint"/>
+			</binding>
 			<mapping>
 				<identity value="rim"/>
 				<map value="N/A - MIF rather than RIM level"/>
