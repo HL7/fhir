@@ -895,7 +895,7 @@
       </type>
     </element>
 
-    <!-- Progress -->
+    <!-- Progress
     <element id="ResearchStudy.currentState">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="40,440"/>
@@ -916,7 +916,7 @@
         <description value="defn."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-status"/>
       </binding>
-    </element>
+    </element> -->
     <element id="ResearchStudy.statusDate">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="40,520"/>
