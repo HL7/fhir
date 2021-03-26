@@ -101,7 +101,6 @@
     </element>
     <element id="ValueSet.publisher">
       <path value="ValueSet.publisher"/>
-      <alias value="steward"/>
       <type>
         <code value="string"/>
       </type>
