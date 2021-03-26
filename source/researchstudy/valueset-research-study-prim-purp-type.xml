@@ -7,15 +7,8 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <text>
-    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <ul>
-        <li>Include all codes defined in 
-          <a href="codesystem-research-study-prim-purp-type.html">
-            <code>http://terminology.hl7.org/CodeSystem/research-study-prim-purp-type</code>
-          </a>
-        </li>
-      </ul>
+      <p>Hello world</p>
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
