@@ -93,6 +93,34 @@
         
         <tr>
           
+          <td style="white-space:nowrap">D016422
+            
+            <a name="citation-artifact-classifier-D016422"> </a>
+          
+          </td>
+          
+          <td>Letter</td>
+          
+          <td>Letter</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">D016420
+            
+            <a name="citation-artifact-classifier-D016420"> </a>
+          
+          </td>
+          
+          <td>Comment</td>
+          
+          <td>Comment</td>
+        
+        </tr>
+        
+        <tr>
+          
           <td style="white-space:nowrap">D016425
             
             <a name="citation-artifact-classifier-D016425"> </a>
@@ -309,6 +337,16 @@
     <code value="D016428"/>
     <display value="Journal Article"/>
     <definition value="Journal Article"/>
+  </concept>
+  <concept>
+    <code value="D016422"/>
+    <display value="Letter"/>
+    <definition value="Letter"/>
+  </concept>
+  <concept>
+    <code value="D016420"/>
+    <display value="Comment"/>
+    <definition value="Comment"/>
   </concept>
   <concept>
     <code value="D016425"/>
