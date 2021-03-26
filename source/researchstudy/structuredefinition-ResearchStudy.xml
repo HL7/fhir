@@ -895,7 +895,7 @@
       </type>
     </element>
 
-    <!-- Progress
+    <!-- Progress -->
     <element id="ResearchStudy.currentState">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="40,440"/>
@@ -916,7 +916,7 @@
         <description value="defn."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-status"/>
       </binding>
-    </element> -->
+    </element>
     <element id="ResearchStudy.statusDate">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="40,520"/>
@@ -948,8 +948,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-statusDate-activity"/>
       </binding>
     </element>
-    <element id="ResearchStudy.currentState.actual">
-      <path value="ResearchStudy.currentState.actual"/>
+    <element id="ResearchStudy.statusDate.actual">
+      <path value="ResearchStudy.statusDate.actual"/>
       <short value="Actual if true else anticipated"/>
       <definition value="Actual if true else anticipated."/>
       <min value="0"/>
@@ -958,8 +958,8 @@
         <code value="boolean"/>
       </type>
     </element>
-    <element id="ResearchStudy.currentState.period">
-      <path value="ResearchStudy.currentState.period"/>
+    <element id="ResearchStudy.statusDate.period">
+      <path value="ResearchStudy.statusDate.period"/>
       <short value="Date range"/>
       <definition value="Date range."/>
       <min value="1"/>
