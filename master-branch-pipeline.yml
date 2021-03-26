@@ -49,13 +49,6 @@ jobs:
     inputs:
       secureFile: deploy.rsa
 
-  # Install SSH Key
-  - task: InstallSSHKey@0
-    inputs:
-      knownHostsEntry: 'SHA256:LisYQkgqtTm3QMJdGhfiGJRbhG9VkfTloIHJCsuLQFw'
-      sshPublicKey: '$(SSH_PUBLIC_KEY)'
-      sshKeySecureFile: 'deploy.rsa'
-
   # This task takes the successfully built publish directory produced in the 'buildSpecification' job above and pushes it to
   # build.fhir.org in a directory named after that branch that triggered this pull request.
   - task: Bash@3
@@ -65,7 +58,7 @@ jobs:
         cd publish
         chmod 400 $(Agent.TempDirectory)/deploy.rsa
         echo "Publishing to master"
-        tar czf - * | ssh  -i $(Agent.TempDirectory)/deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish master
+        tar czf - * | ssh -o "StrictHostKeyChecking=no" -i $(Agent.TempDirectory)/deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish master
 
 # In the case of a successful build and subsequent publish, we trigger a message to the committers/notifications channel
 # on Zulip (chat.fhir.org) to let users know that the build is available.
