@@ -509,12 +509,14 @@
         <recordedDate value="2012-09-17"/>
         <reaction>
           <manifestation>
-            <coding>
-              <system value="http://example.org/system"/>
-              <code value="xxx"/>
-              <display value="Hives"/>
-            </coding>
-            <text value="Hives"/>
+			<concept>
+				<coding>
+				  <system value="http://example.org/system"/>
+				  <code value="xxx"/>
+				  <display value="Hives"/>
+				</coding>
+			    <text value="Hives"/>
+			</concept>
           </manifestation>
         </reaction>
       </AllergyIntolerance>
