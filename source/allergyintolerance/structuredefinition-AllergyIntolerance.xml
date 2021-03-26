@@ -556,6 +556,9 @@
       </mapping>
     </element>
     <element id="AllergyIntolerance.reaction.manifestation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#31578"/>
+      </extension>
       <path value="AllergyIntolerance.reaction.manifestation"/>
       <short value="Clinical symptoms/signs associated with the Event"/>
       <definition value="Clinical symptoms and/or signs that are observed or associated with the adverse reaction event."/>
@@ -565,7 +568,8 @@
       <min value="1"/>
       <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
