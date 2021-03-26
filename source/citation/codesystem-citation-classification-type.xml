@@ -169,6 +169,26 @@
         
         
         </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">medline-owner
+            
+            
+            <a name="citation-classification-type-medline-owner"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Medline Owner</td>
+          
+          
+          <td>Medline Owner</td>
+        
+        
+        </tr>
       
       
       </table>
@@ -240,5 +260,10 @@
     <code value="Electronic-eCollection"/>
     <display value="Electronic-eCollection"/>
     <definition value="used for electronic-only journals that publish individual articles first and then later collect them into an &quot;issue&quot; date that is typically called an eCollection."/>
+  </concept>
+  <concept>
+    <code value="medline-owner"/>
+    <display value="medline-owner"/>
+    <definition value="Medline Owner"/>
   </concept>
 </CodeSystem>

@@ -52,7 +52,7 @@
 
           <td style="white-space:nowrap">replaces
 
-            <a name="replaces"> </a>
+            <a name="artifact-relationship-type-replaces"> </a>
 
           </td>
 
@@ -66,7 +66,7 @@
 
           <td style="white-space:nowrap">amends
 
-            <a name="amends"> </a>
+            <a name="artifact-relationship-type-amends"> </a>
 
           </td>
 
@@ -80,7 +80,7 @@
 
           <td style="white-space:nowrap">appends
 
-            <a name="appends"> </a>
+            <a name="artifact-relationship-type-appends"> </a>
 
           </td>
 
@@ -94,7 +94,7 @@
 
           <td style="white-space:nowrap">transforms
 
-            <a name="transforms"> </a>
+            <a name="artifact-relationship-type-transforms"> </a>
 
           </td>
 
@@ -108,7 +108,7 @@
 
           <td style="white-space:nowrap">replaced-with
 
-            <a name="replaced-with"> </a>
+            <a name="artifact-relationship-type-replaced-with"> </a>
 
           </td>
 
@@ -122,7 +122,7 @@
 
           <td style="white-space:nowrap">amended-with
 
-            <a name="amended-with"> </a>
+            <a name="artifact-relationship-type-amended-with"> </a>
 
           </td>
 
@@ -136,7 +136,7 @@
 
           <td style="white-space:nowrap">appended-with
 
-            <a name="appended-with"> </a>
+            <a name="artifact-relationship-type-appended-with"> </a>
 
           </td>
 
@@ -150,7 +150,7 @@
 
           <td style="white-space:nowrap">transformed-with
 
-            <a name="transformed-with"> </a>
+            <a name="artifact-relationship-type-transformed-with"> </a>
 
           </td>
 
@@ -164,7 +164,7 @@
 
           <td style="white-space:nowrap">derived-from
 
-            <a name="derived-from"> </a>
+            <a name="artifact-relationship-type-derived-from"> </a>
 
           </td>
 
@@ -178,7 +178,7 @@
 
           <td style="white-space:nowrap">transformed-into
 
-            <a name="transformed-into"> </a>
+            <a name="artifact-relationship-type-transformed-into"> </a>
 
           </td>
 
@@ -192,7 +192,7 @@
 
           <td style="white-space:nowrap">composed-of
 
-            <a name="composed-of"> </a>
+            <a name="artifact-relationship-type-composed-of"> </a>
 
           </td>
 
@@ -206,7 +206,7 @@
 
           <td style="white-space:nowrap">part-of
 
-            <a name="part-of"> </a>
+            <a name="artifact-relationship-type-part-of"> </a>
 
           </td>
 
@@ -220,7 +220,7 @@
 
           <td style="white-space:nowrap">supports
 
-            <a name="supports"> </a>
+            <a name="artifact-relationship-type-supports"> </a>
 
           </td>
 
@@ -234,7 +234,7 @@
 
           <td style="white-space:nowrap">supported-with
 
-            <a name="supported-with"> </a>
+            <a name="artifact-relationship-type-supported-with"> </a>
 
           </td>
 
@@ -248,7 +248,7 @@
 
           <td style="white-space:nowrap">depends-on
 
-            <a name="depends-on"> </a>
+            <a name="artifact-relationship-type-depends-on"> </a>
 
           </td>
 
@@ -262,7 +262,7 @@
 
           <td style="white-space:nowrap">similar-to
 
-            <a name="similar-to"> </a>
+            <a name="artifact-relationship-type-similar-to"> </a>
 
           </td>
 
@@ -276,7 +276,7 @@
           
           <td style="white-space:nowrap">cites
             
-            <a name="citation-classifier-cites"> </a>
+            <a name="artifact-relationship-type-cites"> </a>
           
           </td>
           
@@ -290,7 +290,7 @@
           
           <td style="white-space:nowrap">cited-by
             
-            <a name="citation-classifier-cited-by"> </a>
+            <a name="artifact-relationship-type-cited-by"> </a>
           
           </td>
           
@@ -304,7 +304,7 @@
           
           <td style="white-space:nowrap">retracts
             
-            <a name="citation-classifier-retracts"> </a>
+            <a name="artifact-relationship-type-retracts"> </a>
           
           </td>
           
@@ -318,13 +318,55 @@
           
           <td style="white-space:nowrap">retracted-by
             
-            <a name="citation-classifier-retracted-by"> </a>
+            <a name="artifact-relationship-type-retracted-by"> </a>
           
           </td>
           
           <td>Retracted by</td>
           
           <td>Retracted by</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">comments-on
+            
+            <a name="artifact-relationship-type-comments-on"> </a>
+          
+          </td>
+          
+          <td>Comments On</td>
+          
+          <td>Comments On</td>
+        
+        </tr>
+		
+        <tr>
+          
+          <td style="white-space:nowrap">comment-in
+            
+            <a name="artifact-relationship-type-comment-in"> </a>
+          
+          </td>
+          
+          <td>Comment In</td>
+          
+          <td>Comment In</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">correction-in
+            
+            <a name="artifact-relationship-type-correction-in"> </a>
+          
+          </td>
+          
+          <td>Correction In</td>
+          
+          <td>Correction In</td>
         
         </tr>
       
@@ -466,5 +508,25 @@
     <code value="retracted-by"/>
     <display value="Retracted by"/>
     <definition value="Retracted by"/>
+  </concept>
+  <concept>
+    <code value="comments-on"/>
+    <display value="Comments On"/>
+    <definition value="Comments On"/>
+  </concept>
+  <concept>
+    <code value="comment-in"/>
+    <display value="Comment In"/>
+    <definition value="Comment In"/>
+  </concept>
+  <concept>
+    <code value="corrects"/>
+    <display value="Corrects"/>
+    <definition value="Corrects"/>
+  </concept>
+  <concept>
+    <code value="correction-in"/>
+    <display value="Correction In"/>
+    <definition value="Correction In"/>
   </concept>
 </CodeSystem>
