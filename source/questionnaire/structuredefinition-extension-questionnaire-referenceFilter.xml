@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
 	<id value="questionnaire-referenceFilter"/>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
 		<valueCode value="fhir"/>
@@ -7,9 +7,9 @@
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
 		<valueInteger value="1"/>
 	</extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="deprecated"/>
-  </extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="deprecated"/>
+	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter"/>
 	<version value="4.5.0"/>
 	<name value="referenceFilter"/>
@@ -34,10 +34,6 @@
 	<context>
 		<type value="element"/>
 		<expression value="Questionnaire.item"/>
-	</context>
-	<context>
-		<type value="element"/>
-		<expression value="Questionnaire.item.item"/>
 	</context>
 	<contextInvariant value="type=&#39;reference&#39;"/>
 	<type value="Extension"/>
