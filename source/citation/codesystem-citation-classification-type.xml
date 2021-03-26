@@ -69,107 +69,7 @@
         
         
         </tr>
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">Print
-            
-            
-            <a name="citation-classification-type-Print"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Print</td>
-          
-          
-          <td>the journal is published in print format only</td>
-        
-        
-        </tr>
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">Print Electronic
-            
-            
-            <a name="citation-classification-type-Print-Electronic"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Print Electronic</td>
-          
-          
-          <td>the journal is published in both print and electronic format</td>
-        
-        
-        </tr>
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">Electronic
-            
-            
-            <a name="citation-classification-type-Electronic"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Electronic</td>
-          
-          
-          <td>the journal is published in electronic format only</td>
-        
-        
-        </tr>
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">Electronic-Print
-            
-            
-            <a name="citation-classification-type-Electronic-Print"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Electronic-Print</td>
-          
-          
-          <td>the journal is published first in electronic format followed by print (this value is currently used for just one journal, Nucleic Acids Research)</td>
-        
-        
-        </tr>
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">Electronic-eCollection
-            
-            
-            <a name="citation-classification-type-Electronic-eCollection"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Electronic-eCollection</td>
-          
-          
-          <td>used for electronic-only journals that publish individual articles first and then later collect them into an &quot;issue&quot; date that is typically called an eCollection.</td>
-        
-        
-        </tr>
-        
+		
         <tr>
           
           
@@ -235,31 +135,6 @@
     <code value="citation-source"/>
     <display value="Citation Source"/>
     <definition value="Citation repository where this citation was created or copied from"/>
-  </concept>
-  <concept>
-    <code value="Print"/>
-    <display value="Print"/>
-    <definition value="the journal is published in print format only"/>
-  </concept>
-  <concept>
-    <code value="Print-Electronic"/>
-    <display value="Print Electronic"/>
-    <definition value="the journal is published in both print and electronic format"/>
-  </concept>
-  <concept>
-    <code value="Electronic"/>
-    <display value="Electronic"/>
-    <definition value="the journal is published in electronic format only"/>
-  </concept>
-  <concept>
-    <code value="Electronic-Print"/>
-    <display value="Electronic-Print"/>
-    <definition value="the journal is published first in electronic format followed by print (this value is currently used for just one journal, Nucleic Acids Research)"/>
-  </concept>
-  <concept>
-    <code value="Electronic-eCollection"/>
-    <display value="Electronic-eCollection"/>
-    <definition value="used for electronic-only journals that publish individual articles first and then later collect them into an &quot;issue&quot; date that is typically called an eCollection."/>
   </concept>
   <concept>
     <code value="medline-owner"/>
