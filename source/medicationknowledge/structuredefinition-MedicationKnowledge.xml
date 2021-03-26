@@ -393,8 +393,15 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="boolean"/>
+        <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationIngredientIsActive"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-RoleClassIngredientEntity"/>
+      </binding>
       <mapping>
         <identity value="rim"/>
         <map value="NA"/>

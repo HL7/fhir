@@ -1,7 +1,5 @@
 -------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
-<<<<<<< HEAD
-=======
   "resourceType" : "ValueSet",
   "compose" : {
     "include" : [{
