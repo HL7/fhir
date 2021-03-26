@@ -9,4 +9,9 @@
       <reference value="OperationDefinition/NamingSystem-preferred-id"/>
     </item>
   </entry>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/NamingSystem-translate-id"/>
+    </item>
+  </entry>
 </List>

@@ -3,6 +3,17 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
+  [%stu-note%]
+In terms of scope and usage, the  BR and RR workgroup wish to
+draw the attention of reviewers and implementers to the following issue:
+</p>
+			<ol>
+				<li>
+ This is a major restructuring of the resource.  We are seeking input from the implementation community on the appropriateness of these changes
+</li>
+			</ol>
+[%end-note-np%]
+
 <p>This resource is an <a href="workflow.html#definition">
         <em>definition resource</em>
       </a> from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</p>
