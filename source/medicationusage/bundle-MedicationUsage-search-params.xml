@@ -16,8 +16,8 @@
         <description value="Returns statements based on adherence or compliance"/>
         <code value="adherence"/>
         <type value="token"/>
-        <expression value="MedicationUsage.takenAsOrdered"/>
-        <xpath value="f:MedicationUsage/f:takenAsOrdered"/>
+        <expression value="MedicationUsage.adherence"/>
+        <xpath value="f:MedicationUsage/f:adherence"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

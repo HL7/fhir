@@ -91,23 +91,16 @@
       <constraint>
         <key value="con-4"/>
         <severity value="error"/>
-        <human value="If condition is abated, then clinicalStatus must be either inactive, resolved, or remission"/>
-        <expression value="abatement.empty() or clinicalStatus.coding.where(system=&#39;http://terminology.hl7.org/CodeSystem/condition-clinical&#39; and (code=&#39;resolved&#39; or code=&#39;remission&#39; or code=&#39;inactive&#39;)).exists()"/>
-        <xpath value="not(exists(*[starts-with(local-name(.), &#39;abatement&#39;)])) or exists(f:clinicalStatus/f:coding[f:system/@value=&#39;http://terminology.hl7.org/CodeSystem/condition-clinical&#39; and f:code/@value=(&#39;resolved&#39;, &#39;remission&#39;, &#39;inactive&#39;)])"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+        <human value="If condition is abated, then clinicalStatus must be either inactive, resolved, or remission."/>
+        <expression value="abatement.exists() implies (clinicalStatus.coding.where(system=&#39;http://terminology.hl7.org/CodeSystem/condition-clinical&#39; and (code=&#39;inactive&#39; or code=&#39;resolved&#39; or code=&#39;remission&#39;)).exists())"/>
+        <xpath value="not(exists(f:*[starts-with(local-name(.), &#39;abatement&#39;)])) or (not(exists(f:clinicalStatus)) or exists(f:clinicalStatus/f:coding[f:system/@value=&#39;http://terminology.hl7.org/CodeSystem/condition-clinical&#39; and f:code/@value=(&#39;inactive&#39;, &#39;resolved&#39;, &#39;remission&#39;)]))"/>
       </constraint>
       <constraint>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
-          <valueBoolean value="true"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation">
-          <valueMarkdown value="Most systems will expect a clinicalStatus to be valued for problem-list-items that are managed over time, but might not need a clinicalStatus for point in time encounter-diagnosis."/>
-        </extension>
         <key value="con-3"/>
         <severity value="warning"/>
-        <human value="Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error and category is problem-list-item"/>
-        <expression value="clinicalStatus.exists() or verificationStatus=&#39;entered-in-error&#39; or category.select($this=&#39;problem-list-item&#39;).empty()"/>
-        <xpath value="exists(f:clinicalStatus) or f:verificationStatus/@value=&#39;entered-in-error&#39; or not(exists(category[@value=&#39;problem-list-item&#39;]))"/>
+        <human value="If category is problems list item, the clinicalStatus should not be unknown"/>
+        <expression value="category.coding.where(system=&#39;http://terminology.hl7.org/CodeSystem/condition-category&#39; and code=&#39;problem-list-item&#39;).exists() implies clinicalStatus.coding.where(system=&#39;http://terminology.hl7.org/CodeSystem/condition-clinical&#39; and code=&#39;unknown&#39;).exists().not()"/>
+        <xpath value="not(exists(f:category/f:coding[f:system/@value=&#39;http://terminology.hl7.org/CodeSystem/condition-category&#39; and f:code/@value=&#39;problem-list-item&#39;])) or not(exists(f:clinicalStatus/f:coding[f:system/@value=&#39;http://terminology.hl7.org/CodeSystem/condition-clinical&#39; and f:code/@value=&#39;unknown&#39;]))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </constraint>
       <mapping>
@@ -163,14 +156,14 @@
       <path value="Condition.clinicalStatus"/>
       <short value="active | recurrence | relapse | inactive | remission | resolved"/>
       <definition value="The clinical status of the condition."/>
-      <comment value="The data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity."/>
-      <min value="0"/>
+      <comment value="The data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.  clinicalStatus is required since it is a modifier element.  For conditions that are problems list items, the clinicalStatus should not be unknown.  For conditions that are not problem list items, the clinicalStatus may be unknown.  For example, conditions derived from a claim are point in time, so those conditions may have a clinicalStatus of unknown"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <condition value="con-3"/>
       <condition value="con-4"/>
+      <condition value="con-3"/>
       <isModifier value="true"/>
       <isModifierReason value="This element is labeled as a modifier because the status contains codes that mark the condition as no longer active."/>
       <isSummary value="true"/>
@@ -216,7 +209,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <condition value="con-3"/>
       <isModifier value="true"/>
       <isModifierReason value="This element is labeled as a modifier because the status contains the code refuted and entered-in-error that mark the Condition as not currently valid."/>
       <isSummary value="true"/>
@@ -263,11 +255,12 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="con-3"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionCategory"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="A category assigned to the condition."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-category"/>
       </binding>
@@ -357,7 +350,7 @@
       </mapping>
       <mapping>
         <identity value="sct-concept"/>
-        <map value="code 246090004 |Associated finding| (&lt; 404684003 |Clinical finding| MINUS&#xA;&lt;&lt; 420134006 |Propensity to adverse reactions| MINUS &#xA;&lt;&lt; 473010000 |Hypersensitivity condition| MINUS &#xA;&lt;&lt; 79899007 |Drug interaction| MINUS&#xA;&lt;&lt; 69449002 |Drug action| MINUS &#xA;&lt;&lt; 441742003 |Evaluation finding| MINUS &#xA;&lt;&lt; 307824009 |Administrative status| MINUS &#xA;&lt;&lt; 385356007 |Tumor stage finding|) &#xA;OR &lt; 413350009 |Finding with explicit context|&#xA;OR &lt; 272379006 |Event|"/>
+        <map value="(&lt; 404684003 |Clinical finding| MINUS (&#xA;&lt;&lt; 420134006 |Propensity to adverse reactions| OR &#xA;&lt;&lt; 473010000 |Hypersensitivity condition| OR &#xA;&lt;&lt; 79899007 |Drug interaction| OR&#xA;&lt;&lt; 69449002 |Drug action| OR &#xA;&lt;&lt; 441742003 |Evaluation finding| OR &#xA;&lt;&lt; 307824009 |Administrative status| OR &#xA;&lt;&lt; 385356007 |Tumor stage finding|)) &#xA;OR &lt; 413350009 |Finding with explicit context|&#xA;OR &lt; 272379006 |Event|"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -554,11 +547,12 @@
     </element>
     <element id="Condition.recordedDate">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#11089, GF#17285."/>
+        <valueString value="GF#11089, GF#17285, J#27808"/>
       </extension>
       <path value="Condition.recordedDate"/>
       <short value="Date record was first recorded"/>
       <definition value="The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date."/>
+      <comment value="If the recordedDate is known via a sending system, it is preferred that the receiving system preserve the date.  If the recorded date is not provided by the sending system, it is acceptable for the receiving system to assert their system-generated date."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -641,7 +635,7 @@
       </extension>
       <path value="Condition.stage"/>
       <short value="Stage/grade, usually assessed formally"/>
-      <definition value="Clinical stage or grade of a condition. May include formal severity assessments."/>
+      <definition value="A simple summary of the stage such as &quot;Stage 3&quot; or &quot;Early Onset&quot;. The determination of the stage is disease-specific, such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer&#39;s, or Parkinson disease."/>
       <min value="0"/>
       <max value="*"/>
       <type>

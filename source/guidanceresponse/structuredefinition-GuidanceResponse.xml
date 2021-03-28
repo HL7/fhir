@@ -130,6 +130,13 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GuidanceModuleCode"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/guidance-module-code"/>
+      </binding>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.instantiatesUri | Event.instantiatesCanonical"/>

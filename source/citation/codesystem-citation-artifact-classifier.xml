@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="citation-artifact-classifier"/>
+  <meta>
+    <lastUpdated value="2021-03-11T10:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/citation-artifact-classifier defines the following codes:</p>
+      
+      
+      <table class="codes">
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">
+            
+            
+            <b>Code</b>
+          
+          
+          </td>
+          
+          
+          <td>
+            
+            
+            <b>Display</b>
+          
+          
+          </td>
+          
+          
+          <td>
+            
+            
+            <b>Definition</b>
+          
+          
+          </td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">dataset
+            
+            <a name="citation-artifact-classifier-dataset"> </a>
+          
+          </td>
+          
+          <td>Dataset</td>
+          
+          <td>Dataset</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">webpage
+            
+            <a name="citation-artifact-classifier-webpage"> </a>
+          
+          </td>
+          
+          <td>Webpage</td>
+          
+          <td>Webpage</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">D016428
+            
+            <a name="citation-artifact-classifier-D016428"> </a>
+          
+          </td>
+          
+          <td>Journal Article</td>
+          
+          <td>Journal Article</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">D016422
+            
+            <a name="citation-artifact-classifier-D016422"> </a>
+          
+          </td>
+          
+          <td>Letter</td>
+          
+          <td>Letter</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">D016420
+            
+            <a name="citation-artifact-classifier-D016420"> </a>
+          
+          </td>
+          
+          <td>Comment</td>
+          
+          <td>Comment</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">D016425
+            
+            <a name="citation-artifact-classifier-D016425"> </a>
+          
+          </td>
+          
+          <td>Published Erratum</td>
+          
+          <td>Published Erratum</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">executable-app
+            
+            <a name="citation-artifact-classifier-executable-app"> </a>
+          
+          </td>
+          
+          <td>Executable app</td>
+          
+          <td>Executable app</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">D000076942
+            
+            <a name="citation-artifact-classifier-D000076942"> </a>
+          
+          </td>
+          
+          <td>Preprint</td>
+          
+          <td>Scientific manuscript made available prior to PEER REVIEW.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">D019991
+            
+            <a name="citation-artifact-classifier-D019991"> </a>
+          
+          </td>
+          
+          <td>Database</td>
+          
+          <td>A structured file of information or a set of logically related data stored and retrieved using computer-based means.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">D001877
+            
+            <a name="citation-artifact-classifier-D001877"> </a>
+          
+          </td>
+          
+          <td>Book</td>
+          
+          <td>Non-periodical written or printed works consisting of sheets of pages fastened or bound together within covers.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">D064886
+            
+            <a name="citation-artifact-classifier-D064886"> </a>
+          
+          </td>
+          
+          <td>Dataset</td>
+          
+          <td>Works consisting of organized collections of data, which have been stored permanently in a formalized manner suitable for communication, interpretation, or processing.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">68059040
+            
+            <a name="citation-artifact-classifier-68059040"> </a>
+          
+          </td>
+          
+          <td>Video-Audio Media</td>
+          
+          <td>Used with articles which include video files or clips, or for articles which are entirely video.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">audio
+            
+            <a name="citation-artifact-classifier-audio"> </a>
+          
+          </td>
+          
+          <td>Audio file</td>
+          
+          <td>The article cited is an audio file.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">image
+            
+            <a name="citation-artifact-classifier-image"> </a>
+          
+          </td>
+          
+          <td>Image file</td>
+          
+          <td>The article cited is an audio file.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">machine-code
+            
+            <a name="citation-artifact-classifier-machine-code"> </a>
+          
+          </td>
+          
+          <td>Machine code</td>
+          
+          <td>The article cited is machine code.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">protocol
+            
+            <a name="citation-artifact-classifier-protocol"> </a>
+          
+          </td>
+          
+          <td>Protocol</td>
+          
+          <td>The article cited is the protocol of an activity and not the results or findings.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">fhir-resource
+            
+            <a name="citation-artifact-classifier-fhir-resource"> </a>
+          
+          </td>
+          
+          <td>FHIR Resource</td>
+          
+          <td>The article cited is a FHIR resource.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">Print
+            
+            
+            <a name="citation-artifact-classifier-Print"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Print</td>
+          
+          
+          <td>the journal is published in print format only</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">Print Electronic
+            
+            
+            <a name="citation-artifact-classifier-Print-Electronic"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Print Electronic</td>
+          
+          
+          <td>the journal is published in both print and electronic format</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">Electronic
+            
+            
+            <a name="citation-artifact-classifier-Electronic"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Electronic</td>
+          
+          
+          <td>the journal is published in electronic format only</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">Electronic-Print
+            
+            
+            <a name="citation-artifact-classifier-Electronic-Print"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Electronic-Print</td>
+          
+          
+          <td>the journal is published first in electronic format followed by print (this value is currently used for just one journal, Nucleic Acids Research)</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">Electronic-eCollection
+            
+            
+            <a name="citation-artifact-classifier-Electronic-eCollection"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Electronic-eCollection</td>
+          
+          
+          <td>used for electronic-only journals that publish individual articles first and then later collect them into an &quot;issue&quot; date that is typically called an eCollection.</td>
+        
+        
+        </tr>
+        
+      </table>
+    
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-activity">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.5.0"/>
+  <name value="CitationArtifactClassifier"/>
+  <title value="CitationArtifactClassifier"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-03-11T10:55:11.085+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Citation artifact classifier"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
+  <content value="complete"/>
+  <concept>
+    <code value="webpage"/>
+    <display value="Webpage"/>
+    <definition value="Webpage"/>
+  </concept>
+  <concept>
+    <code value="D016428"/>
+    <display value="Journal Article"/>
+    <definition value="Journal Article"/>
+  </concept>
+  <concept>
+    <code value="D016422"/>
+    <display value="Letter"/>
+    <definition value="Letter"/>
+  </concept>
+  <concept>
+    <code value="D016420"/>
+    <display value="Comment"/>
+    <definition value="Comment"/>
+  </concept>
+  <concept>
+    <code value="D016425"/>
+    <display value="Published Erratum"/>
+    <definition value="Published Erratum"/>
+  </concept>
+  <concept>
+    <code value="executable-app"/>
+    <display value="Executable app"/>
+    <definition value="Executable app"/>
+  </concept>
+  <concept>
+    <code value="D000076942"/>
+    <display value="Preprint"/>
+    <definition value="Scientific manuscript made available prior to PEER REVIEW."/>
+  </concept>
+  <concept>
+    <code value="D019991"/>
+    <display value="Database"/>
+    <definition value="A structured file of information or a set of logically related data stored and retrieved using computer-based means."/>
+  </concept>
+  <concept>
+    <code value="D001877"/>
+    <display value="Book"/>
+    <definition value="Non-periodical written or printed works consisting of sheets of pages fastened or bound together within covers."/>
+  </concept>
+  <concept>
+    <code value="D064886"/>
+    <display value="Dataset"/>
+    <definition value="Works consisting of organized collections of data, which have been stored permanently in a formalized manner suitable for communication, interpretation, or processing."/>
+  </concept>
+  <concept>
+    <code value="68059040"/>
+    <display value="Video-Audio Media"/>
+    <definition value="Used with articles which include video files or clips, or for articles which are entirely video."/>
+  </concept>
+  <concept>
+    <code value="audio"/>
+    <display value="Audio file"/>
+    <definition value="The article cited is an audio file."/>
+  </concept>
+  <concept>
+    <code value="image"/>
+    <display value="Image file"/>
+    <definition value="The article cited is an audio file."/>
+  </concept>
+  <concept>
+    <code value="machine-code"/>
+    <display value="Machine code"/>
+    <definition value="The article cited is machine code."/>
+  </concept>
+  <concept>
+    <code value="protocol"/>
+    <display value="Protocol"/>
+    <definition value="The article cited is the protocol of an activity and not the results or findings."/>
+  </concept>
+  <concept>
+    <code value="fhir-resource"/>
+    <display value="FHIR Resource"/>
+    <definition value="The article cited is a FHIR resource."/>
+  </concept>
+  <concept>
+    <code value="Print"/>
+    <display value="Print"/>
+    <definition value="the journal is published in print format only"/>
+  </concept>
+  <concept>
+    <code value="Print-Electronic"/>
+    <display value="Print Electronic"/>
+    <definition value="the journal is published in both print and electronic format"/>
+  </concept>
+  <concept>
+    <code value="Electronic"/>
+    <display value="Electronic"/>
+    <definition value="the journal is published in electronic format only"/>
+  </concept>
+  <concept>
+    <code value="Electronic-Print"/>
+    <display value="Electronic-Print"/>
+    <definition value="the journal is published first in electronic format followed by print (this value is currently used for just one journal, Nucleic Acids Research)"/>
+  </concept>
+  <concept>
+    <code value="Electronic-eCollection"/>
+    <display value="Electronic-eCollection"/>
+    <definition value="used for electronic-only journals that publish individual articles first and then later collect them into an &quot;issue&quot; date that is typically called an eCollection."/>
+  </concept>
+</CodeSystem>

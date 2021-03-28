@@ -84,8 +84,8 @@
     </element>
     <element id="RegulatedAuthorization.identifier">
       <path value="RegulatedAuthorization.identifier"/>
-      <short value="Business identifier for the authorization, typically assigned by the authorizing body"/>
-      <definition value="Business identifier for the authorization, typically assigned by the authorizing body."/>
+      <short value="Business identifier for the authorization, typically this is assigned by the authorizing body"/>
+      <definition value="Business identifier for the authorization, typically  this is assigned by the authorizing body."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -215,17 +215,14 @@
         <map value="Marketing Authorisation.Validity Period Start, Marketing Authorisation.Validity Period End"/>
       </mapping>
     </element>
-    <element id="RegulatedAuthorization.indication[x]">
-      <path value="RegulatedAuthorization.indication[x]"/>
-      <short value="Condition for which the use of the regulated product applies"/>
+    <element id="RegulatedAuthorization.indication">
+      <path value="RegulatedAuthorization.indication"/>
+      <short value="Condition for which the use of the regulated product  applies"/>
       <definition value="Condition for which the use of the regulated product applies."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
       </type>
       <isSummary value="true"/>

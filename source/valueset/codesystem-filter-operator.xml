@@ -187,6 +187,22 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
           <td/>
         
         </tr>
+		
+		<tr>
+          
+          <td style="white-space:nowrap">child-of
+            
+            <a name="filter-operator-child-of"> </a>
+          
+          </td>
+          
+          <td>Child Of</td>
+          
+          <td>Only concepts with a direct hierarchical relationship to the index code and no other concepts. This does not include the index code in the output.</td>
+          
+          <td/>
+        
+        </tr>
       
       </table>
     
@@ -278,6 +294,16 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
     <code value="generalizes"/>
     <display value="Generalizes (by Subsumption)"/>
     <definition value="Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (i.e. include ancestor codes and self)."/>
+  </concept>
+  <concept>
+    <code value="child-of"/>
+	<display value="Child Of"/>
+	<definition value="Only concepts with a direct hierarchical relationship to the index code and no other concepts. This does not include the index code in the output."/>
+  </concept>
+  <concept>
+    <code value="descendant-leaf"/>
+	<display value="Descendent Leaf"/>
+	<definition value="Includes concept ids that have a transitive is-a relationship with the concept Id provided as the value, but which do not have any concept ids with transitive is-a relationships with themselves."/>
   </concept>
   <concept>
     <code value="exists"/>

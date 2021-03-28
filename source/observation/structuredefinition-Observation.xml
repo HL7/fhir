@@ -162,6 +162,31 @@
         <map value="id"/>
       </mapping>
     </element>
+    <element id="Observation.instantiates[x]">
+      <path value="Observation.instantiates[x]"/>
+      <short value="Instantiates FHIR ObservationDefinition"/>
+      <definition value="The reference to a FHIR ObservationDefinition resource that provides the definition that is adhered to in whole or in part by this Observation instance."/>
+      <comment value="ObservationDefinition can be referenced by its canonical url using instantiatesCanonical, or by a name or an identifier using the appropriate sub-elements of instantiatesReference."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.instantiatesCanonical"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target"/>
+      </mapping>
+    </element>
     <element id="Observation.basedOn">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="1/31/2017 EH:#9664."/>
@@ -376,6 +401,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
       </type>
       <isSummary value="true"/>
       <mapping>

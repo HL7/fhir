@@ -97,14 +97,6 @@
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
       </constraint>
-      <constraint>
-        <key value="nsd-2"/>
-        <severity value="error"/>
-        <human value="Can&#39;t have more than one preferred identifier for a type"/>
-        <expression value="uniqueId.where(preferred = true).select(type).isDistinct()"/>
-        <xpath value="not(exists(for $type in distinct-values(f:uniqueId/f:type/@value) return if (count(f:uniqueId[f:type/@value=$type and f:preferred/@value=true()])&gt;1) then $type else ()))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
-      </constraint>
       <mapping>
         <identity value="v2"/>
         <map value="N/A"/>
@@ -171,6 +163,17 @@
         <code value="string"/>
       </type>
       <condition value="cnl-0"/>
+      <isSummary value="true"/>
+    </element><element id="NamingSystem.title">
+      <path value="NamingSystem.title"/>
+      <short value="Title for this naming system (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the naming system."/>
+      <comment value="This title does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
       <isSummary value="true"/>
     </element>
     <element id="NamingSystem.status">
@@ -413,7 +416,7 @@
     </element>
     <element id="NamingSystem.uniqueId.type">
       <path value="NamingSystem.uniqueId.type"/>
-      <short value="oid | uuid | uri | other"/>
+      <short value="oid | uuid | uri | v2csmnemonic | other"/>
       <definition value="Identifies the unique identifier scheme used for this particular identifier."/>
       <comment value="Different identifier types may be used in different types of communications (OIDs for v3, URIs for FHIR, etc.).  Other includes RUIDs from v3, standard v2 code name strings, etc."/>
       <min value="1"/>
@@ -456,6 +459,14 @@
       <type>
         <code value="boolean"/>
       </type>
+	  <constraint>
+        <key value="nsd-2"/>
+        <severity value="error"/>
+        <human value="Can&#39;t have more than one preferred identifier for a type"/>
+        <expression value="uniqueId.where(preferred = true).select(type).isDistinct()"/>
+        <xpath value="not(exists(for $type in distinct-values(f:uniqueId/f:type/@value) return if (count(f:uniqueId[f:type/@value=$type and f:preferred/@value=true()])&gt;1) then $type else ()))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
+      </constraint>
       <meaningWhenMissing value="If there are multiple ids, and one is labeled &quot;preferred&quot;, then the assumption is that the others are not preferred. In the absence of any id marked as preferred, no inference can be drawn"/>
     </element>
     <element id="NamingSystem.uniqueId.comment">
@@ -479,6 +490,24 @@
       <type>
         <code value="Period"/>
       </type>
+    </element>
+	<element id="NamingSystem.uniqueId.authoritative">
+      <path value="NamingSystem.uniqueId.authoritative"/>
+      <short value="Whether the identifier is authoritative"/>
+      <definition value="Indicates whether this identifier ie endorsed by the official owner of the associated naming system."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+	  <constraint>
+        <key value="nsd-3"/>
+        <severity value="error"/>
+        <human value="Can&#39;t have more than one authoritative identifier for a type/period combination (only one authoritative identifier allowed at any given point of time)"/>
+        <expression value="uniqueId.where(authoritative = true).select(type).isDistinct().select(period).isDistinct()"/>
+        <xpath value="count(f:uniqueID)=count(distinct-values(f:uniqueID/f:period/@value)) or not(exists(for $type in distinct-values(f:uniqueId/f:type/@value) return if (count(f:uniqueId[f:type/@value=$type and f:authoritative/@value=true()])&gt;1) then $type else ()))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
+      </constraint>
     </element>
   </differential>
 </StructureDefinition>
