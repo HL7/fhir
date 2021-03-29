@@ -387,6 +387,66 @@
         
         </tr>
         
+        <tr>
+          
+          
+          <td style="white-space:nowrap">medline-base
+            
+            
+            <a name="citation-artifact-classifier-medline-base"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Medline Base</td>
+          
+          
+          <td>Citation Resource containing only data from Medline</td>
+        
+        
+        </tr>
+		
+        <tr>
+          
+          
+          <td style="white-space:nowrap">common-share
+            
+            
+            <a name="citation-artifact-classifier-common-share"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Common Share</td>
+          
+          
+          <td>Citation Resource containing value added data that is openly shared</td>
+        
+        
+        </tr>
+		
+        <tr>
+          
+          
+          <td style="white-space:nowrap">project-specific
+            
+            
+            <a name="citation-artifact-classifier-project-specific"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Project Specific</td>
+          
+          
+          <td>Citation Resource containing value added data specific to a project</td>
+        
+        
+        </tr>
+        
       </table>
     
     
@@ -531,5 +591,20 @@
     <code value="Electronic-eCollection"/>
     <display value="Electronic-eCollection"/>
     <definition value="used for electronic-only journals that publish individual articles first and then later collect them into an &quot;issue&quot; date that is typically called an eCollection."/>
+  </concept>
+  <concept>
+    <code value="medline-base"/>
+    <display value="Medline Base"/>
+    <definition value="Citation Resource containing only data from Medline"/>
+  </concept>
+  <concept>
+    <code value="common-share"/>
+    <display value="Common Share"/>
+    <definition value="Citation Resource containing value added data that is openly shared"/>
+  </concept>
+  <concept>
+    <code value="project-specific"/>
+    <display value="Project Specific"/>
+    <definition value="Citation Resource containing value added data specific to a project"/>
   </concept>
 </CodeSystem>
