@@ -82,10 +82,10 @@
           </td>
           
           
-          <td>Medline Owner</td>
+          <td>MEDLINE Citation Owner</td>
           
           
-          <td>The party responsible for creating and validating the Medline citation</td>
+          <td>The party responsible for creating and validating the MEDLINE citation</td>
         
         
         </tr>
@@ -158,8 +158,8 @@
   </concept>
   <concept>
     <code value="medline-owner"/>
-    <display value="Medline Owner"/>
-    <definition value="The party responsible for creating and validating the Medline citation"/>
+    <display value="MEDLINE Citation Owner"/>
+    <definition value="The party responsible for creating and validating the MEDLINE citation"/>
   </concept>
   <concept>
     <code value="fevir-platform-use"/>
