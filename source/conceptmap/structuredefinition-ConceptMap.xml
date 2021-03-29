@@ -126,7 +126,7 @@
       <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this concept map outside of FHIR, where it is not possible to use the logical URI."/>
       <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Identifier"/>
       </type>
@@ -467,18 +467,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="uri"/>
-      </type>
-    </element>
-    <element id="ConceptMap.group.sourceVersion">
-      <path value="ConceptMap.group.sourceVersion"/>
-      <short value="Specific version of the  code system"/>
-      <definition value="The specific version of the code system, as determined by the code system authority."/>
-      <comment value="The specification of a particular code system version may be required for code systems which lack concept permanence."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </type>
     </element>
     <element id="ConceptMap.group.target">
@@ -489,18 +479,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="uri"/>
-      </type>
-    </element>
-    <element id="ConceptMap.group.targetVersion">
-      <path value="ConceptMap.group.targetVersion"/>
-      <short value="Specific version of the  code system"/>
-      <definition value="The specific version of the code system, as determined by the code system authority."/>
-      <comment value="The specification of a particular code system version may be required for code systems which lack concept permanence."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </type>
     </element>
     <element id="ConceptMap.group.element">
