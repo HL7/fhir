@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="timingabbreviation-codes"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="mnm"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/timingabbreviation-codes"/>
+  <version value="4.5.0"/>
+  <name value="TimingAbbreviationCodes"/>
+  <caseSensitive value="true"/>
+  <concept>
+    <code value="C"/>
+    <display value="Continuous (frequency)"/>
+    <definition value="Service is provided continuously between start time and stop time."/>
+  </concept>
+</CodeSystem>
