@@ -226,6 +226,15 @@ of the <a href="http://snomed.org/ecl">SNOMED CT Expression Constraint Language<
  <tr><td><a href="http://snomed.org/ecl">SCT ECL</a></td><td><pre>&lt;&lt; [concept] (Long syntax: descendantOrSelfOf [concept])</pre></td></tr>
 </table>
 
+<table class="grid">
+ <tr><td>Description</td><td>Select a set of concepts based on subsumption testing</td></tr>
+ <tr><td>Property Name</td><td>concept</td></tr>
+ <tr><td>Operations Allowed</td><td>descendant-of</td></tr>
+ <tr><td>Values Allowed</td><td>[concept id]</td></tr>
+ <tr><td>Comments</td><td>Includes all concept ids that have a transitive is-a relationship with the concept id provided as the value (excluding the concept itself)</td></tr>
+ <tr><td><a href="http://snomed.org/ecl">SCT ECL</a></td><td><pre>&lt; [concept] (Long syntax: descendantOf [concept])</pre></td></tr>
+</table>
+
 <h4>By Reference Set</h4>
 
 <table class="grid">

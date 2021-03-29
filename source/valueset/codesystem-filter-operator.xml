@@ -301,6 +301,11 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
 	<definition value="Only concepts with a direct hierarchical relationship to the index code and no other concepts. This does not include the index code in the output."/>
   </concept>
   <concept>
+    <code value="descendant-leaf"/>
+	<display value="Descendent Leaf"/>
+	<definition value="Includes concept ids that have a transitive is-a relationship with the concept Id provided as the value, but which do not have any concept ids with transitive is-a relationships with themselves."/>
+  </concept>
+  <concept>
     <code value="exists"/>
     <display value="Exists"/>
     <definition value="The specified property of the code has at least one value (if the specified value is true; if the specified value is false, then matches when the specified property of the code has no values)."/>

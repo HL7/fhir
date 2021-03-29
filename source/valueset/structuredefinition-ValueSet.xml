@@ -321,7 +321,7 @@
       <path value="ValueSet.description"/>
       <short value="Natural language description of the value set"/>
       <definition value="A free text natural language description of the value set from a consumer&#39;s perspective. The textual description specifies the span of meanings for concepts to be included within the Value Set Expansion, and also may specify the intended use and limitations of the Value Set."/>
-      <comment value="This description can be used to capture details such as why the value set was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the value set as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the value set is presumed to be the predominant language in the place the value set was created).The description is not intended to describe the semantics of the Value Set - there are no intrinsic semantics separate from the codes contained in its expansion. The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes. A description should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a description."/>
+      <comment value="This description can be used to capture details such as why the value set was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the value set as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the value set is presumed to be the predominant language in the place the value set was created). The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes. A description should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a description."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -729,7 +729,7 @@
     </element>
     <element id="ValueSet.compose.include.filter.op">
       <path value="ValueSet.compose.include.filter.op"/>
-      <short value="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | child-of | exists"/>
+      <short value="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | child-of | descendant-leaf | exists"/>
       <definition value="The kind of operation to perform as a part of the filter criteria."/>
       <comment value="In case filter.property represents a property of the system, the operation applies to the selected property. In case filter.property represents a filter of the system, the operation SHALL match one of the CodeSystem.filter.operator values."/>
       <min value="1"/>
