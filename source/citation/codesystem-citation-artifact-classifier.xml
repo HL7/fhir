@@ -53,7 +53,7 @@
           
           <td style="white-space:nowrap">dataset
             
-            <a name="article-url-type-dataset"> </a>
+            <a name="citation-artifact-classifier-dataset"> </a>
           
           </td>
           
@@ -67,7 +67,7 @@
           
           <td style="white-space:nowrap">webpage
             
-            <a name="article-url-type-webpage"> </a>
+            <a name="citation-artifact-classifier-webpage"> </a>
           
           </td>
           
@@ -79,15 +79,57 @@
         
         <tr>
           
-          <td style="white-space:nowrap">journal-article
+          <td style="white-space:nowrap">D016428
             
-            <a name="article-url-type-journal-article"> </a>
+            <a name="citation-artifact-classifier-D016428"> </a>
           
           </td>
           
-          <td>Journal article</td>
+          <td>Journal Article</td>
           
-          <td>Journal article</td>
+          <td>Journal Article</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">D016422
+            
+            <a name="citation-artifact-classifier-D016422"> </a>
+          
+          </td>
+          
+          <td>Letter</td>
+          
+          <td>Letter</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">D016420
+            
+            <a name="citation-artifact-classifier-D016420"> </a>
+          
+          </td>
+          
+          <td>Comment</td>
+          
+          <td>Comment</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">D016425
+            
+            <a name="citation-artifact-classifier-D016425"> </a>
+          
+          </td>
+          
+          <td>Published Erratum</td>
+          
+          <td>Published Erratum</td>
         
         </tr>
         
@@ -95,7 +137,7 @@
           
           <td style="white-space:nowrap">executable-app
             
-            <a name="article-url-type-executable-app"> </a>
+            <a name="citation-artifact-classifier-executable-app"> </a>
           
           </td>
           
@@ -109,7 +151,7 @@
           
           <td style="white-space:nowrap">D000076942
             
-            <a name="citation-classifier-D000076942"> </a>
+            <a name="citation-artifact-classifier-D000076942"> </a>
           
           </td>
           
@@ -123,7 +165,7 @@
           
           <td style="white-space:nowrap">D019991
             
-            <a name="citation-classifier-D019991"> </a>
+            <a name="citation-artifact-classifier-D019991"> </a>
           
           </td>
           
@@ -137,7 +179,7 @@
           
           <td style="white-space:nowrap">D001877
             
-            <a name="citation-classifier-D001877"> </a>
+            <a name="citation-artifact-classifier-D001877"> </a>
           
           </td>
           
@@ -151,7 +193,7 @@
           
           <td style="white-space:nowrap">D064886
             
-            <a name="citation-classifier-D064886"> </a>
+            <a name="citation-artifact-classifier-D064886"> </a>
           
           </td>
           
@@ -165,7 +207,7 @@
           
           <td style="white-space:nowrap">68059040
             
-            <a name="citation-classifier-68059040"> </a>
+            <a name="citation-artifact-classifier-68059040"> </a>
           
           </td>
           
@@ -179,7 +221,7 @@
           
           <td style="white-space:nowrap">audio
             
-            <a name="citation-classifier-audio"> </a>
+            <a name="citation-artifact-classifier-audio"> </a>
           
           </td>
           
@@ -193,7 +235,7 @@
           
           <td style="white-space:nowrap">image
             
-            <a name="citation-classifier-image"> </a>
+            <a name="citation-artifact-classifier-image"> </a>
           
           </td>
           
@@ -207,7 +249,7 @@
           
           <td style="white-space:nowrap">machine-code
             
-            <a name="citation-classifier-machine-code"> </a>
+            <a name="citation-artifact-classifier-machine-code"> </a>
           
           </td>
           
@@ -221,7 +263,7 @@
           
           <td style="white-space:nowrap">protocol
             
-            <a name="citation-classifier-protocol"> </a>
+            <a name="citation-artifact-classifier-protocol"> </a>
           
           </td>
           
@@ -235,7 +277,7 @@
           
           <td style="white-space:nowrap">fhir-resource
             
-            <a name="citation-classifier-fhir-resource"> </a>
+            <a name="citation-artifact-classifier-fhir-resource"> </a>
           
           </td>
           
@@ -244,8 +286,107 @@
           <td>The article cited is a FHIR resource.</td>
         
         </tr>
-      
-      
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">Print
+            
+            
+            <a name="citation-artifact-classifier-Print"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Print</td>
+          
+          
+          <td>the journal is published in print format only</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">Print Electronic
+            
+            
+            <a name="citation-artifact-classifier-Print-Electronic"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Print Electronic</td>
+          
+          
+          <td>the journal is published in both print and electronic format</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">Electronic
+            
+            
+            <a name="citation-artifact-classifier-Electronic"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Electronic</td>
+          
+          
+          <td>the journal is published in electronic format only</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">Electronic-Print
+            
+            
+            <a name="citation-artifact-classifier-Electronic-Print"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Electronic-Print</td>
+          
+          
+          <td>the journal is published first in electronic format followed by print (this value is currently used for just one journal, Nucleic Acids Research)</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">Electronic-eCollection
+            
+            
+            <a name="citation-artifact-classifier-Electronic-eCollection"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Electronic-eCollection</td>
+          
+          
+          <td>used for electronic-only journals that publish individual articles first and then later collect them into an &quot;issue&quot; date that is typically called an eCollection.</td>
+        
+        
+        </tr>
+        
       </table>
     
     
@@ -293,8 +434,23 @@
   </concept>
   <concept>
     <code value="D016428"/>
-    <display value="Journal article"/>
-    <definition value="Journal article"/>
+    <display value="Journal Article"/>
+    <definition value="Journal Article"/>
+  </concept>
+  <concept>
+    <code value="D016422"/>
+    <display value="Letter"/>
+    <definition value="Letter"/>
+  </concept>
+  <concept>
+    <code value="D016420"/>
+    <display value="Comment"/>
+    <definition value="Comment"/>
+  </concept>
+  <concept>
+    <code value="D016425"/>
+    <display value="Published Erratum"/>
+    <definition value="Published Erratum"/>
   </concept>
   <concept>
     <code value="executable-app"/>
@@ -350,5 +506,30 @@
     <code value="fhir-resource"/>
     <display value="FHIR Resource"/>
     <definition value="The article cited is a FHIR resource."/>
+  </concept>
+  <concept>
+    <code value="Print"/>
+    <display value="Print"/>
+    <definition value="the journal is published in print format only"/>
+  </concept>
+  <concept>
+    <code value="Print-Electronic"/>
+    <display value="Print Electronic"/>
+    <definition value="the journal is published in both print and electronic format"/>
+  </concept>
+  <concept>
+    <code value="Electronic"/>
+    <display value="Electronic"/>
+    <definition value="the journal is published in electronic format only"/>
+  </concept>
+  <concept>
+    <code value="Electronic-Print"/>
+    <display value="Electronic-Print"/>
+    <definition value="the journal is published first in electronic format followed by print (this value is currently used for just one journal, Nucleic Acids Research)"/>
+  </concept>
+  <concept>
+    <code value="Electronic-eCollection"/>
+    <display value="Electronic-eCollection"/>
+    <definition value="used for electronic-only journals that publish individual articles first and then later collect them into an &quot;issue&quot; date that is typically called an eCollection."/>
   </concept>
 </CodeSystem>

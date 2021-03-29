@@ -20,7 +20,7 @@
 			</concept>
 		</code>
 		<strength>
-			<presentation>
+			<presentationRatio>
 				<numerator>
 					<value value="2.5"/>
 					<unit value="mg"/>
@@ -29,7 +29,7 @@
 					<value value="1"/>
 					<unit value="{tablet}"/>
 				</denominator>
-			</presentation>
+			</presentationRatio>
 		</strength>
 	</substance>
 </Ingredient>

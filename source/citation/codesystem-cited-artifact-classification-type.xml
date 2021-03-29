@@ -93,6 +93,66 @@
         <tr>
           
           
+          <td style="white-space:nowrap">supplemental-mesh-protocol
+            
+            
+            <a name="cited-artifact-classification-type-supplemental-mesh-protocol"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Supplemental MeSH for Protocol</td>
+          
+          
+          <td>Supplemental MeSH for Protocol</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">supplemental-mesh-disease
+            
+            
+            <a name="cited-artifact-classification-type-supplemental-mesh-disease"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Supplemental MeSH for Disease</td>
+          
+          
+          <td>Supplemental MeSH for Disease</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">supplemental-mesh-organism
+            
+            
+            <a name="cited-artifact-classification-type-supplemental-mesh-organism"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Supplemental MeSH for Organism</td>
+          
+          
+          <td>Supplemental MeSH for Organism</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
           <td style="white-space:nowrap">keyword
             
             
@@ -220,6 +280,21 @@
     <code value="mesh-heading"/>
     <display value="MeSH heading"/>
     <definition value="MeSH heading"/>
+  </concept>
+  <concept>
+    <code value="supplemental-mesh-protocol"/>
+    <display value="Supplemental MeSH for Protocol"/>
+    <definition value="Supplemental MeSH for Protocol"/>
+  </concept>
+  <concept>
+    <code value="supplemental-mesh-disease"/>
+    <display value="Supplemental MeSH for Disease"/>
+    <definition value="Supplemental MeSH for Disease"/>
+  </concept>
+  <concept>
+    <code value="supplemental-mesh-organism"/>
+    <display value="Supplemental MeSH for Organism"/>
+    <definition value="Supplemental MeSH for Organism"/>
   </concept>
   <concept>
     <code value="keyword"/>
