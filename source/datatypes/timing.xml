@@ -7615,7 +7615,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>15</TopRowBottomPane>
+   <TopRowBottomPane>5</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -8298,7 +8298,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -8311,9 +8311,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8553,8 +8555,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">C</Data></Cell>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">http://hl7.org/fhir/CodeSystem/timingabbreviation-codes</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Continuous (frequency)</Data></Cell>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Service is provided continuously between start time and stop time.</Data></Cell>
@@ -8949,8 +8951,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>19</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>23</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
