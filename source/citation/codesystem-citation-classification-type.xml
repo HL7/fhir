@@ -85,7 +85,27 @@
           <td>Medline Owner</td>
           
           
-          <td>Medline Owner</td>
+          <td>The party responsible for creating and validating the Medline citation</td>
+        
+        
+        </tr>
+		
+        <tr>
+          
+          
+          <td style="white-space:nowrap">fevir-platform-use
+            
+            
+            <a name="citation-classification-type-fevir-platform-use"> </a>
+          
+          
+          </td>
+          
+          
+          <td>FEvIR Platform Use</td>
+          
+          
+          <td>Used for Citation sharing on the Fast Evidence Interoperability Resources (FEvIR) Platform</td>
         
         
         </tr>
@@ -138,7 +158,12 @@
   </concept>
   <concept>
     <code value="medline-owner"/>
-    <display value="medline-owner"/>
-    <definition value="Medline Owner"/>
+    <display value="Medline Owner"/>
+    <definition value="The party responsible for creating and validating the Medline citation"/>
+  </concept>
+  <concept>
+    <code value="fevir-platform-use"/>
+    <display value="FEvIR Platform Use"/>
+    <definition value="Used for Citation sharing on the Fast Evidence Interoperability Resources (FEvIR) Platform"/>
   </concept>
 </CodeSystem>
