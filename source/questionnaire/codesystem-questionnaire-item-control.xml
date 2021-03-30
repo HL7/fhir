@@ -54,6 +54,11 @@
 			<definition value="Questions within the group are columns in the table with each group repetition as a row.  Used for single-answer questions."/>
 		</concept>
 		<concept>
+			<code value="grid"/>
+			<display value="Group Grid"/>
+			<definition value="Child items of type='group' within the a 'grid' group are rows, and questions beneath the 'row' groups are organized as columns in the grid. The grid might be fully populated, but could be sparse. Questions may support different data types and/or different answer choices."/>
+		</concept>
+		<concept>
 			<code value="header"/>
 			<display value="Header"/>
 			<definition value="The group is to be continuously visible at the top of the questionnaire"/>
