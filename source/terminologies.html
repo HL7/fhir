@@ -149,7 +149,7 @@ The correct value to use in the <i>system</i> for a given code system can be det
 by working through the following list, in order:
 </p>
 <ul>
- <li><a href="https://terminology.hl7.org/">Terminology.hl7.org </a> (THO) - If a code system is listed here, it SHALL be used.</li>
+ <li><a href="https://terminology.hl7.org/">Terminology.hl7.org </a> (THO) -  If a code system is listed here, the canonical CodeSystem URL SHALL be used.</li>
  <li>Not listed in <a href="https://terminology.hl7.org/">Terminology.hl7.org </a>, and the code system is external to HL7, the CodeSystem identifier authorized by HTA SHALL be used.
   <ul>
    <li>Check the HL7 Terminology Authority (HTA) JIRA project to determine if a request is in process to obtain an identifier
@@ -173,8 +173,7 @@ by working through the following list, in order:
  </li>
  <li>Not listed in <a href="http://terminology.hl7.org/">Terminology.hl7.org</a>, and the code system is internal to HL7, and is expected to be used in a production system
   <ul>
-   <li>Review the Pending Code System tab on THO to see if someone has started working on your CodeSystem.</li>
-   <li>If you don't see your CodeSystem in THO,
+  <li>If you don't see your CodeSystem in THO,
     <ul>
 	 <li>Create a canonical URL following this pattern: terminology.hl7.org/CodeSystem/xxxxx    (where xxxx is a meaningful text string)
 	  <ul>
@@ -192,18 +191,16 @@ by working through the following list, in order:
    <li>Set yourself as a watcher on the UP JIRA ticket and update your specification when your CodeSystem is in THO</li>
   </ul>
  </li>
- <li>Not listed in <a href="http://terminology.hl7.org/">Terminology.hl7.org</a>, and the code system is intended to never be used in a production system, and will be used to create a value set bound with Example binding strength
+ <li>Not listed in <a href="http://terminology.hl7.org/">Terminology.hl7.org</a>, and the code system is intended to <i>never be used in a production system,</i> and will be used to create a value set bound with Example binding strength
   <ul>
   <li>If the example concept codes will be used in multiple IGs,
    <ul>
-   <li>HL7 has established a single CodeSystem for all concepts to be used as examples</li>
-   <li><a href="http://terminology.hl7.org/CodeSystem/example-do-not-use">http://terminology.hl7.org/CodeSystem/example-do-not-use</a></li>
-   <li><a href="https://confluence.hl7.org/display/VMAH/How+To+Submit+a+UTG+Change+Proposal">Start the UTG process</a> to request additional codes in this CodeSystem and the ValueSet that the IGs require</li>
+    <li>Use the following URL pattern:  [ig-base-canonical]/CodeSystem/example-xxxxx (from one of the multiple IGs, there is no reason to define the same example CodeSystem in multiple IGs)</li>
    </ul>
   </li>
   <li>If the example concept codes will only ever be used in a single IG:
    <ul>
-    <li>Create an identifier following this pattern: [ig-base-canonical]/CodeSystem/example-do-not-useXXXXX  (where XXXXX is a specific string that conveys intent)</li>
+    <li>Create an identifier following this pattern: [ig-base-canonical]/CodeSystem/example-xxxxx  (where xxxxx is a specific string that conveys intent)</li>
    </ul>
   </li>
   </ul>
@@ -450,7 +447,7 @@ any value set at all. Bindings are to be provided for these elements.
 
 <a name="strength"></a>
 
-<h2>Binding Strengths</h2>
+<h3>Binding Strengths</h3>
 <p>
 Almost all the elements that have a coded data type are bound to a value set. The bindings
 are associated with various degrees of flexibility as to how closely the value set should be
@@ -471,7 +468,7 @@ will work together to choose actual working value sets.
 <a name="simple"></a>
 <a name="code"></a>
 <a name="required"></a>
-<h3>Required</h3>
+<h4>Required</h4>
 <p>
 <i>To be conformant, codes in this element SHALL be from the specified value set.</i>
 </p>
@@ -518,7 +515,7 @@ may state rules on which codes can be used, including removing codes from allowe
 </p>
 
 <a name="extensible"></a>
-<h3>Extensible</h3>
+<h4>Extensible</h4>
 <p>
 <i>To be conformant, codes in this element SHALL be from the specified value set if any of the codes within the value set
 can apply to the concept being communicated.</i>
@@ -582,14 +579,14 @@ Note that if the valueset-reference extension is being used and the code in the 
 value set, the extension must reference a different value set that the code was chosen from (or if no other value set 
 reference is available the extension cannot be used in that instance).
 </p>
-<h4>Examples for Extensible Bindings</h4>
+<h5>Examples for Extensible Bindings</h5>
 <p>
 See <a href="terminologies-binding-examples.html#extensible">examples</a> to help explain the 
 difficult but important subject of Extensible bindings.
 </p>                                                                                                                                                
     
 <a name="preferred"></a>
-<h3>Preferred</h3>
+<h4>Preferred</h4>
 <p>
 <i>Instances are encouraged to draw from the specified codes for interoperability purposes but
 are not required to do so to be considered conformant.</i>
@@ -609,7 +606,7 @@ serve interoperability purposes in the future.
 When an element is bound to a preferred value set, <a href="profiling.html">derived profiles</a>
 may bind the element to any value set they choose.
 </p>
-<h4>Examples for Preferred Bindings</h4>
+<h5>Examples for Preferred Bindings</h5>
 <p>
 See <a href="terminologies-binding-examples.html#preferred">examples</a> of how Preferred bindings work.
 </p>                                                                                                                                                
@@ -640,6 +637,17 @@ ValueSets may also be used as example bindings in the base specification.
 When an element is bound to an example value set, <a href="profiling.html">derived profiles</a>
 may bind the element to any value set they choose.
 </p>
+
+<a name="max"></a>
+<h3>Max Value Set</h3>
+<p>
+When binding a ValueSet to an element, values may be limited by declaring a maximum value set with the extension:
+maxValueSet http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet
+</p>
+<ul>
+ <li>When the binding strength is extensible or preferred, and a maximum ValueSet is defined,
+ any codes provided beyond the bound value set must be in the expansion of the maxValueSet.</li>
+</ul>
 
 <a name="other"></a>
 <h2>Other notes</h2>
