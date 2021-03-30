@@ -44,7 +44,7 @@
   </context>
   <context>
     <type value="element"/>
-    <expression value="DeviceUseStatement"/>
+    <expression value="DeviceUsage"/>
   </context>
   <type value="Extension"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
