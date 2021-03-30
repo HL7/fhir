@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="device-statement-status"/>
+  <id value="device-usage-status"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -11,8 +11,8 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <ul>
         <li>Include all codes defined in 
-          <a href="codesystem-device-statement-status.html">
-            <code>http://hl7.org/fhir/device-statement-status</code>
+          <a href="codesystem-device-usage-status.html">
+            <code>http://hl7.org/fhir/device-usage-status</code>
           </a>
         </li>
       </ul>
@@ -27,7 +27,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/device-statement-status"/>
+  <url value="http://hl7.org/fhir/ValueSet/device-usage-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.214"/>
@@ -53,7 +53,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/device-statement-status"/>
+      <system value="http://hl7.org/fhir/device-usage-status"/>
     </include>
   </compose>
 </ValueSet>

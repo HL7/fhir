@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="device-statement-status"/>
+  <id value="device-usage-status"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -10,7 +10,7 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
-      <p>This code system http://hl7.org/fhir/device-statement-status defines the following codes:</p>
+      <p>This code system http://hl7.org/fhir/device-usage-status defines the following codes:</p>
       
       <table class="codes">
         
@@ -40,7 +40,7 @@
           
           <td style="white-space:nowrap">active
             
-            <a name="device-statement-status-active"> </a>
+            <a name="device-usage-status-active"> </a>
           
           </td>
           
@@ -54,7 +54,7 @@
           
           <td style="white-space:nowrap">completed
             
-            <a name="device-statement-status-completed"> </a>
+            <a name="device-usage-status-completed"> </a>
           
           </td>
           
@@ -68,7 +68,7 @@
           
           <td style="white-space:nowrap">entered-in-error
             
-            <a name="device-statement-status-entered-in-error"> </a>
+            <a name="device-usage-status-entered-in-error"> </a>
           
           </td>
           
@@ -82,7 +82,7 @@
           
           <td style="white-space:nowrap">intended
             
-            <a name="device-statement-status-intended"> </a>
+            <a name="device-usage-status-intended"> </a>
           
           </td>
           
@@ -96,7 +96,7 @@
           
           <td style="white-space:nowrap">stopped
             
-            <a name="device-statement-status-stopped"> </a>
+            <a name="device-usage-status-stopped"> </a>
           
           </td>
           
@@ -110,7 +110,7 @@
           
           <td style="white-space:nowrap">on-hold
             
-            <a name="device-statement-status-on-hold"> </a>
+            <a name="device-usage-status-on-hold"> </a>
           
           </td>
           
@@ -133,7 +133,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/device-statement-status"/>
+  <url value="http://hl7.org/fhir/device-usage-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.215"/>
@@ -157,7 +157,7 @@
   </contact>
   <description value="A coded concept indicating the current status of the Device Usage."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/device-statement-status"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/device-usage-status"/>
   <content value="complete"/>
   <concept>
     <code value="active"/>
