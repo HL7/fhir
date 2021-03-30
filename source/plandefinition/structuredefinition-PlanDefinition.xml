@@ -1336,10 +1336,10 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="PlanDefinition.action.relatedAction.actionId">
-      <path value="PlanDefinition.action.relatedAction.actionId"/>
+    <element id="PlanDefinition.action.relatedAction.targetId">
+      <path value="PlanDefinition.action.relatedAction.targetId"/>
       <short value="What action is this related to"/>
-      <definition value="The element id of the related action."/>
+      <definition value="The element id of the target related action."/>
       <min value="1"/>
       <max value="1"/>
       <type>
