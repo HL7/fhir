@@ -303,15 +303,21 @@
         <map value="StudySubjectProtocolVersionRelationship"/>
       </mapping>
     </element>
-    <element id="ResearchSubject.individual">
-      <path value="ResearchSubject.individual"/>
-      <short value="Who is part of study"/>
-      <definition value="The record of the person or animal who is involved in the study."/>
+    <element id="ResearchSubject.subject">
+      <path value="ResearchSubject.subject"/>
+      <short value="Who or what is part of study"/>
+      <definition value="The record of the person, animal or other entity involved in the study."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
       </type>
       <isSummary value="true"/>
       <mapping>

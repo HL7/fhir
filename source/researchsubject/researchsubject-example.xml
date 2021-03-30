@@ -31,7 +31,7 @@
 	<study>
     <reference value="ResearchStudy/example"/>
 	</study>
-	<individual>
+	<subject>
     <reference value="Patient/example"/>
-	</individual>
+	</subject>
 </ResearchSubject>
