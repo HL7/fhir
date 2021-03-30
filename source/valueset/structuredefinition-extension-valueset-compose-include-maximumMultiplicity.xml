@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="valueset-compose-minimumMultiplicity" />
+  <id value="valueset-compose-include-maximumMultiplicity" />
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab" />
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1" />
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/valueset-compose-minimumMultiplicity" />
+  <url value="http://hl7.org/fhir/StructureDefinition/valueset-include-compose-maximumMultiplicity" />
   <version value="4.5.0" />
   <name value="minimumMultiplicity" />
   <status value="draft" />
   <date value="2020-12-28T16:55:11+11:00" />
   <publisher value="HL7" />
-  <description value="A number that indicates that concepts must have at least the specified number of relationships of the specified type meeting the constraints of the target concepts." />
+  <description value="A number that indicates that concepts must not have more than the specified number of relationships of the specified type meeting the constraints of the target concepts." />
   <fhirVersion value="4.5.0" />
   <mapping>
     <identity value="rim" />
@@ -24,7 +24,7 @@
   <abstract value="false" />
   <context>
     <type value="element" />
-    <expression value="ValueSet" />
+    <expression value="ValueSet.compose.include" />
   </context>
   <type value="Extension" />
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
@@ -32,14 +32,14 @@
   <differential>
     <element id="Extension">
       <path value="Extension" />
-      <short value="the minimum number of the specified relationships allowed" />
-      <definition value="A number that indicates that concepts must have at least the specified number of relationships of the specified type meeting the constraints of the target concepts." />
-      <comment value="The default value for this element is &quot;1&quot;." />
+      <short value="the maximum number of the specified relationships allowed" />
+      <definition value="A number that indicates that concepts must not have more than the specified number of relationships of the specified type meeting the constraints of the target concepts." />
+      <comment value="If this is omitted, the maximum multiplicity is unbounded." />
       <max value="1" />
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/valueset-compose-minimumMultiplicity" />
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/valueset-compose-include-maximumMultiplicity" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />
