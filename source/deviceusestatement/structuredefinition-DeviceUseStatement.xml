@@ -202,7 +202,6 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
