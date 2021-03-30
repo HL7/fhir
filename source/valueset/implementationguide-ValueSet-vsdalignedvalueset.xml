@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="ValueSet-vsdalignedvalueset"/>
+  <version value="0.01"/>
+  <name value="VSD Aligned ValueSet"/>
+  <title value="VSD-AlignedValueSet ValueSet"/>
+  <status value="draft"/>
+  <date value="1970-01-01T10:00:00+10:00"/>
+  <publisher value="HL7"/>
+  <description value="This profile defines the necessary extensions and constraints on ValueSet to align with the HL7 Specification: Characteristics of a Value Set Definition, Release 1 (VSD). This normative specification describes elements to create a ValueSet definition, and does not describe elements related to a ValueSet expansion."/>
+  <definition>
+	<resource>
+      <reference>
+        <reference value="StructureDefinition/vsd-alignedvalueset"/>
+      </reference>
+    </resource>
+	<resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-sourceReference"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-keyWord"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-workflowStatusDescription"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-status-activityStatusDate"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-author"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-steward"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-trusted-expansion"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-supplement"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-authoritativeSource"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-expression"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-otherTitle"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-systemTitle"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-compose-minimumMultiplicity"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-compose-maximumMultiplicity"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

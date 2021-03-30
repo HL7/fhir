@@ -9,4 +9,9 @@
       <reference value="ImplementationGuide/ValueSet-core"/>
     </item>
   </entry>
+  <entry>
+    <item>
+      <reference value="ImplementationGuide/ValueSet-vsdalignedvalueset"/>
+    </item>
+  </entry>
 </List>
