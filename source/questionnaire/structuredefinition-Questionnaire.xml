@@ -437,6 +437,9 @@
 			</mapping>
 		</element>
 		<element id="Questionnaire.useContext">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
 			<path value="Questionnaire.useContext"/>
 			<short value="The context that the content is intended to support"/>
 			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate questionnaire instances."/>
@@ -1036,7 +1039,7 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 			<path value="Questionnaire.item.required"/>
 			<short value="Whether the item must be included in data results"/>
 			<definition value="An indication, if true, that the item must be present in a &quot;completed&quot; QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire."/>
-			<comment value="Questionnaire.item.required only has meaning for elements that are conditionally enabled with enableWhen if the condition evaluates to true.  It also only has meaning if the parent element is present.  If a non-required 'group' item contains a 'required' question item, it's completely fine to omit the group (because it's not required) despite it having a required child.  Similarly, if an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one descendant item with a populated answer). The value may come from the ElementDefinition referred to by .definition."/>
+			<comment value="Questionnaire.item.required only has meaning for elements that are conditionally enabled with enableWhen if the condition evaluates to true.  It also only has meaning if the parent element is present.  If a non-required 'group' item contains a 'required' question item, it's completely fine to omit the group (because it's not required) despite it having a required child.  Similarly, if an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one descendant item with a populated answer). The value for 'required' may come from the ElementDefinition referred to by .definition."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1071,7 +1074,7 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 			<path value="Questionnaire.item.readOnly"/>
 			<short value="Don&#39;t allow human editing"/>
 			<definition value="An indication, when true, that the value cannot be changed by a human respondent to the Questionnaire."/>
-			<comment value="The value of readOnly elements can be established by asserting  extensions for defaultValues, linkages that support pre-population and/or extensions that support calculation based on other answers."/>
+			<comment value="If specified on a 'group', then all items beneath the specified group are read only.  For questions, this only marks the answer associated with the specific item read only.  Descendant questions are not impacted.  The value of readOnly elements can be established by asserting extensions for defaultValues, linkages that support pre-population and/or extensions that support calculation based on other answers."/>
 			<requirements value="Allows certain information to be phrased (and rendered) as a question and an answer, while keeping users from changing it.  May also be useful for preventing changes to pre-populated portions of a questionnaire, for calculated values, etc."/>
 			<min value="0"/>
 			<max value="1"/>
