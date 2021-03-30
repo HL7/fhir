@@ -8,9 +8,4 @@
 			<reference value="ImplementationGuide/Questionnaire-core"/>
 		</item>
 	</entry>
-	<entry>
-		<item>
-			<reference value="ImplementationGuide/Questionnaire-cqf"/>
-		</item>
-	</entry>
 </List>
