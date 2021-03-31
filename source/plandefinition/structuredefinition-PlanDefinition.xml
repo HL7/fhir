@@ -1320,6 +1320,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.input.requirement">
       <path value="PlanDefinition.action.input.requirement"/>
@@ -1330,6 +1334,10 @@
       <type>
         <code value="DataRequirement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.input.relatedData">
       <path value="PlanDefinition.action.input.relatedData"/>
@@ -1341,6 +1349,10 @@
       <type>
         <code value="id"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.output">
       <path value="PlanDefinition.action.output"/>
@@ -1372,6 +1384,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.output.requirement">
       <path value="PlanDefinition.action.output.requirement"/>
@@ -1382,6 +1398,10 @@
       <type>
         <code value="DataRequirement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.output.relatedData">
       <path value="PlanDefinition.action.output.relatedData"/>
@@ -1393,6 +1413,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="PlanDefinition.action.relatedAction">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
