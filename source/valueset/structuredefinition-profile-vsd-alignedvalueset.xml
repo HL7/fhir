@@ -76,12 +76,13 @@
 	        <code value="Extension" />
 	        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-otherTitle" />
 	      </type>
-	  <constraint>
-        <key value="vsd-2" />
-        <severity value="error" />
-        <human value="Either title or extension-otherTitle must be valued" />
-        <source value="http://hl7.org/fhir/StructureDefinition/vsd-alignedvalueset" />
-      </constraint>
+	      <constraint>
+	        <key value="vsd-2" />
+	        <severity value="error" />
+	        <human value="Either title or extension-otherTitle must be valued" />
+	        <expression value="ValueSet.title.exists() or ValueSet.extension:valueset-other-title.exists()" />
+			<source value="http://hl7.org/fhir/StructureDefinition/vsd-alignedvalueset" />
+	      </constraint>
     </element>
     <element id="ValueSet.extension:valueset-authoritativeSource">
       <path value="ValueSet.extension" />
