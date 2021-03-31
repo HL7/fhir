@@ -1038,7 +1038,7 @@ Ratio is used in the following places: [%dtusage Ratio%]
 
 
 <a name="RatioRange"></a>
-<a name="ratioRange"></a>
+<a name="ratiorange"></a>
 <h2 style="margin-bottom: 1px">
 RatioRange
 </h2>
@@ -1702,6 +1702,7 @@ $( '#tabs-Quantity' ).tabs({ active: currentTabIndex, activate: function( event,
 $( '#tabs-Money' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Range' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Ratio' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-RatioRange' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Period' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-SampledData' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Statistic' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
@@ -1727,6 +1728,7 @@ function store(currentTab) {
   $( '#tabs-Money' ).tabs('option', 'active', currentTab);
   $( '#tabs-Range' ).tabs('option', 'active', currentTab);
   $( '#tabs-Ratio' ).tabs('option', 'active', currentTab);
+  $( '#tabs-RatioRange' ).tabs('option', 'active', currentTab);
   $( '#tabs-Period' ).tabs('option', 'active', currentTab);
   $( '#tabs-SampledData' ).tabs('option', 'active', currentTab);
   $( '#tabs-Statistic' ).tabs('option', 'active', currentTab);

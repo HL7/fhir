@@ -1,5 +1,5 @@
 [diagram]
-classes=DataType,Quantity,Attachment,Range,Period,Ratio,CodeableConcept,Coding,Annotation,Money
+classes=DataType,Quantity,Attachment,Range,Period,Ratio,RatioRange,CodeableConcept,Coding,Annotation,Money
 element-attributes=true
 
 [directions]
