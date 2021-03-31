@@ -296,6 +296,10 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
    <td>xs:anyURI</td>
    <td>JSON string - uri</td>
   </tr>
+  <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}</code></td>
+ </tr>
 </table>
 
 <p>
@@ -849,6 +853,9 @@ The types Age, Distance and Count are marked as Trial Use because they are not u
    <td><a href="age.profile.xml.html">XML</a>, <a href="age.profile.json.html">JSON</a></td>
  </tr>
  <tr class="draft-content">
+   <td colspan="2">Note: Age intentionally carries the semantics of a duration of time during which an organism (or a process) has existed.</td>
+ </tr>
+ <tr class="draft-content">
    <td></td>
    <td colspan="2">Usage: [%dtusage Age%]</td>
  </tr>
@@ -866,6 +873,9 @@ The types Age, Distance and Count are marked as Trial Use because they are not u
    <td>Duration<a name="Duration"></a></td>
    <td>[%dt.constraints Duration%] [%tx Duration%]</td>
    <td><a href="duration.profile.xml.html">XML</a>, <a href="duration.profile.json.html">JSON</a></td>
+ </tr>
+ <tr class="draft-content">
+   <td colspan="2">Note: Duration intentionally carries the semantics of a length of time.</td>
  </tr>
  <tr class="draft-content">
    <td></td>
