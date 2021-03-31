@@ -650,6 +650,8 @@
       <path value="RequestGroup.action.timing[x]"/>
       <short value="When the action should take place"/>
       <definition value="An optional value describing when the action should be performed."/>
+      <comment value="The intent of the timing element is to provide timing for when the action should be performed. The timing may be absolute (specified as a dateTime or Period) or relative (specified as an Age, Duration, or Range), or it may be a more complex, potentially repeating timing specified using Timing."/>
+      <requirements value="Allows prompting for activities and detection of missed planned activities."/>
       <min value="0"/>
       <max value="1"/>
       <type>
