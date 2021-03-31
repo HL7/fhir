@@ -193,6 +193,21 @@ found in DICOM messages, but this is not a requirement for using <code>urn:dicom
     &lt;value value="000111111" /&gt;
   &lt;/identifier&gt;
 </pre>
+
+<p>A bank card with Identifier.type.text communicating the human readable name of the identifier:</p>
+<pre class="xml" fragment="Identifier">
+  &lt;identifier&gt;
+    &lt;use value="usual" /&gt;
+    &lt;type&gt;
+      &lt;coding&gt;
+        &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v2-0203&quot;/&gt;
+        &lt;code value=&quot;BC&quot;/&gt;
+      &lt;/coding&gt;
+	  &lt;text value=&quot;Visa&quot;/&gt;
+    &lt;/type&gt;
+    &lt;value value="4111111111111111" /&gt;
+  &lt;/identifier&gt;
+</pre>
 <p>Notes:</p>
 <ul>
  <li>US SSNs are often presented like this: 000-11-1111, the dashes are for presentation and should be removed, as specified in the <a href="terminologies-systems.html#identifiersystems">definition of ssn-us</a></li>
