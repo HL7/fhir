@@ -160,9 +160,9 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td>canonical<a name="canonical"></a></td>
-   <td>A URI that refers to a <a href="references.html#canonical">resource by its canonical URL</a> (<a href="references.html#canonical-list">resources with a <code>url</code> property</a>). The <code>canonical</code> type differs from a <code>uri</code> in that it has special meaning in this specification, 
+   <td>A URI that refers to a <a href="references.html#canonical">resource by its <code>url</code> property</a>. The <code>canonical</code> type differs from a <code>uri</code> in that it has special meaning in this specification, 
     and in that it may have a version appended, separated by a vertical bar (|). Note that the type <code>canonical</code> is not used for the actual canonical URLs that are the target
-    of these references, but for the URIs that refer to them, and may have the version suffix in them. Like other URIs, elements of type <code>canonical</code> may also have #fragment references</td>
+    of these references, but for the URIs that refer to them, and may have the version suffix in them. Like other URIs, elements of type <code>canonical</code> may also have #fragment references. A resource's URL will not be of type <code>canonical</code> but rather of type <code>url</code> as the <code>canonical</code> is the reference to the resource.</td>
     <td>xs:anyURI</td>
    <td>A JSON string - a canonical URL</td>
  </tr>
@@ -174,7 +174,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>(\s*([0-9a-zA-Z\+\=]){4}\s*)+</code></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>(\s*([0-9a-zA-Z*\/*\+\=]){4}\s*)+</code></td>
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
@@ -327,6 +327,7 @@ Notes:
    </ul>
  </li>
  <li>Leap second are allowed in the datetime, instant and time types. Note, though, that many systems and libraries do not support leap seconds. Applications reading times SHOULD accept and handle leap seconds gracefully, and applications producing them MAY choose to avoid encoding leap seconds</li>
+ <li> Subtypes cannot be substitued for datatypes</li>
  <li>About the id datatype:
    <ul>
      <li>Ids are case sensitive. UUIDs SHALL be sent using lowercase letters</li>
@@ -402,7 +403,7 @@ The full representation, with id, extensions and value, showing the id and exten
 </pre>
 <p><b>RDF</b></p>
 <p>
-The value is represented in RDF as a relationship with the URI "http://h;7.org/fhir/value". Using the normal prefix, this becomes:
+The value is represented in RDF as a relationship with the URI "http://hl7.org/fhir/value". Using the normal prefix, this becomes:
 </p>
 <pre class="rdf">
   fhir:Type.count [ fhir:value "2"^^xsd:integer ]
@@ -872,7 +873,7 @@ The types Age, Distance and Count are marked as Trial Use because they are not u
    <td colspan="2">Usage: [%dtusage Duration%]</td>
  </tr>
  <tr>
-  <td colspan="3"><hr/>In addition to the specializations, there is one constraint on Quantity used in several resources:</td>
+  <td colspan="3"><hr/>In addition to the specializations, there are two constraints on Quantity used in several resources:</td>
  </tr>
  <tr>
    <td><b>Profile Name</b></td>
@@ -888,11 +889,20 @@ The types Age, Distance and Count are marked as Trial Use because they are not u
    <td></td>
    <td colspan="2">Usage: [%dtusage SimpleQuantity%]</td>
  </tr>
+ <tr>
+   <td>Money Quantity<a name="MoneyQuantity"></a></td>
+   <td>[%dt.constraints MoneyQuantity%]</td>
+   <td><a href="moneyquantity.profile.xml.html">XML</a>, <a href="moneyquantity.profile.json.html">JSON</a></td>
+ </tr>
+ <tr>
+   <td></td>
+   <td colspan="2">Usage: [%dtusage MoneyQuantity%]</td>
+ </tr>
 </table>
 
 <p>
-Note that the constraint is different from the other specializations of Quantity because it is not a type,
-just rules applied where the Quantity type is used. There's another constraint - see Money immediately below.
+Note that these constraints are different from the other specializations of Quantity because it is not a type,
+just rules applied where the Quantity type is used.
 </p>
 
 
@@ -929,30 +939,8 @@ Alternate Representation
 There are also circumstances where a financial amount must be represented as 
 the numerator or denominator in a Ratio, where the type is currency. In this context,
 the Money amount is represented as a <a href="#Quantity">Quantity</a>, using the 
-<code>MoneyQuantity</code> constraint:
+<code>MoneyQuantity</code> constraint.
 </p>
-
-<table class="list">
- <tr>
-   <td><b>Profile Name</b></td>
-   <td><b>Rules</b></td>
-   <td><b>Formal Definitions</b></td>
- </tr>
- <tr>
-   <td>Money Quantity<a name="MoneyQuantity"></a></td>
-   <td>[%dt.constraints MoneyQuantity%]</td>
-   <td><a href="moneyquantity.profile.xml.html">XML</a>, <a href="moneyquantity.profile.json.html">JSON</a></td>
- </tr>
- <tr>
-   <td></td>
-   <td colspan="2">Usage: [%dtusage MoneyQuantity%]</td>
- </tr>
-</table>
-<p>
-Note that the profile is different from the other specializations because it is not a type,
-just rules applied where the Quantity type is used to represent Money amounts.
-</p>
-
 
 <a name="Range"></a>
 <a name="range"></a>

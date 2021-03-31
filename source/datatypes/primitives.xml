@@ -130,7 +130,7 @@
     <Cell><Data ss:Type="String">A stream of bytes, base64 encoded</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">base64Binary</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">(\s*([0-9a-zA-Z\+/=]){4}\s*)+</Data></Cell>
+    <Cell><Data ss:Type="String">(\s*([0-9a-zA-Z*\/*\+\=]){4}\s*)+</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">BIN</Data></Cell>
     <Cell><Data ss:Type="String">~ED</Data></Cell>
    </Row>
@@ -243,7 +243,7 @@
     <Cell ss:Index="4"><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">xs:token</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">[^\s]+(\s[^\s]+)*</Data></Cell>
+    <Cell><Data ss:Type="String">[^\s]+( [^\s]+)*</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14">
     <Cell><Data ss:Type="String">oid</Data><NamedCell ss:Name="oid"/></Cell>
