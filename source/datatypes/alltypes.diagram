@@ -16,6 +16,7 @@ BackboneType=-95;80
 Ratio=-140;-80
 Period=-85;-80
 Range=-20;-80
+RatioRange=250;-80
 Attachment=30;-80
 Identifier=130;-80
 HumanName=160;-40
