@@ -1297,12 +1297,50 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="DataRequirement"/>
+        <code value="BackboneElement"/>
       </type>
+      <constraint>
+        <key value="pld-0"/>
+        <severity value="error"/>
+        <human value="Input data elements must have a requirement or a relatedData, but not both"/>
+        <expression value="requirement.exists() xor relatedData.exists()"/>
+        <xpath value="exists(f:requirement) xor exists (f:relatedData/@value)"/>
+      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
       </mapping>
+    </element>
+    <element id="PlanDefinition.action.input.title">
+      <path value="PlanDefinition.action.input.title"/>
+      <short value="User-visible title"/>
+      <definition value="A human-readable label for the data requirement used to label data flows in BPMN or similar diagrams. Also provides a human readable label when rendering the data requirement that conveys its purpose to human readers"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="PlanDefinition.action.input.requirement">
+      <path value="PlanDefinition.action.input.requirement"/>
+      <short value="What data is provided"/>
+      <definition value="Defines the data that is to be provided as input to the action"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="DataRequirement"/>
+      </type>
+    </element>
+    <element id="PlanDefinition.action.input.relatedData">
+      <path value="PlanDefinition.action.input.relatedData"/>
+      <short value="What data is provided"/>
+      <definition value="Points to an existing input or output element that provides data to this input"/>
+      <comment value="The relatedData element allows indicating that an input to a parent action is an input to specific child actions. It also allows the output of one action to be identified as the input to a different action"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
+      </type>
     </element>
     <element id="PlanDefinition.action.output">
       <path value="PlanDefinition.action.output"/>
@@ -1311,12 +1349,50 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="DataRequirement"/>
+        <code value="BackboneElement"/>
       </type>
+      <constraint>
+        <key value="pld-1"/>
+        <severity value="error"/>
+        <human value="Output data element must have a requirement or a relatedData, but not both"/>
+        <expression value="requirement.exists() xor relatedData.exists()"/>
+        <xpath value="exists(f:requirement) xor exists (f:relatedData/@value)"/>
+      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
       </mapping>
+    </element>
+    <element id="PlanDefinition.action.output.title">
+      <path value="PlanDefinition.action.output.title"/>
+      <short value="User-visible title"/>
+      <definition value="A human-readable label for the data requirement used to label data flows in BPMN or similar diagrams. Also provides a human readable label when rendering the data requirement that conveys its purpose to human readers"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="PlanDefinition.action.output.requirement">
+      <path value="PlanDefinition.action.output.requirement"/>
+      <short value="What data is provided"/>
+      <definition value="Defines the data that results as output from the action"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="DataRequirement"/>
+      </type>
+    </element>
+    <element id="PlanDefinition.action.output.relatedData">
+      <path value="PlanDefinition.action.output.relatedData"/>
+      <short value="What data is provided"/>
+      <definition value="Points to an existing input or output element that is results as output from the action"/>
+      <comment value="The relatedData element allows indicating that the output of child action is also the output of a parent action. It also allows the input of one action to be identified as the output of a different action"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
     <element id="PlanDefinition.action.relatedAction">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
