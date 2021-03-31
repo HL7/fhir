@@ -1418,6 +1418,24 @@
         <map value=".effectiveTime"/>
       </mapping>
     </element>
+    <element id="PlanDefinition.action.location">
+      <path value="PlanDefinition.action.location"/>
+      <short value="Where it should happen"/>
+      <definition value="Identifies the facility where the action will occur; e.g. home, hospital, specific clinic, etc."/>
+      <comment value="May reference a specific clinical location or may just identify a type of location."/>
+      <requirements value="Helps in planning of activity."/>
+      <alias value="facility"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=LOC].role"/>
+      </mapping>
+    </element>
     <element id="PlanDefinition.action.participant">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="720,300"/>
