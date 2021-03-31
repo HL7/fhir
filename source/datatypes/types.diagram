@@ -1,5 +1,5 @@
 [diagram]
-classes=DataType,Quantity,Attachment,Range,Period,Ratio,CodeableConcept,Coding,Annotation,Money
+classes=DataType,Quantity,Attachment,Range,Period,Ratio,RatioRange,CodeableConcept,Coding,Annotation,Money
 element-attributes=true
 
 [directions]
@@ -10,6 +10,7 @@ Attachment=170;-150
 Range=-260;120
 Period=230;80
 Ratio=-260;-150
+RatioRange=-300;250
 CodeableConcept=105;120
 Coding=-60;80
 Money=-290;-80
