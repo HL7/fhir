@@ -1314,7 +1314,7 @@
     <element id="PlanDefinition.action.input.title">
       <path value="PlanDefinition.action.input.title"/>
       <short value="User-visible title"/>
-      <definition value="A human-readable label for the data requirement used to label data flows in BPMN or similar diagrams. Also provides a human readable label when rendering the data requirement that conveys its purpose to human readers"/>
+      <definition value="A human-readable label for the data requirement used to label data flows in BPMN or similar diagrams. Also provides a human readable label when rendering the data requirement that conveys its purpose to human readers."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1324,7 +1324,7 @@
     <element id="PlanDefinition.action.input.requirement">
       <path value="PlanDefinition.action.input.requirement"/>
       <short value="What data is provided"/>
-      <definition value="Defines the data that is to be provided as input to the action"/>
+      <definition value="Defines the data that is to be provided as input to the action."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1334,7 +1334,7 @@
     <element id="PlanDefinition.action.input.relatedData">
       <path value="PlanDefinition.action.input.relatedData"/>
       <short value="What data is provided"/>
-      <definition value="Points to an existing input or output element that provides data to this input"/>
+      <definition value="Points to an existing input or output element that provides data to this input."/>
       <comment value="The relatedData element allows indicating that an input to a parent action is an input to specific child actions. It also allows the output of one action to be identified as the input to a different action"/>
       <min value="0"/>
       <max value="1"/>
@@ -1366,7 +1366,7 @@
     <element id="PlanDefinition.action.output.title">
       <path value="PlanDefinition.action.output.title"/>
       <short value="User-visible title"/>
-      <definition value="A human-readable label for the data requirement used to label data flows in BPMN or similar diagrams. Also provides a human readable label when rendering the data requirement that conveys its purpose to human readers"/>
+      <definition value="A human-readable label for the data requirement used to label data flows in BPMN or similar diagrams. Also provides a human readable label when rendering the data requirement that conveys its purpose to human readers."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1376,7 +1376,7 @@
     <element id="PlanDefinition.action.output.requirement">
       <path value="PlanDefinition.action.output.requirement"/>
       <short value="What data is provided"/>
-      <definition value="Defines the data that results as output from the action"/>
+      <definition value="Defines the data that results as output from the action."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1386,7 +1386,7 @@
     <element id="PlanDefinition.action.output.relatedData">
       <path value="PlanDefinition.action.output.relatedData"/>
       <short value="What data is provided"/>
-      <definition value="Points to an existing input or output element that is results as output from the action"/>
+      <definition value="Points to an existing input or output element that is results as output from the action."/>
       <comment value="The relatedData element allows indicating that the output of child action is also the output of a parent action. It also allows the input of one action to be identified as the output of a different action"/>
       <min value="0"/>
       <max value="1"/>
