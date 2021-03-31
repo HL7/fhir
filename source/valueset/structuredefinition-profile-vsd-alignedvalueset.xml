@@ -360,7 +360,7 @@
     </element>
     <element id="ValueSet.compose.include.system">
       <path value="ValueSet.compose.include.system" />
-      <comment value="Fragments cannot contain any codes, concepts or properties that would not be found in a complete representation of the code system. Implementers should note that a &quot;complete representation&quot; of the code system may not exist in a single authoritative publication (e.g., SNOMED International with all modules/extensions)" />
+      <comment value="Fragments cannot contain any codes, concepts or properties that would not be found in a complete representation of the code system. Implementers should note that a &quot;complete representation&quot; of the code system might not exist in a single authoritative publication (e.g., SNOMED International with all modules/extensions)" />
       <mustSupport value="true" />
     </element>
     <element id="ValueSet.compose.include.filter">
