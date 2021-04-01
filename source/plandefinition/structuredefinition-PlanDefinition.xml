@@ -996,6 +996,104 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
+    <element id="PlanDefinition.actor">
+      <path value="PlanDefinition.actor"/>
+      <short value="Actors within the plan"/>
+      <definition value="Actors represent the individuals or groups involved in the execution of the defined set of activities"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PFM]"/>
+      </mapping>
+    </element>
+    <element id="PlanDefinition.actor.title">
+      <path value="PlanDefinition.actor.title"/>
+      <short value="User-visible title"/>
+      <definition value="A descriptive label for the actor"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="PlanDefinition.actor.description">
+      <path value="PlanDefinition.actor.description"/>
+      <short value="Describes the actor"/>
+      <definition value="A description of how the actor fits into the overall actions of the plan definition"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="PlanDefinition.actor.option">
+      <path value="PlanDefinition.actor.option"/>
+      <short value="Options for the actor"/>
+      <definition value="The characteristics of the candidates that could serve as the actor"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="PlanDefinition.actor.option.type">
+      <path value="PlanDefinition.actor.option.type"/>
+      <short value="patient | practitioner | related-person | device"/>
+      <definition value="The type of participant in the action."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ActionParticipantType"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|4.5.0"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="PlanDefinition.actor.option.role">
+      <path value="PlanDefinition.actor.option.role"/>
+      <short value="E.g. Nurse, Surgeon, Parent"/>
+      <definition value="The role the participant should play in performing the described action."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ActionParticipantRole"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/action-participant-role"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
     <element id="PlanDefinition.action">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="There is ongoing discussion about the overlap between the action element here and the ActivityDefinition. In general, ActivityDefinition is intended to support reusable, structural definition of activities, where action supports simple inline declaration. In addition, ActivityDefinition is atomic, so if there need to be constraints or dependencies expressed, that needs to be done within the actions of a PlanDefinition."/>
@@ -1549,11 +1647,25 @@
         <map value=".participation[typeCode=PFM]"/>
       </mapping>
     </element>
+    <element id="PlanDefinition.action.participant.actorId">
+      <path value="PlanDefinition.action.participant.actorId"/>
+      <short value="What actor"/>
+      <definition value="A reference to the id element of the actor who will participate in this action"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
     <element id="PlanDefinition.action.participant.type">
       <path value="PlanDefinition.action.participant.type"/>
       <short value="patient | practitioner | related-person | device"/>
       <definition value="The type of participant in the action."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
@@ -1587,6 +1699,27 @@
         <strength value="example"/>
         <description value="Defines roles played by participants for the action."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/action-participant-role"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".role.code"/>
+      </mapping>
+    </element>
+    <element id="PlanDefinition.action.participant.function">
+      <path value="PlanDefinition.action.participant.function"/>
+      <short value="E.g. Author, Reviewer, Witness, etc."/>
+      <definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ActionParticipantFunction"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-function"/>
       </binding>
       <mapping>
         <identity value="rim"/>
