@@ -39,11 +39,6 @@
       <system value="urn:iso:std:iso:3166"/>
     </include>
 
-    <!--  ISO 2 letter country codes   -->
-    <include>
-      <system value="urn:iso:std:iso:3166"/>
-    </include>
-
   <!--   ISO region codes   -->
     <include>
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
