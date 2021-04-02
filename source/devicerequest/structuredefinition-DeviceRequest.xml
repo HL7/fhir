@@ -444,6 +444,20 @@
         <map value="DeviceUse.device"/>
       </mapping>
     </element>
+    <element id="DeviceRequest.quantity">
+      <path value="DeviceRequest.quantity"/>
+      <short value="Quantity of devices to supply"/>
+      <definition value="The number of devices to be provided."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="quantity"/>
+      </mapping>
+    </element>
     <element id="DeviceRequest.parameter">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#14271]."/>
