@@ -379,7 +379,7 @@ signatures.html
       <page type="resource" resource="ActivityDefinition"/>
       <page type="resource" resource="PlanDefinition"/>
       <page type="resource" resource="DeviceRequest"/>
-      <page type="resource" resource="DeviceUseStatement"/>
+      <page type="resource" resource="DeviceUsage"/>
       <page type="resource" resource="SupplyRequest"/>
       <page type="resource" resource="SupplyDelivery"/>
       <page type="resource" resource="InventoryReport"/>
