@@ -180,14 +180,14 @@
 						<code value="Tablet and Cream for topical application"/>
 					</coding>
 				</combinedPharmaceuticalDoseForm>
-				<packagedMedicinalProduct>
-					<reference>
-					<reference value="PackagedProductDefinition/packageCombo"/>
-					</reference>
-				</packagedMedicinalProduct>
 				<name>
 					<productName value="ThrushTreat Combo"/>
 				</name>
+				<package>
+					<package>
+						<reference value="PackagedProductDefinition/packageCombo"/>
+					</package>
+				</package>
 			</MedicinalProductDefinition>
 		</resource>
 	</entry>

@@ -74,12 +74,12 @@
 		<system value="http://example.nation.org/drugs"/>
 		<value value="12345"/>
 	</identifier>
-	<packagedMedicinalProduct>
-		<reference>
-		<reference value="#Acetamin-pack-20"/>
-		</reference>
-	</packagedMedicinalProduct>
 	<name>
 		<productName value="Acetaminophen 500 mg tablets [generic]"/>
 	</name>
+	<package>
+		<package>
+			<reference value="#Acetamin-pack-20"/>
+		</package>
+	</package>
 </MedicinalProductDefinition>
