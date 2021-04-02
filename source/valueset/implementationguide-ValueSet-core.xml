@@ -15,6 +15,11 @@
         <reference value="StructureDefinition/shareablevalueset"/>
       </reference>
     </resource>
+		<resource>
+	      <reference>
+	        <reference value="StructureDefinition/vsd-alignedvalueset"/>
+	      </reference>
+	    </resource>
     <resource>
       <reference>
         <reference value="StructureDefinition/valueset-concept-definition"/>
@@ -202,12 +207,27 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/valueset-compose-minimumMultiplicity"/>
+        <reference value="StructureDefinition/valueset-compose-include-minimumMultiplicity"/>
       </reference>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/valueset-compose-maximumMultiplicity"/>
+        <reference value="StructureDefinition/valueset-compose-include-maximumMultiplicity"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-compose-createdBy"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-compose-creationDate"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-compose-include-valueSetTitle"/>
       </reference>
     </resource>
     <resource>
