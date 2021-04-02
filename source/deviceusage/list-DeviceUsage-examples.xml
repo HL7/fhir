@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <List xmlns="http://hl7.org/fhir">
-  <id value="DeviceUseStatement-examples"/>
+  <id value="DeviceUsage-examples"/>
   <status value="current"/>
   <mode value="working"/>
   <entry>
@@ -9,10 +9,10 @@
       <valueString value="The provision of a wheelchair to a patient"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="deviceusestatement-example"/>
+      <valueString value="deviceusage-example"/>
     </extension>
     <item>
-      <reference value="DeviceUseStatement/example"/>
+      <reference value="DeviceUsage/example"/>
       <display value="Wheelchair"/>
     </item>
   </entry>

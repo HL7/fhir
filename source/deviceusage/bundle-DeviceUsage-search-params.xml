@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Bundle xmlns="http://hl7.org/fhir">
-  <id value="DeviceUseStatement-search-params"/>
+  <id value="DeviceUsage-search-params"/>
   <entry>
     <resource>
       <SearchParameter>
-        <id value="DeviceUseStatement-device"/>
+        <id value="DeviceUsage-device"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceUseStatement.device.concept"/>
+          <valueString value="DeviceUsage.device.concept"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceUseStatement-device"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceUsage-device"/>
         <description value="Search by device"/>
         <code value="device"/>
         <type value="token"/>
-        <expression value="DeviceUseStatement.device.concept"/>
-        <xpath value="f:DeviceUseStatement/f:device/f:concept"/>
+        <expression value="DeviceUsage.device.concept"/>
+        <xpath value="f:DeviceUsage/f:device/f:concept"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -25,19 +25,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="DeviceUseStatement-identifier"/>
+        <id value="DeviceUsage-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceUseStatement.identifier"/>
+          <valueString value="DeviceUsage.identifier"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceUseStatement-identifier"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceUsage-identifier"/>
         <description value="Search by identifier"/>
         <code value="identifier"/>
         <type value="token"/>
-        <expression value="DeviceUseStatement.identifier"/>
-        <xpath value="f:DeviceUseStatement/f:identifier"/>
+        <expression value="DeviceUsage.identifier"/>
+        <xpath value="f:DeviceUsage/f:identifier"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -45,19 +45,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="DeviceUseStatement-patient"/>
+        <id value="DeviceUsage-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceUseStatement.subject"/>
+          <valueString value="DeviceUsage.subject"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceUseStatement-patient"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceUsage-patient"/>
         <description value="Search by subject - a patient"/>
         <code value="patient"/>
         <type value="reference"/>
-        <expression value="DeviceUseStatement.subject"/>
-        <xpath value="f:DeviceUseStatement/f:subject"/>
+        <expression value="DeviceUsage.subject"/>
+        <xpath value="f:DeviceUsage/f:subject"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -65,19 +65,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="DeviceUseStatement-subject"/>
+        <id value="DeviceUsage-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceUseStatement.subject"/>
+          <valueString value="DeviceUsage.subject"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceUseStatement-subject"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceUsage-subject"/>
         <description value="Search by subject"/>
         <code value="subject"/>
         <type value="reference"/>
-        <expression value="DeviceUseStatement.subject"/>
-        <xpath value="f:DeviceUseStatement/f:subject"/>
+        <expression value="DeviceUsage.subject"/>
+        <xpath value="f:DeviceUsage/f:subject"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

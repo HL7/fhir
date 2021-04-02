@@ -318,7 +318,7 @@
     <Cell><Data ss:Type="String">subject | requester |  performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">DeviceUseStatement</Data></Cell>
+    <Cell><Data ss:Type="String">DeviceUsage</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
