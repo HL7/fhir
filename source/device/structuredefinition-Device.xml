@@ -789,6 +789,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceOperationalStatus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="OperationalStatus of a device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-operationalstatus"/>
+      </binding>      
     </element>
     <element id="Device.operationalStatus.reason">
       <path value="Device.operationalStatus.reason"/>
@@ -819,6 +827,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceAssociationStatus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Association Status of a device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-associationstatus"/>
+      </binding>      
     </element>
     <element id="Device.associationStatus.reason">
       <path value="Device.associationStatus.reason"/>
