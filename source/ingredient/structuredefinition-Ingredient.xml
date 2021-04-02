@@ -190,7 +190,7 @@
     </element>
     <element id="Ingredient.substance">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="140,0"/> <!-- left 20 -->
+        <valueCode value="140,0"/>
       </extension>
       <path value="Ingredient.substance"/>
       <short value="The substance that comprises this ingredient"/>
@@ -225,7 +225,7 @@
     </element>
     <element id="Ingredient.substance.strength">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="300,106"/> <!-- left 40 -->
+        <valueCode value="300,105"/> <!-- up 1 -->
       </extension>
       <path value="Ingredient.substance.strength"/>
       <short value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item. When there is a range of strengths, this represents the lower limit"/>
@@ -353,6 +353,22 @@
         <map value="n/a"/>
       </mapping>
     </element>
+        
+    <element id="Ingredient.substance.strength.basis">
+      <path value="Ingredient.substance.strength.basis"/>
+      <short value="A code that indicates if the strength is, for example, based on the ingredient substance as stated or on the substance base (when the ingredient is a salt)"/>
+      <definition value="A code that indicates if the strength is, for example, based on the ingredient substance as stated or on the substance base (when the ingredient is a salt)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="Ingredient.substance.strength.measurementPoint">
       <path value="Ingredient.substance.strength.measurementPoint"/>
       <short value="For when strength is measured at a particular point or distance"/>
@@ -385,7 +401,7 @@
     </element>
     <element id="Ingredient.substance.strength.referenceStrength">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="720,117"/> <!-- added 80 -->
+        <valueCode value="720,117"/>
       </extension>
       <path value="Ingredient.substance.strength.referenceStrength"/>
       <short value="Strength expressed in terms of a reference substance"/>
@@ -486,7 +502,7 @@
     </element>
     <element id="Ingredient.specifiedSubstance">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="140,310"/> <!-- down 10, left 20 -->
+        <valueCode value="140,320"/> <!-- down 10 -->
       </extension>
       <path value="Ingredient.specifiedSubstance"/>
       <short value="A specified substance that comprises this ingredient"/>
