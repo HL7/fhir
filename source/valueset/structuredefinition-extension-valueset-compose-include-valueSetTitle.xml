@@ -7,8 +7,8 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://example.org/fhir/StructureDefinition/valueset-compose-include-ValueSetTitle" />
-  <name value="valueset-compose-include-ValueSetTitle" />
+  <url value="http://hl7.org/fhir/StructureDefinition/valueset-compose-include-valueSetTitle" />
+  <name value="valueset-compose-include-valueSetTitle" />
   <version value="4.5.0"/>
   <status value="draft" />
   <publisher value="HL7"/>
@@ -43,7 +43,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url" />
-      <fixedUri value="http://example.org/fhir/StructureDefinition/valueset-compose-include-ValueSetTitle" />
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/valueset-compose-include-valueSetTitle" />
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]" />

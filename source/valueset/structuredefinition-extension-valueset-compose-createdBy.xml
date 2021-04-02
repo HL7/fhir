@@ -44,7 +44,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url"/>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/valueset-compose-createdby"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/valueset-compose-createdBy"/>
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>
