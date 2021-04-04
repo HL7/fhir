@@ -232,7 +232,7 @@
       <short value="What kind of device or device system this is"/>
       <definition value="What kind of device or device system this is."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -285,14 +285,54 @@
     </element>
     <element id="DeviceDefinition.version">
       <path value="DeviceDefinition.version"/>
-      <short value="Available versions"/>
-      <definition value="The available versions of the device, e.g., software versions."/>
+      <short value="The version of the device or software"/>
+      <definition value="The version of the device or software."/>
       <min value="0"/>
       <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.version.type">
+      <path value="DeviceDefinition.version.type"/>
+      <short value="The type of the device version, e.g. manufacturer, approved, internal"/>
+      <definition value="The type of the device version, e.g. manufacturer, approved, internal."/>
+      <alias value="&#x3A3;"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.version.component">
+      <path value="DeviceDefinition.version.component"/>
+      <short value="The hardware or software module of the device to which the version applies"/>
+      <definition value="The hardware or software module of the device to which the version applies."/>
+      <comment value="Note that the module of the device would not need to be tracked as a separate device, e.g., using different UDI, thus would typically involve one or more software modules. For example, a device may involve two software modules each on a different version."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+    </element>
+    <element id="DeviceDefinition.version.value">
+      <path value="DeviceDefinition.version.value"/>
+      <short value="The version text"/>
+      <definition value="The version text."/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
         <code value="string"/>
       </type>
     </element>
+
+
+
+
     <element id="DeviceDefinition.safety">
       <path value="DeviceDefinition.safety"/>
       <short value="Safety characteristics of the device"/>

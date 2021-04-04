@@ -21,7 +21,7 @@ These are the device related resources
 </p>
 <ul>
  <li>Device (this resource)</li>
- <li><a href="devicedefinition.html">DeviceDefinition</a> - Describes a "kind" of device - not a physical instance A kind of device is frequently defined and documented by the manufacturer, reseller, or regulatory.  Documentation would include general information any information that applies to any instance of a device, and may be published through a catalog.  For example, the characteristics of a test analyzer, x-ray machine, or wheelchair.</li>
+ <li><a href="devicedefinition.html">DeviceDefinition</a> - Describes a "kind" of device - not a physical instance. A kind of device is frequently defined and documented by the manufacturer, reseller, or regulatory. Documentation would include general information any information that applies to any instance of a device, and may be published through a catalog. For example, the characteristics of a test analyzer, x-ray machine, or wheelchair.</li>
  <li><a href="devicemetric.html">DeviceMetric</a> - Describes a measurement, calculation or setting capability of a device.  A Device may include multiple device metrics, each yielding a different observation.</li>
 </ul>
 <p>

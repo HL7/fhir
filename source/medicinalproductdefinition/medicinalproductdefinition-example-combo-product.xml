@@ -252,12 +252,12 @@
 			<code value="Tablet and Cream for topical application"/>
 		</coding>
 	</combinedPharmaceuticalDoseForm>
-	<packagedMedicinalProduct>
-		<reference>
-		<reference value="#packageCombo"/>
-		</reference>
-	</packagedMedicinalProduct>
 	<name>
 		<productName value="ThrushTreat Combo"/>
 	</name>
+	<package>
+		<package>
+			<reference value="#packageCombo"/>
+		</package>
+	</package>
 </MedicinalProductDefinition>

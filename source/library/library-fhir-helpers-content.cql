@@ -220,7 +220,7 @@ define function ToString(value FHIR.FlagStatus): value.value
 define function ToString(value FHIR.SPDXLicense): value.value
 define function ToString(value FHIR.ListStatus): value.value
 define function ToString(value FHIR.base64Binary): value.value
-define function ToString(value FHIR.DeviceUseStatementStatus): value.value
+define function ToString(value FHIR.DeviceUsage): value.value
 define function ToString(value FHIR.AuditEventAgentNetworkType): value.value
 define function ToString(value FHIR.ExpressionLanguage): value.value
 define function ToString(value FHIR.AddressUse): value.value
