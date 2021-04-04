@@ -229,7 +229,7 @@
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -353,7 +353,7 @@
     <element id="DeviceRequest.priority">
       <path value="DeviceRequest.priority"/>
       <short value="routine | urgent | asap | stat"/>
-      <definition value="Indicates how quickly the {{title}} should be addressed with respect to other requests."/>
+      <definition value="Indicates how quickly the request should be addressed with respect to other requests."/>
       <min value="0"/>
       <max value="1"/>
       <type>
