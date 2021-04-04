@@ -193,6 +193,21 @@ found in DICOM messages, but this is not a requirement for using <code>urn:dicom
     &lt;value value="000111111" /&gt;
   &lt;/identifier&gt;
 </pre>
+
+<p>A bank card with Identifier.type.text communicating the human readable name of the identifier:</p>
+<pre class="xml" fragment="Identifier">
+  &lt;identifier&gt;
+    &lt;use value="usual" /&gt;
+    &lt;type&gt;
+      &lt;coding&gt;
+        &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v2-0203&quot;/&gt;
+        &lt;code value=&quot;BC&quot;/&gt;
+      &lt;/coding&gt;
+	  &lt;text value=&quot;Visa&quot;/&gt;
+    &lt;/type&gt;
+    &lt;value value="4111111111111111" /&gt;
+  &lt;/identifier&gt;
+</pre>
 <p>Notes:</p>
 <ul>
  <li>US SSNs are often presented like this: 000-11-1111, the dashes are for presentation and should be removed, as specified in the <a href="terminologies-systems.html#identifiersystems">definition of ssn-us</a></li>
@@ -531,6 +546,54 @@ See also <a href="datatypes.html#Ratio">Base Definition</a>, <a href="datatypes-
      &lt;code value="USD" /&gt;
      &lt;system value="urn:iso:std:iso:4217" /&gt;
    &lt;/numerator&gt;
+   &lt;denominator&gt;
+     &lt;value value="1" /&gt;
+     &lt;unit value="day" /&gt;
+     &lt;code value="day" /&gt;
+     &lt;system value="http://unitsofmeasure.org" /&gt;
+   &lt;/denominator&gt;
+  &lt;/charge&gt;
+</pre>
+</div>
+<a name="RatioRange"></a>
+<a name="ratiorange"></a>
+<h3 style="margin-bottom: 1px">
+RatioRange
+</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.html#RatioRange">Base Definition</a>, <a href="datatypes-definitions.html#RatioRange">Detailed Descriptions</a>, <a href="datatypes-mappings.html#RatioRange">Mappings</a>, <a href="datatypes-extras.html#RatioRange">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#RatioRange">R2 Conversions</a>.
+</p>
+<div class="example">
+<p><b>Examples</b></p>
+<p>Titer (Range of Ratio of integer:integer)</p>
+<pre class="xml" fragment="RatioRange">
+  &lt;result&gt;
+   &lt;lowNumerator&gt;
+     &lt;value value="1" /&gt;
+   &lt;/lowNumerator&gt;
+   &lt;highNumerator&gt;
+     &lt;value value="2" /&gt;
+   &lt;/highNumerator&gt;
+   &lt;denominator&gt;
+     &lt;value value="128" /&gt;
+   &lt;/denominator&gt;
+  &lt;/result&gt;
+</pre>
+<p>Unit cost (Range of Ratio of Money(as Quantity):Quantity):</p>
+<pre class="xml" fragment="RatioRange">
+  &lt;charge&gt;
+   &lt;lowNumerator&gt;
+     &lt;value value="103.50" /&gt;
+     &lt;unit value="US$" /&gt;
+     &lt;code value="USD" /&gt;
+     &lt;system value="urn:iso:std:iso:4217" /&gt;
+   &lt;/lowNumerator&gt;
+   &lt;highNumerator&gt;
+     &lt;value value="210.99" /&gt;
+     &lt;unit value="US$" /&gt;
+     &lt;code value="USD" /&gt;
+     &lt;system value="urn:iso:std:iso:4217" /&gt;
+   &lt;/highNumerator&gt;
    &lt;denominator&gt;
      &lt;value value="1" /&gt;
      &lt;unit value="day" /&gt;
@@ -1288,7 +1351,7 @@ the base FHIR type does not require the phone number to be conformant. An ISO 21
 <pre class="xml" fragment="ContactPoint">
   &lt;telecom&gt;
     &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address" &gt;
-      &lt;valueUrl value="tel:+15556755745" /&gt;
+      &lt;valueUri value="tel:+15556755745" /&gt;
     &lt;/extension&gt;
     &lt;system value="phone" /&gt;
     &lt;value value="(555) 675 5745" /&gt;
@@ -1310,25 +1373,25 @@ See also <a href="datatypes.html#Timing">Base Definition</a>, <a href="datatypes
 <p><b>Example</b></p>
 <p>A series of appointments for radiotherapy:</p>
 <pre class="xml" fragment="Timing">
-  &lt;timing&gt;
+  &lt;schedule&gt;
     &lt;event value="2012-01-07T09:00:00+10:00" /&gt;
     &lt;event value="2012-01-14T09:00:00+10:00" /&gt;
     &lt;event value="2012-01-22T11:00:00+10:00" /&gt;
-  &lt;/timing&gt;
+  &lt;/schedule&gt;
 </pre>
 <p>BID (twice a day) (no start or end specified):</p>
 <pre class="xml" fragment="Timing">
-  &lt;timing&gt;
+  &lt;schedule&gt;
    &lt;repeat&gt;
      &lt;frequency value="2" /&gt;
      &lt;period value="1" /&gt;
      &lt;periodUnit value="d" /&gt;
    &lt;/repeat&gt;
-  &lt;/timing&gt;
+  &lt;/schedule&gt;
 </pre>
 <p>1/2 an hour before breakfast for 10 days from 23-Dec 2011:</p>
 <pre class="xml" fragment="Timing">
-  &lt;timing&gt;
+  &lt;schedule&gt;
     &lt;repeat&gt;
       &lt;boundsPeriod&gt;
         &lt;start value="2011-12-23" /&gt;
@@ -1337,14 +1400,14 @@ See also <a href="datatypes.html#Timing">Base Definition</a>, <a href="datatypes
       &lt;when value="ACM" /&gt;
       &lt;offset value="30" /&gt;
     &lt;/repeat&gt;
-  &lt;/timing&gt;
+  &lt;/schedule&gt;
 </pre>
 <p>
 Note that the end date is inclusive like the end date of a Period.
 </p>
 <p>TID, for 14 days:</p>
 <pre class="xml" fragment="Timing">
-  &lt;timing&gt;
+  &lt;schedule&gt;
     &lt;repeat&gt;
       &lt;boundsDuration&gt;
         &lt;value value="14" /&gt;
@@ -1356,11 +1419,11 @@ Note that the end date is inclusive like the end date of a Period.
       &lt;period value="1" /&gt;
       &lt;periodUnit value="d" /&gt;
     &lt;/repeat&gt;
-  &lt;/timing&gt;
+  &lt;/schedule&gt;
 </pre>
 <p>BID, start on 7/1/2015 at 1:00 PM:</p>
 <pre class="xml" fragment="Timing">
-  &lt;timing&gt;
+  &lt;schedule&gt;
     &lt;repeat&gt;
       &lt;boundsPeriod&gt;
         &lt;start value="2015-07-01T13:00:00" /&gt;
@@ -1369,15 +1432,15 @@ Note that the end date is inclusive like the end date of a Period.
       &lt;period value="1" /&gt;
       &lt;periodUnit value="d" /&gt;
     &lt;/repeat&gt;
-  &lt;/timing&gt;
+  &lt;/schedule&gt;
 </pre>
 <p>Take just once, with no specified time</p>
 <pre class="xml" fragment="Timing">
-  &lt;timing&gt;
+  &lt;schedule&gt;
     &lt;repeat&gt;
       &lt;count value="1" /&gt;
     &lt;/repeat&gt;
-  &lt;/timing&gt;
+  &lt;/schedule&gt;
 </pre>
 </div>
 

@@ -119,17 +119,17 @@
   <content value="complete"/>
   <concept>
     <code value="discarded"/>
-    <display value="Online"/>
+    <display value="Discarded"/>
     <definition value="The device has been discarded."/>
   </concept>
   <concept>
     <code value="obsolete"/>
-    <display value="Paused"/>
+    <display value="Obsolete"/>
     <definition value="The device is obsolete."/>
   </concept>
   <concept>
     <code value="removed"/>
-    <display value="Standby"/>
+    <display value="Removed"/>
     <definition value="The device has been removed."/>
   </concept>
 </CodeSystem>

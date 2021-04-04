@@ -103,7 +103,7 @@
       <path value="Device.identifier"/>
       <short value="Instance identifier"/>
       <definition value="Unique instance identifiers assigned to a device by manufacturers other organizations or owners."/>
-      <comment value="The barcode string from a barcode present on a device label or package may identify the instance, include names given to the device in local usage, or may identify the type of device. If the identifier identifies the type of device, Device.type element should be used."/>
+      <comment value="Certain attributes, like serial number and UDI Carrier (the HRF or AIDC barcode string) are not device instance identifiers as they are not consistently able to uniquely identify the instance of a device, thus are not appropriate to be used to value Device.identifier. The barcode string from a barcode present on a device label or package may identify the instance, include names given to the device in local usage, or may identify the type of device. If the identifier identifies the type of device, Device.type element should be used."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -789,6 +789,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceOperationalStatus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="OperationalStatus of a device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-operationalstatus"/>
+      </binding>      
     </element>
     <element id="Device.operationalStatus.reason">
       <path value="Device.operationalStatus.reason"/>
@@ -819,6 +827,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceAssociationStatus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Association Status of a device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-associationstatus"/>
+      </binding>      
     </element>
     <element id="Device.associationStatus.reason">
       <path value="Device.associationStatus.reason"/>
