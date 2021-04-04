@@ -304,8 +304,8 @@
 
     <element id="DeviceDefinition.packaging">
       <path value="DeviceDefinition.packaging"/>
-      <short value="The packaging of the device"/>
-      <definition value="The packaging of the device."/>
+      <short value="Information about the packaging of the device, i.e. how the device is packaged"/>
+      <definition value="Information about the packaging of the device, i.e. how the device is packaged."/>
       <min value="0"/>
       <max value="*"/>
       <type>
