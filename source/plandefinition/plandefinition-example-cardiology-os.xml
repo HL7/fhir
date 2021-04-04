@@ -481,7 +481,7 @@
       </compose> -!->
     </ValueSet>
   </contained> -->
-  
+
   <contained>
     <Questionnaire>
       <id value="CollectReferralReason" />
@@ -731,7 +731,7 @@
   <library value="#cardiology-chestPain-logic" />
   <!--  Actions  -->
   <action>
-    <!--  
+    <!--
     <action>
       Patient disposition and triage group
     </action>
@@ -805,19 +805,19 @@
         <definitionCanonical value="#CardiologyConsultationGoal" />
       </action>
     </action>
-    <!--  
+    <!--
     <action>
-      Imaging and ECG group  
+      Imaging and ECG group
     </action>
     -->
-    <!--  
+    <!--
     <action>
-      Laboratory Tests 
+      Laboratory Tests
     </action>
      -->
-     <!--  
+     <!--
     <action>
-      Cardiac Risk Stratification 
+      Cardiac Risk Stratification
     </action>
      -->
     <action>
