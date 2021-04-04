@@ -208,12 +208,12 @@
 			<code value="solution for injection"/>
 		</coding>
 	</combinedPharmaceuticalDoseForm>
-	<packagedMedicinalProduct>
-		<reference>
-			<reference value="#package"/>
-		</reference>
-	</packagedMedicinalProduct>
 	<name>
 		<productName value="Wonderdrug+ liquid 20ml"/>
 	</name>
+	<package>
+		<package>
+			<reference value="#package"/>
+		</package>
+	</package>
 </MedicinalProductDefinition>

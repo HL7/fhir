@@ -377,14 +377,14 @@
 			<code value="Powder and solution for injection with itegral syringe"/>
 		</coding>
 	</combinedPharmaceuticalDoseForm>
-	<packagedMedicinalProduct>
-		<reference>
-		<reference value="#package"/>
-		</reference>
-	</packagedMedicinalProduct>
 	<name>
 		<productName value="Wonderdrug liquid 20ml (integral syringe)"/>
 	</name>
+	<package>
+		<package>
+			<reference value="#package"/>
+		</package>
+	</package>
 	<administrableProduct>
 		<product>
 			<reference value="#administrable-form"/>
