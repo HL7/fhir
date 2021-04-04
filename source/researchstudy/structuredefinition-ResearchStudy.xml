@@ -267,6 +267,8 @@
         <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"/>
       </mapping>
     </element>
+
+    <!-- relatesTo
     <element id="ResearchStudy.relatesTo">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="40,80"/>
@@ -298,6 +300,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-artefact-relation-type"/>
       </binding>
     </element>
+    
+    
     <element id="ResearchStudy.relatesTo.targetClassifier">
       <path value="ResearchStudy.relatesTo.targetClassifier"/>
       <short value="Expanded-Access | Available | No-longer-available | Termporarily-not-available | Approved-for-marketing"/>
@@ -316,6 +320,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-artefact-classifier-type"/>
       </binding>
     </element>
+    
+    
     <element id="ResearchStudy.relatesTo.target[x]">
       <path value="ResearchStudy.relatesTo.target[x]"/>
       <short value="Identification of the target artifact"/>
@@ -337,6 +343,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
       </type>
     </element>
+    -->
+    
     <element id="ResearchStudy.relatedArtifact">
       <path value="ResearchStudy.relatedArtifact"/>
       <short value="References and dependencies"/>
@@ -474,12 +482,24 @@
         <map value="InterventionalStudyProtocolVersion; InterventionalStudyProtocol.allocationCode; InterventionalStudyProtocol.blindedRoleCode; InterventionalStudyProtocol.blindingSchemaCode; InterventionalStudyProtocol.controlTypeCode"/>
       </mapping>
     </element>
+    
+    <!-- Focus -->
     <element id="ResearchStudy.focus">
       <path value="ResearchStudy.focus"/>
       <short value="Drugs, devices, etc. under study"/>
       <definition value="The medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about."/>
       <min value="0"/>
       <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.focus.productCode">
+      <path value="ResearchStudy.focus.productCode"/>
+      <short value="Identification of product under study"/>
+      <definition value="Identification of product under study.  This may be any combination of code and/or name."/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -504,6 +524,38 @@
         <map value="InterventionalStudyProtocol.interventionTypeCode"/>
       </mapping>
     </element>
+    <element id="ResearchStudy.focus.focusType">
+      <path value="ResearchStudy.focus.focusType"/>
+      <short value="medication | device | intervention | factor"/>
+      <definition value="Indicates whether the focus is a medication, a device, a procedure, a specific factor or some other intervention or characteristic."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchStudyFocusType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="defn."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-focus-type"/>
+      </binding>
+    </element>
+    <element id="ResearchStudy.focus.factor">
+      <path value="ResearchStudy.focus.factor"/>
+      <short value="An independent variable manipulated by the experimentalist"/>
+      <definition value="A factor corresponds to an independent variable manipulated by the experimentalist with the intention to affect biological systems in a way that can be measured by an assay."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+
+
+
+    <!-- Condition -->
     <element id="ResearchStudy.condition">
       <path value="ResearchStudy.condition"/>
       <short value="Condition being studied"/>
@@ -535,26 +587,7 @@
         <map value="StudyCondition.code"/>
       </mapping>
     </element>
-    <element id="ResearchStudy.contact">
-      <path value="ResearchStudy.contact"/>
-      <short value="Contact details for the study"/>
-      <definition value="Contact details to assist a user in learning more about or engaging with the study."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="clinicaltrials-gov"/>
-        <map value="Central Contact; Central Contact Backup; Overall Study Officials; Facility Contact &amp; Backup (if Study tied to only one location); Investigators"/>
-      </mapping>
-      <mapping>
-        <identity value="BRIDG5.1"/>
-        <map value="PointOfContact &gt; Project &gt; Research Project &gt; Study &gt; StudyProtocol &gt; StudyProtocolVersion"/>
-      </mapping>
-    </element>
-
+    
     <element id="ResearchStudy.keyword">
       <path value="ResearchStudy.keyword"/>
       <short value="Used to search for the study"/>
@@ -663,6 +696,29 @@
         <map value=".effectiveTime"/>
       </mapping>
     </element>
+
+    <!-- Contact -->
+    <element id="ResearchStudy.contact">
+      <path value="ResearchStudy.contact"/>
+      <short value="Contact details for the study"/>
+      <definition value="Contact details to assist a user in learning more about or engaging with the study."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Central Contact; Central Contact Backup; Overall Study Officials; Facility Contact &amp; Backup (if Study tied to only one location); Investigators"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="PointOfContact &gt; Project &gt; Research Project &gt; Study &gt; StudyProtocol &gt; StudyProtocolVersion"/>
+      </mapping>
+    </element>
+
+    <!-- Sponsor -->
     <element id="ResearchStudy.sponsor">
       <path value="ResearchStudy.sponsor"/>
       <short value="Organization that initiates and is legally responsible for the study"/>
@@ -819,6 +875,8 @@
       <path value="ResearchStudy.associatedParty"/>
       <short value="Sponsors, collaborators, and other parties"/>
       <definition value="Sponsors, collaborators, and other parties."/>
+      <comment value="For a Sponsor or a PrincipalInvestigator use the dedicated attributes provided." />
+      <requirements value="While there are explicit attributes for a Sponsor and a PrincipalInvestigator many trial record a range of other organizations and individuals in key roles."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -857,8 +915,8 @@
       <path value="ResearchStudy.associatedParty.classifier"/>
       <short value="nih | fda"/>
       <definition value="Organisational type of association."/>
-      <min value="1"/>
-      <max value="1"/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -871,35 +929,23 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-org-type"/>
       </binding>
     </element>
-    <element id="ResearchStudy.associatedParty.person">
-      <path value="ResearchStudy.associatedParty.person"/>
-      <short value="Individual associated with study (use practitionerRole to specify their organisation)"/>
-      <definition value="Individual associated with study (use practitionerRole to specify their organisation)."/>
+    <element id="ResearchStudy.associatedParty.party">
+      <path value="ResearchStudy.associatedParty.party"/>
+      <short value="Individual or organization associated with study (use practitionerRole to specify their organisation)"/>
+      <definition value="Individual or organization associated with study (use practitionerRole to specify their organisation)."/>
+      <comment value="Suggestions of a better attribute name are appreciated" />
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-      </type>
-    </element>
-    <element id="ResearchStudy.associatedParty.organization">
-      <path value="ResearchStudy.associatedParty.orgaanization"/>
-      <short value="Organisation associated with study in role of sponsoring, providing funds etc"/>
-      <definition value="Organisation associated with study in role of sponsoring, providing funds etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
     </element>
 
-    <!-- Progress -->
+    <!-- State -->
     <element id="ResearchStudy.currentState">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="40,440"/>
-      </extension>
       <path value="ResearchStudy.currentState"/>
       <short value="active | administratively-completed | approved | closed-to-accrual | closed-to-accrual-and-intervention | completed | disapproved | in-review | temporarily-closed-to-accrual | temporarily-closed-to-accrual-and-intervention | withdrawn"/>
       <definition value="Current status of the study."/>
@@ -917,9 +963,11 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-status"/>
       </binding>
     </element>
+    
+    <!-- Progress -->  
     <element id="ResearchStudy.statusDate">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="40,520"/>
+        <valueCode value="40,400"/>
       </extension>
       <path value="ResearchStudy.statusDate"/>
       <short value="Status of study with time for that status"/>
@@ -1099,14 +1147,16 @@
       </mapping>
     </element>
 
-    <!-- Arm -->
-    <element id="ResearchStudy.arm">
+    <!-- Arm / comparisonGroup -->
+    <element id="ResearchStudy.comparisonGroup">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="840,120"/>
       </extension>
-      <path value="ResearchStudy.arm"/>
+      <path value="ResearchStudy.comparisonGroup"/>
       <short value="Defined path through the study for a subject"/>
       <definition value="Describes an expected sequence of events for one of the participants of a study.  E.g. Exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up."/>
+      <comment value="In many clinical trials this is refered to as the ARM of the study, but such a term is not used in other sorts of trials even when there is a comparison between two or more groups." />
+      <alias value="arm" />
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1121,10 +1171,10 @@
         <map value="Arm"/>
       </mapping>
     </element>
-    <element id="ResearchStudy.arm.identifier[x]">
-      <path value="ResearchStudy.arm.identifier[x]"/>
-      <short value="Allows the arm for the study and the arm for the subject to be linked easily"/>
-      <definition value="Allows the arm for the study and the arm for the subject to be linked easily."/>
+    <element id="ResearchStudy.comparisonGroup.identifier[x]">
+      <path value="ResearchStudy.comparisonGroup.identifier[x]"/>
+      <short value="Allows the comparisonGroup for the study and the comparisonGroup for the subject to be linked easily"/>
+      <definition value="Allows the comparisonGroup for the study and the comparisonGroup for the subject to be linked easily."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1134,10 +1184,10 @@
         <code value="Identifier"/>
       </type>
     </element>
-    <element id="ResearchStudy.arm.name">
-      <path value="ResearchStudy.arm.name"/>
-      <short value="Label for study arm"/>
-      <definition value="Unique, human-readable label for this arm of the study."/>
+    <element id="ResearchStudy.comparisonGroup.name">
+      <path value="ResearchStudy.comparisonGroup.name"/>
+      <short value="Label for study comparisonGroup"/>
+      <definition value="Unique, human-readable label for this comparisonGroup of the study."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1152,10 +1202,10 @@
         <map value="Arm.name"/>
       </mapping>
     </element>
-    <element id="ResearchStudy.arm.type">
-      <path value="ResearchStudy.arm.type"/>
-      <short value="Categorization of study arm"/>
-      <definition value="Categorization of study arm, e.g. experimental, active comparator, placebo comparater."/>
+    <element id="ResearchStudy.comparisonGroup.type">
+      <path value="ResearchStudy.comparisonGroup.type"/>
+      <short value="Categorization of study comparisonGroup"/>
+      <definition value="Categorization of study comparisonGroup, e.g. experimental, active comparator, placebo comparater."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1178,10 +1228,10 @@
         <map value="Arm.typeCode"/>
       </mapping>
     </element>
-    <element id="ResearchStudy.arm.description">
-      <path value="ResearchStudy.arm.description"/>
+    <element id="ResearchStudy.comparisonGroup.description">
+      <path value="ResearchStudy.comparisonGroup.description"/>
       <short value="Short explanation of study path"/>
-      <definition value="A succinct description of the path through the study that would be followed by a subject adhering to this arm."/>
+      <definition value="A succinct description of the path through the study that would be followed by a subject adhering to this comparisonGroup."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1196,6 +1246,31 @@
         <map value="Arm.description"/>
       </mapping>
     </element>
+    <element id="ResearchStudy.comparisonGroup.intendedExposure">
+      <path value="ResearchStudy.comparisonGroup.intendedExposure"/>
+      <short value="Interventions or exposures in this comparisonGroup or cohort"/>
+      <definition value="Interventions or exposures in this comparisonGroup or cohort."/>
+      <requirements value="this is necessary for ClinicalTrials.gov use which relates  1 to many interventions to comparisonGroups (aka arms)"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.comparisonGroup.observedGroup">
+      <path value="ResearchStudy.comparisonGroup.observedGroup"/>
+      <short value="Group of participants who were enrolled in study comparisonGroup"/>
+      <definition value="Group of participants who were enrolled in study comparisonGroup."/>
+      <requirements value="This is necessary to relate comparisonGroups to actual groups"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+    </element>
+
 
     <!-- Objective -->
     <element id="ResearchStudy.objective">
@@ -1339,6 +1414,45 @@
       <isSummary value="true"/>
     </element>
 
+    <!-- Web Location -->
+    <element id="ResearchStudy.webLocation">
+      <path value="ResearchStudy.webLocation"/>
+      <short value="Archive location for the study"/>
+      <definition value="A general storage or archive location for the study.  This may contain an assortment of content which is not specified in advance."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.webLocation.type">
+      <path value="ResearchStudy.webLocation.type"/>
+      <short value="registry-page|recruitment-page|contact-page"/>
+      <definition value="Describes the nature of the location being specified."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchStudyUrlType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="defn."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-url-type"/>
+      </binding>
+    </element>
+    <element id="ResearchStudy.webLocation.url">
+      <path value="ResearchStudy.webLocation.url"/>
+      <short value="The location address"/>
+      <definition value="The location address."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
 
   </differential>
 </StructureDefinition>
