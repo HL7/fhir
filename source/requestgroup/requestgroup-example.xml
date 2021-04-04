@@ -91,7 +91,7 @@
     <action id="medication-action-2">
       <description value="Administer medication 2"/>
       <relatedAction>
-        <actionId value="medication-action-1"/>
+        <targetId value="medication-action-1"/>
         <relationship value="after-end"/>
         <offsetDuration>
           <value value="1"/>

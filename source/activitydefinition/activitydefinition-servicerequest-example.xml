@@ -62,15 +62,15 @@
     </reference>
   </location>
   <participant>
-	<type value="practitioner"/>
-	<role>
-	  <coding>
-	    <system value="http://nucc.org/provider-taxonomy"/>
-	    <code value="207RI0011X"/>
-	    <display value="Interventional Cardiology"/>
-	  </coding>
-	  <text value="Interventional Cardiology"/>
-	</role>
+  	<type value="practitioner"/>
+  	<role>
+  	  <coding>
+  	    <system value="http://nucc.org/provider-taxonomy"/>
+  	    <code value="207RI0011X"/>
+  	    <display value="Interventional Cardiology"/>
+  	  </coding>
+  	  <text value="Interventional Cardiology"/>
+  	</role>
   </participant>
     <bodySite>
 		<coding>

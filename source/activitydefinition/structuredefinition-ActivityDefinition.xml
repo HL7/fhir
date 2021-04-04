@@ -929,16 +929,35 @@
         <map value=".participation[typeCode=PFM]"/>
       </mapping>
     </element>
-    <element id="ActivityDefinition.participant.type[x]">
-      <path value="ActivityDefinition.participant.type[x]"/>
+    <element id="ActivityDefinition.participant.type">
+      <path value="ActivityDefinition.participant.type"/>
       <short value="careteam | device | group | healthcareservice | location | organization | patient | practitioner | practitionerrole | relatedperson"/>
       <definition value="The type of participant in the action."/>
-      <comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location)."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ActivityParticipantType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The type of participant in the activity."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|4.5.0"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".role.classCode"/>
+      </mapping>
+    </element>
+    <element id="ActivityDefinition.participant.typeReference">
+      <path value="ActivityDefinition.participant.typeReference"/>
+      <short value="Who or what can participate"/>
+      <definition value="The type of participant in the action."/>
+      <comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location)."/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
@@ -952,14 +971,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActivityParticipantType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The type of participant in the activity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|4.5.0"/>
-      </binding>
       <mapping>
         <identity value="rim"/>
         <map value=".role.classCode"/>

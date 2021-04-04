@@ -166,7 +166,7 @@
             </extension>
             <textEquivalent value="CARBOplatin AUC 5 IV over 30 minutes on Day 1" />
             <relatedAction>
-              <actionId value="action-1"/>
+              <targetId value="action-1"/>
               <relationship value="concurrent-with-start"/>
 			</relatedAction>
             <resource>
