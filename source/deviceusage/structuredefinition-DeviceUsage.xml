@@ -316,6 +316,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceUsageStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes representing the usage status of the device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-usage-status"/>
+      </binding>
     </element>
     <element id="DeviceUsage.usageReason">
       <path value="DeviceUsage.usageReason"/>
@@ -372,6 +380,7 @@
       <path value="DeviceUsage.reason"/>
       <short value="Why device was used"/>
       <definition value="Reason or justification for the use of the device. A coded concept, or another resource whose existence justifies this DeviceUsage."/>
+      <comment value="When the status is not done, the reason code indicates why it was not done."/>
       <min value="0"/>
       <max value="*"/>
       <type>

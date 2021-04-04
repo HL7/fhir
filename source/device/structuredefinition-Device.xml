@@ -726,22 +726,15 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="Device.property.valueQuantity">
-      <path value="Device.property.valueQuantity"/>
-      <short value="Property value as a quantity"/>
-      <definition value="Property value as a quantity."/>
+    <element id="Device.property.value[x]">
+      <path value="Device.property.value[x]"/>
+      <short value="Property value - as a code or quantity"/>
+      <definition value="Property value - can be a code or quantity."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Quantity"/>
       </type>
-    </element>
-    <element id="Device.property.valueCode">
-      <path value="Device.property.valueCode"/>
-      <short value="Property value as a code, e.g., NTP4 (synced to NTP)"/>
-      <definition value="Property value as a code, e.g., NTP4 (synced to NTP)."/>
-      <min value="0"/>
-      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
