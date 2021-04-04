@@ -77,18 +77,6 @@
 	</entry>
 	<entry>
 		<extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-			<valueString value="Questionnaire used to define the questions involved in the PHQ-9 health questionnaire"/>
-		</extension>
-		<extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-			<valueString value="questionnaire-cqf-example"/>
-		</extension>
-		<item>
-			<reference value="Questionnaire/phq-9-questionnaire"/>
-			<display value="PHQ-9"/>
-		</item>
-	</entry>
-	<entry>
-		<extension url="http://hl7.org/fhir/build/StructureDefinition/description">
 			<valueString value="Questionnaire for Practitioner information with metadata inferred from definitions"/>
 		</extension>
 		<extension url="http://hl7.org/fhir/build/StructureDefinition/title">
