@@ -999,7 +999,7 @@
     <element id="PlanDefinition.actor">
       <path value="PlanDefinition.actor"/>
       <short value="Actors within the plan"/>
-      <definition value="Actors represent the individuals or groups involved in the execution of the defined set of activities"/>
+      <definition value="Actors represent the individuals or groups involved in the execution of the defined set of activities."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1013,7 +1013,7 @@
     <element id="PlanDefinition.actor.title">
       <path value="PlanDefinition.actor.title"/>
       <short value="User-visible title"/>
-      <definition value="A descriptive label for the actor"/>
+      <definition value="A descriptive label for the actor."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1027,7 +1027,7 @@
     <element id="PlanDefinition.actor.description">
       <path value="PlanDefinition.actor.description"/>
       <short value="Describes the actor"/>
-      <definition value="A description of how the actor fits into the overall actions of the plan definition"/>
+      <definition value="A description of how the actor fits into the overall actions of the plan definition."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1041,7 +1041,7 @@
     <element id="PlanDefinition.actor.option">
       <path value="PlanDefinition.actor.option"/>
       <short value="Options for the actor"/>
-      <definition value="The characteristics of the candidates that could serve as the actor"/>
+      <definition value="The characteristics of the candidates that could serve as the actor."/>
       <min value="1"/>
       <max value="*"/>
       <type>
@@ -1052,25 +1052,39 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="PlanDefinition.actor.option.type">
-      <path value="PlanDefinition.actor.option.type"/>
-      <short value="patient | practitioner | related-person | device"/>
+    <element id="PlanDefinition.actor.option.type[x]">
+      <path value="PlanDefinition.actor.option.type[x]"/>
+      <short value="careteam | device | group | healthcareservice | location | organization | patient | practitioner | practitionerrole | relatedperson"/>
       <definition value="The type of participant in the action."/>
-      <min value="1"/>
+      <comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location)."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActionParticipantType"/>
+          <valueString value="ActivityParticipantType"/>
         </extension>
         <strength value="required"/>
+        <description value="The type of participant in the activity."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|4.5.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value="N/A (to add?)"/>
+        <map value=".role.classCode"/>
       </mapping>
     </element>
     <element id="PlanDefinition.actor.option.role">
@@ -1650,7 +1664,7 @@
     <element id="PlanDefinition.action.participant.actorId">
       <path value="PlanDefinition.action.participant.actorId"/>
       <short value="What actor"/>
-      <definition value="A reference to the id element of the actor who will participate in this action"/>
+      <definition value="A reference to the id element of the actor who will participate in this action."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1661,21 +1675,34 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="PlanDefinition.action.participant.type">
-      <path value="PlanDefinition.action.participant.type"/>
-      <short value="patient | practitioner | related-person | device"/>
+    <element id="PlanDefinition.participant.type[x]">
+      <path value="PlanDefinition.participant.type[x]"/>
+      <short value="careteam | device | group | healthcareservice | location | organization | patient | practitioner | practitionerrole | relatedperson"/>
       <definition value="The type of participant in the action."/>
+      <comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActionParticipantType"/>
+          <valueString value="ActivityParticipantType"/>
         </extension>
         <strength value="required"/>
-        <description value="The type of participant for the action."/>
+        <description value="The type of participant in the activity."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|4.5.0"/>
       </binding>
       <mapping>

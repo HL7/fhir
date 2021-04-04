@@ -190,14 +190,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="RequestGroup.action.participant"/>
+          <valueString value="RequestGroup.action.participant.actor"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/RequestGroup-participant"/>
         <description value="The participant in the requests in the group"/>
         <code value="participant"/>
         <type value="reference"/>
-        <expression value="RequestGroup.action.participant"/>
-        <xpath value="f:RequestGroup/f:action/f:participant"/>
+        <expression value="RequestGroup.action.participant.actor"/>
+        <xpath value="f:RequestGroup/f:action/f:participant/f:actor"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
