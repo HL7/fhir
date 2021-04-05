@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="cqllibrary"/>
+  <id value="fhirpathlibrary"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
@@ -15,15 +15,15 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/cqllibrary"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/fhirpathlibrary"/>
   <version value="4.5.0"/>
-  <name value="CQLLibrary"/>
-  <title value="CQL Library"/>
+  <name value="FHIRPathLibrary"/>
+  <title value="FHIRPath Library"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="Represents a computable CQL logic library"/>
+  <description value="Represents a computable/executable FHIRPath logic library"/>
   <fhirVersion value="4.5.0"/>
   <mapping>
     <identity value="rim"/>
@@ -67,26 +67,34 @@
       </slicing>
       <mustSupport value="true"/>
     </element>
-    <element id="Library.content:cqlContent">
+    <element id="Library.content:fhirPathContent">
       <path value="Library.content"/>
-      <sliceName value="cqlContent"/>
-      <short value="CQL Content"/>
-      <definition value="The CQL content represented as base-64 encoded data."/>
+      <sliceName value="fhirPathContent"/>
+      <short value="FHIRPath Content"/>
+      <definition value="The FHIRPath content represented as base-64 encoded data."/>
       <min value="1"/>
       <max value="1"/>
       <mustSupport value="true"/>
     </element>
-    <element id="Library.content:cqlContent.contentType">
+    <element id="Library.content:fhirPathContent.id">
+      <path value="Library.content.id"/>
+      <short value="Referenced as"/>
+      <definition value="The id of the FHIRPath expression. This id allows the expressions of the library to be referenced."/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.content:fhirPathContent.contentType">
       <path value="Library.content.contentType"/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
-      <fixedCode value="text/cql"/>
+      <fixedCode value="text/fhirpath"/>
       <mustSupport value="true"/>
     </element>
-    <element id="Library.content:cqlContent.data">
+    <element id="Library.content:fhirPathContent.data">
       <path value="Library.content.data"/>
       <min value="1"/>
       <max value="1"/>
