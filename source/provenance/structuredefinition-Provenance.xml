@@ -355,8 +355,8 @@
       <path value="Provenance.agent.type"/>
       <short value="How the agent participated"/>
       <definition value="The primary act of participation of the agent with respect to the activity."/>
-      <comment value="For example: assembler, author, doctor, nurse, clerk, etc."/>
-      <requirements value="Note: The .type of author could be .role of primary author. Note there are overlapping codes to be used in specific circumstances. See ISO 21298:2018 - Health Informatics - Functional and structural roles."/>
+      <comment value="For example: assembler, author, prescriber, signer, investigator, etc."/>
+      <requirements value="Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. This element will hold the functional role that the agent played in the activity that is the focus of this Provenance. Where an agent played multiple functional roles, they will be listed as multiple .agent elements representing each functional participation. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -391,9 +391,9 @@
     <element id="Provenance.agent.role">
       <path value="Provenance.agent.role"/>
       <short value="What the agents role was"/>
-      <definition value="The functional or structural roles of the agent indicating the agent&#39;s competency. The security role enabling the agent with respect to the activity."/>
-      <comment value="For example: PRIMAUTH, REVIEWER, VERF, etc."/>
-      <requirements value="Note: The .type of author could be .role of primary author. Note there are overlapping codes to be used in specific circumstances. See ISO 21298:2018 - Health Informatics - Functional and structural roles."/>
+      <definition value="The structural roles of the agent indicating the agent&#39;s competency. The security role enabling the agent with respect to the activity."/>
+      <comment value="For example: Chief-of-Radiology, Nurse, Physician, Medical-Student, etc."/>
+      <requirements value="Structural roles reflect the structural aspects of relationships between entities. Structural roles describe prerequisites, feasibilities, or competences for acts. Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models.."/>
       <min value="0"/>
       <max value="*"/>
       <type>

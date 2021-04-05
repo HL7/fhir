@@ -56,6 +56,13 @@ See the
 <a href="valueset-audit-event-sub-type.html">Audit Event Sub-Type</a> vocabulary for guidance on some security relevant events.
 </p>
 <p>
+The AuditEvent resource holds the details of an event in terms of who, what, where, when, and why. 
+Where the identification of the who participated is the agent. 
+An agent can be a person, an organization, software, device, or other actors that may be ascribed responsibility.  
+What objects were used/created/updated is recorded as the entity. 
+An entity is an identifiable physical, digital, conceptual or other kind of thing; entities may be real or imaginary.
+</p>
+<p>
 The content of an AuditEvent is intended for use by security system administrators, security and privacy information 
 managers, and records management personnel.  This content is not intended to be accessible or used directly by other 
 healthcare users, such as providers or patients, although reports generated from the raw data would be useful. An 
