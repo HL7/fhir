@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ExplanationOfBenefit-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ExplanationOfBenefit-care-team"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExplanationOfBenefit.careTeam.provider"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ExplanationOfBenefit-care-team"/>
+        <description value="Member of the CareTeam"/>
+        <code value="care-team"/>
+        <type value="reference"/>
+        <expression value="ExplanationOfBenefit.careTeam.provider"/>
+        <xpath value="f:ExplanationOfBenefit/f:careTeam/f:provider"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ExplanationOfBenefit-claim"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExplanationOfBenefit.claim"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ExplanationOfBenefit-claim"/>
+        <description value="The reference to the claim"/>
+        <code value="claim"/>
+        <type value="reference"/>
+        <expression value="ExplanationOfBenefit.claim"/>
+        <xpath value="f:ExplanationOfBenefit/f:claim"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ExplanationOfBenefit-coverage"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExplanationOfBenefit.insurance.coverage"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ExplanationOfBenefit-coverage"/>
+        <description value="The plan under which the claim was adjudicated"/>
+        <code value="coverage"/>
+        <type value="reference"/>
+        <expression value="ExplanationOfBenefit.insurance.coverage"/>
+        <xpath value="f:ExplanationOfBenefit/f:insurance/f:coverage"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ExplanationOfBenefit-created"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExplanationOfBenefit.created"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ExplanationOfBenefit-created"/>
+        <description value="The creation date for the EOB"/>
+        <code value="created"/>
+        <type value="date"/>
+        <expression value="ExplanationOfBenefit.created"/>
+        <xpath value="f:ExplanationOfBenefit/f:created"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ExplanationOfBenefit-detail-udi"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExplanationOfBenefit.item.detail.udi"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ExplanationOfBenefit-detail-udi"/>
+        <description value="UDI associated with a line item detail product or service"/>
+        <code value="detail-udi"/>
+        <type value="reference"/>
+        <expression value="ExplanationOfBenefit.item.detail.udi"/>
+        <xpath value="f:ExplanationOfBenefit/f:item/f:detail/f:udi"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ExplanationOfBenefit-disposition"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExplanationOfBenefit.disposition"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ExplanationOfBenefit-disposition"/>
+        <description value="The contents of the disposition message"/>
+        <code value="disposition"/>
+        <type value="string"/>
+        <expression value="ExplanationOfBenefit.disposition"/>
+        <xpath value="f:ExplanationOfBenefit/f:disposition"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ExplanationOfBenefit-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExplanationOfBenefit.item.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ExplanationOfBenefit-encounter"/>
+        <description value="Encounters associated with a billed line item"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="ExplanationOfBenefit.item.encounter"/>
+        <xpath value="f:ExplanationOfBenefit/f:item/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ExplanationOfBenefit-enterer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExplanationOfBenefit.enterer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ExplanationOfBenefit-enterer"/>
+        <description value="The party responsible for the entry of the Claim"/>
+        <code value="enterer"/>
+        <type value="reference"/>
+        <expression value="ExplanationOfBenefit.enterer"/>
+        <xpath value="f:ExplanationOfBenefit/f:enterer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ExplanationOfBenefit-facility"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExplanationOfBenefit.facility"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ExplanationOfBenefit-facility"/>
+        <description value="Facility responsible for the goods and services"/>
+        <code value="facility"/>
+        <type value="reference"/>
+        <expression value="ExplanationOfBenefit.facility"/>
+        <xpath value="f:ExplanationOfBenefit/f:facility"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ExplanationOfBenefit-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExplanationOfBenefit.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ExplanationOfBenefit-identifier"/>
+        <description value="The business identifier of the Explanation of Benefit"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="ExplanationOfBenefit.identifier"/>
+        <xpath value="f:ExplanationOfBenefit/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ExplanationOfBenefit-item-udi"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExplanationOfBenefit.item.udi"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ExplanationOfBenefit-item-udi"/>
+        <description value="UDI associated with a line item product or service"/>
+        <code value="item-udi"/>
+        <type value="reference"/>
+        <expression value="ExplanationOfBenefit.item.udi"/>
+        <xpath value="f:ExplanationOfBenefit/f:item/f:udi"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ExplanationOfBenefit-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExplanationOfBenefit.patient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ExplanationOfBenefit-patient"/>
+        <description value="The reference to the patient"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="ExplanationOfBenefit.patient"/>
+        <xpath value="f:ExplanationOfBenefit/f:patient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ExplanationOfBenefit-payee"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExplanationOfBenefit.payee.party"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ExplanationOfBenefit-payee"/>
+        <description value="The party receiving any payment for the Claim"/>
+        <code value="payee"/>
+        <type value="reference"/>
+        <expression value="ExplanationOfBenefit.payee.party"/>
+        <xpath value="f:ExplanationOfBenefit/f:payee/f:party"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ExplanationOfBenefit-procedure-udi"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExplanationOfBenefit.procedure.udi"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ExplanationOfBenefit-procedure-udi"/>
+        <description value="UDI associated with a procedure"/>
+        <code value="procedure-udi"/>
+        <type value="reference"/>
+        <expression value="ExplanationOfBenefit.procedure.udi"/>
+        <xpath value="f:ExplanationOfBenefit/f:procedure/f:udi"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ExplanationOfBenefit-provider"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExplanationOfBenefit.provider"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ExplanationOfBenefit-provider"/>
+        <description value="The reference to the provider"/>
+        <code value="provider"/>
+        <type value="reference"/>
+        <expression value="ExplanationOfBenefit.provider"/>
+        <xpath value="f:ExplanationOfBenefit/f:provider"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ExplanationOfBenefit-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExplanationOfBenefit.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ExplanationOfBenefit-status"/>
+        <description value="Status of the instance"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="ExplanationOfBenefit.status"/>
+        <xpath value="f:ExplanationOfBenefit/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ExplanationOfBenefit-subdetail-udi"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExplanationOfBenefit.item.detail.subDetail.udi"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ExplanationOfBenefit-subdetail-udi"/>
+        <description value="UDI associated with a line item detail subdetail product or service"/>
+        <code value="subdetail-udi"/>
+        <type value="reference"/>
+        <expression value="ExplanationOfBenefit.item.detail.subDetail.udi"/>
+        <xpath value="f:ExplanationOfBenefit/f:item/f:detail/f:subDetail/f:udi"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

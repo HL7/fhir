@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="PaymentNotice-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PaymentNotice-created"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentNotice.created"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PaymentNotice-created"/>
+        <description value="Creation date fro the notice"/>
+        <code value="created"/>
+        <type value="date"/>
+        <expression value="PaymentNotice.created"/>
+        <xpath value="f:PaymentNotice/f:created"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PaymentNotice-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentNotice.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PaymentNotice-identifier"/>
+        <description value="The business identifier of the notice"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="PaymentNotice.identifier"/>
+        <xpath value="f:PaymentNotice/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PaymentNotice-payment-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentNotice.paymentStatus"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PaymentNotice-payment-status"/>
+        <description value="The type of payment notice"/>
+        <code value="payment-status"/>
+        <type value="token"/>
+        <expression value="PaymentNotice.paymentStatus"/>
+        <xpath value="f:PaymentNotice/f:paymentStatus"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PaymentNotice-provider"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentNotice.provider"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PaymentNotice-provider"/>
+        <description value="The reference to the provider"/>
+        <code value="provider"/>
+        <type value="reference"/>
+        <expression value="PaymentNotice.provider"/>
+        <xpath value="f:PaymentNotice/f:provider"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PaymentNotice-request"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentNotice.request"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PaymentNotice-request"/>
+        <description value="The Claim"/>
+        <code value="request"/>
+        <type value="reference"/>
+        <expression value="PaymentNotice.request"/>
+        <xpath value="f:PaymentNotice/f:request"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PaymentNotice-response"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentNotice.response"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PaymentNotice-response"/>
+        <description value="The ClaimResponse"/>
+        <code value="response"/>
+        <type value="reference"/>
+        <expression value="PaymentNotice.response"/>
+        <xpath value="f:PaymentNotice/f:response"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PaymentNotice-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentNotice.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PaymentNotice-status"/>
+        <description value="The status of the payment notice"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="PaymentNotice.status"/>
+        <xpath value="f:PaymentNotice/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

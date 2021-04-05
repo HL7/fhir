@@ -19,7 +19,6 @@
   
   <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4077,7 +4076,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R1C23"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="35" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="41" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s85" ss:Width="227.0"/>
    <Column ss:StyleID="s84" ss:Width="51.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="120.0"/>
@@ -4127,8 +4126,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">qualityOfEvidence</Data></Cell>
-    <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell><Data ss:Type="String">Attachment</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
     <Cell><Data ss:Type="String">qualityOfEvidence</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -4138,8 +4137,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">strengthOfRecommendation</Data></Cell>
-    <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell><Data ss:Type="String">Attachment</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
     <Cell><Data ss:Type="String">strengthOfRecommendation</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -4149,8 +4148,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">citation</Data></Cell>
-    <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell><Data ss:Type="String">Attachment</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
     <Cell><Data ss:Type="String">citation</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
@@ -4199,9 +4198,9 @@
     <Cell><Data ss:Type="String">*</Data></Cell>
     <Cell><Data ss:Type="String">initialValue</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Expression</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">An initial value expression</Data></Cell>
-    <Cell><Data ss:Type="String">The name of an expression in a referenced library that determines an initial value</Data></Cell>
+    <Cell><Data ss:Type="String">An expression that determines an initial value. The expression may be simply the name of a expression in a referenced library, or it may be a complete inline expression</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">calculatedValue</Data></Cell>
@@ -4209,9 +4208,9 @@
     <Cell><Data ss:Type="String">*</Data></Cell>
     <Cell><Data ss:Type="String">calculatedValue</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Expression</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">A calculated value</Data></Cell>
-    <Cell><Data ss:Type="String">The name of an expression in a referenced library that determines a calculated value</Data></Cell>
+    <Cell><Data ss:Type="String">An expression that determines a calculated value. The expression may be simply the name of a expression in a referenced library, or it may be a complete inline expression</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!parameter</Data></Cell>
@@ -4623,6 +4622,51 @@
     <Cell ss:Index="14"><Data ss:Type="String">Contributor address</Data></Cell>
     <Cell><Data ss:Type="String">The address of the contributor</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">certainty</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Certainty or quality rating</Data></Cell>
+    <Cell><Data ss:Type="String">An assessment of certainty, confidence, or quality of the item on which it appears</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">certainty.description</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Textual description of certainty</Data></Cell>
+    <Cell><Data ss:Type="String">A textual description of the certainty</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">certainty.note</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Annotation</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Footnotes and/or explanatory notes</Data></Cell>
+    <Cell><Data ss:Type="String">Footnotes and/or explanatory notes about the certainty</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">certainty.type</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">CertaintyType</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Aspect of certainty being rated</Data></Cell>
+    <Cell><Data ss:Type="String">The aspect of the certainty being rated</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">certainty.rating</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">CertaintyRating</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Assessment or judgement of the aspect</Data></Cell>
+    <Cell><Data ss:Type="String">The assessment, rating, or judgement of the aspect being rated</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">certainty.rater</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Who provided the rating</Data></Cell>
+    <Cell><Data ss:Type="String">The individual or group who provided the rating</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -4639,7 +4683,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>28</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5676,11 +5720,11 @@
     <Cell ss:StyleID="s134"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">CertaintyType</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">The aspect of quality, confidence, or certainty</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/certainty-type" ss:StyleID="s151"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/certainty-type</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -5691,11 +5735,11 @@
     <Cell ss:StyleID="s134"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">CertaintyRating</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">The assessment of quality, confidence, or certainty</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/certainty-rating" ss:StyleID="s151"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/certainty-rating</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="measure-stratifier-example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cqi"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/measure-stratifier-example"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.5.0"/>
+  <name value="MeasureStratifierExample"/>
+  <title value="MeasureStratifierExample"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="Clinical Quality Information Workgroup"/>
+  <description value="Identifier subgroups in a population for measuring purposes."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
+  <content value="complete"/>
+  <concept>
+    <code value="age"/>
+    <display value="Age"/>
+    <definition value="Age Stratification."/>
+  </concept>
+  <concept>
+    <code value="gender"/>
+    <display value="Gender"/>
+    <definition value="Gender Stratification."/>
+  </concept>
+  <concept>
+    <code value="region"/>
+    <display value="Region"/>
+    <definition value="Region Stratification."/>
+  </concept>
+</CodeSystem>

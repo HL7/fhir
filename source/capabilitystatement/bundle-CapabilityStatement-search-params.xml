@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="CapabilityStatement-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-context"/>
+        <description value="A use context assigned to the capability statement"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="(CapabilityStatement.useContext.value as CodeableConcept)"/>
+        <xpath value="f:CapabilityStatement/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the capability statement"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="(CapabilityStatement.useContext.value as Quantity) | (CapabilityStatement.useContext.value as Range)"/>
+        <xpath value="f:CapabilityStatement/f:useContext/f:valueQuantity | f:CapabilityStatement/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-context-type"/>
+        <description value="A type of use context assigned to the capability statement"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="CapabilityStatement.useContext.code"/>
+        <xpath value="f:CapabilityStatement/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the capability statement"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="CapabilityStatement.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.as(Quantity) | value.as(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-context-type-value"/>
+        <description value="A use context type and value assigned to the capability statement"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="CapabilityStatement.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-date"/>
+        <description value="The capability statement publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="CapabilityStatement.date"/>
+        <xpath value="f:CapabilityStatement/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-description"/>
+        <description value="The description of the capability statement"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="CapabilityStatement.description"/>
+        <xpath value="f:CapabilityStatement/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-fhirversion"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CapabilityStatement.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-fhirversion"/>
+        <description value="The version of FHIR"/>
+        <code value="fhirversion"/>
+        <type value="token"/>
+        <expression value="CapabilityStatement.version"/>
+        <xpath value="f:CapabilityStatement/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-format"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CapabilityStatement.format"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-format"/>
+        <description value="formats supported (xml | json | ttl | mime type)"/>
+        <code value="format"/>
+        <type value="token"/>
+        <expression value="CapabilityStatement.format"/>
+        <xpath value="f:CapabilityStatement/f:format"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-guide"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CapabilityStatement.implementationGuide"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-guide"/>
+        <description value="Implementation guides supported"/>
+        <code value="guide"/>
+        <type value="reference"/>
+        <expression value="CapabilityStatement.implementationGuide"/>
+        <xpath value="f:CapabilityStatement/f:implementationGuide"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-jurisdiction"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.jurisdiction"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-jurisdiction"/>
+        <description value="Intended jurisdiction for the capability statement"/>
+        <code value="jurisdiction"/>
+        <type value="token"/>
+        <expression value="CapabilityStatement.jurisdiction"/>
+        <xpath value="f:CapabilityStatement/f:jurisdiction"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-mode"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CapabilityStatement.rest.mode"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-mode"/>
+        <description value="Mode - restful (server/client) or messaging (sender/receiver)"/>
+        <code value="mode"/>
+        <type value="token"/>
+        <expression value="CapabilityStatement.rest.mode"/>
+        <xpath value="f:CapabilityStatement/f:rest/f:mode"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-name"/>
+        <description value="Computationally friendly name of the capability statement"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="CapabilityStatement.name"/>
+        <xpath value="f:CapabilityStatement/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-publisher"/>
+        <description value="Name of the publisher of the capability statement"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="CapabilityStatement.publisher"/>
+        <xpath value="f:CapabilityStatement/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-resource"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CapabilityStatement.rest.resource.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-resource"/>
+        <description value="Name of a resource mentioned in a capability statement"/>
+        <code value="resource"/>
+        <type value="token"/>
+        <expression value="CapabilityStatement.rest.resource.type"/>
+        <xpath value="f:CapabilityStatement/f:rest/f:resource/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-resource-profile"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CapabilityStatement.rest.resource.profile"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-resource-profile"/>
+        <description value="A profile id invoked in a capability statement"/>
+        <code value="resource-profile"/>
+        <type value="reference"/>
+        <expression value="CapabilityStatement.rest.resource.profile"/>
+        <xpath value="f:CapabilityStatement/f:rest/f:resource/f:profile"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-security-service"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CapabilityStatement.rest.security.service"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-security-service"/>
+        <description value="OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates"/>
+        <code value="security-service"/>
+        <type value="token"/>
+        <expression value="CapabilityStatement.rest.security.service"/>
+        <xpath value="f:CapabilityStatement/f:rest/f:security/f:service"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-software"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CapabilityStatement.software.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-software"/>
+        <description value="Part of the name of a software application"/>
+        <code value="software"/>
+        <type value="string"/>
+        <expression value="CapabilityStatement.software.name"/>
+        <xpath value="f:CapabilityStatement/f:software/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-status"/>
+        <description value="The current status of the capability statement"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="CapabilityStatement.status"/>
+        <xpath value="f:CapabilityStatement/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-supported-profile"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CapabilityStatement.rest.resource.supportedProfile"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-supported-profile"/>
+        <description value="Profiles for use cases supported"/>
+        <code value="supported-profile"/>
+        <type value="reference"/>
+        <expression value="CapabilityStatement.rest.resource.supportedProfile"/>
+        <xpath value="f:CapabilityStatement/f:rest/f:resource/f:supportedProfile"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-title"/>
+        <description value="The human-friendly name of the capability statement"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="CapabilityStatement.title"/>
+        <xpath value="f:CapabilityStatement/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-url"/>
+        <description value="The uri that identifies the capability statement"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="CapabilityStatement.url"/>
+        <xpath value="f:CapabilityStatement/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CapabilityStatement-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-version"/>
+        <description value="The business version of the capability statement"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="CapabilityStatement.version"/>
+        <xpath value="f:CapabilityStatement/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

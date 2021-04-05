@@ -18,6 +18,7 @@
   <TabRatio>837</TabRatio>
   <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -684,7 +685,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="43">
     <Cell ss:StyleID="s76"><Data ss:Type="String">MarketingStatus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s77"><Data ss:Type="String">BackboneType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">clinical.general</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">administrative.medication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="24"><Data ss:Type="String">Should be a datatype but couldn’t make it work as one</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>

@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="MessageDefinition-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageDefinition.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-category"/>
+        <description value="The behavior associated with the message"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="MessageDefinition.category"/>
+        <xpath value="f:MessageDefinition/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-context"/>
+        <description value="A use context assigned to the message definition"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="(MessageDefinition.useContext.value as CodeableConcept)"/>
+        <xpath value="f:MessageDefinition/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the message definition"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="(MessageDefinition.useContext.value as Quantity) | (MessageDefinition.useContext.value as Range)"/>
+        <xpath value="f:MessageDefinition/f:useContext/f:valueQuantity | f:MessageDefinition/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-context-type"/>
+        <description value="A type of use context assigned to the message definition"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="MessageDefinition.useContext.code"/>
+        <xpath value="f:MessageDefinition/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the message definition"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="MessageDefinition.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.as(Quantity) | value.as(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-context-type-value"/>
+        <description value="A use context type and value assigned to the message definition"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="MessageDefinition.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-date"/>
+        <description value="The message definition publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="MessageDefinition.date"/>
+        <xpath value="f:MessageDefinition/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-description"/>
+        <description value="The description of the message definition"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="MessageDefinition.description"/>
+        <xpath value="f:MessageDefinition/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-event"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageDefinition.event[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-event"/>
+        <description value="The event that triggers the message or link to the event definition."/>
+        <code value="event"/>
+        <type value="token"/>
+        <expression value="MessageDefinition.event"/>
+        <xpath value="f:MessageDefinition/f:eventCoding | f:MessageDefinition/f:eventUri"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-focus"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageDefinition.focus.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-focus"/>
+        <description value="A resource that is a permitted focus of the message"/>
+        <code value="focus"/>
+        <type value="token"/>
+        <expression value="MessageDefinition.focus.code"/>
+        <xpath value="f:MessageDefinition/f:focus/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-identifier"/>
+        <description value="External identifier for the message definition"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="MessageDefinition.identifier"/>
+        <xpath value="f:MessageDefinition/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-jurisdiction"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.jurisdiction"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-jurisdiction"/>
+        <description value="Intended jurisdiction for the message definition"/>
+        <code value="jurisdiction"/>
+        <type value="token"/>
+        <expression value="MessageDefinition.jurisdiction"/>
+        <xpath value="f:MessageDefinition/f:jurisdiction"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-name"/>
+        <description value="Computationally friendly name of the message definition"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="MessageDefinition.name"/>
+        <xpath value="f:MessageDefinition/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-parent"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageDefinition.parent"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-parent"/>
+        <description value="A resource that is the parent of the definition"/>
+        <code value="parent"/>
+        <type value="reference"/>
+        <expression value="MessageDefinition.parent"/>
+        <xpath value="f:MessageDefinition/f:parent"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-publisher"/>
+        <description value="Name of the publisher of the message definition"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="MessageDefinition.publisher"/>
+        <xpath value="f:MessageDefinition/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-status"/>
+        <description value="The current status of the message definition"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="MessageDefinition.status"/>
+        <xpath value="f:MessageDefinition/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-title"/>
+        <description value="The human-friendly name of the message definition"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="MessageDefinition.title"/>
+        <xpath value="f:MessageDefinition/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-url"/>
+        <description value="The uri that identifies the message definition"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="MessageDefinition.url"/>
+        <xpath value="f:MessageDefinition/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageDefinition-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-version"/>
+        <description value="The business version of the message definition"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="MessageDefinition.version"/>
+        <xpath value="f:MessageDefinition/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

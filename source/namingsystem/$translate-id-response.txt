@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+[other headers]
+
+{
+  "resourceType" : "Parameters",
+  "parameter" : [ {
+     "name" : "targetIdentifier",
+     "valueString" : "http://ns.electronichealth.net.au/id/hi/ihi/1.0"
+   }, {
+     "name" : "targetIdentifier.preferred",
+	 "valueBoolean" : "true"
+   }
+  ]
+}

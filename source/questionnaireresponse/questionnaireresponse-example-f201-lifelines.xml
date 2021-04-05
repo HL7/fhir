@@ -16,14 +16,10 @@
   </source>
   <item>
     <linkId value="1"/>
-    <item>
-      <!--Seperate answer-->
-<linkId value="1.1"/>
-      <text value="Do you have allergies?"/>
-      <answer>
-        <valueString value="I am allergic to house dust"/>
-      </answer>
-    </item>
+    <text value="Do you have allergies?"/>
+    <answer>
+      <valueBoolean value="true"/>
+    </answer>
   </item>
   <item>
     <!--Answers to general questions-->
@@ -66,14 +62,14 @@
       <linkId value="3.1"/>
       <text value="Do you smoke?"/>
       <answer>
-        <valueString value="No"/>
+        <valueBoolean value="false"/>
       </answer>
     </item>
     <item>
       <linkId value="3.2"/>
       <text value="Do you drink alchohol?"/>
       <answer>
-        <valueString value="No, but I used to drink"/>
+        <valueBoolean value="false"/>
       </answer>
     </item>
   </item>

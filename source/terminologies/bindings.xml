@@ -6105,8 +6105,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell><Data ss:Type="String">DeviceUseStatement</Data></Cell>
-    <Cell><Data ss:Type="String">DeviceUseStatement</Data></Cell>
+    <Cell><Data ss:Type="String">DeviceUsage</Data></Cell>
+    <Cell><Data ss:Type="String">DeviceUsage</Data></Cell>
     <Cell><Data ss:Type="String">Record of use of a device                                                                                                                          </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

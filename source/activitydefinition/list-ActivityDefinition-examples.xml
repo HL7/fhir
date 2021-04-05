@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="ActivityDefinition-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Activity definition to refer a patient to a mental health integrated care program"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="activitydefinition-example"/>
+    </extension>
+    <item>
+      <reference value="ActivityDefinition/referralPrimaryCareMentalHealth"/>
+      <display value="Referral Example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Activity definition to prescribe citalopram to a patient"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="activitydefinition-medicationorder-example"/>
+    </extension>
+    <item>
+      <reference value="ActivityDefinition/citalopramPrescription"/>
+      <display value="Citalopram Prescription Example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Definition for administering a Zika Virus Exposure assessment"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="activitydefinition-administer-zika-virus-exposure-assessment"/>
+    </extension>
+    <item>
+      <reference value="ActivityDefinition/administer-zika-virus-exposure-assessment"/>
+      <display value="Administer Zika Virus Exposure Assessment"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Definition for ordering a Serum Zika and Dengue Virus IgM Antibody Diagnostic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="activitydefinition-order-serum-zika-dengue-virus-igm"/>
+    </extension>
+    <item>
+      <reference value="ActivityDefinition/serum-zika-dengue-virus-igm"/>
+      <display value="Order Serum Zika and Dengue Virus IgM"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Definition for providing mosquito prevention advice"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="activitydefinition-provide-mosquito-prevention-advice"/>
+    </extension>
+    <item>
+      <reference value="ActivityDefinition/provide-mosquito-prevention-advice"/>
+      <display value="Provide Mosquito Prevention Advice"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Definition for heart valve replacement service request"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="activitydefinition-servicerequest-example"/>
+    </extension>
+    <item>
+      <reference value="ActivityDefinition/heart-valve-replacement"/>
+      <display value="Heart Valve Replacement"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Definition for blood collection tubes supply"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="activitydefinition-supplyrequest-example"/>
+    </extension>
+    <item>
+      <reference value="ActivityDefinition/blood-tubes-supply"/>
+      <display value="Blood Tubes Supply"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a predecessor/successor relationship"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="activitydefinition-predecessor-example"/>
+    </extension>
+    <item>
+      <reference value="ActivityDefinition/referralPrimaryCareMentalHealth-initial"/>
+      <display value="Predecessor"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Definition for ordering a Serum Dengue Virus IgM Antibody Diagnostic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="activitydefinition-order-serum-dengue-virus-igm"/>
+    </extension>
+    <item>
+      <reference value="ActivityDefinition/serum-dengue-virus-igm"/>
+      <display value="Order Serum Dengue Virus IgM"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Alteplase Dosing for Stroke to be used by an EvidenceVariable resource"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="activitydefinition-example-alteplase-dosing"/>
+    </extension>
+    <item>
+      <reference value="ActivityDefinition/example-alteplase-dosing"/>
+      <display value="Alteplase Dosing for Stroke"/>
+    </item>
+  </entry>
+</List>

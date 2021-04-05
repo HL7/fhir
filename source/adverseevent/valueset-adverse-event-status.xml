@@ -1,16 +1,28 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="adverse-event-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/adverse-event-status"/>
-	<name value="AdverseEventStatus"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1444"/>
+  </identifier>
+  <name value="AdverseEventStatus"/>
   <title value="Adverse Event Status"/>
-	<status value="draft"/>
-	<publisher value="HL7 International - Patient Care WG"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.hl7.org/Special/committees/patientcare/"/>
-		</telecom>
-	</contact>
+  <status value="draft"/>
+  <publisher value="HL7 International - Patient Care WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare/"/>
+    </telecom>
+  </contact>
   <description value="Codes identifying the lifecycle stage of an adverse event."/>
   <compose>
     <include>
@@ -18,16 +30,15 @@
       <concept>
         <code value="in-progress"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="completed"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="entered-in-error"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="unknown"/>
       </concept>
     </include>
   </compose>
 </ValueSet>
-

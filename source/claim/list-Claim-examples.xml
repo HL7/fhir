@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Claim-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple dental Claim"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claim-example"/>
+    </extension>
+    <item>
+      <reference value="Claim/100150"/>
+      <display value="General-Claim-Oral-Simple"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Average dental Claim with Information (Missing Teeth and Student)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claim-example-oral-average"/>
+    </extension>
+    <item>
+      <reference value="Claim/100151"/>
+      <display value="General-Claim-Oral-Average"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="SOA Dental Claim (Contained)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claim-example-oral-contained"/>
+    </extension>
+    <item>
+      <reference value="Claim/100152"/>
+      <display value="General-Claim-Oral-Contained"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="SOA Dental Claim using identifiers"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claim-example-oral-identifier"/>
+    </extension>
+    <item>
+      <reference value="Claim/100154"/>
+      <display value="General-Claim-Oral-Identifiers"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="SOA Dental Claim using identifiers and Contained"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claim-example-oral-contained-identifier"/>
+    </extension>
+    <item>
+      <reference value="Claim/100155"/>
+      <display value="General-Claim-Oral-Mixed"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="PreAuthorization with Bridge and Crown"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claim-example-oral-bridge"/>
+    </extension>
+    <item>
+      <reference value="Claim/100156"/>
+      <display value="General-Oral-Bridge"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="PreAuthorization with Orthodontic Treatment Plan"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claim-example-oral-orthoplan"/>
+    </extension>
+    <item>
+      <reference value="Claim/100153"/>
+      <display value="General-PreAuth-Oral-OthoPlan"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Vision Claim"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claim-example-vision"/>
+    </extension>
+    <item>
+      <reference value="Claim/660150"/>
+      <display value="General-Claim-Vision-Exam"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Glasses Claim"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claim-example-vision-glasses"/>
+    </extension>
+    <item>
+      <reference value="Claim/660151"/>
+      <display value="General-Claim-Vision-Glasses"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Glasses Claim, 3 Tier, Secondary Coverage"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claim-example-vision-glasses-3tier"/>
+    </extension>
+    <item>
+      <reference value="Claim/660152"/>
+      <display value="General-Claim-Vision-Glasses-3Tier"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Institutional Service Claim"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claim-example-institutional"/>
+    </extension>
+    <item>
+      <reference value="Claim/960150"/>
+      <display value="General-Claim-Institutional-Simple"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Rich Institutional Service Claim"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claim-example-institutional-rich"/>
+    </extension>
+    <item>
+      <reference value="Claim/960151"/>
+      <display value="General-Claim-Institutional-Rich"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Professional Service Claim"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claim-example-professional"/>
+    </extension>
+    <item>
+      <reference value="Claim/860150"/>
+      <display value="General-Claim-Professional-Simple"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Pharmacy Service Claim"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claim-example-pharmacy"/>
+    </extension>
+    <item>
+      <reference value="Claim/760150"/>
+      <display value="General-Claim-Pharmacy-Service"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Pharmacy Medication Claim"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claim-example-pharmacy-medication"/>
+    </extension>
+    <item>
+      <reference value="Claim/760151"/>
+      <display value="General-Claim-Pharmacy-Medication"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Pharmacy Compound Claim"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claim-example-pharmacy-compound"/>
+    </extension>
+    <item>
+      <reference value="Claim/760152"/>
+      <display value="General-Claim-Pharmacy-Compound"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple US Medical Surgery Claim"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claim-example-cms1500-medical"/>
+    </extension>
+    <item>
+      <reference value="Claim/MED-00050"/>
+      <display value="CMS 1500: US Simple Medical Claim"/>
+    </item>
+  </entry>
+</List>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Measure-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Exclusive Breastfeeding Measure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="measure-exclusive-breastfeeding"/>
+    </extension>
+    <item>
+      <reference value="Measure/measure-exclusive-breastfeeding"/>
+      <display value="CMS9v4"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Appropriate Testing for Children with Pharyngitis"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="measure-cms146-example"/>
+    </extension>
+    <item>
+      <reference value="Measure/measure-cms146-example"/>
+      <display value="CMS146"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Screening for Alcohol Misuse - Component A of a Composite Measure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="measure-component-a-example"/>
+    </extension>
+    <item>
+      <reference value="Measure/component-a-example"/>
+      <display value="Component A"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Screening for Depression - Component B of a Composite Measure Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="measure-component-b-example"/>
+    </extension>
+    <item>
+      <reference value="Measure/component-b-example"/>
+      <display value="Component B"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Behavioral Health Assessment - Composite Measure Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="measure-composite-example"/>
+    </extension>
+    <item>
+      <reference value="Measure/composite-example"/>
+      <display value="Composite"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Predecessor example - Exclusive Breastfeeding"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="measure-predecessor-example"/>
+    </extension>
+    <item>
+      <reference value="Measure/measure-predecessor-example"/>
+      <display value="Predecessor"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Measure to define public health reporting data elements"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="measure-hiv-indicators"/>
+    </extension>
+    <item>
+      <reference value="Measure/hiv-indicators"/>
+      <display value="HIV Indicators"/>
+    </item>
+  </entry>
+</List>

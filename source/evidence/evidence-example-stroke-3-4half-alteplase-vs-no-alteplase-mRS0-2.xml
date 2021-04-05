@@ -153,104 +153,111 @@
 	</statistic>
 	<certainty>
 		<description value="Very low certainty due to risk of bias, inconsistency, imprecision, and indirectness"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+				<code value="Overall"/>
+				<display value="Overall quality"/>
+			</coding>
+		</type>
 		<rating>
 			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
+				<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
 				<code value="very-low"/>
 				<display value="Very low quality"/>
 			</coding>
 		</rating>
-		<certaintySubcomponent>
+		<subcomponent>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
 					<code value="PublicationBias"/>
 					<display value="Publication bias"/>
 				</coding>
 			</type>
 			<rating>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
 					<code value="no-concern"/>
 					<display value="no serious concern"/>
 				</coding>
 			</rating>
-		</certaintySubcomponent>
-		<certaintySubcomponent>
+		</subcomponent>
+		<subcomponent>
 			<note>
 				<text value="IST-3 had inconsistent results and contributed large proportion of data"/>
 			</note>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
 					<code value="Inconsistency"/>
 					<display value="Inconsistency"/>
 				</coding>
 			</type>
 			<rating>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
 					<code value="serious-concern"/>
 					<display value="serious concern"/>
 				</coding>
 			</rating>
-		</certaintySubcomponent>
-		<certaintySubcomponent>
+		</subcomponent>
+		<subcomponent>
 			<note>
 				<text value="results derived from figure with limited data reported to support the specific effect estimate; derived odds ratio in figure does not match results from rates of mRS 0-2 reported in Supplementary Figure 3b"/>
 			</note>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
 					<code value="Imprecision"/>
 					<display value="Imprecision"/>
 				</coding>
 			</type>
 			<rating>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
 					<code value="serious-concern"/>
 					<display value="serious concern"/>
 				</coding>
 			</rating>
-		</certaintySubcomponent>
-		<certaintySubcomponent>
+		</subcomponent>
+		<subcomponent>
 			<note>
 				<text value="resuts derived for 3 - 4.5 hours assume data from 0 - 6 hours is informative"/>
 			</note>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
 					<code value="Indirectness"/>
 					<display value="Indirectness"/>
 				</coding>
 			</type>
 			<rating>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
 					<code value="serious-concern"/>
 					<display value="serious concern"/>
 				</coding>
 			</rating>
-		</certaintySubcomponent>
-		<certaintySubcomponent>
+		</subcomponent>
+		<subcomponent>
 			<note>
 				<text value="results largely influenced by IST-3 trial which was unblinded and ECASS III which had baseline imbalances"/>
 			</note>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
 					<code value="RiskOfBias"/>
 					<display value="Risk of bias"/>
 				</coding>
 			</type>
 			<rating>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
 					<code value="serious-concern"/>
 					<display value="serious concern"/>
 				</coding>
 			</rating>
-		</certaintySubcomponent>
+		</subcomponent>
 	</certainty>
 </Evidence>

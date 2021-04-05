@@ -13,12 +13,14 @@
 	<!-- specifiedSubstance, only used if a "specified substance" is needed, which is a substance that has some extra features, such as a specific manufacturer, grade, or preparation -->
 	<!-- can be multiple, these are alternatives to each other -->
 	<specifiedSubstance>
-		<codeCodeableConcept>
+		<code>
+			<concept>
 			<coding>
 				<system value="http://ema.europa.eu/example/specifiedSubstance"/>
 				<code value="equixabanCompany1"/>
 			</coding>
-		</codeCodeableConcept>
+			</concept>
+		</code>
 		<!-- group states the type of extra information, according to ISO 11238 -->
 		<group>
 			<coding>
@@ -28,12 +30,14 @@
 		</group>
 	</specifiedSubstance>
 	<specifiedSubstance>
-		<codeCodeableConcept>
+		<code>
+			<concept>
 			<coding>
 				<system value="http://ema.europa.eu/example/specifiedSubstance"/>
 				<code value="equixabanCompany2"/>
 			</coding>
-		</codeCodeableConcept>
+			</concept>
+		</code>
 		<group>
 			<coding>
 				<system value="http://ema.europa.eu/example/specifiedSubstanceGroup"/>

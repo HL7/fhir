@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Basic-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="How &#39;basic&#39; can be used for future resources - in this case referral"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="basic-example"/>
+    </extension>
+    <item>
+      <reference value="Basic/referral"/>
+      <display value="Referral"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="How &#39;Basic&#39; can be used for essoteric resources - in this case, a UML class model"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="basic-example2"/>
+    </extension>
+    <item>
+      <reference value="Basic/classModel"/>
+      <display value="ClassModel"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A resource that uses all narrative features for testing rendering applications"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="basic-example-narrative"/>
+    </extension>
+    <item>
+      <reference value="Basic/basic-example-narrative"/>
+      <display value="Narrative Example"/>
+    </item>
+  </entry>
+</List>
