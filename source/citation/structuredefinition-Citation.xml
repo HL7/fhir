@@ -1061,16 +1061,6 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.publishedIn.startDate">
-      <path value="Citation.citedArtifact.publicationForm.publishedIn.startDate"/>
-      <short value="When the database was first available or when the book was published"/>
-      <comment value="Date can be specific to database version or book edition if specified in the name."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="date"/>
-      </type>
-    </element>
     <element id="Citation.citedArtifact.publicationForm.periodicRelease">
       <path value="Citation.citedArtifact.publicationForm.periodicRelease"/>
       <short value="The specific issue in which the cited article resides"/>
