@@ -4,7 +4,7 @@
   <type value="summary"/>
   <measure value="http://ohie.org/Measure/hiv-indicators"/>
   <reporter>
-    <reference value="Organization/ZW01"/>
+    <reference value="Organization/hl7"/>
   </reporter>
   <period>
     <start value="2018-01-01"/>

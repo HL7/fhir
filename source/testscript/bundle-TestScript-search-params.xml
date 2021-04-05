@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="TestScript-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-context"/>
+        <description value="A use context assigned to the test script"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="(TestScript.useContext.value as CodeableConcept)"/>
+        <xpath value="f:TestScript/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the test script"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="(TestScript.useContext.value as Quantity) | (TestScript.useContext.value as Range)"/>
+        <xpath value="f:TestScript/f:useContext/f:valueQuantity | f:TestScript/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-context-type"/>
+        <description value="A type of use context assigned to the test script"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="TestScript.useContext.code"/>
+        <xpath value="f:TestScript/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the test script"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="TestScript.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.as(Quantity) | value.as(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-context-type-value"/>
+        <description value="A use context type and value assigned to the test script"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="TestScript.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-date"/>
+        <description value="The test script publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="TestScript.date"/>
+        <xpath value="f:TestScript/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-description"/>
+        <description value="The description of the test script"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="TestScript.description"/>
+        <xpath value="f:TestScript/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-identifier"/>
+        <description value="External identifier for the test script"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="TestScript.identifier"/>
+        <xpath value="f:TestScript/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-jurisdiction"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.jurisdiction"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-jurisdiction"/>
+        <description value="Intended jurisdiction for the test script"/>
+        <code value="jurisdiction"/>
+        <type value="token"/>
+        <expression value="TestScript.jurisdiction"/>
+        <xpath value="f:TestScript/f:jurisdiction"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-name"/>
+        <description value="Computationally friendly name of the test script"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="TestScript.name"/>
+        <xpath value="f:TestScript/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-publisher"/>
+        <description value="Name of the publisher of the test script"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="TestScript.publisher"/>
+        <xpath value="f:TestScript/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-scope-artifact"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="TestScript.scope.artifact"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-scope-artifact"/>
+        <description value="The artifact under test"/>
+        <code value="scope-artifact"/>
+        <type value="reference"/>
+        <expression value="TestScript.scope.artifact"/>
+        <xpath value="f:TestScript/f:scope/f:artifact"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-scope-artifact-conformance"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-scope-artifact-conformance"/>
+        <description value="The artifact under test and conformance testing expectation"/>
+        <code value="scope-artifact-conformance"/>
+        <type value="composite"/>
+        <expression value="TestScript.scope"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="artifact"/>
+          <expression value="artifact"/>
+        </component>
+        <component>
+          <definition value="conformance"/>
+          <expression value="conformance.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-scope-artifact-phase"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-scope-artifact-phase"/>
+        <description value="The artifact under test and phase of testing"/>
+        <code value="scope-artifact-phase"/>
+        <type value="composite"/>
+        <expression value="TestScript.scope"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="artifact"/>
+          <expression value="artifact"/>
+        </component>
+        <component>
+          <definition value="phase"/>
+          <expression value="phase.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-status"/>
+        <description value="The current status of the test script"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="TestScript.status"/>
+        <xpath value="f:TestScript/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-testscript-capability"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="TestScript.metadata.capability.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-testscript-capability"/>
+        <description value="TestScript required and validated capability"/>
+        <code value="testscript-capability"/>
+        <type value="string"/>
+        <expression value="TestScript.metadata.capability.description"/>
+        <xpath value="f:TestScript/f:metadata/f:capability/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-title"/>
+        <description value="The human-friendly name of the test script"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="TestScript.title"/>
+        <xpath value="f:TestScript/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-url"/>
+        <description value="The uri that identifies the test script"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="TestScript.url"/>
+        <xpath value="f:TestScript/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestScript-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestScript-version"/>
+        <description value="The business version of the test script"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="TestScript.version"/>
+        <xpath value="f:TestScript/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

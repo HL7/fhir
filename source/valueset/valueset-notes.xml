@@ -246,11 +246,12 @@ the following process should be followed:
       <li>If codes are listed, check that they are valid, and check their active status, and if ok, add them to the result set (the parameters to the <a href="valueset-operation-expand.html">$expand</a> operation may be used to control whether active codes are included).</li>
       <li>If any filters are present, process them in order (as explained above), and add the intersection of their results to the result set.</li>
    </ul></li>
-   <li>For each <code>valueSet</code>, find the referenced value set by ValueSet.url, expand that (e.g., using the <a href="valueset-operations.html#expand">$expand</a> operation: GET [base]/ValueSet/$expand$url=[compose.include.valueSet]), and add it to the result set. This means that expansion across imports is a recursive process.</li>
-   <li>Add the intersection of the result set from the system and the result sets from the value sets to the expansion</li>
+   <li>For each <code>valueSet</code>, find the referenced value set by ValueSet.url, expand that (e.g., using the <a href="valueset-operations.html#expand">$expand</a> operation: GET [base]/ValueSet/$expand$url=[compose.include.valueSet]), to produce a collection of result sets. This means that expansion across imports is a recursive process.</li>
+   <li>Add the intersection of the result set from the system (step 1) and all of the result sets from the value sets (step 2) to the expansion</li>
   </ol>
  </li>
- <li>For each <i>compose.exclude</i>, follow the same process as for <i>compose.include</i>, but remove any codes from the result set, instead of adding them.</li>
+ <li>For each <i>compose.exclude</i>, follow the same process as for <i>compose.include</i>, but remove codes from the expansion in step 3 instead of adding them.</li>
+ <li>When available, ValueSet.status and ValueSet.version from the ValueSet resource instance which contains the definition SHALL be persisted to the ValueSet resource instance which contains the expansion.</li>
 </ul>
 <p>
 The final "result set" is then represented in <i>expansion</i>.

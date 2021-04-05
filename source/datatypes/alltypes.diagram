@@ -1,9 +1,9 @@
 [diagram]
-classes=DataType,BackboneType,Identifier,HumanName,Address,ContactPoint,Timing,Quantity,SimpleQuantity,Attachment,Range,Period,Ratio,CodeableConcept,Coding,SampledData,Age,Distance,Duration,Count,Money,MoneyQuantity,Annotation,Signature
+classes=DataType,BackboneType,Identifier,HumanName,Address,ContactPoint,Timing,Quantity,SimpleQuantity,Attachment,Range,Period,Ratio,RatioRange,CodeableConcept,Coding,SampledData,Age,Distance,Duration,Count,Money,MoneyQuantity,Annotation,Signature
 attributes=false
 
 [size]
-width=440
+width=500
 height=248
 
 [directions]
@@ -16,8 +16,9 @@ BackboneType=-95;80
 Ratio=-140;-80
 Period=-85;-80
 Range=-20;-80
-Attachment=30;-80
-Identifier=130;-80
+RatioRange=30;-80
+Attachment=130;-80
+Identifier=230;-80
 HumanName=160;-40
 Address=175;40
 Signature=190;80

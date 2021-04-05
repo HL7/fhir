@@ -5752,7 +5752,7 @@
     <Cell ss:StyleID="s79"><Data ss:Type="String">Describes the type of the component.</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/device-kind</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/device-type</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">IEEE 11073-10101</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s149"/>

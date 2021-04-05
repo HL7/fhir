@@ -120,94 +120,101 @@
 		</sampleSize>
 	</statistic>
 	<certainty>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+				<code value="Overall"/>
+				<display value="Overall quality"/>
+			</coding>
+		</type>
 		<rating>
 			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
+				<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
 				<code value="high"/>
 				<display value="High quality"/>
 			</coding>
 		</rating>
-		<certaintySubcomponent>
+		<subcomponent>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
 					<code value="RiskOfBias"/>
 					<display value="Risk of bias"/>
 				</coding>
 			</type>
 			<rating>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
 					<code value="no-concern"/>
 					<display value="no serious concern"/>
 				</coding>
 			</rating>
-		</certaintySubcomponent>
-		<certaintySubcomponent>
+		</subcomponent>
+		<subcomponent>
 			<description value="Estimated risk from validation calibration plot consistent with predicted risk; observed risk in subgroup with ASTRAL score = 12 consistent with validation calibration plot"/>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
 					<code value="Inconsistency"/>
 					<display value="Inconsistency"/>
 				</coding>
 			</type>
 			<rating>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
 					<code value="no-concern"/>
 					<display value="no serious concern"/>
 				</coding>
 			</rating>
-		</certaintySubcomponent>
-		<certaintySubcomponent>
+		</subcomponent>
+		<subcomponent>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
 					<code value="Indirectness"/>
 					<display value="Indirectness"/>
 				</coding>
 			</type>
 			<rating>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
 					<code value="no-concern"/>
 					<display value="no serious concern"/>
 				</coding>
 			</rating>
-		</certaintySubcomponent>
-		<certaintySubcomponent>
+		</subcomponent>
+		<subcomponent>
 			<description value="Narrow confidence interval"/>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
 					<code value="Imprecision"/>
 					<display value="Imprecision"/>
 				</coding>
 			</type>
 			<rating>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
 					<code value="no-concern"/>
 					<display value="no serious concern"/>
 				</coding>
 			</rating>
-		</certaintySubcomponent>
-		<certaintySubcomponent>
+		</subcomponent>
+		<subcomponent>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
 					<code value="PublicationBias"/>
 					<display value="Publication bias"/>
 				</coding>
 			</type>
 			<rating>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-subcomponent-rating"/>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
 					<code value="no-concern"/>
 					<display value="no serious concern"/>
 				</coding>
 			</rating>
-		</certaintySubcomponent>
+		</subcomponent>
 	</certainty>
 </Evidence>

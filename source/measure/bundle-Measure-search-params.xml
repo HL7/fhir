@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Measure-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-composed-of"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Measure.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-composed-of"/>
+        <description value="What resource is being referenced"/>
+        <code value="composed-of"/>
+        <type value="reference"/>
+        <expression value="Measure.relatedArtifact.where(type=&#39;composed-of&#39;).resource"/>
+        <xpath value="f:Measure/f:relatedArtifact[f:type/@value=&#39;composed-of&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-context"/>
+        <description value="A use context assigned to the measure"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="(Measure.useContext.value as CodeableConcept)"/>
+        <xpath value="f:Measure/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the measure"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="(Measure.useContext.value as Quantity) | (Measure.useContext.value as Range)"/>
+        <xpath value="f:Measure/f:useContext/f:valueQuantity | f:Measure/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-context-type"/>
+        <description value="A type of use context assigned to the measure"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="Measure.useContext.code"/>
+        <xpath value="f:Measure/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the measure"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="Measure.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.as(Quantity) | value.as(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-context-type-value"/>
+        <description value="A use context type and value assigned to the measure"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="Measure.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-date"/>
+        <description value="The measure publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="Measure.date"/>
+        <xpath value="f:Measure/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-depends-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Measure.relatedArtifact.resource,Measure.library"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-depends-on"/>
+        <description value="What resource is being referenced"/>
+        <code value="depends-on"/>
+        <type value="reference"/>
+        <expression value="Measure.relatedArtifact.where(type=&#39;depends-on&#39;).resource | Measure.library"/>
+        <xpath value="f:Measure/f:relatedArtifact[f:type/@value=&#39;depends-on&#39;]/f:resource | f:Measure/f:library"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-derived-from"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Measure.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-derived-from"/>
+        <description value="What resource is being referenced"/>
+        <code value="derived-from"/>
+        <type value="reference"/>
+        <expression value="Measure.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
+        <xpath value="f:Measure/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-description"/>
+        <description value="The description of the measure"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="Measure.description"/>
+        <xpath value="f:Measure/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-effective"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.effectivePeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-effective"/>
+        <description value="The time during which the measure is intended to be in use"/>
+        <code value="effective"/>
+        <type value="date"/>
+        <expression value="Measure.effectivePeriod"/>
+        <xpath value="f:Measure/f:effectivePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-identifier"/>
+        <description value="External identifier for the measure"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Measure.identifier"/>
+        <xpath value="f:Measure/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-jurisdiction"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.jurisdiction"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-jurisdiction"/>
+        <description value="Intended jurisdiction for the measure"/>
+        <code value="jurisdiction"/>
+        <type value="token"/>
+        <expression value="Measure.jurisdiction"/>
+        <xpath value="f:Measure/f:jurisdiction"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-name"/>
+        <description value="Computationally friendly name of the measure"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="Measure.name"/>
+        <xpath value="f:Measure/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-predecessor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Measure.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-predecessor"/>
+        <description value="What resource is being referenced"/>
+        <code value="predecessor"/>
+        <type value="reference"/>
+        <expression value="Measure.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
+        <xpath value="f:Measure/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-publisher"/>
+        <description value="Name of the publisher of the measure"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="Measure.publisher"/>
+        <xpath value="f:Measure/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-status"/>
+        <description value="The current status of the measure"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Measure.status"/>
+        <xpath value="f:Measure/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-successor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Measure.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-successor"/>
+        <description value="What resource is being referenced"/>
+        <code value="successor"/>
+        <type value="reference"/>
+        <expression value="Measure.relatedArtifact.where(type=&#39;successor&#39;).resource"/>
+        <xpath value="f:Measure/f:relatedArtifact[f:type/@value=&#39;successor&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-title"/>
+        <description value="The human-friendly name of the measure"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="Measure.title"/>
+        <xpath value="f:Measure/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-topic"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Measure.topic"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-topic"/>
+        <description value="Topics associated with the measure"/>
+        <code value="topic"/>
+        <type value="token"/>
+        <expression value="Measure.topic"/>
+        <xpath value="f:Measure/f:topic"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-url"/>
+        <description value="The uri that identifies the measure"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="Measure.url"/>
+        <xpath value="f:Measure/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Measure-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Measure-version"/>
+        <description value="The business version of the measure"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="Measure.version"/>
+        <xpath value="f:Measure/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

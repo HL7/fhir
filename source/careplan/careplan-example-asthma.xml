@@ -239,7 +239,7 @@
   </goal>
   <!-- This activity specifies that the patient take a peak flow daily -->
   <activity>
-    <detail>
+    <plannedActivityDetail>
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -260,7 +260,7 @@
         <display value="Eve Everywoman"/>
       </performer>
       <description value="Daily Peak Flow Measurement"/>
-    </detail>
+    </plannedActivityDetail>
   </activity>
   <activity>
     <!-- Specifies that this activity (start a reducing dose of steriods) is only triggered when the peak flow drops below 350-->
@@ -271,7 +271,7 @@
     <progress>
       <text value="In response to a peakflow below 350, a reducing dose of prednisone starting at 30mg, and reducing by 5mg every 2 days"/>
     </progress>
-    <detail>
+    <plannedActivityDetail>
       <extension url="http://example.org/StructureDefinition/trigger">
         <extension url="trigger.code">
           <valueCoding>
@@ -291,14 +291,14 @@
       <status value="not-started"/>
       <doNotPerform value="false"/>
       <description value="Eve will start oral steroids if the peakflow drops below 350"/>
-    </detail>
+    </plannedActivityDetail>
   </activity>
   <activity>
     <progress>
       <text value="In response to a peakflow below 250, seek urgent Medical Assistance. This can be life threatening."/>
     </progress>
     <!-- Specifies that this activity (get medical help) is only triggered when the peak flow drops below 250-->
-    <detail>
+    <plannedActivityDetail>
       <extension url="http://example.org/StructureDefinition/trigger">
         <extension url="trigger.code">
           <valueCoding>
@@ -317,6 +317,6 @@
       <status value="not-started"/>
       <doNotPerform value="false"/>
       <description value="Get Medical assistance immediately"/>
-    </detail>
+    </plannedActivityDetail>
   </activity>
 </CarePlan>
