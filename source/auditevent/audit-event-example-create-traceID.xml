@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
+	<id value="example-rest-create-traceID"/>
+	<type>
+		<system value="http://terminology.hl7.org/CodeSystem/audit-event-type"/>
+		<code value="rest"/>
+		<display value="Restful Operation"/>
+	</type>
+	<subtype>
+		<system value="http://hl7.org/fhir/restful-interaction"/>
+		<code value="create"/>
+		<display value="create"/>
+	</subtype>
+	<action value="C"/>
+	<recorded value="2019-12-04T11:59:28.646+00:00"/>
+	<outcome>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
+			<code value="0"/>
+			<display value="Success"/>
+		</coding>
+	</outcome> 
+
+	<agent>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/extra-security-role-type"/>
+				<code value="humanuser"/>
+				<display value="human user"/>
+			</coding>
+		</type> 
+
+		<who>
+			<identifier>
+				<value value="95"/>
+			</identifier>
+		</who>
+		<altId value="601847123"/>
+		<name value="Grahame Grieve"/>
+		<requestor value="true"/>
+	</agent>
+	<agent>
+		<!-- Source active participant, the software making the . AlternativeUserId - Process ID --> 
+		<type>
+			<coding>
+				<system value="http://dicom.nema.org/resources/ontology/DCM"/>
+				<code value="110153"/>
+				<display value="Source Role ID"/>
+			</coding>
+		</type> 
+		<who>
+			<identifier>
+				<system value="urn:oid:2.16.840.1.113883.4.2"/> 
+				<value value="2.16.840.1.113883.4.2"/> 
+			</identifier>
+		</who>
+		<altId value="6580"/> 
+		<requestor value="false"/> 
+		<network>
+			<address value="Workstation1.ehr.familyclinic.com"/>
+			<type value="1"/>
+		</network> 
+	</agent>
+	<source>
+		<site value="Cloud"/>
+		<observer>
+		<identifier>
+			<value value="hl7connect.healthintersections.com.au"/>
+			</identifier>
+		</observer>
+		<type>
+			<system value="http://terminology.hl7.org/CodeSystem/security-source-type"/>
+			<code value="3"/>
+			<display value="Web Server"/>
+		</type>
+	</source>
+	<entity>
+		<what>
+			<reference value="Patient/example/_history/1"/>
+		</what>
+		<type>
+			<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
+			<code value="1"/>
+			<display value="Person"/>
+		</type>
+		<role>
+			<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
+			<code value="1"/>
+			<display value="Patient"/>
+		</role>
+	</entity>
+	<entity>
+		<!-- The TraceID from the software stack -->
+		<what>
+			<identifier>
+			    <type>
+					<text value="TraceID"/>
+				</type>
+				<system value="http://example.com/server"/>
+				<value value="6b507ee2d716780372c255df69ece653"/>
+			</identifier>
+		</what>
+		<type>
+			<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
+			<code value="2"/>
+			<display value="System Object"/>
+		</type>
+		<role>
+			<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
+			<code value="21"/>
+			<display value="Job Stream"/>
+		</role>
+	</entity>
+</AuditEvent>
