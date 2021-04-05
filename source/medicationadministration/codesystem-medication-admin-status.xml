@@ -1,11 +1,21 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="medication-admin-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
   <url value="http://hl7.org/fhir/CodeSystem/medication-admin-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1508"/>
+  </identifier>
   <name value="MedicationAdministration Status Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value=""/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medication-admin-status"/>
   <content value="complete"/>
@@ -22,7 +32,7 @@
   <concept>
     <code value="on-hold"/>
     <display value="On Hold"/>
-    <definition value="Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called 'suspended'."/>
+    <definition value="Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called &#39;suspended&#39;."/>
   </concept>
   <concept>
     <code value="completed"/>
@@ -42,6 +52,6 @@
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for 'other' - one of the listed statuses is presumed to apply, it's just not known which one."/>
+    <definition value="The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for &#39;other&#39; - one of the listed statuses is presumed to apply, it&#39;s just not known which one."/>
   </concept>
 </CodeSystem>

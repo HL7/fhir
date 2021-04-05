@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Resource-operations"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/Resource-validate"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/Resource-meta"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/Resource-meta-add"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/Resource-meta-delete"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/Resource-convert"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/Resource-graphql"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/Resource-graph"/>
+    </item>
+  </entry>
+</List>

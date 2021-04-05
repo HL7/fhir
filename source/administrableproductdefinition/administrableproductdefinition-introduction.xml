@@ -2,11 +2,18 @@
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
+		<p><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></p>
 		<p>
-			Qualitative and quantitative composition of a Medicinal Product in the dose form approved for administration in line with the regulated product information 
+			A medicinal product may consist of several items, which need to be combined or processed before administration to the patient. 
+			
+			This resource covers the ready-for-use administrable product - the components of which are 
+			<a href="manufactureditemdefinition.html">ManufacturedItemDefinition</a> resources. 
+			Note that often the administrable product is the same as the manufactured item.
 		</p>
 		<p>
-			Note that in many instances, the pharmaceutical product is equal to the manufactured item. However, there are instances where the manufactured item must undergo a transformation before being administered to the patient (as the pharmaceutical product) and the two are not equal.
+			This resource represents the final form of the product; hence it details properties such as the route, that only apply to the final product. 
+			It is a definitional resource, representing the properties of a product, but not the actual instance given to someone.
+			When necessary to record that, a <a href="medication.html">Medication</a> resource is used. 
 		</p>
 	</div>
 </div>

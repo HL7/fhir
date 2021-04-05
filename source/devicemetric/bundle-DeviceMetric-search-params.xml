@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="DeviceMetric-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceMetric-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceMetric.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceMetric-category"/>
+        <description value="The category of the metric"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="DeviceMetric.category"/>
+        <xpath value="f:DeviceMetric/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceMetric-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceMetric.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceMetric-identifier"/>
+        <description value="The identifier of the metric"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="DeviceMetric.identifier"/>
+        <xpath value="f:DeviceMetric/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceMetric-parent"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceMetric.parent"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceMetric-parent"/>
+        <description value="The parent DeviceMetric resource"/>
+        <code value="parent"/>
+        <type value="reference"/>
+        <expression value="DeviceMetric.parent"/>
+        <xpath value="f:DeviceMetric/f:parent"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceMetric-source"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceMetric.source"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceMetric-source"/>
+        <description value="The device resource"/>
+        <code value="source"/>
+        <type value="reference"/>
+        <expression value="DeviceMetric.source"/>
+        <xpath value="f:DeviceMetric/f:source"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceMetric-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceMetric.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceMetric-type"/>
+        <description value="The component type"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="DeviceMetric.type"/>
+        <xpath value="f:DeviceMetric/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

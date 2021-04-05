@@ -40,7 +40,7 @@
         <text value="Sex"/>
         <answer>
           <valueCoding>
-            <code value="f"/>
+            <code value="F"/>
           </valueCoding>
         </answer>
       </item>

@@ -33,6 +33,7 @@
         <value value="ABC123"/>
       </identifier>
 	  <status value="completed"/>
+	  <intent value="proposal"/>
       <subject>
         <reference value="Patient/1"/>
       </subject>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="QuestionnaireResponse-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General questionnaire response example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="questionnaireresponse-example"/>
+    </extension>
+    <item>
+      <reference value="QuestionnaireResponse/3141"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world lifelines questionnaire response (fictively taken from the patient)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="questionnaireresponse-example-f201-lifelines"/>
+    </extension>
+    <item>
+      <reference value="QuestionnaireResponse/f201"/>
+      <display value="Lifelines"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world NSW My Personal Health Record example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="questionnaireresponse-example-bluebook"/>
+    </extension>
+    <item>
+      <reference value="QuestionnaireResponse/bb"/>
+      <display value="BlueBook"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Glasgow Coma Score example answers"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="questionnaireresponse-example-gcs"/>
+    </extension>
+    <item>
+      <reference value="QuestionnaireResponse/gcs"/>
+      <display value="Glasgow Coma Score"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example response to the SDC-LOINC USSG Family History questionnaire"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="questionnaireresponse-example-ussg-fht-answers"/>
+    </extension>
+    <item>
+      <reference value="QuestionnaireResponse/ussg-fht-answers"/>
+      <display value="LOINC USSG Family History Response"/>
+    </item>
+  </entry>
+</List>

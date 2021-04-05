@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Library-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Chlamydia Screening Common Library"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-example"/>
+    </extension>
+    <item>
+      <reference value="Library/example"/>
+      <display value="CSCommon"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Exclusive Breastfeeding Intervention Logic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-exclusive-breastfeeding-cds-logic"/>
+    </extension>
+    <item>
+      <reference value="Library/library-exclusive-breastfeeding-cds-logic"/>
+      <display value="CMS9CDSLogic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Exclusive Breastfeeding Measurement Logic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-exclusive-breastfeeding-cqm-logic"/>
+    </extension>
+    <item>
+      <reference value="Library/library-exclusive-breastfeeding-cqm-logic"/>
+      <display value="CMS9CQMLogic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="CMS146 Measure Logic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-cms146-example"/>
+    </extension>
+    <item>
+      <reference value="Library/library-cms146-example"/>
+      <display value="CMS146Logic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="QUICK Model Definition"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-quick-model-definition"/>
+    </extension>
+    <item>
+      <reference value="Library/library-quick-model-definition"/>
+      <display value="QUICKModel"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="FHIR Model Definition"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-fhir-model-definition"/>
+    </extension>
+    <item>
+      <reference value="Library/library-fhir-model-definition"/>
+      <display value="FHIRModel"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Suicide Risk Order Set Logic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-mmi-suiciderisk-orderset-logic"/>
+    </extension>
+    <item>
+      <reference value="Library/suiciderisk-orderset-logic"/>
+      <display value="SuicideRisk"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="FHIR Helpers"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-fhir-helpers"/>
+    </extension>
+    <item>
+      <reference value="Library/library-fhir-helpers"/>
+      <display value="FHIRHelpers"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Zika Virus Management Intervention Logic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-zika-virus-intervention-logic"/>
+    </extension>
+    <item>
+      <reference value="Library/zika-virus-intervention-logic"/>
+      <display value="Zika Virus Intervention Logic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Zika Virus Management Library"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-composition-example"/>
+    </extension>
+    <item>
+      <reference value="Library/composition-example"/>
+      <display value="Composition"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Predecessor library example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-predecessor-example"/>
+    </extension>
+    <item>
+      <reference value="Library/library-fhir-helpers-predecessor"/>
+      <display value="Predecessor"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="OMTK Logic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-omtk-logic"/>
+    </extension>
+    <item>
+      <reference value="Library/omtk-logic"/>
+      <display value="OMTKLogic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="OMTK Model"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-omtk-modelinfo"/>
+    </extension>
+    <item>
+      <reference value="Library/omtk-modelinfo"/>
+      <display value="OMTKModel"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Opioid CDS Common Library"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-opioidcds-common"/>
+    </extension>
+    <item>
+      <reference value="Library/opioidcds-common"/>
+      <display value="OpiodCDSCommon"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Opioid CDS Recommendation 4 Logic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-opioidcds-recommendation-04"/>
+    </extension>
+    <item>
+      <reference value="Library/opioidcds-recommendation-04"/>
+      <display value="OpiodCDSRecommendation4"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Opioid CDS Recommendation 5 Logic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-opioidcds-recommendation-05"/>
+    </extension>
+    <item>
+      <reference value="Library/opioidcds-recommendation-05"/>
+      <display value="OpiodCDSRecommendation5"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Opioid CDS Recommendation 7 Logic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-opioidcds-recommendation-07"/>
+    </extension>
+    <item>
+      <reference value="Library/opioidcds-recommendation-07"/>
+      <display value="OpiodCDSRecommendation7"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Opioid CDS Recommendation 8 Logic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-opioidcds-recommendation-08"/>
+    </extension>
+    <item>
+      <reference value="Library/opioidcds-recommendation-08"/>
+      <display value="OpiodCDSRecommendation8"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Opioid CDS Recommendation 10 Logic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-opioidcds-recommendation-10"/>
+    </extension>
+    <item>
+      <reference value="Library/opioidcds-recommendation-10"/>
+      <display value="OpiodCDSRecommendation10"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Opioid CDS Recommendation 11 Logic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-opioidcds-recommendation-11"/>
+    </extension>
+    <item>
+      <reference value="Library/opioidcds-recommendation-11"/>
+      <display value="OpiodCDSRecommendation11"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="HIV Indicators Reporting Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-hiv-indicators"/>
+    </extension>
+    <item>
+      <reference value="Library/hiv-indicators"/>
+      <display value="HIV Indicators"/>
+    </item>
+  </entry>
+</List>

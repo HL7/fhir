@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Bundle.xsd">
+  <id value="e13caf38-c856-461f-8374-6fe71248684c"/>
+  <type value="searchset" />
+  <timestamp value="2020-04-17T10:24:13.1882432-05:00" />
+  <entry>
+    <fullUrl value="urn:uuid:815477f2-a94c-4197-a82a-9f974155debc"/>
+    <resource>
+      <SubscriptionStatus xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionStatus.xsd">
+        <id value="815477f2-a94c-4197-a82a-9f974155debc"/>
+        <status value="active"/>
+        <type value="query-status"/>
+        <eventsSinceSubscriptionStart value="310"/>
+        <eventsInNotification value="0"/>
+        <subscription>
+          <reference value="http://example.org/FHIR/R5/Subscription/123"/>
+        </subscription>
+        <topic value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
+      </SubscriptionStatus>
+    </resource>
+    <search>
+      <mode value="match"/>
+    </search>
+  </entry>
+</Bundle>
+

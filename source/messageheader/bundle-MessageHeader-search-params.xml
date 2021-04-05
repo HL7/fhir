@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="MessageHeader-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageHeader-author"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageHeader.author"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-author"/>
+        <description value="The source of the decision"/>
+        <code value="author"/>
+        <type value="reference"/>
+        <expression value="MessageHeader.author"/>
+        <xpath value="f:MessageHeader/f:author"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageHeader-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageHeader.response.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-code"/>
+        <description value="ok | transient-error | fatal-error"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="MessageHeader.response.code"/>
+        <xpath value="f:MessageHeader/f:response/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageHeader-destination"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageHeader.destination.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-destination"/>
+        <description value="Name of system"/>
+        <code value="destination"/>
+        <type value="string"/>
+        <expression value="MessageHeader.destination.name"/>
+        <xpath value="f:MessageHeader/f:destination/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageHeader-destination-uri"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageHeader.destination.endpoint"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-destination-uri"/>
+        <description value="Actual destination address or id"/>
+        <code value="destination-uri"/>
+        <type value="uri"/>
+        <expression value="MessageHeader.destination.endpoint"/>
+        <xpath value="f:MessageHeader/f:destination/f:endpoint"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageHeader-enterer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageHeader.enterer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-enterer"/>
+        <description value="The source of the data entry"/>
+        <code value="enterer"/>
+        <type value="reference"/>
+        <expression value="MessageHeader.enterer"/>
+        <xpath value="f:MessageHeader/f:enterer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageHeader-event"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageHeader.event[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-event"/>
+        <description value="Code for the event this message represents or link to event definition"/>
+        <code value="event"/>
+        <type value="token"/>
+        <expression value="MessageHeader.event"/>
+        <xpath value="f:MessageHeader/f:eventCoding | f:MessageHeader/f:eventUri"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageHeader-focus"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageHeader.focus"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-focus"/>
+        <description value="The actual content of the message"/>
+        <code value="focus"/>
+        <type value="reference"/>
+        <expression value="MessageHeader.focus"/>
+        <xpath value="f:MessageHeader/f:focus"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageHeader-receiver"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageHeader.destination.receiver"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-receiver"/>
+        <description value="Intended &quot;real-world&quot; recipient for the data"/>
+        <code value="receiver"/>
+        <type value="reference"/>
+        <expression value="MessageHeader.destination.receiver"/>
+        <xpath value="f:MessageHeader/f:destination/f:receiver"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageHeader-response-id"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageHeader.response.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-response-id"/>
+        <description value="Id of original message"/>
+        <code value="response-id"/>
+        <type value="token"/>
+        <expression value="MessageHeader.response.identifier"/>
+        <xpath value="f:MessageHeader/f:response/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageHeader-responsible"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageHeader.responsible"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-responsible"/>
+        <description value="Final responsibility for event"/>
+        <code value="responsible"/>
+        <type value="reference"/>
+        <expression value="MessageHeader.responsible"/>
+        <xpath value="f:MessageHeader/f:responsible"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageHeader-sender"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageHeader.sender"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-sender"/>
+        <description value="Real world sender of the message"/>
+        <code value="sender"/>
+        <type value="reference"/>
+        <expression value="MessageHeader.sender"/>
+        <xpath value="f:MessageHeader/f:sender"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageHeader-source"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageHeader.source.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-source"/>
+        <description value="Name of system"/>
+        <code value="source"/>
+        <type value="string"/>
+        <expression value="MessageHeader.source.name"/>
+        <xpath value="f:MessageHeader/f:source/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageHeader-source-uri"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageHeader.source.endpoint"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-source-uri"/>
+        <description value="Actual message source address or id"/>
+        <code value="source-uri"/>
+        <type value="uri"/>
+        <expression value="MessageHeader.source.endpoint"/>
+        <xpath value="f:MessageHeader/f:source/f:endpoint"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MessageHeader-target"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MessageHeader.destination.target"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-target"/>
+        <description value="Particular delivery destination within the destination"/>
+        <code value="target"/>
+        <type value="reference"/>
+        <expression value="MessageHeader.destination.target"/>
+        <xpath value="f:MessageHeader/f:destination/f:target"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

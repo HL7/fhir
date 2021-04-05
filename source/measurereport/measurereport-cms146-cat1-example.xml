@@ -985,6 +985,23 @@
                </td>
             </tr>
          </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Evaluated Resource: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <span style="padding-left: 25px;">
+                     <b>reference: </b>
+                     <span>Condition/example</span>
+                     <br/>
+                  </span>
+               </td>
+            </tr>
+         </table>
       </div>
   </text>
   <!--code>
@@ -1196,7 +1213,7 @@
     </stratifier>
   </group>
   <evaluatedResource>
-    <!-- Condition #123 is a condition that was considered in evaluating the measure for Patient #123 -->
-    <reference value="Condition/123"/>
+    <!-- Condition #example is a condition that was considered in evaluating the measure for Patient #123 -->
+    <reference value="Condition/example"/>
   </evaluatedResource>
 </MeasureReport>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="BodyStructure-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="This example demonstrates using the bodystructure resource to identify a fetus within systems that choose not to treat a fetus as a Patient"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bodystructure-example-fetus"/>
+    </extension>
+    <item>
+      <reference value="BodyStructure/fetus"/>
+      <display value="Fetus"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="This example demonstrates using the bodystructure resource to identify a specific tumor or lesion that will have multiple observations and/or procedures performed on it over time"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bodystructure-example-tumor"/>
+    </extension>
+    <item>
+      <reference value="BodyStructure/tumor"/>
+      <display value="Tumor"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="This example demonstrates using the bodystructure resource to identify skin patches or other portions of a person or animal that are a focus of a clinical trial and that are subject to repeated observations and/or procedures over time"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bodystructure-example-skin-patch"/>
+    </extension>
+    <item>
+      <reference value="BodyStructure/skin-patch"/>
+      <display value="Skin Patch"/>
+    </item>
+  </entry>
+</List>

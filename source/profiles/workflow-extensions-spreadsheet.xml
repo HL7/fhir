@@ -4370,7 +4370,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="255">
     <Cell ss:StyleID="s136"><Data ss:Type="String">researchStudy</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Composition;Consent;DeviceUseStatement;DiagnosticReport;Encounter;FamilyMemberHistory;Immunization;DocumentReference;MedicationAdministration;MedicationDispense;MedicationUsage;Observation;Procedure;QuestionnaireResponse;RiskAssessment;SupplyDelivery;Task</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Composition;Consent;DeviceUsage;DiagnosticReport;Encounter;FamilyMemberHistory;Immunization;DocumentReference;MedicationAdministration;MedicationDispense;MedicationUsage;Observation;Procedure;QuestionnaireResponse;RiskAssessment;SupplyDelivery;Task</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Associated Study</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">research study</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4395,7 +4395,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="240">
     <Cell ss:StyleID="s136"><Data ss:Type="String">episodeOfCare</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Observation;DiagnosticReport;DocumentReference;DeviceRequest;ServiceRequest;NutritionOrder;DeviceUseStatement;AdverseEvent;CarePlan;ClinicalImpression;Communication;CommunicationRequest;Condition;Procedure;QuestionnaireResponse</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Observation;DiagnosticReport;DocumentReference;DeviceRequest;ServiceRequest;NutritionOrder;DeviceUsage;AdverseEvent;CarePlan;ClinicalImpression;Communication;CommunicationRequest;Condition;Procedure;QuestionnaireResponse</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Episode of Care</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">context</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Goal-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Goal of Weight Loss"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="goal-example"/>
+    </extension>
+    <item>
+      <reference value="Goal/example"/>
+      <display value="Weight Loss"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Goal to Stop Smoking"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="goal-example-stop-smoking"/>
+    </extension>
+    <item>
+      <reference value="Goal/stop-smoking"/>
+      <display value="Stop Smoking"/>
+    </item>
+  </entry>
+</List>

@@ -90,6 +90,7 @@
         <direction value="response"/>
         <operator value="in"/>
         <responseCode value="200,204"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -114,6 +115,7 @@
         <description value="Confirm that the returned HTTP status is 201(Created)."/>
         <direction value="response"/>
         <responseCode value="201"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -141,6 +143,7 @@
       <assert>
         <description value="Confirm that the returned HTTP status is 200(OK)."/>
         <response value="okay"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -148,6 +151,7 @@
       <assert>
         <description value="Confirm that the returned format is XML."/>
         <contentType value="xml"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -156,6 +160,7 @@
         <description value="Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server might not support versioning."/>
         <headerField value="Last-Modified"/>
         <operator value="notEmpty"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="true"/>
       </assert>
     </action>

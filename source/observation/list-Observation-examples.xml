@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Observation-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Weight Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example"/>
+    </extension>
+    <item>
+      <reference value="Observation/example"/>
+      <display value="Example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Respiratory Rate Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-respiratory-rate"/>
+    </extension>
+    <item>
+      <reference value="Observation/respiratory-rate"/>
+      <display value="Respiratory Rate"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Heart Rate Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-heart-rate"/>
+    </extension>
+    <item>
+      <reference value="Observation/heart-rate"/>
+      <display value="Heart Rate"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Body Temperature Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-body-temperature"/>
+    </extension>
+    <item>
+      <reference value="Observation/body-temperature"/>
+      <display value="Body Temperature"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Body Height Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-body-height"/>
+    </extension>
+    <item>
+      <reference value="Observation/body-height"/>
+      <display value="Body Height"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Body Length Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-body-length"/>
+    </extension>
+    <item>
+      <reference value="Observation/body-length"/>
+      <display value="Body Length"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Head Circumference Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-head-circumference"/>
+    </extension>
+    <item>
+      <reference value="Observation/head-circumference"/>
+      <display value="Head Circumference"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple BMI Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-bmi"/>
+    </extension>
+    <item>
+      <reference value="Observation/bmi"/>
+      <display value="BMI"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="BMI with links to Height and Weight"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-bmi-using-related"/>
+    </extension>
+    <item>
+      <reference value="Observation/bmi-using-related"/>
+      <display value="BMI Height and Weight"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Oxygen Saturation by Pulse Oximetry Example (DeviceMetricObservation profile)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-satO2"/>
+    </extension>
+    <item>
+      <reference value="Observation/satO2"/>
+      <display value="Oxygen Saturation (SpO2)"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Blood Pressure Measurement"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-bloodpressure"/>
+    </extension>
+    <item>
+      <reference value="Observation/blood-pressure"/>
+      <display value="Blood Pressure"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Blood Pressure Measurement with an absent Diastolic measurement"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-bloodpressure-dar"/>
+    </extension>
+    <item>
+      <reference value="Observation/blood-pressure-dar"/>
+      <display value="Blood Pressure with Data Absent"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Mean Arterial Blood Pressure Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-mbp"/>
+    </extension>
+    <item>
+      <reference value="Observation/mbp"/>
+      <display value="Mean Arterial Blood Pressure"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple Panel of Heart Rate, Repiratory Rate. Blood Pressure and Body Temperature"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-vitals-panel"/>
+    </extension>
+    <item>
+      <reference value="Observation/vitals-panel"/>
+      <display value="Vitals Signs Panel"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Blood Pressure Measurement cancelled"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-bloodpressure-cancel"/>
+    </extension>
+    <item>
+      <reference value="Observation/blood-pressure-cancel"/>
+      <display value="cancelled"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world patient - glucose"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-f001-glucose"/>
+    </extension>
+    <item>
+      <reference value="Observation/f001"/>
+      <display value="Glucose"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Specimen Reject Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-unsat"/>
+    </extension>
+    <item>
+      <reference value="Observation/unsat"/>
+      <display value="Unsat"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world patient -base excess"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-f002-excess"/>
+    </extension>
+    <item>
+      <reference value="Observation/f002"/>
+      <display value="Base Excess"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world patient - CO2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-f003-co2"/>
+    </extension>
+    <item>
+      <reference value="Observation/f003"/>
+      <display value="Carbon Dioxide"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world patient - erythrocyte"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-f004-erythrocyte"/>
+    </extension>
+    <item>
+      <reference value="Observation/f004"/>
+      <display value="Erythrocyte Hemoglobin"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world patient - hemoglobin"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-f005-hemoglobin"/>
+    </extension>
+    <item>
+      <reference value="Observation/f005"/>
+      <display value="Hemoglobin"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An &quot;ask at order&quot; response using the datetime datetype for the result value"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-date-lastmp"/>
+    </extension>
+    <item>
+      <reference value="Observation/date-lastmp"/>
+      <display value="Date last menstrual period"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world patient - temperature"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-f202-temperature"/>
+    </extension>
+    <item>
+      <reference value="Observation/f202"/>
+      <display value="Temperature"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world patient - CO2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-f203-bicarbonate"/>
+    </extension>
+    <item>
+      <reference value="Observation/f203"/>
+      <display value="Bicarbonate"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world patient - creatinine"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-f204-creatinine"/>
+    </extension>
+    <item>
+      <reference value="Observation/f204"/>
+      <display value="Creatinine"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world patient - estimated gfr"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-f205-egfr"/>
+    </extension>
+    <item>
+      <reference value="Observation/f205"/>
+      <display value="Estimated GFR"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world patient - staphylococcus"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-f206-staphylococcus"/>
+    </extension>
+    <item>
+      <reference value="Observation/f206"/>
+      <display value="Staphylococcus"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="EKG Example using SampledData data type"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-sample-data"/>
+    </extension>
+    <item>
+      <reference value="Observation/ekg"/>
+      <display value="EKG"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Clinical assessment tool example - GCS with individual score as components"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-glasgow"/>
+    </extension>
+    <item>
+      <reference value="Observation/glasgow"/>
+      <display value="Glasgow Score 1"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Clinical assessment tool example - GCS with individual scores as related QuestionnaireAnswer"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-glasgow-qa"/>
+    </extension>
+    <item>
+      <reference value="Observation/gcs-qa"/>
+      <display value="Glasgow Score 2"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a 1 minute Apgar score with individual score as components"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-1minute-apgar-score"/>
+    </extension>
+    <item>
+      <reference value="Observation/1minute-apgar-score"/>
+      <display value="1 minute Apgar Score"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a 2 minute Apgar score with individual score as components"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-2minute-apgar-score"/>
+    </extension>
+    <item>
+      <reference value="Observation/2minute-apgar-score"/>
+      <display value="2 minute Apgar Score"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a 5 minute Apgar score with individual score as components"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-5minute-apgar-score"/>
+    </extension>
+    <item>
+      <reference value="Observation/5minute-apgar-score"/>
+      <display value="5 minute Apgar Score"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a 10 minute Apgar score with individual score as components"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-10minute-apgar-score"/>
+    </extension>
+    <item>
+      <reference value="Observation/10minute-apgar-score"/>
+      <display value="10 minute Apgar Score"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a 20 minute Apgar score with individual score as components"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-20minute-apgar-score"/>
+    </extension>
+    <item>
+      <reference value="Observation/20minute-apgar-score"/>
+      <display value="20 minute Apgar Score"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a clinical gender observation.  For a discussion on representing a patient&#39;s gender the Patient Resource."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-clinical-gender"/>
+    </extension>
+    <item>
+      <reference value="Observation/clinical-gender"/>
+      <display value="Clinical Gender"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a very simple personal characteristic observation"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-eye-color"/>
+    </extension>
+    <item>
+      <reference value="Observation/eye-color"/>
+      <display value="Eye Color"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an encoded BMD measurements of left femur"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-bmd"/>
+    </extension>
+    <item>
+      <reference value="Observation/bmd"/>
+      <display value="Bone Density Measurement"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Spirometry Example referencing DeviceComponent"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-spirometry"/>
+    </extension>
+    <item>
+      <reference value="Observation/656"/>
+      <display value="Spirometry"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a multi-select values/answers Observation with individual answers/values as components"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-alcohol-type"/>
+    </extension>
+    <item>
+      <reference value="Observation/alcohol-type"/>
+      <display value="Type of alcohol consumed"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an Observations made about a location - an oyster farm"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-vp-oyster"/>
+    </extension>
+    <item>
+      <reference value="Observation/vp-oyster"/>
+      <display value="Oyster Testing"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a herd screening ELISA assay for Mycoplasmal Pneumonia in Pigs."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-herd1"/>
+    </extension>
+    <item>
+      <reference value="Observation/herd1"/>
+      <display value="Herd test for Mycoplasmal Pneumonia"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a finding of vomiting"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-vomiting"/>
+    </extension>
+    <item>
+      <reference value="Observation/vomiting"/>
+      <display value="Vomiting"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a finding of second hand smoke exposure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-secondsmoke"/>
+    </extension>
+    <item>
+      <reference value="Observation/secondsmoke"/>
+      <display value="Second Hand Smoke Exposure"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of capturing whether the mother is trained to change her child&#39;s tracheostomy tube. In this example, the child is the patient of record and the mother is the focus."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-trachcare"/>
+    </extension>
+    <item>
+      <reference value="Observation/trachcare"/>
+      <display value="Tracheostomy care assessment"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a simple blood typing panel."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-bgpanel"/>
+    </extension>
+    <item>
+      <reference value="Observation/bgpanel"/>
+      <display value="Blood Group Panel"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a  blood group (ABO) measurement."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-bloodgroup"/>
+    </extension>
+    <item>
+      <reference value="Observation/bloodgroup"/>
+      <display value="Blood Group"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a blood Rh antigen measurement."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-rhstatus"/>
+    </extension>
+    <item>
+      <reference value="Observation/rhstatus"/>
+      <display value="Rh Status"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Explores the edge cases of the decimal data type"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-decimal"/>
+    </extension>
+    <item>
+      <reference value="Observation/decimal"/>
+      <display value="Decimal Examples"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example to demonstrate using the bodyPosition and delta extensions"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-map-sitting"/>
+    </extension>
+    <item>
+      <reference value="Observation/map-sitting"/>
+      <display value="MAP Sitting"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An exam finding using pattern 3 described in the &quot;Using Codes in Observation&quot; Section"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-abdo-tender"/>
+    </extension>
+    <item>
+      <reference value="Observation/abdo-tender"/>
+      <display value="abdo-tender"/>
+    </item>
+  </entry>
+</List>

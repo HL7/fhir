@@ -1,0 +1,25 @@
+// Using GET
+GET [base]/NamingSystem/$translate-id?id=1.2.36.1.2001.1003.0&sourceType=oid&targetType=uri&preferredOnly=true
+
+--------------------------------------
+// Using POST
+POST [base]/NamingSystem/$translate-id
+[other headers]
+
+{
+  "resourceType" : "Parameters",
+  "parameter" : [ {
+     "name" : "id",
+     "valueString" : "1.2.36.1.2001.1003.0"
+   }, {
+     "name" : "sourceType",
+     "valueCode" : "oid"
+   }, {
+     "name" : "targetType",
+	 "valueCode : "uri"
+   }, {
+     "name" : "preferredOnly",
+	 "valueboolean" : "true"
+   }
+  ]
+}

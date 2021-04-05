@@ -1,16 +1,28 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="care-plan-intent"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/care-plan-intent"/>
-	<name value="CarePlanIntent"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.150"/>
+  </identifier>
+  <name value="CarePlanIntent"/>
   <title value="Care Plan Intent"/>
-	<status value="draft"/>
-	<publisher value="HL7 International - Patient Care WG"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.hl7.org/Special/committees/patientcare/"/>
-		</telecom>
-	</contact>
+  <status value="draft"/>
+  <publisher value="HL7 International - Patient Care WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare/"/>
+    </telecom>
+  </contact>
   <description value="Codes indicating the degree of authority/intentionality associated with a care plan."/>
   <compose>
     <include>
@@ -18,19 +30,18 @@
       <concept>
         <code value="proposal"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="plan"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="order"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="option"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="directive"/>
       </concept>
     </include>
   </compose>
 </ValueSet>
-

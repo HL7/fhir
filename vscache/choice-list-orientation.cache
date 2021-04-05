@@ -1,0 +1,51 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/choice-list-orientation"
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:5f0c3eb6-17e2-42f3-9c15-bab65a8a23ac",
+    "timestamp" : "2021-01-13T06:27:03.564Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "includeDesignations",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://hl7.org/fhir/choice-list-orientation|4.5.0"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "List choices along the horizontal axis."
+      }],
+      "system" : "http://hl7.org/fhir/choice-list-orientation",
+      "code" : "horizontal",
+      "display" : "Horizontal"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "List choices down the vertical axis."
+      }],
+      "system" : "http://hl7.org/fhir/choice-list-orientation",
+      "code" : "vertical",
+      "display" : "Vertical"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

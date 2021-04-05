@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="TerminologyCapabilities-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TerminologyCapabilities-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-context"/>
+        <description value="A use context assigned to the terminology capabilities"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="(TerminologyCapabilities.useContext.value as CodeableConcept)"/>
+        <xpath value="f:TerminologyCapabilities/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TerminologyCapabilities-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the terminology capabilities"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="(TerminologyCapabilities.useContext.value as Quantity) | (TerminologyCapabilities.useContext.value as Range)"/>
+        <xpath value="f:TerminologyCapabilities/f:useContext/f:valueQuantity | f:TerminologyCapabilities/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TerminologyCapabilities-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-context-type"/>
+        <description value="A type of use context assigned to the terminology capabilities"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="TerminologyCapabilities.useContext.code"/>
+        <xpath value="f:TerminologyCapabilities/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TerminologyCapabilities-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the terminology capabilities"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="TerminologyCapabilities.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.as(Quantity) | value.as(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TerminologyCapabilities-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-context-type-value"/>
+        <description value="A use context type and value assigned to the terminology capabilities"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="TerminologyCapabilities.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TerminologyCapabilities-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-date"/>
+        <description value="The terminology capabilities publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="TerminologyCapabilities.date"/>
+        <xpath value="f:TerminologyCapabilities/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TerminologyCapabilities-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-description"/>
+        <description value="The description of the terminology capabilities"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="TerminologyCapabilities.description"/>
+        <xpath value="f:TerminologyCapabilities/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TerminologyCapabilities-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-identifier"/>
+        <description value="External identifier for the terminology capabilities"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="TerminologyCapabilities.identifier"/>
+        <xpath value="f:TerminologyCapabilities/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TerminologyCapabilities-jurisdiction"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.jurisdiction"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-jurisdiction"/>
+        <description value="Intended jurisdiction for the terminology capabilities"/>
+        <code value="jurisdiction"/>
+        <type value="token"/>
+        <expression value="TerminologyCapabilities.jurisdiction"/>
+        <xpath value="f:TerminologyCapabilities/f:jurisdiction"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TerminologyCapabilities-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-name"/>
+        <description value="Computationally friendly name of the terminology capabilities"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="TerminologyCapabilities.name"/>
+        <xpath value="f:TerminologyCapabilities/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TerminologyCapabilities-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-publisher"/>
+        <description value="Name of the publisher of the terminology capabilities"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="TerminologyCapabilities.publisher"/>
+        <xpath value="f:TerminologyCapabilities/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TerminologyCapabilities-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-status"/>
+        <description value="The current status of the terminology capabilities"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="TerminologyCapabilities.status"/>
+        <xpath value="f:TerminologyCapabilities/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TerminologyCapabilities-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-title"/>
+        <description value="The human-friendly name of the terminology capabilities"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="TerminologyCapabilities.title"/>
+        <xpath value="f:TerminologyCapabilities/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TerminologyCapabilities-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-url"/>
+        <description value="The uri that identifies the terminology capabilities"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="TerminologyCapabilities.url"/>
+        <xpath value="f:TerminologyCapabilities/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TerminologyCapabilities-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-version"/>
+        <description value="The business version of the terminology capabilities"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="TerminologyCapabilities.version"/>
+        <xpath value="f:TerminologyCapabilities/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

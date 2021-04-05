@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="ChargeItemDefinition-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="example definition of EMB code 30110 (from a german billing system)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="chargeitemdefinition-ebm-example"/>
+    </extension>
+    <item>
+      <reference value="ChargeItemDefinition/ebm"/>
+      <display value="EBM Billing Code"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="instance-specific billing information for a device with time-dependent tax rate"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="chargeitemdefinition-device-example"/>
+    </extension>
+    <item>
+      <reference value="ChargeItemDefinition/device"/>
+      <display value="Billing information for Device"/>
+    </item>
+  </entry>
+</List>
