@@ -1136,6 +1136,7 @@
       <min value="1"/>
       <max value="*"/>
       <contentReference value="#StructureMap.group.rule.target.parameter"/>
+      <isSummary value="true"/>
     </element>
     <element id="StructureMap.group.rule.documentation">
       <path value="StructureMap.group.rule.documentation"/>
