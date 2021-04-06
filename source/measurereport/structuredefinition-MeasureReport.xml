@@ -440,8 +440,8 @@
         <map value="outboundRelationship[typeCode=SBJ]"/>
       </mapping>
     </element>
-    <element id="MeasureReport.group.measureScore">
-      <path value="MeasureReport.group.measureScore"/>
+    <element id="MeasureReport.group.measureScore[x]">
+      <path value="MeasureReport.group.measureScore[x]"/>
       <short value="What score this group achieved"/>
       <definition value="The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group."/>
       <min value="0"/>
@@ -449,11 +449,22 @@
       <type>
         <code value="Quantity"/>
       </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="Duration"/>
+      </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="value"/>
-      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -665,14 +676,29 @@
         <map value="outboundRelationship[typeCode=SBJ]"/>
       </mapping>
     </element>
-    <element id="MeasureReport.group.stratifier.stratum.measureScore">
-      <path value="MeasureReport.group.stratifier.stratum.measureScore"/>
+    <element id="MeasureReport.group.stratifier.stratum.measureScore[x]">
+      <path value="MeasureReport.group.stratifier.stratum.measureScore[x]"/>
       <short value="What score this stratum achieved"/>
       <definition value="The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="Duration"/>
       </type>
       <mapping>
         <identity value="rim"/>
