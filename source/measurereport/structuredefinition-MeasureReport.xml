@@ -529,8 +529,8 @@
         <map value="outboundRelationship[typeCode=COMP]"/>
       </mapping>
     </element>
-    <element id="MeasureReport.group.stratifier.stratum.value">
-      <path value="MeasureReport.group.stratifier.stratum.value"/>
+    <element id="MeasureReport.group.stratifier.stratum.value[x]">
+      <path value="MeasureReport.group.stratifier.stratum.value[x]"/>
       <short value="The stratum value, e.g. male"/>
       <definition value="The value for this stratum, expressed as a CodeableConcept. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique."/>
       <min value="0"/>
@@ -538,18 +538,25 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+      </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureReportStratifierValueExample"/>
         </extension>
         <strength value="example"/>
-        <description value="The stratum value."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measurereport-stratifier-value-example"/>
       </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="value"/>
-      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.component">
       <path value="MeasureReport.group.stratifier.stratum.component"/>
@@ -587,8 +594,8 @@
         <map value="code"/>
       </mapping>
     </element>
-    <element id="MeasureReport.group.stratifier.stratum.component.value">
-      <path value="MeasureReport.group.stratifier.stratum.component.value"/>
+    <element id="MeasureReport.group.stratifier.stratum.component.value[x]">
+      <path value="MeasureReport.group.stratifier.stratum.component.value[x]"/>
       <short value="The stratum component value, e.g. male"/>
       <definition value="The stratum component value."/>
       <min value="1"/>
@@ -596,18 +603,25 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+      </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureReportStratifierValueExample"/>
         </extension>
         <strength value="example"/>
-        <description value="The stratum value."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measurereport-stratifier-value-example"/>
       </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="value"/>
-      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.population">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
