@@ -477,9 +477,8 @@
     </element>
     <element id="Provenance.agent.who">
       <path value="Provenance.agent.who"/>
-      <short value="Who participated"/>
+      <short value="The agent that participated in the event"/>
       <definition value="The individual, device or organization that participated in the event."/>
-      <comment value="whoIdentity should be used when the agent is not a Resource type."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -507,9 +506,8 @@
     </element>
     <element id="Provenance.agent.onBehalfOf">
       <path value="Provenance.agent.onBehalfOf"/>
-      <short value="Who the agent is representing"/>
-      <definition value="The individual, device, or organization for whom the change was made."/>
-      <comment value="onBehalfOfIdentity should be used when the agent is not a Resource type."/>
+      <short value="The agent that delegated"/>
+      <definition value="The agent that delegated authority to perform the activity performed by the agent.who element."/>
       <min value="0"/>
       <max value="1"/>
       <type>
