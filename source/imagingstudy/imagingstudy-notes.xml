@@ -220,7 +220,9 @@ or the introduction on the <a href="http://wiki.ihe.net/index.php/Invoke_Image_D
 <a name="ehr-usecase"></a>
 <h4>EHR access to imaging studies</h4>
 <p>
-Amy, a family physician, would like to see a list of available studies for her patient, Alex. Her EHR
+Amy, a family physician, would like to see a list of available studies for her patient, 
+Alex, filtered by ImagingStudy.status=available to exclude studies without images. 
+Her EHR
 client makes a FHIR call for all <a href="imagingstudy.html">ImagingStudy</a> objects available for Alex.
 In the response, she is able to see the study date, procedure, modality, and accession number, for each
 study returned. There is enough information provided in the response to obtain a thumbnail via a WADO-RS
