@@ -557,6 +557,10 @@
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measurereport-stratifier-value-example"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=COMP].value"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.component">
       <path value="MeasureReport.group.stratifier.stratum.component"/>
@@ -622,6 +626,10 @@
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measurereport-stratifier-value-example"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=COMP].value"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.population">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
