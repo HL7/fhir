@@ -127,13 +127,13 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="StudyInstanceUID (0020,000D) | tudy ID (0020,0010)"/>
+        <map value="StudyInstanceUID (0020,000D) | study ID (0020,0010)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.status">
       <path value="ImagingStudy.status"/>
       <short value="registered | available | cancelled | entered-in-error | unknown"/>
-      <definition value="The current state of the ImagingStudy."/>
+      <definition value="The current state of the ImagingStudy resource. This is not the status of any ServiceRequest or Task resources associated with the ImagingStudy."/>
       <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
       <max value="1"/>
@@ -141,7 +141,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -171,7 +171,7 @@
     <element id="ImagingStudy.modality">
       <path value="ImagingStudy.modality"/>
       <short value="All of the distinct values for series&#39; modalities"/>
-      <definition value="A list of all the distinct values of series.modality. This may include both aquisition and non-aquisition modalities."/>
+      <definition value="A list of all the distinct values of series.modality. This may include both acquisition and non-acquisition modalities."/>
       <alias value="ModalitiesInStudy"/>
       <min value="0"/>
       <max value="*"/>
@@ -692,7 +692,7 @@
     <element id="ImagingStudy.series.modality">
       <path value="ImagingStudy.series.modality"/>
       <short value="The modality used for this series"/>
-      <definition value="The distinct modality for this series. This may include both aquisition and non-aquisition modalities."/>
+      <definition value="The distinct modality for this series. This may include both acquisition and non-acquisition modalities."/>
       <alias value="Modality"/>
       <min value="1"/>
       <max value="1"/>
