@@ -242,7 +242,7 @@
         </extension>
         <strength value="example"/>
         <description value="Type of device e.g. according to official classification."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-kind"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
       </binding>
     </element>
     <element id="DeviceDefinition.specialization">
@@ -269,6 +269,177 @@
         <code value="string"/>
       </type>
     </element>
+
+    <element id="DeviceDefinition.hasPart">
+      <path value="DeviceDefinition.hasPart"/>
+      <short value="A device, part of the current one"/>
+      <definition value="A device that is part (for example a component) of the present device."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.hasPart.reference">
+      <path value="DeviceDefinition.hasPart.reference"/>
+      <short value="Reference to the part"/>
+      <definition value="Reference to the device that is part of the current device."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.hasPart.count">
+      <path value="DeviceDefinition.hasPart.count"/>
+      <short value="Number of occurrences of the part"/>
+      <definition value="Number of instances of the component device in the current device."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+    </element>
+
+    <element id="DeviceDefinition.packaging">
+      <path value="DeviceDefinition.packaging"/>
+      <short value="Information about the packaging of the device, i.e. how the device is packaged"/>
+      <definition value="Information about the packaging of the device, i.e. how the device is packaged."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.packaging.identifier">
+      <path value="DeviceDefinition.packaging.identifier"/>
+      <short value="Business identifier of the packaged medication"/>
+      <definition value="The business identifier of the packaged medication."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.packaging.type">
+      <path value="DeviceDefinition.packaging.type"/>
+      <short value="A code that defines the specific type of packaging"/>
+      <definition value="A code that defines the specific type of packaging."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.packaging.count">
+      <path value="DeviceDefinition.packaging.count"/>
+      <short value="The number of items contained in the package (devices or sub-packages)"/>
+      <definition value="The number of items contained in the package (devices or sub-packages)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.packaging.distributor">
+      <path value="DeviceDefinition.packaging.distributor"/>
+      <short value="An organization that distributes the packaged device"/>
+      <definition value="An organization that distributes the packaged device."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.packaging.distributor.name">
+      <path value="DeviceDefinition.packaging.distributor.name"/>
+      <short value="Distributor's human-readable name"/>
+      <definition value="Distributor's human-readable name."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.packaging.distributor.organizationReference">
+      <path value="DeviceDefinition.packaging.distributor.organizationReference"/>
+      <short value="Distributor as an Organization resource"/>
+      <definition value="Distributor as an Organization resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.packaging.udiDeviceIdentifier">
+      <path value="DeviceDefinition.packaging.udiDeviceIdentifier"/>
+      <short value="Unique Device Identifier (UDI) Barcode string on the packaging"/>
+      <definition value="Unique Device Identifier (UDI) Barcode string on the packaging."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.packaging.udiDeviceIdentifier.deviceIdentifier">
+      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.deviceIdentifier"/>
+      <short value="Identifier to be associated with every instance for issuer and jurisdiction"/>
+      <definition value="Identifier to be associated with every instance for issuer and jurisdiction."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.packaging.udiDeviceIdentifier.issuer">
+      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.issuer"/>
+      <short value="The organization that assigns the identifier algorithm"/>
+      <definition value="The organization that assigns the identifier algorithm."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.packaging.udiDeviceIdentifier.jurisdiction">
+      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.jurisdiction"/>
+      <short value="The jurisdiction to which the deviceIdentifier applies"/>
+      <definition value="The jurisdiction to which the deviceIdentifier applies."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>    
+    <element id="DeviceDefinition.packaging.packaging">
+      <path value="DeviceDefinition.packaging.packaging"/>
+      <short value="Allows packages within packages"/>
+      <definition value="Allows packages within packages."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#DeviceDefinition.packaging"/>
+    </element>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <element id="DeviceDefinition.specialization.version">
       <path value="DeviceDefinition.specialization.version"/>
       <short value="The version of the standard that is used to operate and communicate"/>
@@ -519,7 +690,8 @@
         <map value=".text"/>
       </mapping>
     </element>
-    <element id="DeviceDefinition.quantity">
+<!--
+      <element id="DeviceDefinition.quantity">
       <path value="DeviceDefinition.quantity"/>
       <short value="The quantity of the device present in the packaging (e.g. the number of devices present in a pack, or the number of devices in the same package of the medicinal product)"/>
       <definition value="The quantity of the device present in the packaging (e.g. the number of devices present in a pack, or the number of devices in the same package of the medicinal product)."/>
@@ -529,6 +701,7 @@
         <code value="Quantity"/>
       </type>
     </element>
+-->    
     <element id="DeviceDefinition.parentDevice">
       <path value="DeviceDefinition.parentDevice"/>
       <short value="The parent device it can be part of"/>

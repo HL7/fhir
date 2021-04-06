@@ -19,7 +19,6 @@
   
   <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4199,9 +4198,9 @@
     <Cell><Data ss:Type="String">*</Data></Cell>
     <Cell><Data ss:Type="String">initialValue</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Expression</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">An initial value expression</Data></Cell>
-    <Cell><Data ss:Type="String">The name of an expression in a referenced library that determines an initial value</Data></Cell>
+    <Cell><Data ss:Type="String">An expression that determines an initial value. The expression may be simply the name of a expression in a referenced library, or it may be a complete inline expression</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">calculatedValue</Data></Cell>
@@ -4209,9 +4208,9 @@
     <Cell><Data ss:Type="String">*</Data></Cell>
     <Cell><Data ss:Type="String">calculatedValue</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Expression</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">A calculated value</Data></Cell>
-    <Cell><Data ss:Type="String">The name of an expression in a referenced library that determines a calculated value</Data></Cell>
+    <Cell><Data ss:Type="String">An expression that determines a calculated value. The expression may be simply the name of a expression in a referenced library, or it may be a complete inline expression</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!parameter</Data></Cell>
