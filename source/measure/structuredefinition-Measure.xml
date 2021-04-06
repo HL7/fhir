@@ -345,6 +345,31 @@
         <map value="N/A (to add?) { only applies for subject Patient? }"/>
       </mapping>
     </element>
+    <element id="Measure.basis">
+      <path value="Measure.basis"/>
+      <short value="Population basis"/>
+      <definition value="The population basis specifies the type of elements in the population. For a subject-based measure, this is boolean (because the subject and the population basis are the same, and the population criteria define yes/no values for each individual in the population). For measures that have a population basis that is different than the subject, this element specifies the type of the population basis. For example, an encounter-based measure has a subject of Patient and a population basis of Encounter, and the population criteria all return lists of Encounters."/>
+      <comment value="For a subject-based measure, the population basis is simply boolean; all the criteria are expressed as true/false conditions that determine membership of an individual case in the population. For non-subject-based measures, the population basis can be any resource type, and the criteria are queries that return the subject&#39;s contribution to the population as a list of that resource type. For example, for a procedure-based measure, the population criteria would return lists of procedures that should be included in each population."/>
+      <requirements value="Allows non-subject-based measures to be specified"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <meaningWhenMissing value="boolean"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BasisType"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-types"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?) { only applies for subject Patient? }"/>
+      </mapping>
+    </element>
     <element id="Measure.date">
       <path value="Measure.date"/>
       <short value="Date last changed"/>

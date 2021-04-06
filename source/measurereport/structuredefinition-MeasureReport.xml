@@ -465,6 +465,10 @@
         <code value="Duration"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value"/>
+      </mapping>
     </element>
     <element id="MeasureReport.group.stratifier">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
