@@ -1109,6 +1109,43 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
+    <element id="Measure.group.population.inputPopulationId">
+      <path value="Measure.group.population.inputPopulationId"/>
+      <short value="Which population"/>
+      <definition value="The id of a population element in this measure that provides the input for this population criteria. In most cases, the scoring structure of the measure implies specific relationships (e.g. the Numerator uses the Denominator as the source in a proportion scoring). In some cases, however, multiple possible choices exist and must be resolved explicitly. For example in a ratio measure with multiple initial populations, the denominator must specify which population should be used as the starting point."/>
+      <requirements value="For ratio and continuous variable measures, the source populations must be specified explicitly when they cannot be unambiguously determined from the scoring structure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="Measure.group.population.aggregateMethod">
+      <path value="Measure.group.population.aggregateMethod"/>
+      <short value="Aggregation method for a measure score (e.g. sum, average, median, minimum, maximum, count)"/>
+      <definition value="Specifies which method should be used to aggregate measure observation values. For most scoring types, this is implied by scoring (e.g. a proportion measure counts members of the populations). For continuous variables, however, this information must be specified to ensure correct calculation."/>
+      <requirements value="For continuous variable measures, specifications must be able to indicate the aggregation method to be used for tallying results from individual observations."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureAggregateMethod"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-aggregate-method"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
     <element id="Measure.group.stratifier">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="370,450"/>
