@@ -23,8 +23,13 @@ e: {
   "experimental" : false,
   "date" : "2017-02-15T16:33:00.000-07:00",
   "expansion" : {
+<<<<<<< HEAD
     "identifier" : "urn:uuid:7a0b6472-cabc-4f13-92db-a07e10e7ac98",
     "timestamp" : "2021-04-05T12:24:20.135Z",
+=======
+    "identifier" : "urn:uuid:2ee2a290-b1dc-4c1d-8636-0550bdf219b4",
+    "timestamp" : "2021-04-06T14:29:34.324Z",
+>>>>>>> master
     "parameter" : [{
       "name" : "expansion-source",
       "valueString" : "ValueSet/action-participant-role"
