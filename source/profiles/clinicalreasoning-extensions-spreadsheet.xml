@@ -17,7 +17,7 @@
   
   
   
-  <ActiveSheet>5</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4112,7 +4112,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R1C23"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="62" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="63" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s85" ss:Width="227.0"/>
    <Column ss:StyleID="s84" ss:Width="51.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="120.0"/>
@@ -4904,7 +4904,7 @@
     <Cell><Data ss:Type="String">Specifies the input parameters to the operation (such as a test case description or a data requirements or evaluate operation)</Data></Cell>
     <Cell><Data ss:Type="String">As part of defining test cases or interpreting the results of a given evaluation, it is critical to understand (and capture when possible) the input parameters to an operation</Data></Cell>
    </Row>
-   <Row ss:Height="195">
+   <Row ss:AutoFitHeight="0" ss:Height="195">
     <Cell><Data ss:Type="String">targetInvariant</Data></Cell>
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">*</Data></Cell>
@@ -4914,7 +4914,7 @@
     <Cell><Data ss:Type="String">Specifies an invariant that is enforced in the context of an instantiated resource</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">Can be used on any definitional artifact to define an invariant that is enforced in the context of an instantiated resource. The invariant expression will have access to `%target` and `%definition` variables, where target is the instantiated resource, and definition is the definition used to instantiate</Data></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">targetInvariant.key</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">id</Data></Cell>
@@ -4922,14 +4922,14 @@
     <Cell><Data ss:Type="String">A unique identifier for the invariant (unique in the context of the resource)</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">Any error or outcome messages or warnings should include this id to allow the source of the message to be determined</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">targetInvariant.requirements</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Why the invariant is defined</Data></Cell>
     <Cell><Data ss:Type="String">A brief description of why the invariant is necessary or appropriate</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">targetInvariant.severity</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">code</Data></Cell>
@@ -4937,13 +4937,25 @@
     <Cell ss:Index="14"><Data ss:Type="String">error | warning</Data></Cell>
     <Cell><Data ss:Type="String">Whether the invariant indicates an error condition or a warning</Data></Cell>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">targetInvariant.expression</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Expression</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">The invariant expression</Data></Cell>
     <Cell><Data ss:Type="String">An expression providing a formal representation of the invariant condition</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">The expression will have access to `%target` (the resource that was instantiated) and `%definition` (the definition for the instantiated resource)</Data></Cell>
+   </Row>
+   <Row ss:Height="105">
+    <Cell><Data ss:Type="String">alternativeExpression</Data></Cell>
+    <Cell><Data ss:Type="String">Element</Data></Cell>
+    <Cell><Data ss:Type="String">Expression</Data></Cell>
+    <Cell><Data ss:Type="String">alternativeExpression</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Expression</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Equivalent expression in an alternate language</Data></Cell>
+    <Cell><Data ss:Type="String">Specifies an alternative, equivalent expression in another formal language. For example, given a condition expression in CQL, an alternative formulation in SQL could be provided</Data></Cell>
+    <Cell><Data ss:Type="String">Ability to specify formal expressions in multiple languages</Data></Cell>
+    <Cell><Data ss:Type="String">This extension can be used on any Expression, including other Expression extensions such as cqf-expression, cqf-initialValue, and cqf-calculatedValue</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -4957,12 +4969,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>57</TopRowBottomPane>
+   <TopRowBottomPane>62</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -5438,7 +5451,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
