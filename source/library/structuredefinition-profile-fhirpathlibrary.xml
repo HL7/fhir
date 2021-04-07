@@ -73,7 +73,7 @@
       <short value="FHIRPath Content"/>
       <definition value="The FHIRPath content represented as base-64 encoded data."/>
       <min value="1"/>
-      <max value="1"/>
+      <max value="*"/>
       <mustSupport value="true"/>
     </element>
     <element id="Library.content:fhirPathContent.id">
