@@ -365,6 +365,15 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+    <element id="Citation.copyright">
+      <path value="Citation.copyright"/>
+      <short value="Use and/or publishing restrictions for the Citation, not for the cited artifact"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
     <element id="Citation.approvalDate">
       <path value="Citation.approvalDate"/>
       <short value="When the citation was approved by publisher"/>
@@ -425,6 +434,42 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+    <element id="Citation.author">
+      <path value="Citation.author"/>
+      <short value="Who authored the Citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="Citation.editor">
+      <path value="Citation.editor"/>
+      <short value="Who edited the Citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="Citation.reviewer">
+      <path value="Citation.reviewer"/>
+      <short value="Who reviewed the Citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="Citation.endorser">
+      <path value="Citation.endorser"/>
+      <short value="Who endorsed the Citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
     <element id="Citation.summary">
       <path value="Citation.summary"/>
       <short value="A human-readable display of the citation"/>
@@ -432,7 +477,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
+        <code value="ContactDetail"/>
       </type>
     </element>
     <element id="Citation.summary.style">
