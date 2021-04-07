@@ -64,7 +64,7 @@
           <valueString value="DeviceCode"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-kind"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
       </binding>
     </element>
   </differential>
