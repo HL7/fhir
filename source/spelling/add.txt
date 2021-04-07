@@ -7,4 +7,6 @@ _source
 _id
 _content
 _text
+recruitment_actual
 _lastupdated
+recruitment_target

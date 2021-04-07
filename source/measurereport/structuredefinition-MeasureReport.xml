@@ -185,6 +185,32 @@
         <map value="methodCode"/>
       </mapping>
     </element>
+    <element id="MeasureReport.dataUpdateType">
+      <path value="MeasureReport.dataUpdateType"/>
+      <short value="incremental | snapshot"/>
+      <definition value="Indicates whether the data submitted in an data-exchange report represents a snapshot or incremental update. A snapshot update replaces all previously submitted data for the receiver, whereas an incremental update represents only updated and/or changed data and should be applied as a differential update to the existing submitted data for the receiver."/>
+      <comment value="This element only applies to Data-collection reports used to communicate the data-of-interest for a measure"/>
+      <requirements value="Allows receiving systems to support incremental exchange of data, reducing overall bandwidth requirements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element determines whether the data in a data-exchange measure report is a snapshot or incremental update and is required in order to correctly apply the data update to a receiving system"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubmitDataUpdateType"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/submit-data-update-type"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
     <element id="MeasureReport.measure">
       <path value="MeasureReport.measure"/>
       <short value="What measure was calculated"/>
@@ -272,12 +298,28 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.source"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=PRF]"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.reportingVendor">
+      <path value="MeasureReport.reportingVendor"/>
+      <short value="What vendor prepared the data"/>
+      <definition value="A reference to the vendor who queried the data, calculated results and/or generated the report. The &#x2018;reporting vendor&#x2019; is intended to represent the submitting entity when it is not the same as the reporting entity. This extension is used when the Receiver is interested in getting vendor information in the report."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
       <mapping>
         <identity value="rim"/>
         <map value="participation[typeCode=PRF]"/>
@@ -296,6 +338,30 @@
       <mapping>
         <identity value="rim"/>
         <map value="effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.scoring">
+      <path value="MeasureReport.scoring"/>
+      <short value="What scoring method (e.g. proportion, ratio, continuous-variable)"/>
+      <definition value="Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented. It is expected to be the same as the scoring element on the referenced Measure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="Scoring determines what method was used to calculate the measure score and is required for correct interpretation of the score"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureScoring"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-scoring"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="methodCode"/>
       </mapping>
     </element>
     <element id="MeasureReport.improvementNotation">
@@ -440,14 +506,29 @@
         <map value="outboundRelationship[typeCode=SBJ]"/>
       </mapping>
     </element>
-    <element id="MeasureReport.group.measureScore">
-      <path value="MeasureReport.group.measureScore"/>
+    <element id="MeasureReport.group.measureScore[x]">
+      <path value="MeasureReport.group.measureScore[x]"/>
       <short value="What score this group achieved"/>
       <definition value="The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="Duration"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -514,8 +595,8 @@
         <map value="outboundRelationship[typeCode=COMP]"/>
       </mapping>
     </element>
-    <element id="MeasureReport.group.stratifier.stratum.value">
-      <path value="MeasureReport.group.stratifier.stratum.value"/>
+    <element id="MeasureReport.group.stratifier.stratum.value[x]">
+      <path value="MeasureReport.group.stratifier.stratum.value[x]"/>
       <short value="The stratum value, e.g. male"/>
       <definition value="The value for this stratum, expressed as a CodeableConcept. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique."/>
       <min value="0"/>
@@ -523,17 +604,28 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+      </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureReportStratifierValueExample"/>
         </extension>
         <strength value="example"/>
-        <description value="The stratum value."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measurereport-stratifier-value-example"/>
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value="value"/>
+        <map value="outboundRelationship[typeCode=COMP].value"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.component">
@@ -572,8 +664,8 @@
         <map value="code"/>
       </mapping>
     </element>
-    <element id="MeasureReport.group.stratifier.stratum.component.value">
-      <path value="MeasureReport.group.stratifier.stratum.component.value"/>
+    <element id="MeasureReport.group.stratifier.stratum.component.value[x]">
+      <path value="MeasureReport.group.stratifier.stratum.component.value[x]"/>
       <short value="The stratum component value, e.g. male"/>
       <definition value="The stratum component value."/>
       <min value="1"/>
@@ -581,17 +673,28 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+      </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureReportStratifierValueExample"/>
         </extension>
         <strength value="example"/>
-        <description value="The stratum value."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measurereport-stratifier-value-example"/>
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value="value"/>
+        <map value="outboundRelationship[typeCode=COMP].value"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.population">
@@ -665,14 +768,29 @@
         <map value="outboundRelationship[typeCode=SBJ]"/>
       </mapping>
     </element>
-    <element id="MeasureReport.group.stratifier.stratum.measureScore">
-      <path value="MeasureReport.group.stratifier.stratum.measureScore"/>
+    <element id="MeasureReport.group.stratifier.stratum.measureScore[x]">
+      <path value="MeasureReport.group.stratifier.stratum.measureScore[x]"/>
       <short value="What score this stratum achieved"/>
       <definition value="The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="Duration"/>
       </type>
       <mapping>
         <identity value="rim"/>

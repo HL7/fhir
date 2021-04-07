@@ -1,0 +1,55 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+    <id value="knowledge-representation-level"/>
+		<meta>
+			<profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+		</meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability">
+      <valueCode value="shareable"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability">
+      <valueCode value="computable"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability">
+      <valueCode value="publishable"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel">
+      <valueCode value="structured"/>
+    </extension>
+    <url value="http://hl7.org/fhir/CodeSystem/knowledge-representation-level"/>
+		<name value="KnowledgeRepresentationLevel"/>
+    <title value="Knowledge Representation Level"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2019-05-08"/>
+    <publisher value="Health Level 7 International - Clinical Decision Support WG"/>
+    <contact>
+      <telecom>
+        <system value="url"/>
+        <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
+      </telecom>
+    </contact>
+    <description value="A knowledge representation level, narrative, semi-structured, structured, and executable"/>
+    <caseSensitive value="true"/>
+		<valueSet value="http://hl7.org/fhir/uv/cpg/ValueSet/knowledge-representation-level"/>
+    <content value="complete"/>
+		<concept>
+			<code value="narrative"/>
+			<display value="Narrative"/>
+			<definition value="The knowledge is expressed as narrative text, affording broad shareability, but limited computability. The knowledge is typically expressed independent of delivery method (modality), technology platform, and implementation site. Knowledge at this level is typically authored by guideline developers for a broad range of purposes including communication of policy, synthesis of evidence, and dissemination of best-practices."/>
+		</concept>
+		<concept>
+			<code value="semi-structured"/>
+			<display value="Semi-Structured"/>
+			<definition value="The knowledge is expressed as organized text, often accompanied by diagrams such as flow charts and decision tables, affording broad shareability and moderate computability. The knowledge is typically expressed independent of delivery method (modality), technology platform, and implementation site. Knowledge at this level is typically authored by clinical domain experts for the purpose of communication the description of recommendations for implementation in various modalities."/>
+		</concept>
+    <concept>
+      <code value="structured"/>
+      <display value="Structured"/>
+      <definition value="The knowledge is expressed in a structured way that is interpretable by computer, including being coded using standard terminologies and specifications for the representation of structured content, affording broad shareability and high computability. The knowledge is typically expressed independent of delivery method (modality), technology platform, and implementation site. Knowledge at this level is typically authored by knowledge engineersto enable precise communication and validation of the recommendations."/>
+    </concept>
+    <concept>
+      <code value="executable"/>
+      <display value="Executable"/>
+      <definition value="The knowledge is expressed in a way that is coded and interpretable by CDS systems using a variety of formats, affording direct executability, but potentially limited shareability. The knowledge is typically expressed focusing on a specific delivery method (modality), technology platform, and implementation environment. Knowledge at this level is typically built and developed by implementers working in specific technology platforms, for the purpose of implementation at a specific site, though affordances such as computable mappings and configuration capabilities can broaden the usability of the knowledge artifact."/>
+    </concept>
+</CodeSystem>
