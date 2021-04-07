@@ -368,8 +368,18 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="unsignedInt"/>
+        <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Priority"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Indicates the urgency of the appointment."/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActPriority"/>
+      </binding>
       <mapping>
         <identity value="workflow"/>
         <map value="Request.priority"/>

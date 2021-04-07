@@ -33,7 +33,7 @@
 			<display value="A previously unscheduled walk-in visit" />
 		</coding>
 	</appointmentType>
-	<priority value="5" />
+	<!-- <priority value="5" /> -->
 	<description value="Discussion about Peter Chalmers MRI results" />
   <supportingInformation>
     <reference value="DiagnosticReport/ultrasound"/>
