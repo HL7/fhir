@@ -267,84 +267,7 @@
         <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"/>
       </mapping>
     </element>
-
-    <!-- relatesTo
-    <element id="ResearchStudy.relatesTo">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="40,80"/>
-      </extension>
-      <path value="ResearchStudy.relatesTo"/>
-      <short value="Related artifact and type of relation"/>
-      <definition value="Related artifact and type of relation."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ResearchStudy.relatesTo.relationshipType">
-      <path value="ResearchStudy.relatesTo.relationshipType"/>
-      <short value="replaces | amends | appends | transforms | replaced-with | amended-with | appended-with | transformed-with | derived-from | transformed-into | composed-of | part-of | supports | supported-with | depends-on | cites | cited-by"/>
-      <definition value="Describes the relationship of the artefact to the Research Study."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchStudyRelationshipCode"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Possible relationships between an artefact and a Research Study."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-artefact-relation-type"/>
-      </binding>
-    </element>
-    
-    
-    <element id="ResearchStudy.relatesTo.targetClassifier">
-      <path value="ResearchStudy.relatesTo.targetClassifier"/>
-      <short value="Expanded-Access | Available | No-longer-available | Termporarily-not-available | Approved-for-marketing"/>
-      <definition value="Describes the access to the artefact."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchStudyRelationshipClassifier"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Example classification of artefacts related to a Research Study."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-artefact-classifier-type"/>
-      </binding>
-    </element>
-    
-    
-    <element id="ResearchStudy.relatesTo.target[x]">
-      <path value="ResearchStudy.relatesTo.target[x]"/>
-      <short value="Identification of the target artifact"/>
-      <definition value="Identification of the target artifact."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <type>
-        <code value="Attachment"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-      </type>
-    </element>
-    -->
-    
+   
     <element id="ResearchStudy.relatedArtifact">
       <path value="ResearchStudy.relatedArtifact"/>
       <short value="References and dependencies"/>
@@ -485,6 +408,9 @@
     
     <!-- Focus -->
     <element id="ResearchStudy.focus">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="840,0"/>
+      </extension>
       <path value="ResearchStudy.focus"/>
       <short value="Drugs, devices, etc. under study"/>
       <definition value="The medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about."/>
@@ -820,7 +746,7 @@
     <!--Classification -->
     <element id="ResearchStudy.classification">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="40,220"/>
+        <valueCode value="40,190"/>
       </extension>
       <path value="ResearchStudy.classification"/>
       <short value="Classification for the study"/>
@@ -871,7 +797,7 @@
     <!--Association -->
     <element id="ResearchStudy.associatedParty">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="40,300"/>
+        <valueCode value="40,280"/>
       </extension>
       <path value="ResearchStudy.associatedParty"/>
       <short value="Sponsors, collaborators, and other parties"/>
@@ -968,7 +894,7 @@
     <!-- Progress -->  
     <element id="ResearchStudy.statusDate">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="40,400"/>
+        <valueCode value="40,410"/>
       </extension>
       <path value="ResearchStudy.statusDate"/>
       <short value="Status of study with time for that status"/>
@@ -1052,13 +978,13 @@
     <!-- Recruitment-->
     <element id="ResearchStudy.recruitment">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="840,0"/>
+        <valueCode value="40,80"/>
       </extension>
       <path value="ResearchStudy.recruitment"/>
       <short value="Target or actual group of participants enrolled in study"/>
       <definition value="Target or actual group of participants enrolled in study."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -1151,7 +1077,7 @@
     <!-- Arm / comparisonGroup -->
     <element id="ResearchStudy.comparisonGroup">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="840,120"/>
+        <valueCode value="840,90"/>
       </extension>
       <path value="ResearchStudy.comparisonGroup"/>
       <short value="Defined path through the study for a subject"/>
@@ -1276,7 +1202,7 @@
     <!-- Objective -->
     <element id="ResearchStudy.objective">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="840,240"/>
+        <valueCode value="840,220"/>
       </extension>
       <path value="ResearchStudy.objective"/>
       <short value="A goal for the study"/>
@@ -1341,7 +1267,7 @@
     <!-- Results -->
     <element id="ResearchStudy.outcomeMeasure">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="840,360"/>
+        <valueCode value="840,310"/>
       </extension>
       <path value="ResearchStudy.outcomeMeasure"/>
       <short value="An outcome or planned variable to measure during the study"/>
@@ -1418,6 +1344,9 @@
 
     <!-- Web Location -->
     <element id="ResearchStudy.webLocation">
+            <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="840,410"/>
+      </extension>
       <path value="ResearchStudy.webLocation"/>
       <short value="Archive location for the study"/>
       <definition value="A general storage or archive location for the study.  This may contain an assortment of content which is not specified in advance."/>
