@@ -3,7 +3,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="AuditEvent"/>
   <meta>
-    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+    <lastUpdated value="2021-04-07T09:58:31.578+11:00"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
     <valueString value="Foundation.Security"/>
@@ -27,7 +27,7 @@
   <version value="4.5.0"/>
   <name value="AuditEvent"/>
   <status value="draft"/>
-  <date value="2021-01-02T08:58:31+11:00"/>
+  <date value="2021-04-07T09:58:31.578+11:00"/>
   <publisher value="Health Level Seven International (Security)"/>
   <contact>
     <telecom>
@@ -399,6 +399,65 @@
       <mapping>
         <identity value="fhirprovenance"/>
         <map value="Provenance.reason, Provenance.activity"/>
+      </mapping>
+    </element>
+    <element id="AuditEvent.basedOn">
+      <path value="AuditEvent.basedOn"/>
+      <short value="Workflow authorization within which this event occurred"/>
+      <definition value="Allows tracing of authorizatino for the events and tracking whether proposals/recommendations were acted upon."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w3c.prov"/>
+        <map value="Activity.Activity"/>
+      </mapping>
+    </element>    
+	<element id="AuditEvent.encounter">
+      <path value="AuditEvent.encounter"/>
+      <short value="Encounter within which this event occurred or which the event is tightly associated"/>
+      <definition value="This will typically be the encounter the event occurred, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w3c.prov"/>
+        <map value="Activity.Activity"/>
       </mapping>
     </element>
     <element id="AuditEvent.agent">
