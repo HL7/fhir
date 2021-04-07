@@ -13,32 +13,32 @@
   <!--Option 1: Mashup -->
   <group>
     <code><coding><code value="QRPH_ADX_ART1_N"/></coding></code>
-    <measureScore><value value="0"/></measureScore>
+    <measureScoreQuantity><value value="0"/></measureScoreQuantity>
     <stratifier>
       <code><coding><code value="AGE_GROUP:SEX"/></coding></code>
       <stratum>
-        <value><coding><code value="P0Y--P1Y:F"/></coding></value>
-        <measureScore><value value="0"/></measureScore>
+        <valueCodeableConcept><coding><code value="P0Y--P1Y:F"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
       </stratum>
       <stratum>
-        <value><coding><code value="P0Y--P1Y:M"/></coding></value>
-        <measureScore><value value="0"/></measureScore>
+        <valueCodeableConcept><coding><code value="P0Y--P1Y:M"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
       </stratum>
       <stratum>
-        <value><coding><code value="P1Y--P5Y:F"/></coding></value>
-        <measureScore><value value="0"/></measureScore>
+        <valueCodeableConcept><coding><code value="P1Y--P5Y:F"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
       </stratum>
       <stratum>
-        <value><coding><code value="P1Y--P5Y:M"/></coding></value>
-        <measureScore><value value="0"/></measureScore>
+        <valueCodeableConcept><coding><code value="P1Y--P5Y:M"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
       </stratum>
       <stratum>
-        <value><coding><code value="P10Y--P15Y:F"/></coding></value>
-        <measureScore><value value="0"/></measureScore>
+        <valueCodeableConcept><coding><code value="P10Y--P15Y:F"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
       </stratum>
       <stratum>
-        <value><coding><code value="P10Y--P15Y:M"/></coding></value>
-        <measureScore><value value="0"/></measureScore>
+        <valueCodeableConcept><coding><code value="P10Y--P15Y:M"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
       </stratum>
       <!--...-->
     </stratifier>
@@ -46,32 +46,32 @@
   <!--Option 2: Extensions -->
   <group>
     <code><coding><code value="QRPH_ADX_ART1_N"/></coding></code>
-    <measureScore><value value="0"/></measureScore>
+    <measureScoreQuantity><value value="0"/></measureScoreQuantity>
     <stratifier>
       <code><coding><code value="AGE_GROUP:SEX"/></coding></code>
       <stratum>
-        <value><coding><code value="P0Y--P1Y:F"/></coding></value>
-        <measureScore><value value="0"/></measureScore>
+        <valueCodeableConcept><coding><code value="P0Y--P1Y:F"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
       </stratum>
       <stratum>
-        <value><coding><code value="P0Y--P1Y:M"/></coding></value>
-        <measureScore><value value="0"/></measureScore>
+        <valueCodeableConcept><coding><code value="P0Y--P1Y:M"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
       </stratum>
       <stratum>
-        <value><coding><code value="P1Y--P5Y:F"/></coding></value>
-        <measureScore><value value="0"/></measureScore>
+        <valueCodeableConcept><coding><code value="P1Y--P5Y:F"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
       </stratum>
       <stratum>
-        <value><coding><code value="P1Y--P5Y:M"/></coding></value>
-        <measureScore><value value="0"/></measureScore>
+        <valueCodeableConcept><coding><code value="P1Y--P5Y:M"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
       </stratum>
       <stratum>
-        <value><coding><code value="P10Y--P15Y:F"/></coding></value>
-        <measureScore><value value="0"/></measureScore>
+        <valueCodeableConcept><coding><code value="P10Y--P15Y:F"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
       </stratum>
       <stratum>
-        <value><coding><code value="P10Y--P15Y:M"/></coding></value>
-        <measureScore><value value="0"/></measureScore>
+        <valueCodeableConcept><coding><code value="P10Y--P15Y:M"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
       </stratum>
       <!--...-->
     </stratifier>
@@ -79,53 +79,53 @@
   <!--Option 3: Component Structures -->
   <group>
     <code><coding><code value="QRPH_ADX_ART1_N"/></coding></code>
-    <measureScore><value value="0"/></measureScore>
+    <measureScoreQuantity><value value="0"/></measureScoreQuantity>
     <stratifier>
       <code><coding><code value="AGE_GROUP"/></coding></code>
       <code><coding><code value="SEX"/></coding></code>
       <stratum>
         <component>
           <code><coding><code value="AGE_GROUP"/></coding></code>
-          <value><coding><code value="P0Y--P1Y"/></coding></value>
+          <valueCodeableConcept><coding><code value="P0Y--P1Y"/></coding></valueCodeableConcept>
         </component>
         <component>
           <code><coding><code value="SEX"/></coding></code>
-          <value><coding><code value="F"/></coding></value>
+          <valueCodeableConcept><coding><code value="F"/></coding></valueCodeableConcept>
         </component>
-        <measureScore><value value="0"/></measureScore>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
       </stratum>
       <stratum>
         <component>
           <code><coding><code value="AGE_GROUP"/></coding></code>
-          <value><coding><code value="P0Y--P1Y"/></coding></value>
+          <valueCodeableConcept><coding><code value="P0Y--P1Y"/></coding></valueCodeableConcept>
         </component>
         <component>
           <code><coding><code value="SEX"/></coding></code>
-          <value><coding><code value="M"/></coding></value>
+          <valueCodeableConcept><coding><code value="M"/></coding></valueCodeableConcept>
         </component>
-        <measureScore><value value="0"/></measureScore>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
       </stratum>
       <stratum>
         <component>
           <code><coding><code value="AGE_GROUP"/></coding></code>
-          <value><coding><code value="P1Y--P5Y"/></coding></value>
+          <valueCodeableConcept><coding><code value="P1Y--P5Y"/></coding></valueCodeableConcept>
         </component>
         <component>
           <code><coding><code value="SEX"/></coding></code>
-          <value><coding><code value="F"/></coding></value>
+          <valueCodeableConcept><coding><code value="F"/></coding></valueCodeableConcept>
         </component>
-        <measureScore><value value="0"/></measureScore>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
       </stratum>
       <stratum>
         <component>
           <code><coding><code value="AGE_GROUP"/></coding></code>
-          <value><coding><code value="P1Y--P5Y"/></coding></value>
+          <valueCodeableConcept><coding><code value="P1Y--P5Y"/></coding></valueCodeableConcept>
         </component>
         <component>
           <code><coding><code value="SEX"/></coding></code>
-          <value><coding><code value="F"/></coding></value>
+          <valueCodeableConcept><coding><code value="F"/></coding></valueCodeableConcept>
         </component>
-        <measureScore><value value="0"/></measureScore>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
       </stratum>
       <!--...-->
     </stratifier>
