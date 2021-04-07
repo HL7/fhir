@@ -76,8 +76,8 @@
     <element id="Extension.extension:actualNumber">
       <path value="Extension.extension"/>
       <sliceName value="actualNumber"/>
-      <short value="The desired number of sites"/>
-      <definition value="The desired number of sites."/>
+      <short value="The actual number of sites"/>
+      <definition value="The actual number of sites."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -100,6 +100,37 @@
       <min value="1"/>
       <type>
         <code value="unsignedInt"/>
+      </type>
+    </element>
+    
+    <!-- eligibility -->
+    <element id="Extension.extension:eligibility">
+      <path value="Extension.extension"/>
+      <sliceName value="eligibility"/>
+      <short value="Inclusion and exclusion criteria"/>
+      <definition value="Criteria for inclusion or exclusion of sites."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:eligibility.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:eligibility.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="eligibility"/>
+    </element>
+    <element id="Extension.extension:eligibility.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="markdown"/>
       </type>
     </element>
     
