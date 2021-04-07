@@ -3,7 +3,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="AuditEvent"/>
   <meta>
-    <lastUpdated value="2021-04-07T08:58:31.578+11:00"/>
+    <lastUpdated value="2021-04-07T09:58:31.578+11:00"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
     <valueString value="Foundation.Security"/>
@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
+    <valueInteger value="1"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="not-classified"/>
@@ -27,7 +27,7 @@
   <version value="4.5.0"/>
   <name value="AuditEvent"/>
   <status value="draft"/>
-  <date value="2021-04-07T08:58:31.578+11:00"/>
+  <date value="2021-04-07T09:58:31.578+11:00"/>
   <publisher value="Health Level Seven International (Security)"/>
   <contact>
     <telecom>
