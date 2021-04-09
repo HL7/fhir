@@ -256,7 +256,7 @@
         <use value="out"/>
         <min value="1"/>
         <max value="1"/>
-        <documentation value="The element for this product"/>
+        <documentation value="The element for this dependency"/>
         <type value="uri"/>
       </part>
       <part>
@@ -264,7 +264,7 @@
         <use value="out"/>
         <min value="1"/>
         <max value="1"/>
-        <documentation value="The value for this product"/>
+        <documentation value="The value for this dependency"/>
         <type value="code"/>
         <type value="Coding"/>
         <type value="string"/>
