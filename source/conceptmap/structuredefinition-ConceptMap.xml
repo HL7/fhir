@@ -416,9 +416,9 @@
     </element>
     <element id="ConceptMap.sourceScope[x]">
       <path value="ConceptMap.sourceScope[x]"/>
-      <short value="The source value set that contains the concepts that are being mapped"/>
-      <definition value="Identifier for the source value set that contains the concepts that are being mapped and provides context for the mappings."/>
-      <comment value="Should be a version specific reference. URIs SHOULD be absolute. If there is no source or target value set, there is no specified context for the map (not recommended).  The source value set may select codes from either an explicit (standard or local) or implicit code system."/>
+      <short value="The source scope value set that contains the concepts that are being mapped"/>
+      <definition value="Identifier for the source scope value set that contains the concepts that are being mapped and provides context for the mappings."/>
+      <comment value="Should be a version specific reference. URIs SHOULD be absolute. If there is no source scope or target scope value set, there is no specified context for the map (not recommended).  The source value set may select codes from either an explicit (standard or local) or implicit code system."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -432,9 +432,9 @@
     </element>
     <element id="ConceptMap.targetScope[x]">
       <path value="ConceptMap.targetScope[x]"/>
-      <short value="The target value set which provides context for the mappings"/>
-      <definition value="The target value set provides context for the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made."/>
-      <comment value="Should be a version specific reference. URIs SHOULD be absolute. If there is no source or target value set, the is no specified context for the map."/>
+      <short value="The target scope value set which provides context for the mappings"/>
+      <definition value="The target scope value set provides context for the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made."/>
+      <comment value="Should be a version specific reference. URIs SHOULD be absolute. If there is no source scope or target scope value set, the is no specified context for the map."/>
       <min value="0"/>
       <max value="1"/>
       <type>
