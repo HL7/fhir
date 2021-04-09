@@ -689,17 +689,6 @@
         <code value="uri"/>
       </type>
     </element>
-    <element id="ConceptMap.group.element.target.dependsOn.display">
-      <path value="ConceptMap.group.element.target.dependsOn.display"/>
-      <short value="Display for the code (if value is a code)"/>
-      <definition value="The display for the code. The display is only provided to help editors when editing the concept map."/>
-      <comment value="The display is ignored when processing the map."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
     <element id="ConceptMap.group.element.target.product">
       <path value="ConceptMap.group.element.target.product"/>
       <short value="Other concepts that this mapping also produces"/>
