@@ -12,8 +12,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:6f975e9e-58ed-4828-ba97-d5cefceb0071",
-    "timestamp" : "2021-01-13T06:26:17.721Z",
+    "identifier" : "urn:uuid:15c6e9ba-b5be-413b-a9db-0c9d5f517d3b",
+    "timestamp" : "2021-04-12T20:27:02.538Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -24,7 +24,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://hl7.org/fhir/resource-security-category|4.5.0"
+      "valueString" : "http://hl7.org/fhir/resource-security-category|4.6.0"
     }],
     "contains" : [{
       "extension" : [{
