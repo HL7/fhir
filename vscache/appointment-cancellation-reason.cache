@@ -10,24 +10,25 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:0291ab84-c490-42ff-84d7-69d14e94a4b7",
-    "timestamp" : "2018-12-14T03:53:53.261Z",
+    "identifier" : "urn:uuid:58db388e-d34c-4545-983e-cfee54fa94de",
+    "timestamp" : "2021-04-12T20:20:09.849Z",
     "parameter" : [{
       "name" : "limitedExpansion",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "includeDesignations",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "excludeNested",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason?version=4.0.0"
+      "valueString" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason|4.0.1"
     }],
     "contains" : [{
       "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
@@ -205,20 +206,21 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:0db69151-3c53-4188-92f7-42319a752a4a",
-    "timestamp" : "2018-12-14T04:02:31.606Z",
+    "identifier" : "urn:uuid:017205d3-4357-438f-8d3e-0dafeba47d15",
+    "timestamp" : "2021-04-12T20:52:54.756Z",
     "parameter" : [{
       "name" : "limitedExpansion",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "includeDesignations",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason?version=4.0.0"
+      "valueString" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason|4.0.1"
     }],
     "contains" : [{
       "system" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
