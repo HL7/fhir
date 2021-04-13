@@ -1,5 +1,4 @@
-﻿subject_state
-_query
+﻿_query
 _profile
 _tag
 _security
@@ -7,6 +6,4 @@ _source
 _id
 _content
 _text
-recruitment_actual
 _lastupdated
-recruitment_target

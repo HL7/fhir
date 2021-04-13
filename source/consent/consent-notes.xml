@@ -1,21 +1,19 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml"><a name="policy"></a>
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml"><?xml version="1.0" encoding="UTF-8"?>
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+  <a name="policy">
+  </a>
+  <a name="Policies">
+  </a>
   <h2>Policies</h2>
-  <p>
-The Consent resource has a reference to a single <code>policyRule</code>. Many organizations will work in a context where multiple different consent regulations and policies apply. 
-In these cases, the single policy rule reference refers to a policy document that resolves and reconciles the various policies and presents a single policy for patient
-consent. If it is still necessary to track which of the underlying policies an exception is make in regard to, the <code>policy</code> may be used.
-</p>
-<p>Policies attached to Consent.policyRule language should be written using positive language. For an example, a patient wanting to opt-out will be recorded with an opt-in policy where the Consent.provision[0].type indicates "deny".</p>
-<a name="model"></a>
+  <p>The Consent resource has a reference to a single <code>policyRule</code>. Many organizations will work in a context where multiple different consent regulations and policies apply.In these cases, the single policy rule reference refers to a policy document that resolves and reconciles the various policies and presents a single policy for patientconsent. If it is still necessary to track which of the underlying policies an exception is make in regard to, the <code>policy</code> may be used.</p>
+  <p>Policies attached to Consent.policyRule language should be written using positive language. For an example, a patient wanting to opt-out will be recorded with an opt-in policy where the Consent.provision[0].type indicates "deny".</p>
+  <a name="model">
+  </a>
   <h2>Privacy Consent General Model</h2>
-  <p>
-The following is the general model of Privacy Consent Directives.
-</p>
-  <p>
-There are context setting parameters:
-</p>
+  <p>The following is the general model of Privacy Consent Directives.</p>
+  <p>There are context setting parameters:</p>
   <ol>
-    <li>Who - The <b>patient</b>or <b>third-party grantor</b></li>
+    <li>Who - The <b>patient</b> or <b>third-party grantor</b></li>
     <li>What - The <b>data</b> - specific resources are listed, empty list means all data covered by the consent.</li>
     <li>Where Required - The <b>location boundary</b> and <b>authority boundary</b> of this consent policy domain.</li>
     <li>Where Accountability Lies -  The organization or performer</li>
@@ -24,10 +22,7 @@ There are context setting parameters:
     <li>How - The <b>actions</b> covered. (such as purposes of use that are covered)</li>
     <li>Whom - The <b>actor</b> are grantees by the consent. </li>
   </ol>
-  <p>
-A Privacy Consent may transition through many states including: that no consent has been sought, consent has been proposed, 
-consent has been rejected, and consent approved.
-</p>
+  <p>A Privacy Consent may transition through many states including: that no consent has been sought, consent has been proposed,consent has been rejected, and consent approved.</p>
   <p>There are set of patterns.</p>
   <ol>
     <li>No consent: All settings need a policy for when no consent has been captured. Often this allows treatment only.;</li>
@@ -36,89 +31,138 @@ consent has been rejected, and consent approved.
     <li>Opt-in: Sharing for some purpose of use is authorized Sharing allowed for Treatment, Payment, and normal Operations; and</li>
     <li>Opt-in with restrictions: Sharing allowed, but the patient may make exceptions.</li>
   </ol>
-  <p>For each of these patterns (positive or negative pattern), there can be exceptions. 
-	  These exceptions are explicitly recorded in the <b>except</b> element. 
-    </p>
-    <a name="tracking-changes"></a>
+  <p>For each of these patterns (positive or negative pattern), there can be exceptions.	  These exceptions are explicitly recorded in the <b>except</b> element.    </p>
+  <a name="logical-flow">
+  </a>
+  <h2>Provision Logical Flow</h2>
+  <p>The Consent provision element tree was designed to enable all possible logic. This is also why the .provision trees are not restricted on how deep they can go.  However use of the provision branches follows this logical flow:</p>
+  <ol>
+    <li>adjacent elements <i>within a provision</i> are in an AND relationship (see A below)</li>
+    <li>adjacent provision branches are in an OR relationship (See B below)</li>
+    <li>all values within an element are in an AND relationship (see C below)</li>
+  </ol>
+  <h3>Examples</h3>
+  <p>A) Permit Dr Bob for Treatment purpose access to vital-signs that are normal confidentiality and published between 2000-2020. This indicates that no one other than Dr Bob, nothing other than Treatment, nothing other than vital-signs, nothing other than data that are normal, and nothing outside of the timeframe. Thus this is all encoded in one sub .provision. The parent provision would be a DENY, and this sub .provision would have have elements indicating these.</p>
+  <blockquote>
+    <code>
+      <p>provision.type = #deny</p>
+      <p>provision.provision[0].type = permit</p>
+      <p>provision.provision[0].actor = Dr Bob</p>
+      <p>provision.provision[0].purpose = Treatment</p>
+      <p>provision.provision[0].class = vital-signs</p>
+      <p>provision.provision[0].securityLabel = N</p>
+      <p>provision.provision[0].datePeriod = 2000-2020</p>
+    </code>
+  </blockquote>
+  <p>B) Permit Dr Bob, Permit Treatment purpose access, permit vital-signs, permit normal confidentiality, and permit data published between 2000-2020. This indicates that Dr Bob is to be permitted for everything, Treatment purpose of access for everything, vital-signs for any purpose, normal confidentiality tagged data, and permit data published between 2000-2020 </p>
+  <blockquote>
+    <code>
+      <p>provision.type = #deny</p>
+      <p>provision.provision[0].type = permit</p>
+      <p>provision.provision[0].actor = Dr Bob</p>
+      <p>provision.provision[1].type = permit</p>
+      <p>provision.provision[1].purpose = Treatment</p>
+      <p>provision.provision[2].type = permit</p>
+      <p>provision.provision[2].class = vital-signs</p>
+      <p>provision.provision[3].type = permit</p>
+      <p>provision.provision[3].securityLabel = N</p>
+      <p>provision.provision[4].type = permit</p>
+      <p>provision.provision[4].datePeriod = 2000-2020</p>
+    </code>
+  </blockquote>
+  <p>These are all in an OR relationship, which given the rules will result in permitting everything that applies to one or more of the sub-provisions, with all else denied by default.</p>
+  <p>C) Permit requests for Treatment, Payment, and Operations. Which means Permit Treatment and Permit Payment, and Permit Operations, or any combination of the three. To encode this TPO use, three .provisions are required. This authorizes request that declare they want Treatment, Payment, AND Operations access but would not authorize someone asking only for Treatment:</p>
+  <blockquote>
+    <code>
+      <p>provision.provision[0].type = permit</p>
+      <p>provision.provision[0].purpose[0] = Treatment</p>
+      <p>provision.provision[0].purpose[1] = Payment</p>
+      <p>provision.provision[0].purpose[2] = Operations</p>
+    </code>
+  </blockquote>
+  <p>This authorizes requests that declare they want Treatment, payment, AND Operations access, but would also authorize access requests for only Treatment, or only Payment, or only Operations, or Treatment+Payment, or &#8230; </p>
+  <blockquote>
+    <code>
+      <p>provision.provision[0].type = permit</p>
+      <p>provision.provision[0].purpose[0] = Treatment</p>
+      <p>provision.provision[1].type = permit</p>
+      <p>provision.provision[1].purpose[0] = Payment</p>
+      <p>provision.provision[2].type = permit</p>
+      <p>provision.provision[2].purpose[0] = Operations</p>
+    </code>
+  </blockquote>
+  <a name="tracking-changes">
+  </a>
   <h2>Tracking Changes in Consent</h2>
-<p>Tracking changes in consent can be managed in two possible ways:</p>
-<ol>
+  <p>Tracking changes in consent can be managed in two possible ways:</p>
+  <ol>
     <li>Submitting changes to the Consent resource and tracking the changes via a versioning server</li>
     <li>Submitting a new Consent resource and marking the old resource as inactive</li>
-</ol>
-<p>HL7 does not recommend a specific method.</p>
-<p>
-A FHIR Consent Directive instance is considered the encoded legally binding Consent Directive if it meets 
-requirements of a policy domain requirements for an enforceable contract.   In some domains, electronic 
-signatures of one or both of the parties to the content of an encoded representation of a Consent Form 
-is deemed to constitute a legally binding Consent Directive.  Some domains accept a notary’s electronic 
-signature over the wet or electronic signature of a party to the Consent Directive as the additional 
-identity proofing required to make an encoded Consent Directive legally binding.  Other domains may 
-only accept a wet signature or might not require the parties’ signatures at all.
-</p>
-<p>
-Whatever the criteria are for making an encoded FHIR Consent Directive legally binding, anything less 
-than a legally binding representation of a Consent Directive must be identified as such, i.e., as a 
-derivative of the legally binding Consent Directive, which has specific usage in Consent Directive workflow management.
-</p>
-<p><b>Definitions:</b></p>
-<table class="grid">
- <tr><td>Consent</td><td>The record of a healthcare consumer’s policy choices or choices made on their behalf by a third party, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time</td></tr>
- <tr><td>Consent Directive</td><td>The legal record of a healthcare consumer's agreement or agreements made on their behalf with a party responsible for enforcing the consumer’s choices or choices made on their behalf by a third party, which permits or denies identified actors or roles to perform actions affecting the consumer within a given context for specific purposes and periods of time</td></tr>
- <tr><td>Consent Form</td><td>Human readable consent content describing one or more actions impacting the grantor for which the grantee would be authorized or prohibited from performing.  It includes the terms, rules, and conditions pertaining to the authorization or restrictions, such as effective time, applicability or scope, purposes of use, obligations and prohibitions to which the grantee must comply. Once a Consent Form is “executed” by means required by policy, such as verbal agreement, wet signature, or electronic/digital signature, it becomes a legally binding Consent Directive.</td></tr>
- <tr><td>Consent Directive Derivative</td><td>Consent Content that conveys the minimal set of information needed to manage Consent Directive workflow, including providing Consent Directive content sufficient to:
-<ul><li>Represent a Consent Directive</li>
-<li>Register or index a Consent Directive</li>
-<li>Query and respond about a Consent Directive</li>
-<li>Retrieve a Consent Directive</li>
-<li>Notify authorized entities about Consent Directive status changes</li>
-<li>Determine entities authorized to collect, access, use or disclose information about the Consent Directive or about the information governed by the Consent Directive.</li>
-</ul>
-<p>Derived Consent content includes the Security Labels encoding the applicable privacy and security policies.  Consent Security Labels inform recipients about specific access control measures required for compliance.</p>
-</td></tr>
- <tr><td>Consent Statement</td><td>A Consent Directive derivative has less than full fidelity to the legally binding Consent Directive from which it was "transcribed".  It  provides recipients with the full content representation they may require for compliance purposes, and typically include a reference to or an attached unstructured representation for recipients needing an exact copy of the legal agreement.</td></tr>
- <tr><td>Consent Registration</td><td>The legal record of a healthcare consumer's agreement with a party responsible for enforcing the consumer’s choices, which permits or denies identified actors or roles to perform actions affecting the consumer within a given context for specific purposes and periods of timeA Consent Directive derivative that conveys the minimal set of information needed to register an active and revoked Consent Directive, or to update Consent status as it changes during its lifecycle.</td></tr>
- <tr><td>Policy context</td><td>Any organizational or jurisdictional policies, which may limit the consumer’s policy choices, and which includes the named range of actions allowed</td></tr>
- <tr><td>Healthcare Consumer</td><td>The individual establishing his/her personal consent (i.e. Consenter). In FHIR, this is referred to as the 'Patient' though this word is not used across all contexts of care</td></tr>
-</table>
-
-
-<a name="PCD"></a>
-<h3>Privacy Consent Directive (PCD)</h3>
-
-<p>
-Privacy policies define how Individually Identifiable Health Information 
-(IIHI) is to be collected, accessed, used and disclosed. A Privacy Consent 
-Directive as a legal record of a patient's (e.g. a healthcare consumer) 
-agreement with a party responsible for enforcing the patient's choices, 
-which permits or denies identified actors or roles to perform actions 
-affecting the patient within a given context for specific purposes and 
-periods of time. All consent directives have a policy context, which is
-any set of organizational or jurisdictional policies which may limit the 
-consumer’s policy choices, and which include a named range of actions allowed.
-In addition, Privacy Consent Directives provide the ability for a healthcare consumer 
-to delegate authority to a Substitute Decision Maker who may act on behalf of that individual.
-Alternatively, a consumer may author/publish their privacy preferences as a self-declared Privacy Consent Directive.  
-</p>
-<p>
-The Consent resource on FHIR provides support for alternative representations for expressing 
-interoperable health information privacy consent directives in a standard form for the 
-exchange and enforcement by sending, intermediating, or receiving systems of privacy policies 
-that can be enforced by consuming systems (e.g., scanned documents, of computable structured 
-entries elements, FHIR structures with optional attached, or referenced unstructured representations.) 
-It may be used to represent the Privacy Consent Directive itself, a Consent Statement, which 
-electronically represents a Consent Directive, or Consent Metadata, which is the minimum 
-necessary consent content derived from a Consent Directive for use in workflow management.
-</p>
-<a name="optsearch"></a>
-  <h2>Optimal Searching</h2>
-  <p>The following steps represent the optimal path for searching for a Consent resource.</p>
-  <ol>
-    <li>Request one or more Consent where status=active by Consent.scope (with patient(s), if none specified, get all).  Policy will decide how to deal with multiple per patient and how to iterate through (e.g., select most recent).</li>
-    <li>Locally inspect Consent.provision for base policy acceptance/denial with Consent.policyRule</li>
-    <li>If policyRule not understandable, refer to Privacy Office</li>
-    <li>Locally inspect Consent.provision for contexts (e.g., provision.purpose, provision.actor, etc.) as above</li>
-    <li>Inspect Consent.provision.provision (et.al) for exceptions</li>
   </ol>
+  <p>HL7 does not recommend a specific method.</p>
+  <p>A FHIR Consent Directive instance is considered the encoded legally binding Consent Directive if it meetsrequirements of a policy domain requirements for an enforceable contract.   In some domains, electronicsignatures of one or both of the parties to the content of an encoded representation of a Consent Formis deemed to constitute a legally binding Consent Directive.  Some domains accept a notary’s electronicsignature over the wet or electronic signature of a party to the Consent Directive as the additionalidentity proofing required to make an encoded Consent Directive legally binding.  Other domains mayonly accept a wet signature or might not require the parties’ signatures at all.</p>
+  <p>Whatever the criteria are for making an encoded FHIR Consent Directive legally binding, anything lessthan a legally binding representation of a Consent Directive must be identified as such, i.e., as aderivative of the legally binding Consent Directive, which has specific usage in Consent Directive workflow management.</p>
+  <p>
+    <b>Definitions:</b>
+  </p>
+  <table class="grid">
+    <tr>
+      <td>Consent</td>
+      <td>The record of a healthcare consumer’s policy choices or choices made on their behalf by a third party, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time</td>
+    </tr>
+    <tr>
+      <td>Consent Directive</td>
+      <td>The legal record of a healthcare consumer's agreement or agreements made on their behalf with a party responsible for enforcing the consumer’s choices or choices made on their behalf by a third party, which permits or denies identified actors or roles to perform actions affecting the consumer within a given context for specific purposes and periods of time</td>
+    </tr>
+    <tr>
+      <td>Consent Form</td>
+      <td>Human readable consent content describing one or more actions impacting the grantor for which the grantee would be authorized or prohibited from performing.  It includes the terms, rules, and conditions pertaining to the authorization or restrictions, such as effective time, applicability or scope, purposes of use, obligations and prohibitions to which the grantee must comply. Once a Consent Form is “executed” by means required by policy, such as verbal agreement, wet signature, or electronic/digital signature, it becomes a legally binding Consent Directive.</td>
+    </tr>
+    <tr>
+      <td>Consent Directive Derivative</td>
+      <td>Consent Content that conveys the minimal set of information needed to manage Consent Directive workflow, including providing Consent Directive content sufficient to:<ul>
+        <li>Represent a Consent Directive</li>
+        <li>Register or index a Consent Directive</li>
+        <li>Query and respond about a Consent Directive</li>
+        <li>Retrieve a Consent Directive</li>
+        <li>Notify authorized entities about Consent Directive status changes</li>
+        <li>Determine entities authorized to collect, access, use or disclose information about the Consent Directive or about the information governed by the Consent Directive.</li>
+      </ul>
+      <p>Derived Consent content includes the Security Labels encoding the applicable privacy and security policies.  Consent Security Labels inform recipients about specific access control measures required for compliance.</p>
+    </td>
+  </tr>
+  <tr>
+    <td>Consent Statement</td>
+    <td>A Consent Directive derivative has less than full fidelity to the legally binding Consent Directive from which it was "transcribed".  It  provides recipients with the full content representation they may require for compliance purposes, and typically include a reference to or an attached unstructured representation for recipients needing an exact copy of the legal agreement.</td>
+  </tr>
+  <tr>
+    <td>Consent Registration</td>
+    <td>The legal record of a healthcare consumer's agreement with a party responsible for enforcing the consumer’s choices, which permits or denies identified actors or roles to perform actions affecting the consumer within a given context for specific purposes and periods of timeA Consent Directive derivative that conveys the minimal set of information needed to register an active and revoked Consent Directive, or to update Consent status as it changes during its lifecycle.</td>
+  </tr>
+  <tr>
+    <td>Policy context</td>
+    <td>Any organizational or jurisdictional policies, which may limit the consumer’s policy choices, and which includes the named range of actions allowed</td>
+  </tr>
+  <tr>
+    <td>Healthcare Consumer</td>
+    <td>The individual establishing his/her personal consent (i.e. Consenter). In FHIR, this is referred to as the 'Patient' though this word is not used across all contexts of care</td>
+  </tr>
+</table>
+<a name="PCD">
+</a>
+<h3>Privacy Consent Directive (PCD)</h3>
+<p>Privacy policies define how Individually Identifiable Health Information(IIHI) is to be collected, accessed, used and disclosed. A Privacy ConsentDirective as a legal record of a patient's (e.g. a healthcare consumer)agreement with a party responsible for enforcing the patient's choices,which permits or denies identified actors or roles to perform actionsaffecting the patient within a given context for specific purposes andperiods of time. All consent directives have a policy context, which isany set of organizational or jurisdictional policies which may limit theconsumer’s policy choices, and which include a named range of actions allowed.In addition, Privacy Consent Directives provide the ability for a healthcare consumerto delegate authority to a Substitute Decision Maker who may act on behalf of that individual.Alternatively, a consumer may author/publish their privacy preferences as a self-declared Privacy Consent Directive.</p>
+<p>The Consent resource on FHIR provides support for alternative representations for expressinginteroperable health information privacy consent directives in a standard form for theexchange and enforcement by sending, intermediating, or receiving systems of privacy policiesthat can be enforced by consuming systems (e.g., scanned documents, of computable structuredentries elements, FHIR structures with optional attached, or referenced unstructured representations.)It may be used to represent the Privacy Consent Directive itself, a Consent Statement, whichelectronically represents a Consent Directive, or Consent Metadata, which is the minimumnecessary consent content derived from a Consent Directive for use in workflow management.</p>
+<a name="optsearch">
+</a>
+<h2>Optimal Searching</h2>
+<p>The following steps represent the optimal path for searching for a Consent resource.</p>
+<ol>
+  <li>Request one or more Consent where status=active by Consent.scope (with patient(s), if none specified, get all).  Policy will decide how to deal with multiple per patient and how to iterate through (e.g., select most recent).</li>
+  <li>Locally inspect Consent.provision for base policy acceptance/denial with Consent.policyRule</li>
+  <li>If policyRule not understandable, refer to Privacy Office</li>
+  <li>Locally inspect Consent.provision for contexts (e.g., provision.purpose, provision.actor, etc.) as above</li>
+  <li>Inspect Consent.provision.provision (et al.) for exceptions</li>
+</ol>
 </div>
-
+</div>
