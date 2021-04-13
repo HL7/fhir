@@ -56,40 +56,39 @@ Three ballot periods are anticipated:
 </table>
 
 <p>
-
-What content has changed.
+This ballot introduces a number of significant changes that are part of the Release 5:
 </p>
+<ul>
+  <li>Finish removing content moved to http://terminology.hl7.org</li>
+  <li>Rework the abstact data types (new types <a href="types.html#Base">Base</a>, <a href="types.html#DataType">DataType</a>, <a href="types.html#BackboneType">BackboneType</a>), 
+      and introduce <a href="canonicalresource.html">CanonicalResource</a> and <a href="metadataresource.html">MetadataResource</a> interfaces</li>
+  <li>Major upgrade to <a href="subscription.html">Subscription</a> resource and the pub/sub patterns</li>
+  <li>Add <a href="datatypes.html#RatioRange">RatioRange</a> data type and new resources <a href="inventoryreport.html">InventoryReport</a>,
+      <a href="citation.html">Citation</a>, <a href="permission.html">Permission</a>, <a href="nutritionproduct.html">NutritionProduct</a>, <a href="citation.html">Citation</a>, and<a href="evidencereport.html">EvidenceReport</a>, <a href="clinicaluseissue.html">ClinicalUseIssue</a></li>
+  <li>Major work on <a href="medication-definition-module.html">medication definitions</a>, and <a href="evidence.html">evidence based medicine</a></li>
+</ul>
 
-<h3>Balloting Guidelines</h3>
+<h3>Balloting Process</h3>
+
 <p>
-HL7 ballot rules require that participants sign up prior to opening of the ballot.  If you did not sign up in advance, you
-can still submit comments using the <a href="http://hl7.org/fhir-issues">Propose a Change</a>
-link at the bottom of each page of the specification.  Feedback from balloters will be given priority but all suggestions will be
-considered as much as time allows.  (And be sure to <a href="https://confluence.hl7.org/display/FHIR/Mailing+List+Instructions">sign up</a> 
-to the FHIR list-server and/or follow the <a href="https://twitter.com/hashtag/fhir">#FHIR</a> hash-tag so you don't miss the chance to 
-vote in the next ballot cycle.)
+This ballot is using HL7's new <a href="https://confluence.hl7.org/display/HL7/Jira+Ballot+Process">Jira balloting process</a>. As such, ballot comments will need to 
+be submitted in Jira and, in general, balloting spreadsheets will not be used. Some organizational 
+and affiliate balloters may continue to use spreadsheets but will be responsible for importing 
+them into Jira themselves and may have slightly different processes for consolidating ballots 
+to take that into account. The ballot desktop will be used for voter registration but will 
+not be available for vote submission. Voters are encouraged to view the <a href="https://youtu.be/Qb-02MWgugM">recorded tutorial</a>
+on Jira balloting in addition to reading through the instructions on <a href="https://confluence.hl7.org/display/HL7/Specification+Feedback">submitting Jira feedback</a>
+and <a href="https://confluence.hl7.org/display/HL7/Jira+Ballot+Process">using Jira balloting</a>. 
+A webinar will be held part-way through the ballot cycle to provide an opportunity to ask questions about the process. Questions can also be raised on the 
+<a href="https://chat.fhir.org/#narrow/stream/184932-JIRA.2FConfluence">Jira/Confluence  stream</a> on <code>http://chat.fhir.org</code>.
 </p>
 <p>
-If you are signed up to ballot, you can download the balloting spreadsheet from the <a href="http://www.hl7.org/participate/onlineballoting.cfm">Ballot Desktop</a>.
-All ballot feedback must be provided using the spreadsheet template provided.  (There's a help tab that explains the meaning of each of the columns.)
-For FHIR, you have the option of making your comments directly in the spreadsheet or submitting your comment using the FHIR
-<a href="http://hl7.org/fhir-issues">Change Tracker</a> tool.  <b></b>  If you take the latter approach, you <b>must</b> include a reference to each tracker item in your
-ballot spreadsheet along with a vote (negative, affirmative typo, etc.).  The other columns can (and should) be left blank.  All spreadsheets must be submitted along with an overall vote
-by end of day Eastern time on the designated ballot closure date for the comments to be considered as part of ballot disposition.
+Because this is only an draft ballot, committees are not required to response to comment, but will endeavour to do so.
 </p>
-<p style="background-color:yellow">
-  <b>IMPORTANT:</b> We encourage  balloters to capture their comments using the HL7 issue tracker
-  and to use the spreadsheet only to list their tracker item numbers and votes.  (If you include additional information beyond tracker item and vote, we 
-  need to cross-check to ensure the content is aligned, which eliminates any savings.  So if you keep additional columns for internal review, please wipe them before submission.)
-  Tracker-based comment submission dramatically reduces administrative overhead in managing the ballot.
-  It also means that you can receive automatic notifications when your comment is scheduled for discussion, commented on, or resolved.  
-</p>
-
 <p>
 When submitting your ballot feedback, if you have a general comment on something that you see occurring multiple times, please include 
-at least a couple of specific locations where you see the issue.  As much as possible, capture each separate concern as a distinct row 
-in the ballot sheet or separate <a href="http://hl7.org/fhir-issues">tracker item</a>.  (If using tracker items for your submissions, you <b>MUST</b> still
-submit a ballot spreadsheet referencing the relevant tracker items.)  It makes our job of reconciling much easier.  Also, don't forget to 
+at least a couple of specific locations where you see the issue.  As much as possible, capture each separate concern as a distinct 
+<a href="http://hl7.org/fhir-issues">tracker item</a>; it makes our job of reconciling much easier.  Also, don't forget to 
 fill in the section numbers (gray numbers to the left of each heading) and URLs.  Only one URL should be placed in the "url" element or column.  
 If you want to reference additional URLs, include them in the text of your ballot comment.
 </p>
