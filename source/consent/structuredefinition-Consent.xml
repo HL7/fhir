@@ -610,7 +610,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConsentActorRole"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="How an actor is involved in the consent considerations."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participation-role-type"/>
       </binding>
