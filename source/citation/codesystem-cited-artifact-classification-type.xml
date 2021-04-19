@@ -229,6 +229,26 @@
         
         
         </tr>
+		
+        <tr>
+          
+          
+          <td style="white-space:nowrap">knowledge-artifact-type
+            
+            
+            <a name="cited-artifact-classification-type-knowledge-artifact-type"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Knowledge Artifact Type</td>
+          
+          
+          <td>Knowledge Artifact Type</td>
+        
+        
+        </tr>
       
       
       </table>
@@ -250,7 +270,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="CitedArtifactClassificationType"/>
   <title value="CitedArtifactClassificationType"/>
   <status value="draft"/>
@@ -315,5 +335,10 @@
     <code value="publishing-model"/>
     <display value="Publishing Model"/>
     <definition value="Used for PubModel attribute in Medline"/>
+  </concept>
+  <concept>
+    <code value="knowledge-artifact-type"/>
+    <display value="Knowledge Artifact Type"/>
+    <definition value="Knowledge Artifact Type"/>
   </concept>
 </CodeSystem>
