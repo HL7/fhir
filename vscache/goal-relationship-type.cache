@@ -12,8 +12,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:b083db5d-e8a5-4314-8668-a8ad5f4000ec",
-    "timestamp" : "2021-01-13T06:26:20.408Z",
+    "identifier" : "urn:uuid:9a272248-cc14-4f32-9d4b-7bbae16b7ccc",
+    "timestamp" : "2021-04-12T20:27:09.866Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -24,7 +24,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://hl7.org/fhir/goal-relationship-type|4.5.0"
+      "valueString" : "http://hl7.org/fhir/goal-relationship-type|4.6.0"
     }],
     "contains" : [{
       "extension" : [{
