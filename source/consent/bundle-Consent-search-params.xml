@@ -402,4 +402,32 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.grantor"/>
+        </extension>
+        <description value="Grantor of the consent decree"/>
+        <code value="grantor"/>
+        <type value="reference"/>
+        <expression value="Consent.grantor"/>
+        <xpath value="f:Consent/f:grantor"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.grantee"/>
+        </extension>
+        <description value="Grantee of the consent decree"/>
+        <code value="grantee"/>
+        <type value="reference"/>
+        <expression value="Consent.grantee"/>
+        <xpath value="f:Consent/f:grantee"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

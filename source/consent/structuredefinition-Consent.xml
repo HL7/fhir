@@ -238,14 +238,14 @@
     <element id="Consent.subject">
       <path value="Consent.subject"/>
       <short value="Who the consent applies to"/>
-      <definition value="The patient/healthcare practitioner to whom this consent applies."/>
-      <comment value="Commonly, the subject the consent pertains to is the author, but for young and old people, it may be some other person."/>
+      <definition value="The patient/healthcare practitioner or group of persons to whom this consent applies."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -284,12 +284,11 @@
         <map value="CON-13 (Consent Decision Date/Time &#x2013; DTM)"/>
       </mapping>
     </element>
-    <element id="Consent.performer">
-      <path value="Consent.performer"/>
-      <short value="Who is agreeing to the policy and rules"/>
-      <definition value="Either the Grantor, which is the entity responsible for granting the rights listed in a Consent Directive or the Grantee, which is the entity responsible for complying with the Consent Directive, including any obligations or limitations on authorizations and enforcement of prohibitions."/>
-      <comment value="Commonly, the patient the consent pertains to is the consentor, but particularly for young and old people, it may be some other person - e.g. a legal guardian.  Where HealthCareService is listed, some services might not be appropriate based on the type of service and if they can be segmented as an independent or dependent individual entity that might not be eligible to be a grantee.&#xA;&#xA;A Consent without a listed performer may be used as a statement of preference by the subject and is not in force."/>
-      <alias value="consentor"/>
+    <element id="Consent.grantor">
+      <path value="Consent.grantor"/>
+      <short value="Who is granting rights according to the policy and rules"/>
+      <definition value="The entity responsible for granting the rights listed in a Consent Directive"/>
+      <alias value="grantor"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -303,18 +302,26 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.performer.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="CON-24 (Consenter ID) and CON-25 (Relationship to Subject)&#xA;Note, CON-25 is depending on the type of resource being referenced (a reference to a Patient equates to a relationship of 1 (self), a RelatedPerson equates to 2 or 3 depending on RelatedPerson.relationship, etc)"/>
-      </mapping>
+    </element>
+    <element id="Consent.grantee">
+      <path value="Consent.grantee"/>
+      <short value="Who is agreeing to the policy and rules"/>
+      <definition value="The entity responsible for complying with the Consent Directive, including any obligations or limitations on authorizations and enforcement of prohibitions."/>
+      <comment value="In a fully computable consent, both grantee and grantor  will be listed as actors within the consent. the Grantee and Grantor elements are for ease of search only"/>
+      <alias value="grantee"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+      </type>
+      <isSummary value="true"/>
     </element>
     <element id="Consent.manager">
       <path value="Consent.manager"/>
@@ -610,7 +617,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConsentActorRole"/>
         </extension>
-        <strength value="example"/>
+        <strength value="extensible"/>
         <description value="How an actor is involved in the consent considerations."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participation-role-type"/>
       </binding>
@@ -797,6 +804,17 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <isSummary value="true"/>
+    </element>
+    <element id="Consent.provision.expression">
+      <path value="Consent.provision.expression"/>
+      <short value="A computable expression of the consent"/>
+      <definition value="A computable (FHIRPath or other) definition of what is controlled by this consent."/>
+      <comment value="Constraining the expression type for a specific implementation via profile is recommended"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Expression"/>
+      </type>
     </element>
     <element id="Consent.provision.provision">
       <path value="Consent.provision.provision"/>
