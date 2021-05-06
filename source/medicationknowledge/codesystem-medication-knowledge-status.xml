@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="medication-knowledge-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/medication-usage-status"/>
+  <name value="MedicationKnowledge Status Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medication-knowledge-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="active"/>
+    <display value="Active"/>
+    <definition value="The medication referred to by this MedicationKnowledge is in active use within the drug database or inventory system."/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered in Error"/>
+    <definition value="The medication referred to by this MedicationKnowledge was entered in error within the drug database or inventory system."/>
+  </concept>
+  <concept>
+    <code value="inactive"/>
+    <display value="Inactive"/>
+    <definition value="The medication referred to by this MedicationKnowledge is not in active use within the drug database or inventory system."/>
+  </concept>
+</CodeSystem>

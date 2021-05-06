@@ -4,9 +4,6 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationusage.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example004"/>
-  <partOf>
-    <reference value="Observation/blood-pressure"></reference>
-  </partOf>
   <status value='completed'/>
   <medication>
     <concept>
