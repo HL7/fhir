@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="medication-knowledge-status"/>
+  <id value="medicationknowledge-status"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="phx"/>
   </extension>
-  <url value="http://hl7.org/fhir/CodeSystem/medication-usage-status"/>
+  <url value="http://hl7.org/fhir/CodeSystem/medicationknowledge-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="MedicationKnowledge Status Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/medication-knowledge-status"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medicationknowledge-status"/>
   <content value="complete"/>
   <concept>
     <code value="active"/>
