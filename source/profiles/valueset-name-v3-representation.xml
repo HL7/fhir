@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="name-v3-representation"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <url value="http://hl7.org/fhir/ValueSet/name-v3-representation"/>
+  <version value="4.6.0"/>
+  <name value="NameRepresentationUse"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/name-v3-representation"/>
+    </include>
+  </compose>
+</ValueSet>

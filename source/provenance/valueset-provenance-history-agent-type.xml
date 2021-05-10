@@ -1,40 +1,50 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-	<id value="provenance-history-agent-role"/>
-	<meta>
-		<profile value="http://hl7.org/fhir/StructureDefinition/provenance-history-agent-role"/>
-	</meta>
-	<name value="ProvenanceEventHistoryAgentRoleCodes"/>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="provenance-history-agent-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/provenance-history-agent-type"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sec"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/provenance-history-agent-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.927"/>
+  </identifier>
+  <name value="ProvenanceEventHistoryAgentRoleCodes"/>
   <title value="Provenance Event History Agent Role Codes"/>
-	<status value="draft"/>
-	<experimental value="true"/>
-	<publisher value="HL7 (FHIR Project)"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<description value="Types of roles indicating how a particular agent was involved with the creation or modification of a resource for use when exposing event history"/>
-	<compose>
-		<include>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-			<concept>
-				<code value="AUT"/>
-				<display value="Author"/>
-			</concept>
-			<concept>
-				<code value="INF"/>
-				<display value="Informant"/>
-			</concept>
-			<concept>
-				<code value="VRF"/>
-				<display value="Verifier"/>
-			</concept>
-			<concept>
-				<code value="ENT"/>
-				<display value="Data Enterer"/>
-			</concept>
-		</include>
-	</compose>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Types of roles indicating how a particular agent was involved with the creation or modification of a resource for use when exposing event history"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+      <concept>
+        <code value="AUT"/>
+        <display value="Author"/>
+      </concept>
+      <concept>
+        <code value="INF"/>
+        <display value="Informant"/>
+      </concept>
+      <concept>
+        <code value="VRF"/>
+        <display value="Verifier"/>
+      </concept>
+      <concept>
+        <code value="ENT"/>
+        <display value="Data Enterer"/>
+      </concept>
+    </include>
+  </compose>
 </ValueSet>

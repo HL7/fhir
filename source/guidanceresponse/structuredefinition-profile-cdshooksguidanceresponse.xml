@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="cdshooksguidanceresponse"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/cdshooksguidanceresponse"/>
+  <version value="4.6.0"/>
+  <name value="CDS Hooks GuidanceResponse"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="Defines a GuidanceResponse that represents the response container for a CDS Hooks response"/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="GuidanceResponse"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/GuidanceResponse"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="GuidanceResponse">
+      <path value="GuidanceResponse"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="GuidanceResponse.extension:cdsHooksEndpoint">
+      <path value="GuidanceResponse.extension"/>
+      <sliceName value="cdsHooksEndpoint"/>
+      <short value="Service endpoint"/>
+      <definition value="Defines the service endpoint for the behavior implemented by the GuidanceResponse."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/cqf-cdsHooksEndpoint"/>
+      </type>
+    </element>
+    <element id="GuidanceResponse.requestIdentifier">
+      <path value="GuidanceResponse.requestIdentifier"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="GuidanceResponse.identifier">
+      <path value="GuidanceResponse.identifier"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="GuidanceResponse.moduleUri">
+      <path value="GuidanceResponse.moduleUri"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="GuidanceResponse.subject">
+      <path value="GuidanceResponse.subject"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="GuidanceResponse.occurrenceDateTime">
+      <path value="GuidanceResponse.occurrenceDateTime"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="GuidanceResponse.performer">
+      <path value="GuidanceResponse.performer"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="GuidanceResponse.result">
+      <path value="GuidanceResponse.result"/>
+      <mustSupport value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

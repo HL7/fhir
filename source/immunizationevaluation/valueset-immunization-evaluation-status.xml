@@ -1,9 +1,20 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="immunization-evaluation-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pher"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/immunization-evaluation-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.299"/>
+  </identifier>
   <name value="ImmunizationEvaluationStatusCodes"/>
   <title value="Immunization Evaluation Status Codes"/>
-
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -16,7 +27,7 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/CodeSystem/medication-admin-status"/>
-	  <concept>
+      <concept>
         <code value="completed"/>
       </concept>
       <concept>

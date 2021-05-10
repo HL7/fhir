@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="specification-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/specification-type"/>
+  <version value="4.6.0"/>
+  <name value="DeviceSpecificationSpecType"/>
+  <concept>
+    <code value="unspecified"/>
+    <display value="Unspecified Production Specification"/>
+    <definition value="Unspecified Production Specification - MDC_ID_PROD_SPEC_UNSPECIFIED."/>
+  </concept>
+  <concept>
+    <code value="serial-number"/>
+    <display value="Serial Number"/>
+    <definition value="Serial Number - MDC_ID_PROD_SPEC_SERIAL."/>
+  </concept>
+  <concept>
+    <code value="part-number"/>
+    <display value="Part Number"/>
+    <definition value="Part Number - MDC_ID_PROD_SPEC_PART."/>
+  </concept>
+  <concept>
+    <code value="hardware-revision"/>
+    <display value="Hardware Revision"/>
+    <definition value="Hardware Revision - MDC_ID_PROD_SPEC_HW."/>
+  </concept>
+  <concept>
+    <code value="software-revision"/>
+    <display value="Software Revision"/>
+    <definition value="Software Revision - MDC_ID_PROD_SPEC_SW."/>
+  </concept>
+  <concept>
+    <code value="firmware-revision"/>
+    <display value="Firmware Revision"/>
+    <definition value="Firmware Revision - MDC_ID_PROD_SPEC_FW."/>
+  </concept>
+  <concept>
+    <code value="protocol-revision"/>
+    <display value="Protocol Revision"/>
+    <definition value="Protocol Revision - MDC_ID_PROD_SPEC_PROTOCOL."/>
+  </concept>
+  <concept>
+    <code value="gmdn"/>
+    <display value="GMDN"/>
+    <definition value="GMDN - MDC_ID_PROD_SPEC_GMDN."/>
+  </concept>
+</CodeSystem>

@@ -1,87 +1,72 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
-	<identifier>
-		<system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.3.88.12.80.62"/>
-	</identifier>
-	<name value="VitalSigns"/>
+  <id value="observation-vitalsignresult"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/observation-vitalsignresult"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.3.88.12.80.62"/>
+  </identifier>
+  <name value="VitalSigns"/>
   <title value="Vital Signs"/>
-	<status value="active"/>
-	<publisher value="FHIR project team"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<!--  Value Set: HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC
-		Code System(s)  LOINC 2.16.840.1.113883.6.1  Note the base resource does not allow for display terms -Gforge ticket Item and expansion doesn;t allow for time less than a seconde for instantiation so assume is to be machine generated.  -->
-	<description value="This value set indicates the allowed vital sign result types.   The LOINC code for Vitals Signs panel (85353-1) is a grouping structure for a set of vital signs and includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP).  The Blood pressure panel (85354-9) is used to group the component observations Systolic blood pressure (8480-6) and Diastolic blood pressure (8462-4)."/>
-	<copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
-	<compose>
-		<include>
-			<system value="http://loinc.org"/>
-
-			<concept>
-				<code value="85353-1"/>
-			</concept>
-<!-- replaced by 85353-1 above
-			<concept>
-				<code value="8716-3"/>
-			</concept>
--->
-			<concept>
-				<code value="9279-1"/>
-			</concept>
-			<concept>
-				<code value="8867-4"/>
-			</concept>
-			<concept>
-				<code value="2708-6"/>
-			</concept>
-			<concept>
-				<code value="8310-5"/>
-			</concept>
-			<concept>
-				<code value="8302-2"/>
-			</concept>
-      <!--
-			<concept>
-				<code value="8306-3"/>
-			</concept>
-       -->
-			<concept>
-				<code value="9843-4"/>
-			</concept>
-			<concept>
-				<code value="29463-7"/>
-			</concept>
-			<concept>
-				<code value="39156-5"/>
-			</concept>
-			<!--
-			<concept>
-				<code value="3140-1"/>
-			</concept>
-	-->
-	<!-- LOINC being replaced by one below
-			<concept>
-
-				<code value="55284-4"/>
-			</concept>
--->
-			<concept>
-				<code value="85354-9"/>
-			</concept>
-			<concept>
-				<code value="8480-6"/>
-			</concept>
-			<concept>
-				<code value="8462-4"/>
-			</concept>
-			<concept>
-				<code value="8478-0"/>
-			</concept>
-		</include>
-	</compose>
+  <status value="active"/>
+  <publisher value="FHIR project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set indicates the allowed vital sign result types.   The LOINC code for Vitals Signs panel (85353-1) is a grouping structure for a set of vital signs and includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP).  The Blood pressure panel (85354-9) is used to group the component observations Systolic blood pressure (8480-6) and Diastolic blood pressure (8462-4)."/>
+  <copyright value="This content from LOINC&#xAE; is copyright &#xA9; 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <concept>
+        <code value="85353-1"/>
+      </concept>
+      <concept>
+        <code value="9279-1"/>
+      </concept>
+      <concept>
+        <code value="8867-4"/>
+      </concept>
+      <concept>
+        <code value="2708-6"/>
+      </concept>
+      <concept>
+        <code value="8310-5"/>
+      </concept>
+      <concept>
+        <code value="8302-2"/>
+      </concept>
+      <concept>
+        <code value="9843-4"/>
+      </concept>
+      <concept>
+        <code value="29463-7"/>
+      </concept>
+      <concept>
+        <code value="39156-5"/>
+      </concept>
+      <concept>
+        <code value="85354-9"/>
+      </concept>
+      <concept>
+        <code value="8480-6"/>
+      </concept>
+      <concept>
+        <code value="8462-4"/>
+      </concept>
+      <concept>
+        <code value="8478-0"/>
+      </concept>
+    </include>
+  </compose>
 </ValueSet>

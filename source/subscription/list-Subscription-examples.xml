@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Subscription-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of subscription for beginning of a clinical encounter"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="subscription-admission"/>
+    </extension>
+    <item>
+      <reference value="Subscription/admission"/>
+      <display value="Admission"/>
+    </item>
+  </entry>
+</List>

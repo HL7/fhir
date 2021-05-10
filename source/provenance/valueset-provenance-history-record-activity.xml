@@ -1,79 +1,89 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-	<id value="provenance-history-record-activity"/>
-	<meta>
-		<profile value="http://hl7.org/fhir/StructureDefinition/provenance-history-record-activity"/>
-	</meta>
-	<name value="ProvenanceHistoryRecordActivityCodes"/>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="provenance-history-record-activity"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/provenance-history-record-activity"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sec"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/provenance-history-record-activity"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.926"/>
+  </identifier>
+  <name value="ProvenanceHistoryRecordActivityCodes"/>
   <title value="Provenance History Record Activity Codes"/>
-	<status value="draft"/>
-	<experimental value="true"/>
-	<publisher value="HL7 (FHIR Project)"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<description value="Codes for Provenance activities that are relevant when capturing event history for resources."/>
-	<compose>
-		<include>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-DataOperation"/>
-			<concept>
-				<code value="CREATE"/>
-				<display value="Created"/>
-			</concept>
-			<concept>
-				<code value="UPDATE"/>
-				<display value="Updated"/>
-			</concept>
-			<concept>
-				<code value="DELETE"/>
-				<display value="Deleted"/>
-			</concept>
-			<concept>
-				<code value="ABORT"/>
-				<display value="Stopped/Ended/Aborted"/>
-			</concept>
-			<concept>
-				<code value="HOLD"/>
-				<display value="Held"/>
-			</concept>
-			<concept>
-				<code value="RELEASE"/>
-				<display value="Released"/>
-			</concept>
-			<concept>
-				<code value="CANCEL"/>
-				<display value="Cancelled"/>
-			</concept>
-			<concept>
-				<code value="ACTIVATE"/>
-				<display value="Activated"/>
-			</concept>
-			<concept>
-				<code value="SUSPEND"/>
-				<display value="Suspended"/>
-			</concept>
-			<concept>
-				<code value="RESUME"/>
-			</concept>
-			<concept>
-				<code value="COMPLETE"/>
-				<display value="Completed"/>
-			</concept>
-			<concept>
-				<code value="NULLIFY"/>
-				<display value="Mark Entered-in-error"/>
-			</concept>
-			<concept>
-				<code value="OBSOLETE"/>
-				<display value="Replaced"/>
-			</concept>
-			<concept>
-				<code value="REACTIVATE"/>
-				<display value="Reactivated"/>
-			</concept>
-		</include>
-	</compose>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Codes for Provenance activities that are relevant when capturing event history for resources."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-DataOperation"/>
+      <concept>
+        <code value="CREATE"/>
+        <display value="Created"/>
+      </concept>
+      <concept>
+        <code value="UPDATE"/>
+        <display value="Updated"/>
+      </concept>
+      <concept>
+        <code value="DELETE"/>
+        <display value="Deleted"/>
+      </concept>
+      <concept>
+        <code value="ABORT"/>
+        <display value="Stopped/Ended/Aborted"/>
+      </concept>
+      <concept>
+        <code value="HOLD"/>
+        <display value="Held"/>
+      </concept>
+      <concept>
+        <code value="RELEASE"/>
+        <display value="Released"/>
+      </concept>
+      <concept>
+        <code value="CANCEL"/>
+        <display value="Cancelled"/>
+      </concept>
+      <concept>
+        <code value="ACTIVATE"/>
+        <display value="Activated"/>
+      </concept>
+      <concept>
+        <code value="SUSPEND"/>
+        <display value="Suspended"/>
+      </concept>
+      <concept>
+        <code value="RESUME"/>
+      </concept>
+      <concept>
+        <code value="COMPLETE"/>
+        <display value="Completed"/>
+      </concept>
+      <concept>
+        <code value="NULLIFY"/>
+        <display value="Mark Entered-in-error"/>
+      </concept>
+      <concept>
+        <code value="OBSOLETE"/>
+        <display value="Replaced"/>
+      </concept>
+      <concept>
+        <code value="REACTIVATE"/>
+        <display value="Reactivated"/>
+      </concept>
+    </include>
+  </compose>
 </ValueSet>

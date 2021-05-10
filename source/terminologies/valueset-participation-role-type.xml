@@ -52,6 +52,14 @@
 
   <compose>
     <include>
+      <valueSet value="http://terminology.hl7.org/ValueSet/provenance-agent-type"/>
+	</include>
+    <include>
+	<!-- DICOM codes for AuditEvent agent role -->
+      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+	  <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_402.html" />
+    </include>
+    <include>
       <!-- Include all codes from the HL7-defined codesystem contract-signer-type -->
       <system value="http://terminology.hl7.org/CodeSystem/contractsignertypecodes"/>
       <concept>
@@ -269,14 +277,7 @@
       <system value="http://terminology.hl7.org/CodeSystem/extra-security-role-type"/>
     </include>
 
-    <include>
-	<!-- DICOM codes for AuditEvent agent role -->
-      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-	  <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_402.html" />
-    </include>
-    <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/provenance-participant-type"/>
-	</include>
 	</compose>
 
 </ValueSet>
+

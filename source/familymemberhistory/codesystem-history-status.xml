@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="history-status"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/history-status defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">partial
+            
+            <a name="history-status-partial"> </a>
+          
+          </td>
+          
+          <td>Partial</td>
+          
+          <td>Some health information is known and captured, but not complete - see notes for details.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">completed
+            
+            <a name="history-status-completed"> </a>
+          
+          </td>
+          
+          <td>Completed</td>
+          
+          <td>All available related health information is captured as of the date (and possibly time) when the family member history was taken.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            <a name="history-status-entered-in-error"> </a>
+          
+          </td>
+          
+          <td>Entered in Error</td>
+          
+          <td>This instance should not have been part of this patient&#39;s medical record.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">health-unknown
+            
+            <a name="history-status-health-unknown"> </a>
+          
+          </td>
+          
+          <td>Health Unknown</td>
+          
+          <td>Health information for this family member is unavailable/unknown.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/history-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.268"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="FamilyHistoryStatus"/>
+  <title value="FamilyHistoryStatus"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="A code that identifies the status of the family history record."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/history-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="partial"/>
+    <display value="Partial"/>
+    <definition value="Some health information is known and captured, but not complete - see notes for details."/>
+  </concept>
+  <concept>
+    <code value="completed"/>
+    <display value="Completed"/>
+    <definition value="All available related health information is captured as of the date (and possibly time) when the family member history was taken."/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered in Error"/>
+    <definition value="This instance should not have been part of this patient&#39;s medical record."/>
+  </concept>
+  <concept>
+    <code value="health-unknown"/>
+    <display value="Health Unknown"/>
+    <definition value="Health information for this family member is unavailable/unknown."/>
+  </concept>
+</CodeSystem>

@@ -1,26 +1,43 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="daf-cvx"/>
+  <id value="vaccine-code"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
   <text>
     <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <p>Around the world, various different coding systems are used for immunizations:</p>
+      
       <ul> 
+        
         <li>USA: CVX (
+          
           <a href="http://hl7.org/fhir/sid/cvx">http://hl7.org/fhir/sid/cvx</a>)
+        
         </li>
+        
         <li>Australia: ACIR (
+          
           <a href="http://www.medicareaustralia.gov.au/provider/vendors/files/9560-1301-acir-idi-vaccine-codes.pdf">urn:oid:1.2.36.1.2001.1005.17</a>)
+        
         </li>
+      
       </ul>
+    
     </div>
   </text>
-  <url value="http://hl7.org/fhir/ValueSet/daf-cvx"/>
-	<identifier>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pher"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/vaccine-code"/>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.3.88.12.80.22"/>
-	</identifier>
+    <value value="urn:oid:2.16.840.1.113883.3.88.12.80.22"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="VaccineAdministeredValueSet"/>
   <title value="Vaccine Administered Value Set"/>
   <status value="active"/>
@@ -33,11 +50,9 @@
   </contact>
   <description value="This identifies the vaccine substance administered - CVX codes."/>
   <compose>
-  <!--   USA   -->
     <include>
       <system value="http://hl7.org/fhir/sid/cvx"/>
     </include>
-  <!--   Australian ACIR codes   -->
     <include>
       <system value="urn:oid:1.2.36.1.2001.1005.17"/>
     </include>

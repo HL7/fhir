@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+	<id value="questionnaire-usageMode"/>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="fhir"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="1"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/questionnaire-usageMode"/>
+	<version value="4.6.0"/>
+	<name value="usageMode"/>
+	<status value="draft"/>
+	<date value="2013-07-04"/>
+	<publisher value="HL7"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org"/>
+		</telecom>
+	</contact>
+	<description value="Identifies that the specified element should only appear in certain &quot;modes&quot; of operation."/>
+	<fhirVersion value="4.6.0"/>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<kind value="complex-type"/>
+	<abstract value="false"/>
+	<context>
+		<type value="element"/>
+		<expression value="Questionnaire.item"/>
+	</context>
+	<type value="Extension"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+	<derivation value="constraint"/>
+	<differential>
+		<element id="Extension">
+			<path value="Extension"/>
+			<short value="capture | display | display-non-empty | capture-display | capture-display-non-empty"/>
+			<definition value="Identifies that the specified element should only appear in certain &quot;modes&quot; of operation."/>
+			<comment value="See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#usageMode)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (MIF-level)"/>
+			</mapping>
+		</element>
+		<element id="Extension.extension">
+			<path value="Extension.extension"/>
+			<max value="0"/>
+		</element>
+		<element id="Extension.url">
+			<path value="Extension.url"/>
+			<fixedUri value="http://hl7.org/fhir/StructureDefinition/questionnaire-usageMode"/>
+		</element>
+		<element id="Extension.value[x]">
+			<path value="Extension.value[x]"/>
+			<min value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="QuestionnaireItemUsageMode"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Identifies the modes of usage of a questionnaire that should enable a particular questionnaire item."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-usage-mode"/>
+			</binding>
+		</element>
+	</differential>
+</StructureDefinition>

@@ -1,7 +1,18 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="procedure-progress-status-codes"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
   <url value="http://hl7.org/fhir/procedure-progress-status-code"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.947"/>
+  </identifier>
   <name value="ProcedureProgressStatusCodes"/>
   <title value="Procedure Progress Status Codes"/>
   <status value="draft"/>
@@ -27,12 +38,12 @@
   <concept>
     <code value="open-incision"/>
     <display value="Open Incision"/>
-	<definition value="The patient has open incision(s)."/>
+    <definition value="The patient has open incision(s)."/>
   </concept>
   <concept>
     <code value="closed-incision"/>
     <display value="Closed Incision"/>
-	<definition value="The patient has incision(s) closed."/>
+    <definition value="The patient has incision(s) closed."/>
   </concept>
   <concept>
     <code value="in-recovery-room"/>

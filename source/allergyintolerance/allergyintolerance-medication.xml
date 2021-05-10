@@ -46,11 +46,13 @@
   
   <reaction> 
     <manifestation>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="247472004"/>
-        <display value="Hives"/>
-      </coding>
+		<concept>
+		  <coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="247472004"/>
+			<display value="Hives"/>
+		  </coding>
+		</concept>
     </manifestation>
   </reaction>
 </AllergyIntolerance>

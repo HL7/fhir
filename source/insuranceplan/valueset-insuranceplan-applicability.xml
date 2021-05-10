@@ -1,13 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir">
-  <id value="applicability"/>
+<?xml version="1.0" encoding="UTF-8"?>
 
-  <url value="http://hl7.org/fhir/ValueSet/applicability"/>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="insuranceplan-applicability"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/insuranceplan-applicability"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
   </identifier>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="BenefitCostApplicability"/>
   <status value="draft"/>
   <experimental value="false"/>

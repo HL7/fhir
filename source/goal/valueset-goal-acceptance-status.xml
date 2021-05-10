@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="goal-acceptance-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/goal-acceptance-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.917"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="GoalAcceptanceStatus"/>
+  <description value="Description Needed Here"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/goal-acceptance-status"/>
+    </include>
+  </compose>
+</ValueSet>

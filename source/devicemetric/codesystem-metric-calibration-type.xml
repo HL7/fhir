@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="metric-calibration-type"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/metric-calibration-type defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">unspecified
+            
+            <a name="metric-calibration-type-unspecified"> </a>
+          
+          </td>
+          
+          <td>Unspecified</td>
+          
+          <td>Metric calibration method has not been identified.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">offset
+            
+            <a name="metric-calibration-type-offset"> </a>
+          
+          </td>
+          
+          <td>Offset</td>
+          
+          <td>Offset metric calibration method.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">gain
+            
+            <a name="metric-calibration-type-gain"> </a>
+          
+          </td>
+          
+          <td>Gain</td>
+          
+          <td>Gain metric calibration method.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">two-point
+            
+            <a name="metric-calibration-type-two-point"> </a>
+          
+          </td>
+          
+          <td>Two Point</td>
+          
+          <td>Two-point metric calibration method.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="dev"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/metric-calibration-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.651"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="DeviceMetricCalibrationType"/>
+  <title value="DeviceMetricCalibrationType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Describes the type of a metric calibration."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/metric-calibration-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="unspecified"/>
+    <display value="Unspecified"/>
+    <definition value="Metric calibration method has not been identified."/>
+  </concept>
+  <concept>
+    <code value="offset"/>
+    <display value="Offset"/>
+    <definition value="Offset metric calibration method."/>
+  </concept>
+  <concept>
+    <code value="gain"/>
+    <display value="Gain"/>
+    <definition value="Gain metric calibration method."/>
+  </concept>
+  <concept>
+    <code value="two-point"/>
+    <display value="Two Point"/>
+    <definition value="Two-point metric calibration method."/>
+  </concept>
+</CodeSystem>

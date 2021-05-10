@@ -32,7 +32,7 @@ This resource is limited in scope to support the characteristics of simple quest
 sophisticated behavior.  This includes:
 </p>
 <ul>
-  <li><a href="questionnaire-extensions.html">Questionnaire core extensions</a> which defines the additional descriptive characteristics for questionnaires and their groups and questions</li>
+  <li><a href="questionnaire-core.html">Questionnaire core extensions</a> which defines the additional descriptive characteristics for questionnaires and their groups and questions</li>
   <li><a href="element-extensions.html">Element extensions</a> which can describe additional constraints on allowed answers for questionnaires such as string length and date and numeric ranges</li>
 </ul>
 <p>

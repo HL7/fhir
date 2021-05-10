@@ -1315,7 +1315,7 @@ expression</a>
        y="422"
        class="diagram-class-detail"
        style="fill:#000000"><a
-   xlink:href="plandefinition-definitions.html#PlanDefinition.action.relatedAction.actionId"
+   xlink:href="plandefinition-definitions.html#PlanDefinition.action.relatedAction.targetId"
    id="n1738"><title
    id="title419">The element id of the related action</title>
 actionId</a>
@@ -1331,7 +1331,7 @@ actionId</a>
        style="fill:#000000"><a
    xlink:href="plandefinition-definitions.html#PlanDefinition.action.relatedAction.relationship"
    id="n1744"><title
-   id="title424">The relationship of this action to the related action</title>
+   id="title424">The relationship of this action to the target related action</title>
 relationship</a>
  : <a
    xlink:href="datatypes.html#code"

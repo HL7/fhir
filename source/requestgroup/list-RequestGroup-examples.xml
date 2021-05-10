@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="RequestGroup-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple example request group illustrating related actions with offsets"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="requestgroup-example"/>
+    </extension>
+    <item>
+      <reference value="RequestGroup/example"/>
+      <display value="Offset Actions Example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example realization of the KDN5 PlanDefinition example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="requestgroup-kdn5-example"/>
+    </extension>
+    <item>
+      <reference value="RequestGroup/kdn5-example"/>
+      <display value="KDN5 Example"/>
+    </item>
+  </entry>
+</List>

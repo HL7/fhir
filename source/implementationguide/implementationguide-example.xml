@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<ImplementationGuide xmlns="http://hl7.org/fhir"> 
+<ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="example"/>
   <url value="http://hl7.org/fhir/us/daf"/>
   <version value="0"/>
@@ -33,20 +33,19 @@
   <copyright value="Published by ONC under the standard FHIR license (CC0)"/>
   <packageId value="hl7.fhir.us.daf"/>
   <license value="CC0-1.0"/>
-  <fhirVersion value="4.5.0"/>
-  <dependsOn> 
+  <fhirVersion value="4.6.0"/>
+  <dependsOn>
     <uri value="http://hl7.org/fhir/ImplementationGuide/uscore"/>
   </dependsOn>
   <global>
-   <!-- all patients have to conform to daf-patient -->
-   <type value="Patient"/>
-   <profile value="http://hl7.org/fhir/us/core/StructureDefinition/patient"/>
+    <type value="Patient"/>
+    <profile value="http://hl7.org/fhir/us/core/StructureDefinition/patient"/>
   </global>
   <definition>
     <grouping>
       <name value="test"/>
       <description value="Base package (not broken up into multiple packages)"/>
-    </grouping>  
+    </grouping>
     <resource>
       <reference>
         <reference value="Patient/test"/>
@@ -68,13 +67,13 @@
     <parameter>
       <code value="apply"/>
       <value value="version"/>
-    </parameter>    
+    </parameter>
   </definition>
   <manifest>
     <rendering value="http://hl7.org/fhir/us/daf"/>
     <resource>
       <reference>
-        <reference value="Patient/test"/> 
+        <reference value="Patient/test"/>
       </reference>
       <exampleCanonical value="http://hl7.org/fhir/us/core/StructureDefinition/patient"/>
       <relativePath value="patient-test.html#patient-test"/>

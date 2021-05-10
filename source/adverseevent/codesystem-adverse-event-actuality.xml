@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="adverse-event-actuality"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/adverse-event-actuality defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">actual
+            
+            <a name="adverse-event-actuality-actual"> </a>
+          
+          </td>
+          
+          <td>Adverse Event</td>
+          
+          <td>The adverse event actually happened regardless of whether anyone was affected or harmed.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">potential
+            
+            <a name="adverse-event-actuality-potential"> </a>
+          
+          </td>
+          
+          <td>Potential Adverse Event</td>
+          
+          <td>A potential adverse event.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/adverse-event-actuality"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.832"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="AdverseEventActuality"/>
+  <title value="AdverseEventActuality"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Overall nature of the adverse event, e.g. real or potential."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-actuality"/>
+  <content value="complete"/>
+  <concept>
+    <code value="actual"/>
+    <display value="Adverse Event"/>
+    <definition value="The adverse event actually happened regardless of whether anyone was affected or harmed."/>
+  </concept>
+  <concept>
+    <code value="potential"/>
+    <display value="Potential Adverse Event"/>
+    <definition value="A potential adverse event."/>
+  </concept>
+</CodeSystem>

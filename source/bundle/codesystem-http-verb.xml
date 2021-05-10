@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="http-verb"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/http-verb defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">GET
+            
+            <a name="http-verb-GET"> </a>
+          
+          </td>
+          
+          <td>GET</td>
+          
+          <td>HTTP GET Command.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">HEAD
+            
+            <a name="http-verb-HEAD"> </a>
+          
+          </td>
+          
+          <td>HEAD</td>
+          
+          <td>HTTP HEAD Command.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">POST
+            
+            <a name="http-verb-POST"> </a>
+          
+          </td>
+          
+          <td>POST</td>
+          
+          <td>HTTP POST Command.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">PUT
+            
+            <a name="http-verb-PUT"> </a>
+          
+          </td>
+          
+          <td>PUT</td>
+          
+          <td>HTTP PUT Command.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">DELETE
+            
+            <a name="http-verb-DELETE"> </a>
+          
+          </td>
+          
+          <td>DELETE</td>
+          
+          <td>HTTP DELETE Command.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">PATCH
+            
+            <a name="http-verb-PATCH"> </a>
+          
+          </td>
+          
+          <td>PATCH</td>
+          
+          <td>HTTP PATCH Command.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+    <valueCode value="4.0.0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <url value="http://hl7.org/fhir/http-verb"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.625"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="HTTPVerb"/>
+  <title value="HTTPVerb"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc7231) for details."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/http-verb"/>
+  <content value="complete"/>
+  <concept>
+    <code value="GET"/>
+    <display value="GET"/>
+    <definition value="HTTP GET Command."/>
+  </concept>
+  <concept>
+    <code value="HEAD"/>
+    <display value="HEAD"/>
+    <definition value="HTTP HEAD Command."/>
+  </concept>
+  <concept>
+    <code value="POST"/>
+    <display value="POST"/>
+    <definition value="HTTP POST Command."/>
+  </concept>
+  <concept>
+    <code value="PUT"/>
+    <display value="PUT"/>
+    <definition value="HTTP PUT Command."/>
+  </concept>
+  <concept>
+    <code value="DELETE"/>
+    <display value="DELETE"/>
+    <definition value="HTTP DELETE Command."/>
+  </concept>
+  <concept>
+    <code value="PATCH"/>
+    <display value="PATCH"/>
+    <definition value="HTTP PATCH Command."/>
+  </concept>
+</CodeSystem>

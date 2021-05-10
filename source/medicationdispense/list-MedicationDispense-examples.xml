@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="MedicationDispense-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Oral Chemotherapy - Capecitabine (RxNorm code)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispenseexample8"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp008"/>
+      <display value="Oral Chemo"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for IV Antibiotic - in progress - Vancomycin IV (NDC Code) - in-progress"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0301"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0301"/>
+      <display value="IV Antibiotic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Subcutaneous injection with multiple dosage lines - Insulin - Novolog (NDC Code) - active - includes Destination, Receiver, note.  Dosage includes additionalInstructions as text"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0302"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0302"/>
+      <display value="SC Injection"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Oxycodone (RxNorm code) - PRN dose with dose range, coded additional instructions and PRN coded pre-condition"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0303"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0303"/>
+      <display value="PRN dose with condition"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Intravenous Antibiotic with a Dosage Rate - Piperacillin (NDC code) - completed with a coded site and route of administration and a rate expressed as a ratio"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0304"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0304"/>
+      <display value="IV antibiotic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Prednisone (RxNorm code) Tapering Dose - entered-in-error with multiple Dosage lines that include coded additionalInstructions and multiple EventHistory elements"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0305"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0305"/>
+      <display value="Tapering Dose"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Intravenous Chemotherapy (inpatient order) - Alemtuzumab (RxNorm Code) - completed with multiple dosageInstruction lines"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0306"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0306"/>
+      <display value="IV Chemo"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Busulfan (Myleran) - completed"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0307"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0307"/>
+      <display value="Oral Chemo"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Timoptic Opthalmic Drops - (NDC code) - completed"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0308"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0308"/>
+      <display value="Eye drops"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Nystatin drops (Snomed Code) - entered-in-error"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0309"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0309"/>
+      <display value="Oral Drops"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Percocet (NDC Code) - in-progress with additionalInstructions, and as needed dosage with condition"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0310"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0310"/>
+      <display value="As Needed with condition"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Paracetamol Suppositories - completed"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0311"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0311"/>
+      <display value="Suppository"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Over the Counter medication - Tylenol PM (NDC code) - on hold with  as needed dosage with a condition, a dose Range and an Event History"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0312"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0312"/>
+      <display value="OTC"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Potassium Chloride Admixture - stopped - with eventHistory and rate range for dosage"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0313"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0313"/>
+      <display value="KCL admixture"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Lorazepam (Rx norm code) - completed with rate range"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0314"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0314"/>
+      <display value="IV"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Alprazolam (Rx Norm code) - in progress"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0315"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0315"/>
+      <display value="Oral"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Insulin (Lantus) (NDC code) - in-progress with SC dosage"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0316"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0316"/>
+      <display value="Insulin"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Brentuximab Vedotin (NDC code)  - IV Chemo - stopped"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0317"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0317"/>
+      <display value="IV Chemo"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Levothyroxine (NDC code) in-progress with authorizing prescription"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0318"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0318"/>
+      <display value="Oral"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Azithromycin (NDC code) - completed with multiple dosage lines"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0319"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0319"/>
+      <display value="Mutliple dosage lines"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for a TPN solution - completed"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0320"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0320"/>
+      <display value="TPN Solution"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Vicodin - in progress - PRN with pre-condition"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0321"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0321"/>
+      <display value="As Needed with condition"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Dilantin Oral Suspension (NDC code) - completed"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0322"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0322"/>
+      <display value="Oral suspension"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Nystatin Topical Ointment  (RxNorm code) - completed"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0324"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0324"/>
+      <display value="Topical Ointment"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Fentanyl Patch (NDC code) - in progress"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0325"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0325"/>
+      <display value="Patch"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Azithromycin (RxNorm Code) - in-progress with coded additionalInstructions"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0326"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0326"/>
+      <display value="Antibiotic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Proventil (RxNorm Code) - completed - with additionalInstructions as text"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0327"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0327"/>
+      <display value="Inhaler"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Nasonex Inhaler (RxNorm Code) - in progress with additionalInstructions as text"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0328"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0328"/>
+      <display value="Inhaler"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for compounded ointment - completed with additionalInstructions as text and a coded site in dosageInstructions"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0329"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0329"/>
+      <display value="Compound"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Warfarin 5mg (NDC Code) where the product is dispensed as multiple strengths based on prescribe dosage"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0330"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0330"/>
+      <display value="Warfarin"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense for Warfarin 2mg (NDC Code) where the product is dispensed as multiple strengths based on prescribe dosage"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0331"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0331"/>
+      <display value="Warfarin"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dispense with future dated event and bounds period"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0332"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0332"/>
+      <display value="Future dated"/>
+    </item>
+  </entry>
+</List>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="network-type"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/network-type defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">1
+            
+            <a name="network-type-1"> </a>
+          
+          </td>
+          
+          <td>Machine Name</td>
+          
+          <td>The machine name, including DNS name.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">2
+            
+            <a name="network-type-2"> </a>
+          
+          </td>
+          
+          <td>IP Address</td>
+          
+          <td>The assigned Internet Protocol (IP) address.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">3
+            
+            <a name="network-type-3"> </a>
+          
+          </td>
+          
+          <td>Telephone Number</td>
+          
+          <td>The assigned telephone number.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">4
+            
+            <a name="network-type-4"> </a>
+          
+          </td>
+          
+          <td>Email address</td>
+          
+          <td>The assigned email address.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">5
+            
+            <a name="network-type-5"> </a>
+          
+          </td>
+          
+          <td>URI</td>
+          
+          <td>URI (User directory, HTTP-PUT, ftp, etc.).</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sec"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/network-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.457"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="AuditEventAgentNetworkType"/>
+  <title value="AuditEventAgentNetworkType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The type of network access point of this agent in the audit event."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/network-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="1"/>
+    <display value="Machine Name"/>
+    <definition value="The machine name, including DNS name."/>
+  </concept>
+  <concept>
+    <code value="2"/>
+    <display value="IP Address"/>
+    <definition value="The assigned Internet Protocol (IP) address."/>
+  </concept>
+  <concept>
+    <code value="3"/>
+    <display value="Telephone Number"/>
+    <definition value="The assigned telephone number."/>
+  </concept>
+  <concept>
+    <code value="4"/>
+    <display value="Email address"/>
+    <definition value="The assigned email address."/>
+  </concept>
+  <concept>
+    <code value="5"/>
+    <display value="URI"/>
+    <definition value="URI (User directory, HTTP-PUT, ftp, etc.)."/>
+  </concept>
+</CodeSystem>

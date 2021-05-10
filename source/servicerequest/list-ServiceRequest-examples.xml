@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="ServiceRequest-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Lipid Panel Order"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example-lipid"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/lipid"/>
+      <display value="Lipids"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="CT Scan order"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example-di"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/di"/>
+      <display value="DI Order"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Free T4 Add on Order"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example-ft4"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/ft4"/>
+      <display value="Free T4"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a Head CT procedure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/example"/>
+      <display value="Head CT"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example with sub-requests derived from the request"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example-subrequest"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/subrequest"/>
+      <display value="Sub Request"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of an order for home physiotherapy"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example2"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/physiotherapy"/>
+      <display value="Physiotherapy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of an order to not turn a patient"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example3"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/do-not-turn"/>
+      <display value="Do Not Turn"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Part of an exercise plan"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example4"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/benchpress"/>
+      <display value="Bench Press"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an order for an implant"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example-implant"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/example-implant"/>
+      <display value="Device Example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an order for anambulation procedure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example-ambulation"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/ambulation"/>
+      <display value="Ambulation"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an order for a biopsy procedure that was part of a colonoscopy"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example-colonoscopy-bx"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/colon-biopsy"/>
+      <display value="Colon Biopsy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an order for a colonoscopy procedure with complication"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example-colonoscopy"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/colonoscopy"/>
+      <display value="Colonoscopy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an order for an appendectomy procedure that is primarily narrative"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example-appendectomy"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/appendectomy-narrative"/>
+      <display value="Appendectomy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an order for an obstetric procedure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example-ob"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/ob"/>
+      <display value="OB"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an order for an physical therapy evaluation procedure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example-pt"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/physical-therapy"/>
+      <display value="Physical Therapy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an order for patient education"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example-edu"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/education"/>
+      <display value="Patient Education"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a Myringotomy referral request"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example-myringotomy"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/myringotomy"/>
+      <display value="Myringotomy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Order for mechanical ventilation with order details"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="servicerequest-example-ventilation"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/vent"/>
+      <display value="Mechanical Ventilation"/>
+    </item>
+  </entry>
+</List>

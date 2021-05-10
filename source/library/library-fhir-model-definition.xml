@@ -35,7 +35,7 @@
                </td>
             </tr>
             <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">4.5.0</td>
+               <td style="padding-left: 25px; padding-right: 25px;">4.6.0</td>
             </tr>
          </table>
          <p/>
@@ -134,7 +134,7 @@
     <use value="official"/>
     <value value="FHIR"/>
   </identifier>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <title value="FHIR Model Definition"/>
   <status value="draft"/>
   <type>

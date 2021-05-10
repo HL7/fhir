@@ -40,7 +40,7 @@
       <text value="Clinical Review" />
     </concept>
 	</reason>
-	<priority value="5" />
+	<!-- <priority value="5" /> -->
 	<description value="Discussion on the results of your recent MRI" />
 	<minutesDuration value="15" />
 	<slot>

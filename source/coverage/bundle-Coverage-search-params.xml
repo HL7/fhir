@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Coverage-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Coverage-beneficiary"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Coverage.beneficiary"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Coverage-beneficiary"/>
+        <description value="Covered party"/>
+        <code value="beneficiary"/>
+        <type value="reference"/>
+        <expression value="Coverage.beneficiary"/>
+        <xpath value="f:Coverage/f:beneficiary"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Coverage-class-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Coverage.class.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Coverage-class-type"/>
+        <description value="Coverage class (eg. plan, group)"/>
+        <code value="class-type"/>
+        <type value="token"/>
+        <expression value="Coverage.class.type"/>
+        <xpath value="f:Coverage/f:class/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Coverage-class-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Coverage.class.value"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Coverage-class-value"/>
+        <description value="Value of the class (eg. Plan number, group number)"/>
+        <code value="class-value"/>
+        <type value="string"/>
+        <expression value="Coverage.class.value"/>
+        <xpath value="f:Coverage/f:class/f:value"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Coverage-dependent"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Coverage.dependent"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Coverage-dependent"/>
+        <description value="Dependent number"/>
+        <code value="dependent"/>
+        <type value="string"/>
+        <expression value="Coverage.dependent"/>
+        <xpath value="f:Coverage/f:dependent"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Coverage-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Coverage.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Coverage-identifier"/>
+        <description value="The primary identifier of the insured and the coverage"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Coverage.identifier"/>
+        <xpath value="f:Coverage/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Coverage-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Coverage.beneficiary"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Coverage-patient"/>
+        <description value="Retrieve coverages for a patient"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Coverage.beneficiary"/>
+        <xpath value="f:Coverage/f:beneficiary"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Coverage-payor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Coverage.payor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Coverage-payor"/>
+        <description value="The identity of the insurer or party paying for services"/>
+        <code value="payor"/>
+        <type value="reference"/>
+        <expression value="Coverage.payor"/>
+        <xpath value="f:Coverage/f:payor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Coverage-policy-holder"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Coverage.policyHolder"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Coverage-policy-holder"/>
+        <description value="Reference to the policyholder"/>
+        <code value="policy-holder"/>
+        <type value="reference"/>
+        <expression value="Coverage.policyHolder"/>
+        <xpath value="f:Coverage/f:policyHolder"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Coverage-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Coverage.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Coverage-status"/>
+        <description value="The status of the Coverage"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Coverage.status"/>
+        <xpath value="f:Coverage/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Coverage-subscriber"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Coverage.subscriber"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Coverage-subscriber"/>
+        <description value="Reference to the subscriber"/>
+        <code value="subscriber"/>
+        <type value="reference"/>
+        <expression value="Coverage.subscriber"/>
+        <xpath value="f:Coverage/f:subscriber"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Coverage-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Coverage.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Coverage-type"/>
+        <description value="The kind of coverage (health plan, auto, Workers Compensation)"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="Coverage.type"/>
+        <xpath value="f:Coverage/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

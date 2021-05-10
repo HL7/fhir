@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="codesystem-history"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/codesystem-history"/>
+  <version value="4.6.0"/>
+  <name value="history"/>
+  <status value="draft"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="Information on changes made to the Value Set Definition over time, and also has a contained audit trail of all such changes."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="CodeSystem"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="What has happened over time"/>
+      <definition value="Information on changes made to the Value Set Definition over time, and also has a contained audit trail of all such changes."/>
+      <min value="0"/>
+      <max value="*"/>
+      <isModifier value="false"/>
+    </element>
+    <element id="Extension.extension:name">
+      <path value="Extension.extension"/>
+      <sliceName value="name"/>
+      <short value="The name of this set of history entries"/>
+      <definition value="Label for a set of entries, such as a version."/>
+      <comment value="Typically, a value set will have a set of history entries for each major publication milestone."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+    </element>
+    <element id="Extension.extension:name.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:name.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="name"/>
+    </element>
+    <element id="Extension.extension:name.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Extension.extension:revision">
+      <path value="Extension.extension"/>
+      <sliceName value="revision"/>
+      <short value="Audit of all changes for a history entry"/>
+      <definition value="A list of specific changes, who made them and when."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+    </element>
+    <element id="Extension.extension:revision.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:revision.extension:date">
+      <path value="Extension.extension.extension"/>
+      <sliceName value="date"/>
+      <short value="Date the change was made"/>
+      <definition value="Date the change took place."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+    </element>
+    <element id="Extension.extension:revision.extension:date.extension">
+      <path value="Extension.extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:revision.extension:date.url">
+      <path value="Extension.extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="date"/>
+    </element>
+    <element id="Extension.extension:revision.extension:date.value[x]">
+      <path value="Extension.extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="Extension.extension:revision.extension:id">
+      <path value="Extension.extension.extension"/>
+      <sliceName value="id"/>
+      <short value="Version marker after the change was made"/>
+      <definition value="Unique id for the specific change."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+    </element>
+    <element id="Extension.extension:revision.extension:id.extension">
+      <path value="Extension.extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:revision.extension:id.url">
+      <path value="Extension.extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="id"/>
+    </element>
+    <element id="Extension.extension:revision.extension:id.value[x]">
+      <path value="Extension.extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Extension.extension:revision.extension:author">
+      <path value="Extension.extension.extension"/>
+      <sliceName value="author"/>
+      <short value="Who made the change"/>
+      <definition value="Person or device responsible for the change."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+    </element>
+    <element id="Extension.extension:revision.extension:author.extension">
+      <path value="Extension.extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:revision.extension:author.url">
+      <path value="Extension.extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="author"/>
+    </element>
+    <element id="Extension.extension:revision.extension:author.value[x]">
+      <path value="Extension.extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Extension.extension:revision.extension:notes">
+      <path value="Extension.extension.extension"/>
+      <sliceName value="notes"/>
+      <short value="Information about the change"/>
+      <definition value="Description of exactly what was changed and how."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+    </element>
+    <element id="Extension.extension:revision.extension:notes.extension">
+      <path value="Extension.extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:revision.extension:notes.url">
+      <path value="Extension.extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="notes"/>
+    </element>
+    <element id="Extension.extension:revision.extension:notes.value[x]">
+      <path value="Extension.extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Extension.extension:revision.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="revision"/>
+    </element>
+    <element id="Extension.extension:revision.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/codesystem-history"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="EvidenceVariable-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Placebo"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-placebo"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-placebo"/>
+      <display value="Placebo"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="No Alteplase"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-no-alteplase"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-no-alteplase"/>
+      <display value="No Alteplase"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Alteplase for Stroke"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-alteplase-for-stroke"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-alteplase-for-stroke"/>
+      <display value="Alteplase for Stroke"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Fatal Intracranial Hemorrhage Within Seven Days"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-fatal-ICH-in-7-days"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-fatal-ICH-in-7-days"/>
+      <display value="Fatal Intracranial Hemorrhage Within Seven Days"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Alive and not functionally dependent 90 days"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-alive-independent-90day"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-alive-independent-90day"/>
+      <display value="Alive and not functionally dependent 90 days"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dead or functionally dependent at 90 days"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-dead-or-dependent-90day"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-dead-or-dependent-90day"/>
+      <display value="Dead or functionally dependent at 90 days"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Modified Rankin Scale score 0-2 at 90 days after treatment"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-mRS0-2-at-90days"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-mRS0-2-at-90days"/>
+      <display value="mRS 0-2 at 90 days"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Modified Rankin Scale score 3-6 at 90 days after treatment"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-mRS3-6-at-90days"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-mRS3-6-at-90days"/>
+      <display value="mRS 3-6 at 90 days"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A grouping of six Evidence resources from six studies"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-Wardlaw2014Analysis1.16.3EvidenceSet"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-Wardlaw2014Analysis1.16.3EvidenceSet"/>
+      <display value="Wardlaw 2014 Analysis 1.16.3 Evidence set"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Stroke Thrombolysis Trialists&#x2019; Collaborators Group collection used for individual patient data meta-analysis"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-Stroke-Thrombolysis-Trialists-2014-2016-IPD-MA-Cohort"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-Stroke-Thrombolysis-Trialists-2014-2016-IPD-MA-Cohort"/>
+      <display value="Stroke Thrombolysis Trialists&#x2019; 2014-2016 IPD-MA Cohort"/>
+    </item>
+  </entry>
+</List>

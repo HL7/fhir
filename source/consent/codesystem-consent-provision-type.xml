@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="consent-provision-type"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/consent-provision-type defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">deny
+            
+            <a name="consent-provision-type-deny"> </a>
+          
+          </td>
+          
+          <td>Deny</td>
+          
+          <td>Consent is denied for actions meeting these rules.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">permit
+            
+            <a name="consent-provision-type-permit"> </a>
+          
+          </td>
+          
+          <td>Permit</td>
+          
+          <td>Consent is provided for actions meeting these rules.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cbcc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/consent-provision-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.758"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ConsentProvisionType"/>
+  <title value="ConsentProvisionType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="How a rule statement is applied, such as adding additional consent or removing consent."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/consent-provision-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="deny"/>
+    <display value="Deny"/>
+    <definition value="Consent is denied for actions meeting these rules."/>
+  </concept>
+  <concept>
+    <code value="permit"/>
+    <display value="Permit"/>
+    <definition value="Consent is provided for actions meeting these rules."/>
+  </concept>
+</CodeSystem>

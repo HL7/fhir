@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="OperationDefinition-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-base"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OperationDefinition.base"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-base"/>
+        <description value="Marks this as a profile of the base"/>
+        <code value="base"/>
+        <type value="reference"/>
+        <expression value="OperationDefinition.base"/>
+        <xpath value="f:OperationDefinition/f:base"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OperationDefinition.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-code"/>
+        <description value="Name used to invoke the operation"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="OperationDefinition.code"/>
+        <xpath value="f:OperationDefinition/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-context"/>
+        <description value="A use context assigned to the operation definition"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="(OperationDefinition.useContext.value as CodeableConcept)"/>
+        <xpath value="f:OperationDefinition/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the operation definition"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="(OperationDefinition.useContext.value as Quantity) | (OperationDefinition.useContext.value as Range)"/>
+        <xpath value="f:OperationDefinition/f:useContext/f:valueQuantity | f:OperationDefinition/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-context-type"/>
+        <description value="A type of use context assigned to the operation definition"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="OperationDefinition.useContext.code"/>
+        <xpath value="f:OperationDefinition/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the operation definition"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="OperationDefinition.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.as(Quantity) | value.as(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-context-type-value"/>
+        <description value="A use context type and value assigned to the operation definition"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="OperationDefinition.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-date"/>
+        <description value="The operation definition publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="OperationDefinition.date"/>
+        <xpath value="f:OperationDefinition/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-description"/>
+        <description value="The description of the operation definition"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="OperationDefinition.description"/>
+        <xpath value="f:OperationDefinition/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-input-profile"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OperationDefinition.inputProfile"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-input-profile"/>
+        <description value="Validation information for in parameters"/>
+        <code value="input-profile"/>
+        <type value="reference"/>
+        <expression value="OperationDefinition.inputProfile"/>
+        <xpath value="f:OperationDefinition/f:inputProfile"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-instance"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OperationDefinition.instance"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-instance"/>
+        <description value="Invoke on an instance?"/>
+        <code value="instance"/>
+        <type value="token"/>
+        <expression value="OperationDefinition.instance"/>
+        <xpath value="f:OperationDefinition/f:instance"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-jurisdiction"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.jurisdiction"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-jurisdiction"/>
+        <description value="Intended jurisdiction for the operation definition"/>
+        <code value="jurisdiction"/>
+        <type value="token"/>
+        <expression value="OperationDefinition.jurisdiction"/>
+        <xpath value="f:OperationDefinition/f:jurisdiction"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-kind"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OperationDefinition.kind"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-kind"/>
+        <description value="operation | query"/>
+        <code value="kind"/>
+        <type value="token"/>
+        <expression value="OperationDefinition.kind"/>
+        <xpath value="f:OperationDefinition/f:kind"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-name"/>
+        <description value="Computationally friendly name of the operation definition"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="OperationDefinition.name"/>
+        <xpath value="f:OperationDefinition/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-output-profile"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OperationDefinition.outputProfile"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-output-profile"/>
+        <description value="Validation information for out parameters"/>
+        <code value="output-profile"/>
+        <type value="reference"/>
+        <expression value="OperationDefinition.outputProfile"/>
+        <xpath value="f:OperationDefinition/f:outputProfile"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-publisher"/>
+        <description value="Name of the publisher of the operation definition"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="OperationDefinition.publisher"/>
+        <xpath value="f:OperationDefinition/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-status"/>
+        <description value="The current status of the operation definition"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="OperationDefinition.status"/>
+        <xpath value="f:OperationDefinition/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-system"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OperationDefinition.system"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-system"/>
+        <description value="Invoke at the system level?"/>
+        <code value="system"/>
+        <type value="token"/>
+        <expression value="OperationDefinition.system"/>
+        <xpath value="f:OperationDefinition/f:system"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-title"/>
+        <description value="The human-friendly name of the operation definition"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="OperationDefinition.title"/>
+        <xpath value="f:OperationDefinition/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OperationDefinition.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-type"/>
+        <description value="Invoke at the type level?"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="OperationDefinition.type"/>
+        <xpath value="f:OperationDefinition/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-url"/>
+        <description value="The uri that identifies the operation definition"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="OperationDefinition.url"/>
+        <xpath value="f:OperationDefinition/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OperationDefinition-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-version"/>
+        <description value="The business version of the operation definition"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="OperationDefinition.version"/>
+        <xpath value="f:OperationDefinition/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

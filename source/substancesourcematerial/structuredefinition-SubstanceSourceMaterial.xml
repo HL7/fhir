@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="SubstanceSourceMaterial"/>
+  <meta>
+    <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Specialized.Medication Definition"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="anonymous"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/SubstanceSourceMaterial"/>
+  <version value="4.6.0"/>
+  <name value="SubstanceSourceMaterial"/>
+  <status value="draft"/>
+  <date value="2020-12-31T07:32:20+11:00"/>
+  <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Source material shall capture information on the taxonomic and anatomical origins as well as the fraction of a material that can result in or can be modified to form a substance. This set of data elements shall be used to define polymer substances isolated from biological matrices. Taxonomic and anatomical origins shall be described using a controlled vocabulary as required. This information is captured for naturally derived polymers ( . starch) and structurally diverse substances. For Organisms belonging to the Kingdom Plantae the Substance level defines the fresh material of a single species or infraspecies, the Herbal Drug and the Herbal preparation. For Herbal preparations, the fraction information will be captured at the Substance information level and additional information for herbal extracts will be captured at the Specified Substance Group 1 information level. See for further explanation the Substance Class: Structurally Diverse and the herbal annex."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="SubstanceSourceMaterial"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="SubstanceSourceMaterial">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="389,24"/>
+      </extension>
+      <path value="SubstanceSourceMaterial"/>
+      <short value="Source material shall capture information on the taxonomic and anatomical origins as well as the fraction of a material that can result in or can be modified to form a substance. This set of data elements shall be used to define polymer substances isolated from biological matrices. Taxonomic and anatomical origins shall be described using a controlled vocabulary as required. This information is captured for naturally derived polymers ( . starch) and structurally diverse substances. For Organisms belonging to the Kingdom Plantae the Substance level defines the fresh material of a single species or infraspecies, the Herbal Drug and the Herbal preparation. For Herbal preparations, the fraction information will be captured at the Substance information level and additional information for herbal extracts will be captured at the Specified Substance Group 1 information level. See for further explanation the Substance Class: Structurally Diverse and the herbal annex"/>
+      <definition value="Source material shall capture information on the taxonomic and anatomical origins as well as the fraction of a material that can result in or can be modified to form a substance. This set of data elements shall be used to define polymer substances isolated from biological matrices. Taxonomic and anatomical origins shall be described using a controlled vocabulary as required. This information is captured for naturally derived polymers ( . starch) and structurally diverse substances. For Organisms belonging to the Kingdom Plantae the Substance level defines the fresh material of a single species or infraspecies, the Herbal Drug and the Herbal preparation. For Herbal preparations, the fraction information will be captured at the Substance information level and additional information for herbal extracts will be captured at the Specified Substance Group 1 information level. See for further explanation the Substance Class: Structurally Diverse and the herbal annex."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="administrative.medication"/>
+      </mapping>
+    </element>
+    <element id="SubstanceSourceMaterial.sourceMaterialClass">
+      <path value="SubstanceSourceMaterial.sourceMaterialClass"/>
+      <short value="General high level classification of the source material specific to the origin of the material"/>
+      <definition value="General high level classification of the source material specific to the origin of the material."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.sourceMaterialType">
+      <path value="SubstanceSourceMaterial.sourceMaterialType"/>
+      <short value="The type of the source material shall be specified based on a controlled vocabulary. For vaccines, this subclause refers to the class of infectious agent"/>
+      <definition value="The type of the source material shall be specified based on a controlled vocabulary. For vaccines, this subclause refers to the class of infectious agent."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.sourceMaterialState">
+      <path value="SubstanceSourceMaterial.sourceMaterialState"/>
+      <short value="The state of the source material when extracted"/>
+      <definition value="The state of the source material when extracted."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organismId">
+      <path value="SubstanceSourceMaterial.organismId"/>
+      <short value="The unique identifier associated with the source material parent organism shall be specified"/>
+      <definition value="The unique identifier associated with the source material parent organism shall be specified."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organismName">
+      <path value="SubstanceSourceMaterial.organismName"/>
+      <short value="The organism accepted Scientific name shall be provided based on the organism taxonomy"/>
+      <definition value="The organism accepted Scientific name shall be provided based on the organism taxonomy."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.parentSubstanceId">
+      <path value="SubstanceSourceMaterial.parentSubstanceId"/>
+      <short value="The parent of the herbal drug Ginkgo biloba, Leaf is the substance ID of the substance (fresh) of Ginkgo biloba L. or Ginkgo biloba L. (Whole plant)"/>
+      <definition value="The parent of the herbal drug Ginkgo biloba, Leaf is the substance ID of the substance (fresh) of Ginkgo biloba L. or Ginkgo biloba L. (Whole plant)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.parentSubstanceName">
+      <path value="SubstanceSourceMaterial.parentSubstanceName"/>
+      <short value="The parent substance of the Herbal Drug, or Herbal preparation"/>
+      <definition value="The parent substance of the Herbal Drug, or Herbal preparation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.countryOfOrigin">
+      <path value="SubstanceSourceMaterial.countryOfOrigin"/>
+      <short value="The country where the plant material is harvested or the countries where the plasma is sourced from as laid down in accordance with the Plasma Master File. For &#x201C;Plasma-derived substances&#x201D; the attribute country of origin provides information about the countries used for the manufacturing of the Cryopoor plama or Crioprecipitate"/>
+      <definition value="The country where the plant material is harvested or the countries where the plasma is sourced from as laid down in accordance with the Plasma Master File. For &#x201C;Plasma-derived substances&#x201D; the attribute country of origin provides information about the countries used for the manufacturing of the Cryopoor plama or Crioprecipitate."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.geographicalLocation">
+      <path value="SubstanceSourceMaterial.geographicalLocation"/>
+      <short value="The place/region where the plant is harvested or the places/regions where the animal source material has its habitat"/>
+      <definition value="The place/region where the plant is harvested or the places/regions where the animal source material has its habitat."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.developmentStage">
+      <path value="SubstanceSourceMaterial.developmentStage"/>
+      <short value="Stage of life for animals, plants, insects and microorganisms. This information shall be provided only when the substance is significantly different in these stages (e.g. foetal bovine serum)"/>
+      <definition value="Stage of life for animals, plants, insects and microorganisms. This information shall be provided only when the substance is significantly different in these stages (e.g. foetal bovine serum)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.fractionDescription">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="610,260"/>
+      </extension>
+      <path value="SubstanceSourceMaterial.fractionDescription"/>
+      <short value="Many complex materials are fractions of parts of plants, animals, or minerals. Fraction elements are often necessary to define both Substances and Specified Group 1 Substances. For substances derived from Plants, fraction information will be captured at the Substance information level ( . Oils, Juices and Exudates). Additional information for Extracts, such as extraction solvent composition, will be captured at the Specified Substance Group 1 information level. For plasma-derived products fraction information will be captured at the Substance and the Specified Substance Group 1 levels"/>
+      <definition value="Many complex materials are fractions of parts of plants, animals, or minerals. Fraction elements are often necessary to define both Substances and Specified Group 1 Substances. For substances derived from Plants, fraction information will be captured at the Substance information level ( . Oils, Juices and Exudates). Additional information for Extracts, such as extraction solvent composition, will be captured at the Specified Substance Group 1 information level. For plasma-derived products fraction information will be captured at the Substance and the Specified Substance Group 1 levels."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.fractionDescription.fraction">
+      <path value="SubstanceSourceMaterial.fractionDescription.fraction"/>
+      <short value="This element is capturing information about the fraction of a plant part, or human plasma for fractionation"/>
+      <definition value="This element is capturing information about the fraction of a plant part, or human plasma for fractionation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.fractionDescription.materialType">
+      <path value="SubstanceSourceMaterial.fractionDescription.materialType"/>
+      <short value="The specific type of the material constituting the component. For Herbal preparations the particulars of the extracts (liquid/dry) is described in Specified Substance Group 1"/>
+      <definition value="The specific type of the material constituting the component. For Herbal preparations the particulars of the extracts (liquid/dry) is described in Specified Substance Group 1."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="203,260"/>
+      </extension>
+      <path value="SubstanceSourceMaterial.organism"/>
+      <short value="This subclause describes the organism which the substance is derived from. For vaccines, the parent organism shall be specified based on these subclause elements. As an example, full taxonomy will be described for the Substance Name: ., Leaf"/>
+      <definition value="This subclause describes the organism which the substance is derived from. For vaccines, the parent organism shall be specified based on these subclause elements. As an example, full taxonomy will be described for the Substance Name: ., Leaf."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.family">
+      <path value="SubstanceSourceMaterial.organism.family"/>
+      <short value="The family of an organism shall be specified"/>
+      <definition value="The family of an organism shall be specified."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.genus">
+      <path value="SubstanceSourceMaterial.organism.genus"/>
+      <short value="The genus of an organism shall be specified; refers to the Latin epithet of the genus element of the plant/animal scientific name; it is present in names for genera, species and infraspecies"/>
+      <definition value="The genus of an organism shall be specified; refers to the Latin epithet of the genus element of the plant/animal scientific name; it is present in names for genera, species and infraspecies."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.species">
+      <path value="SubstanceSourceMaterial.organism.species"/>
+      <short value="The species of an organism shall be specified; refers to the Latin epithet of the species of the plant/animal; it is present in names for species and infraspecies"/>
+      <definition value="The species of an organism shall be specified; refers to the Latin epithet of the species of the plant/animal; it is present in names for species and infraspecies."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.intraspecificType">
+      <path value="SubstanceSourceMaterial.organism.intraspecificType"/>
+      <short value="The Intraspecific type of an organism shall be specified"/>
+      <definition value="The Intraspecific type of an organism shall be specified."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.intraspecificDescription">
+      <path value="SubstanceSourceMaterial.organism.intraspecificDescription"/>
+      <short value="The intraspecific description of an organism shall be specified based on a controlled vocabulary. For Influenza Vaccine, the intraspecific description shall contain the syntax of the antigen in line with the WHO convention"/>
+      <definition value="The intraspecific description of an organism shall be specified based on a controlled vocabulary. For Influenza Vaccine, the intraspecific description shall contain the syntax of the antigen in line with the WHO convention."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.author">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="219,430"/>
+      </extension>
+      <path value="SubstanceSourceMaterial.organism.author"/>
+      <short value="4.9.13.6.1 Author type (Conditional)"/>
+      <definition value="4.9.13.6.1 Author type (Conditional)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.author.authorType">
+      <path value="SubstanceSourceMaterial.organism.author.authorType"/>
+      <short value="The type of author of an organism species shall be specified. The parenthetical author of an organism species refers to the first author who published the plant/animal name (of any rank). The primary author of an organism species refers to the first author(s), who validly published the plant/animal name"/>
+      <definition value="The type of author of an organism species shall be specified. The parenthetical author of an organism species refers to the first author who published the plant/animal name (of any rank). The primary author of an organism species refers to the first author(s), who validly published the plant/animal name."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.author.authorDescription">
+      <path value="SubstanceSourceMaterial.organism.author.authorDescription"/>
+      <short value="The author of an organism species shall be specified. The author year of an organism shall also be specified when applicable; refers to the year in which the first author(s) published the infraspecific plant/animal name (of any rank)"/>
+      <definition value="The author of an organism species shall be specified. The author year of an organism shall also be specified when applicable; refers to the year in which the first author(s) published the infraspecific plant/animal name (of any rank)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.hybrid">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="34,430"/>
+      </extension>
+      <path value="SubstanceSourceMaterial.organism.hybrid"/>
+      <short value="4.9.13.8.1 Hybrid species maternal organism ID (Optional)"/>
+      <definition value="4.9.13.8.1 Hybrid species maternal organism ID (Optional)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.hybrid.maternalOrganismId">
+      <path value="SubstanceSourceMaterial.organism.hybrid.maternalOrganismId"/>
+      <short value="The identifier of the maternal species constituting the hybrid organism shall be specified based on a controlled vocabulary. For plants, the parents aren&#x2019;t always known, and it is unlikely that it will be known which is maternal and which is paternal"/>
+      <definition value="The identifier of the maternal species constituting the hybrid organism shall be specified based on a controlled vocabulary. For plants, the parents aren&#x2019;t always known, and it is unlikely that it will be known which is maternal and which is paternal."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.hybrid.maternalOrganismName">
+      <path value="SubstanceSourceMaterial.organism.hybrid.maternalOrganismName"/>
+      <short value="The name of the maternal species constituting the hybrid organism shall be specified. For plants, the parents aren&#x2019;t always known, and it is unlikely that it will be known which is maternal and which is paternal"/>
+      <definition value="The name of the maternal species constituting the hybrid organism shall be specified. For plants, the parents aren&#x2019;t always known, and it is unlikely that it will be known which is maternal and which is paternal."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.hybrid.paternalOrganismId">
+      <path value="SubstanceSourceMaterial.organism.hybrid.paternalOrganismId"/>
+      <short value="The identifier of the paternal species constituting the hybrid organism shall be specified based on a controlled vocabulary"/>
+      <definition value="The identifier of the paternal species constituting the hybrid organism shall be specified based on a controlled vocabulary."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.hybrid.paternalOrganismName">
+      <path value="SubstanceSourceMaterial.organism.hybrid.paternalOrganismName"/>
+      <short value="The name of the paternal species constituting the hybrid organism shall be specified"/>
+      <definition value="The name of the paternal species constituting the hybrid organism shall be specified."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.hybrid.hybridType">
+      <path value="SubstanceSourceMaterial.organism.hybrid.hybridType"/>
+      <short value="The hybrid type of an organism shall be specified"/>
+      <definition value="The hybrid type of an organism shall be specified."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.organismGeneral">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,430"/>
+      </extension>
+      <path value="SubstanceSourceMaterial.organism.organismGeneral"/>
+      <short value="4.9.13.7.1 Kingdom (Conditional)"/>
+      <definition value="4.9.13.7.1 Kingdom (Conditional)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.organismGeneral.kingdom">
+      <path value="SubstanceSourceMaterial.organism.organismGeneral.kingdom"/>
+      <short value="The kingdom of an organism shall be specified"/>
+      <definition value="The kingdom of an organism shall be specified."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.organismGeneral.phylum">
+      <path value="SubstanceSourceMaterial.organism.organismGeneral.phylum"/>
+      <short value="The phylum of an organism shall be specified"/>
+      <definition value="The phylum of an organism shall be specified."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.organismGeneral.class">
+      <path value="SubstanceSourceMaterial.organism.organismGeneral.class"/>
+      <short value="The class of an organism shall be specified"/>
+      <definition value="The class of an organism shall be specified."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.organism.organismGeneral.order">
+      <path value="SubstanceSourceMaterial.organism.organismGeneral.order"/>
+      <short value="The order of an organism shall be specified,"/>
+      <definition value="The order of an organism shall be specified,."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.partDescription">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="419,260"/>
+      </extension>
+      <path value="SubstanceSourceMaterial.partDescription"/>
+      <short value="To do"/>
+      <definition value="To do."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.partDescription.part">
+      <path value="SubstanceSourceMaterial.partDescription.part"/>
+      <short value="Entity of anatomical origin of source material within an organism"/>
+      <definition value="Entity of anatomical origin of source material within an organism."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceSourceMaterial.partDescription.partLocation">
+      <path value="SubstanceSourceMaterial.partDescription.partLocation"/>
+      <short value="The detailed anatomic location when the part can be extracted from different anatomical locations of the organism. Multiple alternative locations may apply"/>
+      <definition value="The detailed anatomic location when the part can be extracted from different anatomical locations of the organism. Multiple alternative locations may apply."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>
