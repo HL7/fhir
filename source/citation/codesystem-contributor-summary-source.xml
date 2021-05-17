@@ -38,9 +38,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">publisherData
+          <td style="white-space:nowrap">publisher-data
             
-            <a name="contributor-summary-source-publisherData"> </a>
+            <a name="contributor-summary-source-publisher-data"> </a>
           
           </td>
           
@@ -52,9 +52,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">articleCopy
+          <td style="white-space:nowrap">article-copy
             
-            <a name="contributor-summary-source-articleCopy"> </a>
+            <a name="contributor-summary-source-article-copy"> </a>
           
           </td>
           
@@ -66,9 +66,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">citationManager
+          <td style="white-space:nowrap">citation-manager
             
-            <a name="contributor-summary-source-citationManager"> </a>
+            <a name="contributor-summary-source-citation-manager"> </a>
           
           </td>
           
@@ -110,7 +110,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="ContributorSummarySource"/>
   <title value="ContributorSummarySource"/>
   <status value="draft"/>
@@ -132,17 +132,17 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/contributor-summary-source"/>
   <content value="complete"/>
   <concept>
-    <code value="publisherData"/>
+    <code value="publisher-data"/>
     <display value="Publisher provided"/>
     <definition value="Data copied by machine from publisher data."/>
   </concept>
   <concept>
-    <code value="articleCopy"/>
+    <code value="article-copy"/>
     <display value="Copied from article"/>
     <definition value="Data copied by human from article text."/>
   </concept>
   <concept>
-    <code value="citationManager"/>
+    <code value="citation-manager"/>
     <display value="Reported by citation manager"/>
     <definition value="Data copied by machine from citation manager data."/>
   </concept>

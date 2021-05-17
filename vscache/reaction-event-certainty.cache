@@ -12,8 +12,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:3705111a-1f26-42dd-87e7-1dc592573573",
-    "timestamp" : "2021-01-13T06:26:18.549Z",
+    "identifier" : "urn:uuid:a508f510-98a9-4b4b-a0d6-fbbb5fc6cf68",
+    "timestamp" : "2021-04-12T20:27:06.773Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -24,7 +24,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://hl7.org/fhir/reaction-event-certainty|4.5.0"
+      "valueString" : "http://hl7.org/fhir/reaction-event-certainty|4.6.0"
     }],
     "contains" : [{
       "extension" : [{

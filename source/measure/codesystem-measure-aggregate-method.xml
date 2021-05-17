@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="measure-aggregate-method"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cqi"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/measure-aggregate-method"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="MeasureAggregateMethod"/>
+  <title value="Measure Aggregate Method"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2019-03-14T23:21:03-06:00"/>
+  <publisher value="Clinical Quality Information WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/cqi/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Aggregation method for a measure (e.g. sum, average, median, minimum, maximum, count)"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/aggregate-method"/>
+  <content value="complete"/>
+  <concept>
+    <code value="sum"/>
+    <display value="Sum"/>
+    <definition value="The measure score is determined by adding together the observations derived from the measure population."/>
+  </concept>
+  <concept>
+    <code value="average"/>
+    <display value="Average"/>
+    <definition value="The measure score is determined by taking the average of the observations derived from the measure population."/>
+  </concept>
+  <concept>
+    <code value="median"/>
+    <display value="Median"/>
+    <definition value="The measure score is determined by taking the median of the observations derived from the measure population."/>
+  </concept>
+  <concept>
+    <code value="minimum"/>
+    <display value="Minimum"/>
+    <definition value="The measure score is determined by taking the minimum of the observations derived from the measure population."/>
+  </concept>
+  <concept>
+    <code value="maximum"/>
+    <display value="Maximum"/>
+    <definition value="The measure score is determined by taking the maximum of the observations derived from the measure population."/>
+  </concept>
+  <concept>
+    <code value="count"/>
+    <display value="Count"/>
+    <definition value="The measure score is determined as the number of observations derived from the measure population."/>
+  </concept>
+</CodeSystem>

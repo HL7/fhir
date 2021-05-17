@@ -37,7 +37,7 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CodeSystem-subsumes"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="subsumes"/>
   <title value="Subsumption Testing"/>
   <status value="draft"/>
@@ -54,7 +54,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Test the subsumption relationship between code/Coding A and code/Coding B given the semantics of subsumption in the underlying code system (see [hierarchyMeaning](codesystem-definitions.html#CodeSystem.hierarchyMeaning)).&#xA;&#xA;When invoking this operation, a client SHALL provide both a and codes, either as code or Coding parameters. The system parameter is required unless the operation is invoked on an instance of a code system resource. Other parameters are optional"/>
+  <description value="Test the subsumption relationship between code/Coding A and code/Coding B given the semantics of subsumption in the underlying code system (see [hierarchyMeaning](codesystem-definitions.html#CodeSystem.hierarchyMeaning)).&#xA;&#xA;When invoking this operation, a client SHALL provide both A and B codes, either as code or Coding parameters. The system parameter is required unless the operation is invoked on an instance of a code system resource. Other parameters are optional"/>
   <affectsState value="false"/>
   <code value="subsumes"/>
   <resource value="CodeSystem"/>
@@ -121,7 +121,7 @@
         <valueString value="ConceptSubsumptionOutcome"/>
       </extension>
       <strength value="required"/>
-      <valueSet value="http://hl7.org/fhir/ValueSet/concept-subsumption-outcome|4.5.0"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/concept-subsumption-outcome|4.6.0"/>
     </binding>
   </parameter>
 </OperationDefinition>

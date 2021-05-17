@@ -266,7 +266,7 @@ in particular implementations or contexts of use.
    <td>If populated, this value changes each time the content of the resource 
     changes. It can be used by a system or a human to judge the currency of the resource content. 
     Note that <a href="http.html#update">version aware updates</a> do not depend on this element. Note that 
-    <a href="extension-tz-code.html">a timezone code</a> extension may be present on Meta.lastUpdated.
+    <a href="extension-timezone.html">a timezone code</a> extension may be present on Meta.lastUpdated.
     If present, the timezone code applies to the server copy of the resource, and not necessarily to other 
     time related elements within the resource even if the timezone offsets are the same.
 		<br/>On the RESTful API: On receiving a <a href="http.html#write">write operation</a>, the server SHALL update this item to the current time on the server</td>

@@ -16,14 +16,15 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/shareablelibrary"/>
-  <version value="4.5.0"/>
-  <name value="Shareable Library"/>
+  <version value="4.6.0"/>
+  <name value="ShareableLibrary"/>
+  <title value="Shareable Library"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
   <description value="Enforces the minimum information set for the library metadata required by HL7 and other organizations that share and publish libraries"/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -54,6 +55,39 @@
       <path value="Library"/>
       <min value="1"/>
       <max value="1"/>
+    </element>
+    <element id="Library.extension:knowledgeCapability">
+      <path value="Library.extension"/>
+      <sliceName value="knowledgeCapability"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.extension:knowledgeRepresentationLevel">
+      <path value="Library.extension"/>
+      <sliceName value="knowledgeRepresentationLevel"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.extension:artifactComment">
+      <path value="Library.extension"/>
+      <sliceName value="artifactComment"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"/>
+      </type>
+      <mustSupport value="true"/>
     </element>
     <element id="Library.url">
       <path value="Library.url"/>

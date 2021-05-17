@@ -27,7 +27,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="Observation"/>
   <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -46,7 +46,7 @@
   </contact>
   <description value="Measurements and simple assertions made about a patient, device or other subject."/>
   <purpose value="Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -160,6 +160,31 @@
       <mapping>
         <identity value="rim"/>
         <map value="id"/>
+      </mapping>
+    </element>
+    <element id="Observation.instantiates[x]">
+      <path value="Observation.instantiates[x]"/>
+      <short value="Instantiates FHIR ObservationDefinition"/>
+      <definition value="The reference to a FHIR ObservationDefinition resource that provides the definition that is adhered to in whole or in part by this Observation instance."/>
+      <comment value="ObservationDefinition can be referenced by its canonical url using instantiatesCanonical, or by a name or an identifier using the appropriate sub-elements of instantiatesReference."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.instantiatesCanonical"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target"/>
       </mapping>
     </element>
     <element id="Observation.basedOn">
@@ -376,6 +401,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
       </type>
       <isSummary value="true"/>
       <mapping>

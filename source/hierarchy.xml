@@ -35,7 +35,7 @@ signatures.html
       
       </page>
       <page title="CI Build Search" filename="search-build.html"/>
-<!--      <page title="Ballot Introduction" filename="ballot-intro.html"/> -->
+      <page title="Ballot Introduction" filename="ballot-intro.html"/>
     </page>
 
     <!-- foundation - quite a lot of documentation -->
@@ -380,7 +380,7 @@ signatures.html
       <page type="resource" resource="PlanDefinition"/>
       <page type="resource" resource="DeviceRequest"/>
       <page type="resource" resource="DeviceDispense"/>
-      <page type="resource" resource="DeviceUseStatement"/>
+      <page type="resource" resource="DeviceUsage"/>
       <page type="resource" resource="SupplyRequest"/>
       <page type="resource" resource="SupplyDelivery"/>
       <page type="resource" resource="InventoryReport"/>
