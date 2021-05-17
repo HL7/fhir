@@ -7,15 +7,8 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <text>
-    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <ul>
-        <li>Include all codes defined in 
-          <a href="codesystem-research-study-prim-purp-type.html">
-            <code>http://terminology.hl7.org/CodeSystem/research-study-prim-purp-type</code>
-          </a>
-        </li>
-      </ul>
+      <p>Hello world</p>
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -32,7 +25,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.827"/>
   </identifier>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="ResearchStudyPrimaryPurposeType"/>
   <title value="ResearchStudyPrimaryPurposeType"/>
   <status value="draft"/>

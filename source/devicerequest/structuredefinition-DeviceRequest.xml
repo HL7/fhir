@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="DeviceRequest"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -229,7 +229,7 @@
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -353,7 +353,7 @@
     <element id="DeviceRequest.priority">
       <path value="DeviceRequest.priority"/>
       <short value="routine | urgent | asap | stat"/>
-      <definition value="Indicates how quickly the {{title}} should be addressed with respect to other requests."/>
+      <definition value="Indicates how quickly the request should be addressed with respect to other requests."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -386,6 +386,20 @@
         <map value=".priorityCode"/>
       </mapping>
     </element>
+    <element id="DeviceRequest.doNotPerform">
+      <path value="DeviceRequest.doNotPerform"/>
+      <short value="True if the request is to stop or not to start using the device"/>
+      <definition value="If true, indicates that the provider is asking for the patient to either stop using or to not start using the specified device or category of devices. For example, the patient has undergone surgery and the provider is indicating that the patient should not wear contact lenses."/>
+      <comment value="If do not perform is not specified, the request is a positive request e.g. &quot;do perform&quot;. DeviceRequest.reasonCode includes the reason for marking the DeviceRequest as 'do not perform'."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because this element negates the request to occur (ie, this is a request for the medication not to be ordered or prescribed, etc)"/>
+      <isSummary value="true"/>
+    </element>
     <element id="DeviceRequest.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#14271]."/>
@@ -407,7 +421,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes for devices that can be requested."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-kind"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -428,6 +442,20 @@
       <mapping>
         <identity value="quick"/>
         <map value="DeviceUse.device"/>
+      </mapping>
+    </element>
+    <element id="DeviceRequest.quantity">
+      <path value="DeviceRequest.quantity"/>
+      <short value="Quantity of devices to supply"/>
+      <definition value="The number of devices to be provided."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="quantity"/>
       </mapping>
     </element>
     <element id="DeviceRequest.parameter">
@@ -684,8 +712,8 @@
     </element>
     <element id="DeviceRequest.requester">
       <path value="DeviceRequest.requester"/>
-      <short value="Who/what is requesting diagnostics"/>
-      <definition value="The individual who initiated the request and has responsibility for its activation."/>
+      <short value="Who/what submitted the device request"/>
+      <definition value="The individual or entity who initiated the request and has responsibility for its activation."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -716,7 +744,7 @@
     <element id="DeviceRequest.performerType">
       <path value="DeviceRequest.performerType"/>
       <short value="Filler role"/>
-      <definition value="Desired type of performer for doing the diagnostic testing."/>
+      <definition value="The desired kind of individual or entity to provide the device to the subject of the request (e.g., patient, location)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -751,7 +779,7 @@
     <element id="DeviceRequest.performer">
       <path value="DeviceRequest.performer"/>
       <short value="Requested Filler"/>
-      <definition value="The desired performer for doing the diagnostic testing."/>
+      <definition value="The desired individual or entity to provide the device to the subject of the request (e.g., patient, location)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

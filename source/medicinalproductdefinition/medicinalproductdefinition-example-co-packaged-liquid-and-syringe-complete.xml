@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicinalProductDefinition xmlns="http://hl7.org/fhir">
+<MedicinalProductDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicinalproductdefinition.xsd">
 	<id value="drug-and-device-complete"/>
 	<text>
 		<status value="generated"/>
@@ -377,14 +377,14 @@
 			<code value="Powder and solution for injection with itegral syringe"/>
 		</coding>
 	</combinedPharmaceuticalDoseForm>
-	<packagedMedicinalProduct>
-		<reference>
-		<reference value="#package"/>
-		</reference>
-	</packagedMedicinalProduct>
 	<name>
 		<productName value="Wonderdrug liquid 20ml (integral syringe)"/>
 	</name>
+	<package>
+		<package>
+			<reference value="#package"/>
+		</package>
+	</package>
 	<administrableProduct>
 		<product>
 			<reference value="#administrable-form"/>

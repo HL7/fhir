@@ -319,8 +319,8 @@
 		<translation lang="es">SolicitudDeDispositivo</translation>
 		<translation lang="zh">装置请求</translation>
 	</item>
-	<item id="DeviceUseStatement">
-		<translation lang="en">DeviceUseStatement</translation>
+	<item id="DeviceUsage">
+		<translation lang="en">DeviceUsage</translation>
 		<translation lang="zh">装置使用声明</translation>
 	</item>
 	<item id="DiagnosticReport">

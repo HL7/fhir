@@ -4,17 +4,21 @@
   <type value="contraindication"/>
   <contraindication>
     <diseaseSymptomProcedure>
-      <coding>
-        <system value="http://ema.europa.eu/example/contraindicationsasdisease-symptom-procedure"/>
-        <code value="Coagulopathiesandbleedingdiatheses(exclthrombocytopenic)"/>
-      </coding>
-      <text value="Hepatic disease associated with coagulopathy and clinically relevant bleeding risk"/>
+      <concept>
+        <coding>
+          <system value="http://ema.europa.eu/example/contraindicationsasdisease-symptom-procedure"/>
+          <code value="Coagulopathiesandbleedingdiatheses(exclthrombocytopenic)"/>
+        </coding>
+        <text value="Hepatic disease associated with coagulopathy and clinically relevant bleeding risk"/>
+      </concept>
     </diseaseSymptomProcedure>
     <comorbidity>
-      <coding>
-        <system value="http://ema.europa.eu/example/comorbidity"/>
-        <code value="Hepaticdisease"/>
-      </coding>
+      <concept>
+        <coding>
+          <system value="http://ema.europa.eu/example/comorbidity"/>
+          <code value="Hepaticdisease"/>
+        </coding>
+      </concept>
     </comorbidity>
   </contraindication>
 </ClinicalUseIssue>

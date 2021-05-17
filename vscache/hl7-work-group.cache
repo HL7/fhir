@@ -12,8 +12,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:c0772e7a-1d95-4d01-afa9-1025501bffa2",
-    "timestamp" : "2021-01-13T06:26:23.299Z",
+    "identifier" : "urn:uuid:c0d7c4a1-7d0c-4aaf-8066-46cbe1fde189",
+    "timestamp" : "2021-04-12T20:28:30.133Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -24,7 +24,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://hl7.org/fhir/hl7-work-group|4.5.0"
+      "valueString" : "http://hl7.org/fhir/hl7-work-group|4.6.0"
     }],
     "contains" : [{
       "extension" : [{

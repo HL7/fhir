@@ -14,9 +14,9 @@
       <display value="Timoptic 5mg/ml solution"/>
     </coding>
   </code>
-  <manufacturer>
+  <sponsor>
     <reference value="#org5" />
-  </manufacturer>
+  </sponsor>
     <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>
