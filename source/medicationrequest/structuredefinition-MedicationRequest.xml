@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="MedicationRequest"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called &quot;MedicationRequest&quot; rather than &quot;MedicationPrescription&quot; or &quot;MedicationOrder&quot; to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -1033,6 +1033,27 @@
       <mapping>
         <identity value="rim"/>
         <map value="Supply.text"/>
+      </mapping>
+    </element>
+    <element id="MedicationRequest.dispenseRequest.doseAdministrationAid">
+      <path value="MedicationRequest.dispenseRequest.doseAdministrationAid"/>
+      <short value="Type of adherence packaging to use for the dispense"/>
+      <definition value="Provides information about the type of adherence packaging to be supplied for the medication dispense."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationRequestDoseAdministrationAid"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-dose-aid"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Supply.administerableMedication.product.asContent.container.code"/>
       </mapping>
     </element>
     <element id="MedicationRequest.substitution">

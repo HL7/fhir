@@ -10,20 +10,21 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:625e8af1-8445-4d6a-baa3-c123401a725e",
-    "timestamp" : "2018-12-14T03:53:33.077Z",
+    "identifier" : "urn:uuid:ed5662f4-ec07-4ac3-9a2a-241165ec2e97",
+    "timestamp" : "2021-04-12T20:06:04.024Z",
     "parameter" : [{
       "name" : "limitedExpansion",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "includeDesignations",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "excludeNested",
-      "valueString" : "-1"
+      "valueBoolean" : true
     }],
     "contains" : [{
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
@@ -392,96 +393,6 @@ e: {
     }]
   }
 },
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:oid:1.2.36.1.2001.1005.17",
-  "code" : "FLUVAX"
-}, "valueSet" :null}####
-v: {
-  "display" : "Fluvax",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:oid:1.2.36.1.2001.1005.17",
-  "code" : "GNFLU"
-}, "valueSet" :null}####
-v: {
-  "display" : "Influenza",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:oid:1.2.36.1.2001.1005.17",
-  "code" : "GNHEP"
-}, "valueSet" :null}####
-v: {
-  "display" : "Hepatitis B",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:oid:1.2.36.1.2001.1005.17",
-  "code" : "FLUVAX"
-}, "valueSet" :null, "lang":"null"}####
-v: {
-  "display" : "Fluvax",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:oid:1.2.36.1.2001.1005.17",
-  "code" : "GNFLU"
-}, "valueSet" :null, "lang":"null"}####
-v: {
-  "display" : "Influenza",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:oid:1.2.36.1.2001.1005.17",
-  "code" : "GNHEP"
-}, "valueSet" :null, "lang":"null"}####
-v: {
-  "display" : "Hepatitis B",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:oid:1.2.36.1.2001.1005.17",
-  "code" : "FLUVAX"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
-v: {
-  "display" : "Fluvax",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:oid:1.2.36.1.2001.1005.17",
-  "code" : "GNFLU"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
-v: {
-  "display" : "Influenza",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:oid:1.2.36.1.2001.1005.17",
-  "code" : "GNHEP"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
-v: {
-  "display" : "Hepatitis B",
-  "severity" : null,
   "error" : ""
 }
 -------------------------------------------------------------------------------------

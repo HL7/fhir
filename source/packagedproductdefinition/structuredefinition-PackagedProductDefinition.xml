@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="PackagedProductDefinition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A medically related item or items, in a container or package."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="idmp"/>
     <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
@@ -181,6 +181,21 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="PackagedProductDefinition.containedItemQuantity">
+      <path value="PackagedProductDefinition.containedItemQuantity"/>
+      <short value="A total of the amount of items in the package, per item type. This can be considered as the pack size. This attribite is repeatable so that the different item types in one pack type can be counted (e.g. a count of vials and count of syringes). Repeats are not to be used to represent differerent pack sizes (e.g. 20 pack vs 50 pack) - which would be different resource instances. This attribute differs from  containedItem.amount in that it can give a single count of all tablet types in a pack, even when these are different manufactured items"/>
+      <definition value="A total of the amount of items in the package, per item type. This can be considered as the pack size. This attribite is repeatable so that the different item types in one pack type can be counted (e.g. a count of vials and count of syringes). Repeats are not to be used to represent differerent pack sizes (e.g. 20 pack vs 50 pack) - which would be different resource instances. This attribute differs from  containedItem.amount in that it can give a single count of all tablet types in a pack, even when these are different manufactured items."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="PackagedProductDefinition.description">
       <path value="PackagedProductDefinition.description"/>
       <short value="Textual description. Note that this is not the name of the package or product"/>
@@ -288,9 +303,25 @@
         <map value="Packaged Medicinal Product.Manufacturer / Establishment (Organisation)"/>
       </mapping>
     </element>
+    <element id="PackagedProductDefinition.attachedDocument">
+      <path value="PackagedProductDefinition.attachedDocument"/>
+      <short value="Additional information or supporting documentation about the packaged product"/>
+      <definition value="Additional information or supporting documentation about the packaged product."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="PackagedProductDefinition.package">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="403,30"/>
+        <valueCode value="403,50"/> <!-- down 20 -->
       </extension>
       <path value="PackagedProductDefinition.package"/>
       <short value="A packaging item, as a container for medically related items, possibly with other packaging items within, or a packaging component, such as bottle cap (which is not a device or a medication manufactured item)"/>
@@ -414,7 +445,7 @@
     </element>
     <element id="PackagedProductDefinition.package.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="250,250"/>
+        <valueCode value="250,270"/> <!-- down 20 -->
       </extension>
       <path value="PackagedProductDefinition.package.property"/>
       <short value="General characteristics of this item"/>
@@ -474,7 +505,7 @@
     </element>
     <element id="PackagedProductDefinition.package.containedItem">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="560,250"/>
+        <valueCode value="560,270"/> <!-- down 20 -->
       </extension>
       <path value="PackagedProductDefinition.package.containedItem"/>
       <short value="The item(s) within the packaging"/>

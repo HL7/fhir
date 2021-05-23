@@ -15,9 +15,9 @@
     </coding>
   </code>
 <status value="active"/>
-  <manufacturer>
+  <sponsor>
     <reference value="#org4" />
-  </manufacturer>
+  </sponsor>
   <doseForm>
     <coding>
       <system value="http://snomed.info/sct"/>

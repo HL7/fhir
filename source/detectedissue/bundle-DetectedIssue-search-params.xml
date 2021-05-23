@@ -122,4 +122,18 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DetectedIssue.status"/>
+        </extension>
+        <description value="The status of the issue"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="DetectedIssue.status"/>
+        <xpath value="f:DetectedIssue/f:status"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

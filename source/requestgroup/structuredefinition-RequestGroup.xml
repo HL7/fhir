@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/RequestGroup"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="RequestGroup"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A group of related requests that can be used to capture intended activities that have inter-dependencies such as &quot;give this medication after that one&quot;."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -287,6 +287,13 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RequestCode"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-code"/>
+      </binding>
       <mapping>
         <identity value="workflow"/>
         <map value="Request.code"/>
@@ -391,6 +398,13 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ActionReasonCode"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-reason-code"/>
+      </binding>
       <mapping>
         <identity value="workflow"/>
         <map value="Request.reason"/>
@@ -508,6 +522,13 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ActionCode"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-code"/>
+      </binding>
       <mapping>
         <identity value="workflow"/>
         <map value="Request.code"/>
@@ -584,10 +605,10 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="RequestGroup.action.relatedAction.actionId">
-      <path value="RequestGroup.action.relatedAction.actionId"/>
+    <element id="RequestGroup.action.relatedAction.targetId">
+      <path value="RequestGroup.action.relatedAction.targetId"/>
       <short value="What action this is related to"/>
-      <definition value="The element id of the action this is related to."/>
+      <definition value="The element id of the target related action."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -629,6 +650,8 @@
       <path value="RequestGroup.action.timing[x]"/>
       <short value="When the action should take place"/>
       <definition value="An optional value describing when the action should be performed."/>
+      <comment value="The intent of the timing element is to provide timing for when the action should be performed. The timing may be absolute (specified as a dateTime or Period) or relative (specified as an Age, Duration, or Range), or it may be a more complex, potentially repeating timing specified using Timing."/>
+      <requirements value="Allows prompting for activities and detection of missed planned activities."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -654,19 +677,33 @@
         <map value="Request.occurrence[x]"/>
       </mapping>
     </element>
+    <element id="RequestGroup.action.location">
+      <path value="RequestGroup.action.location"/>
+      <short value="Where it should happen"/>
+      <definition value="Identifies the facility where the action will occur; e.g. home, hospital, specific clinic, etc."/>
+      <comment value="May reference a specific clinical location or may just identify a type of location."/>
+      <requirements value="Helps in planning of activity."/>
+      <alias value="facility"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=LOC].role"/>
+      </mapping>
+    </element>
     <element id="RequestGroup.action.participant">
       <path value="RequestGroup.action.participant"/>
       <short value="Who should perform the action"/>
       <definition value="The participant that should perform or be responsible for this action."/>
+      <comment value="Because request groups represent potential options for performing activities, some specific participants may still be unknown, so this element allows for both definitional participants (in the same way they are specified in ActivityDefinition and PlanDefinition resources) as well as identifying specific participants when they are known."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <code value="BackboneElement"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -675,6 +712,120 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.actor"/>
+      </mapping>
+    </element>
+    <element id="RequestGroup.action.participant.type">
+      <path value="RequestGroup.action.participant.type"/>
+      <short value="careteam | device | group | healthcareservice | location | organization | patient | practitioner | practitionerrole | relatedperson"/>
+      <definition value="The type of participant in the action."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ActivityParticipantType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The type of participant in the activity."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|4.6.0"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".role.classCode"/>
+      </mapping>
+    </element>
+    <element id="RequestGroup.action.participant.typeReference">
+      <path value="RequestGroup.action.participant.typeReference"/>
+      <short value="Who or what can participate"/>
+      <definition value="The type of participant in the action."/>
+      <comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".role.classCode"/>
+      </mapping>
+    </element>
+    <element id="RequestGroup.action.participant.role">
+      <path value="RequestGroup.action.participant.role"/>
+      <short value="E.g. Nurse, Surgeon, Parent, etc."/>
+      <definition value="The role the participant should play in performing the described action."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ActivityParticipantRole"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Defines roles played by participants for the action."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/action-participant-role"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".role.code"/>
+      </mapping>
+    </element>
+    <element id="RequestGroup.action.participant.function">
+      <path value="RequestGroup.action.participant.function"/>
+      <short value="E.g. Author, Reviewer, Witness, etc."/>
+      <definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ActionParticipantFunction"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-function"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".role.code"/>
+      </mapping>
+    </element>
+    <element id="RequestGroup.action.participant.actor">
+      <path value="RequestGroup.action.participant.actor"/>
+      <short value="Who/what is participating?"/>
+      <definition value="A reference to the actual participant."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".role.code"/>
       </mapping>
     </element>
     <element id="RequestGroup.action.type">

@@ -12,7 +12,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_content"/>
         <description value="Search on the entire content of the resource"/>
         <code value="_content"/>
-        <type value="string"/>
+        <type value="special"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -87,7 +87,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_query"/>
         <description value="A custom search profile that describes a specific defined query operation"/>
         <code value="_query"/>
-        <type value="token"/>
+        <type value="special"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

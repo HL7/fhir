@@ -30,7 +30,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="ValueSet"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -48,7 +48,7 @@
     </telecom>
   </contact>
   <description value="A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html)."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -104,7 +104,7 @@
     <element id="ValueSet.url">
       <path value="ValueSet.url"/>
       <short value="Canonical identifier for this value set, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this value set is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the value set is stored on different servers."/>
+      <definition value="An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this value set is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the value set is stored on different servers."/>
       <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the value set to be referenced by a single globally unique identifier."/>
       <min value="0"/>
@@ -205,7 +205,7 @@
       <path value="ValueSet.status"/>
       <short value="draft | active | retired | unknown"/>
       <definition value="The status of this value set. Enables tracking the life-cycle of the content. The status of the value set applies to the value set definition (ValueSet.compose) and the associated ValueSet metadata. Expansions do not have a state."/>
-      <comment value="Allows filtering of value sets that are appropriate for use versus not.See also the [valueset-workflowStatus](extension-valueset-workflowstatus.html) extension for additional status information related to the editorial process."/>
+      <comment value="Allows filtering of value sets that are appropriate for use versus not.See also the [valueset-workflowStatusDescription](extension-valueset-workflowstatusdescription.html) extension for additional status information related to the editorial process."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -223,7 +223,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.5.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -284,7 +284,7 @@
       <path value="ValueSet.publisher"/>
       <short value="Name of the publisher (organization or individual)"/>
       <definition value="The name of the organization or individual that published the value set."/>
-      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the value set is the organization or individual primarily responsible for the maintenance and upkeep of the value set. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the value set. This item SHOULD be populated unless the information is available from context."/>
+      <comment value="Usually an organization but may be an individual. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the value set. This item SHOULD be populated unless the information is available from context."/>
       <requirements value="Helps establish the &quot;authority/credibility&quot; of the value set.  May also allow for contact."/>
       <min value="0"/>
       <max value="1"/>
@@ -321,9 +321,7 @@
       <path value="ValueSet.description"/>
       <short value="Natural language description of the value set"/>
       <definition value="A free text natural language description of the value set from a consumer&#39;s perspective. The textual description specifies the span of meanings for concepts to be included within the Value Set Expansion, and also may specify the intended use and limitations of the Value Set."/>
-      <comment value="This description can be used to capture details such as why the value set was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the value set as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the value set is presumed to be the predominant language in the place the value set was created).The description is not intended to describe the semantics of the Value Set - there are no intrinsic semantics separate from the codes contained in its expansion. The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes. A description should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a description."/>
-      <alias value="Scope"/>
-      <alias value="Purpose"/>
+      <comment value="This description can be used to capture details such as why the value set was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the value set as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the value set is presumed to be the predominant language in the place the value set was created). The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes. A description should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a description."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -424,7 +422,7 @@
       <path value="ValueSet.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set."/>
-      <comment value="nullFrequently, the copyright differs between the value set and the codes that are included. The copyright statement should clearly differentiate between these when required."/>
+      <comment value="Frequently, the copyright differs between the value set and the codes that are included. The copyright statement should clearly differentiate between these when required."/>
       <requirements value="Consumers must be able to determine any legal restrictions on the use of the value set and/or its content."/>
       <alias value="License"/>
       <alias value="Restrictions"/>
@@ -731,7 +729,7 @@
     </element>
     <element id="ValueSet.compose.include.filter.op">
       <path value="ValueSet.compose.include.filter.op"/>
-      <short value="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists"/>
+      <short value="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | child-of | descendent-leaf | exists"/>
       <definition value="The kind of operation to perform as a part of the filter criteria."/>
       <comment value="In case filter.property represents a property of the system, the operation applies to the selected property. In case filter.property represents a filter of the system, the operation SHALL match one of the CodeSystem.filter.operator values."/>
       <min value="1"/>
@@ -746,7 +744,7 @@
         </extension>
         <strength value="required"/>
         <description value="The kind of operation to perform as a part of a property based filter."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/filter-operator|4.5.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/filter-operator|4.6.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -775,7 +773,7 @@
     <element id="ValueSet.compose.include.valueSet">
       <path value="ValueSet.compose.include.valueSet"/>
       <short value="Select the contents included in this value set"/>
-      <definition value="Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets."/>
+      <definition value="Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the intersection of the contents of all of the referenced value sets."/>
       <comment value="The value set URI is either a logical reference to a defined value set such as a [SNOMED CT reference set](snomedct.html#implicit), or a direct reference to a value set definition using ValueSet.url. The reference might not refer to an actual FHIR ValueSet resource; in this case, whatever is referred to is an implicit definition of a value set that needs to be clear about how versions are resolved."/>
       <min value="0"/>
       <max value="*"/>
@@ -785,6 +783,20 @@
       </type>
       <condition value="vsd-1"/>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ValueSet.compose.include.copyright">
+      <path value="ValueSet.compose.include.copyright"/>
+      <short value="A copyright statement for the specific code system included in the value set"/>
+      <definition value="A copyright statement for the specific code system asserted by the containing ValueSet.compose.include element&#39;s system value (if the associated ValueSet.compose.include.version element is not present); or the code system and version combination (if the associated ValueSet.compose.include.version element is present)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
       <mapping>
         <identity value="rim"/>
         <map value="N/A"/>
@@ -1155,6 +1167,72 @@
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#ValueSet.expansion.contains"/>
+    </element>
+    <element id="ValueSet.scope">
+      <path value="ValueSet.scope"/>
+      <short value="Description of the semantic space the Value Set Expansion is intended to cover"/>
+      <definition value="Description of the semantic space the Value Set Expansion is intended to cover."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ValueSet.scope.focus">
+      <path value="ValueSet.scope.focus"/>
+      <short value="General focus of the Value Set as it relates to the intended semantic space"/>
+      <definition value="The general focus of the Value Set as it relates to the intended semantic space. This can be the information about clinical relevancy or the statement about the general focus of the Value Set, such as a description of types of messages, payment options, geographic locations, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ValueSet.scope.inclusionCriteria">
+      <path value="ValueSet.scope.inclusionCriteria"/>
+      <short value="Criteria describing which concepts or codes should be included and why"/>
+      <definition value="Criteria describing which concepts or codes should be included and why."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ValueSet.scope.exclusionCriteria">
+      <path value="ValueSet.scope.exclusionCriteria"/>
+      <short value="Criteria describing which concepts or codes should be excluded and why"/>
+      <definition value="Criteria describing which concepts or codes should be excluded and why."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ValueSet.scope.scope.modelContext">
+      <path value="ValueSet.scope.scope.modelContext"/>
+      <short value="A statement that describes how this Value Set is to be used in an artifact"/>
+      <definition value="A statement that describes how this Value Set is to be used in an artifact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
   </differential>
 </StructureDefinition>

@@ -64,14 +64,17 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
         </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+          <valueString value="J#20012"/>
+        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="CareTeam.name"/>
+          <valueString value="f:CareTeam/f:name | f:CareTeam/f:extension@url=&#39;[http://hl7.org/fhir/StructureDefinition/careteam-alias&#39;]/f:valueString"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/CareTeam-name"/>
         <description value="Name of the team, such as crisis assessment team"/>
         <code value="name"/>
         <type value="string"/>
-        <expression value="CareTeam.name"/>
+        <expression value="CareTeam.name | CareTeam.extension(&#39;http://hl7.org/fhir/StructureDefinition/careteam-alias&#39;)"/>
         <xpath value="f:CareTeam/f:name"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
