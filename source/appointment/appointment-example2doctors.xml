@@ -40,7 +40,9 @@
   </supportingInformation>
 	<start value="2013-12-09T09:00:00Z" />
 	<end value="2013-12-09T11:00:00Z" />
-	<comment value="Clarify the results of the MRI to ensure context of test was correct" />
+	<note>
+		<text value="Clarify the results of the MRI to ensure context of test was correct" />
+	</note>
 	<participant>
 		<actor>
 			<reference value="Patient/example" />

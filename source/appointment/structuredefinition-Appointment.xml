@@ -575,15 +575,15 @@
         <map value="CREATED"/>
       </mapping>
     </element>
-    <element id="Appointment.comment">
-      <path value="Appointment.comment"/>
+    <element id="Appointment.note">
+      <path value="Appointment.note"/>
       <short value="Additional comments"/>
-      <definition value="Additional comments about the appointment."/>
-      <comment value="Additional text to aid in facilitating the appointment. For instance, a comment might be, &quot;patient should proceed immediately to infusion room upon arrival&quot;&#xD;&#xD;Where this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it."/>
+      <definition value="Additional notes/comments about the appointment."/>
+      <comment value="Additional text to aid in facilitating the appointment. For instance, a note might be, &quot;patient should proceed immediately to infusion room upon arrival&quot;&#xD;&#xD;Where this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
-        <code value="string"/>
+        <code value="Annotation"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -605,7 +605,7 @@
     <element id="Appointment.patientInstruction">
       <path value="Appointment.patientInstruction"/>
       <short value="Detailed information and instructions for the patient"/>
-      <definition value="While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before)."/>
+      <definition value="While Appointment.note contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
