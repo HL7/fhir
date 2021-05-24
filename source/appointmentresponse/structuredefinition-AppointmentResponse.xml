@@ -94,7 +94,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="Appointment[@moodCode &amp;lt;= &#39;PRMS&#39;]"/>
+        <map value="Act[@moodCode &amp;lt;= &#39;PRMS&#39;]"/>
       </mapping>
       <mapping>
         <identity value="ical"/>
