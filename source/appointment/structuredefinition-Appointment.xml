@@ -651,6 +651,56 @@
         <map value=".outboundRelationship[@typeCode = &#39;FLFS&#39;].act[@classCode &lt; &#39;ActCareProvisionRequestType&#39;][@moodCode = &#39;RQO&#39;]"/>
       </mapping>
     </element>
+    <element id="Appointment.subject">
+      <path value="Appointment.subject"/>
+      <short value="The patient or group associated with the appointment"/>
+      <definition value="The patient or group associated with the appointment, if they are to be present (usually) then they should also be included in the participant backbone element."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.who"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-3-Patient ID List | AIL-3 | AIG-3 | AIP-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="subject.patient"/>
+      </mapping>
+    </element>
+    <element id="Appointment.participant.actor">
+      <path value="Appointment.participant.actor"/>
+      <short value="Person, Location/HealthcareService or Device"/>
+      <definition value="A Person, Location/HealthcareService or Device that is participating in the appointment."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.who"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-3-Patient ID List"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="subject.patient"/>
+      </mapping>
+    </element>
     <element id="Appointment.participant">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
@@ -720,6 +770,20 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="Appointment.participant.period">
+      <path value="Appointment.participant.period"/>
+      <short value="Participation period of the actor"/>
+      <definition value="Participation period of the actor."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="Appointment.participant.actor">
       <path value="Appointment.participant.actor"/>
       <short value="Person, Location/HealthcareService or Device"/>
@@ -729,6 +793,7 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
@@ -756,22 +821,15 @@
     </element>
     <element id="Appointment.participant.required">
       <path value="Appointment.participant.required"/>
-      <short value="required | optional | information-only"/>
-      <definition value="Whether this participant is required to be present at the meeting. This covers a use-case where two doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present."/>
+      <short value="required"/>
+      <definition value="Whether this participant is required to be present at the meeting. If false, the participant is optional."/>
+      <comment value="For the use-case where two doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present include the patient in the subject field, but do not include them as a participant - this was formerly done prior to R5 with required='information-only'."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="boolean"/>
       </type>
       <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ParticipantRequired"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Is the Participant required to attend the appointment."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/participantrequired"/>
-      </binding>
       <mapping>
         <identity value="rim"/>
         <map value="(performer | reusableDevice | subject | location).@performInd"/>
@@ -810,20 +868,6 @@
       <mapping>
         <identity value="ical"/>
         <map value="ATTENDEE;CN=&quot;John Doe&quot;;RSVP=TRUE:mailto:john@doe.com (rsvpparam | partstatparam)"/>
-      </mapping>
-    </element>
-    <element id="Appointment.participant.period">
-      <path value="Appointment.participant.period"/>
-      <short value="Participation period of the actor"/>
-      <definition value="Participation period of the actor."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
       </mapping>
     </element>
     <element id="Appointment.requestedPeriod">

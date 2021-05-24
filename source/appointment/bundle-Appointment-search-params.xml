@@ -156,7 +156,27 @@
         <description value="One of the individuals of the appointment is this patient"/>
         <code value="patient"/>
         <type value="reference"/>
-        <expression value="Appointment.participant.actor.where(resolve() is Patient)"/>
+        <expression value="Appointment.participant.actor.where(resolve() is Patient) | Appointment.subject.where(resolve() is Patient)"/>
+        <xpath value="f:Appointment/f:participant/f:actor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Appointment-group"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Appointment.participant.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Appointment-group"/>
+        <description value="One of the individuals of the appointment is this patient"/>
+        <code value="group"/>
+        <type value="reference"/>
+        <expression value="Appointment.participant.actor.where(resolve() is Group) | Appointment.subject.where(resolve() is Group)"/>
         <xpath value="f:Appointment/f:participant/f:actor"/>
         <xpathUsage value="normal"/>
       </SearchParameter>

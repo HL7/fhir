@@ -237,13 +237,14 @@
     </element>
     <element id="AppointmentResponse.actor">
       <path value="AppointmentResponse.actor"/>
-      <short value="Person, Location, HealthcareService, or Device"/>
+      <short value="Person(s), Location, HealthcareService, or Device"/>
       <definition value="A Person, Location, HealthcareService, or Device that is participating in the appointment."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
