@@ -579,7 +579,7 @@
       <path value="Appointment.note"/>
       <short value="Additional comments"/>
       <definition value="Additional notes/comments about the appointment."/>
-      <comment value="Additional text to aid in facilitating the appointment. For instance, a note might be, &quot;patient should proceed immediately to infusion room upon arrival&quot;&#xD;&#xD;Where this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it."/>
+      <comment value="Additional text to aid in facilitating the appointment. For instance, a note might be, &quot;patient should proceed immediately to infusion room upon arrival&quot;&#xD;&#xD;Where this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it.&#xD;&#xD;Typically only the concept.text will be used, however occasionally a reference to some generic documentation (or specific) and also supports coded instructions if/when they are required."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -607,9 +607,12 @@
       <short value="Detailed information and instructions for the patient"/>
       <definition value="While Appointment.note contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
-        <code value="string"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Binary"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Communication"/>
       </type>
       <mapping>
         <identity value="v2"/>

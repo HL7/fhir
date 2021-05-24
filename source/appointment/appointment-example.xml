@@ -47,6 +47,11 @@
 	<note>
 		<text value="Further expand on the results of the MRI and determine the next actions that may be appropriate." />
 	</note>
+	<patientInstruction>
+		<concept>
+			<text value="Please avoid excessive travel (specifically flying) before this appointment"/>
+		</concept>
+	</patientInstruction>
 	<basedOn>
 		<reference value="ServiceRequest/myringotomy"/>
 	</basedOn>
