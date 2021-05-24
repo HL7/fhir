@@ -669,31 +669,6 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PID-3-Patient ID List | AIL-3 | AIG-3 | AIP-3"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="subject.patient"/>
-      </mapping>
-    </element>
-    <element id="Appointment.participant.actor">
-      <path value="Appointment.participant.actor"/>
-      <short value="Person, Location/HealthcareService or Device"/>
-      <definition value="A Person, Location/HealthcareService or Device that is participating in the appointment."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.who"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
         <map value="PID-3-Patient ID List"/>
       </mapping>
       <mapping>
