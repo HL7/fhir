@@ -80,6 +80,14 @@
       <definition value="A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s)."/>
       <min value="0"/>
       <max value="*"/>
+			<constraint>
+				<key value="app-5"/>
+				<severity value="error"/>
+				<human value="The start must be less than or equal to the end"/>
+        <expression value="start.exists() implies start &lt;= end"/>
+        <xpath value="f:start &lt;= f:end or not(start.exists() and end.exists())"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+			</constraint>
       <constraint>
         <key value="app-4"/>
         <severity value="error"/>
