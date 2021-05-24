@@ -76,7 +76,7 @@
         <description value="Appointment date/time."/>
         <code value="date"/>
         <type value="date"/>
-        <expression value="Appointment.start"/>
+        <expression value="(start | requestedPeriod.start).first()"/>
         <xpath value="f:Appointment/f:start"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
