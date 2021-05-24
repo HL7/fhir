@@ -265,6 +265,10 @@
         <map value="Request.code"/>
       </mapping>
       <mapping>
+        <identity value="v2"/>
+        <map value="ARQ-8, SCH-8"/>
+      </mapping>
+      <mapping>
         <identity value="rim"/>
         <map value="n/a, might be inferred from the ServiceDeliveryLocation"/>
       </mapping>
@@ -314,7 +318,7 @@
       </binding>
       <mapping>
         <identity value="v2"/>
-        <map value="ARQ-7"/>
+        <map value="ARQ-7, SCH-7"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -353,7 +357,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="AIS-3, SCH-7"/>
+        <map value="AIS-3"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
