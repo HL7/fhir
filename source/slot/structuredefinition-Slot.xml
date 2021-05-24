@@ -168,7 +168,7 @@
     <element id="Slot.appointmentType">
       <path value="Slot.appointmentType"/>
       <short value="The style of appointment or patient that may be booked in the slot (not service type)"/>
-      <definition value="The style of appointment or patient that may be booked in the slot (not service type). "/>
+      <definition value="The style of appointment or patient that may be booked in the slot (not service type)."/>
       <comment value="A slot may be allow multiple appointment types, but when booked, would only be used for one of the given appointment types."/>
       <min value="0"/>
       <max value="*"/>

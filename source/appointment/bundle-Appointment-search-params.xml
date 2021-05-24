@@ -145,6 +145,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Appointment-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Appointment.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Appointment-subject"/>
+        <description value="One of the individuals of the appointment is this patient"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="Appointment.subject"/>
+        <xpath value="f:Appointment/f:participant/f:actor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Appointment-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

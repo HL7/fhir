@@ -806,7 +806,7 @@
     </element>
     <element id="Appointment.participant.required">
       <path value="Appointment.participant.required"/>
-      <short value="required"/>
+      <short value="The participant is required to attend (optional when false)"/>
       <definition value="Whether this participant is required to be present at the meeting. If false, the participant is optional."/>
       <comment value="For the use-case where two doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present include the patient in the subject field, but do not include them as a participant - this was formerly done prior to R5 with required='information-only'."/>
       <min value="0"/>
