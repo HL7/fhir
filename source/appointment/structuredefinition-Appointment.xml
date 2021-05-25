@@ -91,8 +91,8 @@
       <constraint>
         <key value="app-4"/>
         <severity value="error"/>
-        <human value="Cancelation reason is only used for appointments that have been cancelled, or no-show"/>
-        <expression value="cancelationReason.exists() implies (status=&#39;no-show&#39; or status=&#39;cancelled&#39;)"/>
+        <human value="Cancellation reason is only used for appointments that have been cancelled, or no-show"/>
+        <expression value="cancellationReason.exists() implies (status=&#39;no-show&#39; or status=&#39;cancelled&#39;)"/>
         <xpath value="not(exists(f:cancellationReason)) or f:status/@value=(&#39;no-show&#39;, &#39;cancelled&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </constraint>
@@ -202,8 +202,8 @@
         <map value="STATUS"/>
       </mapping>
     </element>
-    <element id="Appointment.cancelationReason">
-      <path value="Appointment.cancelationReason"/>
+    <element id="Appointment.cancellationReason">
+      <path value="Appointment.cancellationReason"/>
       <short value="The coded reason for the appointment being cancelled"/>
       <definition value="The coded reason for the appointment being cancelled. This is often used in reporting/billing/futher processing to determine if further actions are required, or specific fees apply."/>
       <min value="0"/>
@@ -214,7 +214,7 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="cancelation-reason"/>
+          <valueString value="cancellation-reason"/>
         </extension>
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/appointment-cancellation-reason"/>
