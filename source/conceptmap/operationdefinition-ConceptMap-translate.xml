@@ -34,7 +34,7 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/ConceptMap-translate"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="translate"/>
   <title value="Concept Translation"/>
   <status value="draft"/>
@@ -107,11 +107,11 @@
     <type value="string"/>
   </parameter>
   <parameter>
-    <name value="source"/>
+    <name value="sourceScope"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Identifies the value set used when the concept (system/code pair) was chosen. May be a logical id, or an absolute or relative location. The source value set is an optional parameter because in some cases, the client cannot know what the source value set is. However, without a source value set, the server may be unable to safely identify an applicable concept map, and would return an error. For this reason, a source value set SHOULD always be provided. Note that servers may be able to identify an appropriate concept map without a source value set if there is a full mapping for the entire code system in the concept map, or by manual intervention"/>
+    <documentation value="Limits the scope of the $translate operation to source codes (ConceptMap.group.element.code) that are members of this value set."/>
     <type value="uri"/>
   </parameter>
   <parameter>
@@ -131,15 +131,15 @@
     <type value="CodeableConcept"/>
   </parameter>
   <parameter>
-    <name value="target"/>
+    <name value="targetScope"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Identifies the value set in which a translation is sought. May be a logical id, or an absolute or relative location. If there&#39;s no target specified, the server should return all known translations, along with their source"/>
+    <documentation value="Limits the scope of the $translate operation to target codes (ConceptMap.group.element.target.code) that are members of this value set."/>
     <type value="uri"/>
   </parameter>
   <parameter>
-    <name value="targetsystem"/>
+    <name value="targetSystem"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
@@ -174,7 +174,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="if this is true, then the operation should return all the codes that might be mapped to this code. This parameter reverses the meaning of the source and target parameters"/>
+    <documentation value="If true, then the operation should return all the codes that are mapped to the 'code'/'coding'/'codeableConcept' input parameter. In this case:&#xA;&#xA;The input code or coding(s) must belong to the target{{Scope}} ValueSet (rather than the source{{Scope}} ValueSet)&#xA;&#xA;Any provided dependency parameters are matched against ConceptMap.group.element.target.product (rather than ConceptMap.group.element.target.dependsOn)"/>
     <type value="boolean"/>
   </parameter>
   <parameter>
@@ -222,24 +222,61 @@
       <max value="*"/>
       <documentation value="Another element that is the product of this mapping"/>
       <part>
-        <name value="element"/>
+        <name value="property"/>
         <use value="out"/>
-        <min value="0"/>
+        <min value="1"/>
         <max value="1"/>
         <documentation value="The element for this product"/>
         <type value="uri"/>
       </part>
       <part>
-        <name value="concept"/>
+        <name value="value"/>
         <use value="out"/>
-        <min value="0"/>
+        <min value="1"/>
         <max value="1"/>
         <documentation value="The value for this product"/>
-        <type value="Coding"/>
+        <type value="code"/>
+		<type value="Coding"/>
+		<type value="string"/>
+		<type value="integer"/>
+		<type value="boolean"/>
+		<type value="dateTime"/>
+		<type value="decimal"/>
+		<type value="uri"/>
+      </part>
+    </part>
+	<part>
+      <name value="dependsOn"/>
+      <use value="out"/>
+      <min value="0"/>
+      <max value="*"/>
+      <documentation value="An element that this mapping depends on"/>
+      <part>
+        <name value="property"/>
+        <use value="out"/>
+        <min value="1"/>
+        <max value="1"/>
+        <documentation value="The element for this product"/>
+        <type value="uri"/>
+      </part>
+      <part>
+        <name value="value"/>
+        <use value="out"/>
+        <min value="1"/>
+        <max value="1"/>
+        <documentation value="The value for this product"/>
+        <type value="code"/>
+		<type value="Coding"/>
+		<type value="string"/>
+		<type value="integer"/>
+		<type value="boolean"/>
+		<type value="dateTime"/>
+		<type value="decimal"/>
+		<type value="uri"/>
       </part>
     </part>
     <part>
-      <name value="source"/>
+      <name value="originalMap"/>
       <use value="out"/>
       <min value="0"/>
       <max value="1"/>

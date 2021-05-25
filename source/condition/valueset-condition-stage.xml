@@ -13,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.170"/>
   </identifier>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="ConditionStage"/>
   <title value="Condition Stage"/>
   <status value="draft"/>
@@ -34,6 +34,98 @@
         <op value="is-a"/>
         <value value="385356007"/>
       </filter>
+    </include>
+	<include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="431855005"/>
+      </filter>
+    </include>
+	<include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="431856006"/>
+      </filter>
+    </include>
+	<include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="433144002"/>
+      </filter>
+    </include>
+	<include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="431857002"/>
+      </filter>
+    </include>
+	<include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="433146000"/>
+      </filter>
+    </include>
+		<include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="408847006"/>
+      </filter>
+    </include>
+		<include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="408848001"/>
+      </filter>
+    </include>
+		<include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="408849009"/>
+      </filter>
+    </include>
+		<include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="408850009"/>
+      </filter>
+    </include>
+		<include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="408851008"/>
+      </filter>
+    </include>
+	<include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="416780008"/>
+      </concept>
+    </include>
+	<include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="715345007"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

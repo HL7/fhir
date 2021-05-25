@@ -187,6 +187,38 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
           <td/>
         
         </tr>
+		
+		<tr>
+          
+          <td style="white-space:nowrap">child-of
+            
+            <a name="filter-operator-child-of"> </a>
+          
+          </td>
+          
+          <td>Child Of</td>
+          
+          <td>Only concepts with a direct hierarchical relationship to the index code and no other concepts. This does not include the index code in the output.</td>
+          
+          <td/>
+        
+        </tr>
+		
+		<tr>
+          
+          <td style="white-space:nowrap">descendent-leaf
+            
+            <a name="filter-operator-descendent-leaf"> </a>
+          
+          </td>
+          
+          <td>Descendent Leaf</td>
+          
+          <td>Includes concept ids that have a transitive is-a relationship with the concept Id provided as the value, but which do not have any concept ids with transitive is-a relationships with themselves.</td>
+          
+          <td/>
+        
+        </tr>
       
       </table>
     
@@ -209,7 +241,7 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.479"/>
   </identifier>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="FilterOperator"/>
   <title value="FilterOperator"/>
   <status value="active"/>
@@ -278,6 +310,16 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
     <code value="generalizes"/>
     <display value="Generalizes (by Subsumption)"/>
     <definition value="Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (i.e. include ancestor codes and self)."/>
+  </concept>
+  <concept>
+    <code value="child-of"/>
+	<display value="Child Of"/>
+	<definition value="Only concepts with a direct hierarchical relationship to the index code and no other concepts. This does not include the index code in the output."/>
+  </concept>
+  <concept>
+    <code value="descendent-leaf"/>
+	<display value="Descendent Leaf"/>
+	<definition value="Includes concept ids that have a transitive is-a relationship with the concept Id provided as the value, but which do not have any concept ids with transitive is-a relationships with themselves."/>
   </concept>
   <concept>
     <code value="exists"/>

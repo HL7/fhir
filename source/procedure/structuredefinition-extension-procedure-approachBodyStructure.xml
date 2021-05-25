@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/procedure-approachBodyStructure"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="approachBodyStructure"/>
   <title value="approachBodyStructure"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="The approach body site used for this procedure.  Multiple locations are allowed."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -44,7 +44,7 @@
   </context>
   <context>
     <type value="element"/>
-    <expression value="DeviceUseStatement"/>
+    <expression value="DeviceUsage"/>
   </context>
   <type value="Extension"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>

@@ -54,6 +54,18 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="RESTful create with TraceID"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="audit-event-example-create-traceID"/>
+    </extension>
+    <item>
+      <reference value="AuditEvent/example-rest-create-traceID"/>
+      <display value="RESTful create"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Accounting of a Disclosure"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">

@@ -12,8 +12,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:58deccac-917f-4dc4-aa2c-95130d6be771",
-    "timestamp" : "2021-01-13T06:26:34.502Z",
+    "identifier" : "urn:uuid:e40b9651-6126-4d14-bcdd-884b50e89490",
+    "timestamp" : "2021-04-12T20:30:38.070Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -24,7 +24,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://hl7.org/fhir/codesystem-properties-mode|4.5.0"
+      "valueString" : "http://hl7.org/fhir/codesystem-properties-mode|4.6.0"
     }],
     "contains" : [{
       "extension" : [{

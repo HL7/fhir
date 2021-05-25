@@ -49,25 +49,172 @@
         
         </tr>
         
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">default
-            
-            
-            <a name="cited-artifact-status-type-default"> </a>
-          
-          
+                <tr>
+
+          <td style="white-space:nowrap">submitted
+
+            <a name="cited-artifact-status-type-submitted"> </a>
+
           </td>
-          
-          
-          <td>Default</td>
-          
-          
-          <td>Default</td>
-        
-        
+
+          <td>Submitted</td>
+
+          <td>Submitted</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">pre-review
+
+            <a name="cited-artifact-status-type-pre-review"> </a>
+
+          </td>
+
+          <td>Pre review</td>
+
+          <td>Pre review</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">under-review
+
+            <a name="cited-artifact-status-type-under-review"> </a>
+
+          </td>
+
+          <td>Under review</td>
+
+          <td>Under review</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">post-review-pre-published
+
+            <a name="cited-artifact-status-type-post-review-pre-published"> </a>
+
+          </td>
+
+          <td>Post review pre published</td>
+
+          <td>Post review pre published</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">published-early-form
+
+            <a name="cited-artifact-status-type-published-early-form"> </a>
+
+          </td>
+
+          <td>Published early form</td>
+
+          <td>Published early form</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">published-final-form
+
+            <a name="cited-artifact-status-type-published-final-form"> </a>
+
+          </td>
+
+          <td>Published final form</td>
+
+          <td>Published final form</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">rejected
+
+            <a name="cited-artifact-status-type-rejected"> </a>
+
+          </td>
+
+          <td>Rejected</td>
+
+          <td>Rejected</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">withdrawn
+
+            <a name="cited-artifact-status-type-withdrawn"> </a>
+
+          </td>
+
+          <td>Withdrawn</td>
+
+          <td>Withdrawn</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">retracted
+
+            <a name="cited-artifact-status-type-retracted"> </a>
+
+          </td>
+
+          <td>Retracted</td>
+
+          <td>Retracted</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">draft
+
+            <a name="cited-artifact-status-type-draft"> </a>
+
+          </td>
+
+          <td>Draft</td>
+
+          <td>Draft</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">active
+
+            <a name="cited-artifact-status-type-active"> </a>
+
+          </td>
+
+          <td>Active</td>
+
+          <td>Active</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">archived
+
+            <a name="cited-artifact-status-type-archived"> </a>
+
+          </td>
+
+          <td>Archived</td>
+
+          <td>Archived</td>
+
         </tr>
       
       
@@ -90,7 +237,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="CitedArtifactStatusType"/>
   <title value="CitedArtifactStatusType"/>
   <status value="draft"/>
@@ -110,10 +257,64 @@
   <description value="Cited Artifact Status Type"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-status-type"/>
-  <content value="complete"/>
+  <content value="complete"/>  <concept>
+    <code value="submitted"/>
+    <display value="Submitted"/>
+    <definition value="Submitted"/>
+  </concept>
   <concept>
-    <code value="default"/>
-    <display value="Default"/>
-    <definition value="Default"/>
+    <code value="pre-review"/>
+    <display value="Pre review"/>
+    <definition value="Pre review"/>
+  </concept>
+  <concept>
+    <code value="under-review"/>
+    <display value="Under review"/>
+    <definition value="Under review"/>
+  </concept>
+  <concept>
+    <code value="post-review-pre-published"/>
+    <display value="Post review pre published"/>
+    <definition value="Post review pre published"/>
+  </concept>
+  <concept>
+    <code value="published-early-form"/>
+    <display value="Published early form"/>
+    <definition value="Published early form"/>
+  </concept>
+  <concept>
+    <code value="published-final-form"/>
+    <display value="Published final form"/>
+    <definition value="Published final form"/>
+  </concept>
+  <concept>
+    <code value="rejected"/>
+    <display value="Rejected"/>
+    <definition value="Rejected"/>
+  </concept>
+  <concept>
+    <code value="withdrawn"/>
+    <display value="Withdrawn"/>
+    <definition value="Withdrawn"/>
+  </concept>
+  <concept>
+    <code value="retracted"/>
+    <display value="Retracted"/>
+    <definition value="Retracted"/>
+  </concept>
+  <concept>
+    <code value="draft"/>
+    <display value="Draft"/>
+    <definition value="Draft"/>
+  </concept>
+  <concept>
+    <code value="active"/>
+    <display value="Active"/>
+    <definition value="Active"/>
+  </concept>
+  <concept>
+    <code value="archived"/>
+    <display value="Archived"/>
+    <definition value="Archived"/>
   </concept>
 </CodeSystem>

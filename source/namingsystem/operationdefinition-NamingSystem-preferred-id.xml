@@ -37,9 +37,9 @@
     <valueMarkdown value="Servers handle this request by finding the provided identifier in their known naming systems, and returning the requested identifier type ([NamingSystem.uniqueId.type](namingsystem-definitions.html#NamingSystem.uniqueId.type)). If there are multiple possible identifiers of the specified type (e.g. multiple OIDs) the server returns an error.    &#xA;&#xA;If the server wishes, it can also look through all code systems and value sets it knows about when attempting to find the requested identifier"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/NamingSystem-preferred-id"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="preferred-id"/>
-  <title value="Fetch Preferred it"/>
+  <title value="Fetch Preferred id"/>
   <status value="draft"/>
   <kind value="operation"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -67,7 +67,7 @@
     <use value="in"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="The server parses the provided id to see what type it is (mary a URI, an OID as a URI, a plain OID, or a v2 table 0396 code). If the server can&#39;t tell what type of identifier it is, it can try it as multiple types. It is an error if more than one system matches the provided identifier"/>
+    <documentation value="The server parses the provided identifier to see what type it is (e.g. a URI, an OID as a URI, a plain OID, or a v2 table 0396 code). If the server can&#39;t tell what type of identifier it is, it can try it as multiple types. It is an error if more than one system matches the provided identifier"/>
     <type value="string"/>
   </parameter>
   <parameter>
@@ -84,7 +84,7 @@
         <valueString value="Identifies the style of unique identifier used to identify a namespace."/>
       </extension>
       <strength value="required"/>
-      <valueSet value="http://hl7.org/fhir/ValueSet/namingsystem-identifier-type|4.5.0"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/namingsystem-identifier-type|4.6.0"/>
     </binding>
   </parameter>
   <parameter>
