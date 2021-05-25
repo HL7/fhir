@@ -550,7 +550,7 @@
     </element>
     <element id="ChargeItemDefinition.code">
       <path value="ChargeItemDefinition.code"/>
-      <short value="Billing codes or product types this definition applies to"/>
+      <short value="Billing code or product type this definition applies to"/>
       <definition value="The defined billing details in this resource pertain to the given billing code."/>
       <min value="0"/>
       <max value="1"/>

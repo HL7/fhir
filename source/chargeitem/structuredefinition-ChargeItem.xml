@@ -725,20 +725,17 @@
         <map value=".outboundRelationship[typeCode=RSON].target"/>
       </mapping>
     </element>
-    <element id="ChargeItem.product[x]">
-      <path value="ChargeItem.product[x]"/>
+    <element id="ChargeItem.product">
+      <path value="ChargeItem.product"/>
       <short value="Product charged"/>
       <definition value="Identifies the device, food, drug or other product being charged either by type code or reference to an instance."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
-      </type>
-      <type>
-        <code value="CodeableConcept"/>
       </type>
       <isSummary value="false"/>
       <binding>
