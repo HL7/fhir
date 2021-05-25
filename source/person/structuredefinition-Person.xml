@@ -248,7 +248,7 @@
       <short value="Image of the person"/>
       <definition value="An image that can be displayed as a thumbnail of the person to enhance the identification of the individual."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Attachment"/>
       </type>
