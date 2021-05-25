@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="catalog-content-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/catalog-content-status"/>
+  <version value="4.6.0"/>
+  <name value="CatalogContentStatus"/>
+  <concept>
+    <code value="approved"/>
+    <display value="Approved"/>
+    <definition value="The catalog is approved."/>
+  </concept>
+  <concept>
+    <code value="pending"/>
+    <display value="Pending"/>
+    <definition value="The catalog content is pending some action e.g. confirmation or approval."/>
+  </concept>
+  <concept>
+    <code value="discontinued"/>
+    <display value="Discontinued"/>
+    <definition value="The catalog is discontinued."/>
+  </concept>
+  <concept>
+    <code value="official"/>
+    <display value="Official"/>
+    <definition value="The catalog content is considered official."/>
+  </concept>
+</CodeSystem>

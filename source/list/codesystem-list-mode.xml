@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="list-mode"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/list-mode defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">working
+            
+            <a name="list-mode-working"> </a>
+          
+          </td>
+          
+          <td>Working List</td>
+          
+          <td>This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">snapshot
+            
+            <a name="list-mode-snapshot"> </a>
+          
+          </td>
+          
+          <td>Snapshot List</td>
+          
+          <td>This list was prepared as a snapshot. It should not be assumed to be current.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">changes
+            
+            <a name="list-mode-changes"> </a>
+          
+          </td>
+          
+          <td>Change List</td>
+          
+          <td>A point-in-time list that shows what changes have been made or recommended.  E.g. a discharge medication list showing what was added and removed during an encounter.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sd"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/list-mode"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.319"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ListMode"/>
+  <title value="ListMode"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The processing mode that applies to this list."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/list-mode"/>
+  <content value="complete"/>
+  <concept>
+    <code value="working"/>
+    <display value="Working List"/>
+    <definition value="This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes."/>
+  </concept>
+  <concept>
+    <code value="snapshot"/>
+    <display value="Snapshot List"/>
+    <definition value="This list was prepared as a snapshot. It should not be assumed to be current."/>
+  </concept>
+  <concept>
+    <code value="changes"/>
+    <display value="Change List"/>
+    <definition value="A point-in-time list that shows what changes have been made or recommended.  E.g. a discharge medication list showing what was added and removed during an encounter."/>
+  </concept>
+</CodeSystem>

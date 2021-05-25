@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+	<id value="choice-list-orientation"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="fhir"/>
+	</extension>
+	<url value="http://hl7.org/fhir/choice-list-orientation"/>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.1.934"/>
+	</identifier>
+	<version value="4.6.0"/>
+	<name value="ChoiceListOrientation"/>
+	<status value="active"/>
+	<caseSensitive value="true"/>
+	<content value="complete"/>
+	<concept>
+		<code value="horizontal"/>
+		<display value="Horizontal"/>
+		<definition value="List choices along the horizontal axis."/>
+	</concept>
+	<concept>
+		<code value="vertical"/>
+		<display value="Vertical"/>
+		<definition value="List choices down the vertical axis."/>
+	</concept>
+</CodeSystem>

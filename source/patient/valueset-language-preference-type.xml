@@ -1,30 +1,39 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-	<meta>
-		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-	</meta>
-	<name value="LanguagePreferenceType"/>
-	<status value="draft"/>
-	<publisher value="FHIR Project team"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<description value="This value set defines the set of codes for describing the type or mode of the patient's preferred language."/>
-	<compose>
-		<include>
-			<system value="http://hl7.org/fhir/language-preference-type"/>
-			<concept>
-				<code value="verbal"/>
-				<display value="verbal"/>
-			</concept>
-			<concept>
-				<code value="written"/>
-				<display value="written"/>
-			</concept>
-		</include>
-	</compose>
+  <id value="language-preference-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/language-preference-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1022"/>
+  </identifier>
+  <name value="LanguagePreferenceType"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set defines the set of codes for describing the type or mode of the patient&#39;s preferred language."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/language-preference-type"/>
+      <concept>
+        <code value="verbal"/>
+        <display value="verbal"/>
+      </concept>
+      <concept>
+        <code value="written"/>
+        <display value="written"/>
+      </concept>
+    </include>
+  </compose>
 </ValueSet>

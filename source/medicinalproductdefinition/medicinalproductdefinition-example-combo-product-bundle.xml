@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Bundle xmlns="http://hl7.org/fhir">
-	<id value="drug-combo-product-bundle"/>
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-all.xsd">
+		<id value="drug-combo-product-bundle"/>
 	<type value="collection"/>
 	<entry>
 		<fullUrl value="urn:uuid:e19deb42-7137-48b0-aef1-d37019d0316e"/>
@@ -180,14 +180,14 @@
 						<code value="Tablet and Cream for topical application"/>
 					</coding>
 				</combinedPharmaceuticalDoseForm>
-				<packagedMedicinalProduct>
-					<reference>
-					<reference value="PackagedProductDefinition/packageCombo"/>
-					</reference>
-				</packagedMedicinalProduct>
 				<name>
 					<productName value="ThrushTreat Combo"/>
 				</name>
+				<package>
+					<package>
+						<reference value="PackagedProductDefinition/packageCombo"/>
+					</package>
+				</package>
 			</MedicinalProductDefinition>
 		</resource>
 	</entry>

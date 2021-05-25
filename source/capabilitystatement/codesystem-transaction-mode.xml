@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="transaction-mode"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/transaction-mode"/>
+  <version value="4.6.0"/>
+  <name value="TransactionMode"/>
+  <concept>
+    <code value="not-supported"/>
+    <display value="None"/>
+    <definition value="Neither batch or transaction is supported."/>
+  </concept>
+  <concept>
+    <code value="batch"/>
+    <display value="Batches supported"/>
+    <definition value="Batches are  supported."/>
+  </concept>
+  <concept>
+    <code value="transaction"/>
+    <display value="Transactions Supported"/>
+    <definition value="Transactions are supported."/>
+  </concept>
+  <concept>
+    <code value="both"/>
+    <display value="Batches &amp; Transactions"/>
+    <definition value="Both batches and transactions are supported."/>
+  </concept>
+</CodeSystem>

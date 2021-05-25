@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="match-grade"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/match-grade"/>
+  <version value="4.6.0"/>
+  <name value="match-grade"/>
+  <title value="Matching Grade"/>
+  <status value="draft"/>
+  <date value="2015-03-11"/>
+  <publisher value="Health Level Seven, Inc. - FHIR Core WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/special/committees/FHIR"/>
+    </telecom>
+  </contact>
+  <description value="Assessment of resource match outcome - how likely this resource is to be a match."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="Bundle.entry.search"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="How likely this resource is to be a match"/>
+      <definition value="Assessment of resource match outcome - how likely this resource is to be a match."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/match-grade"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MatchGrade"/>
+        </extension>
+        <strength value="required"/>
+        <description value="A Master Patient Index (MPI) assessment of whether a candidate patient record is a match or not."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/match-grade"/>
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -99,11 +99,13 @@
       </coding>  
     </substance>
     <manifestation>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="39579001"/>
-        <display value="Anaphylactic reaction"/>
-      </coding>
+		<concept>
+		  <coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="39579001"/>
+			<display value="Anaphylactic reaction"/>
+		  </coding>
+		</concept>
     </manifestation>
     <description value="Challenge Protocol. Severe reaction to subcutaneous cashew extract. Epinephrine administered"/>
     <onset value="2012-06-12"/>
@@ -120,11 +122,13 @@
   <!-- this was the first occurrence -->
   <reaction> 
     <manifestation>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="64305001"/>
-        <display value="Urticaria"/>
-      </coding>
+		<concept>
+		  <coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="64305001"/>
+			<display value="Urticaria"/>
+		  </coding>
+		</concept>
     </manifestation>
     <onset value="2004"/>
     <severity value="moderate"/>

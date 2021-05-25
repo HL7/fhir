@@ -1,42 +1,54 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Downloads/fhir-all-xsd/structuredefinition.xsd">
-	<id value="servicerequest-category"/>
-	<name value="ServiceRequestCategoryCodes"/>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="servicerequest-category"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/servicerequest-category"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.434"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ServiceRequestCategoryCodes"/>
   <title value="Service Request Category Codes"/>
-	<status value="draft"/>
-	<publisher value="Orders and Observations Workgroup"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
-		</telecom>
-	</contact>
-	<description value="An example value set of SNOMED CT concepts that can classify a requested service"/>
-	<copyright value="This specification includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct  or info@snomed.org."/>
-	<compose>
-		<!--   all codes that are orderable   -->
-		<include>
-			<system value="http://snomed.info/sct"/>
-			<concept>
-				<code value="108252007"/>
-				<display value="Laboratory procedure"/>
-			</concept>
-			<concept>
-				<code value="363679005"/>
-				<display value="Imaging"/>
-			</concept>
-			<concept>
-				<code value="409063005"/>
-				<display value="Counselling"/>
-			</concept>
-			<concept>
-				<code value="409073007"/>
-				<display value="Education"/>
-			</concept>
-			<concept>
-				<code value="387713003"/>
-				<display value="Surgical procedure"/>
-			</concept>
-		</include>
-	</compose>
+  <status value="draft"/>
+  <publisher value="Orders and Observations Workgroup"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="An example value set of SNOMED CT concepts that can classify a requested service"/>
+  <copyright value="This specification includes content from SNOMED Clinical Terms&#xAE; (SNOMED CT&#xAE;) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct  or info@snomed.org."/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="108252007"/>
+        <display value="Laboratory procedure"/>
+      </concept>
+      <concept>
+        <code value="363679005"/>
+        <display value="Imaging"/>
+      </concept>
+      <concept>
+        <code value="409063005"/>
+        <display value="Counselling"/>
+      </concept>
+      <concept>
+        <code value="409073007"/>
+        <display value="Education"/>
+      </concept>
+      <concept>
+        <code value="387713003"/>
+        <display value="Surgical procedure"/>
+      </concept>
+    </include>
+  </compose>
 </ValueSet>

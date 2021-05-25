@@ -1,0 +1,1284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="NutritionOrder"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Care Provision"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/proposed-order"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+  <version value="4.6.0"/>
+  <name value="NutritionOrder"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Orders and Observations)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="NutritionOrder"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="NutritionOrder">
+      <path value="NutritionOrder"/>
+      <short value="Diet, formula or nutritional supplement request"/>
+      <definition value="A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident."/>
+      <comment value="Referenced by an Order Request (workflow)."/>
+      <alias value="Nutrition Order"/>
+      <alias value="Diet Order"/>
+      <alias value="Diet"/>
+      <alias value="Nutritional Supplement"/>
+      <alias value="Enteral Nutrition"/>
+      <min value="0"/>
+      <max value="*"/>
+      <constraint>
+        <key value="nor-1"/>
+        <severity value="warning"/>
+        <human value="Nutrition Order SHALL contain either Oral Diet , Supplement, or Enteral Formula class"/>
+        <expression value="oralDiet.exists() or supplement.exists() or enteralFormula.exists()"/>
+        <xpath value="exists(f:oralDiet) or exists(f:supplement) or exists(f:enteralFormula)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+      </constraint>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC / ODS"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="SupplyRequest"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.careprovision"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.identifier">
+      <path value="NutritionOrder.identifier"/>
+      <short value="Identifiers assigned to this order"/>
+      <definition value="Identifiers assigned to this order by the order sender or by the order receiver."/>
+      <comment value="The Identifier.type element can be to indicate filler vs. placer if needed.  This is explained in further detail [here](servicerequest.html#notes)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC-2/ORC-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.instantiatesCanonical">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="[#10296][#11119]#13196]."/>
+      </extension>
+      <path value="NutritionOrder.instantiatesCanonical"/>
+      <short value="Instantiates FHIR protocol or definition"/>
+      <definition value="The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this NutritionOrder."/>
+      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.instantiatesCanonical"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Varies by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.instantiatesUri">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="[#10296][#11119]#13196]."/>
+      </extension>
+      <path value="NutritionOrder.instantiatesUri"/>
+      <short value="Instantiates external protocol or definition"/>
+      <definition value="The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this NutritionOrder."/>
+      <comment value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.instantiatesUri"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Varies by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.instantiates">
+      <path value="NutritionOrder.instantiates"/>
+      <short value="Instantiates protocol or definition"/>
+      <definition value="The URL pointing to a protocol, guideline, orderset or other definition that is adhered to in whole or in part by this NutritionOrder."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.instantiates"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Varies by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.status">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="[#3720],[#14414]."/>
+      </extension>
+      <path value="NutritionOrder.status"/>
+      <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+      <definition value="The workflow status of the nutrition order/request."/>
+      <comment value="Typically the system placing the order sets the status to &quot;requested&quot;. Thereafter, the order is maintained by the receiver that updates the status as the request is handled.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NutritionOrderStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes identifying the lifecycle stage of the nutrition order."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC-1"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".statusCode"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.intent">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="[#14414]."/>
+      </extension>
+      <path value="NutritionOrder.intent"/>
+      <short value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
+      <definition value="Indicates the level of authority/intentionality associated with the NutrionOrder and where the request fits into the workflow chain."/>
+      <comment value="When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to &quot;proposal, plan or order&quot;.  Can have multiple codes that map to one of these.  E.g. &quot;original order&quot;, &quot;encoded order&quot;, &quot;reflex order&quot; would all map to &quot;order&quot;.  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy."/>
+      <requirements value="Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain."/>
+      <alias value="category"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &quot;the time the request is recommended to occur&quot; vs. &quot;the time the request is authorized to occur&quot; or &quot;who is recommended to perform the request&quot; vs. &quot;who is authorized to perform the request"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NutritiionOrderIntent"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes indicating the degree of authority/intentionality associated with a nutrition order."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-intent"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.intent"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.patient">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="2/4/2015 EH: [#3707] change subject to patient."/>
+      </extension>
+      <path value="NutritionOrder.patient"/>
+      <short value="The person who requires the diet, formula or nutritional supplement"/>
+      <definition value="The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=SBJ].role"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.encounter">
+      <path value="NutritionOrder.encounter"/>
+      <short value="The encounter associated with this nutrition order"/>
+      <definition value="An encounter that provides additional information about the healthcare context in which this request is made."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.encounter"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.dateTime">
+      <path value="NutritionOrder.dateTime"/>
+      <short value="Date and time the nutrition order was requested"/>
+      <definition value="The date and time that this nutrition order was requested."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.authoredOn"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC-9"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="author.time"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.orderer">
+      <path value="NutritionOrder.orderer"/>
+      <short value="Who ordered the diet, formula or nutritional supplement"/>
+      <definition value="The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.requester"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC-12"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].role"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.allergyIntolerance">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="resource reference."/>
+      </extension>
+      <path value="NutritionOrder.allergyIntolerance"/>
+      <short value="List of the patient&#39;s food and nutrition-related allergies and intolerances"/>
+      <definition value="A link to a record of allergies or intolerances  which should be included in the nutrition order."/>
+      <comment value="Information on a patient&#39;s food allergies and intolerances to inform healthcare personnel about the type of foods that the patient shouldn&#39;t receive or consume."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=RSON].target[classCode=OBS, moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.foodPreferenceModifier">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier --how to convey the patient No Soy, No Red Meat? (without a negation indicator) Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference."/>
+      </extension>
+      <path value="NutritionOrder.foodPreferenceModifier"/>
+      <short value="Order-specific modifier about the type of food that should be given"/>
+      <definition value="This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings."/>
+      <comment value="Information on a patient&#39;s food preferences that inform healthcare personnel about the food that the patient should receive or consume."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PatientDiet"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Medical, cultural or ethical food preferences to help with catering requirements."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-diet"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-1 Value = &quot;P&quot;,ODS-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship [typeCode =COMP], target [classCode=PROC, moodCode=EVN, code=NutritionModificationType]"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.excludeFoodModifier">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier --how to convey the patient No Soy, No Red Meat? (without a negation indicator) Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference."/>
+      </extension>
+      <path value="NutritionOrder.excludeFoodModifier"/>
+      <short value="Order-specific modifier about the type of food that should not be given"/>
+      <definition value="This modifier is used to convey Order-specific modifier about the type of oral food or oral fluids that should not be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced AllergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient&#x2019;s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings."/>
+      <comment value="Information on a patient&#39;s food allergies, intolerances and preferences to inform healthcare personnel about the type  of foods that the patient shouldn&#39;t receive or consume."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FoodType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes used to indicate the type of food that should NOT be given to the patient."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/food-type"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.oralDiet">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="down"/>
+      </extension>
+      <path value="NutritionOrder.oralDiet"/>
+      <short value="Oral diet components"/>
+      <definition value="Diet given orally in contrast to enteral (tube) feeding."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <condition value="nor-1"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-1 Value = &quot;D&quot;"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="oralDiet .outboundRelationship [typeCode =COMP], target [classCode=SPLY, moodCode=RQO, code=OralDietSupplyType]"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.oralDiet.type">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="renamed from .code to .type for consistency."/>
+      </extension>
+      <path value="NutritionOrder.oralDiet.type"/>
+      <short value="Type of oral diet or diet restrictions that describe what can be consumed orally"/>
+      <definition value="The kind of diet or dietary restriction such as fiber restricted diet or diabetic diet."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="OralDiet"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes used to indicate the type of diet being ordered for a patient."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/diet-type"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.oralDiet.schedule">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type  #8181."/>
+      </extension>
+      <path value="NutritionOrder.oralDiet.schedule"/>
+      <short value="Scheduled frequency of diet"/>
+      <definition value="The time period and frequency at which the diet should be given.  The diet should be given for the combination of all schedules if more than one schedule is present."/>
+      <alias value="Frequency"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Timing"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-2, TQ1-7/8"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".expectedUseTime"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.oralDiet.nutrient">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="down"/>
+      </extension>
+      <path value="NutritionOrder.oralDiet.nutrient"/>
+      <short value="Required  nutrient modifications"/>
+      <definition value="Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.oralDiet.nutrient.modifier">
+      <path value="NutritionOrder.oralDiet.nutrient.modifier"/>
+      <short value="Type of nutrient that is being modified"/>
+      <definition value="The nutrient that is being modified such as carbohydrate or sodium."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NutrientModifier"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for types of nutrients that are being modified such as carbohydrate or sodium."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/nutrient-code"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.oralDiet.nutrient.amount">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="2/4/2015 EH: [#4004] remove choice from .nutient.amount."/>
+      </extension>
+      <path value="NutritionOrder.oralDiet.nutrient.amount"/>
+      <short value="Quantity of the specified nutrient"/>
+      <definition value="The quantity of the specified nutrient to include in diet."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".quantity"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.oralDiet.texture">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="down"/>
+      </extension>
+      <path value="NutritionOrder.oralDiet.texture"/>
+      <short value="Required  texture modifications"/>
+      <definition value="Class that describes any texture modifications required for the patient to safely consume various types of solid foods."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship [typeCode =COMP], target [classCode=PROC, moodCode=EVN, code=DietTextureModificationType]"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.oralDiet.texture.modifier">
+      <path value="NutritionOrder.oralDiet.texture.modifier"/>
+      <short value="Code to indicate how to alter the texture of the foods, e.g. pureed"/>
+      <definition value="Any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed."/>
+      <comment value="Coupled with the foodType (Meat)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TextureModifier"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for food consistency types or texture modifications to apply to foods."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/texture-code"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.code"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.oralDiet.texture.foodType">
+      <path value="NutritionOrder.oralDiet.texture.foodType"/>
+      <short value="Concepts that are used to identify an entity that is ingested for nutritional purposes"/>
+      <definition value="The food type(s) (e.g. meats, all foods)  that the texture modification applies to.  This could be all foods types."/>
+      <comment value="Coupled with the `texture.modifier`; could be (All Foods)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TextureModifiedFoodType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for types of foods that are texture-modified."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/modified-foodtype"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.code"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.oralDiet.fluidConsistencyType">
+      <path value="NutritionOrder.oralDiet.fluidConsistencyType"/>
+      <short value="The required consistency of fluids and liquids provided to the patient"/>
+      <definition value="The required consistency (e.g. honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FluidConsistencyType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes used to represent the consistency of fluids and liquids provided to the patient."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/consistency-type"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.code"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code  (Not differentiated from dietTextureModificationType in HL7 v3)"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.oralDiet.instruction">
+      <path value="NutritionOrder.oralDiet.instruction"/>
+      <short value="Instructions or additional information about the oral diet"/>
+      <definition value="Free text or additional instructions or information pertaining to the oral diet."/>
+      <comment value="Free text dosage instructions can be used for cases where the instructions are too complex to code."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.supportingInfo"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.supplement">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="down"/>
+      </extension>
+      <path value="NutritionOrder.supplement"/>
+      <short value="Supplement components"/>
+      <definition value="Oral nutritional products given in order to add further nutritional value to the patient&#39;s diet."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <condition value="nor-1"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-1 Value = &quot;P&quot;"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship [typeCode =COMP], target [classCode=SPLY, moodCode=RQO, code=SUPPLEMENT]"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.supplement.type">
+      <path value="NutritionOrder.supplement.type"/>
+      <short value="Type of supplement product requested"/>
+      <definition value="The kind of nutritional supplement product required such as a high protein or pediatric clear liquid supplement."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SupplementType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for nutritional supplements to be provided to the patient."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/supplement-type"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code (NutritionalSupplementType)"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.supplement.productName">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName."/>
+      </extension>
+      <path value="NutritionOrder.supplement.productName"/>
+      <short value="Product or brand name of the nutritional supplement"/>
+      <definition value="The product or brand name of the nutritional supplement such as &quot;Acme Protein Shake&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.supplement.schedule">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type.  #8181."/>
+      </extension>
+      <path value="NutritionOrder.supplement.schedule"/>
+      <short value="Scheduled frequency of supplement"/>
+      <definition value="The time period and frequency at which the supplement(s) should be given.  The supplement should be given for the combination of all schedules if more than one schedule is present."/>
+      <alias value="Frequency"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Timing"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-2,TQ1-7/8"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.supplement.quantity">
+      <path value="NutritionOrder.supplement.quantity"/>
+      <short value="Amount of the nutritional supplement"/>
+      <definition value="The amount of the nutritional supplement to be given."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="TQ1-2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".quantity"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.supplement.instruction">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="2/28/2015:  pre-applied #5675."/>
+      </extension>
+      <path value="NutritionOrder.supplement.instruction"/>
+      <short value="Instructions or additional information about the oral supplement"/>
+      <definition value="Free text or additional instructions or information pertaining to the oral supplement."/>
+      <comment value="Free text dosage instructions can be used for cases where the instructions are too complex to code."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.supportingInfo"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.enteralFormula">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="NutritionOrder.enteralFormula"/>
+      <short value="Enteral formula components"/>
+      <definition value="Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <condition value="nor-1"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-1 Value coded for enteral"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship [typeCode =COMP], target [classCode=SPLY, moodCode=RQO, code=FORMULA]"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.enteralFormula.baseFormulaType">
+      <path value="NutritionOrder.enteralFormula.baseFormulaType"/>
+      <short value="Type of enteral or infant formula"/>
+      <definition value="The type of enteral or infant formula such as an adult standard formula with fiber or a soy-based infant formula."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EnteralFormulaType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for type of enteral formula to be administered to patient."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/entformula-type"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code (NutritionalFormulaType)"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.enteralFormula.baseFormulaProductName">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName."/>
+      </extension>
+      <path value="NutritionOrder.enteralFormula.baseFormulaProductName"/>
+      <short value="Product or brand name of the enteral or infant formula"/>
+      <definition value="The product or brand name of the enteral or infant formula product such as &quot;ACME Adult Standard Formula&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.enteralFormula.additiveType">
+      <path value="NutritionOrder.enteralFormula.additiveType"/>
+      <short value="Type of modular component to add to the feeding"/>
+      <definition value="Indicates the type of modular component such as protein, carbohydrate, fat or fiber to be provided in addition to or mixed with the base formula."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EnteralFormulaAdditiveType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/entformula-additive"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (not differentiated from NutritionalFormulaType in HL7 v3)"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.enteralFormula.additiveProductName">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName."/>
+      </extension>
+      <path value="NutritionOrder.enteralFormula.additiveProductName"/>
+      <short value="Product or brand name of the modular additive"/>
+      <definition value="The product or brand name of the type of modular component to be added to the formula."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.enteralFormula.caloricDensity">
+      <path value="NutritionOrder.enteralFormula.caloricDensity"/>
+      <short value="Amount of energy per specified volume that is required"/>
+      <definition value="The amount of energy (calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula that provides 24 calories per fluid ounce or an adult may require an enteral formula that provides 1.5 calorie/mL."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="TQ1-2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".quantity (caloricDensity)"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.enteralFormula.routeofAdministration">
+      <path value="NutritionOrder.enteralFormula.routeofAdministration"/>
+      <short value="How the formula should enter the patient&#39;s gastrointestinal tract"/>
+      <definition value="The route or physiological path of administration into the patient&#39;s gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EnteralRouteOfAdministration"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Codes specifying the route of administration of enteral formula."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/enteral-route"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".routeCode"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.enteralFormula.administration">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#6100, 6111."/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="down"/>
+      </extension>
+      <path value="NutritionOrder.enteralFormula.administration"/>
+      <short value="Formula feeding instruction as structured data"/>
+      <definition value="Formula administration instructions as structured data.  This repeating structure allows for changing the administration rate or volume over time for both bolus and continuous feeding.  An example of this would be an instruction to increase the rate of continuous feeding every 2 hours."/>
+      <comment value="See implementation notes below for further discussion on how to order continuous vs bolus enteral feeding using this resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship [typeCode =COMP], target [classCode=SBADM, moodCode=RQO]"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.enteralFormula.administration.schedule">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type, #6101,#6100, 6111."/>
+      </extension>
+      <path value="NutritionOrder.enteralFormula.administration.schedule"/>
+      <short value="Scheduled frequency of enteral feeding"/>
+      <definition value="The time period and frequency at which the enteral formula should be delivered to the patient."/>
+      <alias value="Frequency"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Timing"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-2,TQ1-7/8"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveUseTime"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.enteralFormula.administration.quantity">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#6100, 6111."/>
+      </extension>
+      <path value="NutritionOrder.enteralFormula.administration.quantity"/>
+      <short value="The volume of formula to provide"/>
+      <definition value="The volume of formula to provide to the patient per the specified administration schedule."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="TQ1-2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".doseQuantity"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.enteralFormula.administration.rate[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="4/15/2015 EH:  #6100,# 6111."/>
+      </extension>
+      <path value="NutritionOrder.enteralFormula.administration.rate[x]"/>
+      <short value="Speed with which the formula is provided per period of time"/>
+      <definition value="The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule."/>
+      <comment value="Ratio is used when the quantity value in the denominator is not &quot;1&quot;, otherwise use Quantity. For example, the Ratio datatype is used for &quot;200 mL/4 hrs&quot; versus the Quantity datatype for &quot;50 mL/hr&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <type>
+        <code value="Ratio"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".rateQuantity"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.enteralFormula.maxVolumeToDeliver">
+      <path value="NutritionOrder.enteralFormula.maxVolumeToDeliver"/>
+      <short value="Upper limit on formula volume per unit of time"/>
+      <definition value="The maximum total quantity of formula that may be administered to a subject over the period of time, e.g. 1440 mL over 24 hours."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".maxDoseQuantity"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.enteralFormula.administrationInstruction">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="8177, 6102."/>
+      </extension>
+      <path value="NutritionOrder.enteralFormula.administrationInstruction"/>
+      <short value="Formula feeding instructions expressed as text"/>
+      <definition value="Free text formula administration, feeding instructions or additional instructions or information."/>
+      <comment value="Free text dosage instructions can be used for cases where the instructions are too complex to code."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.supportingInfo"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ODS-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="NutritionOrder.note">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="13495."/>
+      </extension>
+      <path value="NutritionOrder.note"/>
+      <short value="Comments"/>
+      <definition value="Comments made about the {{title}} by the requester, performer, subject or other participants."/>
+      <comment value="This element SHALL NOT be used to supply free text instructions for the diet which are represented in the `.oralDiet.instruction`, `supplement.instruction`, or `enteralFormula.administrationInstruction` elements."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.note"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

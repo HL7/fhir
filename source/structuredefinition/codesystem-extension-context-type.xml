@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="extension-context-type"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/extension-context-type defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">fhirpath
+            
+            <a name="extension-context-type-fhirpath"> </a>
+          
+          </td>
+          
+          <td>FHIRPath</td>
+          
+          <td>The context is all elements that match the FHIRPath query found in the expression.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">element
+            
+            <a name="extension-context-type-element"> </a>
+          
+          </td>
+          
+          <td>Element ID</td>
+          
+          <td>The context is any element that has an ElementDefinition.id that matches that found in the expression. This includes ElementDefinition Ids that have slicing identifiers. The full path for the element is [url]#[elementid]. If there is no #, the Element id is one defined in the base specification.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">extension
+            
+            <a name="extension-context-type-extension"> </a>
+          
+          </td>
+          
+          <td>Extension URL</td>
+          
+          <td>The context is a particular extension from a particular StructureDefinition, and the expression is just a uri that identifies the extension.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+    <valueCode value="4.0.0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <url value="http://hl7.org/fhir/extension-context-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1013"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ExtensionContextType"/>
+  <title value="ExtensionContextType"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="How an extension context is interpreted."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/extension-context-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="fhirpath"/>
+    <display value="FHIRPath"/>
+    <definition value="The context is all elements that match the FHIRPath query found in the expression."/>
+  </concept>
+  <concept>
+    <code value="element"/>
+    <display value="Element ID"/>
+    <definition value="The context is any element that has an ElementDefinition.id that matches that found in the expression. This includes ElementDefinition Ids that have slicing identifiers. The full path for the element is [url]#[elementid]. If there is no #, the Element id is one defined in the base specification."/>
+  </concept>
+  <concept>
+    <code value="extension"/>
+    <display value="Extension URL"/>
+    <definition value="The context is a particular extension from a particular StructureDefinition, and the expression is just a uri that identifies the extension."/>
+  </concept>
+</CodeSystem>

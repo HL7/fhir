@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="DetectedIssue-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Drug-drug interaction between prescription and medication statement"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="detectedissue-example"/>
+    </extension>
+    <item>
+      <reference value="DetectedIssue/ddi"/>
+      <display value="Drug-drug"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Diagnostic order is placed when a recent image of the same body site already exists"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="detectedissue-example-dup"/>
+    </extension>
+    <item>
+      <reference value="DetectedIssue/duplicate"/>
+      <display value="Duplicate Therapy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patient is allergic to an inactive ingredient in an ordered medication"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="detectedissue-example-allergy"/>
+    </extension>
+    <item>
+      <reference value="DetectedIssue/allergy"/>
+      <display value="Drug-allergy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Lab order is contraindicated based on a patient&#39;s existing medication"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="detectedissue-example-lab"/>
+    </extension>
+    <item>
+      <reference value="DetectedIssue/lab"/>
+      <display value="Lab order"/>
+    </item>
+  </entry>
+</List>

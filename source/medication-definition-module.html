@@ -26,16 +26,16 @@ This module is concerned with resources and functionality in areas such as:
 </p>
 
 <ul>
-	<li>The regulation and manufacturing of drugs, medicinal products and other medically-related substances.</li>
+	<li>The regulation and manufacturing of drugs, medicinal products and other medically-related substances or co-packaged devices.</li>
 	<li>Detailed description of these same items, typically for regulators but also for any context where this level of detail is necessary, such as pharmacopoeias, or prescribing support.</li>
 	<li>Indications and contra-indications for medications.</li>
-	<li>The details of the chemical substances that are ingredients for medications.</li>
+	<li>The details of the chemical substances that may be ingredients for medications.</li>
 </ul>
 
 <p>
 	These resources are not typically used in direct patient care or day-to-day prescribing functionality 
 	(for which see the <a href="medications-module.html">Medications Module</a>), but play a supporting role.
-	They have the "full" version of the product type, with all its information, including the licensed packages available, with their physical details and containers, 
+	They can specify the "full" version of the product type, with all its information, including the licensed packages available, with their physical details and containers, 
 	through to individual tablet level and on to ingredients and component substances.
 </p>
 	
@@ -79,7 +79,7 @@ This module is concerned with resources and functionality in areas such as:
 	<p></p>
 	<p>Even just using one resource, for a basic representation:</p>
 	<img src="basic-product-structure-simplest.png" alt="Image showing the medication definition resources simplest"/>
-	<p>A worked example of a single resource version is <a href="medicinalproductdefinition-example-equilidem-basics.html">here</a></p>
+	<p>An example of a single resource version is <a href="medicinalproductdefinition-example-equilidem-basics.html">here</a></p>
 	
 	
 <a name="prods"></a>
@@ -102,9 +102,9 @@ This module is concerned with resources and functionality in areas such as:
 	<tr>
 		<td><a href="packagedproductdefinition.html">PackagedProductDefinition</a></td>
 		<td>
-			<p>The PackagedProductDefinition resource represents one pack type of a product, that has been made available, and can also capture all aspects of the 
+			<p>The PackagedProductDefinition resource represents one pack type of a product, and can also capture all aspects of the 
 				physical packaging of a product. These pack types can be associated with an "owning" MedicinalProductDefinition, to represent the range of different pack 
-				sizes in which that product can be obtained. These may have different legal statuses and availability, or be packaged in different ways. 
+				sizes for that product. These may have different legal statuses and availability, or be packaged in different ways. 
 				The resource allows describing which drug items and associated co-packaged devices are within them. The actual contained items are handled by
 				specific resources (e.g. <a href="manufactureditemdefinition.html">ManufacturedItemDefinition</a> and <a href="devicedefinition.html">DeviceDefinition</a>).
 			</p>
@@ -114,7 +114,7 @@ This module is concerned with resources and functionality in areas such as:
 		<td valign="top"><a href="manufactureditemdefinition.html">ManufacturedItemDefinition</a></td>
 		<td>
 			<p>
-				ManufacturedItemDefinition is to be used when you need to describe a physical medication item type 
+				ManufacturedItemDefinition is used when you need to describe a physical medication item type 
 				such as a tablet or capsule, or some continuous substance such as liquid or powder.  
 				This is typically for regulatory or manufacturing use cases, rather than day-to-day prescribing or dispensing.
 				It can carry the definition and characteristics of a medicinal (or medically-related) manufactured item, 
@@ -135,7 +135,7 @@ This module is concerned with resources and functionality in areas such as:
 	</tr>
 </table>
 
-	<p>The product and packaging resources listed above can combine to represent a product with different packs available on the market:</p>
+	<p>The product and packaging resources listed above can be combined to represent a product with different packs:</p>
 	<img src="packages-for-products-1.png" alt="Image showing the packaged product model"/>
 	
 	<p>National level drug dictionaries typically have a split between products and the packs that exist for them.
@@ -148,7 +148,7 @@ This module is concerned with resources and functionality in areas such as:
 	<p>Here is a representation of a widely available combination product pack of a tablet and cream:</p>
 	
 	<img src="complex-pack-3(tablet-and-cream).png" alt="Image showing the tablet and cream product model"/>
-	<p>A worked example of a combination product is <a href="medicinalproductdefinition-example-combo-product-bundle.html">here</a>, shown as a bundle
+	<p>An example of a combination product is <a href="medicinalproductdefinition-example-combo-product-bundle.html">here</a>, shown as a bundle
 		and <a href="medicinalproductdefinition-example-combo-product.html">here</a>, shown instead using contained resources (either can be selected according to preference)	
 	</p>
 	
@@ -156,7 +156,7 @@ This module is concerned with resources and functionality in areas such as:
 	<p>Co-packaged devices can be represented, as well as items that need to be combined before administration:</p>
 	
 	<img src="complex-pack-2(mix-and-device).png" alt="Image showing the device and powder and solution product model"/>
-	<p>A full worked example of a co-packaged device with a powder and solvent is <a href="medicinalproductdefinition-example-co-packaged-liquid-and-syringe-complete.html">here</a>.<br/>
+	<p>A full example of a co-packaged device with a powder and solvent is <a href="medicinalproductdefinition-example-co-packaged-liquid-and-syringe-complete.html">here</a>.<br/>
 	   A simpler example of a co-packaged device and liquid is <a href="medicinalproductdefinition-example-co-packaged-liquid-and-syringe.html">here</a>.
 	</p>
 	

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="Provenance-core"/>
+  <version value="2016-10"/>
+  <name value="Provenance Relevant History"/>
+  <title value="Provenance Relevant History"/>
+  <status value="draft"/>
+  <date value="2013-12-03T00:00:00.000"/>
+  <publisher value="Health Level Seven International"/>
+  <description value="Guidance on using Provenance for related history elements"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/provenance-relevant-history"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

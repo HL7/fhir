@@ -1,8 +1,20 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+	<id value="questionnaire-answers"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="fhir"/>
+	</extension>
 	<url value="http://hl7.org/fhir/ValueSet/questionnaire-answers"/>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.3.446"/>
+	</identifier>
+	<version value="4.6.0"/>
 	<name value="QuestionnaireAnswerCodes"/>
-  <title value="Questionnaire Answer Codes"/>
+	<title value="Questionnaire Answer Codes"/>
 	<status value="draft"/>
 	<publisher value="HL7 International - Patient Care WG"/>
 	<contact>
@@ -12,11 +24,10 @@
 		</telecom>
 	</contact>
 	<description value="Example list of codes for answers to questions. (Not complete or necessarily appropriate.)"/>
-  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
-  <compose>
-    <include>
-      <system value="http://snomed.info/sct"/>
-      <!-- All codes from SNOMED -->
-    </include>
-  </compose>
+	<copyright value="This resource includes content from SNOMED Clinical Terms&#xAE; (SNOMED CT&#xAE;) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
+		</include>
+	</compose>
 </ValueSet>

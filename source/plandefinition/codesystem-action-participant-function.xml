@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="action-participant-function"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+
+      
+      <p>This code system http://hl7.org/fhir/action-participant-function defines the following codes:</p>
+
+      
+      <table class="codes">
+
+        
+        <tr>
+
+          
+          <td style="white-space:nowrap">
+
+            
+            <b>Code</b>
+
+          
+          </td>
+
+          
+          <td>
+
+            
+            <b>Display</b>
+
+          
+          </td>
+
+          
+          <td>
+
+            
+            <b>Definition</b>
+
+          
+          </td>
+
+        
+        </tr>
+
+        
+        <tr>
+
+          
+          <td style="white-space:nowrap">patient
+
+            
+            <a name="action-participant-type-patient"> </a>
+
+          
+          </td>
+
+          
+          <td>Patient</td>
+
+          
+          <td>The participant is the patient under evaluation.</td>
+
+        
+        </tr>
+
+        
+        <tr>
+
+          
+          <td style="white-space:nowrap">practitioner
+
+            
+            <a name="action-participant-type-practitioner"> </a>
+
+          
+          </td>
+
+          
+          <td>Practitioner</td>
+
+          
+          <td>The participant is a practitioner involved in the patient&#39;s care.</td>
+
+        
+        </tr>
+
+        
+        <tr>
+
+          
+          <td style="white-space:nowrap">related-person
+
+            
+            <a name="action-participant-type-related-person"> </a>
+
+          
+          </td>
+
+          
+          <td>Related Person</td>
+
+          
+          <td>The participant is a person related to the patient.</td>
+
+        
+        </tr>
+
+        
+        <tr>
+
+          
+          <td style="white-space:nowrap">device
+
+            
+            <a name="action-participant-type-device"> </a>
+
+          
+          </td>
+
+          
+          <td>Device</td>
+
+          
+          <td>The participant is a system or device used in the care of the patient.</td>
+
+        
+        </tr>
+
+      
+      </table>
+
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/action-participant-function"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ActionParticipantFunction"/>
+  <title value="ActionParticipantFunction"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The function performed by the participant for the action."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-function"/>
+  <content value="complete"/>
+  <concept>
+    <code value="performer"/>
+    <display value="Performer"/>
+    <definition value="The participant is the performer of the action."/>
+  </concept>
+  <concept>
+    <code value="author"/>
+    <display value="Author"/>
+    <definition value="The participant is the author of the result of the action."/>
+  </concept>
+  <concept>
+    <code value="reviewer"/>
+    <display value="Reviewer"/>
+    <definition value="The participant is reviewing the result of the action."/>
+  </concept>
+  <concept>
+    <code value="witness"/>
+    <display value="Witness"/>
+    <definition value="The participant is a witness to the action being performed."/>
+  </concept>
+</CodeSystem>

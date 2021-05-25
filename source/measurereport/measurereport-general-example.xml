@@ -1,0 +1,63 @@
+<MeasureReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/measurereport.xsd">
+  <id value="general-example-of-report"/>
+  <contained>
+  <Patient>
+    <id value="patient-new"/>
+    <name>
+      <use value="official"/>
+      <family value="Donald"/>
+      <given value="Duck"/>
+    </name>
+    <gender value="male"/>
+    <birthDate value="1976-05-17"/>
+    <address>
+      <use value="home"/>
+      <line value="1234 Main Street"/>
+      <city value="DC"/>
+      <postalCode value="20001"/>
+      <country value="USA"/>
+    </address>
+  </Patient>
+</contained>
+  <status value="complete"/>
+  <type value="individual"/>
+  <measure value="http://ohie.org/Measure/hiv-indicators"/>
+  <subject>
+    <reference value="#patient-new"/>
+  </subject>
+  <period>
+    <start value="2018-01-01"/>
+    <end value="2018-12-31"/>
+  </period>
+  <group>
+    <code><coding><code value="QRPH_ADX_ART5_N"/></coding></code>
+    <measureScoreQuantity><value value="1"/></measureScoreQuantity>
+    <stratifier>
+      <code><coding><code value="AGE_GROUP:SEX"/></coding></code>
+      <stratum>
+        <valueCodeableConcept><coding><code value="P0Y--P20Y:F"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
+      </stratum>
+      <stratum>
+        <valueCodeableConcept><coding><code value="P0Y--P20Y:M"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
+      </stratum>
+      <stratum>
+        <valueCodeableConcept><coding><code value="P20Y--P40Y:F"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
+      </stratum>
+      <stratum>
+        <valueCodeableConcept><coding><code value="P20Y--P40Y:M"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
+      </stratum>
+      <stratum>
+        <valueCodeableConcept><coding><code value="P40Y--P65Y:F"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="0"/></measureScoreQuantity>
+      </stratum>
+      <stratum>
+        <valueCodeableConcept><coding><code value="P40Y--P65Y:M"/></coding></valueCodeableConcept>
+        <measureScoreQuantity><value value="1"/></measureScoreQuantity>
+      </stratum>
+    </stratifier>
+  </group>
+</MeasureReport>

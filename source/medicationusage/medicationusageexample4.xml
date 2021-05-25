@@ -4,10 +4,7 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationusage.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example004"/>
-  <partOf>
-    <reference value="Observation/blood-pressure"></reference>
-  </partOf>
-  <status value='active'/>
+  <status value='completed'/>
   <medication>
     <concept>
     <coding>
@@ -73,4 +70,10 @@
       </denominator>
     </maxDosePerPeriod>
   </dosage>
+	<adherence>
+		<coding>
+			<system value="http://hl7.org/fhir/CodeSystem/medication-usage-adherence"/>
+			<code value="not-taking"/>
+		</coding>
+	</adherence>
 </MedicationUsage>

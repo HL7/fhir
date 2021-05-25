@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="EpisodeOfCare"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Base.Management"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status=entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"/>
+  <version value="4.6.0"/>
+  <name value="EpisodeOfCare"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Patient Administration)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="EpisodeOfCare"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="EpisodeOfCare">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="EpisodeOfCare"/>
+      <short value="An association of a Patient with an Organization and  Healthcare Provider(s) for a period of time that the Organization assumes some level of responsibility"/>
+      <definition value="An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time."/>
+      <alias value="Case Program Problem"/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="workflow.encounter"/>
+      </mapping>
+    </element>
+    <element id="EpisodeOfCare.identifier">
+      <path value="EpisodeOfCare.identifier"/>
+      <short value="Business Identifier(s) relevant for this EpisodeOfCare"/>
+      <definition value="The EpisodeOfCare may be known by different identifiers for different contexts of use, such as when an external agency is tracking the Episode for funding purposes."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="EpisodeOfCare.status">
+      <path value="EpisodeOfCare.status"/>
+      <short value="planned | waitlist | active | onhold | finished | cancelled | entered-in-error"/>
+      <definition value="planned | waitlist | active | onhold | finished | cancelled."/>
+      <comment value="This element is labeled as a modifier because the status contains codes that mark the episode as not currently valid."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EpisodeOfCareStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The status of the episode of care."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/episode-of-care-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="EpisodeOfCare.statusHistory">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="down"/>
+      </extension>
+      <path value="EpisodeOfCare.statusHistory"/>
+      <short value="Past list of status codes (the current status may be included to cover the start date of the status)"/>
+      <definition value="The history of statuses that the EpisodeOfCare has been through (without requiring processing the history of the resource)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="EpisodeOfCare.statusHistory.status">
+      <path value="EpisodeOfCare.statusHistory.status"/>
+      <short value="planned | waitlist | active | onhold | finished | cancelled | entered-in-error"/>
+      <definition value="planned | waitlist | active | onhold | finished | cancelled."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EpisodeOfCareStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The status of the episode of care."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/episode-of-care-status"/>
+      </binding>
+    </element>
+    <element id="EpisodeOfCare.statusHistory.period">
+      <path value="EpisodeOfCare.statusHistory.period"/>
+      <short value="Duration the EpisodeOfCare was in the specified status"/>
+      <definition value="The period during this EpisodeOfCare that the specific status applied."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <element id="EpisodeOfCare.type">
+      <path value="EpisodeOfCare.type"/>
+      <short value="Type/class  - e.g. specialist referral, disease management"/>
+      <definition value="A classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care."/>
+      <comment value="The type can be very important in processing as this could be used in determining if the EpisodeOfCare is relevant to specific government reporting, or other types of classifications."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EpisodeOfCareType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type of the episode of care."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/episodeofcare-type"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="EpisodeOfCare.diagnosis">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Diagnosis"/>
+      </extension>
+      <path value="EpisodeOfCare.diagnosis"/>
+      <short value="The list of diagnosis relevant to this episode of care"/>
+      <definition value="The list of diagnosis relevant to this episode of care."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="EpisodeOfCare.diagnosis.condition">
+      <path value="EpisodeOfCare.diagnosis.condition"/>
+      <short value="Conditions/problems/diagnoses this episode of care is for"/>
+      <definition value="A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.reasonReference"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+    </element>
+    <element id="EpisodeOfCare.diagnosis.role">
+      <path value="EpisodeOfCare.diagnosis.role"/>
+      <short value="Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge &#x2026;)"/>
+      <definition value="Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge &#x2026;)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiagnosisRole"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="The type of diagnosis this condition represents."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/diagnosis-role"/>
+      </binding>
+    </element>
+    <element id="EpisodeOfCare.diagnosis.rank">
+      <path value="EpisodeOfCare.diagnosis.rank"/>
+      <short value="Ranking of the diagnosis (for each role type)"/>
+      <definition value="Ranking of the diagnosis (for each role type)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="EpisodeOfCare.patient">
+      <path value="EpisodeOfCare.patient"/>
+      <short value="The patient who is the focus of this episode of care"/>
+      <definition value="The patient who is the focus of this episode of care."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="EpisodeOfCare.managingOrganization">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="This was left as 0..1 to permit small systems having an implied Organization."/>
+      </extension>
+      <path value="EpisodeOfCare.managingOrganization"/>
+      <short value="Organization that assumes care"/>
+      <definition value="The organization that has assumed the specific responsibilities for the specified duration."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
+    </element>
+    <element id="EpisodeOfCare.period">
+      <path value="EpisodeOfCare.period"/>
+      <short value="Interval during responsibility is assumed"/>
+      <definition value="The interval during which the managing organization assumes the defined responsibility."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.init"/>
+      </mapping>
+    </element>
+    <element id="EpisodeOfCare.referralRequest">
+      <path value="EpisodeOfCare.referralRequest"/>
+      <short value="Originating Referral Request(s)"/>
+      <definition value="Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.basedOn"/>
+      </mapping>
+    </element>
+    <element id="EpisodeOfCare.careManager">
+      <path value="EpisodeOfCare.careManager"/>
+      <short value="Care manager/care coordinator for the patient"/>
+      <definition value="The practitioner that is the care manager/care coordinator for this patient."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
+    </element>
+    <element id="EpisodeOfCare.team">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="EpisodeOfCare.team"/>
+      <short value="Other practitioners facilitating this episode of care"/>
+      <definition value="The list of practitioners that may be facilitating this episode of care for specific purposes."/>
+      <alias value="CareTeam"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
+    </element>
+    <element id="EpisodeOfCare.account">
+      <path value="EpisodeOfCare.account"/>
+      <short value="The set of accounts that may be used for billing for this EpisodeOfCare"/>
+      <definition value="The set of accounts that may be used for billing for this EpisodeOfCare."/>
+      <comment value="The billing system may choose to allocate billable items associated with the EpisodeOfCare to different referenced Accounts based on internal business rules."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Account"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

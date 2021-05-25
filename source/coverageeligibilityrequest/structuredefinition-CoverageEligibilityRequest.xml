@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="CoverageEligibilityRequest"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Financial.Support"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest"/>
+  <version value="4.6.0"/>
+  <name value="CoverageEligibilityRequest"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Financial Management)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fm/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The CoverageEligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an CoverageEligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="CoverageEligibilityRequest"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="CoverageEligibilityRequest">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="300,0"/>
+      </extension>
+      <path value="CoverageEligibilityRequest"/>
+      <short value="CoverageEligibilityRequest resource"/>
+      <definition value="The CoverageEligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an CoverageEligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="financial.support"/>
+      </mapping>
+    </element>
+    <element id="CoverageEligibilityRequest.identifier">
+      <path value="CoverageEligibilityRequest.identifier"/>
+      <short value="Business Identifier for coverage eligiblity request"/>
+      <definition value="A unique identifier assigned to this coverage eligiblity request."/>
+      <requirements value="Allows coverage eligibility requests to be distinguished and referenced."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="CoverageEligibilityRequest.status">
+      <path value="CoverageEligibilityRequest.status"/>
+      <short value="active | cancelled | draft | entered-in-error"/>
+      <definition value="The status of the resource instance."/>
+      <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <requirements value="Need to track the status of the resource as &#39;draft&#39; resources may undergo further edits while &#39;active&#39; resources are immutable and may only have their status changed to &#39;cancelled&#39;."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EligibilityRequestStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="A code specifying the state of the resource instance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/fm-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="CoverageEligibilityRequest.priority">
+      <path value="CoverageEligibilityRequest.priority"/>
+      <short value="Desired processing priority"/>
+      <definition value="When the requestor expects the processor to complete processing."/>
+      <requirements value="Needed to advise the prossesor on the urgency of the request."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProcessPriority"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The timeliness with which processing is required: STAT, normal, Deferred."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/process-priority"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.priority"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="CoverageEligibilityRequest.purpose">
+      <path value="CoverageEligibilityRequest.purpose"/>
+      <short value="auth-requirements | benefits | discovery | validation"/>
+      <definition value="Code to specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for the patient; and/or validation that the specified coverage is in-force at the date/period specified or &#39;now&#39; if not specified."/>
+      <requirements value="To indicate the processing actions requested."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EligibilityRequestPurpose"/>
+        </extension>
+        <strength value="required"/>
+        <description value="A code specifying the types of information being requested."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/eligibilityrequest-purpose"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="CoverageEligibilityRequest.patient">
+      <path value="CoverageEligibilityRequest.patient"/>
+      <short value="Intended recipient of products and services"/>
+      <definition value="The party who is the beneficiary of the supplied coverage and for whom eligibility is sought."/>
+      <comment value="1..1."/>
+      <requirements value="Required to provide context and coverage validation."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="CoverageEligibilityRequest.serviced[x]">
+      <path value="CoverageEligibilityRequest.serviced[x]"/>
+      <short value="Estimated date or dates of service"/>
+      <definition value="The date or dates when the enclosed suite of services were performed or completed."/>
+      <requirements value="Required to provide time context for the request."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+    </element>
+    <element id="CoverageEligibilityRequest.created">
+      <path value="CoverageEligibilityRequest.created"/>
+      <short value="Creation date"/>
+      <definition value="The date when this resource was created."/>
+      <requirements value="Need to record a timestamp for use by both the recipient and the issuer."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.authoredOn"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="CoverageEligibilityRequest.enterer">
+      <path value="CoverageEligibilityRequest.enterer"/>
+      <short value="Author"/>
+      <definition value="Person who created the request."/>
+      <requirements value="Some jurisdictions require the contact information for personnel completing eligibility requests."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+    </element>
+    <element id="CoverageEligibilityRequest.provider">
+      <path value="CoverageEligibilityRequest.provider"/>
+      <short value="Party responsible for the request"/>
+      <definition value="The provider which is responsible for the request."/>
+      <comment value="Typically this field would be 1..1 where this party is responsible for the eligibility request but not necessarily professionally responsible for the provision of the individual products and services listed below."/>
+      <requirements value="Needed to identify the requestor."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.requester"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.source"/>
+      </mapping>
+    </element>
+    <element id="CoverageEligibilityRequest.insurer">
+      <path value="CoverageEligibilityRequest.insurer"/>
+      <short value="Coverage issuer"/>
+      <definition value="The Insurer who issued the coverage in question and is the recipient of the request."/>
+      <requirements value="Need to identify the recipient."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.performer"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.who"/>
+      </mapping>
+    </element>
+    <element id="CoverageEligibilityRequest.facility">
+      <path value="CoverageEligibilityRequest.facility"/>
+      <short value="Servicing facility"/>
+      <definition value="Facility where the services are intended to be provided."/>
+      <requirements value="Insurance adjudication can be dependant on where services were delivered."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.where[x]"/>
+      </mapping>
+    </element>
+    <element id="CoverageEligibilityRequest.supportingInfo">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="SupportingInformation"/>
+      </extension>
+      <path value="CoverageEligibilityRequest.supportingInfo"/>
+      <short value="Supporting information"/>
+      <definition value="Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues."/>
+      <comment value="Often there are multiple jurisdiction specific valuesets which are required."/>
+      <requirements value="Typically these information codes are required to support the services rendered or the adjudication of the services rendered."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="CoverageEligibilityRequest.supportingInfo.sequence">
+      <path value="CoverageEligibilityRequest.supportingInfo.sequence"/>
+      <short value="Information instance identifier"/>
+      <definition value="A number to uniquely identify supporting information entries."/>
+      <requirements value="Necessary to maintain the order of the supporting information items and provide a mechanism to link to claim details."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="CoverageEligibilityRequest.supportingInfo.information">
+      <path value="CoverageEligibilityRequest.supportingInfo.information"/>
+      <short value="Data to be provided"/>
+      <definition value="Additional data or information such as resources, documents, images etc. including references to the data or the actual inclusion of the data."/>
+      <comment value="Could be used to provide references to other resources, document. For example could contain a PDF in an Attachment of the Police Report for an Accident."/>
+      <requirements value="To convey the data content to be provided when the information is more than a simple code or period."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+    </element>
+    <element id="CoverageEligibilityRequest.supportingInfo.appliesToAll">
+      <path value="CoverageEligibilityRequest.supportingInfo.appliesToAll"/>
+      <short value="Applies to all items"/>
+      <definition value="The supporting materials are applicable for all detail items, product/servce categories and specific billing codes."/>
+      <requirements value="Needed to convey that the information is universal to the request."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="CoverageEligibilityRequest.insurance">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Insurance"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="CoverageEligibilityRequest.insurance"/>
+      <short value="Patient insurance information"/>
+      <definition value="Financial instruments for reimbursement for the health care products and services."/>
+      <comment value="All insurance coverages for the patient which may be applicable for reimbursement, of the products and services listed in the claim, are typically provided in the claim to allow insurers to confirm the ordering of the insurance coverages relative to local &#39;coordination of benefit&#39; rules. One coverage (and only one) with &#39;focal=true&#39; is to be used in the adjudication of this claim. Coverages appearing before the focal Coverage in the list, and where &#39;subrogation=false&#39;, should provide a reference to the ClaimResponse containing the adjudication results of the prior claim."/>
+      <requirements value="There must be at least one coverage for which eligibility is requested."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="CoverageEligibilityRequest.insurance.focal">
+      <path value="CoverageEligibilityRequest.insurance.focal"/>
+      <short value="Applicable coverage"/>
+      <definition value="A flag to indicate that this Coverage is to be used for evaluation of this request when set to true."/>
+      <comment value="A patient may (will) have multiple insurance policies which provide reimburement for healthcare services and products. For example a person may also be covered by their spouse&#39;s policy and both appear in the list (and may be from the same insurer). This flag will be set to true for only one of the listed policies and that policy will be used for evaluating this request. Other requests would be created to request evaluation against the other listed policies."/>
+      <requirements value="To identify which coverage in the list is being used to evaluate this request."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="CoverageEligibilityRequest.insurance.coverage">
+      <path value="CoverageEligibilityRequest.insurance.coverage"/>
+      <short value="Insurance information"/>
+      <definition value="Reference to the insurance card level information contained in the Coverage resource. The coverage issuing insurer will use these details to locate the patient&#39;s actual coverage within the insurer&#39;s information system."/>
+      <requirements value="Required to allow the adjudicator to locate the correct policy and history within their information system."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Coverage"/>
+      </type>
+    </element>
+    <element id="CoverageEligibilityRequest.insurance.businessArrangement">
+      <path value="CoverageEligibilityRequest.insurance.businessArrangement"/>
+      <short value="Additional provider contract number"/>
+      <definition value="A business agreement number established between the provider and the insurer for special business processing purposes."/>
+      <requirements value="Providers may have multiple business arrangements with a given insurer and must supply the specific contract number for adjudication."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="CoverageEligibilityRequest.item">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Details"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="680,0"/>
+      </extension>
+      <path value="CoverageEligibilityRequest.item"/>
+      <short value="Item to be evaluated for eligibiity"/>
+      <definition value="Service categories or billable services for which benefit details and/or an authorization prior to service delivery may be required by the payor."/>
+      <requirements value="The items to be processed for the request."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="CoverageEligibilityRequest.item.supportingInfoSequence">
+      <path value="CoverageEligibilityRequest.item.supportingInfoSequence"/>
+      <short value="Applicable exception or supporting information"/>
+      <definition value="Exceptions, special conditions and supporting information applicable for this service or product line."/>
+      <requirements value="Needed to support or inform the consideration for eligibility."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="CoverageEligibilityRequest.item.category">
+      <path value="CoverageEligibilityRequest.item.category"/>
+      <short value="Benefit classification"/>
+      <definition value="Code to identify the general type of benefits under which products and services are provided."/>
+      <comment value="Examples include Medical Care, Periodontics, Renal Dialysis, Vision Coverage."/>
+      <requirements value="Needed to convey the category of service or product for which eligibility is sought."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BenefitCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Benefit categories such as: oral, medical, vision etc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ex-benefitcategory"/>
+      </binding>
+    </element>
+    <element id="CoverageEligibilityRequest.item.productOrService">
+      <path value="CoverageEligibilityRequest.item.productOrService"/>
+      <short value="Billing, service, product, or drug code"/>
+      <definition value="This contains the product, service, drug or other billing code for the item."/>
+      <comment value="Code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI)."/>
+      <requirements value="Needed to convey the actual service or product for which eligibility is sought."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ServiceProduct"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Allowable service and product codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
+      </binding>
+    </element>
+    <element id="CoverageEligibilityRequest.item.modifier">
+      <path value="CoverageEligibilityRequest.item.modifier"/>
+      <short value="Product or service billing modifiers"/>
+      <definition value="Item typification or modifiers codes to convey additional context for the product or service."/>
+      <comment value="For example in Oral whether the treatment is cosmetic or associated with TMJ, or for Medical whether the treatment was outside the clinic or out of office hours."/>
+      <requirements value="To support provision of the item or to charge an elevated fee."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Modifiers"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Item type or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/claim-modifiers"/>
+      </binding>
+    </element>
+    <element id="CoverageEligibilityRequest.item.provider">
+      <path value="CoverageEligibilityRequest.item.provider"/>
+      <short value="Perfoming practitioner"/>
+      <definition value="The practitioner who is responsible for the product or service to be rendered to the patient."/>
+      <requirements value="Needed to support the evaluation of the eligibility."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.requester"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.source"/>
+      </mapping>
+    </element>
+    <element id="CoverageEligibilityRequest.item.quantity">
+      <path value="CoverageEligibilityRequest.item.quantity"/>
+      <short value="Count of products or services"/>
+      <definition value="The number of repetitions of a service or product."/>
+      <requirements value="Required when the product or service code does not convey the quantity provided."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+    </element>
+    <element id="CoverageEligibilityRequest.item.unitPrice">
+      <path value="CoverageEligibilityRequest.item.unitPrice"/>
+      <short value="Fee, charge or cost per item"/>
+      <definition value="The amount charged to the patient by the provider for a single unit."/>
+      <requirements value="Needed to support the evaluation of the eligibility."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
+    <element id="CoverageEligibilityRequest.item.facility">
+      <path value="CoverageEligibilityRequest.item.facility"/>
+      <short value="Servicing facility"/>
+      <definition value="Facility where the services will be provided."/>
+      <requirements value="Needed to support the evaluation of the eligibility."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="CoverageEligibilityRequest.item.diagnosis">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Diagnosis"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="680,210"/>
+      </extension>
+      <path value="CoverageEligibilityRequest.item.diagnosis"/>
+      <short value="Applicable diagnosis"/>
+      <definition value="Patient diagnosis for which care is sought."/>
+      <requirements value="Needed to support the evaluation of the eligibility."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Request.reasonReference"/>
+      </mapping>
+    </element>
+    <element id="CoverageEligibilityRequest.item.diagnosis.diagnosis[x]">
+      <path value="CoverageEligibilityRequest.item.diagnosis.diagnosis[x]"/>
+      <short value="Nature of illness or problem"/>
+      <definition value="The nature of illness or problem in a coded form or as a reference to an external defined Condition."/>
+      <requirements value="Provides health context for the evaluation of the products and/or services."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ICD10"/>
+        </extension>
+        <strength value="example"/>
+        <description value="ICD10 Diagnostic codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/icd-10"/>
+      </binding>
+    </element>
+    <element id="CoverageEligibilityRequest.item.detail">
+      <path value="CoverageEligibilityRequest.item.detail"/>
+      <short value="Product or service details"/>
+      <definition value="The plan/proposal/order describing the proposed service in detail."/>
+      <requirements value="Needed to provide complex service proposal such as a Device or a plan."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

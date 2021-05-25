@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Subscription-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Subscription-contact"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Subscription.contact"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Subscription-contact"/>
+        <description value="Contact details for the subscription"/>
+        <code value="contact"/>
+        <type value="token"/>
+        <expression value="Subscription.contact"/>
+        <xpath value="f:Subscription/f:contact"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Subscription-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Subscription.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Subscription-identifier"/>
+        <description value="A subscription identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Subscription.identifier"/>
+        <xpath value="f:Subscription/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Subscription-payload"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Subscription-payload"/>
+        <description value="The mime-type of the notification payload"/>
+        <code value="payload"/>
+        <type value="token"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Subscription-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Subscription.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Subscription-status"/>
+        <description value="The current state of the subscription"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Subscription.status"/>
+        <xpath value="f:Subscription/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Subscription-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Subscription-type"/>
+        <description value="The type of channel for the sent notifications"/>
+        <code value="type"/>
+        <type value="token"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Subscription-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Subscription-url"/>
+        <description value="The uri that will receive the notifications"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

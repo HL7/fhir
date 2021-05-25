@@ -52,7 +52,7 @@
        <value value="12345"/>
   </groupIdentifier>
   <status value="active"/>
-  
+  <intent value="proposal"/>
   <category>
      <coding>
        <system value="http://acme.org/messagetypes"/>

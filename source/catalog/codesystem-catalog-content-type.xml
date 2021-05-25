@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="catalog-content-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/catalog-content-type"/>
+  <version value="4.6.0"/>
+  <name value="CatalogContentType"/>
+  <concept>
+    <code value="single-submission"/>
+    <display value="Submission"/>
+    <definition value="This is a product submission."/>
+  </concept>
+  <concept>
+    <code value="resubmission"/>
+    <display value="Resubmission"/>
+    <definition value="This is a resubmission of a previously submitted item."/>
+  </concept>
+  <concept>
+    <code value="full-catalog"/>
+    <display value="Full Catalog"/>
+    <definition value="This is a full catalog transfer."/>
+  </concept>
+  <concept>
+    <code value="catalog-update"/>
+    <display value="Update"/>
+    <definition value="This is a differential update."/>
+  </concept>
+  <concept>
+    <code value="catalog-response"/>
+    <display value="Response"/>
+    <definition value="This is a response to a request for catalog information."/>
+  </concept>
+</CodeSystem>

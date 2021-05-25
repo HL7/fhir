@@ -1,0 +1,2 @@
+// Request a websocket binding token for Subscription ABC123
+GET [base]/Subscription/ABC123/$get-ws-binding-token

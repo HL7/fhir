@@ -34,7 +34,7 @@
                </td>
             </tr>
             <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">4.5.0</td>
+               <td style="padding-left: 25px; padding-right: 25px;">4.6.0</td>
             </tr>
          </table>
          <p/>
@@ -162,7 +162,7 @@
     <use value="official"/>
     <value value="FHIRHelpers"/>
     </identifier>
-    <version value="4.5.0"/>
+    <version value="4.6.0"/>
     <title value="FHIR Helpers"/>
     <status value="active"/>
     <experimental value="true"/>

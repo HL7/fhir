@@ -1,10 +1,12 @@
 <igs>
   <!-- only FMG can add entries to this list-->
   <!-- the literal order in this XML source file is the order of publication. Dependencies matter! -->
-  <ig code="core"     name="FHIR Specification Core" brief="Core" review="" committee="fhir" ballot="dstu2" fmm="0" core="yes"/>
-  <ig code="openehr"  name="openEHR Profiles" brief="openEHR" review="" committee="pc" ballot="dstu2" fmm="0" core="yes"/>
+  <ig code="core"       name="FHIR Specification Core" brief="Core" review="" committee="fhir" ballot="dstu2" fmm="0" core="yes"/>
+  <ig code="vitalsigns" name="Observation Vitals profile" brief="Vitals" review="" committee="oo" ballot="dstu2" fmm="0" core="yes"/>
+  <ig code="openehr"    name="openEHR Profiles" brief="openEHR" review="" committee="pc" ballot="dstu2" fmm="0" core="yes"/>
 <!--  <ig code="cqmf"     name="Clinical Quality Measure Framework" brief="CQMF" review="" committee="cds" ballot="draft" fmm="0" core="yes"/> -->
   <ig code="cqf" name="Clinical Reasoning" brief="CQF" review="" committee="cds" ballot="dstu2" fmm="0" core="yes"/>
+  <ig code="cdshooks"   name="CDS Hooks" brief="CDSHooks" review="" committee="cds" ballot="dstu2" fmm="0" core="yes"/>
   <ig code="ihe"      name="IHE Profiles" brief="IHE" review="" committee="hsi" ballot="dstu2" fmm="0" core="yes"/>
 <!--  <ig code="uslab"    name="US Lab Profile" brief="USLab" review="" source="\guides\uslab\uslab.xml" committee="us" ballot="dstu2" fmm="0" section="A"/> -->
 <!--  <ig code="sdc"      name="Structured Data Capture - Forms" brief="SDC" review="" source="\guides\sdc\sdc.xml" committee="oo" ballot="dstu1" fmm="0" section="B"/>

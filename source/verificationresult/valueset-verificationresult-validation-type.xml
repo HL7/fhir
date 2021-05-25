@@ -1,32 +1,39 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
-	<id value="validation-type"/>
-	<url value="http://hl7.org/fhir/ValueSet/validation-type"/>
-	<identifier>
-		<system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.4.642.3.886"/>
-	</identifier>
-	<version value="4.5.0"/>
-	<name value="validation-type"/>
-	<status value="draft"/>
-	<experimental value="false"/>
-	<date value="2018-06-05T14:06:02+00:00"/>
-	<publisher value="HL7 (FHIR Project)"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-		<telecom>
-			<system value="email"/>
-			<value value="fhir@lists.hl7.org"/>
-		</telecom>
-	</contact>
-	<description value="What the target is validated against"/>
-	<immutable value="true"/>
-	<compose>
-		<include>
-			<system value="http://terminology.hl7.org/CodeSystem/validation-type"/>
-		</include>
-	</compose>
+  <id value="verificationresult-validation-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/verificationresult-validation-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.886"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="validation-type"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2018-06-05T14:06:02+00:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="What the target is validated against"/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/validation-type"/>
+    </include>
+  </compose>
 </ValueSet>

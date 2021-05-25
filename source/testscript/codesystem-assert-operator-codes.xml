@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="assert-operator-codes"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/assert-operator-codes defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">equals
+            
+            <a name="assert-operator-codes-equals"> </a>
+          
+          </td>
+          
+          <td>equals</td>
+          
+          <td>Default value. Equals comparison.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">notEquals
+            
+            <a name="assert-operator-codes-notEquals"> </a>
+          
+          </td>
+          
+          <td>notEquals</td>
+          
+          <td>Not equals comparison.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">in
+            
+            <a name="assert-operator-codes-in"> </a>
+          
+          </td>
+          
+          <td>in</td>
+          
+          <td>Compare value within a known set of values.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">notIn
+            
+            <a name="assert-operator-codes-notIn"> </a>
+          
+          </td>
+          
+          <td>notIn</td>
+          
+          <td>Compare value not within a known set of values.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">greaterThan
+            
+            <a name="assert-operator-codes-greaterThan"> </a>
+          
+          </td>
+          
+          <td>greaterThan</td>
+          
+          <td>Compare value to be greater than a known value.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">lessThan
+            
+            <a name="assert-operator-codes-lessThan"> </a>
+          
+          </td>
+          
+          <td>lessThan</td>
+          
+          <td>Compare value to be less than a known value.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">empty
+            
+            <a name="assert-operator-codes-empty"> </a>
+          
+          </td>
+          
+          <td>empty</td>
+          
+          <td>Compare value is empty.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">notEmpty
+            
+            <a name="assert-operator-codes-notEmpty"> </a>
+          
+          </td>
+          
+          <td>notEmpty</td>
+          
+          <td>Compare value is not empty.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">contains
+            
+            <a name="assert-operator-codes-contains"> </a>
+          
+          </td>
+          
+          <td>contains</td>
+          
+          <td>Compare value string contains a known value.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">notContains
+            
+            <a name="assert-operator-codes-notContains"> </a>
+          
+          </td>
+          
+          <td>notContains</td>
+          
+          <td>Compare value string does not contain a known value.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">eval
+            
+            <a name="assert-operator-codes-eval"> </a>
+          
+          </td>
+          
+          <td>evaluate</td>
+          
+          <td>Evaluate the FHIRPath expression as a boolean condition.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/assert-operator-codes"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.709"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="AssertionOperatorType"/>
+  <title value="AssertionOperatorType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The type of operator to use for assertion."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/assert-operator-codes"/>
+  <content value="complete"/>
+  <concept>
+    <code value="equals"/>
+    <display value="equals"/>
+    <definition value="Default value. Equals comparison."/>
+  </concept>
+  <concept>
+    <code value="notEquals"/>
+    <display value="notEquals"/>
+    <definition value="Not equals comparison."/>
+  </concept>
+  <concept>
+    <code value="in"/>
+    <display value="in"/>
+    <definition value="Compare value within a known set of values."/>
+  </concept>
+  <concept>
+    <code value="notIn"/>
+    <display value="notIn"/>
+    <definition value="Compare value not within a known set of values."/>
+  </concept>
+  <concept>
+    <code value="greaterThan"/>
+    <display value="greaterThan"/>
+    <definition value="Compare value to be greater than a known value."/>
+  </concept>
+  <concept>
+    <code value="lessThan"/>
+    <display value="lessThan"/>
+    <definition value="Compare value to be less than a known value."/>
+  </concept>
+  <concept>
+    <code value="empty"/>
+    <display value="empty"/>
+    <definition value="Compare value is empty."/>
+  </concept>
+  <concept>
+    <code value="notEmpty"/>
+    <display value="notEmpty"/>
+    <definition value="Compare value is not empty."/>
+  </concept>
+  <concept>
+    <code value="contains"/>
+    <display value="contains"/>
+    <definition value="Compare value string contains a known value."/>
+  </concept>
+  <concept>
+    <code value="notContains"/>
+    <display value="notContains"/>
+    <definition value="Compare value string does not contain a known value."/>
+  </concept>
+  <concept>
+    <code value="eval"/>
+    <display value="evaluate"/>
+    <definition value="Evaluate the FHIRPath expression as a boolean condition."/>
+  </concept>
+</CodeSystem>

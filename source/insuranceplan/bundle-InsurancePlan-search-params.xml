@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="InsurancePlan-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InsurancePlan-address"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.contact.address"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-address"/>
+        <description value="A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"/>
+        <code value="address"/>
+        <type value="string"/>
+        <expression value="InsurancePlan.contact.address"/>
+        <xpath value="f:InsurancePlan/f:contact/f:address"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InsurancePlan-address-city"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.contact.address.city"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-address-city"/>
+        <description value="A city specified in an address"/>
+        <code value="address-city"/>
+        <type value="string"/>
+        <expression value="InsurancePlan.contact.address.city"/>
+        <xpath value="f:InsurancePlan/f:contact/f:address/f:city"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InsurancePlan-address-country"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.contact.address.country"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-address-country"/>
+        <description value="A country specified in an address"/>
+        <code value="address-country"/>
+        <type value="string"/>
+        <expression value="InsurancePlan.contact.address.country"/>
+        <xpath value="f:InsurancePlan/f:contact/f:address/f:country"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InsurancePlan-address-postalcode"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.contact.address.postalCode"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-address-postalcode"/>
+        <description value="A postal code specified in an address"/>
+        <code value="address-postalcode"/>
+        <type value="string"/>
+        <expression value="InsurancePlan.contact.address.postalCode"/>
+        <xpath value="f:InsurancePlan/f:contact/f:address/f:postalCode"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InsurancePlan-address-state"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.contact.address.state"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-address-state"/>
+        <description value="A state specified in an address"/>
+        <code value="address-state"/>
+        <type value="string"/>
+        <expression value="InsurancePlan.contact.address.state"/>
+        <xpath value="f:InsurancePlan/f:contact/f:address/f:state"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InsurancePlan-address-use"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.contact.address.use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-address-use"/>
+        <description value="A use code specified in an address"/>
+        <code value="address-use"/>
+        <type value="token"/>
+        <expression value="InsurancePlan.contact.address.use"/>
+        <xpath value="f:InsurancePlan/f:contact/f:address/f:use"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InsurancePlan-administered-by"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.administeredBy"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-administered-by"/>
+        <description value="Product administrator"/>
+        <code value="administered-by"/>
+        <type value="reference"/>
+        <expression value="InsurancePlan.administeredBy"/>
+        <xpath value="f:InsurancePlan/f:administeredBy"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InsurancePlan-endpoint"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.endpoint"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-endpoint"/>
+        <description value="Technical endpoint"/>
+        <code value="endpoint"/>
+        <type value="reference"/>
+        <expression value="InsurancePlan.endpoint"/>
+        <xpath value="f:InsurancePlan/f:endpoint"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InsurancePlan-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-identifier"/>
+        <description value="Any identifier for the organization (not the accreditation issuer&#39;s identifier)"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="InsurancePlan.identifier"/>
+        <xpath value="f:InsurancePlan/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InsurancePlan-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.name,InsurancePlan.alias"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-name"/>
+        <description value="A portion of the organization&#39;s name or alias"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="InsurancePlan.name | InsurancePlan.alias"/>
+        <xpath value="f:InsurancePlan/f:name | f:InsurancePlan/f:alias"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InsurancePlan-owned-by"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.ownedBy"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-owned-by"/>
+        <description value="An organization of which this organization forms a part"/>
+        <code value="owned-by"/>
+        <type value="reference"/>
+        <expression value="InsurancePlan.ownedBy"/>
+        <xpath value="f:InsurancePlan/f:ownedBy"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InsurancePlan-phonetic"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-phonetic"/>
+        <description value="A portion of the organization&#39;s name using some kind of phonetic matching algorithm"/>
+        <code value="phonetic"/>
+        <type value="string"/>
+        <expression value="InsurancePlan.name"/>
+        <xpath value="f:InsurancePlan/f:name"/>
+        <xpathUsage value="phonetic"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InsurancePlan-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-status"/>
+        <description value="Is the Organization record active"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="InsurancePlan.status"/>
+        <xpath value="f:InsurancePlan/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InsurancePlan-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InsurancePlan.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InsurancePlan-type"/>
+        <description value="A code for the type of organization"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="InsurancePlan.type"/>
+        <xpath value="f:InsurancePlan/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

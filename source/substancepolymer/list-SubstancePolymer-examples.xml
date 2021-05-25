@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="SubstancePolymer-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of substancepolymer"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="substancepolymer-example"/>
+    </extension>
+    <item>
+      <reference value="SubstancePolymer/example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+</List>

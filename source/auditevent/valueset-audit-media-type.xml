@@ -1,22 +1,30 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="audit-media-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <id value="audit-media-type" />
-  <version value="20200804"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sec"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/audit-media-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="AuditMediaType"/>
   <title value="Audit Agent Media Type"/>
   <status value="active"/>
   <date value="2020-08-04"/>
-  <publisher value="HL7 (FHIR Project)"/> 
+  <publisher value="HL7 (FHIR Project)"/>
   <description value="Agent Media Types for Audit Events - defined by DICOM with some FHIR specific additions."/>
-  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis"/> 
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis"/>
   <compose>
     <include>
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-	  <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_405.html" />
+      <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_405.html"/>
     </include>
   </compose>
 </ValueSet>
