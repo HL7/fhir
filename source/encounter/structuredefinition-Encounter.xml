@@ -532,7 +532,7 @@
       <path value="Encounter.participant.type"/>
       <short value="Role of participant in encounter"/>
       <definition value="Role of participant in encounter."/>
-      <comment value="The participant type indicates how an individual participates in an encounter. It includes non-practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the practitioner roles which are functional roles, derived from terms of employment, education, licensing, etc."/>
+      <comment value="The participant type indicates how an individual actor participates in an encounter. It includes non-practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the practitioner roles which are functional roles, derived from terms of employment, education, licensing, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -578,17 +578,19 @@
         <map value=".time"/>
       </mapping>
     </element>
-    <element id="Encounter.participant.individual">
-      <path value="Encounter.participant.individual"/>
-      <short value="Persons involved in the encounter other than the patient"/>
-      <definition value="Persons involved in the encounter other than the patient."/>
+    <element id="Encounter.participant.actor">
+      <path value="Encounter.participant.actor"/>
+      <short value="Persons involved in the encounter (including patient)"/>
+      <definition value="Persons involved in the encounter, the patient/group is also included here to indicate that the patient was actually participating in the encounter. Not including the patient here covers use cases such as a case meeting between practitioners about a patient - non contact times"/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>
