@@ -581,7 +581,7 @@
     <element id="Encounter.participant.actor">
       <path value="Encounter.participant.actor"/>
       <short value="Persons involved in the encounter (including patient)"/>
-      <definition value="Persons involved in the encounter, the patient/group is also included here to indicate that the patient was actually participating in the encounter. Not including the patient here covers use cases such as a case meeting between practitioners about a patient - non contact times"/>
+      <definition value="Persons involved in the encounter, the patient/group is also included here to indicate that the patient was actually participating in the encounter. Not including the patient here covers use cases such as a case meeting between practitioners about a patient - non contact times."/>
       <min value="0"/>
       <max value="1"/>
       <type>
