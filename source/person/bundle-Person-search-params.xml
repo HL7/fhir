@@ -413,7 +413,7 @@
           <valueString value="Person.deceased[x]"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Person-deceased"/>
-        <description value="This person has been marked as deceased, or as a death date entered"/>
+        <description value="This person has been marked as deceased, or has a death date entered"/>
         <code value="deceased"/>
         <type value="token"/>
         <expression value="Person.deceased.exists() and Person.deceased != false"/>
