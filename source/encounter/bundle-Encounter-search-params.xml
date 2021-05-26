@@ -293,7 +293,7 @@
           <valueString value="Encounter.subject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-patient"/>
-        <description value="The patient or group present at the encounter"/>
+        <description value="The patient present at the encounter"/>
         <code value="patient"/>
         <type value="reference"/>
         <expression value="Encounter.subject.where(resolve() is Patient)"/>
