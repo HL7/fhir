@@ -42,37 +42,37 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/account-billing-status"/>
   <content value="complete"/>
   <concept>
-    <code value="Open"/>
+    <code value="open"/>
     <display value="Open"/>
     <definition value="The account is open for charging transactions (account.status is active)"/>
   </concept>
   <concept>
-    <code value="CareComplete-NotBilled"/>
+    <code value="carecomplete-notbilled"/>
     <display value="CareComplete/Not Billed"/>
     <definition value="The account.status is still active and may have charges recorded against it (only for events in the servicePeriod), however the encounters associated are completed. (Also known as Discharged not billed) This BillingStatus is often not used in ongoing accounts. (account.status is active)"/>
   </concept>
   <concept>
-    <code value="Billing"/>
+    <code value="billing"/>
     <display value="Billing"/>
     <definition value="Indicates that all transactions are recorded and the finance system can perform the billing process, including preparing insurance claims, scrubbing charges, invoicing etc. During this time any new charges will not be included in the current billing run/cycle. (account.status is active)"/>
   </concept>
   <concept>
-    <code value="Closed-BadDebt"/>
+    <code value="closed-baddebt"/>
     <display value="Closed-Bad Debt"/>
     <definition value="The balance of this debt has not been able to be recovered, and the organization has decided not to persue debt recovery. (account.status is in-active)"/>
   </concept>
   <concept>
-    <code value="Closed-Voided"/>
+    <code value="closed-voided"/>
     <display value="Closed-Voided"/>
     <definition value="The account was not created in error, however the organization has decided that it will not be charging any transactions associated. (account.status is i n-active)"/>
   </concept>
   <concept>
-    <code value="Closed-Completed"/>
+    <code value="closed-completed"/>
     <display value="Closed-Completed"/>
     <definition value="The account is closed and all charges are processed and accounted for. (account.status is i n-active)"/>
   </concept>
   <concept>
-    <code value="Closed-Combined"/>
+    <code value="closed-combined"/>
     <display value="Closed-Combined"/>
     <definition value="This account has been merged into another account, all charged have been migrated. This account should no longer be used, and will not be billed. (account.status is i n-active)"/>
   </concept>
