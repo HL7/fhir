@@ -385,6 +385,46 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Person-family"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Person.name.family"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Person-family"/>
+        <description value="A portion of the family name of the person"/>
+        <code value="family"/>
+        <type value="string"/>
+        <expression value="Person.name.family"/>
+        <xpath value="f:Person/f:name/f:family"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Person-given"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Person.name.given"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Person-given"/>
+        <description value="A portion of the given name of the person"/>
+        <code value="given"/>
+        <type value="string"/>
+        <expression value="Person.name.given"/>
+        <xpath value="f:Person/f:name/f:given"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Person-death-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
