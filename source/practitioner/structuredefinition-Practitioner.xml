@@ -221,6 +221,25 @@
         <map value="./ContactPoints"/>
       </mapping>
     </element>
+    <element id="Practitioner.deceased[x]">
+      <path value="Practitioner.deceased[x]"/>
+      <short value="Indicates if the practitioner is deceased or not"/>
+      <definition value="Indicates if the practitioner is deceased or not."/>
+      <comment value="If there&#39;s no value in the instance, it means there is no statement on whether or not the practitioner is deceased. Most systems will interpret the absence of a value as a sign of the person being alive."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedInd, player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedTime"/>
+      </mapping>
+    </element>
     <element id="Practitioner.address">
       <path value="Practitioner.address"/>
       <short value="Address(es) of the practitioner that are not role specific (typically home address)"/>
