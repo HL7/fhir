@@ -371,7 +371,7 @@
       </extension>
       <path value="Practitioner.qualification"/>
       <short value="Certification, licenses, or training pertaining to the provision of care"/>
-      <definition value="The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certian locality."/>
+      <definition value="The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certain locality."/>
       <min value="0"/>
       <max value="*"/>
       <type>
