@@ -250,14 +250,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Encounter.participant.individual"/>
+          <valueString value="Encounter.participant.actor"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-participant"/>
         <description value="Persons involved in the encounter other than the patient"/>
         <code value="participant"/>
         <type value="reference"/>
-        <expression value="Encounter.participant.individual"/>
-        <xpath value="f:Encounter/f:participant/f:individual"/>
+        <expression value="Encounter.participant.actor"/>
+        <xpath value="f:Encounter/f:participant/f:actor"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -310,14 +310,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Encounter.participant.individual"/>
+          <valueString value="Encounter.participant.actor"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-practitioner"/>
         <description value="Persons involved in the encounter other than the patient"/>
         <code value="practitioner"/>
         <type value="reference"/>
-        <expression value="Encounter.participant.individual.where(resolve() is Practitioner)"/>
-        <xpath value="f:Encounter/f:participant/f:individual"/>
+        <expression value="Encounter.participant.actor.where(resolve() is Practitioner)"/>
+        <xpath value="f:Encounter/f:participant/f:actor"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
