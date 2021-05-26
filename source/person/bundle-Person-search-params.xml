@@ -382,4 +382,44 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Person-death-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Person.deceasedDateTime"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Person-death-date"/>
+        <description value="The date of death has been provided and satisfies this search value"/>
+        <code value="death-date"/>
+        <type value="date"/>
+        <expression value="(Person.deceased as dateTime)"/>
+        <xpath value="f:Person/f:deceasedDateTime"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Person-deceased"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Person.deceased[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Person-deceased"/>
+        <description value="This person has been marked as deceased, or as a death date entered"/>
+        <code value="deceased"/>
+        <type value="token"/>
+        <expression value="Person.deceased.exists() and Person.deceased != false"/>
+        <xpath value="f:Person/f:deceasedBoolean | f:Person/f:deceasedDateTime"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
