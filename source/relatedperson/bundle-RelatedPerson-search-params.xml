@@ -245,6 +245,46 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="RelatedPerson-family"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.name.family"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-family"/>
+        <description value="A portion of the family name of the related person"/>
+        <code value="family"/>
+        <type value="string"/>
+        <expression value="RelatedPerson.name.family"/>
+        <xpath value="f:RelatedPerson/f:name/f:family"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-given"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.name.given"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-given"/>
+        <description value="A portion of the given name of the related person"/>
+        <code value="given"/>
+        <type value="string"/>
+        <expression value="RelatedPerson.name.given"/>
+        <xpath value="f:RelatedPerson/f:name/f:given"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="RelatedPerson-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

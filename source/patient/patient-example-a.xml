@@ -24,8 +24,8 @@
   <active value="true"/>
   <name>
     <use value="official"/>
-    <family value="Donald"/>
-    <given value="Duck"/>
+    <family value="Duck"/>
+    <given value="Donald"/>
   </name>
   <gender value="male"/>
   <photo>
