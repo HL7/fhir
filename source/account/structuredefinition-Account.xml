@@ -128,6 +128,25 @@
         <map value=".statusCode"/>
       </mapping>
     </element>
+    <element id="Account.billingStatus">
+      <path value="Account.billingStatus"/>
+      <short value="Tracks the lifecycle of the account through the billing process"/>
+      <definition value="The BillingStatus tracks the lifecycle of the account through the billing process. It indicates how transactions are treated when they are allocated to the account."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AccountBillingStatus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates whether the account is available to be used for billing purposes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/account-billing-status"/>
+      </binding>
+    </element>
     <element id="Account.type">
       <path value="Account.type"/>
       <short value="E.g. patient, expense, depreciation"/>

@@ -7,7 +7,7 @@
 			a planned meeting that may be in the future or past. The resource only describes a single meeting,
 			a series of repeating visits would require multiple appointment resources to be created for each instance.
 			Examples include a scheduled surgery, a follow-up for a
-			clinical visit, a scheduled conference call between clinicians to discuss a case, the reservation
+			clinical visit, a scheduled conference call between clinicians to discuss a case (where the patient is a subject, but not a participant), the reservation
 			of a piece of diagnostic equipment for a particular use, etc.
 			The visit scheduled by an appointment
 			may be in person or remote (by phone, video conference, etc.)  All that matters is that the time and
@@ -61,7 +61,7 @@
 			<li>
 				<b>Replying to the request</b>
 				<p>
-					The reply process is simply performed by the person/system handing the requests, updating
+					The reply process is simply performed by the person/system handling the requests, updating
 					the participant statuses on the appointment as needed. If there are multiple systems involved, then these
 					will create AppointmentResponse entries with the desired statuses.
 				</p>
