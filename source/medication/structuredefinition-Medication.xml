@@ -312,7 +312,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationIngredientStrength"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="A coded concpet defining the strength of an ingredient."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-ingredientstrength"/>
       </binding>
