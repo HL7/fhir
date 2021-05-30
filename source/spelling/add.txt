@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-_query
-_security
-recruitment_actual
-_lastupdated
-_list
-subject_state
-_profile
-_tag
-_source
-_id
-_content
-_text
-=======
 ﻿_query
 _security
 recruitment_actual
@@ -24,5 +10,4 @@ _source
 _id
 _content
 _text
->>>>>>> master
 recruitment_target
