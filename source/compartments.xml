@@ -785,7 +785,6 @@
    <Row>
     <Cell><Data ss:Type="String">MedicationDefinition</Data></Cell>
    </Row>
-   <Row ss:Index="145">
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceDispense</Data></Cell>
    </Row>
