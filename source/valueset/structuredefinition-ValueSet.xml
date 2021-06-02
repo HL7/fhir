@@ -30,7 +30,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="ValueSet"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -48,7 +48,7 @@
     </telecom>
   </contact>
   <description value="A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html)."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -104,7 +104,7 @@
     <element id="ValueSet.url">
       <path value="ValueSet.url"/>
       <short value="Canonical identifier for this value set, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this value set is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the value set is stored on different servers."/>
+      <definition value="An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this value set is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the value set is stored on different servers."/>
       <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the value set to be referenced by a single globally unique identifier."/>
       <min value="0"/>
@@ -223,7 +223,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.5.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -422,7 +422,7 @@
       <path value="ValueSet.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set."/>
-      <comment value="nullFrequently, the copyright differs between the value set and the codes that are included. The copyright statement should clearly differentiate between these when required."/>
+      <comment value="Frequently, the copyright differs between the value set and the codes that are included. The copyright statement should clearly differentiate between these when required."/>
       <requirements value="Consumers must be able to determine any legal restrictions on the use of the value set and/or its content."/>
       <alias value="License"/>
       <alias value="Restrictions"/>
@@ -729,7 +729,7 @@
     </element>
     <element id="ValueSet.compose.include.filter.op">
       <path value="ValueSet.compose.include.filter.op"/>
-      <short value="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | child-of | descendant-leaf | exists"/>
+      <short value="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | child-of | descendent-leaf | exists"/>
       <definition value="The kind of operation to perform as a part of the filter criteria."/>
       <comment value="In case filter.property represents a property of the system, the operation applies to the selected property. In case filter.property represents a filter of the system, the operation SHALL match one of the CodeSystem.filter.operator values."/>
       <min value="1"/>
@@ -744,7 +744,7 @@
         </extension>
         <strength value="required"/>
         <description value="The kind of operation to perform as a part of a property based filter."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/filter-operator|4.5.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/filter-operator|4.6.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>

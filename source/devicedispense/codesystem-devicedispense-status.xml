@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="devicedispense-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/devicedispense-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.5.0"/>
+  <name value="DeviceDispense Status Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/devicedispense-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="preparation"/>
+    <display value="Preparation"/>
+    <definition value="The core event has not started yet, but some staging activities have begun (e.g. initial preparing of the device. Preparation stages may be tracked e.g. for planning, supply or billing purposes."/>
+  </concept>
+  <concept>
+    <code value="in-progress"/>
+    <display value="In Progress"/>
+    <definition value="The dispensed product is ready for pickup."/>
+  </concept>
+  <concept>
+    <code value="cancelled"/>
+    <display value="Cancelled"/>
+    <definition value="The dispensed product was not and will never be picked up by the patient."/>
+  </concept>
+  <concept>
+    <code value="on-hold"/>
+    <display value="On Hold"/>
+    <definition value="The dispense process is paused while waiting for an external event to reactivate the dispense.  For example, new stock has arrived or the prescriber has called."/>
+  </concept>
+  <concept>
+    <code value="completed"/>
+    <display value="Completed"/>
+    <definition value="The dispensed product has been picked up."/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered in Error"/>
+    <definition value="The dispense was entered in error and therefore nullified."/>
+  </concept>
+  <concept>
+    <code value="stopped"/>
+    <display value="Stopped"/>
+    <definition value="Actions implied by the dispense have been permanently halted, before all of them occurred."/>
+  </concept>
+  <concept>
+    <code value="declined"/>
+    <display value="Declined"/>
+    <definition value="The dispense was declined and not performed."/>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The authoring system does not know which of the status values applies for this dispense.  Note: this concept is not to be used for other - one of the listed statuses is presumed to apply, it&#39;s just now known which one."/>
+  </concept>
+</CodeSystem>

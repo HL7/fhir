@@ -203,6 +203,22 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
           <td/>
         
         </tr>
+		
+		<tr>
+          
+          <td style="white-space:nowrap">descendent-leaf
+            
+            <a name="filter-operator-descendent-leaf"> </a>
+          
+          </td>
+          
+          <td>Descendent Leaf</td>
+          
+          <td>Includes concept ids that have a transitive is-a relationship with the concept Id provided as the value, but which do not have any concept ids with transitive is-a relationships with themselves.</td>
+          
+          <td/>
+        
+        </tr>
       
       </table>
     
@@ -225,7 +241,7 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.479"/>
   </identifier>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="FilterOperator"/>
   <title value="FilterOperator"/>
   <status value="active"/>
@@ -301,7 +317,7 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
 	<definition value="Only concepts with a direct hierarchical relationship to the index code and no other concepts. This does not include the index code in the output."/>
   </concept>
   <concept>
-    <code value="descendant-leaf"/>
+    <code value="descendent-leaf"/>
 	<display value="Descendent Leaf"/>
 	<definition value="Includes concept ids that have a transitive is-a relationship with the concept Id provided as the value, but which do not have any concept ids with transitive is-a relationships with themselves."/>
   </concept>

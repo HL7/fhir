@@ -205,15 +205,15 @@
 
         <tr>
 
-          <td style="white-space:nowrap">archive
+          <td style="white-space:nowrap">archived
 
-            <a name="cited-artifact-status-type-archive"> </a>
+            <a name="cited-artifact-status-type-archived"> </a>
 
           </td>
 
-          <td>Archive</td>
+          <td>Archived</td>
 
-          <td>Archive</td>
+          <td>Archived</td>
 
         </tr>
       
@@ -237,7 +237,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="CitedArtifactStatusType"/>
   <title value="CitedArtifactStatusType"/>
   <status value="draft"/>
@@ -313,8 +313,8 @@
     <definition value="Active"/>
   </concept>
   <concept>
-    <code value="archive"/>
-    <display value="Archive"/>
-    <definition value="Archive"/>
+    <code value="archived"/>
+    <display value="Archived"/>
+    <definition value="Archived"/>
   </concept>
 </CodeSystem>

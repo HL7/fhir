@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Citation"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="Citation"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>
@@ -365,6 +365,15 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+    <element id="Citation.copyright">
+      <path value="Citation.copyright"/>
+      <short value="Use and/or publishing restrictions for the Citation, not for the cited artifact"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
     <element id="Citation.approvalDate">
       <path value="Citation.approvalDate"/>
       <short value="When the citation was approved by publisher"/>
@@ -425,6 +434,42 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+    <element id="Citation.author">
+      <path value="Citation.author"/>
+      <short value="Who authored the Citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="Citation.editor">
+      <path value="Citation.editor"/>
+      <short value="Who edited the Citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="Citation.reviewer">
+      <path value="Citation.reviewer"/>
+      <short value="Who reviewed the Citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="Citation.endorser">
+      <path value="Citation.endorser"/>
+      <short value="Who endorsed the Citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
     <element id="Citation.summary">
       <path value="Citation.summary"/>
       <short value="A human-readable display of the citation"/>
@@ -432,7 +477,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
+        <code value="ContactDetail"/>
       </type>
     </element>
     <element id="Citation.summary.style">
@@ -883,15 +928,6 @@
         <code value="markdown"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.copyright">
-      <path value="Citation.citedArtifact.copyright"/>
-      <short value="Copyright notice for the full article or artifact"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
     <element id="Citation.citedArtifact.part">
       <path value="Citation.citedArtifact.part"/>
       <short value="The component of the article or artifact"/>
@@ -1068,16 +1104,6 @@
       <max value="1"/>
       <type>
         <code value="string"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.publicationForm.publishedIn.startDate">
-      <path value="Citation.citedArtifact.publicationForm.publishedIn.startDate"/>
-      <short value="When the database was first available or when the book was published"/>
-      <comment value="Date can be specific to database version or book edition if specified in the name."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="date"/>
       </type>
     </element>
     <element id="Citation.citedArtifact.publicationForm.periodicRelease">
@@ -1274,6 +1300,15 @@
         <code value="string"/>
       </type>
     </element>
+    <element id="Citation.citedArtifact.publicationForm.copyright">
+      <path value="Citation.citedArtifact.publicationForm.copyright"/>
+      <short value="Copyright notice for the full article or artifact"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
     <element id="Citation.citedArtifact.webLocation">
       <path value="Citation.citedArtifact.webLocation"/>
       <short value="Used for any URL for the article or artifact cited"/>
@@ -1349,6 +1384,64 @@
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
       </binding>
+    </element>
+    <element id="Citation.citedArtifact.classification.whoClassified">
+      <path value="Citation.citedArtifact.classification.whoClassified"/>
+      <short value="Provenance and copyright of classification"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.classification.whoClassified.person">
+      <path value="Citation.citedArtifact.classification.whoClassified.person"/>
+      <short value="Person who created the classification"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Person"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.classification.whoClassified.organization">
+      <path value="Citation.citedArtifact.classification.whoClassified.organization"/>
+      <short value="Organization who created the classification"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.classification.whoClassified.publisher">
+      <path value="Citation.citedArtifact.classification.whoClassified.publisher"/>
+      <short value="The publisher of the classification, not the publisher of the article or artifact being cited"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.classification.whoClassified.classifierCopyright">
+      <path value="Citation.citedArtifact.classification.whoClassified.classifierCopyright"/>
+      <short value="Rights management statement for the classification"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.classification.whoClassified.freeToShare">
+      <path value="Citation.citedArtifact.classification.whoClassified.freeToShare"/>
+      <short value="Acceptable to re-use the classification"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
     </element>
     <element id="Citation.citedArtifact.contributorship">
       <path value="Citation.citedArtifact.contributorship"/>

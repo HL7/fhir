@@ -4,4 +4,9 @@
   <id value="ResearchStudy-packs"/>
   <status value="current"/>
   <mode value="working"/>
+  <entry>
+    <item>
+      <reference value="ImplementationGuide/ResearchStudy-core"/>
+    </item>
+  </entry>
 </List>

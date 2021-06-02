@@ -31,6 +31,20 @@ draw the attention of reviewers and implementers to the following issue:
       <li>Setting up a Schedule of Activities for the study and its subjects
 	  </li>
       </ul>
+
+  <h3>Extensions</h3>
+  <p>ResearchStudy is aimed at all forms of studies.  For some study types specific extensions have been defined </p>
+  <p>
+    <b>Extension: RelatesTo</b>
+  </p>
+  <p>Many clinical studies have a component sub-study and the partOf attribute should be used for this.  There may also be documents such as a PDF 
+  of the protocol or consent forms and these should be linked using relatedAretfact.  However there may be more complex relations to other studies
+  people organizations or artefacts and the RelatesTo extension is provided to record these.</p>
+
+  <p>
+    <b>Extension: SiteRecruitment</b>
+  </p>
+<p>Some studies need to find sites according to specific criteria - for example site has a freezer capable of very low temperatures and a centrifuge.</p>
 </div>
 
 </div>

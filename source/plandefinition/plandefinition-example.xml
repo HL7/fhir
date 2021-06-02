@@ -706,7 +706,7 @@
             <unit value="{tbl}"/>
           </doseQuantity>
         </doseAndRate>
-        
+
       </dosage>
       <dynamicValue>
         <path value="dispenseRequest.numberOfRepeatsAllowed"/>
