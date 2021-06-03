@@ -395,7 +395,7 @@
 			<max value="1"/>
 			<type>
 				<code value="CodeableReference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationDefinition"/>
 			</type>
 		</element>
@@ -429,8 +429,112 @@
 				<code value="Ratio"/>
 			</type>
 		</element>
+		<element id="MedicationDefinition.ingredient.substance.strength.strengthTextual">
+			<path value="MedicationDefinition.ingredient.substance.strength.strengthTextual"/>
+			<short value="The textual expression of the strength"/>
+			<definition value="The textual expression of the strength."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+
+		<element id="MedicationDefinition.ingredient.substance.formulation">
+			<path value="MedicationDefinition.ingredient.substance.formulation"/>
+			<short value="The textual expression of the strength"/>
+			<definition value="The textual expression of the strength."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="MedicationDefinition.ingredient.substance.formulation.strengthType">
+			<path value="MedicationDefinition.ingredient.substance.formulation.strengthType"/>
+			<short value="For API"/>
+			<definition value="For API."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+		</element>
+		<element id="MedicationDefinition.ingredient.substance.formulation.strengthOperator">
+			<path value="MedicationDefinition.ingredient.substance.formulation.strengthOperator"/>
+			<short value="For biologics"/>
+			<definition value="For biologics."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+		</element>
+		<element id="MedicationDefinition.ingredient.substance.formulation.contentPercent">
+			<path value="MedicationDefinition.ingredient.substance.formulation.contentPercent"/>
+			<short value="Content ratio"/>
+			<definition value="Content ratio."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Ratio"/>
+			</type>
+		</element>
+		<element id="MedicationDefinition.ingredient.substance.formulation.overageJustification">
+			<path value="MedicationDefinition.ingredient.substance.formulation.overageJustification"/>
+			<short value="Content ratio"/>
+			<definition value="Content ratio."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="MedicationDefinition.ingredient.substance.formulation.componentQtyPerBatch">
+			<path value="MedicationDefinition.ingredient.substance.formulation.componentQtyPerBatch"/>
+			<short value="Component quantity per batch"/>
+			<definition value="Component quantity per batch."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Quantity"/>
+			</type>
+		</element>
+		<element id="MedicationDefinition.ingredient.substance.formulation.quantityPercent">
+			<path value="MedicationDefinition.ingredient.substance.formulation.quantityPercent"/>
+			<short value="Numeric strength"/>
+			<definition value="Numeric strength."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Ratio"/>
+			</type>
+		</element>				
+		<element id="MedicationDefinition.ingredient.substance.formulation.additionalComponentInfo">
+			<path value="MedicationDefinition.ingredient.substance.formulation.additionalComponentInfo"/>
+			<short value="Additional information"/>
+			<definition value="Additional information."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>			
 
 
+
+
+		<element id="MedicationDefinition.impurity">
+			<path value="MedicationDefinition.impurity"/>
+			<short value="Any component of the drug product which is not the chemical entity defined as the drug substance or an excipient in the drug product. This includes process-related impurities and contaminants, product-related impurities including degradation products"/>
+			<definition value="Any component of the drug product which is not the chemical entity defined as the drug substance or an excipient in the drug product. This includes process-related impurities and contaminants, product-related impurities including degradation products."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+			</type>
+		</element>
 
 
 
@@ -780,6 +884,62 @@
 				<code value="boolean"/>
 			</type>
 		</element>
+
+
+		<element id="MedicationDefinition.package">
+			<path value="MedicationDefinition.package"/>
+			<short value="Package representation for the product"/>
+			<definition value="Package representation for the product."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="MedicationDefinition.package.description">
+			<path value="MedicationDefinition.package.description"/>
+			<short value="Textual description. Note that this is not the name of the package or product"/>
+			<definition value="Textual description. Note that this is not the name of the package or product."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="MedicationDefinition.package.type">
+			<path value="MedicationDefinition.package.type"/>
+			<short value="A descriptive type for this package, such as box, carton or bottle"/>
+			<definition value="A descriptive type for this package, such as box, carton or bottle."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+		</element>
+		<element id="MedicationDefinition.package.closureType">
+			<path value="MedicationDefinition.package.closureType"/>
+			<short value="A descriptive type for this package, such as box, carton or bottle"/>
+			<definition value="A descriptive type for this package, such as box, carton or bottle."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+		</element>
+		<element id="MedicationDefinition.package.size[x]">
+			<path value="MedicationDefinition.package.size[x]"/>
+			<short value="The amount of items, or of substance, in the package"/>
+			<definition value="The amount of items, or of substance, in the package."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Quantity"/>
+				<code value="integer"/>
+			</type>
+		</element>
+
+
+		
 		<element id="MedicationDefinition.administrationDosage">
 			<path value="MedicationDefinition.administrationDosage"/>
 			<short value="The path by which the pharmaceutical product is taken into or makes contact with the body"/>
