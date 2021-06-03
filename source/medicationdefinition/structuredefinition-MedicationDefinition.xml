@@ -918,8 +918,8 @@
 		</element>
 		<element id="MedicationDefinition.package.closureType">
 			<path value="MedicationDefinition.package.closureType"/>
-			<short value="A descriptive type for this package, such as box, carton or bottle"/>
-			<definition value="A descriptive type for this package, such as box, carton or bottle."/>
+			<short value="The kind of closures used for the container in which the drug substances and finished dosage forms are stored. "/>
+			<definition value="The kind of closures used for the container in which the drug substances and finished dosage forms are stored. ."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
