@@ -1681,6 +1681,9 @@ cannot be retrieved (e.g. on a different server), then the resource is omitted, 
 error is returned.
 </p>
 <p>
+Servers SHOULD resolve _include requests for version-specific references by resolving the version named in the reference.
+</p>
+<p>
 The inclusion process can be iterative, if (and only if) the modifier <code>:iterate</code> is included.
 For example, this search returns all <a href="medicationrequest.html">Medication
 Request</a> resources and their <a href="practitioner.html">prescribing Practitioner</a> Resources
