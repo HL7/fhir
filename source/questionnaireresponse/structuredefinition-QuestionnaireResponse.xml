@@ -283,7 +283,7 @@
 		<element id="QuestionnaireResponse.authored">
 			<path value="QuestionnaireResponse.authored"/>
 			<short value="Date the answers were gathered"/>
-			<definition value="The date and/or time that this questionnaire response was last modified by the user - e.g. changing answers or revising status"/>
+			<definition value="The date and/or time that this questionnaire response was last modified by the user - e.g. changing answers or revising status."/>
 			<comment value="May be different from the lastUpdateTime of the resource itself, because that reflects when the data was known to the server, not when the data was captured.&#xA;&#xA;This element is optional to allow for systems that might not know the value, however it SHOULD be populated if possible."/>
 			<requirements value="Clinicians need to be able to check the date that the information in the questionnaire was collected, to derive the context of the answers."/>
 			<alias value="Date Created"/>
