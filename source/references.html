@@ -550,7 +550,7 @@ Some notes about use and interpretation of contained resources:
   <li>Contained resources share the same internal id resolution space as the parent resource (for id attributes, see <a href="narrative.html#internal">Narrative references</a>).</li>
   <li>When resolving references, references are resolved by looking through the 'container' resource - the one that contains the other
   resources. Since there are no nested contained resources, there is only one container resource.</li>
-  <li>References to contained resources are never resolved outside the container resource. Specifically, resolution stops at the elements
+  <li>Fragment-only URL References to contained resources are never resolved outside the container resource. Specifically, resolution stops at the elements
   Bundle.entry.resource and Parameters.parameter.resource, but not at DomainResource.contained. To reference a contained resource in a 
   different entry within a Parameters or Bundle (or anywhere else), the reference must include the containing resource. E.g. Observation/123#pat.</li>
   <li>Both <code>Reference</code> and <code>canonical</code> types may refer to contained resources</li>
