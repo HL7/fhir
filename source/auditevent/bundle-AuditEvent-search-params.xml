@@ -125,6 +125,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="AuditEvent-based-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AuditEvent.basedOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-based-on"/>
+        <description value="Reference to the service request."/>
+        <code value="based-on"/>
+        <type value="reference"/>
+        <expression value="AuditEvent.basedOn"/>
+        <xpath value="f:AuditEvent/f:basedOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="AuditEvent-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
@@ -138,6 +158,26 @@
         <type value="date"/>
         <expression value="AuditEvent.recorded"/>
         <xpath value="f:AuditEvent/f:recorded"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AuditEvent-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AuditEvent.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-encounter"/>
+        <description value="Encounter related to the activity recorded in the AuditEvent"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="AuditEvent.encounter"/>
+        <xpath value="f:AuditEvent/f:encounter"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

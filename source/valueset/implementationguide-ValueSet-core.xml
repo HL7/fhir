@@ -15,6 +15,11 @@
         <reference value="StructureDefinition/shareablevalueset"/>
       </reference>
     </resource>
+		<resource>
+	      <reference>
+	        <reference value="StructureDefinition/vsd-alignedvalueset"/>
+	      </reference>
+	    </resource>
     <resource>
       <reference>
         <reference value="StructureDefinition/valueset-concept-definition"/>
@@ -47,12 +52,12 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/valueset-workflowStatus"/>
+        <reference value="StructureDefinition/valueset-workflowStatusDescription"/>
       </reference>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/valueset-activityStatusDate"/>
+        <reference value="StructureDefinition/valueset-status-activityStatusDate"/>
       </reference>
     </resource>
     <resource>
@@ -88,11 +93,6 @@
     <resource>
       <reference>
         <reference value="StructureDefinition/valueset-conceptOrder"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/valueset-systemName"/>
       </reference>
     </resource>
     <resource>
@@ -188,6 +188,46 @@
     <resource>
       <reference>
         <reference value="StructureDefinition/valueset-rules-text"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-otherTitle"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-systemTitle"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-systemName"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-compose-include-minimumMultiplicity"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-compose-include-maximumMultiplicity"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-compose-createdBy"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-compose-creationDate"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/valueset-compose-include-valueSetTitle"/>
       </reference>
     </resource>
     <resource>

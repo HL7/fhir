@@ -22,16 +22,16 @@
   <concept>
     <code value="active"/>
     <display value="Active"/>
-    <definition value="The medication is available for use."/>
+    <definition value="The medication record is current and is appropriate for reference in new instances."/>
   </concept>
   <concept>
     <code value="inactive"/>
     <display value="Inactive"/>
-    <definition value="The medication is not available for use."/>
+    <definition value="The medication record is not current and is not is appropriate for reference in new instances."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
-    <definition value="The medication was entered in error."/>
+    <definition value="The medication record was created erroneously and is not appropriated for reference in new instances."/>
   </concept>
 </CodeSystem>

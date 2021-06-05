@@ -38,9 +38,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">A1full
+          <td style="white-space:nowrap">a1full
             
-            <a name="contributor-summary-style-A1full"> </a>
+            <a name="contributor-summary-style-a1full"> </a>
           
           </td>
           
@@ -52,9 +52,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">A1init
+          <td style="white-space:nowrap">a1init
             
-            <a name="contributor-summary-style-A1init"> </a>
+            <a name="contributor-summary-style-a1init"> </a>
           
           </td>
           
@@ -66,9 +66,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">A3full
+          <td style="white-space:nowrap">a3full
             
-            <a name="contributor-summary-style-A3full"> </a>
+            <a name="contributor-summary-style-a3full"> </a>
           
           </td>
           
@@ -80,9 +80,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">A3init
+          <td style="white-space:nowrap">a3init
             
-            <a name="contributor-summary-style-A3init"> </a>
+            <a name="contributor-summary-style-a3init"> </a>
           
           </td>
           
@@ -94,9 +94,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">A6full
+          <td style="white-space:nowrap">a6full
             
-            <a name="contributor-summary-style-A6full"> </a>
+            <a name="contributor-summary-style-a6full"> </a>
           
           </td>
           
@@ -108,9 +108,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">A6init
+          <td style="white-space:nowrap">a6init
             
-            <a name="contributor-summary-style-A6init"> </a>
+            <a name="contributor-summary-style-a6init"> </a>
           
           </td>
           
@@ -122,9 +122,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">AAllfull
+          <td style="white-space:nowrap">aallfull
             
-            <a name="contributor-summary-style-AAllfull"> </a>
+            <a name="contributor-summary-style-aallfull"> </a>
           
           </td>
           
@@ -136,9 +136,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">AAllfullwithand
+          <td style="white-space:nowrap">aallfullwithand
             
-            <a name="contributor-summary-style-AAllfullwithand"> </a>
+            <a name="contributor-summary-style-aallfullwithand"> </a>
           
           </td>
           
@@ -150,9 +150,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">AAllfullwithampersand
+          <td style="white-space:nowrap">aallfullwithampersand
             
-            <a name="contributor-summary-style-AAllfullwithampersand"> </a>
+            <a name="contributor-summary-style-aallfullwithampersand"> </a>
           
           </td>
           
@@ -164,9 +164,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">AAllinit
+          <td style="white-space:nowrap">aallinit
             
-            <a name="contributor-summary-style-AAllinit"> </a>
+            <a name="contributor-summary-style-aallinit"> </a>
           
           </td>
           
@@ -178,9 +178,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">AAllinitwithand
+          <td style="white-space:nowrap">aallinitwithand
             
-            <a name="contributor-summary-style-AAllinitwithand"> </a>
+            <a name="contributor-summary-style-aallinitwithand"> </a>
           
           </td>
           
@@ -192,9 +192,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">AAllinitwithampersand
+          <td style="white-space:nowrap">aallinitwithampersand
             
-            <a name="contributor-summary-style-AAllinitwithampersand"> </a>
+            <a name="contributor-summary-style-aallinitwithampersand"> </a>
           
           </td>
           
@@ -206,9 +206,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">ContrFullByPerson
+          <td style="white-space:nowrap">contr-full-by-person
             
-            <a name="contributor-summary-style-ContrFullByPerson"> </a>
+            <a name="contributor-summary-style-contr-full-by-person"> </a>
           
           </td>
           
@@ -220,9 +220,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">ContrInitByPerson
+          <td style="white-space:nowrap">contr-init-by-person
             
-            <a name="contributor-summary-style-ContrInitByPerson"> </a>
+            <a name="contributor-summary-style-contr-init-by-person"> </a>
           
           </td>
           
@@ -234,9 +234,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">ContrFullByContr
+          <td style="white-space:nowrap">contr-full-by-contr
             
-            <a name="contributor-summary-style-ContrFullByContr"> </a>
+            <a name="contributor-summary-style-contr-full-by-contr"> </a>
           
           </td>
           
@@ -248,9 +248,9 @@
         
         <tr>
           
-          <td style="white-space:nowrap">ContrInitByContr
+          <td style="white-space:nowrap">contr-init-by-contr
             
-            <a name="contributor-summary-style-ContrInitByContr"> </a>
+            <a name="contributor-summary-style-contr-init-by-contr"> </a>
           
           </td>
           
@@ -278,7 +278,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="ContributorSummaryStyle"/>
   <title value="ContributorSummaryStyle"/>
   <status value="draft"/>
@@ -300,82 +300,82 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/contributor-summary-style"/>
   <content value="complete"/>
   <concept>
-    <code value="A1full"/>
+    <code value="a1full"/>
     <display value="First author (full name) et al"/>
     <definition value="Example: Jennifer Laskowski et al."/>
   </concept>
   <concept>
-    <code value="A1init"/>
+    <code value="a1init"/>
     <display value="First author (last name first initials) et al"/>
     <definition value="Example: Laskowski J et al."/>
   </concept>
   <concept>
-    <code value="A3full"/>
+    <code value="a3full"/>
     <display value="First 3 authors (full name) et al"/>
     <definition value="Example: Jennifer Laskowski, Brandon Renner, Matthew C. Pickering, et al."/>
   </concept>
   <concept>
-    <code value="A3init"/>
+    <code value="a3init"/>
     <display value="First 3 authors (last name first initials) et al"/>
     <definition value="Example:  Laskowski J, Renner B, Pickering MC, et al."/>
   </concept>
   <concept>
-    <code value="A6full"/>
+    <code value="a6full"/>
     <display value="First 6 authors (full name) et al"/>
     <definition value="Example: Jennifer Laskowski, Brandon Renner, Matthew C. Pickering, Natalie J. Serkova, Peter M. Smith-Jones, Eric T. Clambey, et al."/>
   </concept>
   <concept>
-    <code value="A6init"/>
+    <code value="a6init"/>
     <display value="First 6 authors (last name first initials) et al"/>
     <definition value="Example: Laskowski J, Renner B, Pickering MC, Serkova NJ, Smith-Jones PM, Clambey ET, et al."/>
   </concept>
   <concept>
-    <code value="AAllfull"/>
+    <code value="aallfull"/>
     <display value="All authors (full name)"/>
     <definition value="Example: Jennifer Laskowski, Brandon Renner, Matthew C. Pickering, Natalie J. Serkova, Peter M. Smith-Jones, Eric T. Clambey, Raphael A. Nemenoff, Joshua M. Thurman."/>
   </concept>
   <concept>
-    <code value="AAllfullwithand"/>
+    <code value="aallfullwithand"/>
     <display value="All authors (full name) with and before last author"/>
     <definition value="Example: Jennifer Laskowski, Brandon Renner, Matthew C. Pickering, Natalie J. Serkova, Peter M. Smith-Jones, Eric T. Clambey, Raphael A. Nemenoff, and Joshua M. Thurman."/>
   </concept>
   <concept>
-    <code value="AAllfullwithampersand"/>
+    <code value="aallfullwithampersand"/>
     <display value="All authors (full name) with an ampersand before last author"/>
     <definition value="Example: Jennifer Laskowski, Brandon Renner, Matthew C. Pickering, Natalie J. Serkova, Peter M. Smith-Jones, Eric T. Clambey, Raphael A. Nemenoff, &amp; Joshua M. Thurman."/>
   </concept>
   <concept>
-    <code value="AAllinit"/>
+    <code value="aallinit"/>
     <display value="All authors (last name first initials)"/>
     <definition value="Example: Laskowski J, Renner B, Pickering MC, Serkova NJ, Smith-Jones PM, Clambey ET, Nemenoff RA, Thurman JM."/>
   </concept>
   <concept>
-    <code value="AAllinitwithand"/>
+    <code value="aallinitwithand"/>
     <display value="All authors (last name first initials) with and before last author"/>
     <definition value="Example: Laskowski J, Renner B, Pickering MC, Serkova NJ, Smith-Jones PM, Clambey ET, Nemenoff RA, and Thurman JM."/>
   </concept>
   <concept>
-    <code value="AAllinitwithampersand"/>
+    <code value="aallinitwithampersand"/>
     <display value="All authors (last name first initials) with an ampersand before last author"/>
     <definition value="Example: Laskowski J, Renner B, Pickering MC, Serkova NJ, Smith-Jones PM, Clambey ET, Nemenoff RA, &amp; Thurman JM."/>
   </concept>
   <concept>
-    <code value="ContrFullByPerson"/>
+    <code value="contr-full-by-person"/>
     <display value="Contributorship statement listed by person with full names"/>
     <definition value="Jennnifer Laskowski designed project; developed and performed experiments; collected and analyzed data; wrote and revised manuscript. Brandon Renner performed critical review of manuscript. Matthew C. Pickering provided technical advice and contributed to study design. Natalie J. Serkova and Peter M. Smith-Jones performed PET imaging and associated analyses. Eric T. Clambey and Raphael A. Nemenoff provided conceptual and technical guidance and critical review of manuscript. Joshua M. Thurman contributed to experimental design and wrote manuscript."/>
   </concept>
   <concept>
-    <code value="ContrInitByPerson"/>
+    <code value="contr-init-by-person"/>
     <display value="Contributorship statement listed by person with initials"/>
     <definition value="J.L. designed project; developed and performed experiments; collected and analyzed data; wrote and revised manuscript. B.R. performed critical review of manuscript. M.C.P. provided technical advice and contributed to study design. N.J.S and P.M.S.-J. performed PET imaging and associated analyses. E.T.C. and R.A.N provided conceptual and technical guidance and critical review of manuscript. J.M.T contributed to experimental design and wrote manuscript."/>
   </concept>
   <concept>
-    <code value="ContrFullByContr"/>
+    <code value="contr-full-by-contr"/>
     <display value="Contributorship statement listed by contribution with full names"/>
     <definition value="Project design by Jennnifer Laskowski (JL), Experiment design by JL and Joshua M. Thurman (JMT), technical advice and study design contribution by Matthew C. Pickering, experiments performed by JL, data collection and analysis by JL, PET imaging and associated analyses by Natalie J. Serkova and Peter M. Smith-Jones, conceptual and technical guidance by Eric T. Clambey (ETC) and Raphael A. Nemenoff (RAN), manuscript writing by JL and JMT, manuscript revised critically by JL, Brandon Renner, ETC, and RAN."/>
   </concept>
   <concept>
-    <code value="ContrInitByContr"/>
+    <code value="contr-init-by-contr"/>
     <display value="Contributorship statement listed by contribution with initials"/>
     <definition value="Project design by JL, Experiment design by JL and JMT, technical advice and study design contribution by MCP, experiments performed by JL, data collection and analysis by JL, PET imaging and associated analyses by NJS and PMS-J, conceptual and technical guidance by ETC and RAN, manuscript writing by JL and JMT, manuscript revised critically by JL, BR, ETC, and RAN."/>
   </concept>

@@ -24,7 +24,7 @@
     <valueCode value=".verificationStatus = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Condition"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="Condition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -350,7 +350,7 @@
       </mapping>
       <mapping>
         <identity value="sct-concept"/>
-        <map value="code 246090004 |Associated finding| (&lt; 404684003 |Clinical finding| MINUS&#xA;&lt;&lt; 420134006 |Propensity to adverse reactions| MINUS &#xA;&lt;&lt; 473010000 |Hypersensitivity condition| MINUS &#xA;&lt;&lt; 79899007 |Drug interaction| MINUS&#xA;&lt;&lt; 69449002 |Drug action| MINUS &#xA;&lt;&lt; 441742003 |Evaluation finding| MINUS &#xA;&lt;&lt; 307824009 |Administrative status| MINUS &#xA;&lt;&lt; 385356007 |Tumor stage finding|) &#xA;OR &lt; 413350009 |Finding with explicit context|&#xA;OR &lt; 272379006 |Event|"/>
+        <map value="(&lt; 404684003 |Clinical finding| MINUS (&#xA;&lt;&lt; 420134006 |Propensity to adverse reactions| OR &#xA;&lt;&lt; 473010000 |Hypersensitivity condition| OR &#xA;&lt;&lt; 79899007 |Drug interaction| OR&#xA;&lt;&lt; 69449002 |Drug action| OR &#xA;&lt;&lt; 441742003 |Evaluation finding| OR &#xA;&lt;&lt; 307824009 |Administrative status| OR &#xA;&lt;&lt; 385356007 |Tumor stage finding|)) &#xA;OR &lt; 413350009 |Finding with explicit context|&#xA;OR &lt; 272379006 |Event|"/>
       </mapping>
       <mapping>
         <identity value="v2"/>

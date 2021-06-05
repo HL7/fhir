@@ -226,6 +226,15 @@ of the <a href="http://snomed.org/ecl">SNOMED CT Expression Constraint Language<
  <tr><td><a href="http://snomed.org/ecl">SCT ECL</a></td><td><pre>&lt;&lt; [concept] (Long syntax: descendantOrSelfOf [concept])</pre></td></tr>
 </table>
 
+<table class="grid">
+ <tr><td>Description</td><td>Select a set of concepts based on subsumption testing</td></tr>
+ <tr><td>Property Name</td><td>concept</td></tr>
+ <tr><td>Operations Allowed</td><td>descendant-of</td></tr>
+ <tr><td>Values Allowed</td><td>[concept id]</td></tr>
+ <tr><td>Comments</td><td>Includes all concept ids that have a transitive is-a relationship with the concept id provided as the value (excluding the concept itself)</td></tr>
+ <tr><td><a href="http://snomed.org/ecl">SCT ECL</a></td><td><pre>&lt; [concept] (Long syntax: descendantOf [concept])</pre></td></tr>
+</table>
+
 <h4>By Reference Set</h4>
 
 <table class="grid">
@@ -517,9 +526,7 @@ A concept map with a URL that follows the pattern "[edition/version]?fhir_cm=[sc
   &lt;targetUri value=&quot;[edition/version]?fhir_vs&quot;/&gt;
   &lt;group&gt;  &lt;!-- 0..* Same source and target systems --&gt;
     &lt;source value=&quot;http://snomed.info/sct&quot;/&gt;
-    &lt;sourceVersion value=&quot;[edition/version]&quot;/&gt;
     &lt;target value=&quot;http://snomed.info/sct&quot;/&gt;
-    &lt;targetVersion value=&quot;[edition/version]&quot;/&gt;
 
     &lt;!-- a mapping for each member of the reference set --&gt;
     &lt;element&gt;
