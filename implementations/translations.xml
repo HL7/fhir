@@ -301,6 +301,11 @@
 		<translation lang="es">DefiniciónDeDispositivo</translation>
 		<translation lang="zh">装置组件</translation>
 	</item>
+	<item id="DeviceDispense">
+		<translation lang="en">DeviceDispense</translation>
+		<translation lang="fr">DispensationDeDispositif</translation>
+		<translation lang="es">DispensaciónDeDispositivo</translation>
+	</item>
 	<item id="DeviceMetric">
 		<translation lang="en">DeviceMetric</translation>
 		<translation lang="fr">MétriqueDispositif</translation>

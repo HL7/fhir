@@ -113,7 +113,7 @@
           <valueString value="ClinicalImpression.subject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalImpression-patient"/>
-        <description value="Patient or group assessed"/>
+        <description value="Patient assessed"/>
         <code value="patient"/>
         <type value="reference"/>
         <expression value="ClinicalImpression.subject.where(resolve() is Patient)"/>
