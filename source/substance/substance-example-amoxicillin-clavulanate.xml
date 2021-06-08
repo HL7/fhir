@@ -4,34 +4,27 @@
 	<contained>
 		<Substance>
 			<id value="ingr1"/>
-			<instance value="false"/>
 			<code>
-				<concept>
-					<coding>
-						<system value="http://snomed.info/sct"/>
-						<code value="372687004"/>
-						<display value="Amoxicillin (substance)"/>
-					</coding>
-				</concept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="372687004"/>
+					<display value="Amoxicillin (substance)"/>
+				</coding>
 			</code>
 		</Substance>
 	</contained>
 	<contained>
 		<Substance>
 			<id value="ingr2"/>
-			<instance value="false"/>
 			<code>
-				<concept>
-					<coding>
-						<system value="http://snomed.info/sct"/>
-						<code value="395938000"/>
-						<display value="Clavulanate potassium (substance)"/>
-					</coding>
-				</concept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="395938000"/>
+					<display value="Clavulanate potassium (substance)"/>
+				</coding>
 			</code>
 		</Substance>
 	</contained>
-	<instance value="false"/>
 	<category>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/substance-category"/>
@@ -40,13 +33,11 @@
 		</coding>
 	</category>
 	<code>
-		<concept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="392259005"/>
-				<display value="Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)"/>
-			</coding>
-		</concept>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="392259005"/>
+			<display value="Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)"/>
+		</coding>
 	</code>
 	<description value="Augmentin 875"/>
 	<ingredient>

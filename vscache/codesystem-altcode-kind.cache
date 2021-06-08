@@ -12,8 +12,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:182edb9c-2a0c-4d3a-a01b-5938d1497122",
-    "timestamp" : "2021-01-13T06:27:00.064Z",
+    "identifier" : "urn:uuid:fc669a54-f722-4cfa-a3e1-be46f74dc2db",
+    "timestamp" : "2021-04-12T20:52:58.771Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -24,7 +24,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://hl7.org/fhir/codesystem-altcode-kind|4.5.0"
+      "valueString" : "http://hl7.org/fhir/codesystem-altcode-kind|4.6.0"
     }],
     "contains" : [{
       "extension" : [{

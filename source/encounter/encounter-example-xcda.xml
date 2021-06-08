@@ -16,9 +16,9 @@
     <reference value="Patient/xcda"/>
   </subject>
   <participant>
-    <individual>
+    <actor>
       <reference value="Practitioner/xcda1"/>
-    </individual>
+    </actor>
   </participant>
   <reason>
     <concept>

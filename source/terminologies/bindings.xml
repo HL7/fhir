@@ -1099,13 +1099,12 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <TopRowVisible>12</TopRowVisible>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="FHIR-version">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="28" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="29" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:Width="63.0"/>
    <Column ss:Width="39.0"/>
    <Column ss:Width="223.0"/>
@@ -1279,6 +1278,12 @@
     <Cell ss:StyleID="s98"><Data ss:Type="String">4.5.0</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">4.5.0</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">R5 Preview #3</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">24</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">4.6.0</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">4.6.0</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">R5 Draft Ballot</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
