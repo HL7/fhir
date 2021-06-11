@@ -914,7 +914,7 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceNameType"/>
+          <valueString value="DeviceRelationType"/>
         </extension>
         <strength value="extensible"/>
         <description value="The type of relation between this and the linked device."/>
