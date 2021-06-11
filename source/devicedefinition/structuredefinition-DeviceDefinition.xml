@@ -666,6 +666,7 @@
         <map value=".scopedRole[typeCode=CON].player"/>
       </mapping>
     </element>
+<!--
     <element id="DeviceDefinition.onlineInformation">
       <path value="DeviceDefinition.onlineInformation"/>
       <short value="Access to on-line information"/>
@@ -676,6 +677,7 @@
         <code value="uri"/>
       </type>
     </element>
+-->
     <element id="DeviceDefinition.note">
       <path value="DeviceDefinition.note"/>
       <short value="Device notes and comments"/>
