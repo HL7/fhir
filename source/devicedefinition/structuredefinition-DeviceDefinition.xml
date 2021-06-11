@@ -766,6 +766,63 @@
 
 
 
+               <element id="DeviceDefinition.chargeItem">
+                  <path value="DeviceDefinition.chargeItem"/>
+                  <short value="Billing code or reference associated with the device"/>
+                  <definition value="Billing code or reference associated with the device."/>
+                  <min value="0"/>
+                  <max value="*"/>
+                  <type>
+                     <code value="BackboneElement"/>
+                  </type>
+               </element>
+
+               <element id="DeviceDefinition.chargeItem.chargeItemCode">
+                  <path value="DeviceDefinition.chargeItem.chargeItemCode"/>
+                  <short value="The code or reference for the charge item"/>
+                  <definition value="The code or reference for the charge item."/>
+                  <min value="1"/>
+                  <max value="1"/>
+                  <type>
+                     <code value="CodeableReference"/>
+                     <targetProfile value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
+                  </type>
+               </element>
+
+               <element id="DeviceDefinition.chargeItem.count">
+                  <path value="DeviceDefinition.chargeItem.count"/>
+                  <short value="Coefficient applicable to the billing code"/>
+                  <definition value="Coefficient applicable to the billing code."/>
+                  <min value="1"/>
+                  <max value="1"/>
+                  <type>
+                     <code value="Quantity"/>
+                  </type>
+               </element>
+
+               <element id="DeviceDefinition.chargeItem.effectivePeriod">
+                  <path value="DeviceDefinition.chargeItem.effectivePeriod"/>
+                  <short value="A specific time period in which this charge item applies"/>
+                  <definition value="A specific time period in which this charge item applies. "/>
+                  <min value="0"/>
+                  <max value="1"/>
+                  <type>
+                     <code value="Period"/>
+                  </type>
+               </element>
+
+               <element id="DeviceDefinition.chargeItem.useContext">
+                  <path value="DeviceDefinition.chargeItem.useContext"/>
+                  <short value="The context to which this charge item applies"/>
+                  <definition value="The context to which this charge item applies."/>
+                  <min value="0"/>
+                  <max value="*"/>
+                  <type>
+                     <code value="UsageContext"/>
+                  </type>
+               </element>
+
+
 
 
 
