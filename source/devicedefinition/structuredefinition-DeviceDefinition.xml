@@ -676,5 +676,98 @@
         <code value="boolean"/>
       </type>
     </element>
+
+
+
+               <element id="DeviceDefinition.guideline">
+                  <path value="DeviceDefinition.guideline"/>
+                  <short value="Information aimed at providing directions for the usage of this model of device"/>
+                  <definition value="Information aimed at providing directions for the usage of this model of device."/>
+                  <min value="0"/>
+                  <max value="1"/>
+                  <type>
+                     <code value="BackboneElement"/>
+                  </type>
+               </element>
+               <element id="DeviceDefinition.guideline.useContext">
+                  <path value="DeviceDefinition.guideline.useContext"/>
+                  <short value="The circumstances that form the setting for using the device"/>
+                  <definition value="The circumstances that form the setting for using the device."/>
+                  <min value="0"/>
+                  <max value="*"/>
+                  <type>
+                     <code value="UsageContext"/>
+                  </type>
+               </element>
+               <element id="DeviceDefinition.guideline.usageInstruction">
+                  <path value="DeviceDefinition.guideline.usageInstruction"/>
+                  <short value="Detailed written and visual directions for the user on how to use the device"/>
+                  <definition value="Detailed written and visual directions for the user on how to use the device."/>
+                  <min value="0"/>
+                  <max value="1"/>
+                  <type>
+                     <code value="markdown"/>
+                  </type>
+               </element>
+               <element id="DeviceDefinition.guideline.relatedArtifact">
+                  <path value="DeviceDefinition.guideline.relatedArtifact"/>
+                  <short value="A source of information or reference for this guideline"/>
+                  <definition value="A source of information or reference for this guideline."/>
+                  <min value="0"/>
+                  <max value="*"/>
+                  <type>
+                     <code value="RelatedArtifact"/>
+                  </type>
+               </element>
+               <element id="DeviceDefinition.guideline.indication">
+                  <path value="DeviceDefinition.guideline.indication"/>
+                  <short value="A clinical condition for which the device was designed to be used"/>
+                  <definition value="A clinical condition for which the device was designed to be used."/>
+                  <min value="0"/>
+                  <max value="*"/>
+                  <type>
+                     <code value="CodeableReference"/>
+                     <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
+                  </type>
+               </element>
+               <element id="DeviceDefinition.guideline.contraindication">
+                  <path value="DeviceDefinition.guideline.contraindication"/>
+                  <short value="A specific situation when a device should not be used because it may cause harm"/>
+                  <definition value="A specific situation when a device should not be used because it may cause harm."/>
+                  <min value="0"/>
+                  <max value="*"/>
+                  <type>
+                     <code value="CodeableReference"/>
+                     <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
+                  </type>
+               </element>
+               <element id="DeviceDefinition.guideline.warning">
+                  <path value="DeviceDefinition.guideline.warning"/>
+                  <short value="Specific hazard alert information that a user needs to know before using the device"/>
+                  <definition value="Specific hazard alert information that a user needs to know before using the device."/>
+                  <min value="0"/>
+                  <max value="*"/>
+                  <type>
+                     <code value="CodeableReference"/>
+                     <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
+                  </type>
+               </element>
+               <element id="DeviceDefinition.guideline.intendedUse">
+                  <path value="DeviceDefinition.guideline.intendedUse"/>
+                  <short value="A description of the general purpose or medical use of the device or its function"/>
+                  <definition value="A description of the general purpose or medical use of the device or its function."/>
+                  <min value="0"/>
+                  <max value="1"/>
+                  <type>
+                     <code value="string"/>
+                  </type>
+               </element>
+
+
+
+
+
+
+
   </differential>
 </StructureDefinition>
