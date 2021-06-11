@@ -678,6 +678,45 @@
       </type>
     </element>
 -->
+    <element id="DeviceDefinition.link">
+      <path value="DeviceDefinition.link"/>
+      <short value="An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device"/>
+      <definition value="An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.link.relation">
+      <path value="DeviceDefinition.link.relation"/>
+      <short value="The type indicates the relationship of the related device to the device instance"/>
+      <definition value="The type indicates the relationship of the related device to the device instance."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceDefinitionRelationType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The type of relation between this and the linked device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-relationtype"/>
+      </binding>
+    </element>
+    <element id="DeviceDefinition.link.relatedDevice">
+      <path value="DeviceDefinition.link.relatedDevice"/>
+      <short value="A reference to the linked device"/>
+      <definition value="A reference to the linked device."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+      </type>
+    </element>
     <element id="DeviceDefinition.note">
       <path value="DeviceDefinition.note"/>
       <short value="Device notes and comments"/>
