@@ -227,12 +227,22 @@
         <map value=".softwareName (included as part)"/>
       </mapping>
     </element>
-    <element id="DeviceDefinition.type">
-      <path value="DeviceDefinition.type"/>
+    <element id="DeviceDefinition.classification">
+      <path value="DeviceDefinition.classification"/>
       <short value="What kind of device or device system this is"/>
       <definition value="What kind of device or device system this is."/>
       <min value="0"/>
       <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.classification.type">
+      <path value="DeviceDefinition.classification.type"/>
+      <short value="A classification or risk class of the device model"/>
+      <definition value="A classification or risk class of the device model."/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -244,6 +254,16 @@
         <description value="Type of device e.g. according to official classification."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
       </binding>
+    </element>
+    <element id="DeviceDefinition.classification.justification">
+      <path value="DeviceDefinition.classification.justification"/>
+      <short value="Further information qualifying this classification of the device model"/>
+      <definition value="Further information qualifying this classification of the device model."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="RelatedArtifact"/>
+      </type>
     </element>
     <element id="DeviceDefinition.specialization">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
