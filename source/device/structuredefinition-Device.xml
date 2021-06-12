@@ -777,7 +777,7 @@
       <path value="Device.operationalStatus.value"/>
       <short value="on |off | standby"/>
       <definition value="on |off | standby."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
