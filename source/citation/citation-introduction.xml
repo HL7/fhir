@@ -1,8 +1,11 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-<!-- content goes here -->
+
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
+
+<p>The FHIR Management Group (FMG) has provisionally approved the Citation resource pending feedback from the FHIR Community. We are specifically looking for feedback on appropriateness of the resource for inclusion in FHIR along with use cases, especially as they relate to other resources in FHIR such as citations of evidence for decision support findings or research studies.</p>
+
 <p>The scope of the Citation Resource is to describe any aspect of identification, location, authorship, and contributorship to a journal article, report, document, resource, or other knowledge artifact. Citations are used extensively in scholarly communication and important for documenting the evidence or source behind statements of fact, opinion, and interpretation. Citations are also used for acknowledgement of the contributions of individuals and groups to the creation and advancement of knowledge.</p>
 <p>Across the academic and scientific community citations are used extensively to reference the knowledge artifacts contributing to current work. For any community searching for reports of research or scholarly publications (such as searching MEDLINE) the citations contain the metadata used for such searches. Standardization of citations supports interoperability across citation managers and adaptation to current needs, such as reports being available on preprint servers before 'final' peer-reviewed published form, need to cite datasets or other alternative forms of expression, or the ability to support citation of FHIR Resources where the FHIR Resource represents research or scholarly publication.</p>
 <p>The Resource can accommodate both human and machine readers. The <i>summary</i> element provides human-readable information.</p>
@@ -16,8 +19,7 @@
 <h2>Boundaries and Relationships</h2>
 
 <p>Any resource may have common metadata including publisher, authors, reviewers, editors, endorsers, identifiers and location concepts for the resource. The Citation Resource is expected to be used primarily for citing things that are not FHIR Resources. There is NOT an expectation to provide Citations for most FHIR Resources. However, FHIR Resources can be the subject of Citation Resources when there is additional needs beyond common metadata to use the FHIR Resource as the cited source in other contexts or to support scholarly and scientific contribution attribution to the FHIR Resource content.</p>
-
+<p>The <a href="provenance.html">Provenance Resource</a> is used to track the contributions to a resource as it occurs, especially for purposes of confirming authenticity and trust. Citation.citedArtifact.contributorship is used to report the attribution of contributions to the cited artifact, especially for purposes of recognition and acknowledgement, but is not directly reporting the data to support authenticity of the contributions.</p>
 </div>
-
 
 </div>
