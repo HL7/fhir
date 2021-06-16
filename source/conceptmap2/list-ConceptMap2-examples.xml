@@ -9,7 +9,7 @@
       <valueString value="General ConceptMap2 Example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="ConceptMap2-example"/>
+      <valueString value="conceptmap2-example"/>
     </extension>
     <item>
       <reference value="ConceptMap2/101"/>
@@ -21,7 +21,7 @@
       <valueString value="SNOMED CT / ICD-10 mapping example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="ConceptMap2-103"/>
+      <valueString value="conceptmap2-103"/>
     </extension>
     <item>
       <reference value="ConceptMap2/103"/>

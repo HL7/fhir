@@ -54,7 +54,7 @@
   <description value="Translate a code from one value set to another, based on the existing value set and concept maps resources, and/or other additional knowledge available to the server. &#xD;&#xA;&#xD;&#xA; One (and only one) of the in parameters (code, coding, codeableConcept) must be provided, to identify the code that is to be translated.  &#xD;&#xA;&#xD;&#xA; The operation returns a set of parameters including a &#39;result&#39; for whether there is an acceptable match, and a list of possible matches. Note that the list of matches may include notes of codes for which mapping is specifically excluded (i.e. &#39;not-related-to&#39;), so implementers have to check the target.relationship for each match."/>
   <affectsState value="false"/>
   <code value="translate"/>
-  <resource value="ConceptMap2"/>
+  <resource value="ConceptMap"/>
   <system value="false"/>
   <type value="true"/>
   <instance value="true"/>
@@ -67,15 +67,15 @@
     <type value="uri"/>
   </parameter>
   <parameter>
-    <name value="conceptMap2"/>
+    <name value="conceptMap"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The concept map is provided directly as part of the request. Servers may choose not to accept concept maps in this fashion."/>
-    <type value="ConceptMap2"/>
+    <type value="ConceptMap"/>
   </parameter>
   <parameter>
-    <name value="ConceptMap2Version"/>
+    <name value="ConceptMapVersion"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
@@ -174,7 +174,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="If true, then the operation should return all the codes that are mapped to the 'code'/'coding'/'codeableConcept' input parameter. In this case:&#xA;&#xA;The input code or coding(s) must belong to the target{{Scope}} ValueSet (rather than the source{{Scope}} ValueSet)&#xA;&#xA;Any provided dependency parameters are matched against ConceptMap2.group.element.target.product (rather than ConceptMap2.group.element.target.dependsOn)"/>
+    <documentation value="If true, then the operation should return all the codes that are mapped to the &#39;code&#39;/&#39;coding&#39;/&#39;codeableConcept&#39; input parameter. In this case:&#xA;&#xA;The input code or coding(s) must belong to the target{{Scope}} ValueSet (rather than the source{{Scope}} ValueSet)&#xA;&#xA;Any provided dependency parameters are matched against ConceptMap2.group.element.target.product (rather than ConceptMap2.group.element.target.dependsOn)"/>
     <type value="boolean"/>
   </parameter>
   <parameter>
@@ -235,17 +235,10 @@
         <min value="1"/>
         <max value="1"/>
         <documentation value="The value for this product"/>
-        <type value="code"/>
-		<type value="Coding"/>
-		<type value="string"/>
-		<type value="integer"/>
-		<type value="boolean"/>
-		<type value="dateTime"/>
-		<type value="decimal"/>
-		<type value="uri"/>
+        <type value="uri"/>
       </part>
     </part>
-	<part>
+    <part>
       <name value="dependsOn"/>
       <use value="out"/>
       <min value="0"/>
@@ -265,14 +258,7 @@
         <min value="1"/>
         <max value="1"/>
         <documentation value="The value for this product"/>
-        <type value="code"/>
-		<type value="Coding"/>
-		<type value="string"/>
-		<type value="integer"/>
-		<type value="boolean"/>
-		<type value="dateTime"/>
-		<type value="decimal"/>
-		<type value="uri"/>
+        <type value="uri"/>
       </part>
     </part>
     <part>

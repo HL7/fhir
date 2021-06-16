@@ -54,7 +54,7 @@
   <description value="This operation provides support for ongoing maintenance of a client-side [transitive closure table](https://en.wikipedia.org/wiki/Transitive_closure#In_graph_theory) based on server-side terminological logic. For details of how this is used, see [Maintaining a Closure Table](terminology-service.html#closure)"/>
   <affectsState value="true"/>
   <code value="closure"/>
-  <resource value="ConceptMap2"/>
+  <resource value="ConceptMap"/>
   <system value="true"/>
   <type value="false"/>
   <instance value="false"/>
@@ -88,6 +88,6 @@
     <min value="1"/>
     <max value="1"/>
     <documentation value="A list of new entries (code / system --&gt; code/system) that the client should add to its closure table. The only kind of entry mapping relationships that can be returned are equivalent, source-is-broader-than-target and source-is-narrower-than-target."/>
-    <type value="ConceptMap2"/>
+    <type value="ConceptMap"/>
   </parameter>
 </OperationDefinition>

@@ -199,6 +199,7 @@ signatures.html
       <page type="resource" resource="CodeSystem"/>
       <page type="resource" resource="ValueSet"/>
       <page type="resource" resource="ConceptMap"/>
+      <page type="resource" resource="ConceptMap2"/>
       <page type="resource" resource="NamingSystem"/>
       <page type="resource" resource="TerminologyCapabilities"/>
     </page>

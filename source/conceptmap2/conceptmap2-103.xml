@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir
+<ConceptMap2 xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir
 ../../schema/conceptmap.xsd">
     <id value="103"/>
     <url value="http://hl7.org/fhir/ConceptMap/103"/>
@@ -57,4 +57,4 @@
             </target>
         </element>
     </group>
-</ConceptMap>
+</ConceptMap2>
