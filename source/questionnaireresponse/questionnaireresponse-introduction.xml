@@ -45,7 +45,7 @@ The <b>QuestionnaireResponse</b> resource captures the responses to a questionna
 the definition of the questionnaire form, including what questions are asked, how they're organized and the constraints on the allowed answers.
 </p>
 <p>
-While <a href="observation.html">Observation</a>, with its nested <code>relatedObservation</code> structure, can create complex hierarchies of 
+While <a href="observation.html">Observation</a>, with its nested <code>component</code> structure, can create complex hierarchies of 
 questions and answers, the focus is different.  First, <a href="observation.html">Observation</a> is used primarily for capturing data elements that
 are "true" observations - lab measurements, vital signs, social assessments, etc., while <b>QuestionnaireResponse</b> can be used to capture
 any types of data, including data that would typically map to other resources (<a href="procedure.html">Procedure</a>, <a href="patient.html">Patient</a>,
