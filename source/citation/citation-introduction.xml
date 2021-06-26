@@ -1,4 +1,15 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<blockquote class="stu-note">
+  <p>
+    <a href="https://confluence.hl7.org/display/FMG">FMG</a> is presently considering whether this resource is appopriate to include in the FHIR specification. 
+    The resource covers domain content that is not considered specific to healthcare, and FMG is 
+    still discussing whether alternative standards organizations exist that should standardise this content, 
+    and whether HL7 does or can have the correct community representation to support standardizing this 
+    content. Feedback is welcome view ballot, or to FMG directly at <a href="mailto:fmgcontact@hl7.org">fmgcontact@hl7.org</a>
+  </p>
+</blockquote>
+
 <!-- content goes here -->
 <div>
 <a name="scope"></a>
@@ -9,6 +20,7 @@
 <p>The Citation Resource has multiple elements containing metadata that describe the citation resource itself, and a <i>citedArtifact</i> element containing metadata that describe the article or artifact being cited.</p>
 <p>Attribution of scholarly contributions is expressed in the <i>citedArtifact.contributorship</i> element, which has grown more complex as the nature of authorship and the concerns for credit and acknowledgement are increasingly complex. If an individualized attribution structure is not required, the <i>citedArtifact.contributorship.summary</i> element will do.</p>
 <p>&quot;Publication&quot; must now cover books, books series, article series, database registries, database updates, and the like. The element, <i>citedArtifact.publicationForm</i>, enables this description. Within <i>citedArtifact.publicationForm</i>, the <i>publishedIn</i> element identifies the largest container (journal, book, database, or newspaper), the <i>periodicRelease</i> element identifies the periodic issue, and the remaining elements (covering dates, language, and pagination) are specific to the artifact being cited.</p>
+
 </div>
 
 <div>
