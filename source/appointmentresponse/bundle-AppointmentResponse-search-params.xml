@@ -125,6 +125,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="AppointmentResponse-group"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AppointmentResponse.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AppointmentResponse-group"/>
+        <description value="This Response is for this Group"/>
+        <code value="group"/>
+        <type value="reference"/>
+        <expression value="AppointmentResponse.actor.where(resolve() is Group)"/>
+        <xpath value="f:AppointmentResponse/f:actor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="AppointmentResponse-practitioner"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

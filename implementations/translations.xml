@@ -229,6 +229,13 @@
 		<translation lang="fr">CarteDeConcepts</translation>
 		<translation lang="it">MappaDiConcetti</translation>
 	</item>
+	<item id="ConceptMap2">
+		<translation lang="en">ConceptMap2</translation>
+		<translation lang="es">MapaDeConceptos2</translation>
+		<translation lang="zh">概念映射2</translation>
+		<translation lang="fr">CarteDeConcepts2</translation>
+		<translation lang="it">MappaDiConcetti2</translation>
+	</item>
 	<item id="Condition">
 		<translation lang="en">Condition</translation>
 		<translation lang="es">Condición</translation>
@@ -300,6 +307,11 @@
 		<translation lang="fr">DéfinitionDeDispositif</translation>
 		<translation lang="es">DefiniciónDeDispositivo</translation>
 		<translation lang="zh">装置组件</translation>
+	</item>
+	<item id="DeviceDispense">
+		<translation lang="en">DeviceDispense</translation>
+		<translation lang="fr">DispensationDeDispositif</translation>
+		<translation lang="es">DispensaciónDeDispositivo</translation>
 	</item>
 	<item id="DeviceMetric">
 		<translation lang="en">DeviceMetric</translation>

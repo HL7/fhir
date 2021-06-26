@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceDispense xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/[name].xsd">
+<id value = "example"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
+  </text>
+  <status value = "completed"/>
+  <device>
+    <concept>
+    <coding>
+        <system value="https://www.gs1.org/gtin"/>
+        <code value="00613994223838"/>
+        <display value="ADAPTA (TM) Pacemaker"/>
+    </coding>
+    </concept>
+  </device>
+  <subject>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
+  </subject>
+
+  <!-- insert contents here -->
+  
+</DeviceDispense>

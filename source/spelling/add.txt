@@ -1,4 +1,4 @@
-﻿subject_state
+﻿_list
 _query
 _profile
 _tag
@@ -7,6 +7,4 @@ _source
 _id
 _content
 _text
-recruitment_actual
 _lastupdated
-recruitment_target

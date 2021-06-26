@@ -25,7 +25,7 @@
   <description value="MedicationKnowledge Status Codes"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/medicationknowledge-status"/>
+      <system value="http://hl7.org/fhir/CodeSystem/medicationknowledge-status"/>
     </include>
   </compose>
 </ValueSet>

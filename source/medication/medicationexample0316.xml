@@ -4,15 +4,12 @@
   <contained>
     <Substance>
       <id value="sub04"/>
-      <instance value="false"/>
       <code>
-        <concept>
           <coding>
             <system value="http://snomed.info/sct"/>
             <code value="387324004"/>
             <display value="Chlorthalidone (substance)"/>
           </coding>
-        </concept>
       </code>
     </Substance>
   </contained>
