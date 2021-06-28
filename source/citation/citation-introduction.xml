@@ -9,8 +9,18 @@
     content. Feedback is welcome view ballot, or to FMG directly at <a href="mailto:fmgcontact@hl7.org">fmgcontact@hl7.org</a>
   </p>
 </blockquote>
+[%stu-note%]
+The FHIR Management Group has provisionally approved the Citation Resource with the qualification that we will continue to evaluate its appropriateness as it develops in the community.
+</p>
+			<ul>
+				<li>
+ Please share feedback, suggestions, and reports of your use of the Citation Resource with the CDS Work Group or through <a href="https://confluence.hl7.org/display/CDS/EBMonFHIR">https://confluence.hl7.org/display/CDS/EBMonFHIR</a>.
+</li>
+			</ul>
+[%end-note-np%]
 
-<!-- content goes here -->
+<p>The FHIR Management Group (FMG) has provisionally approved the Citation resource pending feedback from the FHIR Community. We are specifically looking for feedback on appropriateness of the resource for inclusion in FHIR along with use cases, especially as they relate to other resources in FHIR such as citations of evidence for decision support findings or research studies.</p>
+
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
@@ -28,7 +38,8 @@
 <h2>Boundaries and Relationships</h2>
 
 <p>Any resource may have common metadata including publisher, authors, reviewers, editors, endorsers, identifiers and location concepts for the resource. The Citation Resource is expected to be used primarily for citing things that are not FHIR Resources. There is NOT an expectation to provide Citations for most FHIR Resources. However, FHIR Resources can be the subject of Citation Resources when there is additional needs beyond common metadata to use the FHIR Resource as the cited source in other contexts or to support scholarly and scientific contribution attribution to the FHIR Resource content.</p>
-
+<p>The <a href="provenance.html">Provenance Resource</a> is used to track the contributions to a resource as it occurs, especially for purposes of confirming authenticity and trust. Citation.citedArtifact.contributorship is used to report the attribution of contributions to the cited artifact, especially for purposes of recognition and acknowledgement, but is not directly reporting the data to support authenticity of the contributions.</p>
+<p>The <a href="documentreference.html">DocumentReference Resource</a> is described as a reference to a document of any kind for any purpose. As the DocumentReference Resource was developed for healthcare data exchange it is modeled to support individualized provenance, security, and artifact relationships as often needed in this context. The Citation Resource was developed for the reference to knowledge artifacts commonly used in scientific and scholarly communication so is modeled to support identification, attribution, classification, status tracking, and representation (summary) of the citation.</p>
 </div>
 
 
