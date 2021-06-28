@@ -19,8 +19,6 @@ The FHIR Management Group has provisionally approved the Citation Resource with 
 			</ul>
 [%end-note-np%]
 
-<p>The FHIR Management Group (FMG) has provisionally approved the Citation resource pending feedback from the FHIR Community. We are specifically looking for feedback on appropriateness of the resource for inclusion in FHIR along with use cases, especially as they relate to other resources in FHIR such as citations of evidence for decision support findings or research studies.</p>
-
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
