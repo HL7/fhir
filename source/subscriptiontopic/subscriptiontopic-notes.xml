@@ -30,7 +30,7 @@
 	<p>
 		Subscription Topics for resource-operation pairs are defined using the <code>SubscriptionTopic.resourceTrigger.resourceType</code> and <code>SubscriptionTopic.resourceTrigger.methodCriteria</code> fields.
 	</p>
-	
+
 		<a name="resource-operation-create" />
 		<h4>Resource: Create</h4>
 		<p>
