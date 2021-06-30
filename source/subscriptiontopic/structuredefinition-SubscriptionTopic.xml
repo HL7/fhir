@@ -708,6 +708,25 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="SubscriptionTopic.eventTrigger.event">
+      <path value="SubscriptionTopic.eventTrigger.event"/>
+      <short value="Event which can trigger a notification from this topic"/>
+      <definition value="A well-defined event which can be used to trigger notifications from this subscription topic."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubscriptionTopicEventTrigger"/>
+        </extension>
+        <strength value="example"/>
+        <description value="FHIR Value set/code system definition for HL7 v2 table 0003 (EVENT TYPE CODE)."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v2-0003"/>
+      </binding>
+    </element>
     <element id="SubscriptionTopic.canFilterBy">
       <path value="SubscriptionTopic.canFilterBy"/>
       <short value="Properties by which a Subscription can further filter a SubscriptionTopic"/>
