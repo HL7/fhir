@@ -9,7 +9,7 @@
     <valueString value="Foundation.Other"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="draft"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
@@ -22,6 +22,9 @@
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
     <valueCode value=".status = off (just turn it off, maybe update the error message)"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+    <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SubscriptionTopic"/>
   <version value="4.1.0"/>
@@ -66,13 +69,17 @@
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="SubscriptionTopic"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource">
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super">
+      <valueString value="MetadataResource"/>
+    </extension>
+  </baseDefinition>
   <derivation value="specialization"/>
   <differential>
     <element id="SubscriptionTopic">
       <path value="SubscriptionTopic"/>
-      <short value="Definition Pattern"/>
-      <definition value="Describes a stream of resource state changes identified by trigger criteria and annotated with labels useful to filter projections from this topic."/>
+      <short value="The definition of a specific topic for triggering events within the Subscriptions framework"/>
+      <definition value="Describes a stream of resource state changes or events and annotated with labels useful to filter projections from this topic."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -305,15 +312,12 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <code value="string"/>
       </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Definition.publisher"/>
+        <map value="Definition.publisher {as string instead of CodeableConcept}"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -520,8 +524,6 @@
       <path value="SubscriptionTopic.resourceTrigger"/>
       <short value="Criteria for including a resource update in the subscription topic"/>
       <definition value="The criteria for including updates to a nominated resource in the subscription topic.  Thie criteria may be just a human readable description and/or a full FHIR search string or FHIRPath expression."/>
-      <alias value="Trigger"/>
-      <alias value="Criteria"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -541,7 +543,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <isSummary value="true"/>
     </element>
@@ -549,7 +551,7 @@
       <path value="SubscriptionTopic.resourceTrigger.resourceType"/>
       <short value="Allowed Data type or Resource (reference to definition) for this definition"/>
       <definition value="URL of the Resource that is the type used in this trigger.  Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &quot;Patient&quot; maps to http://hl7.org/fhir/StructureDefinition/Patient.  For more information, see &lt;a href=&quot;elementdefinition-definitions.html#ElementDefinition.type.code&quot;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="uri"/>
@@ -564,8 +566,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
       </binding>
     </element>
-    <element id="SubscriptionTopic.resourceTrigger.methodCriteria">
-      <path value="SubscriptionTopic.resourceTrigger.methodCriteria"/>
+    <element id="SubscriptionTopic.resourceTrigger.supportedInteraction">
+      <path value="SubscriptionTopic.resourceTrigger.supportedInteraction"/>
       <short value="create | update | delete"/>
       <definition value="The REST interaction based rules that the server should use to determine when to trigger a notification for this topic."/>
       <min value="0"/>
@@ -673,14 +675,41 @@
       <definition value="The FHIRPath based rules that the server should use to determine when to trigger a notification for this topic.  If there are multiple, FHIRPath filters are joined with AND."/>
       <comment value="FHIRPath expression with %previous and %current vars."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="string"/>
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="SubscriptionTopic.resourceTrigger.canFilterBy">
-      <path value="SubscriptionTopic.resourceTrigger.canFilterBy"/>
+    <element id="SubscriptionTopic.eventTrigger">
+      <path value="SubscriptionTopic.eventTrigger"/>
+      <short value="Event definitions this subscription topic"/>
+      <definition value="Events which can be used to trigger this subscription topic."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="SubscriptionTopic.eventTrigger.description">
+      <path value="SubscriptionTopic.eventTrigger.description"/>
+      <short value="Text representation of the trigger"/>
+      <definition value="The human readable description of what event triggers inclusion for this subscription topic -  for example, &quot;HL7v2 ADT^A01&quot;."/>
+      <comment value="Implementation of particular subscription topics might not use a computable definition and instead base their design on the definition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubscriptionTopic.canFilterBy">
+      <path value="SubscriptionTopic.canFilterBy"/>
       <short value="Properties by which a Subscription can further filter a SubscriptionTopic"/>
       <definition value="List of properties by which Subscriptions on the subscription topic can be filtered."/>
       <min value="0"/>
@@ -690,10 +719,40 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="SubscriptionTopic.resourceTrigger.canFilterBy.searchParamName">
-      <path value="SubscriptionTopic.resourceTrigger.canFilterBy.searchParamName"/>
-      <short value="Search parameter that serves as filter key"/>
-      <definition value="A search parameter (like &quot;patient&quot;) which is a label for the filter."/>
+    <element id="SubscriptionTopic.canFilterBy.description">
+      <path value="SubscriptionTopic.canFilterBy.description"/>
+      <short value="Description of this filter parameter"/>
+      <definition value="Description of how this filter parameter is intended to be used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubscriptionTopic.canFilterBy.resourceType">
+      <path value="SubscriptionTopic.canFilterBy.resourceType"/>
+      <short value="Allowed Data type or Resource (reference to definition) for this definition"/>
+      <definition value="URL of the Resource that is the type used in this filter.  Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &quot;Patient&quot; maps to http://hl7.org/fhir/StructureDefinition/Patient.  For more information, see &lt;a href=&quot;elementdefinition-definitions.html#ElementDefinition.type.code&quot;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FHIRDefinedTypeExt"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Either a resource or a data type, including logical model types."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
+      </binding>
+    </element>
+    <element id="SubscriptionTopic.canFilterBy.parameterName">
+      <path value="SubscriptionTopic.canFilterBy.parameterName"/>
+      <short value="Resource Search Parameter or parameter defined in this topic that serves as filter key"/>
+      <definition value="Either a search parameter (like &quot;patient&quot;) or topic-defined parameter (like &quot;hub.event&quot;) which is a label for the filter."/>
       <comment value="Chained parameters are allowed (like &quot;patient.gender&quot;) - but can not use colons or modifiers."/>
       <min value="0"/>
       <max value="1"/>
@@ -702,8 +761,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="SubscriptionTopic.resourceTrigger.canFilterBy.searchModifier">
-      <path value="SubscriptionTopic.resourceTrigger.canFilterBy.searchModifier"/>
+    <element id="SubscriptionTopic.canFilterBy.modifier">
+      <path value="SubscriptionTopic.canFilterBy.modifier"/>
       <short value="= | eq | ne | gt | lt | ge | le | sa | eb | ap | above | below | in | not-in | of-type"/>
       <definition value="Allowable operators to apply when determining matches (Search Modifiers)."/>
       <min value="0"/>
@@ -720,17 +779,6 @@
         <description value="Operator to apply to filter label."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subscription-search-modifier"/>
       </binding>
-    </element>
-    <element id="SubscriptionTopic.resourceTrigger.canFilterBy.documentation">
-      <path value="SubscriptionTopic.resourceTrigger.canFilterBy.documentation"/>
-      <short value="Description of this filter parameter"/>
-      <definition value="Description of how this filter parameter is intended to be used."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <isSummary value="true"/>
     </element>
   </differential>
 </StructureDefinition>
