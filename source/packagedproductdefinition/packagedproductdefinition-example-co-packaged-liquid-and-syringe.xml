@@ -6,9 +6,11 @@
 	<contained>
 		<DeviceDefinition>
 			<id value="syringeDevice"/>
-			<type>
-				<text value="syringe"/>
-			</type>
+			<classification>
+				<type>
+					<text value="syringe"/>
+				</type>
+			</classification>
 			<!-- Schema appears to be broken, deviceName is not present in XSD -->
 			<!--deviceName>
 				<name value="WonderSyringe"/>

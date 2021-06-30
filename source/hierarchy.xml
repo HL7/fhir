@@ -69,7 +69,7 @@ signatures.html
       <page title="Managing Multiple FHIR Versions" filename="versioning.html"/>
       <page title="FHIRPath" filename="fhirpath.html"/>
       <page title="Version History" filename="history.html"/>
-      <page title="Differences from DSTU Release 2" filename="diff.html"/>
+      <page title="Differences from Release 3" filename="diff.html"/>
       <page title="Release 2/3 Transforms" filename="r3maps.html"/>
 
       <page title="Introduction" filename="overview.html"/>
@@ -199,6 +199,7 @@ signatures.html
       <page type="resource" resource="CodeSystem"/>
       <page type="resource" resource="ValueSet"/>
       <page type="resource" resource="ConceptMap"/>
+      <page type="resource" resource="ConceptMap2"/>
       <page type="resource" resource="NamingSystem"/>
       <page type="resource" resource="TerminologyCapabilities"/>
     </page>

@@ -8,7 +8,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <a name="base"></a>
 <h2>Search</h2>
@@ -107,6 +107,14 @@ parameter works for search <a href="http.html#mime-type">like for other interact
 </ul>
 <p>
 Search operations can also be implemented in <a href="messaging.html#search">the messaging framework</a>.
+</p>
+<p>
+In the absence of any search filters, e.g. <code>GET [base]/Patient</code> or <code>POST [base]/Patient/_search</code> with empty body, server SHOULD return
+all records. NOTE: Sever MAY impose expectations prohibiting queries without or with insufficient parameters. 
+</p>
+<p>
+Order of operations is not driven by order in the URL - with the exception of sort. First all filters are applied, 
+then the result set is sorted, then paging is applied, and includes/revincludes are returned for each page.
 </p>
 <p>
 The server determines which of their resources meet the criteria
@@ -464,7 +472,7 @@ Notes about searching on Numbers:
     is not expressed using the exponential forms, and does not include any non-zero digits after a decimal point,
     the significance issues cancel out and searching is based on exact matches.  Note that if there are non-zero digits after a decimal point,
     there cannot be any matches</li>
- <li>When a comparison prefix in the set <code>lgt, lt, ge, le, sa &amp; eb</code> is provided, the
+ <li>When a comparison prefix in the set <code>gt, lt, ge, le, sa &amp; eb</code> is provided, the
      implicit precision of the number is ignored, and they are treated as if they have arbitrarily high precision</li>
  <li>The way search parameters operate in resources is not the same as whether two numbers are equal to each other in a mathematical sense</li>
  <li>Searching on decimals involves an implicit range.  The number of significant digits of the implicit range is the number of digits specified in
@@ -1486,7 +1494,7 @@ resource types that the search applies to. This can be done by using the
 GET [base]/?_type=Observation,Condition&amp;other params...
 </pre>
 <p>
-If no type is specified, the only search parameters that be can be used in global search like
+If no type is specified, the only search parameters that can be used in global search like
 this are the base parameters that apply to all resources.
 If multiple types are specified, any search parameters shared across the entire set of
 specified resources may be used (see <a href="searchparameter-registry.html#common">search parameter registry</a>).
@@ -1533,7 +1541,7 @@ Notes:
   <li>When sorting on string search parameters, sorting SHOULD be performed
      on a case-insensitive basis. Accents may either be ignored or sorted as
      per realm convention.</li>
-  <li>This specification does not specify exacts rules for consistency of sorting
+  <li>This specification does not specify exact rules for consistency of sorting
      across servers. In general, this is deemed to be not as essential as
      consistency of filtering (though even that is a little variable). The
      purpose of sorting is to provide data in a "reasonable" order for end-users.
@@ -1596,9 +1604,10 @@ or processed by the client.
 <p>
 The parameter <code>_count</code> is defined as an instruction to the server
 regarding how many resources should be returned in a
-single page. Servers SHALL NOT return more resources than
-requested, even if they don't support paging, but may
-return less than the client requested. The server should repeat
+single page. Servers SHALL NOT return more resources in a single page than requested, 
+even if they don't support paging, but may return less than the client requested. 
+NOTE: This means that all servers that support search or history SHALL support 
+checking the _count parameter. The server should repeat
 the original <code>_count</code> parameter in its returned page links so that
 subsequent paging requests honor the original <code>_count</code>.  Note:
 It is at the discretion of the search engine as to how to
@@ -2062,7 +2071,7 @@ auditing the search itself.
 <tr><td><a href="#id"><code>_id</code></a></td><td><a href="#token">token</a></td><td>Resource id (not a full URL)</td><td>Resource.id</td></tr>
 <tr><td><a href="#lastUpdated"><code>_lastUpdated</code></a></td><td><a href="#date">date</a></td><td>Date last updated. Server has discretion on the boundary precision</td><td>Resource.meta.lastUpdated</td></tr>
 <tr><td><a href="#tag">_tag</a></td><td><a href="#token">token</a></td><td>Search by a resource tag</td><td>Resource.meta.tag</td></tr>
-<tr><td><a href="#profile"><code>_profile</code></a></td><td><a href="#uri">uri</a></td><td>Search for all resources tagged with a profile</td><td>Resource.meta.profile</td></tr>
+<tr><td><a href="#profile"><code>_profile</code></a></td><td><a href="#reference">reference</a></td><td>Search for all resources tagged with a profile</td><td>Resource.meta.profile</td></tr>
 <tr><td><a href="#security"><code>_security</code></a></td><td><a href="#token">token</a></td><td>Search by a security label</td><td>Resource.meta.security</td></tr>
 <tr><td><a href="#text"><code>_text</code></a></td><td><a href="#string">string</a></td><td>Text search against the narrative</td><td></td></tr>
 <tr><td><a href="#content"><code>_content</code></a></td><td><a href="#string">string</a></td><td>Text search against the entire resource</td><td></td></tr>
@@ -2410,8 +2419,6 @@ Cross-map between search parameter types and Data types:
   <td><%xcm Timing:token%></td> <!-- token -->
  </tr>
 </table>
-
-</div>
 
 [%file newfooter%]
 </body>

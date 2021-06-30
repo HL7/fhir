@@ -1,0 +1,29 @@
+HTTP/1.1 200 OK
+[other headers]
+
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "result",
+      "valueBoolean": true
+    },
+    {
+      "name": "match",
+      "part": [
+        {
+          "name": "relationship",
+          "valueCode": "equivalent"
+        },
+        {
+          "name": "concept",
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/v3/ActStatus",
+            "code": "active",
+            "userSelected": false
+          }
+        }
+      ]
+    }
+  ]
+}
