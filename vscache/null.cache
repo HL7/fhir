@@ -1,5 +1,4 @@
 -------------------------------------------------------------------------------------
-<<<<<<< HEAD
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -14,9 +13,10 @@ e: {
   "resourceType" : "ValueSet",
   "id" : "action-participant-role",
   "meta" : {
-    "lastUpdated" : "2017-02-16T09:33:00.000+10:00",
+    "lastUpdated" : "2017-02-15T18:33:00.000-05:00",
     "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
   },
+  "language" : "en",
   "url" : "http://terminology.hl7.org/ValueSet/action-participant-role",
   "version" : "0.1.0",
   "name" : "ActionParticipantRole",
@@ -24,8 +24,8 @@ e: {
   "experimental" : false,
   "date" : "2017-02-15T16:33:00.000-07:00",
   "expansion" : {
-    "identifier" : "urn:uuid:631196eb-041e-43a6-b705-a79de656cfdd",
-    "timestamp" : "2021-06-16T07:18:05.919Z",
+    "identifier" : "urn:uuid:ee64c785-161f-4533-95dc-b3cd13e1d59c",
+    "timestamp" : "2021-07-05T19:25:33.936Z",
     "parameter" : [{
       "name" : "expansion-source",
       "valueString" : "ValueSet/action-participant-role"
@@ -71,8 +71,6 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
-=======
->>>>>>> origin/master
 {"code" : {
   "coding" : [{
     "code" : "self"
