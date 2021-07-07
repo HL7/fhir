@@ -47,6 +47,7 @@ e: {
     "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 0 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display</b></td></tr></table></div>"
   },
   "status" : "active",
+
   "description" : "Value Set Contents (Expansion) for Device Metric and Component Types at Mon, Jul 5, 2021 15:26-0400",
   "expansion" : {
     "identifier" : "urn:uuid:fe7a31c6-eefc-4f4f-a419-84df939e682c",
