@@ -1,5 +1,11 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+	<a name="finding-topics"/>
+	<h2>Finding Subscription Topics</h2>
+	<p>
+	  Example and Canonical Subscription Topics can be found at <a href="http://registry.fhir.org/">registry.fhir.org</a>.  It is strongly suggested that implementers reuse existing topics whenever possible for better compatibility.
+	</p>
+
 	<a name="implementing" />
 	<h2>Implementation Notes</h2>
 	<p>
@@ -9,7 +15,7 @@
   <a name="defining" />
   <h2>Defining Subscription Topics</h2>
 	<p>
-		Defining a new <code>SubscriptionTopic</code> requires clear communication to implementers of both clients and servers around requirements and expectations.  Anyone defining a <code>SubscriptionTopic</code> is encouraged to publish their definition at <a href="https://registry.fhir.org/">registry.fhir.org</a>.  Below are some areas which should be considered when creating a <code>SubscriptionTopic</code>.
+		Defining a new <code>SubscriptionTopic</code> requires clear communication to implementers of both clients and servers around requirements and expectations.  Anyone defining a <code>SubscriptionTopic</code> is encouraged to publish their definition at <a href="https://registry.fhir.org/">registry.fhir.org</a>.  Below are some points which should be considered when creating a <code>SubscriptionTopic</code>.
 	</p>
 
 	<p>

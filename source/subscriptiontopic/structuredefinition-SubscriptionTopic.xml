@@ -350,7 +350,7 @@
     </element>
     <element id="SubscriptionTopic.description">
       <path value="SubscriptionTopic.description"/>
-      <short value="Natural language description of the ToSubscriptionTopicpic"/>
+      <short value="Natural language description of the SubscriptionTopic"/>
       <definition value="A free text natural language description of the Topic from the consumer&#39;s perspective."/>
       <comment value="This description can be used to capture details such as why the Topic was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the module as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context."/>
       <min value="0"/>
@@ -390,7 +390,7 @@
     </element>
     <element id="SubscriptionTopic.jurisdiction">
       <path value="SubscriptionTopic.jurisdiction"/>
-      <short value="Intended jurisdiction for Topic (if applicable)"/>
+      <short value="Intended jurisdiction of the SubscriptionTopic (if applicable)"/>
       <definition value="A jurisdiction in which the Topic is intended to be used."/>
       <min value="0"/>
       <max value="*"/>
@@ -522,8 +522,8 @@
     </element>
     <element id="SubscriptionTopic.resourceTrigger">
       <path value="SubscriptionTopic.resourceTrigger"/>
-      <short value="Criteria for including a resource update in the subscription topic"/>
-      <definition value="The criteria for including updates to a nominated resource in the subscription topic.  Thie criteria may be just a human readable description and/or a full FHIR search string or FHIRPath expression."/>
+      <short value="Definition of a resource-based trigger for the subscription topic"/>
+      <definition value="A definition of a resource-based event that triggers a notification based on the SubscriptionTopic. The criteria may be just a human readable description and/or a full FHIR search string or FHIRPath expression. Multiple triggers are considered OR joined (e.g., a resource update matching ANY of the definitions will trigger a notification)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -537,8 +537,8 @@
     </element>
     <element id="SubscriptionTopic.resourceTrigger.description">
       <path value="SubscriptionTopic.resourceTrigger.description"/>
-      <short value="Text representation of the trigger"/>
-      <definition value="The human readable description of what triggers inclusion into this subscription topic -  for example, &quot;Beginning of a clinical encounter&quot;."/>
+      <short value="Text representation of the resource trigger"/>
+      <definition value="The human readable description of this resource trigger for the SubscriptionTopic -  for example, &quot;An Encounter enters the 'in-progress' state&quot;."/>
       <comment value="Implementation of particular subscription topics might not use a computable definition and instead base their design on the definition."/>
       <min value="0"/>
       <max value="1"/>
@@ -549,8 +549,8 @@
     </element>
     <element id="SubscriptionTopic.resourceTrigger.resourceType">
       <path value="SubscriptionTopic.resourceTrigger.resourceType"/>
-      <short value="Allowed Data type or Resource (reference to definition) for this definition"/>
-      <definition value="URL of the Resource that is the type used in this trigger.  Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &quot;Patient&quot; maps to http://hl7.org/fhir/StructureDefinition/Patient.  For more information, see &lt;a href=&quot;elementdefinition-definitions.html#ElementDefinition.type.code&quot;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
+      <short value="Data Type or Resource (reference to definition) for this trigger definition"/>
+      <definition value="URL of the Resource that is the type used in this resource trigger.  Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &quot;Patient&quot; maps to http://hl7.org/fhir/StructureDefinition/Patient.  For more information, see &lt;a href=&quot;elementdefinition-definitions.html#ElementDefinition.type.code&quot;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -569,7 +569,7 @@
     <element id="SubscriptionTopic.resourceTrigger.supportedInteraction">
       <path value="SubscriptionTopic.resourceTrigger.supportedInteraction"/>
       <short value="create | update | delete"/>
-      <definition value="The REST interaction based rules that the server should use to determine when to trigger a notification for this topic."/>
+      <definition value="The FHIR RESTful interaction which can be used to trigger a notification for the SubscriptionTopic. Multiple values are considered OR joined (e.g., CREATE or UPDATE)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -581,7 +581,7 @@
           <valueString value="MethodCode"/>
         </extension>
         <strength value="required"/>
-        <description value="FHIR RESTful interaction used for subscription topic trigger."/>
+        <description value="FHIR RESTful interaction used to filter a resource-based SubscriptionTopic trigger."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/interaction-trigger"/>
       </binding>
     </element>
@@ -599,7 +599,7 @@
     <element id="SubscriptionTopic.resourceTrigger.queryCriteria.previous">
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.previous"/>
       <short value="Rule applied to previous resource state"/>
-      <definition value="The FHIR query based rules are applied to the previous resource state."/>
+      <definition value="The FHIR query based rules are applied to the previous resource state (e.g., state before an update)."/>
       <comment value="The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading &quot;/&quot;."/>
       <min value="0"/>
       <max value="1"/>
@@ -611,7 +611,7 @@
     <element id="SubscriptionTopic.resourceTrigger.queryCriteria.resultForCreate">
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.resultForCreate"/>
       <short value="test-passes | test-fails"/>
-      <definition value="What behavior a server will exhibit if the previous state of a resource does NOT exist (e.g., during a CREATE)."/>
+      <definition value="What behavior a server will exhibit if the previous state of a resource does NOT exist (e.g., prior to a create)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -630,7 +630,7 @@
     <element id="SubscriptionTopic.resourceTrigger.queryCriteria.current">
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.current"/>
       <short value="Rule applied to current resource state"/>
-      <definition value="The FHIR query based rules are applied to the current resource state."/>
+      <definition value="The FHIR query based rules are applied to the current resource state (e.g., state after an update)."/>
       <comment value="The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading &quot;/&quot;."/>
       <min value="0"/>
       <max value="1"/>
@@ -642,7 +642,7 @@
     <element id="SubscriptionTopic.resourceTrigger.queryCriteria.resultForDelete">
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.resultForDelete"/>
       <short value="test-passes | test-fails"/>
-      <definition value="What behavior a server will exhibit if the current state of a resource does NOT exist (e.g., during a DELETE)."/>
+      <definition value="What behavior a server will exhibit if the current state of a resource does NOT exist (e.g., after a DELETE)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -672,7 +672,7 @@
     <element id="SubscriptionTopic.resourceTrigger.fhirPathCriteria">
       <path value="SubscriptionTopic.resourceTrigger.fhirPathCriteria"/>
       <short value="FHIRPath based trigger rule"/>
-      <definition value="The FHIRPath based rules that the server should use to determine when to trigger a notification for this topic.  If there are multiple, FHIRPath filters are joined with AND."/>
+      <definition value="The FHIRPath based rules that the server should use to determine when to trigger a notification for this topic."/>
       <comment value="FHIRPath expression with %previous and %current vars."/>
       <min value="0"/>
       <max value="1"/>
@@ -683,8 +683,8 @@
     </element>
     <element id="SubscriptionTopic.eventTrigger">
       <path value="SubscriptionTopic.eventTrigger"/>
-      <short value="Event definitions this subscription topic"/>
-      <definition value="Events which can be used to trigger this subscription topic."/>
+      <short value="Event definitions the SubscriptionTopic"/>
+      <definition value="Event definition which can be used to trigger the SubscriptionTopic."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -698,8 +698,8 @@
     </element>
     <element id="SubscriptionTopic.eventTrigger.description">
       <path value="SubscriptionTopic.eventTrigger.description"/>
-      <short value="Text representation of the trigger"/>
-      <definition value="The human readable description of what event triggers inclusion for this subscription topic -  for example, &quot;HL7v2 ADT^A01&quot;."/>
+      <short value="Text representation of the event trigger"/>
+      <definition value="The human readable description of an event to trigger a notification for the SubscriptionTopic - for example, &quot;Patient Admission, as defined in HL7v2 via message ADT^A01&quot;. Multiple values are considered OR joined (e.g., matching any single event listed)."/>
       <comment value="Implementation of particular subscription topics might not use a computable definition and instead base their design on the definition."/>
       <min value="0"/>
       <max value="1"/>
@@ -710,8 +710,8 @@
     </element>
     <element id="SubscriptionTopic.eventTrigger.event">
       <path value="SubscriptionTopic.eventTrigger.event"/>
-      <short value="Event which can trigger a notification from this topic"/>
-      <definition value="A well-defined event which can be used to trigger notifications from this subscription topic."/>
+      <short value="Event which can trigger a notification from the SubscriptionTopic"/>
+      <definition value="A well-defined event which can be used to trigger notifications from the SubscriptionTopic."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -729,8 +729,8 @@
     </element>
     <element id="SubscriptionTopic.canFilterBy">
       <path value="SubscriptionTopic.canFilterBy"/>
-      <short value="Properties by which a Subscription can further filter a SubscriptionTopic"/>
-      <definition value="List of properties by which Subscriptions on the subscription topic can be filtered."/>
+      <short value="Properties by which a Subscription can filter notifications from the SubscriptionTopic"/>
+      <definition value="List of properties by which Subscriptions on the SubscriptionTopic can be filtered. May be defined Search Parameters (e.g., Encounter.patient) or parameters defined within this SubscriptionTopic context (e.g., hub.event)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -741,7 +741,7 @@
     <element id="SubscriptionTopic.canFilterBy.description">
       <path value="SubscriptionTopic.canFilterBy.description"/>
       <short value="Description of this filter parameter"/>
-      <definition value="Description of how this filter parameter is intended to be used."/>
+      <definition value="Description of how this filtering parameter is intended to be used."/>
       <min value="0"/>
       <max value="1"/>
       <type>
