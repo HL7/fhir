@@ -7,13 +7,14 @@
   <eventsSinceSubscriptionStart value="328"/>
   <eventsInNotification value="0"/>
   <subscription>
-    <reference value="http://example.org/FHIR/R5/Subscription/123"/>
+    <reference value="http://example.org/FHIR/R4/Subscription/123"/>
   </subscription>
+  <topic value="http://example.org/FHIR/R4/SubscriptionTopic/admission"/>
   <error>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/subscription-error"/>
       <code value="no-response"/>
     </coding>
   </error>
-  <topic value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
+  <topic value="http://example.org/FHIR/R4/SubscriptionTopic/admission"/>
 </SubscriptionStatus>

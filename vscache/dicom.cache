@@ -4656,3 +4656,886 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110100"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "concept" : [{
+        "code" : "110100"
+      },
+      {
+        "code" : "110101"
+      },
+      {
+        "code" : "110102"
+      },
+      {
+        "code" : "110103"
+      },
+      {
+        "code" : "110104"
+      },
+      {
+        "code" : "110105"
+      },
+      {
+        "code" : "110106"
+      },
+      {
+        "code" : "110107"
+      },
+      {
+        "code" : "110108"
+      },
+      {
+        "code" : "110109"
+      },
+      {
+        "code" : "110110"
+      },
+      {
+        "code" : "110111"
+      },
+      {
+        "code" : "110112"
+      },
+      {
+        "code" : "110113"
+      },
+      {
+        "code" : "110114"
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Application Activity",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110120"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "concept" : [{
+        "code" : "110120"
+      },
+      {
+        "code" : "110121"
+      },
+      {
+        "code" : "110122"
+      },
+      {
+        "code" : "110123"
+      },
+      {
+        "code" : "110124"
+      },
+      {
+        "code" : "110125"
+      },
+      {
+        "code" : "110126"
+      },
+      {
+        "code" : "110127"
+      },
+      {
+        "code" : "110128"
+      },
+      {
+        "code" : "110129"
+      },
+      {
+        "code" : "110130"
+      },
+      {
+        "code" : "110131"
+      },
+      {
+        "code" : "110132"
+      },
+      {
+        "code" : "110133"
+      },
+      {
+        "code" : "110134"
+      },
+      {
+        "code" : "110135"
+      },
+      {
+        "code" : "110136"
+      },
+      {
+        "code" : "110137"
+      },
+      {
+        "code" : "110138"
+      },
+      {
+        "code" : "110139"
+      },
+      {
+        "code" : "110140"
+      },
+      {
+        "code" : "110141"
+      },
+      {
+        "code" : "110142"
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Application Start",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110114"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "concept" : [{
+        "code" : "110100"
+      },
+      {
+        "code" : "110101"
+      },
+      {
+        "code" : "110102"
+      },
+      {
+        "code" : "110103"
+      },
+      {
+        "code" : "110104"
+      },
+      {
+        "code" : "110105"
+      },
+      {
+        "code" : "110106"
+      },
+      {
+        "code" : "110107"
+      },
+      {
+        "code" : "110108"
+      },
+      {
+        "code" : "110109"
+      },
+      {
+        "code" : "110110"
+      },
+      {
+        "code" : "110111"
+      },
+      {
+        "code" : "110112"
+      },
+      {
+        "code" : "110113"
+      },
+      {
+        "code" : "110114"
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "User Authentication",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110122"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "concept" : [{
+        "code" : "110120"
+      },
+      {
+        "code" : "110121"
+      },
+      {
+        "code" : "110122"
+      },
+      {
+        "code" : "110123"
+      },
+      {
+        "code" : "110124"
+      },
+      {
+        "code" : "110125"
+      },
+      {
+        "code" : "110126"
+      },
+      {
+        "code" : "110127"
+      },
+      {
+        "code" : "110128"
+      },
+      {
+        "code" : "110129"
+      },
+      {
+        "code" : "110130"
+      },
+      {
+        "code" : "110131"
+      },
+      {
+        "code" : "110132"
+      },
+      {
+        "code" : "110133"
+      },
+      {
+        "code" : "110134"
+      },
+      {
+        "code" : "110135"
+      },
+      {
+        "code" : "110136"
+      },
+      {
+        "code" : "110137"
+      },
+      {
+        "code" : "110138"
+      },
+      {
+        "code" : "110139"
+      },
+      {
+        "code" : "110140"
+      },
+      {
+        "code" : "110141"
+      },
+      {
+        "code" : "110142"
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Login",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110123"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "concept" : [{
+        "code" : "110120"
+      },
+      {
+        "code" : "110121"
+      },
+      {
+        "code" : "110122"
+      },
+      {
+        "code" : "110123"
+      },
+      {
+        "code" : "110124"
+      },
+      {
+        "code" : "110125"
+      },
+      {
+        "code" : "110126"
+      },
+      {
+        "code" : "110127"
+      },
+      {
+        "code" : "110128"
+      },
+      {
+        "code" : "110129"
+      },
+      {
+        "code" : "110130"
+      },
+      {
+        "code" : "110131"
+      },
+      {
+        "code" : "110132"
+      },
+      {
+        "code" : "110133"
+      },
+      {
+        "code" : "110134"
+      },
+      {
+        "code" : "110135"
+      },
+      {
+        "code" : "110136"
+      },
+      {
+        "code" : "110137"
+      },
+      {
+        "code" : "110138"
+      },
+      {
+        "code" : "110139"
+      },
+      {
+        "code" : "110140"
+      },
+      {
+        "code" : "110141"
+      },
+      {
+        "code" : "110142"
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Logout",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110106"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "concept" : [{
+        "code" : "110100"
+      },
+      {
+        "code" : "110101"
+      },
+      {
+        "code" : "110102"
+      },
+      {
+        "code" : "110103"
+      },
+      {
+        "code" : "110104"
+      },
+      {
+        "code" : "110105"
+      },
+      {
+        "code" : "110106"
+      },
+      {
+        "code" : "110107"
+      },
+      {
+        "code" : "110108"
+      },
+      {
+        "code" : "110109"
+      },
+      {
+        "code" : "110110"
+      },
+      {
+        "code" : "110111"
+      },
+      {
+        "code" : "110112"
+      },
+      {
+        "code" : "110113"
+      },
+      {
+        "code" : "110114"
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Export",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110112"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "concept" : [{
+        "code" : "110100"
+      },
+      {
+        "code" : "110101"
+      },
+      {
+        "code" : "110102"
+      },
+      {
+        "code" : "110103"
+      },
+      {
+        "code" : "110104"
+      },
+      {
+        "code" : "110105"
+      },
+      {
+        "code" : "110106"
+      },
+      {
+        "code" : "110107"
+      },
+      {
+        "code" : "110108"
+      },
+      {
+        "code" : "110109"
+      },
+      {
+        "code" : "110110"
+      },
+      {
+        "code" : "110111"
+      },
+      {
+        "code" : "110112"
+      },
+      {
+        "code" : "110113"
+      },
+      {
+        "code" : "110114"
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Query",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110033"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "concept" : [{
+        "code" : "110030"
+      },
+      {
+        "code" : "110031"
+      },
+      {
+        "code" : "110032"
+      },
+      {
+        "code" : "110033"
+      },
+      {
+        "code" : "110034"
+      },
+      {
+        "code" : "110035"
+      },
+      {
+        "code" : "110036"
+      },
+      {
+        "code" : "110037"
+      },
+      {
+        "code" : "110010"
+      },
+      {
+        "code" : "110038"
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "DVD",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "CT"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "concept" : [{
+        "code" : "OPV",
+        "display" : "Ophthalmic Visual Field"
+      },
+      {
+        "code" : "DX",
+        "display" : "Digital Radiography"
+      },
+      {
+        "code" : "OPT",
+        "display" : "Ophthalmic Tomography"
+      },
+      {
+        "code" : "BMD",
+        "display" : "Bone Mineral Densitometry"
+      },
+      {
+        "code" : "MG",
+        "display" : "Mammography"
+      },
+      {
+        "code" : "SM",
+        "display" : "Slide Microscopy"
+      },
+      {
+        "code" : "US",
+        "display" : "Ultrasound"
+      },
+      {
+        "code" : "OP",
+        "display" : "Ophthalmic Photography"
+      },
+      {
+        "code" : "IVOCT",
+        "display" : "Intravascular Optical Coherence Tomography"
+      },
+      {
+        "code" : "MR",
+        "display" : "Magnetic Resonance"
+      },
+      {
+        "code" : "ECG",
+        "display" : "Electrocardiography"
+      },
+      {
+        "code" : "GM",
+        "display" : "General Microscopy"
+      },
+      {
+        "code" : "IO",
+        "display" : "Intra-oral Radiography"
+      },
+      {
+        "code" : "XA",
+        "display" : "X-Ray Angiography"
+      },
+      {
+        "code" : "XC",
+        "display" : "External-camera Photography"
+      },
+      {
+        "code" : "VA",
+        "display" : "Visual Acuity"
+      },
+      {
+        "code" : "IVUS",
+        "display" : "Intravascular Ultrasound"
+      },
+      {
+        "code" : "CR",
+        "display" : "Computed Radiography"
+      },
+      {
+        "code" : "ES",
+        "display" : "Endoscopy"
+      },
+      {
+        "code" : "AR",
+        "display" : "Autorefraction"
+      },
+      {
+        "code" : "CT",
+        "display" : "Computed Tomography"
+      },
+      {
+        "code" : "OSS",
+        "display" : "Optical Surface Scanner"
+      },
+      {
+        "code" : "LEN",
+        "display" : "Lensometry"
+      },
+      {
+        "code" : "RG",
+        "display" : "Radiographic imaging"
+      },
+      {
+        "code" : "RF",
+        "display" : "Radiofluoroscopy"
+      },
+      {
+        "code" : "KER",
+        "display" : "Keratometry"
+      },
+      {
+        "code" : "HD",
+        "display" : "Hemodynamic Waveform"
+      },
+      {
+        "code" : "OAM",
+        "display" : "Ophthalmic Axial Measurements"
+      },
+      {
+        "code" : "NM",
+        "display" : "Nuclear Medicine"
+      },
+      {
+        "code" : "OCT",
+        "display" : "Optical Coherence Tomography"
+      },
+      {
+        "code" : "BDUS",
+        "display" : "Ultrasound Bone Densitometry"
+      },
+      {
+        "code" : "PT",
+        "display" : "Positron emission tomography"
+      },
+      {
+        "code" : "EPS",
+        "display" : "Cardiac Electrophysiology"
+      },
+      {
+        "code" : "PX",
+        "display" : "Panoramic X-Ray"
+      },
+      {
+        "code" : "SRF",
+        "display" : "Subjective Refraction"
+      },
+      {
+        "code" : "OPM",
+        "display" : "Ophthalmic Mapping"
+      },
+      {
+        "code" : "OPR",
+        "display" : "Ophthalmic Refraction"
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Computed Tomography",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "DX"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "concept" : [{
+        "code" : "OPV",
+        "display" : "Ophthalmic Visual Field"
+      },
+      {
+        "code" : "DX",
+        "display" : "Digital Radiography"
+      },
+      {
+        "code" : "OPT",
+        "display" : "Ophthalmic Tomography"
+      },
+      {
+        "code" : "BMD",
+        "display" : "Bone Mineral Densitometry"
+      },
+      {
+        "code" : "MG",
+        "display" : "Mammography"
+      },
+      {
+        "code" : "SM",
+        "display" : "Slide Microscopy"
+      },
+      {
+        "code" : "US",
+        "display" : "Ultrasound"
+      },
+      {
+        "code" : "OP",
+        "display" : "Ophthalmic Photography"
+      },
+      {
+        "code" : "IVOCT",
+        "display" : "Intravascular Optical Coherence Tomography"
+      },
+      {
+        "code" : "MR",
+        "display" : "Magnetic Resonance"
+      },
+      {
+        "code" : "ECG",
+        "display" : "Electrocardiography"
+      },
+      {
+        "code" : "GM",
+        "display" : "General Microscopy"
+      },
+      {
+        "code" : "IO",
+        "display" : "Intra-oral Radiography"
+      },
+      {
+        "code" : "XA",
+        "display" : "X-Ray Angiography"
+      },
+      {
+        "code" : "XC",
+        "display" : "External-camera Photography"
+      },
+      {
+        "code" : "VA",
+        "display" : "Visual Acuity"
+      },
+      {
+        "code" : "IVUS",
+        "display" : "Intravascular Ultrasound"
+      },
+      {
+        "code" : "CR",
+        "display" : "Computed Radiography"
+      },
+      {
+        "code" : "ES",
+        "display" : "Endoscopy"
+      },
+      {
+        "code" : "AR",
+        "display" : "Autorefraction"
+      },
+      {
+        "code" : "CT",
+        "display" : "Computed Tomography"
+      },
+      {
+        "code" : "OSS",
+        "display" : "Optical Surface Scanner"
+      },
+      {
+        "code" : "LEN",
+        "display" : "Lensometry"
+      },
+      {
+        "code" : "RG",
+        "display" : "Radiographic imaging"
+      },
+      {
+        "code" : "RF",
+        "display" : "Radiofluoroscopy"
+      },
+      {
+        "code" : "KER",
+        "display" : "Keratometry"
+      },
+      {
+        "code" : "HD",
+        "display" : "Hemodynamic Waveform"
+      },
+      {
+        "code" : "OAM",
+        "display" : "Ophthalmic Axial Measurements"
+      },
+      {
+        "code" : "NM",
+        "display" : "Nuclear Medicine"
+      },
+      {
+        "code" : "OCT",
+        "display" : "Optical Coherence Tomography"
+      },
+      {
+        "code" : "BDUS",
+        "display" : "Ultrasound Bone Densitometry"
+      },
+      {
+        "code" : "PT",
+        "display" : "Positron emission tomography"
+      },
+      {
+        "code" : "EPS",
+        "display" : "Cardiac Electrophysiology"
+      },
+      {
+        "code" : "PX",
+        "display" : "Panoramic X-Ray"
+      },
+      {
+        "code" : "SRF",
+        "display" : "Subjective Refraction"
+      },
+      {
+        "code" : "OPM",
+        "display" : "Ophthalmic Mapping"
+      },
+      {
+        "code" : "OPR",
+        "display" : "Ophthalmic Refraction"
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Digital Radiography",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

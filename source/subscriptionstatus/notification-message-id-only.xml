@@ -14,7 +14,7 @@
           <code value="subscription-notification"/>
         </eventCoding>
         <source>
-          <endpoint value="http://example.org/FHIR/R5"/>
+          <endpoint value="http://example.org/FHIR/R4"/>
         </source>
         <focus>
           <reference value="urn:uuid:c13b0b59-525c-4e41-b874-b5b87538a5b7"/>
@@ -39,14 +39,21 @@
               <eventsSinceSubscriptionStart value="310"/>
               <eventsInNotification value="1"/>
               <subscription>
-                <reference value="http://example.org/FHIR/R5/Subscription/123"/>
+                <reference value="http://example.org/FHIR/R4/Subscription/123"/>
               </subscription>
-              <topic value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
+              <topic value="http://example.org/FHIR/R4/SubscriptionTopic/admission"/>
             </SubscriptionStatus>
           </resource>
+          <request>
+            <method value="GET" />
+            <url value="Subscription/123/$status" />
+          </request>
+          <response>
+            <status value="200"/>
+          </response>
         </entry>
         <entry>
-          <fullUrl value="https://example.org/FHIR/R5/Encounter/2" />
+          <fullUrl value="https://example.org/FHIR/R4/Encounter/2" />
           <request>
             <method value="PUT" />
             <url value="Encounter/2" />
