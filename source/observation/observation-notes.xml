@@ -57,7 +57,7 @@
 		<a name="usingcodes">
 		</a>
 	  <h3> Using codes in Observation </h3>
-		<p>When a result value is a represented as a predefined concept using a code, <code>valueCodeableConcept</code> is used.  This element is <a href="terminologies.html">bound</a> to a value set comprised of a standard nomenclature such as SNOMED CT or a source system ("local") coded result values.</p>
+		<p>When a result value is represented as a predefined concept using a code, <code>valueCodeableConcept</code> is used.  This element is <a href="terminologies.html">bound</a> to a value set comprised of a standard nomenclature such as SNOMED CT or a source system ("local") coded result values.</p>
 		<a name="mult-codes"></a>
 	  <h4>Multiple Codings</h4>
 		<p>Results may be coded in multiple value sets based on different code systems and these may be mapped using the <a href="conceptmap.html">ConceptMap</a> resource and/or given as <a href="datatypes.html#CodeableConcept">additional codings</a> directly in the element as shown in the example below.</p>
