@@ -218,6 +218,7 @@
         <identity value="rim" />
         <map value="N/A" />
       </mapping>
+      <min value="1" />
     </element>
     <element id="ValueSet.status.extension">
       <path value="ValueSet.status.extension" />
