@@ -557,7 +557,7 @@
       <short value="Actions for managing the interaction"/>
       <definition value="Actions for managing the interaction."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
