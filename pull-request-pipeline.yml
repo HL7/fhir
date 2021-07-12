@@ -52,6 +52,7 @@ jobs:
   # This task takes the successfully built publish directory produced in the 'buildSpecification' job above and pushes it to
   # build.fhir.org in a directory named after that branch that triggered this pull request.
   - task: Bash@3
+    displayName: 'Publish to build.fhir.org/branches'
     inputs:
       targetType: 'inline'
       script: |
@@ -59,7 +60,7 @@ jobs:
         chmod 400 $(Agent.TempDirectory)/deploy.rsa
         TARGET_DIRECTORY=$(echo "$(System.PullRequest.SourceBranch)" | sed -r 's/\//_/g')
         echo "Publishing to target $TARGET_DIRECTORY"
-        tar czf - * | ssh -o "StrictHostKeyChecking=no" -i $(Agent.TempDirectory)/deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish $TARGET_DIRECTORY || true
+        tar czf - * | ssh -o StrictHostKeyChecking=no -i $(Agent.TempDirectory)/deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish $TARGET_DIRECTORY || true
 
 # In the case of a successful build and subsequent publish, we trigger a message to the committers/notifications channel
 # on Zulip (chat.fhir.org) to let users know that the build is available.
