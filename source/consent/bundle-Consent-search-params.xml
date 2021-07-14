@@ -65,19 +65,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Consent-consentor"/>
+        <id value="Consent-grantee"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Consent.performer"/>
+          <valueString value="Consent.grantee"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-consentor"/>
         <description value="Who is agreeing to the policy and rules"/>
-        <code value="consentor"/>
+        <code value="grantee"/>
         <type value="reference"/>
-        <expression value="Consent.performer"/>
-        <xpath value="f:Consent/f:performer"/>
+        <expression value="Consent.grantee"/>
+        <xpath value="f:Consent/f:grantee"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -262,26 +262,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="Consent-scope"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Consent.scope"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-scope"/>
-        <description value="Which of the three areas this resource covers (extensible)"/>
-        <code value="scope"/>
-        <type value="token"/>
-        <expression value="Consent.scope"/>
-        <xpath value="f:Consent/f:scope"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
+
   <entry>
     <resource>
       <SearchParameter>

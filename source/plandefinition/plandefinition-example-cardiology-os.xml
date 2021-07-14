@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
 <PlanDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example-cardiology-os" />
   <contained>
@@ -135,15 +135,12 @@
   <contained>
     <Substance>
       <id value="metoprololTartrate25Substance" />
-      <instance value="false"/>
       <code>
-        <concept>
           <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
             <code value="6918" />
           </coding>
           <text value="Metoprolol" />
-        </concept>
       </code>
     </Substance>
   </contained>
@@ -234,15 +231,12 @@
   <contained>
     <Substance>
       <id value="metoprololTartrate50Substance" />
-      <instance value="false"/>
       <code>
-        <concept>
           <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
             <code value="6918" />
           </coding>
           <text value="Metoprolol" />
-        </concept>
       </code>
     </Substance>
   </contained>
@@ -429,15 +423,12 @@
   <contained>
     <Substance>
       <id value="nitroglycerinSubstance" />
-      <instance value="false"/>
       <code>
-        <concept>
           <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
             <code value="4917" />
           </coding>
           <text value="Nitroglycerin" />
-        </concept>
       </code>
     </Substance>
   </contained>
@@ -481,7 +472,7 @@
       </compose> -!->
     </ValueSet>
   </contained> -->
-  
+
   <contained>
     <Questionnaire>
       <id value="CollectReferralReason" />
@@ -489,7 +480,7 @@
       <item>
         <linkId value="1" />
         <text value="Reason for Cardiology Consult" />
-        <type value="choice" />
+        <type value="coding" />
         <required value="true" />
         <repeats value="true" />
         <answerValueSet value="#CardiologyReferralReasonValues" />
@@ -731,7 +722,7 @@
   <library value="#cardiology-chestPain-logic" />
   <!--  Actions  -->
   <action>
-    <!--  
+    <!--
     <action>
       Patient disposition and triage group
     </action>
@@ -805,19 +796,19 @@
         <definitionCanonical value="#CardiologyConsultationGoal" />
       </action>
     </action>
-    <!--  
+    <!--
     <action>
-      Imaging and ECG group  
+      Imaging and ECG group
     </action>
     -->
-    <!--  
+    <!--
     <action>
-      Laboratory Tests 
+      Laboratory Tests
     </action>
      -->
-     <!--  
+     <!--
     <action>
-      Cardiac Risk Stratification 
+      Cardiac Risk Stratification
     </action>
      -->
     <action>

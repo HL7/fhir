@@ -74,3 +74,78 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/audit-entity-type",
+  "code" : "4",
+  "display" : "Other"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "valueSet" : ["http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_404.html"]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/audit-entity-type"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
+v: {
+  "display" : "Other",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/audit-entity-type",
+  "code" : "1",
+  "display" : "Person"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "valueSet" : ["http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_404.html"]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/audit-entity-type"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
+v: {
+  "display" : "Person",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/audit-entity-type",
+  "code" : "2",
+  "display" : "System Object"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "valueSet" : ["http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_404.html"]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/audit-entity-type"
+    },
+    {
+      "system" : "http://hl7.org/fhir/resource-types"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
+v: {
+  "display" : "System Object",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

@@ -4,8 +4,7 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-The DeviceDefinition resource is used to describe the characteristics and capabilities of a medical device. 
- 
+The DeviceDefinition resource is used to describe the characteristics and capabilities of a medical device. It also includes packaging information; For kits that can be assembled and repackaged, the packaging is defined at the kit level, but the custom repackaging of that kit is not covered.
 </p>
 </div>
 

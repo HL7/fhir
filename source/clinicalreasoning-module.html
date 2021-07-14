@@ -13,7 +13,7 @@ in order to support consistent definitions for schema and UML derived code.
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 <table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a> &amp; <a _target="blank" href="[%wg cqi%]">[%wgt cqi%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <a name="root"></a>
@@ -132,10 +132,6 @@ in order to support consistent definitions for schema and UML derived code.
 			<td>Enforces the minimum information set for the activity definition metadata required by HL7 and other organizations that share and publish activity definitions.</td>
 		</tr>
 		<tr>
-			<td><a href="cqf-questionnaire.html">CQF-Questionnaire</a></td>
-			<td>Defines extensions to the base Questionnaire that allow it to be used as a DocumentationTemplate with behavior specified via logic in CQL libraries.</td>
-		</tr>
-		<tr>
 			<td><a href="cdshooksguidanceresponse.html">CDS Hooks GuidanceResponse</a></td>
 			<td>Defines a GuidanceResponse that represents the response container for a CDS Hooks response</td>
 		</tr>
@@ -220,7 +216,6 @@ in order to support consistent definitions for schema and UML derived code.
 		<tr><td><a href="clinicalreasoning-topics-definitional-resources.html#referral-request-activity-definition">Defining a Medication Request activity</a></td><td>Using the ActivityDefinition resource to define a medication request activity that can be used as part of a knowledge artifact.</td></tr>
 		<tr><td><a href="clinicalreasoning-knowledge-artifact-representation.html#order-set">Defining an Order Set</a></td><td>Using the PlanDefinition resource to represent an order set.</td></tr>
 		<tr><td><a href="clinicalreasoning-knowledge-artifact-representation.html#protocol">Defining a Protocol</a></td><td>Using the PlanDefinition resource to represent a protocol.</td></tr>
-		<tr><td><a href="clinicalreasoning-knowledge-artifact-representation.html#documentation-template">Defining a Questionnaire with dynamic content</a></td><td>Using the Questionnaire resource and expression extensions to add dynamic functionality to a FHIR Questionnaire.</td></tr>
 		<tr><td><a href="clinicalreasoning-cds-on-fhir.html#guidance-request">Obtaining guidance from a Decision Support Service</a></td><td>Using the $evaluate operation to request and process guidance from a decision support service.</td></tr>
 		<tr><td><a href="clinicalreasoning-quality-reporting.html#representing-quality-measures">Defining a Measure</a></td><td>Using the Measure resource to represent a clinical quality measure.</td></tr>
 		<tr><td><a href="clinicalreasoning-quality-reporting.html#invoking-measures">Evaluating a Measure</a></td><td>Using the $evaluate-measure operation to request calculation of a clinical quality measure.</td></tr>
@@ -313,9 +308,6 @@ Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
 <h3>Acknowledgements</h3>
 
 <p>The guidance in this module is the work of a joint project between the HL7 Clinical Quality Information and  Clinical Decision Support Work Groups with the co-sponsorship of the FHIR Infrastructure, Implementable Technology Specifications, and Service Oriented Architecture Work Groups.</p>
-
-</div>
-
 
 [%file newfooter%]
 </body>

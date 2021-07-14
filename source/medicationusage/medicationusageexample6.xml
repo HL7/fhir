@@ -4,7 +4,7 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationusage.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example006"/>
-  <status value="active"/>
+  <status value="completed"/>
   <medication>
     <concept>
       <coding>

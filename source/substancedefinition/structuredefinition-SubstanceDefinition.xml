@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="SubstanceDefinition"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="The detailed description of a substance, typically at a level beyond what is used for prescribing."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="idmp"/>
     <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
@@ -551,6 +551,66 @@
         <map value="Reference_Information"/>
       </mapping>
     </element>
+    <element id="SubstanceDefinition.molecularWeight">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="408,733"/>
+      </extension>
+      <path value="SubstanceDefinition.molecularWeight"/>
+      <short value="The molecular weight or weight range (for proteins, polymers or nucleic acids)"/>
+      <definition value="The molecular weight or weight range (for proteins, polymers or nucleic acids)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.molecularWeight.method">
+      <path value="SubstanceDefinition.molecularWeight.method"/>
+      <short value="The method by which the molecular weight was determined"/>
+      <definition value="The method by which the molecular weight was determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Molecular_Weight.Molecular_Weight_Method"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.molecularWeight.type">
+      <path value="SubstanceDefinition.molecularWeight.type"/>
+      <short value="Type of molecular weight such as exact, average (also known as. number average), weight average"/>
+      <definition value="Type of molecular weight such as exact, average (also known as. number average), weight average."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Molecular_Weight.Molecular_Weight_Type"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.molecularWeight.amount">
+      <path value="SubstanceDefinition.molecularWeight.amount"/>
+      <short value="Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field"/>
+      <definition value="Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Molecular_Weight.Amount"/>
+      </mapping>
+    </element>
+    
     <element id="SubstanceDefinition.structure">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="350,569"/>
@@ -629,154 +689,13 @@
         <map value="Structure.Molecular_Formula_By_Moiety"/>
       </mapping>
     </element>
-    <element id="SubstanceDefinition.structure.isotope">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="650,723"/>
-      </extension>
-      <path value="SubstanceDefinition.structure.isotope"/>
-      <short value="Applicable for single substances that contain a radionuclide or a non-natural isotopic ratio"/>
-      <definition value="Applicable for single substances that contain a radionuclide or a non-natural isotopic ratio."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Structure.Isotope"/>
-      </mapping>
-    </element>
-    <element id="SubstanceDefinition.structure.isotope.identifier">
-      <path value="SubstanceDefinition.structure.isotope.identifier"/>
-      <short value="Substance identifier for each non-natural or radioisotope"/>
-      <definition value="Substance identifier for each non-natural or radioisotope."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Isotope.Nuclide_Id"/>
-      </mapping>
-    </element>
-    <element id="SubstanceDefinition.structure.isotope.name">
-      <path value="SubstanceDefinition.structure.isotope.name"/>
-      <short value="Substance name for each non-natural or radioisotope"/>
-      <definition value="Substance name for each non-natural or radioisotope."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Isotope.Nuclide_Name"/>
-      </mapping>
-    </element>
-    <element id="SubstanceDefinition.structure.isotope.substitution">
-      <path value="SubstanceDefinition.structure.isotope.substitution"/>
-      <short value="The type of isotopic substitution present in a single substance"/>
-      <definition value="The type of isotopic substitution present in a single substance."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Isotope.Substitution_Type"/>
-      </mapping>
-    </element>
-    <element id="SubstanceDefinition.structure.isotope.halfLife">
-      <path value="SubstanceDefinition.structure.isotope.halfLife"/>
-      <short value="Half life - for a non-natural nuclide"/>
-      <definition value="Half life - for a non-natural nuclide."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Quantity"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Isotope.Nuclide_Half_Life"/>
-      </mapping>
-    </element>
-    <element id="SubstanceDefinition.structure.isotope.molecularWeight">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="408,733"/>
-      </extension>
-      <path value="SubstanceDefinition.structure.isotope.molecularWeight"/>
-      <short value="The molecular weight or weight range (for proteins, polymers or nucleic acids)"/>
-      <definition value="The molecular weight or weight range (for proteins, polymers or nucleic acids)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Isotope.Molecular_Weight"/>
-      </mapping>
-    </element>
-    <element id="SubstanceDefinition.structure.isotope.molecularWeight.method">
-      <path value="SubstanceDefinition.structure.isotope.molecularWeight.method"/>
-      <short value="The method by which the molecular weight was determined"/>
-      <definition value="The method by which the molecular weight was determined."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Molecular_Weight.Molecular_Weight_Method"/>
-      </mapping>
-    </element>
-    <element id="SubstanceDefinition.structure.isotope.molecularWeight.type">
-      <path value="SubstanceDefinition.structure.isotope.molecularWeight.type"/>
-      <short value="Type of molecular weight such as exact, average (also known as. number average), weight average"/>
-      <definition value="Type of molecular weight such as exact, average (also known as. number average), weight average."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Molecular_Weight.Molecular_Weight_Type"/>
-      </mapping>
-    </element>
-    <element id="SubstanceDefinition.structure.isotope.molecularWeight.amount">
-      <path value="SubstanceDefinition.structure.isotope.molecularWeight.amount"/>
-      <short value="Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field"/>
-      <definition value="Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Quantity"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Molecular_Weight.Amount"/>
-      </mapping>
-    </element>
     <element id="SubstanceDefinition.structure.molecularWeight">
       <path value="SubstanceDefinition.structure.molecularWeight"/>
       <short value="The molecular weight or weight range (for proteins, polymers or nucleic acids)"/>
       <definition value="The molecular weight or weight range (for proteins, polymers or nucleic acids)."/>
       <min value="0"/>
       <max value="1"/>
-      <contentReference value="#SubstanceDefinition.structure.isotope.molecularWeight"/>
+      <contentReference value="#SubstanceDefinition.molecularWeight"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -1215,19 +1134,9 @@
         <map value="Substance_Name.Reference_Source"/>
       </mapping>
     </element>
-    <element id="SubstanceDefinition.molecularWeight">
-      <path value="SubstanceDefinition.molecularWeight"/>
-      <short value="The molecular weight or weight range (for proteins, polymers or nucleic acids)"/>
-      <definition value="The molecular weight or weight range (for proteins, polymers or nucleic acids)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <contentReference value="#SubstanceDefinition.structure.isotope.molecularWeight"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Substance.Structure.Molecular_Weight"/>
-      </mapping>
-    </element>
+    
+   
+    
     <element id="SubstanceDefinition.relationship">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,350"/>

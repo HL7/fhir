@@ -119,7 +119,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="153" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="154" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="158.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="198.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="98.0"/>
@@ -274,6 +274,9 @@
     <Cell><Data ss:Type="String">ConceptMap</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ConceptMap2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Condition</Data></Cell>
     <Cell><Data ss:Type="String">patient | asserter</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
@@ -302,6 +305,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Device</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceDefinition</Data></Cell>
@@ -317,7 +321,7 @@
     <Cell><Data ss:Type="String">subject | requester |  performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">DeviceUseStatement</Data></Cell>
+    <Cell><Data ss:Type="String">DeviceUsage</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -597,7 +601,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ResearchSubject</Data></Cell>
-    <Cell><Data ss:Type="String">individual</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">RiskAssessment</Data></Cell>
@@ -767,34 +772,37 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">BiologicallyDerivedProduct</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationKnowledge</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ChargeItemDefinition</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">InventoryReport</Data></Cell>
    </Row>
-   <Row ss:Index="145">
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DeviceDispense</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Index="146">
     <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
    </Row>
-   <Row ss:Index="148">
+   <Row ss:AutoFitHeight="0" ss:Index="149">
     <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Evidence</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SubscriptionTopic</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">NutritionProduct</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Permission</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SubscriptionStatus</Data></Cell>
    </Row>
   </Table>
@@ -814,7 +822,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>118</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

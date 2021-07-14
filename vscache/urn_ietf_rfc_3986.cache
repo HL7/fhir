@@ -1,14 +1,4 @@
 -------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:rfc:3986",
-  "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile"
-}, "valueSet" :null}####
-v: {
-  "display" : "",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -24,24 +14,25 @@ v: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:4ced5cae-3aab-4790-a78e-c4b855b3d1a4",
-    "timestamp" : "2018-12-14T03:57:30.673Z",
+    "identifier" : "urn:uuid:c2b5be0a-6726-4abd-ba23-d061ee24c716",
+    "timestamp" : "2021-04-12T20:09:04.570Z",
     "parameter" : [{
       "name" : "limitedExpansion",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "includeDesignations",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "excludeNested",
-      "valueString" : "-1"
+      "valueBoolean" : true
     },
     {
       "name" : "version",
-      "valueString" : "urn:ietf:rfc:3986?version=n/a"
+      "valueString" : "urn:ietf:rfc:3986|n/a"
     }],
     "contains" : [{
       "system" : "urn:ietf:rfc:3986",
@@ -50,146 +41,6 @@ e: {
     }]
   }
 },
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:rfc:3986",
-  "code" : "RicardianContract"
-}, "valueSet" :null}####
-v: {
-  "display" : "",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:rfc:3986",
-  "code" : "urn:oid:1.2.840.10008.5.1.4.1.1.2"
-}, "valueSet" :null}####
-v: {
-  "display" : "",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:rfc:3986",
-  "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile"
-}, "valueSet" :null, "lang":"en-US"}####
-v: {
-  "display" : "",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:rfc:3986",
-  "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile"
-}, "valueSet" :null, "lang":"null"}####
-v: {
-  "display" : "",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:rfc:3986",
-  "code" : "RicardianContract"
-}, "valueSet" :null, "lang":"null"}####
-v: {
-  "display" : "",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:rfc:3986",
-  "code" : "urn:oid:1.2.840.10008.5.1.4.1.1.2"
-}, "valueSet" :null, "lang":"null"}####
-v: {
-  "display" : "",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:rfc:3986",
-  "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
-v: {
-  "display" : "",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:rfc:3986",
-  "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
-v: {
-  "display" : "",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:rfc:3986",
-  "code" : "RicardianContract"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
-v: {
-  "display" : "",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:rfc:3986",
-  "code" : "urn:oid:1.2.840.10008.5.1.4.1.1.2"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false"}####
-v: {
-  "display" : "",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:rfc:3986",
-  "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:rfc:3986",
-  "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:rfc:3986",
-  "code" : "RicardianContract"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:rfc:3986",
-  "code" : "urn:oid:1.2.840.10008.5.1.4.1.1.2"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "severity" : null,
   "error" : ""
 }
 -------------------------------------------------------------------------------------

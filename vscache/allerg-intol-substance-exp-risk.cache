@@ -12,8 +12,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:54efab4c-7390-4a11-b634-b99e93cf7351",
-    "timestamp" : "2021-01-13T06:26:55.267Z",
+    "identifier" : "urn:uuid:12dd3d38-892c-4e40-9071-fac824af0679",
+    "timestamp" : "2021-04-12T20:49:46.116Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -24,7 +24,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://hl7.org/fhir/allerg-intol-substance-exp-risk|4.5.0"
+      "valueString" : "http://hl7.org/fhir/allerg-intol-substance-exp-risk|4.6.0"
     }],
     "contains" : [{
       "extension" : [{

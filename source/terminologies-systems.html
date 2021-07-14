@@ -9,7 +9,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <%txheader systems%>
 
@@ -47,14 +47,6 @@ and they are not registered in the HL7 OID registry, the default URN for the cod
 <p>
 Note that the code systems are available as FHIR resources - see the <a href="downloads.html">Downloads Page</a> (as part of the FHIR definitions) (excluding
 the External code systems.
-</p>
-<p>
-<b>UMLS Note</b>: The <a href="https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html">UMLS</a> includes many code systems that do
-not have an entry in the table below, or in the HL7 OID registry, or on http://registry.fhir.org. Until these code systems
-are registered, implementers may use the pattern <code>http://www.nlm.nih.gov/research/umls/[SAB]</code>, where [SAB] is the lowercase of
-abbreviation of the code  system as provided by UMLS. e.g. The system for "Multum MediSource Lexicon" would then be
-<code>http://www.nlm.nih.gov/research/umls/mmsl</code>. Implementers choosing to use this pattern should be aware that very
-often, when the code system is registered, it will use a different system.
 </p>
 <p>
 <b>Don't see what you're looking for here?</b> See <a href="https://confluence.hl7.org/display/FHIR/Registering+Code+Systems">Registering Code Systems</a> for further advice.
@@ -410,9 +402,7 @@ often, when the code system is registered, it will use a different system.
 
   </div>
 </div>
-</div>
-
-	[%file newfooter%]
+[%file newfooter%]
 
 
 

@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="ClinicalUseIssue"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A single issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="idmp"/>
     <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
@@ -66,7 +66,7 @@
   <differential>
     <element id="ClinicalUseIssue">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,40"/>
+        <valueCode value="0,160"/>
       </extension>
       <path value="ClinicalUseIssue"/>
       <short value="A single issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure"/>
@@ -83,9 +83,6 @@
       </mapping>
     </element>
     <element id="ClinicalUseIssue.identifier">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="100,173"/>
-      </extension>
       <path value="ClinicalUseIssue.identifier"/>
       <short value="Business identifier for this issue"/>
       <definition value="Business identifier for this issue."/>
@@ -187,12 +184,12 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="n/a (this is not intended for the specifics Contraindication.Contraindications Text, Therapeutic Indication.Indication Text, Interactions.Interactions Text, Undesirable Effects.Undesirable Effect Text"/>
+        <map value="n/a (this is not intended for the specifics of Contraindication.Contraindications Text, Therapeutic Indication.Indication Text, Interactions.Interactions Text, Undesirable Effects.Undesirable Effect Text"/>
       </mapping>
     </element>
     <element id="ClinicalUseIssue.contraindication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="390,170"/>
+        <valueCode value="420,140"/>
       </extension>
       <path value="ClinicalUseIssue.contraindication"/>
       <short value="Specifics for when this is a contraindication"/>
@@ -215,7 +212,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -230,7 +228,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -245,7 +244,8 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -271,11 +271,11 @@
     </element>
     <element id="ClinicalUseIssue.contraindication.otherTherapy">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="750,60"/>
+        <valueCode value="820,60"/>
       </extension>
       <path value="ClinicalUseIssue.contraindication.otherTherapy"/>
-      <short value="Information about the use of the medicinal product in relation to other therapies described as part of the indication"/>
-      <definition value="Information about the use of the medicinal product in relation to other therapies described as part of the indication."/>
+      <short value="Information about the use of the medicinal product in relation to other therapies described as part of the contraindication"/>
+      <definition value="Information about the use of the medicinal product in relation to other therapies described as part of the contraindication."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -287,8 +287,8 @@
         <map value="Contraindication.Other Therapy Specifics"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.contraindication.otherTherapy.therapyRelationshipType">
-      <path value="ClinicalUseIssue.contraindication.otherTherapy.therapyRelationshipType"/>
+    <element id="ClinicalUseIssue.contraindication.otherTherapy.relationshipType">
+      <path value="ClinicalUseIssue.contraindication.otherTherapy.relationshipType"/>
       <short value="The type of relationship between the medicinal product indication or contraindication and another therapy"/>
       <definition value="The type of relationship between the medicinal product indication or contraindication and another therapy."/>
       <min value="1"/>
@@ -302,21 +302,19 @@
         <map value="Other Therapy Specifics.Therapy Relationship Type"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.contraindication.otherTherapy.medication[x]">
-      <path value="ClinicalUseIssue.contraindication.otherTherapy.medication[x]"/>
+    <element id="ClinicalUseIssue.contraindication.otherTherapy.therapy">
+      <path value="ClinicalUseIssue.contraindication.otherTherapy.therapy"/>
       <short value="Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication"/>
       <definition value="Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -326,7 +324,7 @@
     </element>
     <element id="ClinicalUseIssue.indication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="390,0"/>
+        <valueCode value="420,0"/>
       </extension>
       <path value="ClinicalUseIssue.indication"/>
       <short value="Specifics for when this is an indication"/>
@@ -349,7 +347,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -364,7 +363,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -379,7 +379,8 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -394,7 +395,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -435,8 +437,8 @@
     </element>
     <element id="ClinicalUseIssue.indication.otherTherapy">
       <path value="ClinicalUseIssue.indication.otherTherapy"/>
-      <short value="Information about the use of the medicinal product in relation to other therapies described as part of the contraindication"/>
-      <definition value="Information about the use of the medicinal product in relation to other therapies described as part of the contraindication."/>
+      <short value="Information about the use of the medicinal product in relation to other therapies described as part of the indication"/>
+      <definition value="Information about the use of the medicinal product in relation to other therapies described as part of the indication."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#ClinicalUseIssue.contraindication.otherTherapy"/>
@@ -448,7 +450,7 @@
     </element>
     <element id="ClinicalUseIssue.interaction">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="330,300"/>
+        <valueCode value="420,253"/>
       </extension>
       <path value="ClinicalUseIssue.interaction"/>
       <short value="Specifics for when this is an interaction"/>
@@ -466,7 +468,7 @@
     </element>
     <element id="ClinicalUseIssue.interaction.interactant">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="600,313"/>
+        <valueCode value="720,266"/>
       </extension>
       <path value="ClinicalUseIssue.interaction.interactant"/>
       <short value="The specific medication, food, substance or laboratory test that interacts"/>
@@ -526,7 +528,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -554,7 +557,7 @@
       <short value="Actions for managing the interaction"/>
       <definition value="Actions for managing the interaction."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -581,7 +584,7 @@
     </element>
     <element id="ClinicalUseIssue.undesirableEffect">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="40,250"/>
+        <valueCode value="420,370"/>
       </extension>
       <path value="ClinicalUseIssue.undesirableEffect"/>
       <short value="A possible negative outcome from the use of this treatment"/>
@@ -604,7 +607,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>

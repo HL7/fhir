@@ -165,20 +165,28 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="AllergyIntolerance-manifestation"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AllergyIntolerance.reaction.manifestation"/>
+          <valueString value="AllergyIntolerance.reaction.manifestation.concept"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-manifestation"/>
         <description value="Clinical symptoms/signs associated with the Event"/>
-        <code value="manifestation"/>
+        <code value="manifestation-code"/>
         <type value="token"/>
-        <expression value="AllergyIntolerance.reaction.manifestation"/>
-        <xpath value="f:AllergyIntolerance/f:reaction/f:manifestation"/>
-        <xpathUsage value="normal"/>
+        <expression value="AllergyIntolerance.reaction.manifestation.concept"/>
+        <xpath value="f:AllergyIntolerance/f:reaction/f:manifestation/f:concept"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AllergyIntolerance.reaction.manifestation.reference"/>
+        </extension>
+        <description value="Clinical symptoms/signs associated with the Event"/>
+        <code value="manifestation-reference"/>
+        <type value="reference"/>
+        <expression value="AllergyIntolerance.reaction.manifestation.reference"/>
+        <xpath value="f:AllergyIntolerance/f:reaction/f:manifestation/f:reference"/>
       </SearchParameter>
     </resource>
   </entry>

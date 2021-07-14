@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/EvidenceReport"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="EvidenceReport"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -44,8 +44,8 @@
       <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
     </telecom>
   </contact>
-  <description value="The EvidenceReport Resource is a specialized container for a collection of resources and codable concepts, adapted to support compositions of Evidence, EvidenceVariable, and Citation resources and related concepts."/>
-  <fhirVersion value="4.5.0"/>
+  <description value="The EvidenceReport Resource is a specialized container for a collection of resources and codeable concepts, adapted to support compositions of Evidence, EvidenceVariable, and Citation resources and related concepts."/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>
@@ -78,7 +78,7 @@
       </extension>
       <path value="EvidenceReport"/>
       <short value="A EvidenceReport"/>
-      <definition value="The EvidenceReport Resource is a specialized container for a collection of resources and codable concepts, adapted to support compositions of Evidence, EvidenceVariable, and Citation resources and related concepts."/>
+      <definition value="The EvidenceReport Resource is a specialized container for a collection of resources and codeable concepts, adapted to support compositions of Evidence, EvidenceVariable, and Citation resources and related concepts."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
