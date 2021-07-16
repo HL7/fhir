@@ -610,7 +610,6 @@
         <map value="Molecular_Weight.Amount"/>
       </mapping>
     </element>
-    
     <element id="SubstanceDefinition.structure">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="350,569"/>
@@ -1134,9 +1133,6 @@
         <map value="Substance_Name.Reference_Source"/>
       </mapping>
     </element>
-    
-   
-    
     <element id="SubstanceDefinition.relationship">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,350"/>
