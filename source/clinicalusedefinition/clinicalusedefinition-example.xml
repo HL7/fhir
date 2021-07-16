@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ClinicalUseIssue xmlns="http://hl7.org/fhir">
+<ClinicalUseDefinition xmlns="http://hl7.org/fhir">
   <id value="example"/>
   <type value="contraindication"/>
   <contraindication>
@@ -21,4 +21,4 @@
       </concept>
     </comorbidity>
   </contraindication>
-</ClinicalUseIssue>
+</ClinicalUseDefinition>
