@@ -28,12 +28,7 @@
 -->
   <id value="consent-example-smartonfhir"/>
   <status value="active"/>
-  <scope>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
-      <code value="patient-privacy"/>
-    </coding>
-  </scope>
+
   <category>
     <coding>
       <system value="http://loinc.org"/>

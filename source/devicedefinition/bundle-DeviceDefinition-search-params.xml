@@ -56,8 +56,8 @@
         <description value="The device component type"/>
         <code value="type"/>
         <type value="token"/>
-        <expression value="DeviceDefinition.type"/>
-        <xpath value="f:DeviceDefinition/f:type"/>
+        <expression value="DeviceDefinition.classification.type"/>
+        <xpath value="f:DeviceDefinition/f:classification/f:type"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

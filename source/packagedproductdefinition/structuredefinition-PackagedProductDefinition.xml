@@ -271,22 +271,6 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.marketingAuthorization">
-      <path value="PackagedProductDefinition.marketingAuthorization"/>
-      <short value="An authorization for this package type"/>
-      <definition value="An authorization for this package type."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RegulatedAuthorization"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Packaged Medicinal Product.Marketing Authorisation"/>
-      </mapping>
-    </element>
     <element id="PackagedProductDefinition.manufacturer">
       <path value="PackagedProductDefinition.manufacturer"/>
       <short value="Manufacturer of this package type. When there are multiple it means these are all possible manufacturers"/>
@@ -321,7 +305,7 @@
     </element>
     <element id="PackagedProductDefinition.package">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="403,50"/> <!-- down 20 -->
+        <valueCode value="403,50"/>
       </extension>
       <path value="PackagedProductDefinition.package"/>
       <short value="A packaging item, as a container for medically related items, possibly with other packaging items within, or a packaging component, such as bottle cap (which is not a device or a medication manufactured item)"/>
@@ -445,7 +429,7 @@
     </element>
     <element id="PackagedProductDefinition.package.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="250,270"/> <!-- down 20 -->
+        <valueCode value="250,270"/>
       </extension>
       <path value="PackagedProductDefinition.package.property"/>
       <short value="General characteristics of this item"/>
@@ -505,7 +489,7 @@
     </element>
     <element id="PackagedProductDefinition.package.containedItem">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="560,270"/> <!-- down 20 -->
+        <valueCode value="560,270"/>
       </extension>
       <path value="PackagedProductDefinition.package.containedItem"/>
       <short value="The item(s) within the packaging"/>
@@ -525,8 +509,8 @@
       <path value="PackagedProductDefinition.package.containedItem.item"/>
       <short value="The actual item(s) of medication, as manufactured, or a device (typically, but not necessarily, a co-packaged one), or other medically related item (such as food, biologicals, raw materials, medical fluids, gases etc.), as contained in the package. This also allows another packaged product to be included, which is solely for the case where a package of other entire packages is wanted - such as a wholesale or distribution pack"/>
       <definition value="The actual item(s) of medication, as manufactured, or a device (typically, but not necessarily, a co-packaged one), or other medically related item (such as food, biologicals, raw materials, medical fluids, gases etc.), as contained in the package. This also allows another packaged product to be included, which is solely for the case where a package of other entire packages is wanted - such as a wholesale or distribution pack."/>
-      <min value="0"/>
-      <max value="*"/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
