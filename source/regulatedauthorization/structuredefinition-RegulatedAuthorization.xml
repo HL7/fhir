@@ -223,7 +223,7 @@
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
