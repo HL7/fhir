@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="ClinicalUseIssue"/>
+  <id value="ClinicalUseDefinition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
   </meta>
@@ -23,9 +23,9 @@
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
     <valueCode value=".status=entered-in-error"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
   <version value="4.6.0"/>
-  <name value="ClinicalUseIssue"/>
+  <name value="ClinicalUseDefinition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
@@ -60,19 +60,27 @@
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
-  <type value="ClinicalUseIssue"/>
+  <type value="ClinicalUseDefinition"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
   <derivation value="specialization"/>
   <differential>
-    <element id="ClinicalUseIssue">
+    <element id="ClinicalUseDefinition">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,160"/>
       </extension>
-      <path value="ClinicalUseIssue"/>
+      <path value="ClinicalUseDefinition"/>
       <short value="A single issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure"/>
       <definition value="A single issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="cud-1"/>
+        <severity value="error"/>
+        <human value="Indication, Contraindication, Interaction and UndesirableEffect cannot be used in the same instance (note that the expressions are not yet correct)"/>
+        <expression value="(ClinicalUseDefinition.indication.count() + ClinicalUseDefinition.contraIndication.count() + ClinicalUseDefinition.interaction.count() + ClinicalUseDefinition.undesirableEffect.count())  &lt; 2"/>
+        <xpath value="count(f:ClinicalUseDefinition.f:indication|f:ClinicalUseDefinition.f:contraIndication|f:ClinicalUseDefinition.f:interaction|f:ClinicalUseDefinition.f:undesirableEffect) &lt; 2"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
+      </constraint>
       <mapping>
         <identity value="idmp"/>
         <map value="Contraindication, Therapeutic Indication, Interactions, Undesirable Effects"/>
@@ -82,8 +90,8 @@
         <map value="clinical.general"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.identifier">
-      <path value="ClinicalUseIssue.identifier"/>
+    <element id="ClinicalUseDefinition.identifier">
+      <path value="ClinicalUseDefinition.identifier"/>
       <short value="Business identifier for this issue"/>
       <definition value="Business identifier for this issue."/>
       <min value="0"/>
@@ -97,8 +105,8 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.type">
-      <path value="ClinicalUseIssue.type"/>
+    <element id="ClinicalUseDefinition.type">
+      <path value="ClinicalUseDefinition.type"/>
       <short value="indication | contraindication | interaction | undesirable-effect | warning"/>
       <definition value="indication | contraindication | interaction | undesirable-effect | warning."/>
       <min value="1"/>
@@ -109,7 +117,7 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ClinicalUseIssueType"/>
+          <valueString value="ClinicalUseDefinitionType"/>
         </extension>
         <strength value="required"/>
         <description value="Overall defining type of this clinical use issue."/>
@@ -120,12 +128,12 @@
         <map value="(the type of IDMP class, out of Contraindication, Therapeutic Indication, Interactions, Undesirable Effects)"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.category">
-      <path value="ClinicalUseIssue.category"/>
+    <element id="ClinicalUseDefinition.category">
+      <path value="ClinicalUseDefinition.category"/>
       <short value="A categorisation of the issue, primarily for dividing warnings into subject heading areas such as &quot;Pregnancy and Lactation&quot;, &quot;Overdose&quot;, &quot;Effects on Ability to Drive and Use Machines&quot;"/>
       <definition value="A categorisation of the issue, primarily for dividing warnings into subject heading areas such as &quot;Pregnancy and Lactation&quot;, &quot;Overdose&quot;, &quot;Effects on Ability to Drive and Use Machines&quot;."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -135,8 +143,8 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.subject">
-      <path value="ClinicalUseIssue.subject"/>
+    <element id="ClinicalUseDefinition.subject">
+      <path value="ClinicalUseDefinition.subject"/>
       <short value="The medication or procedure for which this is an indication"/>
       <definition value="The medication or procedure for which this is an indication."/>
       <min value="0"/>
@@ -157,8 +165,8 @@
         <map value="(the link between the IDMP class and Medicinal Product)"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.status">
-      <path value="ClinicalUseIssue.status"/>
+    <element id="ClinicalUseDefinition.status">
+      <path value="ClinicalUseDefinition.status"/>
       <short value="Whether this is a current issue or one that has been retired etc"/>
       <definition value="Whether this is a current issue or one that has been retired etc."/>
       <min value="0"/>
@@ -172,8 +180,8 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.description">
-      <path value="ClinicalUseIssue.description"/>
+    <element id="ClinicalUseDefinition.description">
+      <path value="ClinicalUseDefinition.description"/>
       <short value="General description of an effect (particularly for a general warning, rather than any of the more specific types such as indication) for when a distinct coded or textual description is not appropriate using  Indication.diseaseSymptomProcedure.text, Contraindication.diseaseSymptomProcedure.text etc. For example &quot;May affect ability to drive&quot;"/>
       <definition value="General description of an effect (particularly for a general warning, rather than any of the more specific types such as indication) for when a distinct coded or textual description is not appropriate using  Indication.diseaseSymptomProcedure.text, Contraindication.diseaseSymptomProcedure.text etc. For example &quot;May affect ability to drive&quot;."/>
       <min value="0"/>
@@ -187,11 +195,11 @@
         <map value="n/a (this is not intended for the specifics of Contraindication.Contraindications Text, Therapeutic Indication.Indication Text, Interactions.Interactions Text, Undesirable Effects.Undesirable Effect Text"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.contraindication">
+    <element id="ClinicalUseDefinition.contraindication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="420,140"/>
       </extension>
-      <path value="ClinicalUseIssue.contraindication"/>
+      <path value="ClinicalUseDefinition.contraindication"/>
       <short value="Specifics for when this is a contraindication"/>
       <definition value="Specifics for when this is a contraindication."/>
       <min value="0"/>
@@ -205,8 +213,8 @@
         <map value="Contraindication"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.contraindication.diseaseSymptomProcedure">
-      <path value="ClinicalUseIssue.contraindication.diseaseSymptomProcedure"/>
+    <element id="ClinicalUseDefinition.contraindication.diseaseSymptomProcedure">
+      <path value="ClinicalUseDefinition.contraindication.diseaseSymptomProcedure"/>
       <short value="The situation that is being documented as contraindicating against this item"/>
       <definition value="The situation that is being documented as contraindicating against this item."/>
       <min value="0"/>
@@ -221,8 +229,8 @@
         <map value="Contraindication.Contraindications as &quot;Disease / Symptom / Procedure&quot; and Contraindication.Contraindications Text"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.contraindication.diseaseStatus">
-      <path value="ClinicalUseIssue.contraindication.diseaseStatus"/>
+    <element id="ClinicalUseDefinition.contraindication.diseaseStatus">
+      <path value="ClinicalUseDefinition.contraindication.diseaseStatus"/>
       <short value="The status of the disease or symptom for the contraindication"/>
       <definition value="The status of the disease or symptom for the contraindication."/>
       <min value="0"/>
@@ -237,8 +245,8 @@
         <map value="Contraindication.Disease Status"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.contraindication.comorbidity">
-      <path value="ClinicalUseIssue.contraindication.comorbidity"/>
+    <element id="ClinicalUseDefinition.contraindication.comorbidity">
+      <path value="ClinicalUseDefinition.contraindication.comorbidity"/>
       <short value="A comorbidity (concurrent condition) or coinfection"/>
       <definition value="A comorbidity (concurrent condition) or coinfection."/>
       <min value="0"/>
@@ -253,15 +261,15 @@
         <map value="Contraindication.Comorbidity"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.contraindication.indication">
-      <path value="ClinicalUseIssue.contraindication.indication"/>
+    <element id="ClinicalUseDefinition.contraindication.indication">
+      <path value="ClinicalUseDefinition.contraindication.indication"/>
       <short value="The indication which this is a contraidication for"/>
       <definition value="The indication which this is a contraidication for."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -269,11 +277,11 @@
         <map value="(the link from Contraindication to Therapeutic Indication)"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.contraindication.otherTherapy">
+    <element id="ClinicalUseDefinition.contraindication.otherTherapy">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="820,60"/>
       </extension>
-      <path value="ClinicalUseIssue.contraindication.otherTherapy"/>
+      <path value="ClinicalUseDefinition.contraindication.otherTherapy"/>
       <short value="Information about the use of the medicinal product in relation to other therapies described as part of the contraindication"/>
       <definition value="Information about the use of the medicinal product in relation to other therapies described as part of the contraindication."/>
       <min value="0"/>
@@ -287,8 +295,8 @@
         <map value="Contraindication.Other Therapy Specifics"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.contraindication.otherTherapy.relationshipType">
-      <path value="ClinicalUseIssue.contraindication.otherTherapy.relationshipType"/>
+    <element id="ClinicalUseDefinition.contraindication.otherTherapy.relationshipType">
+      <path value="ClinicalUseDefinition.contraindication.otherTherapy.relationshipType"/>
       <short value="The type of relationship between the medicinal product indication or contraindication and another therapy"/>
       <definition value="The type of relationship between the medicinal product indication or contraindication and another therapy."/>
       <min value="1"/>
@@ -302,8 +310,8 @@
         <map value="Other Therapy Specifics.Therapy Relationship Type"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.contraindication.otherTherapy.therapy">
-      <path value="ClinicalUseIssue.contraindication.otherTherapy.therapy"/>
+    <element id="ClinicalUseDefinition.contraindication.otherTherapy.therapy">
+      <path value="ClinicalUseDefinition.contraindication.otherTherapy.therapy"/>
       <short value="Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication"/>
       <definition value="Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication."/>
       <min value="1"/>
@@ -322,11 +330,11 @@
         <map value="Other Therapy Specifics.Medication"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.indication">
+    <element id="ClinicalUseDefinition.indication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="420,0"/>
       </extension>
-      <path value="ClinicalUseIssue.indication"/>
+      <path value="ClinicalUseDefinition.indication"/>
       <short value="Specifics for when this is an indication"/>
       <definition value="Specifics for when this is an indication."/>
       <min value="0"/>
@@ -340,8 +348,8 @@
         <map value="Therapeutic Indication"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.indication.diseaseSymptomProcedure">
-      <path value="ClinicalUseIssue.indication.diseaseSymptomProcedure"/>
+    <element id="ClinicalUseDefinition.indication.diseaseSymptomProcedure">
+      <path value="ClinicalUseDefinition.indication.diseaseSymptomProcedure"/>
       <short value="The situation that is being documented as an indicaton for this item"/>
       <definition value="The situation that is being documented as an indicaton for this item."/>
       <min value="0"/>
@@ -356,8 +364,8 @@
         <map value="Therapeutic Indication.Indication as &quot;Disease / Symptom / Procedure&quot;, and Therapeutic Indication.Indication Text"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.indication.diseaseStatus">
-      <path value="ClinicalUseIssue.indication.diseaseStatus"/>
+    <element id="ClinicalUseDefinition.indication.diseaseStatus">
+      <path value="ClinicalUseDefinition.indication.diseaseStatus"/>
       <short value="The status of the disease or symptom for the indication"/>
       <definition value="The status of the disease or symptom for the indication."/>
       <min value="0"/>
@@ -372,8 +380,8 @@
         <map value="Therapeutic Indication.Disease Status"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.indication.comorbidity">
-      <path value="ClinicalUseIssue.indication.comorbidity"/>
+    <element id="ClinicalUseDefinition.indication.comorbidity">
+      <path value="ClinicalUseDefinition.indication.comorbidity"/>
       <short value="A comorbidity (concurrent condition) or coinfection as part of the indication"/>
       <definition value="A comorbidity (concurrent condition) or coinfection as part of the indication."/>
       <min value="0"/>
@@ -388,8 +396,8 @@
         <map value="Therapeutic Indication.Comorbidity"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.indication.intendedEffect">
-      <path value="ClinicalUseIssue.indication.intendedEffect"/>
+    <element id="ClinicalUseDefinition.indication.intendedEffect">
+      <path value="ClinicalUseDefinition.indication.intendedEffect"/>
       <short value="The intended effect, aim or strategy to be achieved"/>
       <definition value="The intended effect, aim or strategy to be achieved."/>
       <min value="0"/>
@@ -404,8 +412,8 @@
         <map value="Therapeutic Indication.Intended Effect"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.indication.duration">
-      <path value="ClinicalUseIssue.indication.duration"/>
+    <element id="ClinicalUseDefinition.indication.duration">
+      <path value="ClinicalUseDefinition.indication.duration"/>
       <short value="Timing or duration information"/>
       <definition value="Timing or duration information."/>
       <min value="0"/>
@@ -419,15 +427,15 @@
         <map value="Therapeutic Indication.Timing / Duration"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.indication.undesirableEffect">
-      <path value="ClinicalUseIssue.indication.undesirableEffect"/>
+    <element id="ClinicalUseDefinition.indication.undesirableEffect">
+      <path value="ClinicalUseDefinition.indication.undesirableEffect"/>
       <short value="The specific undesirable effects of the medicinal product"/>
       <definition value="The specific undesirable effects of the medicinal product."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -435,24 +443,24 @@
         <map value="Therapeutic Indication.Undesirable Effects"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.indication.otherTherapy">
-      <path value="ClinicalUseIssue.indication.otherTherapy"/>
+    <element id="ClinicalUseDefinition.indication.otherTherapy">
+      <path value="ClinicalUseDefinition.indication.otherTherapy"/>
       <short value="Information about the use of the medicinal product in relation to other therapies described as part of the indication"/>
       <definition value="Information about the use of the medicinal product in relation to other therapies described as part of the indication."/>
       <min value="0"/>
       <max value="*"/>
-      <contentReference value="#ClinicalUseIssue.contraindication.otherTherapy"/>
+      <contentReference value="#ClinicalUseDefinition.contraindication.otherTherapy"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
         <map value="Therapeutic Indication.Other Therapy Specifics"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.interaction">
+    <element id="ClinicalUseDefinition.interaction">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="420,253"/>
       </extension>
-      <path value="ClinicalUseIssue.interaction"/>
+      <path value="ClinicalUseDefinition.interaction"/>
       <short value="Specifics for when this is an interaction"/>
       <definition value="Specifics for when this is an interaction."/>
       <min value="0"/>
@@ -466,11 +474,11 @@
         <map value="Interactions"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.interaction.interactant">
+    <element id="ClinicalUseDefinition.interaction.interactant">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="720,266"/>
       </extension>
-      <path value="ClinicalUseIssue.interaction.interactant"/>
+      <path value="ClinicalUseDefinition.interaction.interactant"/>
       <short value="The specific medication, food, substance or laboratory test that interacts"/>
       <definition value="The specific medication, food, substance or laboratory test that interacts."/>
       <min value="0"/>
@@ -484,8 +492,8 @@
         <map value="Interactions.Interactant and Interactions.Interactions Text"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.interaction.interactant.item[x]">
-      <path value="ClinicalUseIssue.interaction.interactant.item[x]"/>
+    <element id="ClinicalUseDefinition.interaction.interactant.item[x]">
+      <path value="ClinicalUseDefinition.interaction.interactant.item[x]"/>
       <short value="The specific medication, food or laboratory test that interacts"/>
       <definition value="The specific medication, food or laboratory test that interacts."/>
       <min value="1"/>
@@ -506,8 +514,8 @@
         <map value="Interactions.Interactant and Interactions.Interactions Text"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.interaction.type">
-      <path value="ClinicalUseIssue.interaction.type"/>
+    <element id="ClinicalUseDefinition.interaction.type">
+      <path value="ClinicalUseDefinition.interaction.type"/>
       <short value="The type of the interaction e.g. drug-drug interaction, drug-food interaction, drug-lab test interaction"/>
       <definition value="The type of the interaction e.g. drug-drug interaction, drug-food interaction, drug-lab test interaction."/>
       <min value="0"/>
@@ -521,8 +529,8 @@
         <map value="Interactions.Interactions Type"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.interaction.effect">
-      <path value="ClinicalUseIssue.interaction.effect"/>
+    <element id="ClinicalUseDefinition.interaction.effect">
+      <path value="ClinicalUseDefinition.interaction.effect"/>
       <short value="The effect of the interaction, for example &quot;reduced gastric absorption of primary medication&quot;"/>
       <definition value="The effect of the interaction, for example &quot;reduced gastric absorption of primary medication&quot;."/>
       <min value="0"/>
@@ -537,8 +545,8 @@
         <map value="Interactions.Interactions Effect"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.interaction.incidence">
-      <path value="ClinicalUseIssue.interaction.incidence"/>
+    <element id="ClinicalUseDefinition.interaction.incidence">
+      <path value="ClinicalUseDefinition.interaction.incidence"/>
       <short value="The incidence of the interaction, e.g. theoretical, observed"/>
       <definition value="The incidence of the interaction, e.g. theoretical, observed."/>
       <min value="0"/>
@@ -552,12 +560,12 @@
         <map value="Interactions.Interactions Incidence"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.interaction.management">
-      <path value="ClinicalUseIssue.interaction.management"/>
+    <element id="ClinicalUseDefinition.interaction.management">
+      <path value="ClinicalUseDefinition.interaction.management"/>
       <short value="Actions for managing the interaction"/>
       <definition value="Actions for managing the interaction."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -567,8 +575,8 @@
         <map value="Interactions.Management Actions"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.population">
-      <path value="ClinicalUseIssue.population"/>
+    <element id="ClinicalUseDefinition.population">
+      <path value="ClinicalUseDefinition.population"/>
       <short value="The population group to which this applies"/>
       <definition value="The population group to which this applies."/>
       <min value="0"/>
@@ -582,11 +590,11 @@
         <map value="Population Specifics"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.undesirableEffect">
+    <element id="ClinicalUseDefinition.undesirableEffect">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="420,370"/>
       </extension>
-      <path value="ClinicalUseIssue.undesirableEffect"/>
+      <path value="ClinicalUseDefinition.undesirableEffect"/>
       <short value="A possible negative outcome from the use of this treatment"/>
       <definition value="Describe the undesirable effects of the medicinal product."/>
       <min value="0"/>
@@ -600,8 +608,8 @@
         <map value="Undesirable Effects"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.undesirableEffect.symptomConditionEffect">
-      <path value="ClinicalUseIssue.undesirableEffect.symptomConditionEffect"/>
+    <element id="ClinicalUseDefinition.undesirableEffect.symptomConditionEffect">
+      <path value="ClinicalUseDefinition.undesirableEffect.symptomConditionEffect"/>
       <short value="The situation in which the undesirable effect may manifest"/>
       <definition value="The situation in which the undesirable effect may manifest."/>
       <min value="0"/>
@@ -616,8 +624,8 @@
         <map value="Undesirable Effects.Undesirable Effect as &quot;Symptom / Condition / Effect&quot;"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.undesirableEffect.classification">
-      <path value="ClinicalUseIssue.undesirableEffect.classification"/>
+    <element id="ClinicalUseDefinition.undesirableEffect.classification">
+      <path value="ClinicalUseDefinition.undesirableEffect.classification"/>
       <short value="High level classification of the effect"/>
       <definition value="High level classification of the effect."/>
       <min value="0"/>
@@ -631,8 +639,8 @@
         <map value="Undesirable Effects.Symptom / Condition / Effect Classification"/>
       </mapping>
     </element>
-    <element id="ClinicalUseIssue.undesirableEffect.frequencyOfOccurrence">
-      <path value="ClinicalUseIssue.undesirableEffect.frequencyOfOccurrence"/>
+    <element id="ClinicalUseDefinition.undesirableEffect.frequencyOfOccurrence">
+      <path value="ClinicalUseDefinition.undesirableEffect.frequencyOfOccurrence"/>
       <short value="How often the effect is seen"/>
       <definition value="How often the effect is seen."/>
       <min value="0"/>

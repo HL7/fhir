@@ -446,6 +446,7 @@ signatures.html
       <page type="resource" resource="AdministrableProductDefinition"/>
       <page type="resource" resource="RegulatedAuthorization"/>
       <page type="resource" resource="ClinicalUseIssue"/>
+      <page type="resource" resource="ClinicalUseDefinition"/>
       <page type="resource" resource="Ingredient"/>
       <page type="resource" resource="SubstanceDefinition"/>
       <page type="resource" resource="SubstancePolymer"/>
