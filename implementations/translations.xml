@@ -190,6 +190,9 @@
 	<item id="ClinicalUseIssue">
 		<translation lang="en">ClinicalUseIssue</translation>
 	</item>
+	<item id="ClinicalUseDefinition">
+		<translation lang="en">ClinicalUseDefinition</translation>
+	</item>
 	<item id="CodeSystem">
 		<translation lang="en">CodeSystem</translation>
 		<translation lang="es">SistemaDeCodigos</translation>
@@ -228,6 +231,13 @@
 		<translation lang="zh">概念映射</translation>
 		<translation lang="fr">CarteDeConcepts</translation>
 		<translation lang="it">MappaDiConcetti</translation>
+	</item>
+	<item id="ConceptMap2">
+		<translation lang="en">ConceptMap2</translation>
+		<translation lang="es">MapaDeConceptos2</translation>
+		<translation lang="zh">概念映射2</translation>
+		<translation lang="fr">CarteDeConcepts2</translation>
+		<translation lang="it">MappaDiConcetti2</translation>
 	</item>
 	<item id="Condition">
 		<translation lang="en">Condition</translation>
