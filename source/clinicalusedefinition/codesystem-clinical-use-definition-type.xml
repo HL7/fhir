@@ -124,9 +124,9 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1455"/>
   </identifier>
-  <version value="4.1.0"/>
-  <name value="ClinicalUseIssueType"/>
-  <title value="ClinicalUseIssueType"/>
+  <version value="4.6.0"/>
+  <name value="ClinicalUseDefinitionType"/>
+  <title value="ClinicalUseDefinitionType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
