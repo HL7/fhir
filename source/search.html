@@ -273,7 +273,7 @@ In the same manner:
 </p>
 <pre>
  GET [base]/DiagnosticReport?_profile=http://hl7.org/fhir/StructureDefinition/lipid
- GET [base]/DiagnosticReport?_profile=Profile/lipid
+ GET [base]/DiagnosticReport?_profile=StructureDefinition/lipid
 </pre>
 <p>
 restricts the search to only DiagnosticReport resources that are tagged as conforming to a particular profile.
@@ -281,7 +281,7 @@ The second reference is relative and refers a local profile on the same server.
 </p>
 <p>
 <a href="resource.html#simple-tags">_tag</a>, and <a href="resource.html#security-labels">_security</a> parameters are token types (see <a href="#token">below</a>),
-and <a href="resource.html#profile-tags">_profile</a> is a <a href="#reference">reference</a> search parameter.
+and <a href="resource.html#profile-tags">_profile</a> is a <a href="#uri">uri</a> search parameter.
 </p>
 
 
@@ -1688,6 +1688,9 @@ set to "include" (in some searches, it is not obvious which resources are
 matches, and which are includes). If there is no reference, or no matching resource, the resource
 cannot be retrieved (e.g. on a different server), then the resource is omitted, and no
 error is returned.
+</p>
+<p>
+Servers SHOULD resolve _include requests for version-specific references by resolving the version named in the reference.
 </p>
 <p>
 The inclusion process can be iterative, if (and only if) the modifier <code>:iterate</code> is included.
