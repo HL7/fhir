@@ -4,7 +4,7 @@
 		<h2>Scope and Usage</h2>
 		<p><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></p>
 		<p>
-			ClinicalUseIssue is to record an instance of facts about a particular medication, device or procedure in relation to its intended use (indication), 
+			ClinicalUseDefinition is to record an instance of facts about a particular medication, device or procedure in relation to its intended use (indication), 
 			situations where it should not normally be used (contrainindication), known side effects (undesirable effects), and clashes with other
 			substances - medications, foods etc (interactions). The resource is used to record one such instance, and all its details.
 		</p>
@@ -13,7 +13,7 @@
 		<a name="bnr"> </a>
 		<h2>Boundaries and Relationships</h2>
 		<p>
-			The ClinicalUseIssue resource is designed to represent definitional facts about the potential use of a medication, device or procedure.
+			The ClinicalUseDefinition resource is designed to represent definitional facts about the potential use of a medication, device or procedure.
 		</p>
 		<p>
 			These may be used when submitting a product dossier to regulators, as part of an electronic medication or medical device knowledge base, or directly during
