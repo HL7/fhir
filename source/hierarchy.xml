@@ -420,11 +420,6 @@ signatures.html
 	  <page type="resource" resource="EvidenceReport"/>
 	  <page type="resource" resource="Citation"/>
       <page type="resource" resource="Evidence"/>
-      <page title="Statistic" filename="statistic.html">
-        <page title="Examples" filename="statistic-examples.html"/>
-        <page title="Detailed Descriptions" filename="statistic-definitions.html"/>
-        <page title="Statistic Mappings" filename="statistic-mappings.html"/>
-      </page>
       <page type="resource" resource="EvidenceVariable"/>
       <page type="resource" resource="Library"/>
       <page type="resource" resource="GuidanceResponse"/>
