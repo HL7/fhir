@@ -1,5 +1,5 @@
 [diagram]
-classes=Timing,SampledData,OrderedDistribution,Statistic
+classes=Timing,SampledData,Statistic
 element-attributes=true
 
 [directions]
@@ -11,5 +11,3 @@ Statistic.sampleSize=200;0
 Statistic.precisionEstimate=400;0
 Statistic.certainty=255;160
 Statistic.certainty.certaintySubcomponent=250;280
-OrderedDistribution=-230;-170
-OrderedDistribution.interval=-230;0

@@ -32,7 +32,7 @@ signatures.html
         <page title="ANSI FHIR Terminology &amp; Conformance Standard" filename="ansi-conformance.html"/>
         <page title="ANSI FHIR Patient Standard" filename="ansi-patient.html"/>
         <page title="ANSI FHIR Observation Standard" filename="ansi-observation.html"/>
-      
+
       </page>
       <page title="CI Build Search" filename="search-build.html"/>
       <page title="Ballot Introduction" filename="ballot-intro.html"/>
@@ -334,7 +334,7 @@ signatures.html
       <page type="resource" resource="BiologicallyDerivedProduct"/>
     </page>
 
-    
+
     <page title="Medications" filename="medications-module.html" icon="medication.png">
       <page type="resource" resource="MedicationRequest"/>
       <page type="resource" resource="MedicationAdministration"/>
@@ -352,7 +352,7 @@ signatures.html
       </page>
     </page>
 
-    
+
     <page title="Workflow" filename="workflow-module.html" icon="workflow.png">
       <page type="resource" resource="Task"/>
 <!--      <page type="resource" resource="Definition"/>
@@ -402,7 +402,7 @@ signatures.html
       <page type="resource" resource="ExplanationOfBenefit"/>
       <page type="resource" resource="Contract"/>
     </page>
-    
+
 
 
     <page title="Clinical Reasoning" filename="clinicalreasoning-module.html" icon="reasoning.png">
@@ -424,11 +424,6 @@ signatures.html
         <page title="Examples" filename="statistic-examples.html"/>
         <page title="Detailed Descriptions" filename="statistic-definitions.html"/>
         <page title="Statistic Mappings" filename="statistic-mappings.html"/>
-      </page>
-      <page title="OrderedDistribution" filename="ordereddistribution.html">
-        <page title="Examples" filename="ordereddistribution-examples.html"/>
-        <page title="Detailed Descriptions" filename="ordereddistribution-definitions.html"/>
-        <page title="OrderedDistribution Mappings" filename="ordereddistribution-mappings.html"/>
       </page>
       <page type="resource" resource="EvidenceVariable"/>
       <page type="resource" resource="Library"/>
@@ -475,7 +470,7 @@ signatures.html
         <page title="Mappings" filename="productshelflife-mappings.html"/>
       </page>
     </page>
-    
+
   </page>
-    
+
 </fhir>
