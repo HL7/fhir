@@ -271,8 +271,8 @@
         <map value="Medicinal Product.Special Measures"/>
       </mapping>
     </element>
-    <element id="MedicinalProductDefinition.paediatricUseIndicator">
-      <path value="MedicinalProductDefinition.paediatricUseIndicator"/>
+    <element id="MedicinalProductDefinition.pediatricUseIndicator">
+      <path value="MedicinalProductDefinition.pediatricUseIndicator"/>
       <short value="If authorised for use in children"/>
       <definition value="If authorised for use in children."/>
       <min value="0"/>
@@ -283,7 +283,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Medicinal Product.Paediatric Use Indicator"/>
+        <map value="Medicinal Product.Pediatric Use Indicator"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.classification">
