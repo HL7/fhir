@@ -1289,9 +1289,6 @@
         <code value="Quantity"/>
       </type>
       <type>
-        <code value="Range"/>
-      </type>
-      <type>
         <code value="Ratio"/>
       </type>
       <type>
