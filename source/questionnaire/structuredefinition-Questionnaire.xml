@@ -902,7 +902,7 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 		</element>
 		<element id="Questionnaire.item.enableWhen.question">
 			<path value="Questionnaire.item.enableWhen.question"/>
-			<short value="Question that determines whether item is enabled"/>
+			<short value="The linkId of question that determines whether item is enabled/disabled"/>
 			<definition value="The linkId for the question whose answer (or lack of answer) governs whether this item is enabled."/>
 			<comment value="If multiple question occurrences are present for the same question (same linkId), then this refers to the nearest question occurrence reachable by tracing first the &quot;ancestor&quot; axis and then the &quot;preceding&quot; axis and then the &quot;following&quot; axis.  If there are multiple items with the same linkId and all are equadistant (e.g. a question references a question that appears in a separate repeating group), that is an error.  (Consider using the enableWhenExpression extension to define logic to handle such a situation.)"/>
 			<min value="1"/>
