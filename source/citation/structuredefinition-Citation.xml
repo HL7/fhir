@@ -825,7 +825,7 @@
       <short value="The kind of title"/>
       <definition value="Used to express the reason or specific aspect for the title."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
