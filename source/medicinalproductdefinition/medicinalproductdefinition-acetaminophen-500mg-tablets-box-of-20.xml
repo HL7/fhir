@@ -4,6 +4,9 @@
 	<contained>
 		<PackagedProductDefinition>
 			<id value="Acetamin-pack-20"/>
+			<subject>
+				<reference value="#"/>
+			</subject>
 			<package>
 				<type>
 					<coding>
@@ -77,9 +80,4 @@
 	<name>
 		<productName value="Acetaminophen 500 mg tablets [generic]"/>
 	</name>
-	<package>
-		<package>
-			<reference value="#Acetamin-pack-20"/>
-		</package>
-	</package>
 </MedicinalProductDefinition>

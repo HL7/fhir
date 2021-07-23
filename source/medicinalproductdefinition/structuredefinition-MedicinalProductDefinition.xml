@@ -273,8 +273,8 @@
         <map value="Medicinal Product.Special Measures"/>
       </mapping>
     </element>
-    <element id="MedicinalProductDefinition.paediatricUseIndicator">
-      <path value="MedicinalProductDefinition.paediatricUseIndicator"/>
+    <element id="MedicinalProductDefinition.pediatricUseIndicator">
+      <path value="MedicinalProductDefinition.pediatricUseIndicator"/>
       <short value="If authorised for use in children"/>
       <definition value="If authorised for use in children."/>
       <min value="0"/>
@@ -285,7 +285,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Medicinal Product.Paediatric Use Indicator"/>
+        <map value="Medicinal Product.Pediatric Use Indicator"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.classification">
@@ -333,7 +333,6 @@
         <map value="Marketing Status"/>
       </mapping>
     </element>
-    
     <element id="MedicinalProductDefinition.ingredient">
       <path value="MedicinalProductDefinition.ingredient"/>
       <short value="The ingredients of this medicinal product - when not detailed in other resources. This is only needed if the ingredients are not specified by the AdministrableProductDefinition or via the PackagedProductDefinition references above. In cases where those levels of detail are not used, the ingredients may be specified directly here"/>
@@ -783,7 +782,7 @@
       </extension>
       <path value="MedicinalProductDefinition.package"/>
       <short value="Package representation for the product"/>
-      <definition value="Package representation for the product."/>
+      <definition value="Package representation for the product. See also PackagedProductDefinition resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -806,8 +805,8 @@
         <map value="TODO"/>
       </mapping>
     </element>
-    <element id="MedicinalProductDefinition.package.size[x]">
-      <path value="MedicinalProductDefinition.package.size[x]"/>
+    <element id="MedicinalProductDefinition.package.size">
+      <path value="MedicinalProductDefinition.package.size"/>
       <short value="The amount of items, or of substance, in the package"/>
       <definition value="The amount of items, or of substance, in the package."/>
       <min value="0"/>
@@ -815,29 +814,10 @@
       <type>
         <code value="Quantity"/>
       </type>
-      <type>
-        <code value="integer"/>
-      </type>
       <isSummary value="false"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="TODO"/>
-      </mapping>
-    </element>
-    <element id="MedicinalProductDefinition.package.package">
-      <path value="MedicinalProductDefinition.package.package"/>
-      <short value="Full package representation for the product"/>
-      <definition value="Full package representation for the product."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
-      </type>
-      <isSummary value="false"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Packaged Medicinal Product"/>
+        <map value="n/a"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.administrableProduct">
