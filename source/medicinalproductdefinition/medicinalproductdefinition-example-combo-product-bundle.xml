@@ -183,11 +183,6 @@
 				<name>
 					<productName value="ThrushTreat Combo"/>
 				</name>
-				<package>
-					<package>
-						<reference value="PackagedProductDefinition/packageCombo"/>
-					</package>
-				</package>
 			</MedicinalProductDefinition>
 		</resource>
 	</entry>
@@ -203,6 +198,9 @@
 						(left blank to stop example creating something automatically)
 					</div>
 				</text>
+				<subject>
+					<reference value="MedicinalProductDefinition/drug-combo-product-bundle-mp"/>
+				</subject>
 				<package>
 					<type>
 						<coding>
