@@ -336,7 +336,7 @@
     <element id="MedicinalProductDefinition.packagedMedicinalProduct">
       <path value="MedicinalProductDefinition.packagedMedicinalProduct"/>
       <short value="Package representation for the product"/>
-      <definition value="Package representation for the product. See also the PackagedProductDefinition resource"/>
+      <definition value="Package representation for the product. See also the PackagedProductDefinition resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
