@@ -251,31 +251,14 @@
         <code value="Ratio"/>
       </type>
       <type>
+        <code value="RatioRange"/>
+      </type>
+      <type>
         <code value="CodeableConcept"/>
       </type>
       <type>
         <code value="Quantity"/>
       </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Strength.Strength (Presentation)"/>
-      </mapping>
-    </element>
-    <element id="Ingredient.substance.strength.presentationHighLimit[x]">
-      <path value="Ingredient.substance.strength.presentationHighLimit[x]"/>
-      <short value="An upper limit for the quantity of substance in the unit of presentation. When there is a range of strengths, this represents the upper limit"/>
-      <definition value="An upper limit for the quantity of substance in the unit of presentation. When there is a range of strengths, this represents the upper limit."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Ratio"/>
-      </type>
-      <type>
-        <code value="Quantity"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="If this is present it implies that the whole strength is expressed as a range, due to uncertainty or variation"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -307,31 +290,14 @@
         <code value="Ratio"/>
       </type>
       <type>
+        <code value="RatioRange"/>
+      </type>
+      <type>
         <code value="CodeableConcept"/>
       </type>
       <type>
         <code value="Quantity"/>
       </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Strength.Strength (Concentration)"/>
-      </mapping>
-    </element>
-    <element id="Ingredient.substance.strength.concentrationHighLimit[x]">
-      <path value="Ingredient.substance.strength.concentrationHighLimit[x]"/>
-      <short value="An upper limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the lower limit"/>
-      <definition value="An upper limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the lower limit."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Ratio"/>
-      </type>
-      <type>
-        <code value="Quantity"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="If this is present it implies that the whole strength is expressed as a range, due to uncertainty or variation"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -436,30 +402,15 @@
     </element>
     <element id="Ingredient.substance.strength.referenceStrength.strength[x]">
       <path value="Ingredient.substance.strength.referenceStrength.strength[x]"/>
-      <short value="Strength expressed in terms of a reference substance. When there is a range of strengths, this represents the lower limit"/>
-      <definition value="Strength expressed in terms of a reference substance. When there is a range of strengths, this represents the lower limit."/>
+      <short value="Strength expressed in terms of a reference substance"/>
+      <definition value="Strength expressed in terms of a reference substance."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Ratio"/>
       </type>
       <type>
-        <code value="Quantity"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Reference Strength.Reference Strength"/>
-      </mapping>
-    </element>
-    <element id="Ingredient.substance.strength.referenceStrength.strengthHighLimit[x]">
-      <path value="Ingredient.substance.strength.referenceStrength.strengthHighLimit[x]"/>
-      <short value="Strength expressed in terms of a reference substance. When there is a range of strengths, this represents the upper limit"/>
-      <definition value="Strength expressed in terms of a reference substance. When there is a range of strengths, this represents the upper limit."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Ratio"/>
+        <code value="RatioRange"/>
       </type>
       <type>
         <code value="Quantity"/>
