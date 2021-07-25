@@ -167,6 +167,9 @@
 	<contained>
 		<PackagedProductDefinition>
 			<id value="packageCombo"/>
+			<subject>
+				<reference value="#"/>
+			</subject>
 			<package>
 				<type>
 					<coding>
@@ -255,9 +258,4 @@
 	<name>
 		<productName value="ThrushTreat Combo"/>
 	</name>
-	<package>
-		<package>
-			<reference value="#packageCombo"/>
-		</package>
-	</package>
 </MedicinalProductDefinition>
