@@ -547,8 +547,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="SubscriptionTopic.resourceTrigger.resourceType">
-      <path value="SubscriptionTopic.resourceTrigger.resourceType"/>
+    <element id="SubscriptionTopic.resourceTrigger.resource">
+      <path value="SubscriptionTopic.resourceTrigger.resource"/>
       <short value="Data Type or Resource (reference to definition) for this trigger definition"/>
       <definition value="URL of the Resource that is the type used in this resource trigger.  Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &quot;Patient&quot; maps to http://hl7.org/fhir/StructureDefinition/Patient.  For more information, see &lt;a href=&quot;elementdefinition-definitions.html#ElementDefinition.type.code&quot;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
       <min value="1"/>
@@ -727,6 +727,25 @@
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0003"/>
       </binding>
     </element>
+    <element id="SubscriptionTopic.eventTrigger.resource">
+      <path value="SubscriptionTopic.eventTrigger.resource"/>
+      <short value="Data Type or Resource (reference to definition) for this trigger definition"/>
+      <definition value="URL of the Resource that is the focus type used in this event trigger.  Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &quot;Patient&quot; maps to http://hl7.org/fhir/StructureDefinition/Patient.  For more information, see &lt;a href=&quot;elementdefinition-definitions.html#ElementDefinition.type.code&quot;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FHIRDefinedTypeExt"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Either a resource or a data type, including logical model types."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
+      </binding>
+    </element>
     <element id="SubscriptionTopic.canFilterBy">
       <path value="SubscriptionTopic.canFilterBy"/>
       <short value="Properties by which a Subscription can filter notifications from the SubscriptionTopic"/>
@@ -749,8 +768,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="SubscriptionTopic.canFilterBy.resourceType">
-      <path value="SubscriptionTopic.canFilterBy.resourceType"/>
+    <element id="SubscriptionTopic.canFilterBy.resource">
+      <path value="SubscriptionTopic.canFilterBy.resource"/>
       <short value="Allowed Data type or Resource (reference to definition) for this definition"/>
       <definition value="URL of the Resource that is the type used in this filter.  Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &quot;Patient&quot; maps to http://hl7.org/fhir/StructureDefinition/Patient.  For more information, see &lt;a href=&quot;elementdefinition-definitions.html#ElementDefinition.type.code&quot;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
       <min value="0"/>
@@ -811,8 +830,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="SubscriptionTopic.notificationShape.resourceType">
-      <path value="SubscriptionTopic.notificationShape.resourceType"/>
+    <element id="SubscriptionTopic.notificationShape.resource">
+      <path value="SubscriptionTopic.notificationShape.resource"/>
       <short value="Allowed Data type or Resource (reference to definition) for this definition"/>
       <definition value="URL of the Resource that is the type used in this filter.  Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &quot;Patient&quot; maps to http://hl7.org/fhir/StructureDefinition/Patient.  For more information, see &lt;a href=&quot;elementdefinition-definitions.html#ElementDefinition.type.code&quot;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
       <min value="1"/>
@@ -830,43 +849,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
       </binding>
     </element>
-    <element id="SubscriptionTopic.notificationShape.willInclude">
-      <path value="SubscriptionTopic.notificationShape.willInclude"/>
-      <short value="Required include directives, rooted in the resource for this shape"/>
-      <definition value="Required search-style _include directives, rooted in the resource for this shape."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="SubscriptionTopic.notificationShape.canInclude">
-      <path value="SubscriptionTopic.notificationShape.canInclude"/>
-      <short value="Optional include directives, rooted in the resource for this shape"/>
-      <definition value="Optional search-style _include directives, rooted in the resource for this shape."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="SubscriptionTopic.notificationShape.willRevInclude">
-      <path value="SubscriptionTopic.notificationShape.willRevInclude"/>
-      <short value="Required reverse include directives, rooted in the resource for this shape"/>
-      <definition value="Required search-style _revInclude directives, rooted in the resource for this shape."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="SubscriptionTopic.notificationShape.canRevInclude">
-      <path value="SubscriptionTopic.notificationShape.canRevInclude"/>
-      <short value="Optional reverse include directives, rooted in the resource for this shape"/>
-      <definition value="Optional search-style _revInclude directives, rooted in the resource for this shape."/>
+    <element id="SubscriptionTopic.notificationShape.include">
+      <path value="SubscriptionTopic.notificationShape.include"/>
+      <short value="Include directives, rooted in the resource for this shape"/>
+      <definition value="Search-style _include directives, rooted in the resource for this shape. Servers SHOULD include resources listed here (if they exist and the user is authorized to receive them).  Clients shoudl be prepared to receive these additional resources, but SHALL function properly without them."/>
       <min value="0"/>
       <max value="*"/>
       <type>

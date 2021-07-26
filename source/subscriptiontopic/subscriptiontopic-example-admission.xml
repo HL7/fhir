@@ -7,7 +7,7 @@
   <description value="Example admission topic"/>
 	<resourceTrigger>
 		<description value="Encounter resource moving to state 'in-progress'"/>
-		<resourceType value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+		<resource value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
     <supportedInteraction value="create"/>
     <supportedInteraction value="update"/>
 		<queryCriteria>
@@ -28,22 +28,23 @@
         <display value="ADT/ACK - Admit/visit notification"/>
       </coding>
     </event>
+		<resource value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
   </eventTrigger>
   <canFilterBy>
     <description value="Matching based on the Patient (subject) of an Encounter or based on the Patient's group membership (in/not-in)."/>
-    <resourceType value="Encounter"/>
+    <resource value="Encounter"/>
     <parameterName value="patient"/>
     <modifier value="=" />
     <modifier value="in" />
     <modifier value="not-in" />
   </canFilterBy>
   <notificationShape>
-    <resourceType value="Encounter"/>
-    <willInclude value="Encounter:patient"/>
-    <willInclude value="Encounter:practitioner"/>
-    <willInclude value="Encounter:service-provider"/>
-    <canInclude value="Encounter:account"/>
-    <canInclude value="Encounter:diagnosis"/>
-    <canInclude value="Encounter:location"/>
+    <resource value="Encounter"/>
+    <include value="Encounter:patient"/>
+    <include value="Encounter:practitioner"/>
+    <include value="Encounter:service-provider"/>
+    <include value="Encounter:account"/>
+    <include value="Encounter:diagnosis"/>
+    <include value="Encounter:location"/>
   </notificationShape>
 </SubscriptionTopic>
