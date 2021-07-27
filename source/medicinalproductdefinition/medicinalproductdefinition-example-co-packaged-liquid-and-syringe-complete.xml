@@ -181,6 +181,9 @@
 	<contained>
 		<PackagedProductDefinition>
 			<id value="package"/>
+			<subject>
+				<reference value="#"/>
+			</subject>
 			<package>
 				<package>
 					<type>
@@ -348,6 +351,9 @@
 	<contained>
 		<AdministrableProductDefinition>
 			<id value="administrable-form"/>
+			<formOf>
+				<reference value="#"/>
+			</formOf>
 			<administrableDoseForm>
 				<coding>
 					<code value="solution for injection"/>
@@ -382,14 +388,4 @@
 	<name>
 		<productName value="Wonderdrug liquid 20ml (integral syringe)"/>
 	</name>
-	<package>
-		<package>
-			<reference value="#package"/>
-		</package>
-	</package>
-	<administrableProduct>
-		<product>
-			<reference value="#administrable-form"/>
-		</product>
-	</administrableProduct>
 </MedicinalProductDefinition>
