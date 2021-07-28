@@ -193,11 +193,13 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+        <code value="CodeableConcept" />
       </type>
       <isSummary value="true"/>
       <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Substance codes."/>
+        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubstanceCode"/>
         </extension>
