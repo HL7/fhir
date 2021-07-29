@@ -473,7 +473,7 @@
 			<definition value="The answer (or one of the answers) provided by the respondent to the question."/>
 			<comment value="More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire."/>
 			<requirements value="Ability to retain a single-valued answer to a question."/>
-			<min value="0"/>
+			<min value="1"/>
 			<max value="1"/>
 			<type>
 				<code value="boolean"/>
