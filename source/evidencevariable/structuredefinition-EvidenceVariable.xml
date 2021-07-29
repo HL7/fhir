@@ -432,7 +432,7 @@
     </element>
     <element id="EvidenceVariable.characteristicCombination">
       <path value="EvidenceVariable.characteristicCombination"/>
-      <short value="Used to specify how two or more characteristics are combined."/>
+      <short value="Used to specify how two or more characteristics are combined"/>
       <definition value="Used to specify how two or more characteristics are combined."/>
       <min value="0"/>
       <max value="1"/>
