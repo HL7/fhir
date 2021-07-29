@@ -34,8 +34,14 @@
 		Subscription Topics based on Resource Operation Pairs are the simplest to describe - definitions include the resource type (e.g., <code>Patient</code>, <code>Encounter</code>) and the operation of interest (e.g., <code>create</code>, <code>delete</code>).
 	</p>
 	<p>
-		Subscription Topics for resource-operation pairs are defined using the <code>SubscriptionTopic.resourceTrigger.resourceType</code> and <code>SubscriptionTopic.resourceTrigger.methodCriteria</code> fields.
+		Subscription Topics for resource-operation pairs are defined using the <code>SubscriptionTopic.resourceTrigger.resource</code> and <code>SubscriptionTopic.resourceTrigger.methodCriteria</code> fields.
 	</p>
+
+  <a name="resource-generic" />
+  <h4>Generic Resource</h4>
+  <p>
+    Some Subscription Topics are designed to apply to all resources.  For example, a topic may be designed to cover any resource being deleted, any resource being tagged with a specific tag, etc.  In these cases, implementers should use the <code>Resource</code> value from the <code>FHIRDefinedType</code> code system, which is defined as the parent for any resource.
+  </p>
 
 		<a name="resource-operation-create" />
 		<h4>Resource: Create</h4>
@@ -91,7 +97,7 @@
 		<a name="query-criteria" />
 		<h4>Query (Search) Definitions</h4>
 		<p>
-			Query definitions are based on Search evaluations performed before and/or after a state change in the server.  Allowed query parameters are based on the <code>SubscriptionTopic.resourceTrigger.resourceType</code> (e.g., if the resource is an <a href="encounter.html">Encounter</a>, the list of available search parameters can be found <a href="encounter.html#search">here</a>).
+			Query definitions are based on Search evaluations performed before and/or after a state change in the server.  Allowed query parameters are based on the <code>SubscriptionTopic.resourceTrigger.resource</code> (e.g., if the resource is an <a href="encounter.html">Encounter</a>, the list of available search parameters can be found <a href="encounter.html#search">here</a>).
 		</p>
 
 		<a name="fhirpath-criteria" />
@@ -111,6 +117,27 @@
 			</li>
 		</ul>
 
+  <a name="reference-event-definition" />
+  <h3>Referencing an Existing Event</h3>
+  <p>
+    Subscription Topics based on Event Definitions allow for the reuse of existing bodies of work and enable Subscriptions on concepts that may be difficult or impossible to describe based on the FHIR Resource model.
+  </p>
+  <p>
+    Subscription Topics for external event definitions are specified using the <code>SubscriptionTopic.eventTrigger</code> fields.
+  </p>  
+
+		<a name="event-link-to-resource-single" />
+		<h4>Defining a Focus Resource Type (from many)</h4>
+		<p>
+			Some events may definitionally include more than one resource.  As an example, the HL7 v2 to FHIR mapping implementation guide (not yet published) currently includes the mapping for an ADT A01 message, which covers a patient admission event.  In that mapping, the v2 message is converted into a FHIR Bundle, which may include instances of: Patient, Observation, RelatedPerson, Account, Encounter, AllergyIntolerance, and more.  While the subscriptions framework can be used to include all the relevant resources, FHIR RESTful interactions are generally centered around a single resource.  In order to establish better equivalency between the models, event definitions must also define a single focus resource type.  Continuing with the example, a patient visit is generally rooted in the Encounter resource, so that would be a sensible root for such an event.
+		</p>
+    
+		<a name="event-link-to-resource-none" />
+		<h4>Defining a Focus Resource Type (from none)</h4>
+		<p>
+			Some events may not have a logical resource mapping in the current FHIR version.  As an example, a system may want to define subscriptions around hosptial staff sign-ins (e.g., a practitioner has become 'available').  In this case, it is recommended that Subscription Topics use the <a href="parameters.html">Parameters</a> resource as the focus, with <code>parameter</code> name-value pairs to convey the required information.  Implementers creating topics that use Parameters this way should document what information is available, if possible both in the <code>eventTrigger.description</code> element and a more formal Profile.
+		</p>
+
 	<a name="filters"/>
 	<h3>Defining Filters for Subscriptions</h3>
 	<p>
@@ -120,7 +147,7 @@
 		<a name="filters-param-name"/>
 		<h4>Search Parameter Name</h4>
 		<p>
-			The element <code>SubscriptionTopic.canFilterBy.searchParamName</code> contains the name of the search parameter used to filter events for the focus resource (defined by <code>SubscriptionTopic.resourceTrigger.resourceType</code>). The search parameter must be either from the list of <a href="search.html#Summary">Parameters for all resources</a> (e.g., <code>_id</code>, <code>_tag</code>) or the parameters defined by the specific resource (e.g., <a href="encounter.html#search">Encounter Search Parameters</a>, <a href="patient.html#search">Patient search parameters</a>, etc.).
+			The element <code>SubscriptionTopic.canFilterBy.searchParamName</code> contains the name of the search parameter used to filter events for the focus resource (defined by <code>SubscriptionTopic.resourceTrigger.resource</code>). The search parameter must be either from the list of <a href="search.html#Summary">Parameters for all resources</a> (e.g., <code>_id</code>, <code>_tag</code>) or the parameters defined by the specific resource (e.g., <a href="encounter.html#search">Encounter Search Parameters</a>, <a href="patient.html#search">Patient search parameters</a>, etc.).
 		</p>
 		<p>
 			If a search parameter name is not provided, it is defaulted to <code>_id</code>.
@@ -158,6 +185,19 @@
 			<p>
 				Filters for <code>update</code> operations can be applied to either the pre-update or post-update state. Servers SHOULD document their method of operation.
 			</p>
+
+  <a name="notification-shape"/>
+  <h3>Including Additional Resources</h3>
+  <p>
+    Sometimes it is benficial to include additional resources with a subscription notification.  For example, queries for additional resources may be complex in the future, but simple at the time of notification due to context in the event.  Alternatively, the subscriber may have limited ability to request additional resource (e.g., a client that is generally offline).
+  </p>
+  <p>
+    In order to facilitate these workflows, a Subscription can define additional resources that MAY be included when a notification is sent.  These additions are based off of the focus resource of the notification, and are described as a list of <a href="search.html#include">include</a> directives.  When notifications are generated, a server SHOULD check the appropriate <code>SubscriptionTopic.notificationShape.resource</code> for a matching resource and SHOULD include any additional resources listed via <code>SubscriptionTopic.notificationShape.include</code>, if they exist and the user context for the subscription is authorized to access them.
+  </p>
+  <p>
+    Included resources should be added in the same style as the focus resource - e.g., if notifications are <code>id-only</code>, then included resources should only include their ids as well.
+  </p>
+    
 
 	<a name="deriving" />
 	<h2>Deriving from existing Subscription Topics</h2>

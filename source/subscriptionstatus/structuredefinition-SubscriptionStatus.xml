@@ -192,5 +192,17 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/subscription-error"/>
       </binding>
     </element>
+    <element id="SubscriptionStatus.focus">
+      <path value="SubscriptionStatus.focus"/>
+      <short value="References to the focus resources of this notification."/>
+      <definition value="A list of References to the focus resources of this notification. This is used to differentiate the primary resource from additional included resources."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
   </differential>
 </StructureDefinition>

@@ -787,10 +787,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
       </binding>
     </element>
-    <element id="SubscriptionTopic.canFilterBy.parameterName">
-      <path value="SubscriptionTopic.canFilterBy.parameterName"/>
-      <short value="Resource Search Parameter or parameter defined in this topic that serves as filter key"/>
-      <definition value="Either a search parameter (like &quot;patient&quot;) or topic-defined parameter (like &quot;hub.event&quot;) which is a label for the filter."/>
+    <element id="SubscriptionTopic.canFilterBy.filterParameter">
+      <path value="SubscriptionTopic.canFilterBy.filterParameter"/>
+      <short value="Resource Search Parameter or filter parameter defined in this topic that serves as filter key"/>
+      <definition value="Either the canonical URL to a search parameter (like &quot;http://hl7.org/fhir/SearchParameter/encounter-patient&quot;) or topic-defined parameter (like &quot;hub.event&quot;) which is a label for the filter."/>
       <comment value="Chained parameters are allowed (like &quot;patient.gender&quot;) - but can not use colons or modifiers."/>
       <min value="0"/>
       <max value="1"/>
@@ -852,7 +852,7 @@
     <element id="SubscriptionTopic.notificationShape.include">
       <path value="SubscriptionTopic.notificationShape.include"/>
       <short value="Include directives, rooted in the resource for this shape"/>
-      <definition value="Search-style _include directives, rooted in the resource for this shape. Servers SHOULD include resources listed here (if they exist and the user is authorized to receive them).  Clients shoudl be prepared to receive these additional resources, but SHALL function properly without them."/>
+      <definition value="Search-style _include directives, rooted in the resource for this shape. Servers SHOULD include resources listed here, if they exist and the user is authorized to receive them.  Clients SHOULD be prepared to receive these additional resources, but SHALL function properly without them."/>
       <min value="0"/>
       <max value="*"/>
       <type>

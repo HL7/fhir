@@ -33,7 +33,7 @@
   <canFilterBy>
     <description value="Matching based on the Patient (subject) of an Encounter or based on the Patient's group membership (in/not-in)."/>
     <resource value="Encounter"/>
-    <parameterName value="patient"/>
+    <filterParameter value="patient"/>
     <modifier value="=" />
     <modifier value="in" />
     <modifier value="not-in" />
@@ -45,6 +45,7 @@
     <include value="Encounter:service-provider"/>
     <include value="Encounter:account"/>
     <include value="Encounter:diagnosis"/>
+    <include value="Encounter:observation"/>
     <include value="Encounter:location"/>
   </notificationShape>
 </SubscriptionTopic>
