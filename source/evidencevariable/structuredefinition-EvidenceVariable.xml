@@ -432,8 +432,8 @@
     </element>
     <element id="EvidenceVariable.characteristicCombination">
       <path value="EvidenceVariable.characteristicCombination"/>
-      <short value="Used to specify if two or more characteristics are combined with OR or AND"/>
-      <definition value="Used to specify two or more characteristics."/>
+      <short value="Used to specify how two or more characteristics are combined"/>
+      <definition value="Used to specify how two or more characteristics are combined."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -491,6 +491,23 @@
         <code value="string"/>
       </type>
     </element>
+    <element id="EvidenceVariable.characteristic.type">
+      <path value="EvidenceVariable.characteristic.type"/>
+      <short value="Expresses the type of characteristic"/>
+      <definition value="Used to expressing the type of characteristic."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="UsageContextType"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/usage-context-type"/>
+      </binding>
+    </element>
     <element id="EvidenceVariable.characteristic.definition[x]">
       <path value="EvidenceVariable.characteristic.definition[x]"/>
       <short value="What code or expression defines members?"/>
@@ -514,23 +531,6 @@
         <code value="Expression"/>
       </type>
       <isSummary value="true"/>
-    </element>
-    <element id="EvidenceVariable.characteristic.type">
-      <path value="EvidenceVariable.characteristic.type"/>
-      <short value="Expresses the type of characteristic"/>
-      <definition value="Used to expressing the type of characteristic."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="UsageContextType"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/usage-context-type"/>
-      </binding>
     </element>
     <element id="EvidenceVariable.characteristic.method">
       <path value="EvidenceVariable.characteristic.method"/>
@@ -680,8 +680,8 @@
     </element>
     <element id="EvidenceVariable.characteristic.timeFromEvent.note">
       <path value="EvidenceVariable.characteristic.timeFromEvent.note"/>
-      <short value="A grouping for ordinal or polychotomous variables"/>
-      <definition value="A grouping (or set of values) described along with other groupings to specify the set of groupings allowed for the variable."/>
+      <short value="Used for footnotes or explanatory notes"/>
+      <definition value="A human-readable string to clarify or explain concepts about the resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
