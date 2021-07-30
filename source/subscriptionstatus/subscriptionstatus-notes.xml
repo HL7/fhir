@@ -57,6 +57,17 @@
 			</li>
 		</ul>
 
+    <a name="query-event"/>
+    <h3>Query Event</h3>
+    <p>
+      Some servers may allow clients to ask for events which have already occurred.  Notification bundles returned by such operations or queries should use the <code>query-event</code> type.
+    </p>
+		<ul>
+			<li>
+				<a href="notification-query-event.html">Example query-event notification</a>
+			</li>
+		</ul>
+
 		<a name="subscription-status"/>
 		<h3>Subscription Status</h3>
 		<ul>

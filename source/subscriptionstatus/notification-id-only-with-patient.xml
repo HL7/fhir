@@ -17,9 +17,6 @@
           <reference value="http://example.org/FHIR/R4/Subscription/123"/>
         </subscription>
         <topic value="http://example.org/FHIR/R4/SubscriptionTopic/admission"/>
-        <focus>
-          <reference value="http://example.org/FHIR/R4/Encounter/2"/>
-        </focus>
       </SubscriptionStatus>
     </resource>
     <request>
