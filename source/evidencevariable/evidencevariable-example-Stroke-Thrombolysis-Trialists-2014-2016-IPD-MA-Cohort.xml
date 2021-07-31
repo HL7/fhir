@@ -27,7 +27,9 @@
 		<url value="https://doi.org/10.1161/STROKEAHA.116.013644"/>
 	</relatedArtifact>
 	<actual value="true"/>
-	<characteristicCombination value="union"/>
+	<characteristicCombination>
+		<code value="any-of" />
+	</characteristicCombination>
 	<characteristic>
 		<definitionReference>
 			<reference value="Group/ECASSIII-Trial-Cohort"/>

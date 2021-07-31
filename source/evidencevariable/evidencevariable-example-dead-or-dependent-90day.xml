@@ -12,7 +12,9 @@
   <title value="Dead or functionally dependent at 90 days"/>
   <status value="draft"/>
   <actual value="false"/>
-  <characteristicCombination value="union"/>
+  <characteristicCombination>
+	<code value="any-of" />
+  </characteristicCombination>
   <characteristic>
 		<description value="functionally dependent at 90 days"/>
 		<definitionCodeableConcept>
