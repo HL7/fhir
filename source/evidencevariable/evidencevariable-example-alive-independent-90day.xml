@@ -12,7 +12,9 @@
   <title value="Alive and not functionally dependent at 90 days"/>
   <status value="draft"/>
   <actual value="false"/>
-  <characteristicCombination value="intersection"/>
+  <characteristicCombination>
+	<code value="all-of" />
+  </characteristicCombination>
   <characteristic>
     <description value="not functionally dependent at 90 days"/>
     <definitionCodeableConcept>
