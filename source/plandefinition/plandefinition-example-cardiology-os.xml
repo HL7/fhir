@@ -133,15 +133,10 @@
   <contained>
     <Substance>
       <id value="metoprololTartrate25Substance" />
-      <instance value="false"/>
       <code>
-        <concept>
-          <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
             <code value="6918" />
-          </coding>
           <text value="Metoprolol" />
-        </concept>
       </code>
     </Substance>
   </contained>
@@ -230,15 +225,12 @@
   <contained>
     <Substance>
       <id value="metoprololTartrate50Substance" />
-      <instance value="false"/>
       <code>
-        <concept>
           <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
             <code value="6918" />
           </coding>
           <text value="Metoprolol" />
-        </concept>
       </code>
     </Substance>
   </contained>
@@ -423,15 +415,12 @@
   <contained>
     <Substance>
       <id value="nitroglycerinSubstance" />
-      <instance value="false"/>
       <code>
-        <concept>
           <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
             <code value="4917" />
           </coding>
           <text value="Nitroglycerin" />
-        </concept>
       </code>
     </Substance>
   </contained>

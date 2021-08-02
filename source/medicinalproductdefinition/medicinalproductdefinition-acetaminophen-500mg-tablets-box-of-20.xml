@@ -47,13 +47,11 @@
 			</role>
 			<substance>
 				<code>
-					<concept>
 					<coding>
 						<system value="http://snomed.info/sct"/>
 						<code value="387517004"/>
 						<display value="Acetaminophen"/>
 					</coding>
-					</concept>
 				</code>
 				<strength>
 					<presentation>
