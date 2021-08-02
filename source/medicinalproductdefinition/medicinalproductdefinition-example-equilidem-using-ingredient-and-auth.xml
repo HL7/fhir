@@ -252,13 +252,11 @@
 			</role>
 			<substance>
 				<code>
-					<concept>
 					<coding>
 						<system value="http://example.org.uk/fhir/substances"/>
 						<code value="123456"/>
 						<display value="Equilidonium Phosphate"/>
 					</coding>
-					</concept>
 				</code>
 				<strength>
 					<presentation>
@@ -286,13 +284,11 @@
 			</role>
 			<substance>
 				<code>
-					<concept>
 					<coding>
 						<system value="http://example.org.uk/fhir/substances"/>
 						<code value="456789"/>
 						<display value="Calcium Carbonate"/>
 					</coding>
-					</concept>
 				</code>
 				<strength>
 					<presentation>
