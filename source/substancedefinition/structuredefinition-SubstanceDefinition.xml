@@ -202,15 +202,15 @@
         <map value="Substance.Comment"/>
       </mapping>
     </element>
-    <element id="SubstanceDefinition.source">
-      <path value="SubstanceDefinition.source"/>
+    <element id="SubstanceDefinition.informationSource">
+      <path value="SubstanceDefinition.informationSource"/>
       <short value="Supporting literature"/>
       <definition value="Supporting literature."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
       </type>
       <isSummary value="true"/>
       <mapping>
