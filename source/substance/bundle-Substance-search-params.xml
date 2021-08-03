@@ -70,14 +70,14 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Substance.instanceBackbone.expiry"/>
+          <valueString value="Substance.instance.expiry"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Substance-expiry"/>
         <description value="Expiry date of package or container of substance"/>
         <code value="expiry"/>
         <type value="date"/>
-        <expression value="Substance.instanceBackbone.expiry"/>
-        <xpath value="f:Substance/f:instanceBackbone/f:expiry"/>
+        <expression value="Substance.instance.expiry"/>
+        <xpath value="f:Substance/f:instance/f:expiry"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -110,14 +110,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Substance.instanceBackbone.identifier"/>
+          <valueString value="Substance.instance.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Substance-container-identifier"/>
         <description value="Identifier of the package/container"/>
         <code value="container-identifier"/>
         <type value="token"/>
-        <expression value="Substance.instanceBackbone.identifier"/>
-        <xpath value="f:Substance/f:instanceBackbone/f:identifier"/>
+        <expression value="Substance.instance.identifier"/>
+        <xpath value="f:Substance/f:instance/f:identifier"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -130,14 +130,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Substance.instanceBackbone.quantity"/>
+          <valueString value="Substance.instance.quantity"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Substance-quantity"/>
         <description value="Amount of substance in the package"/>
         <code value="quantity"/>
         <type value="quantity"/>
-        <expression value="Substance.instanceBackbone.quantity"/>
-        <xpath value="f:Substance/f:instanceBackbone/f:quantity"/>
+        <expression value="Substance.instance.quantity"/>
+        <xpath value="f:Substance/f:instance/f:quantity"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

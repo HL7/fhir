@@ -20,7 +20,7 @@
 		</coding>
 	</code>
 	<description value="Solution for silver nitrate stain"/>
-	<instanceBackbone>
+	<instance>
 		<identifier>
 			<system value="http://acme.org/identifiers/substances/lot"/>
 			<value value="AB94687"/>
@@ -32,5 +32,5 @@
 			<system value="http://unitsofmeasure.org"/>
 			<code value="mL"/>
 		</quantity>
-	</instanceBackbone>
+	</instance>
 </Substance>
