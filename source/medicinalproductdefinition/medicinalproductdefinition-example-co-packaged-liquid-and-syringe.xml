@@ -122,6 +122,9 @@
 	<contained>
 		<PackagedProductDefinition>
 			<id value="package"/>
+			<subject>
+				<reference value="#"/>
+			</subject>
 			<package>
 				<!-- can be more details of the package here, but not necessary for this use case -->
 				<containedItem>
@@ -213,9 +216,4 @@
 	<name>
 		<productName value="Wonderdrug+ liquid 20ml"/>
 	</name>
-	<package>
-		<package>
-			<reference value="#package"/>
-		</package>
-	</package>
 </MedicinalProductDefinition>
