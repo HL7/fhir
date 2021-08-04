@@ -48,7 +48,14 @@
             <a name="subscription-notification-type-query-status"> </a>
           </td>
           <td>Query Status</td>
-          <td>The status was generated in response to a query/request.</td>
+          <td>The status was generated in response to a status query/request.</td>
+        </tr>
+        <tr>
+          <td style="white-space:nowrap">query-status
+            <a name="subscription-notification-type-query-event"> </a>
+          </td>
+          <td>Query Event</td>
+          <td>The status was generated in response to an event query/request.</td>
         </tr>
       </table>
     </div>
