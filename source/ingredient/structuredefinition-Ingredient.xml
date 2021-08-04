@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Ingredient"/>
   <meta>
@@ -213,8 +212,8 @@
         <valueCode value="350,106"/>
       </extension>
       <path value="Ingredient.substance.strength"/>
-      <short value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item. When there is a range of strengths, this represents the lower limit"/>
-      <definition value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item. When there is a range of strengths, this represents the lower limit."/>
+      <short value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item"/>
+      <definition value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -226,8 +225,8 @@
         <map value="Specified Substance.Strength"/>
       </mapping>
     </element>
-    <element id="Ingredient.substance.strength.presentation">
-      <path value="Ingredient.substance.strength.presentation"/>
+    <element id="Ingredient.substance.strength.presentation[x]">
+      <path value="Ingredient.substance.strength.presentation[x]"/>
       <short value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item"/>
       <definition value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item."/>
       <min value="0"/>
@@ -235,23 +234,9 @@
       <type>
         <code value="Ratio"/>
       </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Strength.Strength (Presentation)"/>
-      </mapping>
-    </element>
-    <element id="Ingredient.substance.strength.presentationHighLimit">
-      <path value="Ingredient.substance.strength.presentationHighLimit"/>
-      <short value="An upper limit for the quantity of substance in the unit of presentation. When there is a range of strengths, this represents the upper limit"/>
-      <definition value="An upper limit for the quantity of substance in the unit of presentation. When there is a range of strengths, this represents the upper limit."/>
-      <min value="0"/>
-      <max value="1"/>
       <type>
-        <code value="Ratio"/>
+        <code value="RatioRange"/>
       </type>
-      <isModifier value="true"/>
-      <isModifierReason value="If this is present it implies that the whole strength is expressed as a range, due to uncertainty or variation"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -273,8 +258,8 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Ingredient.substance.strength.concentration">
-      <path value="Ingredient.substance.strength.concentration"/>
+    <element id="Ingredient.substance.strength.concentration[x]">
+      <path value="Ingredient.substance.strength.concentration[x]"/>
       <short value="The strength per unitary volume (or mass)"/>
       <definition value="The strength per unitary volume (or mass)."/>
       <min value="0"/>
@@ -282,23 +267,9 @@
       <type>
         <code value="Ratio"/>
       </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Strength.Strength (Concentration)"/>
-      </mapping>
-    </element>
-    <element id="Ingredient.substance.strength.concentrationHighLimit">
-      <path value="Ingredient.substance.strength.concentrationHighLimit"/>
-      <short value="An upper limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the lower limit"/>
-      <definition value="An upper limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the lower limit."/>
-      <min value="0"/>
-      <max value="1"/>
       <type>
-        <code value="Ratio"/>
+        <code value="RatioRange"/>
       </type>
-      <isModifier value="true"/>
-      <isModifierReason value="If this is present it implies that the whole strength is expressed as a range, due to uncertainty or variation"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -352,7 +323,7 @@
     </element>
     <element id="Ingredient.substance.strength.referenceStrength">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="640,117"/>
+        <valueCode value="700,117"/>
       </extension>
       <path value="Ingredient.substance.strength.referenceStrength"/>
       <short value="Strength expressed in terms of a reference substance"/>
@@ -385,29 +356,17 @@
         <map value="Reference Strength.Reference Specified Substance"/>
       </mapping>
     </element>
-    <element id="Ingredient.substance.strength.referenceStrength.strength">
-      <path value="Ingredient.substance.strength.referenceStrength.strength"/>
-      <short value="Strength expressed in terms of a reference substance. When there is a range of strengths, this represents the lower limit"/>
-      <definition value="Strength expressed in terms of a reference substance. When there is a range of strengths, this represents the lower limit."/>
+    <element id="Ingredient.substance.strength.referenceStrength.strength[x]">
+      <path value="Ingredient.substance.strength.referenceStrength.strength[x]"/>
+      <short value="Strength expressed in terms of a reference substance"/>
+      <definition value="Strength expressed in terms of a reference substance.."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Ratio"/>
       </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Reference Strength.Reference Strength"/>
-      </mapping>
-    </element>
-    <element id="Ingredient.substance.strength.referenceStrength.strengthHighLimit">
-      <path value="Ingredient.substance.strength.referenceStrength.strengthHighLimit"/>
-      <short value="Strength expressed in terms of a reference substance. When there is a range of strengths, this represents the upper limit"/>
-      <definition value="Strength expressed in terms of a reference substance. When there is a range of strengths, this represents the upper limit."/>
-      <min value="0"/>
-      <max value="1"/>
       <type>
-        <code value="Ratio"/>
+        <code value="RatioRange"/>
       </type>
       <isSummary value="true"/>
       <mapping>

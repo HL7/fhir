@@ -12,12 +12,10 @@
 	</manufacturer>
 	<substance>
 		<code>
-			<concept>
 			<coding>
 				<system value="http://ema.europa.eu/example/substance"/>
 				<code value="EQUIXABAN"/>
 			</coding>
-			</concept>
 		</code>
 		<strength>
 			<presentation>
