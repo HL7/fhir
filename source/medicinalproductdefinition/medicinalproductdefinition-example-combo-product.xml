@@ -188,9 +188,9 @@
 							<reference value="#tabletItem"/>
 							</reference>
 						</item>
-						<amountQuantity>
+						<amount>
 							<value value="1"/>
-						</amountQuantity>
+						</amount>
 					</containedItem>
 				</package>
 				<package>
@@ -205,10 +205,10 @@
 							<reference value="#creamItem"/>
 							</reference>
 						</item>
-						<amountQuantity>
+						<amount>
 							<value value="20"/>
 							<unit value="g"/>
-						</amountQuantity>
+						</amount>
 					</containedItem>
 					<package>
 						<type>

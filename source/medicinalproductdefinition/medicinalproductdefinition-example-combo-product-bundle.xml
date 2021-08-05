@@ -219,9 +219,9 @@
 								<reference value="ManufacturedItemDefinition/tabletItem"/>
 								</reference>
 							</item>
-							<amountQuantity>
+							<amount>
 								<value value="1"/>
-							</amountQuantity>
+							</amount>
 						</containedItem>
 					</package>
 					<package>
@@ -236,9 +236,9 @@
 								<reference value="ManufacturedItemDefinition/creamItem"/>
 								</reference>
 							</item>
-							<amountQuantity>
+							<amount>
 								<value value="1"/>
-							</amountQuantity>
+							</amount>
 						</containedItem>
 					</package>
 				</package>
