@@ -49,7 +49,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Model specification"/>
+  <description value="The handling of the variable in statistical analysis for exposures or outcomes."/>
   <immutable value="true"/>
   <compose>
     <include>

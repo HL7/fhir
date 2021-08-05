@@ -49,7 +49,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The role that the assertion variable plays."/>
+  <description value="The type of a statistic, e.g. relative risk or mean"/>
   <immutable value="true"/>
   <compose>
     <include>
