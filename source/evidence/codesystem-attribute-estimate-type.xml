@@ -230,8 +230,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1541"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="StatisticAttributeEstimateType"/>
-  <title value="StatisticAttributeEstimateType"/>
+  <name value="AttributeEstimateType"/>
+  <title value="AttributeEstimateType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-08-05T12:00:00+11:00"/>
@@ -246,7 +246,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The role that the assertion variable plays."/>
+  <description value="A statistic about a statistic, e.g.  Confidence interval or p-value"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/attribute-estimate-type"/>
   <content value="complete"/>
