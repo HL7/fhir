@@ -99,7 +99,7 @@
     </element>
     <element id="SubscriptionStatus.type">
       <path value="SubscriptionStatus.type"/>
-      <short value="handshake | heartbeat | event-notification | query-status"/>
+      <short value="handshake | heartbeat | event-notification | query-status | query-event"/>
       <definition value="The type of event being conveyed with this notificaiton."/>
       <min value="1"/>
       <max value="1"/>
