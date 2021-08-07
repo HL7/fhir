@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicinalProductDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-all.xsd"
- xmlns="http://hl7.org/fhir">
+<MedicinalProductDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicinalproductdefinition.xsd">
 	<id value="drug-and-device-complete"/>
 	<text>
 		<status value="generated"/>
@@ -183,6 +181,9 @@
 	<contained>
 		<PackagedProductDefinition>
 			<id value="package"/>
+			<subject>
+				<reference value="#"/>
+			</subject>
 			<package>
 				<package>
 					<type>
@@ -208,10 +209,10 @@
 									<reference value="#powderItem"/>
 									</reference>
 								</item>
-								<amountQuantity>
+								<amount>
 									<value value="5"/>
 									<unit value="g"/>
-								</amountQuantity>
+								</amount>
 							</containedItem>
 						</package>
 						<package>
@@ -226,10 +227,10 @@
 									<reference value="#solventItem"/>
 									</reference>
 								</item>
-								<amountQuantity>
+								<amount>
 									<value value="20"/>
 									<unit value="ml"/>
-								</amountQuantity>
+								</amount>
 							</containedItem>
 						</package>
 					</package>
@@ -245,9 +246,9 @@
 								<reference value="#syringeDevice"/>
 								</reference>
 							</item>
-							<amountQuantity>
+							<amount>
 								<value value="1"/>
-							</amountQuantity>
+							</amount>
 						</containedItem>
 					</package>
 				</package>
@@ -310,12 +311,14 @@
 			</role>
 			<substance>
 				<code>
+					<concept>
 					<coding>
 						<system value="http://example.org.uk/fhir/ingredients"/>
 						<!-- SNOMED perhaps -->
 						<code value="12345"/>
 						<display value="Wonderdrug BP"/>
 					</coding>
+					</concept>
 				</code>
 				<!-- can be strength here but not necessary for this example -->
 			</substance>
@@ -332,11 +335,13 @@
 			</role>
 			<substance>
 				<code>
+					<concept>
 					<coding>
 						<system value="http://snomed.info/sct"/>
 						<code value="444883009"/>
 						<display value="Distilled water"/>
 					</coding>
+					</concept>
 				</code>
 			</substance>
 		</Ingredient>
@@ -376,11 +381,6 @@
 			<code value="Powder and solution for injection with itegral syringe"/>
 		</coding>
 	</combinedPharmaceuticalDoseForm>
-	<packagedMedicinalProduct>
-		<reference>
-		<reference value="#package"/>
-		</reference>
-	</packagedMedicinalProduct>
 	<name>
 		<productName value="Wonderdrug liquid 20ml (integral syringe)"/>
 	</name>
