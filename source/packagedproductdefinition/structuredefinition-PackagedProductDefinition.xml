@@ -213,21 +213,6 @@
         <map value="Packaged Medicinal Product.description"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.legalStatusOfSupply">
-      <path value="PackagedProductDefinition.legalStatusOfSupply"/>
-      <short value="The legal status of supply of the packaged item as classified by the regulator"/>
-      <definition value="The legal status of supply of the packaged item as classified by the regulator."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Marketing Authorisation.Legal Status of Supply (for a package)"/>
-      </mapping>
-    </element>
     <element id="PackagedProductDefinition.marketingStatus">
       <path value="PackagedProductDefinition.marketingStatus"/>
       <short value="Marketing information"/>
@@ -511,17 +496,14 @@
         <map value="(the link to) Package Item (Container).Manufactured Item, Package Item (Container).Device"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.containedItem.amount[x]">
-      <path value="PackagedProductDefinition.package.containedItem.amount[x]"/>
+    <element id="PackagedProductDefinition.package.containedItem.amount">
+      <path value="PackagedProductDefinition.package.containedItem.amount"/>
       <short value="The number of this type of item within this packaging"/>
       <definition value="The number of this type of item within this packaging."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-      </type>
-      <type>
-        <code value="integer"/>
       </type>
       <isSummary value="true"/>
       <mapping>

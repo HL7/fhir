@@ -48,10 +48,10 @@
 				<reference value="#liquidItem"/>
 				</reference>
 			</item>
-			<amountQuantity>
+			<amount>
 				<value value="20"/>
 				<unit value="ml"/>
-			</amountQuantity>
+			</amount>
 		</containedItem>
 		<containedItem>
 			<item>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicinalProductDefinition xmlns="http://hl7.org/fhir">
+<MedicinalProductDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicinalproductdefinition.xsd">
 	<id value="equilidem-with-ing-and-auth"/>
 	<text>
 		<status value="generated"/>
@@ -252,11 +252,13 @@
 			</role>
 			<substance>
 				<code>
+					<concept>
 					<coding>
 						<system value="http://example.org.uk/fhir/substances"/>
 						<code value="123456"/>
 						<display value="Equilidonium Phosphate"/>
 					</coding>
+					</concept>
 				</code>
 				<strength>
 					<presentation>
@@ -284,11 +286,13 @@
 			</role>
 			<substance>
 				<code>
+					<concept>
 					<coding>
 						<system value="http://example.org.uk/fhir/substances"/>
 						<code value="456789"/>
 						<display value="Calcium Carbonate"/>
 					</coding>
+					</concept>
 				</code>
 				<strength>
 					<presentation>
