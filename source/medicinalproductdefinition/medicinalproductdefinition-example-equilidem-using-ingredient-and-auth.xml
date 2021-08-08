@@ -261,7 +261,7 @@
 					</concept>
 				</code>
 				<strength>
-					<presentation>
+					<presentationRatio>
 						<numerator>
 							<value value="22"/>
 							<unit value="ml"/>
@@ -270,7 +270,7 @@
 							<value value="1"/>
 							<unit value="tablet"/>
 						</denominator>
-					</presentation>
+					</presentationRatio>
 				</strength>
 			</substance>
 		</Ingredient>
@@ -295,7 +295,7 @@
 					</concept>
 				</code>
 				<strength>
-					<presentation>
+					<presentationRatio>
 						<numerator>
 							<value value="3"/>
 							<unit value="ml"/>
@@ -304,7 +304,7 @@
 							<value value="1"/>
 							<unit value="tablet"/>
 						</denominator>
-					</presentation>
+					</presentationRatio>
 				</strength>
 			</substance>
 		</Ingredient>

@@ -349,7 +349,9 @@
 	<contained>
 		<AdministrableProductDefinition>
 			<id value="administrable-form"/>
-				
+			<formOf>
+				<reference value="#"/>
+			</formOf>
 			<administrableDoseForm>
 				<coding>
 					<code value="solution for injection"/>

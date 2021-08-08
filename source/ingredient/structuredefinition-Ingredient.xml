@@ -126,21 +126,6 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Ingredient.description">
-      <path value="Ingredient.description"/>
-      <short value="A general description of the ingredient, or any supporting text. May be used for an unstructured list of excipients"/>
-      <definition value="A general description of the ingredient, or any supporting text. May be used for an unstructured list of excipients."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="n/a"/>
-      </mapping>
-    </element>
     <element id="Ingredient.allergenicIndicator">
       <path value="Ingredient.allergenicIndicator"/>
       <short value="If the ingredient is a known or suspected allergen"/>
@@ -359,7 +344,7 @@
     <element id="Ingredient.substance.strength.referenceStrength.strength[x]">
       <path value="Ingredient.substance.strength.referenceStrength.strength[x]"/>
       <short value="Strength expressed in terms of a reference substance"/>
-      <definition value="Strength expressed in terms of a reference substance.."/>
+      <definition value="Strength expressed in terms of a reference substance."/>
       <min value="1"/>
       <max value="1"/>
       <type>
