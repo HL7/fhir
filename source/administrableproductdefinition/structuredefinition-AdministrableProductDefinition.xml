@@ -95,8 +95,8 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="AdministrableProductDefinition.subject">
-      <path value="AdministrableProductDefinition.subject"/>
+    <element id="AdministrableProductDefinition.formOf">
+      <path value="AdministrableProductDefinition.formOf"/>
       <short value="The medicinal product that this is an administrable form of. This is not a reference to the item(s) that make up this administrable form - it is the whole product"/>
       <definition value="The medicinal product that this is an administrable form of. This is not a reference to the item(s) that make up this administrable form - it is the whole product."/>
       <min value="0"/>
