@@ -22,7 +22,7 @@
 					</item>
 					<amount>
 						<value value="20"/>
-					</amount>
+					</amount> 
 				</containedItem>
 			</package>
 		</PackagedProductDefinition>
