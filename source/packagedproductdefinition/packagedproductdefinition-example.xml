@@ -135,7 +135,9 @@
 					</reference>
 				</item>
 				<!-- 10 tablets in the blister pack -->
-				<amountInteger value="10"/>
+				<amount>
+					<value value="10"/>
+				</amount>
 			</containedItem>
 		</package>
 	</package>
