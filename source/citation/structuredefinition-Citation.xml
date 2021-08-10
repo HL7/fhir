@@ -825,7 +825,7 @@
       <short value="The kind of title"/>
       <definition value="Used to express the reason or specific aspect for the title."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -983,7 +983,7 @@
     </element>
     <element id="Citation.citedArtifact.relatesTo.relationshipType">
       <path value="Citation.citedArtifact.relatesTo.relationshipType"/>
-      <short value="How the cited artifact resource relates to the target artifact"/>
+      <short value="How the cited artifact relates to the target artifact"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1127,10 +1127,10 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="JournalIssueMedium"/>
+          <valueString value="CitedMedium"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/journal-issue-medium"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/cited-medium"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.publicationForm.periodicRelease.volume">

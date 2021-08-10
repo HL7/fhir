@@ -223,7 +223,7 @@
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -310,22 +310,6 @@
       <mapping>
         <identity value="idmp"/>
         <map value="(type of date from the ones above)"/>
-      </mapping>
-    </element>
-    <element id="RegulatedAuthorization.jurisdictionalAuthorization">
-      <path value="RegulatedAuthorization.jurisdictionalAuthorization"/>
-      <short value="Authorization in areas within a country"/>
-      <definition value="Authorization in areas within a country."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RegulatedAuthorization"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Marketing Authorisation.Jurisdictional Marketing Authorisation"/>
       </mapping>
     </element>
     <element id="RegulatedAuthorization.holder">
