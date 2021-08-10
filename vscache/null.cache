@@ -13,9 +13,10 @@ e: {
   "resourceType" : "ValueSet",
   "id" : "action-participant-role",
   "meta" : {
-    "lastUpdated" : "2017-02-15T23:33:00.000+00:00",
+    "lastUpdated" : "2017-02-15T17:33:00.000-06:00",
     "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
   },
+  "language" : "en",
   "url" : "http://terminology.hl7.org/ValueSet/action-participant-role",
   "version" : "0.1.0",
   "name" : "ActionParticipantRole",
@@ -23,8 +24,8 @@ e: {
   "experimental" : false,
   "date" : "2017-02-15T16:33:00.000-07:00",
   "expansion" : {
-    "identifier" : "urn:uuid:9f6e6024-0b8b-4753-b639-ee8a8ba14c9a",
-    "timestamp" : "2021-06-12T12:29:29.337Z",
+    "identifier" : "urn:uuid:6830b393-2248-46e3-bba3-0f31368c2276",
+    "timestamp" : "2021-07-22T23:43:05.083Z",
     "parameter" : [{
       "name" : "expansion-source",
       "valueString" : "ValueSet/action-participant-role"

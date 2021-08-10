@@ -868,7 +868,7 @@
       <max value="*"/>
       <type>
           <code value="CodeableReference"/>
-          <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
+          <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
       </type>
     </element>
     <element id="DeviceDefinition.guideline.contraindication">
@@ -879,7 +879,7 @@
       <max value="*"/>
       <type>
           <code value="CodeableReference"/>
-          <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
       </type>
     </element>
     <element id="DeviceDefinition.guideline.warning">
@@ -890,7 +890,7 @@
       <max value="*"/>
       <type>
           <code value="CodeableReference"/>
-          <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
       </type>
     </element>
     <element id="DeviceDefinition.guideline.intendedUse">

@@ -8,7 +8,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <a name="base"></a>
 <h2>Search</h2>
@@ -273,7 +273,7 @@ In the same manner:
 </p>
 <pre>
  GET [base]/DiagnosticReport?_profile=http://hl7.org/fhir/StructureDefinition/lipid
- GET [base]/DiagnosticReport?_profile=Profile/lipid
+ GET [base]/DiagnosticReport?_profile=StructureDefinition/lipid
 </pre>
 <p>
 restricts the search to only DiagnosticReport resources that are tagged as conforming to a particular profile.
@@ -281,7 +281,7 @@ The second reference is relative and refers a local profile on the same server.
 </p>
 <p>
 <a href="resource.html#simple-tags">_tag</a>, and <a href="resource.html#security-labels">_security</a> parameters are token types (see <a href="#token">below</a>),
-and <a href="resource.html#profile-tags">_profile</a> is a <a href="#reference">reference</a> search parameter.
+and <a href="resource.html#profile-tags">_profile</a> is a <a href="#uri">uri</a> search parameter.
 </p>
 
 
@@ -1690,6 +1690,9 @@ cannot be retrieved (e.g. on a different server), then the resource is omitted, 
 error is returned.
 </p>
 <p>
+Servers SHOULD resolve _include requests for version-specific references by resolving the version named in the reference.
+</p>
+<p>
 The inclusion process can be iterative, if (and only if) the modifier <code>:iterate</code> is included.
 For example, this search returns all <a href="medicationrequest.html">Medication
 Request</a> resources and their <a href="practitioner.html">prescribing Practitioner</a> Resources
@@ -2419,8 +2422,6 @@ Cross-map between search parameter types and Data types:
   <td><%xcm Timing:token%></td> <!-- token -->
  </tr>
 </table>
-
-</div>
 
 [%file newfooter%]
 </body>
