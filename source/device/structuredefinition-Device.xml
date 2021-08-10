@@ -730,6 +730,7 @@
       <path value="Device.property.value[x]"/>
       <short value="Property value - as a code or quantity"/>
       <definition value="Property value - can be a code or quantity."/>
+      <comment value="The usage of CodeableConcept is for concepts that are normally coded but for which a code is not available - for example a device implant size that is not standardized. The property string is for text characteristics, e.g. long descriptions, warnings, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
