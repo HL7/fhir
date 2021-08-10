@@ -3,7 +3,7 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
-<p>
+<div>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
    <p>This resource is an <em>event</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.  It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow pattern for <a href="workflow.html#event"><em>event</em> resources</a>.</p>
 
@@ -33,4 +33,5 @@ Provides additional detail on exactly how the resource is to be used
 </div>
 -->
 
+</div>
 </div>
