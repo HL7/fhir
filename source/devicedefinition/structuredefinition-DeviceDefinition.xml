@@ -629,24 +629,27 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="DeviceDefinition.property.valueQuantity">
-      <path value="DeviceDefinition.property.valueQuantity"/>
-      <short value="Property value as a quantity"/>
-      <definition value="Property value as a quantity."/>
+    <element id="DeviceDefinition.property.value[x]">
+      <path value="DeviceDefinition.property.value[x]"/>
+      <short value="Property value - as a code or quantity"/>
+      <definition value="Property value - the data type depends on the property type."/>
+      <comment value="The usage of CodeableConcept is for concepts that are normally coded but for which a code is not available - for example a device implant size that is not standardized. The property string is for text characteristics, e.g. long descriptions, warnings, etc."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Quantity"/>
       </type>
-    </element>
-    <element id="DeviceDefinition.property.valueCode">
-      <path value="DeviceDefinition.property.valueCode"/>
-      <short value="Property value as a code, e.g., NTP4 (synced to NTP)"/>
-      <definition value="Property value as a code, e.g., NTP4 (synced to NTP)."/>
-      <min value="0"/>
-      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
       </type>
     </element>
     <element id="DeviceDefinition.owner">
