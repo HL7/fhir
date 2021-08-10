@@ -738,6 +738,15 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
+      </type>
     </element>
     <element id="Device.subject">
       <path value="Device.subject"/>
