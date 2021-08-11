@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="The characteristics, operational status and capabilities of a medical-related component of a medical device."/>
+  <description value="This is a specialized resource that defines the characteristics and capabilities of a device."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="w5"/>
@@ -611,8 +611,8 @@
         <valueCode value="600,240"/>
       </extension>
       <path value="DeviceDefinition.property"/>
-      <short value="The actual configuration settings of a device as it actually operates, e.g., regulation status, time properties"/>
-      <definition value="The actual configuration settings of a device as it actually operates, e.g., regulation status, time properties."/>
+      <short value="The potential, valid configuration settings of a device, e.g., regulation status, time properties"/>
+      <definition value="The potential, valid configuration settings of a device, e.g., regulation status, time properties."/>
       <min value="0"/>
       <max value="*"/>
       <type>

@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A material substance originating from a biological entity intended to be transplanted or infused&#xA;into another (possibly the same) biological entity."/>
+  <description value="A biological material originating from a biological entity intended to be transplanted or infused into another (possibly the same) biological entity."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
