@@ -5,19 +5,40 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Device-definition-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.definition.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-definition"/>
+        <description value="The definition / type of the device (code)"/>
+        <code value="definition"/>
+        <type value="token"/>
+        <expression value="Device.definition.concept"/>
+        <xpath value="f:Device/f:definition/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Device-definition"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Device.definition"/>
+          <valueString value="Device.definition.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Device-definition"/>
         <description value="The definition / type of the device"/>
         <code value="definition"/>
         <type value="reference"/>
-        <expression value="Device.definition"/>
-        <xpath value="f:Device/f:definition"/>
+        <expression value="Device.definition.reference"/>
+        <xpath value="f:Device/f:definition/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -225,19 +246,39 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Device-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-subject"/>
+        <description value="Subject information, to which the device is associated of affixed"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="Device.subject"/>
+        <xpath value="f:Device/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Device-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Device.patient"/>
+          <valueString value="Device.subject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Device-patient"/>
         <description value="Patient information, if the resource is affixed to a person"/>
         <code value="patient"/>
         <type value="reference"/>
-        <expression value="Device.patient"/>
-        <xpath value="f:Device/f:patient"/>
+        <expression value="Device.subject.where(resolve() is Patient)"/>
+        <xpath value="f:Device/f:subject"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
