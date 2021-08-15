@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="The characteristics, operational status and capabilities of a medical-related component of a medical device."/>
+  <description value="This is a specialized resource that defines the characteristics and capabilities of a device."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="w5"/>
@@ -77,7 +77,7 @@
     <element id="DeviceDefinition.identifier">
       <path value="DeviceDefinition.identifier"/>
       <short value="Instance identifier"/>
-      <definition value="Unique instance identifiers assigned to a device by the software, manufacturers, other organizations or owners. For example: handle ID."/>
+      <definition value="Unique instance identifiers assigned to a device by the software, manufacturers, other organizations or owners. For example: handle ID. The identifier is typically valued if the udiDeviceIdentifier, partNumber or modelNumber is not valued and represents a different type of identifier.  However, it is permissible to still include those identifiers in DeviceDefinition.identifier with the appropriate identifier.type."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -231,6 +231,7 @@
       <path value="DeviceDefinition.classification"/>
       <short value="What kind of device or device system this is"/>
       <definition value="What kind of device or device system this is."/>
+      <comment value="In this element various classifications can be used, such as GMDN, EMDN, SNOMED CT, risk classes, national product codes."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -610,8 +611,8 @@
         <valueCode value="600,240"/>
       </extension>
       <path value="DeviceDefinition.property"/>
-      <short value="The actual configuration settings of a device as it actually operates, e.g., regulation status, time properties"/>
-      <definition value="The actual configuration settings of a device as it actually operates, e.g., regulation status, time properties."/>
+      <short value="The potential, valid configuration settings of a device, e.g., regulation status, time properties"/>
+      <definition value="The potential, valid configuration settings of a device, e.g., regulation status, time properties."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -628,24 +629,27 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="DeviceDefinition.property.valueQuantity">
-      <path value="DeviceDefinition.property.valueQuantity"/>
-      <short value="Property value as a quantity"/>
-      <definition value="Property value as a quantity."/>
+    <element id="DeviceDefinition.property.value[x]">
+      <path value="DeviceDefinition.property.value[x]"/>
+      <short value="Property value - as a code or quantity"/>
+      <definition value="Property value - the data type depends on the property type."/>
+      <comment value="The usage of CodeableConcept is for concepts that are normally coded but for which a code is not available - for example a device implant size that is not standardized. The property string is for text characteristics, e.g. long descriptions, warnings, etc."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Quantity"/>
       </type>
-    </element>
-    <element id="DeviceDefinition.property.valueCode">
-      <path value="DeviceDefinition.property.valueCode"/>
-      <short value="Property value as a code, e.g., NTP4 (synced to NTP)"/>
-      <definition value="Property value as a code, e.g., NTP4 (synced to NTP)."/>
-      <min value="0"/>
-      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
       </type>
     </element>
     <element id="DeviceDefinition.owner">

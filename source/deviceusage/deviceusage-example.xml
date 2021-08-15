@@ -10,9 +10,9 @@
 		<reference value="Patient/example"/>
 	</subject>
 	<device>
-		<reference>
-			<reference value="Device/example"/>
-		</reference>
+		<concept>
+			<text value="ACME defribillator"/>
+		</concept>
 	</device>
 	<reason>
     <reference>
