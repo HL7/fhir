@@ -645,8 +645,8 @@
         <valueCode value="420,470"/>
       </extension>
       <path value="ClinicalUseDefinition.warning"/>
-      <short value="A critical piece of information about environmental, health or physical risks or hazards that serve as caution to the user"/>
-      <definition value="A critical piece of information about environmental, health or physical risks or hazards that serve as caution to the user."/>
+      <short value="A critical piece of information about environmental, health or physical risks or hazards that serve as caution to the user. For example 'Do not operate heavy machinery', 'May cause drowsiness' or 'Get medical advice/attention if you feel unwell'"/>
+      <definition value="A critical piece of information about environmental, health or physical risks or hazards that serve as caution to the user. For example 'Do not operate heavy machinery', 'May cause drowsiness', or 'Get medical advice/attention if you feel unwell.'"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -683,6 +683,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="WarningType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Classification of warning type."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/warning-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
