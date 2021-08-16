@@ -11,7 +11,7 @@
         <id value="b21e4fae-ce73-45cb-8e37-1e203362b2ae"/>
         <status value="active"/>
         <type value="event-notification"/>
-        <eventsSinceSubscriptionStart value="310"/>
+        <eventsSinceSubscriptionStart value="2"/>
         <eventsInNotification value="0"/>
         <subscription>
           <reference value="http://example.org/FHIR/R4/Subscription/123"/>
