@@ -540,6 +540,54 @@ See also <a href="datatypes.html#Ratio">Base Definition</a>, <a href="datatypes-
   &lt;/charge&gt;
 </pre>
 </div>
+<a name="RatioRange"></a>
+<a name="ratiorange"></a>
+<h3 style="margin-bottom: 1px">
+RatioRange
+</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.html#RatioRange">Base Definition</a>, <a href="datatypes-definitions.html#RatioRange">Detailed Descriptions</a>, <a href="datatypes-mappings.html#RatioRange">Mappings</a>, <a href="datatypes-extras.html#RatioRange">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#RatioRange">R2 Conversions</a>.
+</p>
+<div class="example">
+<p><b>Examples</b></p>
+<p>Titer (Range of Ratio of integer:integer)</p>
+<pre class="xml" fragment="RatioRange">
+  &lt;result&gt;
+   &lt;lowNumerator&gt;
+     &lt;value value="1" /&gt;
+   &lt;/lowNumerator&gt;
+   &lt;highNumerator&gt;
+     &lt;value value="2" /&gt;
+   &lt;/highNumerator&gt;
+   &lt;denominator&gt;
+     &lt;value value="128" /&gt;
+   &lt;/denominator&gt;
+  &lt;/result&gt;
+</pre>
+<p>Unit cost (Range of Ratio of Money(as Quantity):Quantity):</p>
+<pre class="xml" fragment="RatioRange">
+  &lt;charge&gt;
+   &lt;lowNumerator&gt;
+     &lt;value value="103.50" /&gt;
+     &lt;unit value="US$" /&gt;
+     &lt;code value="USD" /&gt;
+     &lt;system value="urn:iso:std:iso:4217" /&gt;
+   &lt;/lowNumerator&gt;
+   &lt;highNumerator&gt;
+     &lt;value value="210.99" /&gt;
+     &lt;unit value="US$" /&gt;
+     &lt;code value="USD" /&gt;
+     &lt;system value="urn:iso:std:iso:4217" /&gt;
+   &lt;/highNumerator&gt;
+   &lt;denominator&gt;
+     &lt;value value="1" /&gt;
+     &lt;unit value="day" /&gt;
+     &lt;code value="day" /&gt;
+     &lt;system value="http://unitsofmeasure.org" /&gt;
+   &lt;/denominator&gt;
+  &lt;/charge&gt;
+</pre>
+</div>
 <a name="Period"></a>
 <a name="period"></a>
 <h3 style="margin-bottom: 1px">

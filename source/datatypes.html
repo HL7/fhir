@@ -1028,6 +1028,42 @@ Ratio is used in the following places: [%dtusage Ratio%]
 </p>
 
 
+<a name="RatioRange"></a>
+<a name="ratiorange"></a>
+<h2 style="margin-bottom: 1px">
+RatioRange
+</h2>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes-examples.html#RatioRange">Examples</a>, <a href="datatypes-definitions.html#RatioRange">Detailed Descriptions</a>, <a href="datatypes-mappings.html#RatioRange">Mappings</a>, <a href="datatypes-extras.html#RatioRange">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#RatioRange">R3 Conversions</a>.
+</p>
+<p>
+A range of ratios of two Quantity values expressed as a low numerator, a high numerator, and a denominator.
+</p>
+<p>
+The RatioRange datatype should only be used to express a range of ratios if the
+relationship cannot be suitably expressed using a Range and a common unit.  Where
+the denominator value is known to be fixed to "1", Range should be used instead
+of RatioRange.
+</p>
+[%dt RatioRange 6%]
+<p>
+Common factors in the numerator and denominator are not automatically cancelled out. Ratios are not
+simply "structured numbers" - for example, blood pressure measurements (e.g. "120/60") are not ratios.
+</p>
+<p>
+A proper ratio range has one of the numerators and a denominator; however, these are not mandatory in order
+to allow an invalid ratio with an extension with further information.
+</p>
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints RatioRange%]
+<p>
+The context of use may require particular types of Quantity for the numerators or denominator.
+</p>
+</div>
+<p>
+RatioRange is used in the following places: [%dtusage RatioRange%]
+</p>
 <a name="Period"></a>
 <a name="period"></a>
 <h2 style="margin-bottom: 1px">
@@ -1657,6 +1693,7 @@ $( '#tabs-Quantity' ).tabs({ active: currentTabIndex, activate: function( event,
 $( '#tabs-Money' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Range' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Ratio' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-RatioRange' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Period' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-SampledData' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Identifier' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
@@ -1680,6 +1717,7 @@ function store(currentTab) {
   $( '#tabs-Money' ).tabs('option', 'active', currentTab);
   $( '#tabs-Range' ).tabs('option', 'active', currentTab);
   $( '#tabs-Ratio' ).tabs('option', 'active', currentTab);
+  $( '#tabs-RatioRange' ).tabs('option', 'active', currentTab);
   $( '#tabs-Period' ).tabs('option', 'active', currentTab);
   $( '#tabs-SampledData' ).tabs('option', 'active', currentTab);
   $( '#tabs-Identifier' ).tabs('option', 'active', currentTab);

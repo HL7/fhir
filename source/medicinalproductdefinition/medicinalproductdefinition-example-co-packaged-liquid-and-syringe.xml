@@ -185,14 +185,12 @@
 			</role>
 			<substance>
 				<code>
-					<concept>
 					<coding>
 						<system value="http://example.org.uk/fhir/ingredients"/>
 						<!-- SNOMED perhaps -->
 						<code value="12345"/>
 						<display value="Wondersubstance BP"/>
 					</coding>
-					</concept>
 				</code>
 				<!-- can be strength here but not necessary for this use case -->
 			</substance>

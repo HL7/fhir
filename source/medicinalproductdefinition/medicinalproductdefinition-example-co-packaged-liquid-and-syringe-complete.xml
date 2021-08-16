@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicinalProductDefinition xmlns="http://hl7.org/fhir">
+<MedicinalProductDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-all.xsd"
+ xmlns="http://hl7.org/fhir">
 	<id value="drug-and-device-complete"/>
 	<text>
 		<status value="generated"/>
@@ -308,14 +310,12 @@
 			</role>
 			<substance>
 				<code>
-					<concept>
 					<coding>
 						<system value="http://example.org.uk/fhir/ingredients"/>
 						<!-- SNOMED perhaps -->
 						<code value="12345"/>
 						<display value="Wonderdrug BP"/>
 					</coding>
-					</concept>
 				</code>
 				<!-- can be strength here but not necessary for this example -->
 			</substance>
@@ -332,13 +332,11 @@
 			</role>
 			<substance>
 				<code>
-					<concept>
 					<coding>
 						<system value="http://snomed.info/sct"/>
 						<code value="444883009"/>
 						<display value="Distilled water"/>
 					</coding>
-					</concept>
 				</code>
 			</substance>
 		</Ingredient>
@@ -346,6 +344,7 @@
 	<contained>
 		<AdministrableProductDefinition>
 			<id value="administrable-form"/>
+				
 			<administrableDoseForm>
 				<coding>
 					<code value="solution for injection"/>
@@ -385,9 +384,4 @@
 	<name>
 		<productName value="Wonderdrug liquid 20ml (integral syringe)"/>
 	</name>
-	<administrableProduct>
-		<product>
-			<reference value="#administrable-form"/>
-		</product>
-	</administrableProduct>
 </MedicinalProductDefinition>
