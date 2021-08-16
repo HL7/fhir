@@ -144,7 +144,6 @@
       </type>
       <isSummary value="true"/>
     </element>
-
     <element id="SubscriptionStatus.event">
       <path value="SubscriptionStatus.event"/>
       <short vale="Detailed information about any events relevant to this notification."/>
