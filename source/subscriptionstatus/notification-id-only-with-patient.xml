@@ -11,8 +11,17 @@
         <id value="dae6bdbc-71ab-4043-b11e-59b52bda60ad"/>
         <status value="active"/>
         <type value="event-notification"/>
-        <eventsSinceSubscriptionStart value="310"/>
+        <eventsSinceSubscriptionStart value="2"/>
         <eventsInNotification value="1"/>
+        <event>
+          <eventNumber value="2"/>
+          <focus>
+            <reference value="http://example.org/FHIR/R4/Encounter/2"/>
+          </focus>
+          <additionalContext>
+            <reference value="http://example.org/FHIR/R4/Patient/ABC"/>
+          </additionalContext>
+        </event>
         <subscription>
           <reference value="http://example.org/FHIR/R4/Subscription/123"/>
         </subscription>

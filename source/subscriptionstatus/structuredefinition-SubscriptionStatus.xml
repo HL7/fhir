@@ -144,6 +144,66 @@
       </type>
       <isSummary value="true"/>
     </element>
+
+    <element id="SubscriptionStatus.event">
+      <path value="SubscriptionStatus.event"/>
+      <short vale="Detailed information about any events relevant to this notification."/>
+      <definition value="Detailed information about events relevant to this subscription notification."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="SubscriptionStatus.event.eventNumber">
+      <path value="SubscriptionStatus.event.eventNumber"/>
+      <short value="Event number."/>
+      <definition value="The sequential number of this event in this subscription context. Note that this value is a 64-bit integer value, encoded as a string."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="SubscriptionStatus.event.timestamp">
+      <path value="SubscriptionStatus.event.timestamp"/>
+      <short value="The instant this event occurred."/>
+      <definition value="The actual time this event occured on the server."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="instant"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="SubscriptionStatus.event.focus">
+      <path value="SubscriptionStatus.event.focus"/>
+      <short value="The focus of this event."/>
+      <definition value="The focus of this event. While this will usually be a reference to the focus resource of the event, it MAY contain a reference to a non-FHIR object."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="SubscriptionStatus.event.additionalContext">
+      <path value="SubscriptionStatus.event.additionalContext"/>
+      <short value="Additional context for this event."/>
+      <definition value="Additional context information for this event. Generally, this will contain references to additional resources included with the event (e.g., the Patient relevant to an Encounter), however it MAY refer to non-FHIR objects."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
     <element id="SubscriptionStatus.subscription">
       <path value="SubscriptionStatus.subscription"/>
       <short value="Reference to the Subscription responsible for this notification"/>

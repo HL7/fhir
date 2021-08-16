@@ -131,7 +131,7 @@
       <valueString value="Example of a notification wrapped in FHIR Messaging"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="notification-message-id-only"/>
+      <valueString value="notification-message-full-resource"/>
     </extension>
     <item>
       <reference value="SubscriptionStatus/0f322dbe-4f8d-4cbd-9ecb-bc8dc6f65f6a"/>
