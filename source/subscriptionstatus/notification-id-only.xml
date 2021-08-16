@@ -13,12 +13,12 @@
         <type value="event-notification"/>
         <eventsSinceSubscriptionStart value="2"/>
         <eventsInNotification value="1"/>
-        <event>
+        <notificationEvent>
           <eventNumber value="2"/>
           <focus>
             <reference value="http://example.org/FHIR/R4/Encounter/2"/>
           </focus>
-        </event>
+        </notificationEvent>
         <subscription>
           <reference value="http://example.org/FHIR/R4/Subscription/123"/>
         </subscription>

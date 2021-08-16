@@ -13,18 +13,18 @@
         <type value="query-event"/>
         <eventsSinceSubscriptionStart value="2"/>
         <eventsInNotification value="2"/>
-        <event>
+        <notificationEvent>
           <eventNumber value="1"/>
           <focus>
             <reference value="http://example.org/FHIR/R4/Encounter/1"/>
           </focus>
-        </event>
-        <event>
+        </notificationEvent>
+        <notificationEvent>
           <eventNumber value="2"/>
           <focus>
             <reference value="http://example.org/FHIR/R4/Encounter/2"/>
           </focus>
-        </event>
+        </notificationEvent>
         <subscription>
           <reference value="http://example.org/FHIR/R4/Subscription/123"/>
         </subscription>
