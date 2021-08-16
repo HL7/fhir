@@ -646,7 +646,7 @@
       </extension>
       <path value="ClinicalUseDefinition.warning"/>
       <short value="A critical piece of information about environmental, health or physical risks or hazards that serve as caution to the user. For example 'Do not operate heavy machinery', 'May cause drowsiness' or 'Get medical advice/attention if you feel unwell'"/>
-      <definition value="A critical piece of information about environmental, health or physical risks or hazards that serve as caution to the user. For example 'Do not operate heavy machinery', 'May cause drowsiness', or 'Get medical advice/attention if you feel unwell.'"/>
+      <definition value="A critical piece of information about environmental, health or physical risks or hazards that serve as caution to the user. For example 'Do not operate heavy machinery', 'May cause drowsiness', or 'Get medical advice/attention if you feel unwell'."/>
       <min value="0"/>
       <max value="1"/>
       <type>
