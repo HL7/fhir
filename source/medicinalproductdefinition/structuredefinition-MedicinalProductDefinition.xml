@@ -108,6 +108,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicinalProductType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Overall defining type of this medicinal product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="(indicates if this is Medicinal Product or an Investigational Medicinal Product)"/>
@@ -123,6 +131,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicinalProductType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Applicable domain for this product (e.g. human, veterinary)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-domain"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
