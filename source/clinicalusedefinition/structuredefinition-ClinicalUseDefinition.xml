@@ -66,7 +66,7 @@
   <differential>
     <element id="ClinicalUseDefinition">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,160"/>
+        <valueCode value="-50,200"/>
       </extension>
       <path value="ClinicalUseDefinition"/>
       <short value="A single issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure"/>
@@ -76,9 +76,9 @@
       <constraint>
         <key value="cud-1"/>
         <severity value="error"/>
-        <human value="Indication, Contraindication, Interaction and UndesirableEffect cannot be used in the same instance (note that the expressions are not yet correct)"/>
-        <expression value="(ClinicalUseDefinition.indication.count() + ClinicalUseDefinition.contraIndication.count() + ClinicalUseDefinition.interaction.count() + ClinicalUseDefinition.undesirableEffect.count())  &lt; 2"/>
-        <xpath value="count(f:ClinicalUseDefinition.f:indication|f:ClinicalUseDefinition.f:contraIndication|f:ClinicalUseDefinition.f:interaction|f:ClinicalUseDefinition.f:undesirableEffect) &lt; 2"/>
+        <human value="Indication, Contraindication, Interaction, UndesirableEffect and Warning cannot be used in the same instance"/>
+        <expression value="(ClinicalUseDefinition.indication.count() + ClinicalUseDefinition.contraIndication.count() + ClinicalUseDefinition.interaction.count() + ClinicalUseDefinition.undesirableEffect.count() + ClinicalUseDefinition.warning.count())  &lt; 2"/>
+        <xpath value="count(f:ClinicalUseDefinition.f:indication|f:ClinicalUseDefinition.f:contraIndication|f:ClinicalUseDefinition.f:interaction|f:ClinicalUseDefinition.f:undesirableEffect|f:ClinicalUseDefinition.f:warning) &lt; 2"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
       </constraint>
       <mapping>
@@ -180,21 +180,6 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="ClinicalUseDefinition.description">
-      <path value="ClinicalUseDefinition.description"/>
-      <short value="General description of an effect (particularly for a general warning, rather than any of the more specific types such as indication) for when a distinct coded or textual description is not appropriate using  Indication.diseaseSymptomProcedure.text, Contraindication.diseaseSymptomProcedure.text etc. For example &quot;May affect ability to drive&quot;"/>
-      <definition value="General description of an effect (particularly for a general warning, rather than any of the more specific types such as indication) for when a distinct coded or textual description is not appropriate using  Indication.diseaseSymptomProcedure.text, Contraindication.diseaseSymptomProcedure.text etc. For example &quot;May affect ability to drive&quot;."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="n/a (this is not intended for the specifics of Contraindication.Contraindications Text, Therapeutic Indication.Indication Text, Interactions.Interactions Text, Undesirable Effects.Undesirable Effect Text"/>
-      </mapping>
-    </element>
     <element id="ClinicalUseDefinition.contraindication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="420,140"/>
@@ -279,7 +264,7 @@
     </element>
     <element id="ClinicalUseDefinition.contraindication.otherTherapy">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="820,60"/>
+        <valueCode value="820,70"/>
       </extension>
       <path value="ClinicalUseDefinition.contraindication.otherTherapy"/>
       <short value="Information about the use of the medicinal product in relation to other therapies described as part of the contraindication"/>
@@ -582,7 +567,8 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Population"/>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -652,6 +638,62 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Undesirable Effects.Frequency of Occurrence"/>
+      </mapping>
+    </element>
+    <element id="ClinicalUseDefinition.warning">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="420,470"/>
+      </extension>
+      <path value="ClinicalUseDefinition.warning"/>
+      <short value="A critical piece of information about environmental, health or physical risks or hazards that serve as caution to the user. For example 'Do not operate heavy machinery', 'May cause drowsiness' or 'Get medical advice/attention if you feel unwell'"/>
+      <definition value="A critical piece of information about environmental, health or physical risks or hazards that serve as caution to the user. For example 'Do not operate heavy machinery', 'May cause drowsiness', or 'Get medical advice/attention if you feel unwell'."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="ClinicalUseDefinition.warning.description">
+      <path value="ClinicalUseDefinition.warning.description"/>
+      <short value="A textual definition of this warning, with formatting"/>
+      <definition value="A textual definition of this warning, with formatting."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="ClinicalUseDefinition.warning.code">
+      <path value="ClinicalUseDefinition.warning.code"/>
+      <short value="A coded or unformatted textual definition of this warning"/>
+      <definition value="A coded or unformatted textual definition of this warning."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="WarningType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Classification of warning type."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/warning-type"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
       </mapping>
     </element>
   </differential>

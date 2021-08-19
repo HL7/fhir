@@ -20,7 +20,9 @@
 						<reference value="#Acetamin-tab-500"/>
 						</reference>
 					</item>
-					<amountInteger value="20"/>
+					<amount>
+						<value value="20"/>
+					</amount> 
 				</containedItem>
 			</package>
 		</PackagedProductDefinition>

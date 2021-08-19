@@ -1127,10 +1127,10 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="JournalIssueMedium"/>
+          <valueString value="CitedMedium"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/journal-issue-medium"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/cited-medium"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.publicationForm.periodicRelease.volume">

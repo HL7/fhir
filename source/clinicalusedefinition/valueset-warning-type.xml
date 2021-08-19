@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="journal-issue-medium"/>
+  <id value="warning-type"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -11,33 +11,33 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <ul>
         <li>Include all codes defined in 
-          <a href="codesystem-journal-issue-medium.html">
-            <code>http://terminology.hl7.org/CodeSystem/journal-issue-medium</code>
+          <a href="codesystem-warning-type.html">
+            <code>http://hl7.org/fhir/warning-type</code>
           </a>
         </li>
       </ul>
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cds"/>
+    <valueCode value="brr"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/journal-issue-medium"/>
+  <url value="http://hl7.org/fhir/ValueSet/warning-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1488"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1455"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="JournalIssueMedium"/>
-  <title value="JournalIssueMedium"/>
+  <name value="WarningType"/>
+  <title value="WarningType"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2021-08-15T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -49,11 +49,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="NLM codes Internet or Print."/>
+  <description value="Classification of warning type."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/journal-issue-medium"/>
+      <system value="http://hl7.org/fhir/warning-type"/>
     </include>
   </compose>
 </ValueSet>

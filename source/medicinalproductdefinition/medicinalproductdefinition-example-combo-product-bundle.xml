@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-all.xsd">
-		<id value="drug-combo-product-bundle"/>
+	<id value="drug-combo-product-bundle"/>
 	<type value="collection"/>
 	<entry>
 		<fullUrl value="urn:uuid:e19deb42-7137-48b0-aef1-d37019d0316e"/>
@@ -219,9 +219,9 @@
 								<reference value="ManufacturedItemDefinition/tabletItem"/>
 								</reference>
 							</item>
-							<amountQuantity>
+							<amount>
 								<value value="1"/>
-							</amountQuantity>
+							</amount>
 						</containedItem>
 					</package>
 					<package>
@@ -236,9 +236,9 @@
 								<reference value="ManufacturedItemDefinition/creamItem"/>
 								</reference>
 							</item>
-							<amountQuantity>
+							<amount>
 								<value value="1"/>
-							</amountQuantity>
+							</amount>
 						</containedItem>
 					</package>
 				</package>
