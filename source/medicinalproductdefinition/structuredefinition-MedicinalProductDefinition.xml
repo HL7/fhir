@@ -247,14 +247,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
-      <!--binding>
+      <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicinalProductType"/>
+          <valueString value="SNOMEDCTRouteCodes"/>
         </extension>
         <strength value="example"/>
-        <description value="Overall defining type of this medicinal product."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
-      </binding-->
+        <description value="A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient's body."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/route-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Pharmaceutical Product.Route of Administration"/>
