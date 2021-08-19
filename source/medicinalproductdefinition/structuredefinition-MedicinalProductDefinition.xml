@@ -224,14 +224,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
-      <!--binding>
+      <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicinalProductType"/>
+          <valueString value="CombinedDoseForm"/>
         </extension>
         <strength value="example"/>
-        <description value="Overall defining type of this medicinal product."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
-      </binding-->
+        <description value="Dose forms for a product as a whole, considering all individual parts, but before any mixing"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/combined-dose-form"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product.Combined Pharmaceutical Dose Form"/>
