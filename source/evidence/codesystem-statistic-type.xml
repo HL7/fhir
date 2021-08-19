@@ -35,76 +35,7 @@
           </td>
         
         </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">population
-            
-            <a name="statistic-type-population"> </a>
-          
-          </td>
-          
-          <td>population</td>
-          
-          <td>variable represents a population.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">subpopulation
-            
-            <a name="statistic-type-subpopulation"> </a>
-          
-          </td>
-          
-          <td>subpopulation</td>
-          
-          <td>variable represents a subpopulation.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">exposure
-            
-            <a name="statistic-type-exposure"> </a>
-          
-          </td>
-          
-          <td>exposure</td>
-          
-          <td>variable represents an exposure.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">referenceExposure
-            
-            <a name="statistic-type-referenceExposure"> </a>
-          
-          </td>
-          
-          <td>reference exposure</td>
-          
-          <td>variable represents a reference exposure.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">measuredVariable
-            
-            <a name="statistic-type-measuredVariable"> </a>
-          
-          </td>
-          
-          <td>measured variable</td>
-          
-          <td>variable represents a measured variable.</td>
-        
-        </tr>
+
         <tr>
           
           <td style="white-space:nowrap">absolute-MedianDiff
