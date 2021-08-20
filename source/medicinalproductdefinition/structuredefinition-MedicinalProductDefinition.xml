@@ -285,14 +285,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
-      <!--binding>
+      <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicinalProductType"/>
+          <valueString value="LegalStatusOfSupply"/>
         </extension>
         <strength value="example"/>
-        <description value="Overall defining type of this medicinal product."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
-      </binding-->
+        <description value="The prescription supply types appropriate to a medicinal product"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/legal-status-of-supply"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Marketing Authorisation.Legal Status of Supply (moved here for practicality)"/>
