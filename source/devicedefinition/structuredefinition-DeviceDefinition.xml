@@ -266,6 +266,7 @@
         <code value="RelatedArtifact"/>
       </type>
     </element>
+<!--
     <element id="DeviceDefinition.specialization">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="600,170"/>
@@ -290,7 +291,7 @@
         <code value="string"/>
       </type>
     </element>
-
+-->
     <element id="DeviceDefinition.hasPart">
       <path value="DeviceDefinition.hasPart"/>
       <short value="A device, part of the current one"/>
@@ -573,6 +574,7 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
+<!--
     <element id="DeviceDefinition.capability">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="600,90"/>
@@ -606,6 +608,7 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
+-->
     <element id="DeviceDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="600,240"/>
@@ -621,8 +624,8 @@
     </element>
     <element id="DeviceDefinition.property.type">
       <path value="DeviceDefinition.property.type"/>
-      <short value="Code that specifies the property DeviceDefinitionPropetyCode (Extensible)"/>
-      <definition value="Code that specifies the property DeviceDefinitionPropetyCode (Extensible)."/>
+      <short value="Code that specifies the property"/>
+      <definition value="Code that specifies the property."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -647,6 +650,12 @@
       </type>
       <type>
         <code value="boolean"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="Range"/>
       </type>
       <type>
         <code value="Attachment"/>
