@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <SearchParameter xmlns="http://hl7.org/fhir">
-  <id value="questionnaireresponse-extensions-QuestionnaireResponse-item-subject"/>
-  <url value="http://hl7.org/fhir/SearchParameter/questionnaireresponse-extensions-QuestionnaireResponse-item-subject"/>
+  <id value="questionnaireresponse-extensions-QR-item-subject"/>
+  <url value="http://hl7.org/fhir/SearchParameter/questionnaireresponse-extensions-QR-item-subject"/>
   <version value="4.1.0"/>
   <name value="item-subject"/>
   <status value="draft"/>
