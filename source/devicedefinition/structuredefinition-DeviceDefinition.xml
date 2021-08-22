@@ -131,6 +131,38 @@
         <code value="uri"/>
       </type>
     </element>
+    <element id="DeviceDefinition.udiDeviceIdentifier.marketStatus">
+      <path value="DeviceDefinition.udiDeviceIdentifier.marketStatus"/>
+      <short value="Indicates whether and when the device is available on the market"/>
+      <definition value="The organization that assigns the identifier algorithm."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.udiDeviceIdentifier.marketStatus.marketPeriod">
+      <path value="DeviceDefinition.udiDeviceIdentifier.marketPeriod"/>
+      <short value="Begin and end dates for the commercial distribution of the device"/>
+      <definition value="Begin and end dates for the commercial distribution of the device."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.udiDeviceIdentifier.marketStatus.subJurisdiction">
+      <path value="DeviceDefinition.udiDeviceIdentifier.marketStatus.subJurisdiction"/>
+      <short value="National state or territory where the device is commercialized"/>
+      <definition value="National state or territory to which the marketStatus recers, typically where the device is commercialized."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+
+
     <element id="DeviceDefinition.manufacturer[x]">
       <path value="DeviceDefinition.manufacturer[x]"/>
       <short value="Name of device manufacturer"/>
@@ -915,6 +947,76 @@
           <code value="string"/>
       </type>
     </element>
+
+
+    <element id="DeviceDefinition.correctiveAction">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="350,0"/>
+      </extension>
+      <path value="DeviceDefinition.correctiveAction"/>
+      <short value="Tracking of latest field safety corrective action"/>
+      <definition value="Tracking of latest field safety corrective action."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.correctiveAction.recall">
+      <path value="DeviceDefinition.correctiveAction.recall"/>
+      <short value="Whether the corrective action was a recall"/>
+      <definition value="Whether the last corrective action known for this device was a recall."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.correctiveAction.scope">
+      <path value="DeviceDefinition.deviceName.scope"/>
+      <short value="model | lot-numbers | serial-numbers"/>
+      <definition value="The scope of the corrective action - whether the action targeted all units of a given device model, or only a specific set of batches identified by lot numbers, or individually identified devices identified by the serial name."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceCorrectiveActionScope"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The type or scope of the corrective action."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-correctiveactionscope"/>
+      </binding>
+    </element>
+    <element id="DeviceDefinition.correctiveAction.period">
+      <path value="DeviceDefinition.correctiveAction.period"/>
+      <short value="Start and end dates of the  corrective action"/>
+      <definition value="Start and end dates of the  corrective action."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <element id="DeviceDefinition.chargeItem">
       <path value="DeviceDefinition.chargeItem"/>
