@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="contributor-summary-type"/>
+  <id value="cited-artifact-abstract-type"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -9,13 +9,21 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <ul>
+        
         <li>Include all codes defined in 
-          <a href="codesystem-contributor-summary-type.html">
-            <code>http://terminology.hl7.org/CodeSystem/contributor-summary-type</code>
+          
+          <a href="codesystem-cited-artifact-abstract-type.html">
+            
+            <code>http://terminology.hl7.org/CodeSystem/cited-artifact-abstract-type</code>
+          
           </a>
+        
         </li>
+      
       </ul>
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -27,14 +35,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/contributor-summary-type"/>
+  <url value="http://hl7.org/fhir/ValueSet/cited-artifact-abstract-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="ContributorSummaryType"/>
-  <title value="ContributorSummaryType"/>
+  <name value="CitedArtifactAbstractType"/>
+  <title value="CitedArtifactAbstractType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -49,11 +57,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Used to code author list statement, contributorship statement, and such."/>
+  <description value="Used to express the reason and specific aspect for the variant abstract, such as language and specific language."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/contributor-summary-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/cited-artifact-abstract-type"/>
     </include>
   </compose>
 </ValueSet>
