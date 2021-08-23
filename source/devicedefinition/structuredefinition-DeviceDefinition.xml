@@ -469,7 +469,7 @@
     </element>    
 
     <element id="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution">
-      <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution"/>
+      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution"/>
       <short value="Indicates whether and when the device is available on the market"/>
       <definition value="The organization that assigns the identifier algorithm."/>
       <min value="1"/>
@@ -479,7 +479,7 @@
       </type>
     </element>
     <element id="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.marketPeriod">
-      <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution.marketPeriod"/>
+      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.marketPeriod"/>
       <short value="Begin and end dates for the commercial distribution of the device"/>
       <definition value="Begin and end dates for the commercial distribution of the device."/>
       <min value="0"/>
@@ -489,7 +489,7 @@
       </type>
     </element>
     <element id="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.subJurisdiction">
-      <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution.subJurisdiction"/>
+      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.subJurisdiction"/>
       <short value="National state or territory where the device is commercialized"/>
       <definition value="National state or territory to which the marketDistribution refers, typically where the device is commercialized."/>
       <min value="0"/>
