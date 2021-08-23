@@ -443,14 +443,14 @@
         <strength value="example"/>
         <description value="The device that was used to obtain the specimen (e.g. a catheter or catheter part used to draw the blood via a central line)."/>
       </binding>
-      <!-- <mapping>
+      <mapping>
         <identity value="v2"/>
         <map value="SPM-14"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
         <map value="participation[typeCode=DEV]"/>
-      </mapping> -->
+      </mapping>
     </element>
 
 
