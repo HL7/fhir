@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="alternative-title-type"/>
+  <id value="cited-artifact-part-type"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -11,8 +11,8 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <ul>
         <li>Include all codes defined in 
-          <a href="codesystem-alternative-title-type.html">
-            <code>http://terminology.hl7.org/CodeSystem/alternative-title-type</code>
+          <a href="codesystem-cited-artifact-part-type.html">
+            <code>http://terminology.hl7.org/CodeSystem/cited-artifact-part-type</code>
           </a>
         </li>
       </ul>
@@ -27,14 +27,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/alternative-title-type"/>
+  <url value="http://hl7.org/fhir/ValueSet/cited-artifact-part-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1492"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1484"/>
   </identifier>
-  <version value="4.1.0"/>
-  <name value="AlternativeTitleType"/>
-  <title value="AlternativeTitleType"/>
+  <version value="4.6.0"/>
+  <name value="CitedArtifactPartType"/>
+  <title value="CitedArtifactPartType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -49,11 +49,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Used to express the reason and specific aspect for the variant title, such as language and specific language."/>
+  <description value="To describe the reason for the variant citation, such as version number or subpart specification."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/alternative-title-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/cited-artifact-part-type"/>
     </include>
   </compose>
 </ValueSet>
