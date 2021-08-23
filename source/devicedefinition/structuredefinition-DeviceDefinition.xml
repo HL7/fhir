@@ -131,8 +131,8 @@
         <code value="uri"/>
       </type>
     </element>
-    <element id="DeviceDefinition.udiDeviceIdentifier.marketStatus">
-      <path value="DeviceDefinition.udiDeviceIdentifier.marketStatus"/>
+    <element id="DeviceDefinition.udiDeviceIdentifier.marketDistribution">
+      <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution"/>
       <short value="Indicates whether and when the device is available on the market"/>
       <definition value="The organization that assigns the identifier algorithm."/>
       <min value="1"/>
@@ -141,8 +141,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="DeviceDefinition.udiDeviceIdentifier.marketStatus.marketPeriod">
-      <path value="DeviceDefinition.udiDeviceIdentifier.marketPeriod"/>
+    <element id="DeviceDefinition.udiDeviceIdentifier.marketDistribution.marketPeriod">
+      <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution.marketPeriod"/>
       <short value="Begin and end dates for the commercial distribution of the device"/>
       <definition value="Begin and end dates for the commercial distribution of the device."/>
       <min value="0"/>
@@ -151,10 +151,10 @@
         <code value="Period"/>
       </type>
     </element>
-    <element id="DeviceDefinition.udiDeviceIdentifier.marketStatus.subJurisdiction">
-      <path value="DeviceDefinition.udiDeviceIdentifier.marketStatus.subJurisdiction"/>
+    <element id="DeviceDefinition.udiDeviceIdentifier.marketDistribution.subJurisdiction">
+      <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution.subJurisdiction"/>
       <short value="National state or territory where the device is commercialized"/>
-      <definition value="National state or territory to which the marketStatus recers, typically where the device is commercialized."/>
+      <definition value="National state or territory to which the marketDistribution recers, typically where the device is commercialized."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -467,6 +467,38 @@
         <code value="uri"/>
       </type>
     </element>    
+
+    <element id="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution">
+      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution"/>
+      <short value="Indicates whether and when the device is available on the market"/>
+      <definition value="The organization that assigns the identifier algorithm."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.marketPeriod">
+      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.marketPeriod"/>
+      <short value="Begin and end dates for the commercial distribution of the device"/>
+      <definition value="Begin and end dates for the commercial distribution of the device."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.subJurisdiction">
+      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.subJurisdiction"/>
+      <short value="National state or territory where the device is commercialized"/>
+      <definition value="National state or territory to which the marketDistribution refers, typically where the device is commercialized."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+
     <element id="DeviceDefinition.packaging.packaging">
       <path value="DeviceDefinition.packaging.packaging"/>
       <short value="Allows packages within packages"/>
