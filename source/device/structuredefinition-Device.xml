@@ -616,6 +616,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
       </binding>
     </element>
+<!--
     <element id="Device.specialization">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="600,150"/>
@@ -654,6 +655,7 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
+-->
     <element id="Device.version">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="800,100"/>
@@ -744,6 +746,12 @@
       </type>
       <type>
         <code value="boolean"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="Range"/>
       </type>
       <type>
         <code value="Attachment"/>

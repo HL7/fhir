@@ -425,6 +425,36 @@
         <map value=".methodCode"/>
       </mapping>
     </element>
+
+    <element id="Specimen.collection.device">
+      <path value="Specimen.collection.device"/>
+      <short value="Device used to perform collection"/>
+      <definition value="A coded value specifying the technique that is used to perform the procedure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SpecimenCollectionDevice"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The device that was used to obtain the specimen (e.g. a catheter or catheter part used to draw the blood via a central line)."/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="SPM-14"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=DEV]"/>
+      </mapping>
+    </element>
+
+
+
     <element id="Specimen.collection.bodySite">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="#6253."/>
