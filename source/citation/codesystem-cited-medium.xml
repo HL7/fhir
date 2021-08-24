@@ -38,49 +38,6 @@
         
         <tr>
           
-          <td style="white-space:nowrap">Internet
-            
-            <a name="cited-medium-Internet"> </a>
-          
-          </td>
-          
-          <td>Internet</td>
-          
-          <td>NLM JournalIssue CitedMedium code for online version.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">Print
-            
-            <a name="cited-medium-Print"> </a>
-          
-          </td>
-          
-          <td>Print</td>
-          
-          <td>NLM JournalIssue CitedMedium code for print version.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">Internet-Without-Issue
-            
-            <a name="cited-medium-Internet-Without-Issue"> </a>
-          
-          </td>
-          
-          <td>Internet Without Issue (Article Specific Online Publication)</td>
-          
-          <td>Used for article specific publication date which could be the same as or different from journal issue publication date.</td>
-        
-        </tr>
-
-
-        <tr>
-          
           <td style="white-space:nowrap">internet
             
             <a name="cited-medium-internet"> </a>
@@ -212,21 +169,6 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/cited-medium"/>
   <content value="complete"/>
-  <concept>
-    <code value="Internet"/>
-    <display value="Internet"/>
-    <definition value="NLM JournalIssue CitedMedium code for online version."/>
-  </concept>
-  <concept>
-    <code value="Print"/>
-    <display value="Print"/>
-    <definition value="NLM JournalIssue CitedMedium code for print version."/>
-  </concept>
-  <concept>
-    <code value="Internet-Without-Issue"/>
-    <display value="Internet Without Issue (Article Specific Online Publication)"/>
-    <definition value="Used for article specific publication date which could be the same as or different from journal issue publication date."/>
-  </concept>
   <concept>
     <code value="internet"/>
     <display value="Internet"/>
