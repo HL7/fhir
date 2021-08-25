@@ -148,12 +148,12 @@
   <concept>
     <code value="indication"/>
     <display value="Indication"/>
-    <definition value="A reason for giving the medicaton."/>
+    <definition value="A reason for giving the medication."/>
   </concept>
   <concept>
     <code value="contraindication"/>
     <display value="Contraindication"/>
-    <definition value="A reason for not giving the medicaition."/>
+    <definition value="A reason for not giving the medication."/>
   </concept>
   <concept>
     <code value="interaction"/>
