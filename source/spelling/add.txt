@@ -6,8 +6,9 @@ _list
 subject_state
 _profile
 _tag
+_security
 _source
 _id
 _content
 _text
-recruitment_target
+_lastupdated
