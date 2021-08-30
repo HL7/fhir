@@ -618,16 +618,6 @@
         <code value="ProductShelfLife"/>
       </type>
     </element>
-    <element id="DeviceDefinition.physicalCharacteristics">
-      <path value="DeviceDefinition.physicalCharacteristics"/>
-      <short value="Physical characteristics to define or specify the product - for example dimensions, color etc."/>
-      <definition value="Physical characteristics to define or specify the product - for example dimensions, color etc. These can be defined by the manufacturer or labeler, or can be used to specify characteristics when ordering."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="ProdCharacteristic"/>
-      </type>
-    </element>
     <element id="DeviceDefinition.languageCode">
       <path value="DeviceDefinition.languageCode"/>
       <short value="Language code for the human-readable text strings produced by the device (all supported)"/>
