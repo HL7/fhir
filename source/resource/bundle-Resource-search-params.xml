@@ -85,7 +85,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_profile"/>
         <description value="Profiles this resource claims to conform to"/>
         <code value="_profile"/>
-        <type value="uri"/>
+        <type value="reference"/>
         <expression value="Resource.meta.profile"/>
         <xpath value="f:Resource/f:meta/f:profile"/>
         <xpathUsage value="normal"/>
