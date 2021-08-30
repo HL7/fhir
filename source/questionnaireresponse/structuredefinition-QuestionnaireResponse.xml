@@ -95,7 +95,7 @@
 			<definition value="A business identifier assigned to a particular completed (or partially completed) questionnaire."/>
 			<requirements value="Used for tracking, registration and other business purposes."/>
 			<min value="0"/>
-			<max value="1"/>
+			<max value="*"/>
 			<type>
 				<code value="Identifier"/>
 			</type>
