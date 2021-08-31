@@ -20,7 +20,7 @@
       <value value="http://www.hl7.org/Special/committees/clingenomics"/>
     </telecom>
   </contact>
-  <description value="A variation that increases or decreases the copy number of a given region ([SO:0001019](http://www.sequenceontology.org/browser/current_svn/term/SO:0001019)). Values: amplification/deletion/LOH."/>
+  <description value="The material on this page will be removed in a future release. This content is deprecated and SHOULD NOT be used. Implementers are instead directed to the ([Genomics Reporting Implementation Guide](http://hl7.org/fhir/uv/genomics-reporting/index.html)) for guidance. A variation that increases or decreases the copy number of a given region ([SO:0001019](http://www.sequenceontology.org/browser/current_svn/term/SO:0001019)). Values: amplification/deletion/LOH."/>
   <fhirVersion value="4.1.0"/>
   <mapping>
     <identity value="rim"/>

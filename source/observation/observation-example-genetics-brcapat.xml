@@ -29,7 +29,7 @@
     <coding>
       <system value="http://loinc.org"/>
       <code value="59041-4"/>
-      <display value="BRCA1+BRCA2 gene mutations tested for in Blood or Tissue by Molecular genetics method Nominal"/>
+      <display value="The material on this page will be removed in a future release. This content is deprecated and SHOULD NOT be used. Implementers are instead directed to the ([Genomics Reporting Implementation Guide](http://hl7.org/fhir/uv/genomics-reporting/index.html)) for guidance. BRCA1+BRCA2 gene mutations tested for in Blood or Tissue by Molecular genetics method Nominal"/>
     </coding>
   </code>
   

@@ -16,7 +16,7 @@
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="79716-7"/>
-			<display value="CYP2C9 gene product metabolic activity interpretation"/>
+			<display value="The material on this page will be removed in a future release. This content is deprecated and SHOULD NOT be used. Implementers are instead directed to the ([Genomics Reporting Implementation Guide](http://hl7.org/fhir/uv/genomics-reporting/index.html)) for guidance. CYP2C9 gene product metabolic activity interpretation"/>
 		</coding>
 	</code>
 	<subject>

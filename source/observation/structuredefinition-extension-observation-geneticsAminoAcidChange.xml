@@ -61,7 +61,7 @@
       <path value="Extension.extension"/>
       <sliceName value="Name"/>
       <short value="HGVS nomenclature for observed Amino Acid Change"/>
-      <definition value="Human Genome Variation Society (HGVS) nomenclature for an amino acid change. Reference sequence ID used for HGVS naming must be annotated. An amino acid is a sequence feature that corresponds to a single amino acid residue in a polypeptide ([SO:0001237](http://www.sequenceontology.org/browser/current_svn/term/SO:0001237)). LOINC Code: ([48005-3](http://loinc.org/48005-3))."/>
+      <definition value="The material on this page will be removed in a future release. This content is deprecated and SHOULD NOT be used. Implementers are instead directed to the ([Genomics Reporting Implementation Guide](http://hl7.org/fhir/uv/genomics-reporting/index.html)) for guidance. Human Genome Variation Society (HGVS) nomenclature for an amino acid change. Reference sequence ID used for HGVS naming must be annotated. An amino acid is a sequence feature that corresponds to a single amino acid residue in a polypeptide ([SO:0001237](http://www.sequenceontology.org/browser/current_svn/term/SO:0001237)). LOINC Code: ([48005-3](http://loinc.org/48005-3))."/>
       <min value="0"/>
       <max value="1"/>
       <type>
