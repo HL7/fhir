@@ -1,7 +1,8 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 <blockquote class="stu-note">
   <p>
-    The material on this page is currently undergoing work to be refactored or potentially removed in a future release as further analysis is done as part of the <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">Genomics Reporting Implementation Guide</a>.
+    The material on this page will be removed in a future release. This content is deprecated and SHOULD NOT be used. Implementers are instead directed to the <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">Genomics Reporting Implementation Guide</a> for guidance.
+
   </p>
 </blockquote>
 

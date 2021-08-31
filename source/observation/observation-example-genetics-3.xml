@@ -15,7 +15,7 @@
 		<reference value="Practitioner/example"/>
 		<display value="Sequence Analysis Laboratory"/>
 	</performer>
-	<note><text value="The EGFR p.L858R mutation has been associated with response to anti-EGFR therapy"/></note>
+	<note><text value="The material on this page will be removed in a future release. This content is deprecated and SHOULD NOT be used. Implementers are instead directed to the ([Genomics Reporting Implementation Guide](http://hl7.org/fhir/uv/genomics-reporting/index.html)) for guidance. The EGFR p.L858R mutation has been associated with response to anti-EGFR therapy"/></note>
 	<derivedFrom>
 		<reference value="Observation/example-genetics-1"/>
 		<display value="ObservationForGenetics profile example 1"/>

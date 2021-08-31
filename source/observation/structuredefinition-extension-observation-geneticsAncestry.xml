@@ -48,7 +48,7 @@
       <path value="Extension.extension"/>
       <sliceName value="Name"/>
       <short value="Ancestry name"/>
-      <definition value="A definition that describes the geographical origin of a patient."/>
+      <definition value="The material on this page will be removed in a future release. This content is deprecated and SHOULD NOT be used. Implementers are instead directed to the ([Genomics Reporting Implementation Guide](http://hl7.org/fhir/uv/genomics-reporting/index.html)) for guidance. A definition that describes the geographical origin of a patient."/>
       <min value="1"/>
       <max value="1"/>
       <type>

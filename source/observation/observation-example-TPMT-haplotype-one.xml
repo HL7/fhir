@@ -16,7 +16,7 @@
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="363779003"/>
-			<display value="Genotype determination"/>
+			<display value="The material on this page will be removed in a future release. This content is deprecated and SHOULD NOT be used. Implementers are instead directed to the ([Genomics Reporting Implementation Guide](http://hl7.org/fhir/uv/genomics-reporting/index.html)) for guidance. Genotype determination"/>
 		</coding>
 		<text value="Haplotype Call"/>
 	</code>
