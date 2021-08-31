@@ -10,7 +10,7 @@
   </p>
 </blockquote>
 [%stu-note%]
-The FHIR Management Group has provisionally approved the Citation Resource with the qualification that we will continue to evaluate its appropriateness as it develops in the community.
+The FHIR Management Group has provisionally approved the Citation Resource with the qualification that we will continue to evaluate its appropriateness as it develops in the community. The Citation Resource content here is from the R5 specification (<a href="https://build.fhir.org/citation.html">https://build.fhir.org/citation.html</a>) and should be considered Draft (not Trial use) within the R4B specification. There is no active development of Citation Resource in the R4B branch.
 </p>
 			<ul>
 				<li>
