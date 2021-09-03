@@ -197,8 +197,8 @@
     </element>
     <element id="Specimen.subject">
       <path value="Specimen.subject"/>
-      <short value="Where the specimen came from. This may be from patient(s), from a location (e.g., the source of an environmental sample), or a sampling of a substance or a device"/>
-      <definition value="Where the specimen came from. This may be from patient(s), from a location (e.g., the source of an environmental sample), or a sampling of a substance or a device."/>
+      <short value="Where the specimen came from. This may be from patient(s), from a location (e.g., the source of an environmental sample), or a sampling of a substance, a biologically-derived product, or a device"/>
+      <definition value="Where the specimen came from. This may be from patient(s), from a location (e.g., the source of an environmental sample), or a sampling of a substance, a biologically-derived product, or a device."/>
       <requirements value="Must know the subject context."/>
       <min value="0"/>
       <max value="1"/>
@@ -207,6 +207,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
@@ -425,6 +426,36 @@
         <map value=".methodCode"/>
       </mapping>
     </element>
+
+    <element id="Specimen.collection.device">
+      <path value="Specimen.collection.device"/>
+      <short value="Device used to perform collection"/>
+      <definition value="A coded value specifying the technique that is used to perform the procedure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SpecimenCollectionDevice"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The device that was used to obtain the specimen (e.g. a catheter or catheter part used to draw the blood via a central line)."/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="SPM-14"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=DEV]"/>
+      </mapping>
+    </element>
+
+
+
     <element id="Specimen.collection.bodySite">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="#6253."/>
@@ -436,7 +467,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">

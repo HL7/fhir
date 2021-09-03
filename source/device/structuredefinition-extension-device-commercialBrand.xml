@@ -6,7 +6,7 @@
     <valueCode value="oo"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/device-commercialBrand"/>
   <version value="4.6.0"/>
@@ -33,6 +33,10 @@
   <context>
     <type value="element"/>
     <expression value="Device"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="DeviceDefinition"/>
   </context>
   <type value="Extension"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>

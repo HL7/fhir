@@ -42,7 +42,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device."/>
+  <description value="This resource describes the properties (regulated, has real time clock, etc.), adminstrative (manufacturer name, model number, serial number, firmware, etc), and type (knee replacement, blood pressure cuff, MRI, etc.) of a physical unit (these values do not change much within a given module, for example the serail number, manufacturer name, and model number). An actual unit may consist of several modules in a distinct hierarchy and these are represented by multiple Device resources and bound through the 'parent' element."/>
   <purpose value="Allows institutions to track their devices."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
@@ -143,7 +143,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
     </element>
@@ -616,6 +616,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
       </binding>
     </element>
+<!--
     <element id="Device.specialization">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="600,150"/>
@@ -654,6 +655,7 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
+-->
     <element id="Device.version">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="800,100"/>
@@ -729,7 +731,8 @@
     <element id="Device.property.value[x]">
       <path value="Device.property.value[x]"/>
       <short value="Property value - as a code or quantity"/>
-      <definition value="Property value - can be a code or quantity."/>
+      <definition value="Property value - the data type depends on the property type."/>
+      <comment value="The usage of CodeableConcept is for concepts that are normally coded but for which a code is not available - for example a device implant size that is not standardized. The property string is for text characteristics, e.g. long descriptions, warnings, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -737,6 +740,21 @@
       </type>
       <type>
         <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
       </type>
     </element>
     <element id="Device.subject">
