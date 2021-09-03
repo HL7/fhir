@@ -1520,7 +1520,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">inactive</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">unknown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="26" ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -3233,7 +3233,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s62">
+   <Row ss:AutoFitHeight="0" ss:Height="15" ss:StyleID="s62">
     <Cell><Data ss:Type="String">ResearchStudy.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String"> </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">draft</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4015,7 +4015,7 @@
     <Cell><Data ss:Type="String">requested</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">active</Data></Cell>
    </Row>
-   <Row ss:Height="15">
+   <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell><Data ss:Type="String">DeviceDispense.status</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s69"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s73"/>
