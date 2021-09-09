@@ -672,6 +672,10 @@
       <type>
         <code value="dateTime"/>
       </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV2-8"/>
+      </mapping>
     </element>
     <element id="Encounter.plannedEndDate">
       <path value="Encounter.plannedEndDate"/>
@@ -682,6 +686,10 @@
       <type>
         <code value="dateTime"/>
       </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV2-9"/>
+      </mapping>
     </element>
     <element id="Encounter.length">
       <path value="Encounter.length"/>
