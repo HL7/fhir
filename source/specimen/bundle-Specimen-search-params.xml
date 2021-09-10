@@ -30,14 +30,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Specimen.collection.bodySite"/>
+          <valueString value="Specimen.collection.bodySite.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-bodysite"/>
-        <description value="The code for the body site from where the specimen originated"/>
+        <description value="Reference to a resource (by instance)"/>
         <code value="bodysite"/>
-        <type value="token"/>
-        <expression value="Specimen.collection.bodySite"/>
-        <xpath value="f:Specimen/f:collection/f:bodySite"/>
+        <type value="reference"/>
+        <expression value="Specimen.collection.bodySite.reference"/>
+        <xpath value="f:Specimen/f:collection/f:bodySite/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
