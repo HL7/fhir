@@ -66,7 +66,7 @@
   <differential>
     <element id="MedicinalProductDefinition">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="290,0"/>
+        <valueCode value="290,30"/>
       </extension>
       <path value="MedicinalProductDefinition"/>
       <short value="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs)"/>
@@ -390,8 +390,8 @@
         <map value="Product Classification.Value"/>
       </mapping>
     </element>
-    <element id="MedicinalProductDefinition.characteristic">
-      <path value="MedicinalProductDefinition.characteristic"/>
+    <!--element id="MedicinalProductDefinition.characteristicGone">
+      <path value="MedicinalProductDefinition.characteristicGone"/>
       <short value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;"/>
       <definition value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;."/>
       <min value="0"/>
@@ -400,19 +400,19 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
-      <!--binding>
+      <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicinalProductType"/>
         </extension>
         <strength value="example"/>
         <description value="Overall defining type of this medicinal product."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
-      </binding-->
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Product Classification.Value"/>
       </mapping>
-    </element>
+    </element-->
     <element id="MedicinalProductDefinition.marketingStatus">
       <path value="MedicinalProductDefinition.marketingStatus"/>
       <short value="Marketing status of the medicinal product, in contrast to marketing authorization"/>
@@ -517,7 +517,7 @@
     </element>
     <element id="MedicinalProductDefinition.contact">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="720,250"/>
+        <valueCode value="750,250"/>
       </extension>
       <path value="MedicinalProductDefinition.contact"/>
       <short value="A product specific contact, person (in a role), or an organization"/>
@@ -583,7 +583,7 @@
     </element>
     <element id="MedicinalProductDefinition.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="80,147"/>
+        <valueCode value="80,177"/>
       </extension>
       <path value="MedicinalProductDefinition.name"/>
       <short value="The product&#39;s name, including full name and possibly coded parts"/>
@@ -631,7 +631,7 @@
     </element>
     <element id="MedicinalProductDefinition.name.namePart">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="50,257"/>
+        <valueCode value="50,292"/>
       </extension>
       <path value="MedicinalProductDefinition.name.namePart"/>
       <short value="Coding words or phrases of the name"/>
@@ -679,7 +679,7 @@
     </element>
     <element id="MedicinalProductDefinition.name.countryLanguage">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="50,12"/>
+        <valueCode value="50,42"/>
       </extension>
       <path value="MedicinalProductDefinition.name.countryLanguage"/>
       <short value="Country where the name applies"/>
@@ -741,11 +741,8 @@
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.crossReference">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Wanted to make this a choice of identifier or reference to MedicinalProductDefinition but that cannot be 0..*."/>
-      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="720,10"/>
+        <valueCode value="750,10"/>
       </extension>
       <path value="MedicinalProductDefinition.crossReference"/>
       <short value="Reference to another product, e.g. for linking authorised to investigational product"/>
@@ -800,7 +797,7 @@
     </element>
     <element id="MedicinalProductDefinition.operation">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="720,110"/>
+        <valueCode value="750,110"/>
       </extension>
       <path value="MedicinalProductDefinition.operation"/>
       <short value="A manufacturing or administrative process or step associated with (or performed on) the medicinal product"/>
@@ -892,6 +889,66 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Manufacturing / Business Operation.Confidentiality Indicator"/>
+      </mapping>
+    </element>
+    <element id="MedicinalProductDefinition.characteristic">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="750,350"/>
+      </extension>
+      <path value="MedicinalProductDefinition.characteristic"/>
+      <short value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;"/>
+      <definition value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Package Item (Container).Physical Characteristics"/>
+      </mapping>
+    </element>
+    <element id="MedicinalProductDefinition.characteristic.type">
+      <path value="MedicinalProductDefinition.characteristic.type"/>
+      <short value="A code expressing the type of characteristic"/>
+      <definition value="A code expressing the type of characteristic."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Physical Characteristics, all attributes"/>
+      </mapping>
+    </element>
+    <element id="MedicinalProductDefinition.characteristic.value[x]">
+      <path value="MedicinalProductDefinition.characteristic.value[x]"/>
+      <short value="A value for the characteristic"/>
+      <definition value="A value for the characteristic."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="date"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Physical Characteristics, attribute&#39;s value"/>
       </mapping>
     </element>
   </differential>
