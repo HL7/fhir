@@ -103,9 +103,4 @@
     <display value="Entered in Error"/>
     <definition value="The device was entered in error and voided."/>
   </concept>
-  <concept>
-    <code value="unknown"/>
-    <display value="Unknown"/>
-    <definition value="The status of the device has not been determined."/>
-  </concept>
 </CodeSystem>
