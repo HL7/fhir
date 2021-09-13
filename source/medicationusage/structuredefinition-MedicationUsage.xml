@@ -166,7 +166,7 @@
         </extension>
         <strength value="example"/>
         <description value="A coded concept identifying where the medication included in the MedicationUsage is expected to be consumed or administered."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medication-usage-admin-location"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-admin-location"/>
       </binding>
       <mapping>
         <identity value="w5"/>
