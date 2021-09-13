@@ -10,14 +10,34 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MedicinalProductDefinition.characteristic"/>
+          <valueString value="MedicinalProductDefinition.characteristic.value"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-characteristic"/>
         <description value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;"/>
         <code value="characteristic"/>
         <type value="token"/>
-        <expression value="MedicinalProductDefinition.characteristic"/>
-        <xpath value="f:MedicinalProductDefinition/f:characteristic"/>
+        <expression value="MedicinalProductDefinition.characteristic.value"/>
+        <xpath value="f:MedicinalProductDefinition/f:characteristic/f:value"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicinalProductDefinition-characteristic-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicinalProductDefinition.characteristic.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-characteristic-type"/>
+        <description value="A category for the characteristic"/>
+        <code value="characteristic-type"/>
+        <type value="token"/>
+        <expression value="MedicinalProductDefinition.characteristic.type"/>
+        <xpath value="f:MedicinalProductDefinition/f:characteristic/f:type"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
