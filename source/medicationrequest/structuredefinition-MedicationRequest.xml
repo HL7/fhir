@@ -132,7 +132,7 @@
     </element>
     <element id="MedicationRequest.status">
       <path value="MedicationRequest.status"/>
-      <short value="active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown"/>
+      <short value="active | on-hold | ended | stopped | completed | cancelled | entered-in-error | draft | unknown"/>
       <definition value="A code specifying the current state of the order.  Generally, this will be active or completed state."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.&#xA;&#xA;Clinical decision support systems should take the status into account when determining which medications to include in their algorithms."/>
       <min value="1"/>
@@ -196,6 +196,20 @@
       <mapping>
         <identity value="rim"/>
         <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN].reasonCOde"/>
+      </mapping>
+    </element>
+    <element id="MedicationRequest.statusChanged">
+      <path value="MedicationRequest.statusChanged"/>
+      <short value="When the status was changed"/>
+      <definition value="The date (and perhaps time) when the status was changed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="subjectOf Observation[code = statusChange].value = date"/>
       </mapping>
     </element>
     <element id="MedicationRequest.intent">
@@ -1094,7 +1108,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationRequestSubstitution"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Identifies the type of substitution allowed."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActSubstanceAdminSubstitutionCode"/>
       </binding>
