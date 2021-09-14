@@ -167,9 +167,9 @@
 	<contained>
 		<PackagedProductDefinition>
 			<id value="packageCombo"/>
-			<subject>
+			<packageFor>
 				<reference value="#"/>
-			</subject>
+			</packageFor>
 			<package>
 				<type>
 					<coding>

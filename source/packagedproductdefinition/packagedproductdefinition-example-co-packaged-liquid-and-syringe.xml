@@ -35,9 +35,9 @@
 		</ManufacturedItemDefinition>
 	</contained>
 	<!-- the product for which this is one available package type (possibly one package type of several for this product) -->
-	<subject>
+	<packageFor>
 		<reference value="MedicinalProductDefinition/ProductThatHasThisPackType"/>
-	</subject>
+	</packageFor>
 	<!-- package contents start here, consists of a liquid and a syringe -->
 	<package>
 		<!-- here we can describe the packaging, but in this case we just want to talk about the contents -->
