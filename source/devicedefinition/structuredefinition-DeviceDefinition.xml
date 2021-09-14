@@ -135,8 +135,8 @@
       <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution"/>
       <short value="Indicates whether and when the device is available on the market"/>
       <definition value="The organization that assigns the identifier algorithm."/>
-      <min value="1"/>
-      <max value="1"/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -472,7 +472,7 @@
       <path value="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution"/>
       <short value="Indicates whether and when the device is available on the market"/>
       <definition value="The organization that assigns the identifier algorithm."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="BackboneElement"/>
@@ -616,16 +616,6 @@
       <max value="*"/>
       <type>
         <code value="ProductShelfLife"/>
-      </type>
-    </element>
-    <element id="DeviceDefinition.physicalCharacteristics">
-      <path value="DeviceDefinition.physicalCharacteristics"/>
-      <short value="Physical characteristics to define or specify the product - for example dimensions, color etc."/>
-      <definition value="Physical characteristics to define or specify the product - for example dimensions, color etc. These can be defined by the manufacturer or labeler, or can be used to specify characteristics when ordering."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="ProdCharacteristic"/>
       </type>
     </element>
     <element id="DeviceDefinition.languageCode">
@@ -998,6 +988,7 @@
       <path value="DeviceDefinition.correctiveAction.recall"/>
       <short value="Whether the corrective action was a recall"/>
       <definition value="Whether the last corrective action known for this device was a recall."/>
+      <comment value="When a field safety action has been initiated but not yet resulted in a recall, this element will be set to 'false'."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1005,10 +996,10 @@
       </type>
     </element>
     <element id="DeviceDefinition.correctiveAction.scope">
-      <path value="DeviceDefinition.deviceName.scope"/>
+      <path value="DeviceDefinition.correctiveAction.scope"/>
       <short value="model | lot-numbers | serial-numbers"/>
       <definition value="The scope of the corrective action - whether the action targeted all units of a given device model, or only a specific set of batches identified by lot numbers, or individually identified devices identified by the serial name."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
