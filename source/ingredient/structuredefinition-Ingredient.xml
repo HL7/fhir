@@ -164,7 +164,7 @@
       <path value="Ingredient.substance"/>
       <short value="The substance that comprises this ingredient"/>
       <definition value="The substance that comprises this ingredient."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="BackboneElement"/>
@@ -389,9 +389,9 @@
         <map value="Reference Strength.Country"/>
       </mapping>
     </element>
-    <element id="Ingredient.specifiedSubstance">
+    <!--element id="Ingredient.specifiedSubstance">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="160,300"/>
+        <valueCode value="140,320"/>
       </extension>
       <path value="Ingredient.specifiedSubstance"/>
       <short value="A specified substance that comprises this ingredient"/>
@@ -466,6 +466,6 @@
         <identity value="idmp"/>
         <map value="Substance.Strength"/>
       </mapping>
-    </element>
+    </element-->
   </differential>
 </StructureDefinition>
