@@ -221,7 +221,7 @@
       <short value="The legal status of supply of the packaged item as classified by the regulator"/>
       <definition value="The legal status of supply of the packaged item as classified by the regulator."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
