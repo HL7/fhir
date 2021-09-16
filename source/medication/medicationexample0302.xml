@@ -3,8 +3,8 @@
   <id value="med0302"/>
   <contained>
     <Organization>
-      <id value="org7"/>
-      <name value="Wyeth Pharmaceuticals Inc" />
+      <id value="mmanu"/>
+      <name value="Medication Manufacturer" />
     </Organization>
   </contained>
   <code>
@@ -14,9 +14,9 @@
       <display value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
     </coding>
   </code>
-  <sponsor>
-    <reference value="#org7"/>
-  </sponsor>
+  <marketingAuthorizationHolder>
+    <reference value="#mmanu" />
+  </marketingAuthorizationHolder>
     <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>

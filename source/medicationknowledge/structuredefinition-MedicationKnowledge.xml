@@ -219,10 +219,10 @@
         <map value=".formCode"/>
       </mapping>
     </element>
-    <element id="MedicationKnowledge.amount">
-      <path value="MedicationKnowledge.amount"/>
-      <short value="Amount of drug in package"/>
-      <definition value="Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)."/>
+    <element id="MedicationKnowledge.totalVolume">
+      <path value="MedicationKnowledge.totalVolume"/>
+      <short value="When the specified product code does not infer a package size, this is the specific amount of drug in the product"/>
+      <definition value="When the specified product code does not infer a package size, this is the specific amount of drug in the product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)."/>
       <comment value="This is the quantity of medication in a package.  To specify the strength of the medication, the Ingredient.strength attribute is used."/>
       <min value="0"/>
       <max value="1"/>
@@ -800,7 +800,7 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
     </element>
     <element id="MedicationKnowledge.packaging.material">
