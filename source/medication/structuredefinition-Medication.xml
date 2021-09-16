@@ -173,10 +173,10 @@
         <map value=".statusCode"/>
       </mapping>
     </element>
-    <element id="Medication.sponsor">
-      <path value="Medication.sponsor"/>
+    <element id="Medication.marketingAuthorizationHolder">
+      <path value="Medication.marketingAuthorizationHolder"/>
       <short value="Organization responsible for manufacturing the item"/>
-      <definition value="Describes the details of the manufacturer of the medication product. This is not intended to represent the distributor of a medication product.&#xA0; Describes&#xA0;the organization that is responsible for the manufacturing of the item and holds the registration to market the product in a jurisdiction.. This might not be the company that physically manufactures the product.&#xA0; May be known as Market Authorization Holder."/>
+      <definition value="Describes&#xA0;the organization that is responsible for the manufacturing of the item and holds the registration to market the product in a jurisdiction. This might not be the company that physically manufactures the product.&#xA0; May be known as &quot;Sponsor&quot; and is commonly called &quot;Manufacturer&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -220,10 +220,10 @@
         <map value=".formCode"/>
       </mapping>
     </element>
-    <element id="Medication.amount">
-      <path value="Medication.amount"/>
-      <short value="Amount of drug in package"/>
-      <definition value="Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)."/>
+    <element id="Medication.totalVolume">
+      <path value="Medication.totalVolume"/>
+      <short value="When the specified product code does not infer a package size, this is the specific amount of drug in the product"/>
+      <definition value="When the specified product code does not infer a package size, this is the specific amount of drug in the product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
