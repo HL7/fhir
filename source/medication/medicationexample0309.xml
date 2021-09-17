@@ -3,8 +3,8 @@
   <id value="med0309"/>
   <contained>
     <Organization>
-      <id value="org2"/>
-      <name value="Johnson and Johnson Consume Inc, McNeil Consumer Healthcare Division" />
+      <id value="mmanu"/>
+      <name value="Medication Manufacturer" />
     </Organization>
   </contained>
   <code>
@@ -15,9 +15,9 @@
     </coding>
   </code>
   
-  <sponsor>
-    <reference value="#org2"/>
-  </sponsor>
+  <marketingAuthorizationHolder>
+    <reference value="#mmanu" />
+  </marketingAuthorizationHolder>
     <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>
