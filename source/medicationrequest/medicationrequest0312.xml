@@ -8,6 +8,9 @@
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="12345689"/>
     </identifier>
+    <priorPrescription>
+        <reference value="MedicationRequest/medrx0304"/>
+    </priorPrescription>
     <status value="active"/>
     <intent value="order"/>
     <medication>
@@ -103,7 +106,5 @@
             </coding>
         </reason>
     </substitution>
-    <priorPrescription>
-        <reference value="MedicationRequest/medrx0304"/>
-    </priorPrescription>
+
 </MedicationRequest>

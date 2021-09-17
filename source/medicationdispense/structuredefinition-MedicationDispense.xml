@@ -250,6 +250,10 @@
       <type>
         <code value="dateTime"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".subjectOf Observation[code = statusChange].value = date"/>
+      </mapping>
     </element>
     <element id="MedicationDispense.category">
       <path value="MedicationDispense.category"/>
@@ -580,6 +584,10 @@
       <type>
         <code value="dateTime"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".MedicationDispense.dataEnterer..time"/>
+      </mapping>
     </element>
     <element id="MedicationDispense.whenPrepared">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
