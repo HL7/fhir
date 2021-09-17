@@ -8,6 +8,10 @@
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="12345689"/>
     </identifier>
+    <priorPrescription>
+        <reference value="MedicationRequest/medrx0318"/>
+        <display value="Vancomycin IV"/>
+    </priorPrescription>
     <status value="completed"/>
     <intent value="order"/>
     <medication>
@@ -96,8 +100,5 @@
             <code value="d"/>
         </expectedSupplyDuration>
     </dispenseRequest>
-    <priorPrescription>
-        <reference value="MedicationRequest/medrx0318"/>
-            <display value="Vancomycin IV"/>
-    </priorPrescription>
+
 </MedicationRequest>

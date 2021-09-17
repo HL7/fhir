@@ -38,6 +38,7 @@
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>           
     </subject>
+
     <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
         <reference value="Encounter/f001"/>
         <display value="encounter who leads to this prescription"/>
