@@ -25,9 +25,9 @@
       <display value="Oral Dose Form (qualifier value)"/>
     </coding>
   </doseForm>
-  <amount>
+  <totalVolume>
     <value value="50"></value>
     <unit value="mg/ml"/>
-  </amount>
+  </totalVolume>
   <synonym value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"></synonym>
 </MedicationKnowledge>

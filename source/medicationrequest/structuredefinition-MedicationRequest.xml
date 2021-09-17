@@ -767,7 +767,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationRequestCourseOfTherapy"/>
         </extension>
-        <strength value="example"/>
+        <strength value="extensible"/>
         <description value="Identifies the overall pattern of medication administratio."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy"/>
       </binding>
