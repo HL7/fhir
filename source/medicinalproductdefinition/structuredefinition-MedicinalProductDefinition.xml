@@ -308,6 +308,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <!--binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicinalProductType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Overall defining type of this medicinal product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
+      </binding-->
       <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product.Additional Monitoring Indicator"/>
@@ -323,6 +331,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <!--binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicinalProductType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Overall defining type of this medicinal product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
+      </binding-->
       <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product.Special Measures"/>
@@ -338,6 +354,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <!--binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicinalProductType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Overall defining type of this medicinal product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
+      </binding-->
       <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product.Pediatric Use Indicator"/>
@@ -353,6 +377,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <!--binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicinalProductType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Overall defining type of this medicinal product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
+      </binding-->
       <mapping>
         <identity value="idmp"/>
         <map value="Product Classification.Value"/>
