@@ -127,8 +127,8 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.subject">
-      <path value="PackagedProductDefinition.subject"/>
+    <element id="PackagedProductDefinition.packageFor">
+      <path value="PackagedProductDefinition.packageFor"/>
       <short value="The product that this is a pack for"/>
       <definition value="The product that this is a pack for."/>
       <min value="0"/>

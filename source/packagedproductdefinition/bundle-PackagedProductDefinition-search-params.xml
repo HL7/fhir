@@ -205,19 +205,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="PackagedProductDefinition-subject"/>
+        <id value="PackagedProductDefinition-package-for"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PackagedProductDefinition.subject"/>
+          <valueString value="PackagedProductDefinition.packageFor"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-subject"/>
         <description value="The product that this is a pack for"/>
-        <code value="subject"/>
+        <code value="package-for"/>
         <type value="reference"/>
-        <expression value="PackagedProductDefinition.subject"/>
-        <xpath value="f:PackagedProductDefinition/f:subject"/>
+        <expression value="PackagedProductDefinition.packageFor"/>
+        <xpath value="f:PackagedProductDefinition/f:packageFor"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
