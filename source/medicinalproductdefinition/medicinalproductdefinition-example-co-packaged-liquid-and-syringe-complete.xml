@@ -181,9 +181,9 @@
 	<contained>
 		<PackagedProductDefinition>
 			<id value="package"/>
-			<subject>
+			<packageFor>
 				<reference value="#"/>
-			</subject>
+			</packageFor>
 			<package>
 				<package>
 					<type>
