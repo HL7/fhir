@@ -99,10 +99,10 @@
     </element>
     <element id="RegulatedAuthorization.subject">
       <path value="RegulatedAuthorization.subject"/>
-      <short value="The type of regulated product, treatment, facility or activity that is being authorized"/>
-      <definition value="The type of regulated product, treatment, facility or activity that is being authorized."/>
+      <short value="The product type, treatment, facility or activity that is being authorized"/>
+      <definition value="The product type, treatment, facility or activity that is being authorized."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
