@@ -15,7 +15,9 @@
   <description value="This ADX-HIV measure defines a common set of HIV core indicators with data elements and associated stratifiers along with instructions regarding how to leverage these to generate and exchange conformant XML messages. Interoperable message exchange will be valuable to jurisdictions such as Ministries of Health, and WHO, and to health initiatives such as the U.S. President’s Emergency Plan for AIDS Relief (PEPFAR), the Global Fund, UNAIDS, and others."/>
   <relatedArtifact>
     <type value="derived-from"/>
-    <url value="http://wiki.ihe.net/index.php/Aggregate_Data_Exchange_-_HIV"/>
+    <document>
+      <url value="http://wiki.ihe.net/index.php/Aggregate_Data_Exchange_-_HIV"/>
+    </document>
   </relatedArtifact>
   <library value="http://ohie.org/Library/hiv-indicators"/>
   <scoring>

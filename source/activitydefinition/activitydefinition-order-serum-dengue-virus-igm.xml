@@ -102,8 +102,8 @@
   <status value="draft"/>
   <description value="Order Serum Dengue Virus IgM"/>
   <relatedArtifact>
-	<type value="documentation"/>
-	<display value="Explanation of diagnostic tests for Dengue virus and which to use based on the patient’s clinical and exposure history."/>
+  	<type value="documentation"/>
+  	<display value="Explanation of diagnostic tests for Dengue virus and which to use based on the patient’s clinical and exposure history."/>
   </relatedArtifact>
   <kind value="ServiceRequest"/>
   <code>

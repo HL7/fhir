@@ -101,7 +101,9 @@
   </useContext>
   <relatedArtifact>
     <type value="derived-from"/>
-    <url value="https://www.cdc.gov/zika/hc-providers/pregnant-woman.html"/>
+		<document>
+    	<url value="https://www.cdc.gov/zika/hc-providers/pregnant-woman.html"/>
+		</document>
   </relatedArtifact>
   <relatedArtifact>
     <type value="depends-on"/>
