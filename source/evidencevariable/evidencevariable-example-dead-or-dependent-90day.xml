@@ -24,14 +24,14 @@
 				<display value="Functionally dependent (finding)"/>
 			</coding>
 		</definitionCodeableConcept>
-		<timeFromStart>
+		<timeFromEvent>
 			<quantity>
 				<value value="90"/>
 				<unit value="day"/>
 				<system value="http://unitsofmeasure.org"/>
 				<code value="d"/>
 			</quantity>
-		</timeFromStart>
+		</timeFromEvent>
   </characteristic>
   <characteristic>
 		<description value="dead at 90 days"/>
@@ -42,14 +42,14 @@
 				<display value="Dead (finding)"/>
 			</coding>
 		</definitionCodeableConcept>
-		<timeFromStart>
+		<timeFromEvent>
 			<quantity>
 				<value value="90"/>
 				<unit value="day"/>
 				<system value="http://unitsofmeasure.org"/>
 				<code value="d"/>
 			</quantity>
-		</timeFromStart>
+		</timeFromEvent>
   </characteristic>
   <handling value="dichotomous"/>
 </EvidenceVariable>

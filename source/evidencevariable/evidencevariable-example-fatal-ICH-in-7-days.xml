@@ -27,7 +27,7 @@
 				<display value="Intracranial hemorrhage (disorder)"/>
 			</coding>
     </definitionCodeableConcept>
-    <timeFromStart>
+    <timeFromEvent>
 			<description value="within 7 days"/>
 			<range>
 				<low>
@@ -43,7 +43,7 @@
 					<code value="d"/>
 				</high>
 			</range>
-    </timeFromStart>
+    </timeFromEvent>
   </characteristic>
   <characteristic>
 		<description value="death within 7 days"/>
@@ -54,7 +54,7 @@
 				<display value="Death (event)"/>
 			</coding>
 		</definitionCodeableConcept>
-		<timeFromStart>
+		<timeFromEvent>
 			<description value="within 7 days"/>
 			<range>
 				<low>
@@ -70,7 +70,7 @@
 					<code value="d"/>
 				</high>
 			</range>
-		</timeFromStart>
+		</timeFromEvent>
   </characteristic>
   <handling value="dichotomous"/>
 </EvidenceVariable>
