@@ -574,7 +574,7 @@
     <element id="DiagnosticReport.note">
       <path value="DiagnosticReport.note"/>
       <short value="Comments about the diagnostic report"/>
-      <definition value="Comments about the diagnostic report"/>
+      <definition value="Comments about the diagnostic report."/>
       <comment value="May include general statements about the diagnostic report, or statements about significant, unexpected or unreliable results values contained within the diagnostic report, or information about its source when relevant to its interpretation."/>
       <requirements value="Need to be able to provide free text additional information."/>
       <min value="0"/>
