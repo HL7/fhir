@@ -189,7 +189,7 @@
     </element>
     <element id="MedicationKnowledge.name">
       <path value="MedicationKnowledge.name"/>
-      <short value="Names for the medication"/>
+      <short value="A name associated with the medication being described"/>
       <definition value="All of the names for a medication, for example, the name(s) given to a medication in different countries.  For example, acetaminophen and paracetamol or salbutamol and albuterol."/>
       <min value="0"/>
       <max value="*"/>
@@ -581,7 +581,7 @@
     </element>
     <element id="MedicationKnowledge.packaging.packagedProduct">
       <path value="MedicationKnowledge.packaging.packagedProduct"/>
-      <short value="The packaged medication that is being priced."/>
+      <short value="The packaged medication that is being priced"/>
       <definition value="A reference to a PackagedProductDefinition that provides the details of the product that is in the packaging and is being priced."/>
       <min value="0"/>
       <max value="1"/>
@@ -707,7 +707,7 @@
     </element>
     <element id="MedicationKnowledge.definitional">
       <path value="MedicationKnowledge.definitional"/>
-      <short value="Minimal definition information about the medication."/>
+      <short value="Minimal definition information about the medication"/>
       <definition value="Along with the link to a Medicinal Product Definition resource, this information provides common definitional elements that are needed to understand the specific medication that is being described."/>
       <min value="0"/>
       <max value="1"/>
@@ -717,7 +717,7 @@
     </element>
     <element id="MedicationKnowledge.definitional.definition">
       <path value="MedicationKnowledge.definitional.definition"/>
-      <short value="Definitional resources that provide more information about this medication."/>
+      <short value="Definitional resources that provide more information about this medication"/>
       <definition value="Associated definitions for this medication."/>
       <min value="0"/>
       <max value="*"/>
@@ -774,8 +774,8 @@
     </element>
     <element id="MedicationKnowledge.definitional.ingredient.item">
       <path value="MedicationKnowledge.definitional.ingredient.item"/>
-      <short value="Substances ontained in the medication"/>
-      <definition value="The actual ingredient"/>
+      <short value="Substances contained in the medication"/>
+      <definition value="A reference to the resource that provides information about the ingredient."/>
       <min value="1"/>
       <max value="1"/>
       <type>
