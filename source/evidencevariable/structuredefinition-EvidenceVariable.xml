@@ -576,56 +576,6 @@
       </type>
       <meaningWhenMissing value="False"/>
     </element>
-    <element id="EvidenceVariable.characteristic.timeFromStart">
-      <path value="EvidenceVariable.characteristic.timeFromStart"/>
-      <short value="Observation time from study start"/>
-      <definition value="Indicates duration, period, or point of observation from the participant&#39;s study entry."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="EvidenceVariable.characteristic.timeFromStart.description">
-      <path value="EvidenceVariable.characteristic.timeFromStart.description"/>
-      <short value="Human readable description"/>
-      <definition value="A short, natural language description."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="EvidenceVariable.characteristic.timeFromStart.quantity">
-      <path value="EvidenceVariable.characteristic.timeFromStart.quantity"/>
-      <short value="Used to express the observation at a defined amount of time after the study start"/>
-      <definition value="Used to express the observation at a defined amount of time after the study start."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Quantity"/>
-      </type>
-    </element>
-    <element id="EvidenceVariable.characteristic.timeFromStart.range">
-      <path value="EvidenceVariable.characteristic.timeFromStart.range"/>
-      <short value="Used to express the observation within a period after the study start"/>
-      <definition value="Used to express the observation within a period after the study start."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Range"/>
-      </type>
-    </element>
-    <element id="EvidenceVariable.characteristic.timeFromStart.note">
-      <path value="EvidenceVariable.characteristic.timeFromStart.note"/>
-      <short value="Used for footnotes or explanatory notes"/>
-      <definition value="A human-readable string to clarify or explain concepts about the resource."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Annotation"/>
-      </type>
-    </element>
     <element id="EvidenceVariable.characteristic.timeFromEvent">
       <path value="EvidenceVariable.characteristic.timeFromEvent"/>
       <short value="Observation time from study specified event"/>
@@ -646,7 +596,7 @@
     </element>
     <element id="EvidenceVariable.characteristic.timeFromEvent.event">
       <path value="EvidenceVariable.characteristic.timeFromEvent.event"/>
-      <short value="The type of event where the observation started"/>
+      <short value="The event used as a base point (reference point) in time"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -654,10 +604,10 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ProcedureCodes"/>
+          <valueString value="EvidenceVariableEvent"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-event"/>
       </binding>
     </element>
     <element id="EvidenceVariable.characteristic.timeFromEvent.quantity">
