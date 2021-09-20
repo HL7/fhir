@@ -29,6 +29,13 @@
     </definitionCodeableConcept>
     <timeFromEvent>
 			<description value="within 7 days"/>
+			<event>
+				<coding>
+					<system value="http://hl7.org/fhir/evidence-variable-event"/>
+					<code value="study-start"/>
+					<display value="Study Start"/>
+				</coding>
+			</event>
 			<range>
 				<low>
 					<value value="0"/>
