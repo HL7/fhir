@@ -571,6 +571,26 @@
         <map value="outboundRelationship[typeCode=COMP].target"/>
       </mapping>
     </element>
+    <element id="DiagnosticReport.note">
+      <path value="DiagnosticReport.note"/>
+      <short value="Comments about the diagnostic report"/>
+      <definition value="Comments about the diagnostic report"/>
+      <comment value="May include general statements about the diagnostic report, or statements about significant, unexpected or unreliable results values contained within the diagnostic report, or information about its source when relevant to its interpretation."/>
+      <requirements value="Need to be able to provide free text additional information."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.note"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="unknown"/>
+      </mapping>
+    </element>
     <element id="DiagnosticReport.imagingStudy">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="6246."/>
