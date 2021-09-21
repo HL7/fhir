@@ -485,7 +485,7 @@
     <element id="RequestGroup.action.prefix">
       <path value="RequestGroup.action.prefix"/>
       <short value="User-visible prefix for the action (e.g. 1. or A.)"/>
-      <definition value="A user-visible prefix for the action."/>
+      <definition value="A user-visible prefix for the action. For example a section or item numbering such as 1. or A."/>
       <min value="0"/>
       <max value="1"/>
       <type>
