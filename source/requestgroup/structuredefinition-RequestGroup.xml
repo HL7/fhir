@@ -417,7 +417,7 @@
     <element id="RequestGroup.goal">
       <path value="RequestGroup.goal"/>
       <short value="What goals"/>
-      <definition value="Goals that are intended to be achieved by following the requests in this RequestGroup"/>
+      <definition value="Goals that are intended to be achieved by following the requests in this RequestGroup."/>
       <min value="0"/>
       <max value="*"/>
       <type>
