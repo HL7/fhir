@@ -414,6 +414,25 @@
         <map value="FiveWs.why[x]"/>
       </mapping>
     </element>
+    <element id="RequestGroup.goal">
+      <path value="RequestGroup.goal"/>
+      <short value="What goals"/>
+      <definition value="Goals that are intended to be achieved by following the requests in this RequestGroup"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Goal"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
     <element id="RequestGroup.note">
       <path value="RequestGroup.note"/>
       <short value="Additional notes about the response"/>
@@ -560,6 +579,25 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Request.supportingInfo"/>
+      </mapping>
+    </element>
+    <element id="RequestGroup.action.goal">
+      <path value="RequestGroup.action.goal"/>
+      <short value="What goals"/>
+      <definition value="Goals that are intended to be achieved by following the requests in this action"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Goal"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
       </mapping>
     </element>
     <element id="RequestGroup.action.condition">
