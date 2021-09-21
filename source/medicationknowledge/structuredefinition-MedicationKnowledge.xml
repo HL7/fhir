@@ -176,70 +176,21 @@
         <map value="ManufacturedProduct.subjectOf.DocumentEvent.author"/>
       </mapping>
     </element>
-    <element id="MedicationKnowledge.sponsor">
-      <path value="MedicationKnowledge.sponsor"/>
-      <short value="Organization responsible for manufacturing of the item"/>
-      <definition value="Describes the details of the manufacturer of the medication product. This is not intended to represent the distributor of a medication product.&#xA0; Describes&#xA0;the organization that is responsible for the manufacturing of the item and holds the registration to market the product in a jurisdiction. This might not be the company that physically manufactures the product.&#xA0; May be known as Market Authorization Holder."/>
+    <element id="MedicationKnowledge.intendedJurisdiction">
+      <path value="MedicationKnowledge.intendedJurisdiction"/>
+      <short value="Codes that identify the different jurisdictions for which the information of this resource was created"/>
+      <definition value="Lists the jurisdictions that this medication knowledge was written for."/>
+      <comment value="The codes could have varying granularity from a country or group of countries down to a specific district."/>
       <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MedicationKnowledge.doseForm">
-      <path value="MedicationKnowledge.doseForm"/>
-      <short value="powder | tablets | capsule +"/>
-      <definition value="Describes the form of the item.  Powder; tablets; capsule."/>
-      <comment value="When Medication is referenced from MedicationRequest, this is the ordered form.  When Medication is referenced within MedicationDispense, this is the dispensed form.  When Medication is referenced within MedicationAdministration, this is administered form."/>
-      <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicationForm"/>
-        </extension>
-        <strength value="example"/>
-        <description value="A coded concept defining the form of a medication."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medication-form-codes"/>
-      </binding>
-      <mapping>
-        <identity value="script10.6"/>
-        <map value="coding.code =  //element(*,DrugCodedType)/FormCode&#xD;&#xD;coding.system = //element(*,DrugCodedType)/FormSourceCode"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="RXO-5-Requested Dosage Form / RXE-6-Give Dosage Form / RXD-6-Actual Dosage Form / RXG-8-Give Dosage Form / RXA-8-Administered Dosage Form"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".formCode"/>
-      </mapping>
     </element>
-    <element id="MedicationKnowledge.totalVolume">
-      <path value="MedicationKnowledge.totalVolume"/>
-      <short value="When the specified product code does not infer a package size, this is the specific amount of drug in the product"/>
-      <definition value="When the specified product code does not infer a package size, this is the specific amount of drug in the product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)."/>
-      <comment value="This is the quantity of medication in a package.  To specify the strength of the medication, the Ingredient.strength attribute is used."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".quantity"/>
-      </mapping>
-    </element>
-    <element id="MedicationKnowledge.synonym">
-      <path value="MedicationKnowledge.synonym"/>
-      <short value="Additional names for a medication"/>
-      <definition value="Additional names for a medication, for example, the name(s) given to a medication in different countries.  For example, acetaminophen and paracetamol or salbutamol and albuterol."/>
+    <element id="MedicationKnowledge.name">
+      <path value="MedicationKnowledge.name"/>
+      <short value="A name associated with the medication being described"/>
+      <definition value="All of the names for a medication, for example, the name(s) given to a medication in different countries.  For example, acetaminophen and paracetamol or salbutamol and albuterol."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -283,24 +234,13 @@
     </element>
     <element id="MedicationKnowledge.associatedMedication">
       <path value="MedicationKnowledge.associatedMedication"/>
-      <short value="A medication resource that is associated with this medication"/>
+      <short value="The set of medication resources that are associated with this medication"/>
       <definition value="Links to associated medications that could be prescribed, dispensed or administered."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
-      </type>
-    </element>
-    <element id="MedicationKnowledge.associatedDefinition">
-      <path value="MedicationKnowledge.associatedDefinition"/>
-      <short value="A definition resource that is associated with this medication"/>
-      <definition value="Associated definitions for this medication."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
       </type>
     </element>
     <element id="MedicationKnowledge.productType">
@@ -347,114 +287,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.ingredient">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="280,80"/>
-      </extension>
-      <path value="MedicationKnowledge.ingredient"/>
-      <short value="Active or inactive ingredient"/>
-      <definition value="Identifies a particular constituent of interest in the product."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MedicationKnowledge.ingredient.item">
-      <path value="MedicationKnowledge.ingredient.item"/>
-      <short value="Medication(s) or MedicinalProductIngredient(s) contained in the medication"/>
-      <definition value="The actual ingredient - either a substance (simple ingredient) or another medication."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="script10.6"/>
-        <map value="coding.code = //element(*,MedicationType)/DrugCoded/ProductCode&#xD;&#xD;coding.system = //element(*,MedicationType)/DrugCoded/ProductCodeQualifier&#xD;&#xD;coding.display = //element(*,MedicationType)/DrugDescription"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="RXC-2-Component Code  if medication: RXO-1-Requested Give Code / RXE-2-Give Code / RXD-2-Dispense/Give Code / RXG-4-Give Code / RXA-5-Administered Code"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".player"/>
-      </mapping>
-    </element>
-    <element id="MedicationKnowledge.ingredient.isActive">
-      <path value="MedicationKnowledge.ingredient.isActive"/>
-      <short value="Active ingredient indicator"/>
-      <definition value="Indication of whether this ingredient affects the therapeutic action of the drug."/>
-      <requirements value="True indicates that the ingredient affects the therapeutic action of the drug (i.e. active). &#xD;False indicates that the ingredient does not affect the therapeutic action of the drug (i.e. inactive)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicationIngredientIsActive"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/v3-RoleClassIngredientEntity"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="NA"/>
-      </mapping>
-    </element>
-    <element id="MedicationKnowledge.ingredient.strength[x]">
-      <path value="MedicationKnowledge.ingredient.strength[x]"/>
-      <short value="Quantity of ingredient present"/>
-      <definition value="Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet but can also be expressed a quantity when the denominator is assumed to be 1 tablet."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Ratio"/>
-      </type>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Quantity"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicationIngredientStrength"/>
-        </extension>
-        <strength value="example"/>
-        <description value="A coded concept defining the strength of an ingredient."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medication-ingredientstrength"/>
-      </binding>
-      <mapping>
-        <identity value="script10.6"/>
-        <map value="//element(*,DrugCodedType)/Strength"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="RXC-3-Component Amount &amp; RXC-4-Component Units  if medication: RXO-2-Requested Give Amount - Minimum &amp; RXO-4-Requested Give Units / RXO-3-Requested Give Amount - Maximum &amp; RXO-4-Requested Give Units / RXO-11-Requested Dispense Amount &amp; RXO-12-Requested Dispense Units / RXE-3-Give Amount - Minimum &amp; RXE-5-Give Units / RXE-4-Give Amount - Maximum &amp; RXE-5-Give Units / RXE-10-Dispense Amount &amp; RXE-10-Dispense Units"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".quantity"/>
-      </mapping>
-    </element>
-    <element id="MedicationKnowledge.device">
-      <path value="MedicationKnowledge.device"/>
-      <short value="A device associated with the medication (for example, a drug coated catheter or a drug impregnated dressing)"/>
-      <definition value="A device associated with the medication (for example, a drug coated catheter or a drug impregnated dressing)."/>
-      <requirements value="This attribute should only be populated for those devices that have the drug incorporated in them.  If a device used to administer a medication, for example an applicator or a syringe, needs to be specified, use MedicationKnowledge.packaging.device."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
-      </type>
-    </element>
     <element id="MedicationKnowledge.preparationInstruction">
       <path value="MedicationKnowledge.preparationInstruction"/>
       <short value="The instructions for preparing the medication"/>
@@ -464,24 +296,6 @@
       <type>
         <code value="markdown"/>
       </type>
-    </element>
-    <element id="MedicationKnowledge.intendedRoute">
-      <path value="MedicationKnowledge.intendedRoute"/>
-      <short value="The intended or approved route of administration"/>
-      <definition value="The intended or approved route of administration."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicationRoute"/>
-        </extension>
-        <strength value="example"/>
-        <description value="A coded concept defining the intended route of administration."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/route-codes"/>
-      </binding>
     </element>
     <element id="MedicationKnowledge.cost">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -721,6 +535,19 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
+    <element id="MedicationKnowledge.medicineClassification.source[x]">
+      <path value="MedicationKnowledge.medicineClassification.source[x]"/>
+      <short value="The source of the classification"/>
+      <definition value="Either a textual source of the classification or a reference to an online source."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
     <element id="MedicationKnowledge.medicineClassification.classification">
       <path value="MedicationKnowledge.medicineClassification.classification"/>
       <short value="Specific category assigned to the medication"/>
@@ -744,16 +571,6 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.packaging.identifier">
-      <path value="MedicationKnowledge.packaging.identifier"/>
-      <short value="Business identifier of the packaged medication"/>
-      <definition value="The business identifier of the packaged medication."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-    </element>
     <element id="MedicationKnowledge.packaging.cost">
       <path value="MedicationKnowledge.packaging.cost"/>
       <short value="Cost of the packaged medication"/>
@@ -762,118 +579,15 @@
       <max value="*"/>
       <contentReference value="#MedicationKnowledge.cost"/>
     </element>
-    <element id="MedicationKnowledge.packaging.type">
-      <path value="MedicationKnowledge.packaging.type"/>
-      <short value="A code that defines the specific type of packaging that the medication can be found in"/>
-      <definition value="A code that defines the specific type of packaging that the medication can be found in (e.g. blister sleeve, tube, bottle)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicationPackageType"/>
-        </extension>
-        <strength value="example"/>
-        <description value="A coded concept defining the type of packaging of a medication."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicationknowledge-package-type"/>
-      </binding>
-    </element>
-    <element id="MedicationKnowledge.packaging.quantity">
-      <path value="MedicationKnowledge.packaging.quantity"/>
-      <short value="The number of product units the package would contain if fully loaded"/>
-      <definition value="The number of product units the package would contain if fully loaded."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
-      </type>
-    </element>
-    <element id="MedicationKnowledge.packaging.device">
-      <path value="MedicationKnowledge.packaging.device"/>
-      <short value="The device used to administer the medication (e.g. scoop, applicator, syringe)"/>
-      <definition value="The device used to administer the medication (e.g. scoop, applicator, syringe)."/>
-      <requirements value="If specifying devices impregnated with medication, use MedicationKnowledge.device."/>
+    <element id="MedicationKnowledge.packaging.packagedProduct">
+      <path value="MedicationKnowledge.packaging.packagedProduct"/>
+      <short value="The packaged medication that is being priced"/>
+      <definition value="A reference to a PackagedProductDefinition that provides the details of the product that is in the packaging and is being priced."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
-      </type>
-    </element>
-    <element id="MedicationKnowledge.packaging.material">
-      <path value="MedicationKnowledge.packaging.material"/>
-      <short value="Material type of the package item"/>
-      <definition value="Material type of the package item."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-    </element>
-    <element id="MedicationKnowledge.packaging.packaging">
-      <path value="MedicationKnowledge.packaging.packaging"/>
-      <short value="Allows packages within packages"/>
-      <definition value="Allows packages within packages (e.g. blister packages within a box or vials of medications within a box)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <contentReference value="#MedicationKnowledge.packaging"/>
-    </element>
-    <element id="MedicationKnowledge.drugCharacteristic">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-450,340"/>
-      </extension>
-      <path value="MedicationKnowledge.drugCharacteristic"/>
-      <short value="Specifies descriptive properties of the medicine"/>
-      <definition value="Specifies descriptive properties of the medicine, such as color, shape, imprints, etc."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="MedicationKnowledge.drugCharacteristic.type">
-      <path value="MedicationKnowledge.drugCharacteristic.type"/>
-      <short value="Code specifying the type of characteristic of medication"/>
-      <definition value="A code specifying which characteristic of the medicine is being described (for example, colour, shape, imprint)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicationCharacteristic"/>
-        </extension>
-        <strength value="example"/>
-        <description value="A coded concept defining the characteristic types of a medication."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicationknowledge-characteristic"/>
-      </binding>
-    </element>
-    <element id="MedicationKnowledge.drugCharacteristic.value[x]">
-      <path value="MedicationKnowledge.drugCharacteristic.value[x]"/>
-      <short value="Description of the characteristic"/>
-      <definition value="Description of the characteristic."/>
-      <comment value="The description should be provided as a CodeableConcept, SimpleQuantity or an image.  The description can be a string only when these others are not available."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="string"/>
-      </type>
-      <type>
-        <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
-      </type>
-      <type>
-        <code value="base64Binary"/>
-      </type>
-      <type>
-        <code value="Attachment"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
       </type>
     </element>
     <element id="MedicationKnowledge.clinicalUseIssue">
@@ -991,41 +705,174 @@
         <code value="Duration"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.kineticCharacteristic">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-50,380"/>
-      </extension>
-      <path value="MedicationKnowledge.kineticCharacteristic"/>
-      <short value="The time course of drug absorption, distribution, metabolism and excretion of a medication from the body"/>
-      <definition value="The time course of drug absorption, distribution, metabolism and excretion of a medication from the body."/>
+    <element id="MedicationKnowledge.definitional">
+      <path value="MedicationKnowledge.definitional"/>
+      <short value="Minimal definition information about the medication"/>
+      <definition value="Along with the link to a Medicinal Product Definition resource, this information provides common definitional elements that are needed to understand the specific medication that is being described."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="MedicationKnowledge.definitional.definition">
+      <path value="MedicationKnowledge.definitional.definition"/>
+      <short value="Definitional resources that provide more information about this medication"/>
+      <definition value="Associated definitions for this medication."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
+      </type>
+    </element>
+    <element id="MedicationKnowledge.definitional.doseForm">
+      <path value="MedicationKnowledge.definitional.doseForm"/>
+      <short value="powder | tablets | capsule +"/>
+      <definition value="Describes the form of the item.  Powder; tablets; capsule."/>
+      <comment value="When Medication is referenced from MedicationRequest, this is the ordered form.  When Medication is referenced within MedicationDispense, this is the dispensed form.  When Medication is referenced within MedicationAdministration, this is administered form."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationForm"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-form-codes"/>
+      </binding>
+    </element>
+    <element id="MedicationKnowledge.definitional.intendedRoute">
+      <path value="MedicationKnowledge.definitional.intendedRoute"/>
+      <short value="The intended or approved route of administration"/>
+      <definition value="The intended or approved route of administration."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationRoute"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/route-codes"/>
+      </binding>
+    </element>
+    <element id="MedicationKnowledge.definitional.ingredient">
+      <path value="MedicationKnowledge.definitional.ingredient"/>
+      <short value="Active or inactive ingredient"/>
+      <definition value="Identifies a particular constituent of interest in the product."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MedicationKnowledge.definitional.ingredient.item">
+      <path value="MedicationKnowledge.definitional.ingredient.item"/>
+      <short value="Substances contained in the medication"/>
+      <definition value="A reference to the resource that provides information about the ingredient."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MedicationKnowledge.definitional.ingredient.type">
+      <path value="MedicationKnowledge.definitional.ingredient.type"/>
+      <short value="A code that defines the type of ingredient, active, base, etc."/>
+      <definition value="Indication of whether this ingredient affects the therapeutic action of the drug."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationIngredientIsActive"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-RoleClassIngredientEntity"/>
+      </binding>
+    </element>
+    <element id="MedicationKnowledge.definitional.ingredient.strength[x]">
+      <path value="MedicationKnowledge.definitional.ingredient.strength[x]"/>
+      <short value="Quantity of ingredient present"/>
+      <definition value="Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet but can also be expressed a quantity when the denominator is assumed to be 1 tablet."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Ratio"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationIngredientStrength"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-ingredientstrength"/>
+      </binding>
+    </element>
+    <element id="MedicationKnowledge.definitional.drugCharacteristic">
+      <path value="MedicationKnowledge.definitional.drugCharacteristic"/>
+      <short value="Specifies descriptive properties of the medicine"/>
+      <definition value="Specifies descriptive properties of the medicine, such as color, shape, imprints, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="MedicationKnowledge.kineticCharacteristic.type">
-      <path value="MedicationKnowledge.kineticCharacteristic.type"/>
-      <short value="Code specifying the type of kinetics"/>
-      <definition value="Code specifying the type of kinetics (e.g. area under the curve, half life period, lethal dose 50.)."/>
+    <element id="MedicationKnowledge.definitional.drugCharacteristic.type">
+      <path value="MedicationKnowledge.definitional.drugCharacteristic.type"/>
+      <short value="Code specifying the type of characteristic of medication"/>
+      <definition value="A code specifying which characteristic of the medicine is being described (for example, colour, shape, imprint)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationCharacteristic"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicationknowledge-characteristic"/>
+      </binding>
     </element>
-    <element id="MedicationKnowledge.kineticCharacteristic.value[x]">
-      <path value="MedicationKnowledge.kineticCharacteristic.value[x]"/>
+    <element id="MedicationKnowledge.definitional.drugCharacteristic.value[x]">
+      <path value="MedicationKnowledge.definitional.drugCharacteristic.value[x]"/>
       <short value="Description of the characteristic"/>
       <definition value="Description of the characteristic."/>
+      <comment value="The description should be provided as a CodeableConcept, SimpleQuantity or an image.  The description can be a string only when these others are not available."/>
       <min value="0"/>
       <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
       <type>
         <code value="Quantity"/>
         <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <type>
-        <code value="Duration"/>
+        <code value="base64Binary"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
       </type>
     </element>
   </differential>
