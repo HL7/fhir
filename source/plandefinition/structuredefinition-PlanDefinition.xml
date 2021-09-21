@@ -977,6 +977,18 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="Ratio"/>
+      </type>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
