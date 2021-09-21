@@ -29,15 +29,15 @@ about knowledge resources (mainly for
 <table class="grid">
  <tr>
   <td style="background-color: #e6ffe6"><a href="#ContactDetail">ContactDetail</a></td>
-  <td style="background-color: #ffe6e6"><a href="#Contributor">Contributor</a></td>
   <td style="background-color: #ffe6e6"><a href="#DataRequirement">DataRequirement</a></td>
   <td style="background-color: #ffe6e6"><a href="#ParameterDefinition">ParameterDefinition</a></td>
+  <td style="background-color: #ffe6e6"><a href="#RelatedArtifact">RelatedArtifact</a></td>
  </tr>
  <tr>
-  <td style="background-color: #ffe6e6"><a href="#RelatedArtifact">RelatedArtifact</a></td>
   <td style="background-color: #ffe6e6"><a href="#TriggerDefinition">TriggerDefinition</a></td>
   <td style="background-color: #ffe6e6"><a href="#Expression">Expression</a></td>
   <td style="background-color: #ffe6e6"><a href="#UsageContext">UsageContext</a></td>
+  <td style="background-color: #ffe6e6"></td>
  </tr>
 </table>
 <p>
@@ -72,14 +72,6 @@ ContactDetail is used in the following places: [%dtusage ContactDetail%]
 <!-- TODO -->
 <p>
 &nbsp;
-</p>
-
-<a name="Contributor"></a>
-<a name="contributor"></a>
-<h3 style="margin-bottom: 1px">Contributor</h3>
-[%StandardsStatus trial-use DataType_(and_the_rest_on_this_page) infrastructure%]
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="metadatatypes-examples.html#Contributor">Examples</a>, <a href="metadatatypes-definitions.html#Contributor">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#Contributor">Mappings</a>.
 </p>
 
 <a name="DataRequirement"></a>
@@ -356,7 +348,6 @@ UsageContext is used in the following places: [%dtusage UsageContext%]
    currentTabIndex = '0';
 
 $( '#tabs-ContactDetail' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
-$( '#tabs-Contributor' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-DataRequirement' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-ParameterDefinition' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-RelatedArtifact' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
@@ -371,7 +362,6 @@ function store(currentTab) {
   } catch(exception){
   }
   $( '#tabs-ContactDetail' ).tabs('option', 'active', currentTab);
-  $( '#tabs-Contributor' ).tabs('option', 'active', currentTab);
   $( '#tabs-DataRequirement' ).tabs('option', 'active', currentTab);
   $( '#tabs-ParameterDefinition' ).tabs('option', 'active', currentTab);
   $( '#tabs-RelatedArtifact' ).tabs('option', 'active', currentTab);
