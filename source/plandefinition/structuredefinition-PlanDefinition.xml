@@ -1145,6 +1145,20 @@
         <map value="Act[classCode=ACT; moodCode=DEFN]"/>
       </mapping>
     </element>
+    <element id="PlanDefinition.action.linkId">
+      <path value="PlanDefinition.action.linkId"/>
+      <short value="Unique id for the action in the PlanDefinition"/>
+      <definition value="An identifier that is unique within the PlanDefinition to allow linkage within the realized CarePlan and/or RequestGroup."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
     <element id="PlanDefinition.action.prefix">
       <path value="PlanDefinition.action.prefix"/>
       <short value="User-visible prefix for the action (e.g. 1. or A.)"/>
