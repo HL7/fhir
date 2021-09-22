@@ -31,7 +31,7 @@
   </concept>
   <concept>
     <code value="draft"/>
-    <display value="draft"/>
+    <display value="Draft"/>
     <definition value="The medication usage is draft or preliminary."/>
   </concept>
 </CodeSystem>
