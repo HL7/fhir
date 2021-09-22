@@ -859,7 +859,7 @@ Example searches:
  <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
  <tr><td><pre> GET [base]/Patient?identifier=http://acme.org/patient|2345</pre></td><td>Search for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient"</td></tr>
  <tr><td><pre> GET [base]/Patient?gender=male</pre></td><td>Search for any patient with a gender that has the code "male"</td></tr>
- <tr><td><pre> GET [base]/Patient?gender:not=male</pre></td><td>Search for any patient with a gender that does not have the code "male". Note that for <code>:not</code>, the search does not return any resources that have a gen</td></tr>
+ <tr><td><pre> GET [base]/Patient?gender:not=male</pre></td><td>Search for any patient with a gender that does not have the code "male", including those that do not have a code for gender at all.</td></tr>
  <tr><td><pre> GET [base]/Composition?section=48765-2</pre></td><td>Search for any Composition that contains an Allergies and adverse reaction section</td></tr>
  <tr><td><pre> GET [base]/Composition?section:not=48765-2</pre></td><td>Search for any Composition that does not contain an Allergies and adverse reaction section. Note that this search does not return "any document that has a section
     that is not an Allergies and adverse reaction section" (e.g. in the presence of multiple possible matches, the <i>negation</i> applies to the set, not each individual entry)</td></tr>
