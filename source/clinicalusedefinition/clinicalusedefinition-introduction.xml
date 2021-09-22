@@ -2,7 +2,7 @@
 	<div>
 		<a name="scope"> </a>
 		<h2>Scope and Usage</h2>
-		<p><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></p>
+		<p><b><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></b></p>
 		<p>
 			ClinicalUseDefinition is to record an instance of facts about a particular medication, 
 			device or procedure in relation to its intended use (indication), 
