@@ -390,29 +390,6 @@
         <map value="Product Classification.Value"/>
       </mapping>
     </element>
-    <!--element id="MedicinalProductDefinition.characteristicGone">
-      <path value="MedicinalProductDefinition.characteristicGone"/>
-      <short value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;"/>
-      <definition value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicinalProductType"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Overall defining type of this medicinal product."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
-      </binding>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Product Classification.Value"/>
-      </mapping>
-    </element-->
     <element id="MedicinalProductDefinition.marketingStatus">
       <path value="MedicinalProductDefinition.marketingStatus"/>
       <short value="Marketing status of the medicinal product, in contrast to marketing authorization"/>
