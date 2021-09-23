@@ -87,7 +87,7 @@
       <short value="Identifier by which this substance is known"/>
       <definition value="Identifier by which this substance is known."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Identifier"/>
       </type>
@@ -127,25 +127,10 @@
         <map value="Substance_Classification.Domain"/>
       </mapping>
     </element>
-    <element id="SubstanceDefinition.category">
-      <path value="SubstanceDefinition.category"/>
-      <short value="High level categorization, e.g. polymer or nucleic acid, or food, chemical, biological"/>
-      <definition value="High level categorization, e.g. polymer or nucleic acid, or food, chemical, biological."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="(The derived class type: Chemical, Polymer, Protein, Nucleic_Acid, Structurally_Diverse)"/>
-      </mapping>
-    </element>
     <element id="SubstanceDefinition.classification">
       <path value="SubstanceDefinition.classification"/>
-      <short value="A lower level classification than category, such as the general types of polymer (linear or branch chain) or type of impurity (process related or contaminant)"/>
-      <definition value="A lower level classification than category, such as the general types of polymer (linear or branch chain) or type of impurity (process related or contaminant)."/>
+      <short value="A high level categorization, e.g. polymer or nucleic acid, or food, chemical, biological, or a lower level such as the general types of polymer (linear or branch chain) or type of impurity (process related or contaminant)"/>
+      <definition value="A high level categorization, e.g. polymer or nucleic acid, or food, chemical, biological, or a lower level such as the general types of polymer (linear or branch chain) or type of impurity (process related or contaminant)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1105,7 +1090,7 @@
       <path value="SubstanceDefinition.relationship.type"/>
       <short value="For example &quot;salt to parent&quot;, &quot;active moiety&quot;, &quot;starting material&quot;, &quot;polymorph&quot;, &quot;impurity of&quot;"/>
       <definition value="For example &quot;salt to parent&quot;, &quot;active moiety&quot;, &quot;starting material&quot;, &quot;polymorph&quot;, &quot;impurity of&quot;."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>

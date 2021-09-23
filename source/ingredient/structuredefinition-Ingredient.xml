@@ -200,7 +200,6 @@
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -377,7 +376,6 @@
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
       </type>
       <isSummary value="true"/>
       <mapping>
