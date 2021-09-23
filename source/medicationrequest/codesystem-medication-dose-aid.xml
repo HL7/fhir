@@ -23,13 +23,16 @@
   <concept>
     <code value="blisterpack"/>
     <display value="Blister Pack"/>
+    <definition value="A type of packaging in which a medication is sealed in plastic, often with a cardboard backing."/>
   </concept>
   <concept>
     <code value="dosette"/>
     <display value="Dosette"/>
+    <definition value="A box or tray that organizes mediations into separate compartments"/>
   </concept>
   <concept>
     <code value="sachets"/>
     <display value="Sachets"/>
+    <definition value="A small packet that contains medication for individual use."/>
   </concept>
 </CodeSystem>

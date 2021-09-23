@@ -390,29 +390,6 @@
         <map value="Product Classification.Value"/>
       </mapping>
     </element>
-    <!--element id="MedicinalProductDefinition.characteristicGone">
-      <path value="MedicinalProductDefinition.characteristicGone"/>
-      <short value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;"/>
-      <definition value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicinalProductType"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Overall defining type of this medicinal product."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
-      </binding>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Product Classification.Value"/>
-      </mapping>
-    </element-->
     <element id="MedicinalProductDefinition.marketingStatus">
       <path value="MedicinalProductDefinition.marketingStatus"/>
       <short value="Marketing status of the medicinal product, in contrast to marketing authorization"/>
@@ -815,13 +792,14 @@
     </element>
     <element id="MedicinalProductDefinition.operation.type">
       <path value="MedicinalProductDefinition.operation.type"/>
-      <short value="The type of manufacturing operation e.g. manufacturing itself, re-packaging. This may be a subtype of some other wider scope of authorized operation, referenced by the authorization attribute"/>
-      <definition value="The type of manufacturing operation e.g. manufacturing itself, re-packaging. This may be a subtype of some other wider scope of authorized operation, referenced by the authorization attribute."/>
+      <short value="The type of manufacturing operation e.g. manufacturing itself, re-packaging. For the authorization of this, a RegulatedAuthorization would point to the same plan or activity referenced here"/>
+      <definition value="The type of manufacturing operation e.g. manufacturing itself, re-packaging. For the authorization of this, a RegulatedAuthorization would point to the same plan or activity referenced here."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -858,22 +836,6 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Manufacturer / Establishment (Organisation)"/>
-      </mapping>
-    </element>
-    <element id="MedicinalProductDefinition.operation.authorization">
-      <path value="MedicinalProductDefinition.operation.authorization"/>
-      <short value="An authorization for this process, either as a logical reference, holding just an identifier, or a full reference to a resource that captures the details. The authorization may possibly apply to several products or a wider scope of process of which this is a part"/>
-      <definition value="An authorization for this process, either as a logical reference, holding just an identifier, or a full reference to a resource that captures the details. The authorization may possibly apply to several products or a wider scope of process of which this is a part."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RegulatedAuthorization"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="An authorization for this process, possibly applying to several products or a wider scope of process of which this is a part"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.operation.confidentialityIndicator">

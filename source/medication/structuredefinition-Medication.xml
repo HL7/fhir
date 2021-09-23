@@ -265,6 +265,13 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationFormalRepresentation"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
+      </binding>
       <mapping>
         <identity value="script10.6"/>
         <map value="coding.code = //element(*,MedicationType)/DrugCoded/ProductCode&#xD;&#xD;coding.system = //element(*,MedicationType)/DrugCoded/ProductCodeQualifier&#xD;&#xD;coding.display = //element(*,MedicationType)/DrugDescription"/>
