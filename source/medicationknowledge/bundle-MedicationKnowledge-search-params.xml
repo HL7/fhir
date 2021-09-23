@@ -70,14 +70,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MedicationKnowledge.doseForm"/>
+          <valueString value="MedicationKnowledge.definitional.doseForm"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-doseform"/>
         <description value="powder | tablets | capsule +"/>
         <code value="doseform"/>
         <type value="token"/>
-        <expression value="MedicationKnowledge.doseForm"/>
-        <xpath value="f:MedicationKnowledge/f:doseForm"/>
+        <expression value="MedicationKnowledge.definitional.doseForm"/>
+        <xpath value="f:MedicationKnowledge/f:definitional/f:doseForm"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -110,14 +110,14 @@
           <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MedicationKnowledge.ingredient.item.reference"/>
+          <valueString value="MedicationKnowledge.definitional.ingredient.item.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-ingredient"/>
         <description value="Reference to a resource (by instance)"/>
         <code value="ingredient"/>
         <type value="reference"/>
-        <expression value="MedicationKnowledge.ingredient.item.reference"/>
-        <xpath value="f:MedicationKnowledge/f:ingredient/f:item/f:reference"/>
+        <expression value="MedicationKnowledge.definitional.ingredient.item.reference"/>
+        <xpath value="f:MedicationKnowledge/f:definitional/f:ingredient/f:item/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -130,29 +130,15 @@
           <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MedicationKnowledge.ingredient.item.concept"/>
+          <valueString value="MedicationKnowledge.definitional.ingredient.item.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-ingredient-code"/>
         <description value="Reference to a concept (by class)"/>
         <code value="ingredient-code"/>
         <type value="token"/>
-        <expression value="MedicationKnowledge.ingredient.item.concept"/>
-        <xpath value="f:MedicationKnowledge/f:ingredient/f:item/f:concept"/>
+        <expression value="MedicationKnowledge.definitional.ingredient.item.concept"/>
+        <xpath value="f:MedicationKnowledge/f:definitional/f:ingredient/f:item/f:concept"/>
         <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MedicationKnowledge.sponsor"/>
-        </extension>
-        <description value="Organization responsible for manufacturing of the item"/>
-        <code value="sponsor"/>
-        <type value="reference"/>
-        <expression value="MedicationKnowledge.sponsor"/>
-        <xpath value="f:MedicationKnowledge/f:sponsor"/>
       </SearchParameter>
     </resource>
   </entry>

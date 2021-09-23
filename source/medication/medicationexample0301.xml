@@ -3,8 +3,8 @@
   <id value="med0301"/>
   <contained>
     <Organization>
-      <id value="org4"/>
-      <name value="Pfizer Laboratories Div Pfizer Inc" />
+      <id value="mmanu"/>
+      <name value="Medication Manufacturer" />
     </Organization>
   </contained>
   <code>
@@ -15,9 +15,9 @@
     </coding>
   </code>
   <status value="active"/>
-  <sponsor>
-    <reference value="#org4" />
-  </sponsor>
+  <marketingAuthorizationHolder>
+    <reference value="#mmanu" />
+  </marketingAuthorizationHolder>
     <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>

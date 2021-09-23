@@ -74,7 +74,9 @@
    <relatedArtifact>
       <type value="documentation"/>
       <display value="CDC guideline for prescribing opioids for chronic pain"/>
-      <url value="https://guidelines.gov/summaries/summary/50153/cdc-guideline-for-prescribing-opioids-for-chronic-pain---united-states-2016#420"/>
+      <document>
+        <url value="https://guidelines.gov/summaries/summary/50153/cdc-guideline-for-prescribing-opioids-for-chronic-pain---united-states-2016#420"/>
+      </document>
    </relatedArtifact>
    <relatedArtifact>
       <type value="depends-on"/>
@@ -83,7 +85,9 @@
    <relatedArtifact>
       <type value="documentation"/>
       <display value="MME Conversion Tables"/>
-      <url value="https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"/>
+      <document>
+        <url value="https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"/>
+      </document>
    </relatedArtifact>
    <dataRequirement>
       <type value="MedicationRequest"/>

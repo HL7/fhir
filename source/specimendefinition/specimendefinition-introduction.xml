@@ -16,7 +16,7 @@ This resource relates to these other resources:		</p>
 </li>
 			<li>The SpecimenDefinition resource is referenced by the Catalog resource, which represents a whole catalog, to enable the creation and maintenance of kinds of specimens within a catalog of orderable diagnostic services.
 </li>
-			<li>The SpecimenDefinition resource references the Substance resource, in order to describe the type of substance (body fluid, other material) concerned by a kind of specimen. It also references the Substance resource to describe additives to be used in the production of specimens of some kind.
+			<li>The SpecimenDefinition resource references the SubstanceDefinition resource, in order to describe the type of substance (body fluid, other material) concerned by a kind of specimen. It also references the SubstanceDefinition resource to describe additives to be used in the production of specimens of some kind.
 </li>
 		</ul>
 	</div>
