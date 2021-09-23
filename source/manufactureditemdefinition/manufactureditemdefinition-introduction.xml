@@ -2,7 +2,7 @@
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
-		<p><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></p>
+		<p><b><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></b></p>
 		<p>
 			ManufacturedItemDefinition is to be used when you need to describe an actual physical medication item such as a tablet or capsule. 
 			This is typically for regulatory or manufacturing use cases, rather than day to day prescribing or dispensing.
