@@ -212,7 +212,7 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PackagedProductDefinition.packageFor"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-subject"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-package-for"/>
         <description value="The product that this is a pack for"/>
         <code value="package-for"/>
         <type value="reference"/>
