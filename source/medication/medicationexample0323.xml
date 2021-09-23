@@ -1,6 +1,6 @@
 <Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd" xmlns="http://hl7.org/fhir">
-  <id value="med0322"/>
+  <id value="med0323"/>
   <contained>
     <Substance>
       <id value="sub10"/>
@@ -62,7 +62,7 @@
     </Substance>
   </contained>
   <code>
-   <text value="WHO Hand Sanitizer Formulation 1"/>
+   <text value="WHO Hand Sanitizer Formulation 1% - 10L"/>
   </code>
     <doseForm>
       <coding>
@@ -71,13 +71,7 @@
         <display value="Solution (basic dose form) (qualifier value)"/>
       </coding>
     </doseForm>
-  <totalVolume>
-    <numerator>
-     <value value="10"/>
-      <system value="http://unitsofmeasure.org"/>
-      <code value="L"/>
-    </numerator>
-  </totalVolume>
+ 
     <ingredient>
       <item>
       <reference>
