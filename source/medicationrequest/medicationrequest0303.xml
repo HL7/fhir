@@ -53,6 +53,8 @@
     <note>
         <text value="Patient told to take with food"/>
     </note>
+    <dose>
+
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Take 4 tablets daily for 7 days starting January 16, 2015" />
@@ -188,6 +190,8 @@
         </doseAndRate>
         
     </dosageInstruction>
+        
+    </dose>
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>
