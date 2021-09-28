@@ -10,7 +10,9 @@ This library builds and publishes the FHIR specification, based on the contained
 1. Run `./gradlew publish` from the command line
 2. Wait for it to finish (~20 minutes)
 
-See also: [FHIR Build Process][Link-Wiki]
+See also: 
+- Confluence : [FHIR Build Process][Link-Confluence]
+- Wiki :  [FHIR Build Process][Link-Wiki]
 
 ##### If running commands on the terminal is a frightening prospect for you...
 
@@ -64,6 +66,7 @@ This project is maintained by [Grahame Grieve][Link-grahameGithub] and [Mark Ian
 [Link-BuildFhirOrgMaster]: https://build.fhir.org
 [Link-BuildFhirOrgBranches]: https://build.fhir.org/branches/
 [Link-BuildFhirOrgR4B]: https://build.fhir.org/branches/R4B/
+[Link-Confluence]: https://confluence.hl7.org/display/FHIR/FHIR+Build+Process
 [Link-Wiki]: http://wiki.hl7.org/index.php?title=FHIR_Build_Process
 [Link-R4BGithub]: https://github.com/HL7/fhir/tree/R4B
 [Link-grahameGithub]: https://github.com/grahamegrieve
