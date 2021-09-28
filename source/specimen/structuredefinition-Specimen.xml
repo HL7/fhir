@@ -665,7 +665,7 @@
     <element id="Specimen.container.location">
       <path value="Specimen.container.location"/>
       <short value="Location of the container"/>
-      <definition value="Location of the container."/>
+      <definition value="The location of the container holding the specimen."/>
       <min value="0"/>
       <max value="1"/>
       <type>
