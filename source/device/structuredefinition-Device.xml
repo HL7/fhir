@@ -897,6 +897,47 @@
         <map value=".scopedRole[typeCode=CON].player"/>
       </mapping>
     </element>
+
+    <element id="Device.distributor">
+      <path value="The distributor of the model of device"/>
+      <definition value="The distributor of the model of device, other than the manufacturer."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playedRole[typeCode=DIST].scoper.name"/>
+      </mapping>
+      </element>
+      <element id="Device.distributor.name">
+        <path value="Device.distributor.name"/>
+        <short value="The name of the distributor"/>
+        <definition value="The human-readble name of the device distributor."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="string"/>
+        </type>
+      </element>
+      <element id="Device.distributor.organizationReference">
+        <path value="Device.distributor.organizationReference"/>
+        <short value="The organization of the device distributor"/>
+        <definition value="The organization that the distributor of the device belongs to."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Reference"/>
+          <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        </type>
+      </element>
+    
+
     <element id="Device.location">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="#7418."/>
