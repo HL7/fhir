@@ -672,9 +672,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationRequestPerformerType"/>
         </extension>
-        <strength value="example"/>
+        <strength value="extensible"/>
         <description value="Identifies the type of individual that is desired to administer the medication."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/performer-role"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-intended-performer-role"/>
       </binding>
       <mapping>
         <identity value="workflow"/>

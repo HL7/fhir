@@ -7,6 +7,7 @@
       <name value="Medication Manufacturer" />
     </Organization>
   </contained>
+  <identifier id="123456789"></identifier>
   <code>
     <coding>
       <system value="http://hl7.org/fhir/sid/ndc"/>
