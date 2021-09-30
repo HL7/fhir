@@ -711,7 +711,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <isSummary value="true"/>
+      <isSummary value="true"/> 
       <mapping>
         <identity value="idmp"/>
         <map value="Country / Language.Language"/>
