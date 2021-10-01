@@ -103,8 +103,8 @@
     </element>
     <element id="DeviceDefinition.udiDeviceIdentifier.deviceIdentifier">
       <path value="DeviceDefinition.udiDeviceIdentifier.deviceIdentifier"/>
-      <short value="The identifier that is to be associated with every Device that references this DeviceDefintiion for the issuer and jurisdication porvided in the DeviceDefinition.udiDeviceIdentifier"/>
-      <definition value="The identifier that is to be associated with every Device that references this DeviceDefintiion for the issuer and jurisdication porvided in the DeviceDefinition.udiDeviceIdentifier."/>
+      <short value="The identifier that is to be associated with every Device that references this DeviceDefintiion for the issuer and jurisdiction provided in the DeviceDefinition.udiDeviceIdentifier"/>
+      <definition value="The identifier that is to be associated with every Device that references this DeviceDefintiion for the issuer and jurisdiction provided in the DeviceDefinition.udiDeviceIdentifier."/>
       <min value="1"/>
       <max value="1"/>
       <type>
