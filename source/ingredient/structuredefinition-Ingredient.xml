@@ -158,11 +158,52 @@
       </mapping>
     </element>
     <element id="Ingredient.manufacturer">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="160,300"/>
+      </extension>
       <path value="Ingredient.manufacturer"/>
-      <short value="The organization that manufactures this ingredient"/>
-      <definition value="The organization that manufactures this ingredient."/>
+      <short value="An organization that manufactures this ingredient"/>
+      <definition value="An organization that manufactures this ingredient."/>
       <min value="0"/>
       <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Ingredient.manufacturer"/>
+      </mapping>
+    </element>
+    <element id="Ingredient.manufacturer.role">
+      <path value="Ingredient.manufacturer.role"/>
+      <short value="The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role"/>
+      <definition value="The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/> <!-- but needs to be code -->
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="IngredientManufacturerRole"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The way in which this manufacturer is associated with the ingredient."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ingredient-manufacturer-role"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Ingredient.Manufacturer / Establishment (Organisation)"/>
+      </mapping>
+    </element>
+    <element id="Ingredient.manufacturer.manufacturer">
+      <path value="Ingredient.manufacturer.manufacturer"/>
+      <short value="An organization that manufactures this ingredient"/>
+      <definition value="An organization that manufactures this ingredient."/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
