@@ -358,11 +358,11 @@
         <map value="EventOutcomeIndicator EventOutcomeIndicator"/>
       </mapping>
     </element>
-    <element id="AuditEvent.authorizations">
-      <path value="AuditEvent.authorizations"/>
-      <short value="Authorizations related to the event"/>
-      <definition value="The authorizations (e.g., PurposeOfUse) that was used during the event being recorded."/>
-      <comment value="Use AuditEvent.agent.authorizations when you know that it is specific to the agent, otherwise use AuditEvent.authorizations. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why."/>
+    <element id="AuditEvent.authorization">
+      <path value="AuditEvent.authorization"/>
+      <short value="Authorization related to the event"/>
+      <definition value="The authorization (e.g., PurposeOfUse) that was used during the event being recorded."/>
+      <comment value="Use AuditEvent.agent.authorization when you know that it is specific to the agent, otherwise use AuditEvent.authorization. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why."/>
       <requirements value="Record of any relevant security context, not restricted to purposeOfUse valueSet. May include security compartments, refrain, obligation, or other security tags."/>
 	  <alias value="PurposeOfEvent"/>
       <min value="0"/>
@@ -401,7 +401,7 @@
       </mapping>
       <mapping>
         <identity value="fhirprovenance"/>
-        <map value="Provenance.reason, Provenance.activity"/>
+        <map value="Provenance.authorization"/>
       </mapping>
     </element>
     <element id="AuditEvent.basedOn">
@@ -845,11 +845,11 @@
         <map value="NetworkAccessPointTypeCode"/>
       </mapping>
     </element>
-    <element id="AuditEvent.agent.authorizations">
-      <path value="AuditEvent.agent.authorizations"/>
-      <short value="Allowable authorizations for this agent"/>
-      <definition value="The authorizations (e.g., PurposeOfUse) that was used during the event being recorded."/>
-      <comment value="Use AuditEvent.agent.authorizations when you know that is specific to the agent, otherwise use AuditEvent.authorizations. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why."/>
+    <element id="AuditEvent.agent.authorization">
+      <path value="AuditEvent.agent.authorization"/>
+      <short value="Allowable authorization for this agent"/>
+      <definition value="The authorization (e.g., PurposeOfUse) that was used during the event being recorded."/>
+      <comment value="Use AuditEvent.agent.authorization when you know that is specific to the agent, otherwise use AuditEvent.authorization. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why."/>
       <requirements value="Record of any relevant security context, not restricted to purposeOfUse valueSet. May include security compartments, refrain, obligation, or other security tags."/>
 	  <alias value="PurposeOfUse"/>
       <min value="0"/>
@@ -1140,7 +1140,7 @@
       <path value="AuditEvent.entity.query"/>
       <short value="Query parameters"/>
       <definition value="The query parameters for a query-type entities."/>
-      <comment value="The meaning and secondary-encoding of the content of base64 encoded blob is specific to the AuditEvent.type, AuditEvent.subtype, AuditEvent.entity.type, and AuditEvent.entity.role.  The base64 is a general-use and safe container for event specific data blobs regardless of the encoding used by the transaction being recorded.  An AuditEvent consuming application must understand the event it is consuming and the formats used by the event. For example, if auditing an Oracle network database access, the Oracle formats must be understood as they will be simply encoded in the base64binary blob.&#xA;&#xA;The DICOM AuditMessage schema does not support both .name and .query being populated."/>
+      <comment value="The meaning and secondary-encoding of the content of base64 encoded blob is specific to the AuditEvent.type, AuditEvent.subtype, and AuditEvent.entity.role.  The base64 is a general-use and safe container for event specific data blobs regardless of the encoding used by the transaction being recorded.  An AuditEvent consuming application must understand the event it is consuming and the formats used by the event. For example, if auditing an Oracle network database access, the Oracle formats must be understood as they will be simply encoded in the base64binary blob.&#xA;&#xA;The DICOM AuditMessage schema does not support both .name and .query being populated."/>
       <requirements value="For query events, it may be necessary to capture the actual query input to the query process in order to identify the specific event. Because of differences among query implementations and data encoding for them, this is a base 64 encoded data blob. It may be subsequently decoded or interpreted by downstream audit analysis processing."/>
       <min value="0"/>
       <max value="1"/>

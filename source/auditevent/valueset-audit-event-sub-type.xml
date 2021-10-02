@@ -33,6 +33,7 @@
     <include>
       <system value="http://hl7.org/fhir/restful-interaction"/>
     </include>
+	<!-- JFM: want these here, but build does not like a system value like this
 	<include>
 		<system value="urn:ihe:event-type-code" />
 		<concept>
@@ -53,5 +54,6 @@
 		</concept>
 
 	</include>
+	-->
   </compose>
 </ValueSet>
