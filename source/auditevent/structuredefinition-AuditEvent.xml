@@ -641,11 +641,12 @@
       <definition value="Indicator that the user is or is not the requestor, or initiator, for the event being audited."/>
       <comment value="There can only be one initiator. If the initiator is not clear, then do not choose any one agent as the initiator."/>
       <requirements value="This value is used to distinguish between requestor-users and recipient-users. For example, one person may initiate a report-output to be sent to another user."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
+	  <meaningWhenMissing value="false"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
