@@ -635,33 +635,6 @@
         <map value="Provenance.agent.who"/>
       </mapping>
     </element>
-    <element id="AuditEvent.agent.altId">
-      <path value="AuditEvent.agent.altId"/>
-      <short value="Alternative User identity"/>
-      <definition value="Alternative agent Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g. single sign-on), if available."/>
-      <requirements value="In some situations, a human user may authenticate with one identity but, to access a specific application system, may use a synonymous identify. For example, some &quot;single sign on&quot; implementations will do this. The alternative identifier would then be the original identify  used for authentication, and the User ID is the one known to and used by the application."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.who"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".id (distinguish id type by root)"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="AlternativeUserId"/>
-      </mapping>
-      <mapping>
-        <identity value="w3c.prov"/>
-        <map value="Agent.Identity"/>
-      </mapping>
-    </element>
     <element id="AuditEvent.agent.requestor">
       <path value="AuditEvent.agent.requestor"/>
       <short value="Whether user is initiator"/>

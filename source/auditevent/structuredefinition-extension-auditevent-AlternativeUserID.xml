@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="auditevent-AlternativeUserID"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sec"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/auditevent-AlternativeUserID"/>
+  <version value="4.6.0"/>
+  <name value="AlternativeUserID"/>
+  <status value="draft"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="Health Level Seven, Inc. - Security WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/security/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="An AlternativeUserID Number associated with this participant object."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="dicom"/>
+    <uri value="http://nema.org/dicom"/>
+    <name value="DICOM Tag Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="AuditEvent.agent"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="AlternativeUserID"/>
+      <definition value="An AlternativeUserID associated with this active participant object."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="AlternativeUserID"/>
+      </mapping>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/auditevent-AlternativeUserID"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
