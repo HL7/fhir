@@ -55,7 +55,7 @@
 			</coding>
 		</type>
 		<who>
-			<reference value="Device/software"/>
+			<display  value="Device/software"/>
 		</who>
 	</agent>
 	<!-- information extract from a CCDA referral document -->
