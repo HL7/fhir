@@ -908,8 +908,8 @@
       </extension>
       <path value="AuditEvent.source"/>
       <short value="Audit Event Reporter"/>
-      <definition value="The system that is reporting the event."/>
-      <comment value="Since multi-tier, distributed, or composite applications make source identification ambiguous, this collection of fields may repeat for each application or process actively involved in the event. For example, multiple value-sets can identify participating web servers, application processes, and database server threads in an n-tier distributed application. Passive event participants (e.g. low-level network transports) need not be identified."/>
+      <definition value="The actor that is reporting the event."/>
+      <comment value="Events are reported by the actor that detected them. This may be one of the participating actors, but may also be different. The actor may be a human such as a medical-records clerk disclosing data manually, that clerk would be the source for the record of disclosure."/>
       <requirements value="The event is reported by one source."/>
       <min value="1"/>
       <max value="1"/>
