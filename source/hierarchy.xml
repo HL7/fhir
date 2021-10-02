@@ -325,7 +325,7 @@ signatures.html
       <page type="resource" resource="DocumentReference"/>
       <page type="resource" resource="DiagnosticReport"/>
       <page type="resource" resource="ImagingStudy"/>
-      <page type="resource" resource="ImagingManifest"/>
+      <page type="resource" resource="ImagingReference"/>
       <page type="resource" resource="MolecularSequence"/>
       <page type="resource" resource="Specimen"/>
       <page type="resource" resource="SpecimenDefinition"/>
