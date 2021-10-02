@@ -597,7 +597,7 @@
       <comment value="Where a User ID is available it will go into who.identifier. Where a name of the user (human readable) it will go into who.display."/>
       <requirements value="This field ties an audit event to a specific resource or identifier."/>
       <alias value="userId"/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
