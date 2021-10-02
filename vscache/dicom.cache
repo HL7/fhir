@@ -162,7 +162,7 @@ e: {
   },
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 10 concepts</p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion based on <a href=\"codesystem-dicom-dcim.html\">DICOM Controlled Terminology Definitions v01 (CodeSystem)</a></p><p>All codes from system <a href=\"codesystem-dicom-dcim.html\"><code>http://dicom.nema.org/resources/ontology/DCM</code></a></p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110010\"> </a><a href=\"codesystem-dicom-dcim.html#dicom-dcim-110010\">110010</a></td><td>Film</td><td>Film type of output</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110030\"> </a><a href=\"codesystem-dicom-dcim.html#dicom-dcim-110030\">110030</a></td><td>USB Disk Emulation</td><td>A device that connects using the USB hard drive interface. These may be USB-Sticks, portable hard drives, and other technologies</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110031\"> </a><a href=\"codesystem-dicom-dcim.html#dicom-dcim-110031\">110031</a></td><td>Email</td><td>Email and email attachments used as a media for data transport</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110032\"> </a><a href=\"codesystem-dicom-dcim.html#dicom-dcim-110032\">110032</a></td><td>CD</td><td>CD-R, CD-ROM, and CD-RW media used for data transport</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110033\"> </a><a href=\"codesystem-dicom-dcim.html#dicom-dcim-110033\">110033</a></td><td>DVD</td><td>DVD, DVD-RAM, and other DVD formatted media used for data transport</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110034\"> </a><a href=\"codesystem-dicom-dcim.html#dicom-dcim-110034\">110034</a></td><td>Compact Flash</td><td>Media that comply with the Compact Flash standard</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110035\"> </a><a href=\"codesystem-dicom-dcim.html#dicom-dcim-110035\">110035</a></td><td>Multi-media Card</td><td>Media that comply with the Multi-media Card standard</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110036\"> </a><a href=\"codesystem-dicom-dcim.html#dicom-dcim-110036\">110036</a></td><td>Secure Digital Card</td><td>Media that comply with the Secure Digital Card standard</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110037\"> </a><a href=\"codesystem-dicom-dcim.html#dicom-dcim-110037\">110037</a></td><td>URI</td><td>URI Identifier for network or other resource, see RFC 3968</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110038\"> </a><a href=\"codesystem-dicom-dcim.html#dicom-dcim-110038\">110038</a></td><td>Paper Document</td><td>Any paper or similar document</td></tr></table></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 10 concepts</p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion based on <a href=\"codesystem-dicom-dcim.html\">DICOM Controlled Terminology Definitions v01 (CodeSystem)</a></p><p>All codes from system <a href=\"http://terminology.hl7.org/2.1.0/CodeSystem-v3-DCM.html\"><code>http://dicom.nema.org/resources/ontology/DCM</code></a></p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110010\"> </a>110010</td><td>Film</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110030\"> </a>110030</td><td>USB Disk Emulation</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110031\"> </a>110031</td><td>Email</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110032\"> </a>110032</td><td>CD</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110033\"> </a>110033</td><td>DVD</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110034\"> </a>110034</td><td>Compact Flash</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110035\"> </a>110035</td><td>Multi-media Card</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110036\"> </a>110036</td><td>Secure Digital Card</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110037\"> </a>110037</td><td>URI</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110038\"> </a>110038</td><td>Paper Document</td><td/></tr></table></div>"
   },
   "url" : "http://hl7.org/fhir/ValueSet/audit-media-type",
   "identifier" : [{
@@ -174,8 +174,7 @@ e: {
   "title" : "Audit Agent Media Type",
   "status" : "active",
   "date" : "2020-08-04",
-
-  "description" : "Value Set Contents (Expansion) for Audit Agent Media Type at Mon, Jul 5, 2021 15:25-0400",
+  "description" : "Value Set Contents (Expansion) for Audit Agent Media Type at Sat, Oct 2, 2021 16:17-0500",
   "expansion" : {
     "identifier" : "urn:uuid:1d5595cf-8302-4d69-bb86-970f83289c04",
     "timestamp" : "2021-04-12T20:28:39.976Z",
@@ -2308,6 +2307,89 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
   "display" : "Emergency Override Started",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110153",
+  "display" : "Source Role ID"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Source Role ID",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110152",
+  "display" : "Destination Role ID"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Destination Role ID",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110154",
+  "display" : "Destination Media"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Destination Media",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://dicom.nema.org/resources/ontology/DCM",
+    "code" : "110033",
+    "display" : "DVD"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "valueSet" : ["http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_405.html"]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
+v: {
+  "display" : "DVD",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110033",
+  "display" : "DVD"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "valueSet" : ["http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_405.html"]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
+v: {
+  "display" : "DVD",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110033"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "DVD",
   "severity" : null,
   "error" : ""
 }

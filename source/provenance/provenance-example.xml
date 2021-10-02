@@ -23,13 +23,13 @@
 	<location>
 		<reference value="Location/1"/>
 	</location>
-	<reason>
+	<activity>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="3457005"/>
 			<display value="Referral"/>
 		</coding>
-	</reason>
+	</activity>
 
 	<!-- author = Harold Hippocrates -->
 	<agent>

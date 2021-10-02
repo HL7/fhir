@@ -1196,6 +1196,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AuditEventDetailType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Additional detail about an entity used in an event."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/audit-event-type"/>
+      </binding>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.context"/>
