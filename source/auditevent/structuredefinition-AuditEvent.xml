@@ -594,7 +594,7 @@
       <path value="AuditEvent.agent.who"/>
       <short value="Identifier of who"/>
       <definition value="Reference to who this agent is that was involved in the event."/>
-      <comment value="Where a User ID is available it will go into who.identifier."/>
+      <comment value="Where a User ID is available it will go into who.identifier. Where a name of the user (human readable) it will go into who.display."/>
       <requirements value="This field ties an audit event to a specific resource or identifier."/>
       <alias value="userId"/>
       <min value="0"/>
@@ -624,7 +624,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="UserId"/>
+        <map value="UserName and UserId"/>
       </mapping>
       <mapping>
         <identity value="w3c.prov"/>
@@ -656,33 +656,6 @@
       <mapping>
         <identity value="dicom"/>
         <map value="AlternativeUserId"/>
-      </mapping>
-      <mapping>
-        <identity value="w3c.prov"/>
-        <map value="Agent.Identity"/>
-      </mapping>
-    </element>
-    <element id="AuditEvent.agent.name">
-      <path value="AuditEvent.agent.name"/>
-      <short value="Human friendly name for the agent"/>
-      <definition value="Human-meaningful name for the agent."/>
-      <requirements value="The User ID and Authorization User ID may be internal or otherwise obscure values. This field assists the auditor in identifying the actual user."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.who"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".name"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="UserName"/>
       </mapping>
       <mapping>
         <identity value="w3c.prov"/>
@@ -1084,6 +1057,7 @@
       <path value="AuditEvent.entity.what"/>
       <short value="Specific instance of resource"/>
       <definition value="Identifies a specific instance of the entity. The reference should be version specific."/>
+	  <comment value="Use .what.display when all you have is a string (e.g. ParticipantObjectName)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1101,7 +1075,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="ParticipantObjectID and ParticipantObjectIDTypeCode"/>
+        <map value="ParticipantObjectName, ParticipantObjectID and ParticipantObjectIDTypeCode"/>
       </mapping>
       <mapping>
         <identity value="fhirprovenance"/>
@@ -1271,35 +1245,6 @@
       <mapping>
         <identity value="dicom"/>
         <map value="ParticipantObjectSensitivity"/>
-      </mapping>
-    </element>
-    <element id="AuditEvent.entity.name">
-      <path value="AuditEvent.entity.name"/>
-      <short value="Descriptor for entity"/>
-      <definition value="A name of the entity in the audit event."/>
-      <comment value="This field may be used in a query/report to identify audit events for a specific person.  For example, where multiple synonymous entity identifiers (patient number, medical record number, encounter number, etc.) have been used."/>
-      <requirements value="Use only where entity can&#39;t be identified with an identifier."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.context"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".title"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="ParticipantObjectName"/>
-      </mapping>
-      <mapping>
-        <identity value="w3c.prov"/>
-        <map value="Entity.Label"/>
       </mapping>
     </element>
     <element id="AuditEvent.entity.query">
