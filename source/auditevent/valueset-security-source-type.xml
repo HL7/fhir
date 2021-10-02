@@ -24,6 +24,30 @@
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/security-source-type"/>
+	  <concept>
+	    <code value="1"/>
+	  </concept>
+	  <concept>
+	    <code value="2"/>
+	  </concept>
+	  <concept>
+	    <code value="3"/>
+	  </concept>
+	  <concept>
+	    <code value="4"/>
+	  </concept>
+	  <concept>
+	    <code value="5"/>
+	  </concept>
+	  <concept>
+	    <code value="6"/>
+	  </concept>
+	  <concept>
+	    <code value="7"/>
+	  </concept>
+	  <concept>
+	    <code value="8"/>
+	  </concept>
     </include>
   </compose>
 </ValueSet>
