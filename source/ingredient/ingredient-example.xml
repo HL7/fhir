@@ -8,7 +8,9 @@
 		</coding>
 	</role>
 	<manufacturer>
-		<reference value="Organization/example"/>
+		<manufacturer>
+			<reference value="Organization/example"/>
+		</manufacturer>
 	</manufacturer>
 	<substance>
 		<code>
