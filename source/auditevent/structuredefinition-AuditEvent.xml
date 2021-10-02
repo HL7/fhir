@@ -1059,14 +1059,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <constraint>
-        <key value="sev-1"/>
-        <severity value="error"/>
-        <human value="Either a name or a query (NOT both)"/>
-        <expression value="name.empty() or query.empty()"/>
-        <xpath value="not(exists(f:name)) or not(exists(f:query))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/AuditEvent"/>
-      </constraint>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
@@ -1292,7 +1284,6 @@
       <type>
         <code value="string"/>
       </type>
-      <condition value="sev-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -1315,14 +1306,13 @@
       <path value="AuditEvent.entity.query"/>
       <short value="Query parameters"/>
       <definition value="The query parameters for a query-type entities."/>
-      <comment value="The meaning and secondary-encoding of the content of base64 encoded blob is specific to the AuditEvent.type, AuditEvent.subtype, AuditEvent.entity.type, and AuditEvent.entity.role.  The base64 is a general-use and safe container for event specific data blobs regardless of the encoding used by the transaction being recorded.  An AuditEvent consuming application must understand the event it is consuming and the formats used by the event. For example, if auditing an Oracle network database access, the Oracle formats must be understood as they will be simply encoded in the base64binary blob."/>
+      <comment value="The meaning and secondary-encoding of the content of base64 encoded blob is specific to the AuditEvent.type, AuditEvent.subtype, AuditEvent.entity.type, and AuditEvent.entity.role.  The base64 is a general-use and safe container for event specific data blobs regardless of the encoding used by the transaction being recorded.  An AuditEvent consuming application must understand the event it is consuming and the formats used by the event. For example, if auditing an Oracle network database access, the Oracle formats must be understood as they will be simply encoded in the base64binary blob.&#xA;&#xA;The DICOM AuditMessage schema does not support both .name and .query being populated."/>
       <requirements value="For query events, it may be necessary to capture the actual query input to the query process in order to identify the specific event. Because of differences among query implementations and data encoding for them, this is a base 64 encoded data blob. It may be subsequently decoded or interpreted by downstream audit analysis processing."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="base64Binary"/>
       </type>
-      <condition value="sev-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
