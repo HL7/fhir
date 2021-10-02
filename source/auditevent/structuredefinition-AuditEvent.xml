@@ -253,15 +253,18 @@
         <map value="PRI"/>
       </mapping>
     </element>
-    <element id="AuditEvent.period">
-      <path value="AuditEvent.period"/>
+    <element id="AuditEvent.occurred[x]">
+      <path value="AuditEvent.occurred[x]"/>
       <short value="When the activity occurred"/>
-      <definition value="The period during which the activity occurred."/>
-      <comment value="The period can be a little arbitrary; where possible, the time should correspond to human assessment of the activity time."/>
+      <definition value="The time or period during which the activity occurred."/>
+      <comment value="The time or period can be a little arbitrary; where possible, the time should correspond to human assessment of the activity time."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Period"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -282,8 +285,7 @@
       <mapping>
         <identity value="fhirprovenance"/>
         <map value="Provenance.occurred[x]"/>
-      </mapping>
-    </element>
+      </mapping>    </element>
     <element id="AuditEvent.recorded">
       <path value="AuditEvent.recorded"/>
       <short value="Time when the event was recorded"/>
