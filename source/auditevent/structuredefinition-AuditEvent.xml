@@ -1169,49 +1169,6 @@
         <map value="Entity.role"/>
       </mapping>
     </element>
-    <element id="AuditEvent.entity.lifecycle">
-      <path value="AuditEvent.entity.lifecycle"/>
-      <short value="Life-cycle stage for the entity"/>
-      <definition value="Identifier for the data life-cycle stage for the entity."/>
-      <comment value="This can be used to provide an audit trail for data, over time, as it passes through the system."/>
-      <requirements value="Institutional policies for privacy and security may optionally fall under different accountability rules based on data life cycle. This provides a differentiating value for those cases."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AuditEventEntityLifecycle"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
-          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Identifier for the data life-cycle stage for the entity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/object-lifecycle-events"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.context"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="target of ObservationEvent[code=&quot;lifecycle&quot;].value"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="ParticipantObjectDataLifeCycle"/>
-      </mapping>
-      <mapping>
-        <identity value="w3c.prov"/>
-        <map value="Entity.role"/>
-      </mapping>
-      <mapping>
-        <identity value="fhirprovenance"/>
-        <map value="Provenance.entity.role"/>
-      </mapping>
-    </element>
     <element id="AuditEvent.entity.securityLabel">
       <path value="AuditEvent.entity.securityLabel"/>
       <short value="Security labels on the entity"/>
