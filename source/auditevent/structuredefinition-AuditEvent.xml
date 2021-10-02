@@ -1075,57 +1075,11 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="ParticipantObjectName, ParticipantObjectID and ParticipantObjectIDTypeCode"/>
+        <map value="ParticipantObjectTypeCode, ParticipantObjectName, ParticipantObjectID and ParticipantObjectIDTypeCode"/>
       </mapping>
       <mapping>
         <identity value="fhirprovenance"/>
         <map value="Provenance.target, Provenance.entity.what"/>
-      </mapping>
-    </element>
-    <element id="AuditEvent.entity.type">
-      <path value="AuditEvent.entity.type"/>
-      <short value="Type of entity involved"/>
-      <definition value="The type of the object that was involved in this audit event."/>
-      <comment value="This value is distinct from the user&#39;s role or any user relationship to the entity."/>
-      <requirements value="To describe the object being acted upon. In addition to queries on the subject of the action in an auditable event, it is also important to be able to query on the object type for the action."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AuditEventEntityType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
-          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Code for the entity type involved in the audit event."/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="DICOM Audit Event Entity Type"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/audit-entity-type"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="[self::Act].code or role.player.code"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="ParticipantObjectTypeCode"/>
-      </mapping>
-      <mapping>
-        <identity value="w3c.prov"/>
-        <map value="Entity.type"/>
-      </mapping>
-      <mapping>
-        <identity value="fhirprovenance"/>
-        <map value="Provenance.entity.type"/>
       </mapping>
     </element>
     <element id="AuditEvent.entity.role">
