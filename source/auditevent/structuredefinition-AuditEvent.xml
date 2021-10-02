@@ -810,7 +810,7 @@
       <definition value="An identifier for the network access point of the user device for the audit event."/>
       <comment value="This could be a device id, IP address or some other identifier associated with a device."/>
       <requirements value="This datum identifies the user&#39;s network access point, which may be distinct from the server that performed the action. It is an optional value that may be used to group events recorded on separate servers for analysis of a specific network access point&#39;s data access across all servers."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="string"/>
@@ -837,7 +837,7 @@
       <short value="The type of network access point"/>
       <definition value="An identifier for the type of network access point that originated the audit event."/>
       <requirements value="This datum identifies the type of network access point identifier of the user device for the audit event. It is an optional value that may be used to group events recorded on separate servers for analysis of access according to a network access point&#39;s type."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="code"/>
