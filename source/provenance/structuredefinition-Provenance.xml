@@ -244,10 +244,12 @@
         <map value="Activity.location"/>
       </mapping>
     </element>
-    <element id="Provenance.reason">
-      <path value="Provenance.reason"/>
-      <short value="Reason the activity is occurring"/>
-      <definition value="The reason that the activity was taking place."/>
+    <element id="Provenance.authorization">
+      <path value="Provenance.authorization"/>
+      <short value="Authorization (purposeOfUse) related to the event"/>
+      <definition value="The authorization (e.g., PurposeOfUse) that was used during the event being recorded."/>
+      <requirements value="Record of any relevant security context, not restricted to purposeOfUse valueSet. May include security compartments, refrain, obligation, or other security tags."/>
+	  <alias value="PurposeOfEvent"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -257,8 +259,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProvenanceReason"/>
         </extension>
-        <strength value="extensible"/>
-        <description value="The reason the activity took place."/>
+        <strength value="example"/>
+        <description value="The authorized purposeOfUse for the activity."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse"/>
       </binding>
       <mapping>
@@ -587,7 +589,7 @@
       </mapping>
       <mapping>
         <identity value="fhirauditevent"/>
-        <map value="AuditEvent.entity.lifecycle"/>
+        <map value="AuditEvent.entity.role"/>
       </mapping>
       <mapping>
         <identity value="w3c.prov"/>
