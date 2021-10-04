@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="combined-dose-form"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/combined-dose-form"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1554"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="CombinedDoseForm"/>
+  <title value="CombinedDoseForm"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Dose forms for a product as a whole, considering all individual parts, but before any mixing"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/combined-dose-form"/>
+  <content value="complete"/>
+   <concept>
+      <code value="100000073366"/>
+      <display value="Powder and solvent for oral solution"/>
+   </concept>
+   <concept>
+      <code value="100000073651"/>
+      <display value="Powder and solvent for oral suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073774"/>
+      <display value="Eye drops, powder and solvent for solution"/>
+   </concept>
+   <concept>
+      <code value="100000073781"/>
+      <display value="Eye drops, powder and solvent for suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073801"/>
+      <display value="Ear drops, powder and solvent for suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073860"/>
+      <display value="Powder and solvent for solution for infusion"/>
+   </concept>
+   <concept>
+      <code value="100000073868"/>
+      <display value="Powder and solvent for solution for injection"/>
+   </concept>
+   <concept>
+      <code value="100000073869"/>
+      <display value="Powder and solvent for suspension for injection"/>
+   </concept>
+   <concept>
+      <code value="100000073884"/>
+      <display value="Powder and solvent for implantation paste"/>
+   </concept>
+   <concept>
+      <code value="100000073891"/>
+      <display value="Endotracheopulmonary instillation, powder and solvent for solution"/>
+   </concept>
+   <concept>
+      <code value="100000073892"/>
+      <display value="Powder and solvent for endocervical gel"/>
+   </concept>
+   <concept>
+      <code value="100000073941"/>
+      <display value="Powder and solvent for sealant"/>
+   </concept>
+   <concept>
+      <code value="100000073972"/>
+      <display value="Concentrate and solvent for concentrate for solution for infusion"/>
+   </concept>
+   <concept>
+      <code value="100000073973"/>
+      <display value="Concentrate and solvent for cutaneous use"/>
+   </concept>
+   <concept>
+      <code value="100000073974"/>
+      <display value="Concentrate and solvent for injection"/>
+   </concept>
+   <concept>
+      <code value="100000073975"/>
+      <display value="Concentrate and solvent for solution for infusion"/>
+   </concept>
+   <concept>
+      <code value="100000073987"/>
+      <display value="Concentrate and diluent for solution for infusion"/>
+   </concept>
+   <concept>
+      <code value="100000073988"/>
+      <display value="Concentrate and solvent for cutaneous solution"/>
+   </concept>
+   <concept>
+      <code value="100000073989"/>
+      <display value="Concentrate and solvent for solution for injection"/>
+   </concept>
+   <concept>
+      <code value="100000073990"/>
+      <display value="Concentrate and solvent for suspension for injection"/>
+   </concept>
+   <concept>
+      <code value="100000073999"/>
+      <display value="Granules and solvent for suspension for injection"/>
+   </concept>
+   <concept>
+      <code value="100000074015"/>
+      <display value="Powder and solvent for concentrate for solution for infusion"/>
+   </concept>
+   <concept>
+      <code value="100000074016"/>
+      <display value="Powder and solvent for cutaneous solution"/>
+   </concept>
+   <concept>
+      <code value="100000074017"/>
+      <display value="Powder and solvent for gingival gel"/>
+   </concept>
+   <concept>
+      <code value="100000074018"/>
+      <display value="Powder and solvent for prolonged-release suspension for injection"/>
+   </concept>
+   <concept>
+      <code value="100000074030"/>
+      <display value="Powder and solvent for endosinusial solution"/>
+   </concept>
+   <concept>
+      <code value="100000074031"/>
+      <display value="Powder and solvent for intraocular instillation solution"/>
+   </concept>
+   <concept>
+      <code value="100000074032"/>
+      <display value="Powder and suspension for suspension for injection"/>
+   </concept>
+   <concept>
+      <code value="100000074048"/>
+      <display value="Suspension and effervescent granules for oral suspension"/>
+   </concept>
+   <concept>
+      <code value="100000074051"/>
+      <display value="Tablet and solvent for rectal suspension"/>
+   </concept>
+   <concept>
+      <code value="100000074053"/>
+      <display value="Powder and solvent for dental gel"/>
+   </concept>
+   <concept>
+      <code value="100000074056"/>
+      <display value="Gas and solvent for dispersion for injection/infusion"/>
+   </concept>
+   <concept>
+      <code value="100000074057"/>
+      <display value="Powder and solvent for solution for injection/infusion"/>
+   </concept>
+   <concept>
+      <code value="100000074061"/>
+      <display value="Suspension and solution for spray"/>
+   </concept>
+   <concept>
+      <code value="100000074064"/>
+      <display value="Tablet and powder for oral solution"/>
+   </concept>
+   <concept>
+      <code value="100000075580"/>
+      <display value="Emulsion and suspension for emulsion for injection"/>
+   </concept>
+   <concept>
+      <code value="100000075584"/>
+      <display value="Powder and solvent for dispersion for injection"/>
+   </concept>
+   <concept>
+      <code value="100000075587"/>
+      <display value="Powder for mouth wash"/>
+   </concept>
+   <concept>
+      <code value="100000116137"/>
+      <display value="Lyophilisate and solvent for solution for injection"/>
+   </concept>
+   <concept>
+      <code value="100000116141"/>
+      <display value="Fibrin sealant-powder and solvent for fibrin sealant"/>
+   </concept>
+   <concept>
+      <code value="100000116155"/>
+      <display value="Granules and solvent for oral suspension"/>
+   </concept>
+   <concept>
+      <code value="100000116160"/>
+      <display value="Lyophilisate and solvent for suspension for injection"/>
+   </concept>
+   <concept>
+      <code value="100000116172"/>
+      <display value="Powder and gel for gel"/>
+   </concept>
+   <concept>
+      <code value="100000116173"/>
+      <display value="Powder and solution for solution for injection"/>
+   </concept>
+   <concept>
+      <code value="100000116174"/>
+      <display value="Powder and solvent for epilesional solution"/>
+   </concept>
+   <concept>
+      <code value="100000116175"/>
+      <display value="Powder and solvent for intravesical solution"/>
+   </concept>
+   <concept>
+      <code value="100000116176"/>
+      <display value="Powder and solvent for intravesical suspension"/>
+   </concept>
+   <concept>
+      <code value="100000116177"/>
+      <display value="Powder and solvent for nebuliser solution"/>
+   </concept>
+   <concept>
+      <code value="100000116179"/>
+      <display value="Powder, dispersion and solvent for concentrate for dispersion for infusion"/>
+   </concept>
+   <concept>
+      <code value="100000125746"/>
+      <display value="Powder and solvent for emulsion for injection"/>
+   </concept>
+   <concept>
+      <code value="100000125747"/>
+      <display value="Nasal drops, powder and solvent for solution"/>
+   </concept>
+   <concept>
+      <code value="100000125777"/>
+      <display value="Suspension and solvent for suspension for injection"/>
+   </concept>
+   <concept>
+      <code value="100000136318"/>
+      <display value="Concentrate and solvent for solution for injection/infusion"/>
+   </concept>
+   <concept>
+      <code value="100000136325"/>
+      <display value="Powder and solvent for solution for injection/skin-prick test"/>
+   </concept>
+   <concept>
+      <code value="100000136558"/>
+      <display value="Lyophilisate and solvent for suspension for nasal administration"/>
+   </concept>
+   <concept>
+      <code value="100000136560"/>
+      <display value="Powder and solvent for solution for sealant"/>
+   </concept>
+   <concept>
+      <code value="100000136907"/>
+      <display value="Solution for dispersion for injection/infusion"/>
+   </concept>
+   <concept>
+      <code value="100000143502"/>
+      <display value="Powder and solution for dental cement"/>
+   </concept>
+   <concept>
+      <code value="100000143546"/>
+      <display value="Endotracheopulmonary instillation, powder and solvent for suspension"/>
+   </concept>
+   <concept>
+      <code value="100000143552"/>
+      <display value="Powder, solvent and matrix for implantation matrix"/>
+   </concept>
+   <concept>
+      <code value="100000156068"/>
+      <display value="Nasal drops, lyophilisate and solvent for suspension"/>
+   </concept>
+   <concept>
+      <code value="100000157796"/>
+      <display value="Lyophilisate and suspension for suspension for injection"/>
+   </concept>
+   <concept>
+      <code value="100000164467"/>
+      <display value="Powder for concentrate and solution for solution for infusion"/>
+   </concept>
+   <concept>
+      <code value="100000169997"/>
+      <display value="Powder and solution for bee-hive solution"/>
+   </concept>
+   <concept>
+      <code value="100000170588"/>
+      <display value="Suspension and solvent for oral spray"/>
+   </concept>
+   <concept>
+      <code value="100000171127"/>
+      <display value="Lyophilisate and solvent for oral suspension"/>
+   </concept>
+   <concept>
+      <code value="100000171193"/>
+      <display value="Concentrate and solvent for concentrate for oral spray, suspension"/>
+   </concept>
+   <concept>
+      <code value="100000171238"/>
+      <display value="Lyophilisate and solvent for oculonasal suspension"/>
+   </concept>
+   <concept>
+      <code value="100000171935"/>
+      <display value="Emulsion and lyophilisate for suspension for injection"/>
+   </concept>
+   <concept>
+      <code value="100000174065"/>
+      <display value="Powder and solvent for syrup"/>
+   </concept>
+   <concept>
+      <code value="200000002161"/>
+      <display value="Nasal spray, lyophilisate and solvent for suspension"/>
+   </concept>
+   <concept>
+      <code value="200000002287"/>
+      <display value="Powder and solution for bee-hive dispersion"/>
+   </concept>
+   <concept>
+      <code value="200000004201"/>
+      <display value="Solution and dispersion for nebuliser dispersion"/>
+   </concept>
+   <concept>
+      <code value="200000004819"/>
+      <display value="Effervescent powder and powder for oral suspension"/>
+   </concept>
+   <concept>
+      <code value="200000004820"/>
+      <display value="Lyophilisate and solvent for emulsion for injection"/>
+   </concept>
+   <concept>
+      <code value="200000005547"/>
+      <display value="Powder and solution for suspension for injection"/>
+   </concept>
+   <concept>
+      <code value="200000010382"/>
+      <display value="Lyophilisate and solvent for suspension for nasal spray or injection"/>
+   </concept>
+</CodeSystem>

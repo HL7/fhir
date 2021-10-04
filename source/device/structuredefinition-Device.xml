@@ -42,7 +42,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device."/>
+  <description value="This resource describes the properties (regulated, has real time clock, etc.), adminstrative (manufacturer name, model number, serial number, firmware, etc), and type (knee replacement, blood pressure cuff, MRI, etc.) of a physical unit (these values do not change much within a given module, for example the serail number, manufacturer name, and model number). An actual unit may consist of several modules in a distinct hierarchy and these are represented by multiple Device resources and bound through the 'parent' element."/>
   <purpose value="Allows institutions to track their devices."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
@@ -103,7 +103,7 @@
       <path value="Device.identifier"/>
       <short value="Instance identifier"/>
       <definition value="Unique instance identifiers assigned to a device by manufacturers other organizations or owners."/>
-      <comment value="Certain attributes, like serial number and UDI Carrier (the HRF or AIDC barcode string) are not device instance identifiers as they are not consistently able to uniquely identify the instance of a device, thus are not appropriate to be used to value Device.identifier. The barcode string from a barcode present on a device label or package may identify the instance, include names given to the device in local usage, or may identify the type of device. If the identifier identifies the type of device, Device.type element should be used."/>
+      <comment value="Certain attributes, like serial number and UDI Carrier (the HRF or AIDC barcode string) are not device instance identifiers as they are not consistently able to uniquely identify the instance of a device, thus are not appropriate to be used to value Device.identifier. The barcode string from a barcode present on a device label or package may identify the instance, include names given to the device in local usage, or may identify the type of device. If the identifier identifies the type of device, Device.type element should be used. The identifier is typically valued if the serialNumber or lotNumber is not valued and represents a different type of identifier.  However, it is permissible to still include those identifiers in DeviceDefinition.identifier with the appropriate identifier.type."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -143,7 +143,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
     </element>
@@ -616,6 +616,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
       </binding>
     </element>
+<!--
     <element id="Device.specialization">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="600,150"/>
@@ -654,6 +655,7 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
+-->
     <element id="Device.version">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="800,100"/>
@@ -729,7 +731,8 @@
     <element id="Device.property.value[x]">
       <path value="Device.property.value[x]"/>
       <short value="Property value - as a code or quantity"/>
-      <definition value="Property value - can be a code or quantity."/>
+      <definition value="Property value - the data type depends on the property type."/>
+      <comment value="The usage of CodeableConcept is for concepts that are normally coded but for which a code is not available - for example a device implant size that is not standardized. The property string is for text characteristics, e.g. long descriptions, warnings, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -738,9 +741,24 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
+      </type>
     </element>
-    <element id="Device.patient">
-      <path value="Device.patient"/>
+    <element id="Device.subject">
+      <path value="Device.subject"/>
       <short value="Patient to whom Device is affixed"/>
       <definition value="Patient information, if the device is affixed to, or associated to a patient for their specific use, irrespective of the procedure, use, observation, or other activity that the device is involved in."/>
       <requirements value="If the device is implanted, or otherwise in use by the patient (e.g., wheelchair, oxygen tank), without further describing its specific use, then the device needs to be associated to the patient."/>
@@ -749,6 +767,8 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Person"/>
       </type>
       <mapping>
         <identity value="w5"/>
@@ -877,6 +897,47 @@
         <map value=".scopedRole[typeCode=CON].player"/>
       </mapping>
     </element>
+
+    <element id="Device.distributor">
+      <path value="The distributor of the model of device"/>
+      <definition value="The distributor of the model of device, other than the manufacturer."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playedRole[typeCode=DIST].scoper.name"/>
+      </mapping>
+      </element>
+      <element id="Device.distributor.name">
+        <path value="Device.distributor.name"/>
+        <short value="The name of the distributor"/>
+        <definition value="The human-readble name of the device distributor."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="string"/>
+        </type>
+      </element>
+      <element id="Device.distributor.organizationReference">
+        <path value="Device.distributor.organizationReference"/>
+        <short value="The organization of the device distributor"/>
+        <definition value="The organization that the distributor of the device belongs to."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Reference"/>
+          <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        </type>
+      </element>
+    
+
     <element id="Device.location">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="#7418."/>

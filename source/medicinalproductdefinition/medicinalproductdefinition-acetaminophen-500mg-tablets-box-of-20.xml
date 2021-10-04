@@ -4,9 +4,9 @@
 	<contained>
 		<PackagedProductDefinition>
 			<id value="Acetamin-pack-20"/>
-			<subject>
+			<packageFor>
 				<reference value="#"/>
-			</subject>
+			</packageFor>
 			<package>
 				<type>
 					<coding>
@@ -20,7 +20,9 @@
 						<reference value="#Acetamin-tab-500"/>
 						</reference>
 					</item>
-					<amountInteger value="20"/>
+					<amount>
+						<value value="20"/>
+					</amount> 
 				</containedItem>
 			</package>
 		</PackagedProductDefinition>

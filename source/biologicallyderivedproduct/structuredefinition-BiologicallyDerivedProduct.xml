@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A material substance originating from a biological entity intended to be transplanted or infused&#xA;into another (possibly the same) biological entity."/>
+  <description value="A biological material originating from a biological entity intended to be transplanted or infused into another (possibly the same) biological entity."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
@@ -258,12 +258,13 @@
     </element>
     <element id="BiologicallyDerivedProduct.processing.procedure">
       <path value="BiologicallyDerivedProduct.processing.procedure"/>
-      <short value="Procesing code"/>
-      <definition value="Procesing code."/>
+      <short value="The reference or code of the processing activity"/>
+      <definition value="The reference or code of the processing activity."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -303,7 +304,7 @@
       <short value="Any manipulation of product post-collection"/>
       <definition value="Any manipulation of product post-collection that is intended to alter the product.  For example a buffy-coat enrichment or CD8 reduction of Peripheral Blood Stem Cells to make it more suitable for infusion."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -317,6 +318,25 @@
       <type>
         <code value="string"/>
       </type>
+    </element>
+    <element id="BiologicallyDerivedProduct.manipulation.procedure">
+      <path value="BiologicallyDerivedProduct.manipulation.procedure"/>
+      <short value="The reference or code of the manipulation activity"/>
+      <definition value="The reference or code of the manipulation activity."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BiologicallyDerivedProductProcedure"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Biologically Derived Product Procedure."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
+      </binding>
     </element>
     <element id="BiologicallyDerivedProduct.manipulation.time[x]">
       <path value="BiologicallyDerivedProduct.manipulation.time[x]"/>

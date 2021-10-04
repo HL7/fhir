@@ -16,16 +16,4 @@
       <display value="General Example"/>
     </item>
   </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of a film-coated tablet, using a &quot;specified substance&quot;"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="ingredient-example-specified-substance"/>
-    </extension>
-    <item>
-      <reference value="Ingredient/example"/>
-      <display value="Specified Substance"/>
-    </item>
-  </entry>
 </List>

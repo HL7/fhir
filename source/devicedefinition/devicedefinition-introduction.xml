@@ -4,22 +4,39 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-The DeviceDefinition resource is used to describe the characteristics and capabilities of a medical device. It also includes packaging information; For kits that can be assembled and repackaged, the packaging is defined at the kit level, but the custom repackaging of that kit is not covered.
+Devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health, as well as devices such as a machine, cellphone, computer, software, application, etc.  The DeviceDefinition resource is used to describe the common characteristics and capabilities of a device of a certain type or kind, e.g., a certain model or class of a device such as a x-ray model or personal wearable device model, whereas a Device resource documents an actual instance of a device such as the actual x-ray machine that is installed or the personal wearable device being worn.
 </p>
+
+<p>Devices can also be subdivded as follows:</p>
+<p><b>Implantable device</b></p>
+<ul>
+<li>
+a device that is intended to be placed in a surgically or naturally formed cavity of the human body…for a continuous period of 30 days or more <a href="https://www.fda.gov/medical-devices/home-health-and-consumer-devices/home-use-devices">US Food and Drug Administration Center for Devices and Radiological Health. Home Use Devices.</a> Accessed 13 March 2020.
+</li>
+<li>
+any active medical device which is intended to be totally or partially introduced, surgically or medically, into the human body or by medical intervention into a natural orifice, and which is intended to remain after the procedure <a href="https://www.bsigroup.com/en-US/medical-devices/Technologies/Active-Implantable-Medical-Devices/">BSI Group. Active implantable medical devices.</a> Accessed 13 March 2020.
+</li>
+</ul>
+<p><b>Patient-use device</b></p>
+<ul>
+<li>Patient-use, or home use devices, intended for users in any environment outside of a professional healthcare facility. This includes devices intended for use in both professional healthcare facilities and homes <a href="https://www.fda.gov/medical-devices/home-health-and-consumer-devices/home-use-devices">US Food and Drug Administration Center for Devices and Radiological Health. Home Use Devices.</a> Accessed 13 March 2020.
+</li>
+</ul>
+
 </div>
 
 <div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-The DeviceDefinition resource contains the "catalog" definition of a device - whether that definition is authored by the regulatory entities, or it is a local definition that includes assembled device configurations.
-The DeviceDefinition allows defining hierarchical device configurations (devices as part of other devices).
+The DeviceDefinition resource contains the "catalog" definition of a device - whether that definition is authored by the manufacturer or a regulatory entity and allows defining valid hierarchical device configurations (devices as part of other devices).
 </p>
 <p>
 Device vs deviceDefinition:
-The Device resource is meant to refer to a physical instance of a device - hence having attributes like lot number, patient, location, which the DeviceDefinition resource does not have.
+Device vs deviceDefinition: The Device resource is meant to refer to a physical instance of a device - hence having attributes like lot number, patient, location, operational status which the DeviceDefinition resource does not have.
 
 </p>
+
 
 
 

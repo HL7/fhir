@@ -3,19 +3,22 @@
   <id value="medexample015"/>
   <contained>
     <Organization>
-      <id value="org2"/>
-      <name value="Gene Inc" />
+      <id value="mmanu"/>
+      <name value="Medication Manufacturer" />
     </Organization>
   </contained>
   <contained>
     <Substance>
       <id value="sub04"/>
+      <instance value="false"/>
       <code>
+        <concept>
           <coding>
             <system value="http://snomed.info/sct"/>
             <code value="386906001"/>
             <display value="Capecitabine (substance)"/>
           </coding>
+        </concept>
       </code>
     </Substance>
   </contained>
@@ -26,9 +29,9 @@
       <display value="Capecitabine 500mg oral tablet (Xeloda)"/>
     </coding>
   </code>
-  <sponsor>
-      <reference value="#org2"/>
-  </sponsor>
+  <marketingAuthorizationHolder>
+    <reference value="#mmanu" />
+  </marketingAuthorizationHolder>
     <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>

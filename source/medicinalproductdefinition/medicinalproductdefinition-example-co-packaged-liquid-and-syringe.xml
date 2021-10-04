@@ -122,9 +122,9 @@
 	<contained>
 		<PackagedProductDefinition>
 			<id value="package"/>
-			<subject>
+			<packageFor>
 				<reference value="#"/>
-			</subject>
+			</packageFor>
 			<package>
 				<!-- can be more details of the package here, but not necessary for this use case -->
 				<containedItem>
@@ -133,10 +133,10 @@
 						<reference value="#liquidItem"/>
 						</reference>
 					</item>
-					<amountQuantity>
+					<amount>
 						<value value="20"/>
 						<unit value="ml"/>
-					</amountQuantity>
+					</amount>
 				</containedItem>
 				<containedItem>
 					<item>

@@ -966,6 +966,7 @@
       <path value="PlanDefinition.goal.target.detail[x]"/>
       <short value="The target value to be achieved"/>
       <definition value="The target value of the measure to be achieved to signify fulfillment of the goal, e.g. 150 pounds or 7.0%, or in the case of pharmaceutical quality - NMT 0.6%, Clear solution, etc. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any value at or above the low value."/>
+      <comment value="A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the goal.target.measure defines a coded value."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -976,6 +977,18 @@
       </type>
       <type>
         <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="Ratio"/>
       </type>
       <mapping>
         <identity value="rim"/>
@@ -1145,10 +1158,24 @@
         <map value="Act[classCode=ACT; moodCode=DEFN]"/>
       </mapping>
     </element>
+    <element id="PlanDefinition.action.linkId">
+      <path value="PlanDefinition.action.linkId"/>
+      <short value="Unique id for the action in the PlanDefinition"/>
+      <definition value="An identifier that is unique within the PlanDefinition to allow linkage within the realized CarePlan and/or RequestGroup."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
     <element id="PlanDefinition.action.prefix">
       <path value="PlanDefinition.action.prefix"/>
       <short value="User-visible prefix for the action (e.g. 1. or A.)"/>
-      <definition value="A user-visible prefix for the action."/>
+      <definition value="A user-visible prefix for the action. For example a section or item numbering such as 1. or A."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1912,13 +1939,14 @@
     <element id="PlanDefinition.action.definition[x]">
       <path value="PlanDefinition.action.definition[x]"/>
       <short value="Description of the activity to be performed"/>
-      <definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken."/>
+      <definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, or an ObservationDefinition that specifies what observation should be captured."/>
       <comment value="Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
       </type>

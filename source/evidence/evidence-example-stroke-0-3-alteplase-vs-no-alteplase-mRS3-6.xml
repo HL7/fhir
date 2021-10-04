@@ -17,7 +17,9 @@
 	<label value="Wardlaw 2014"/>
 	<display value="Analysis 1.16 from Wardlaw 2014"/>
 	<citation value="Wardlaw JM, Murray V, Berge E, del Zoppo GJ. Thrombolysis for acute ischaemic stroke. Cochrane Database Syst Rev. 2014 Jul 29(7):CD000213. PMID 25072528"/>
-	<url value="https://doi.org/10.1002/14651858.CD000213.pub3"/>
+  <document>
+    <url value="https://doi.org/10.1002/14651858.CD000213.pub3"/>
+  </document>
   </relatedArtifact>
   <description value="mRS 3-6 at 90 days Odds Ratio 0.65 for Alteplase vs. No Alteplase in patients with acute ischemic stroke 0-3 hours prior"/>
   <variableDefinition>

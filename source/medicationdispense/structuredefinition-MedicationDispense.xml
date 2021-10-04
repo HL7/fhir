@@ -241,6 +241,20 @@
         <map value=".outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=&quot;not done reason&quot;].value"/>
       </mapping>
     </element>
+    <element id="MedicationDispense.statusChanged">
+      <path value="MedicationDispense.statusChanged"/>
+      <short value="When the status changed"/>
+      <definition value="The date (and maybe time) when the status of the dispense record changed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".subjectOf Observation[code = statusChange].value = date"/>
+      </mapping>
+    </element>
     <element id="MedicationDispense.category">
       <path value="MedicationDispense.category"/>
       <short value="Type of medication dispense"/>
@@ -559,6 +573,20 @@
       <mapping>
         <identity value="rim"/>
         <map value="effectiveUseTime"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.recorded">
+      <path value="MedicationDispense.recorded"/>
+      <short value="When the recording of the dispense started"/>
+      <definition value="The date (and maybe time) when the dispense activity started if whenPrepared or whenHandedOver is not populated."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".MedicationDispense.dataEnterer..time"/>
       </mapping>
     </element>
     <element id="MedicationDispense.whenPrepared">
