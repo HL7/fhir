@@ -1651,9 +1651,10 @@
         <code value="boolean"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.contributorship.entry.listOrder">
-      <path value="Citation.citedArtifact.contributorship.entry.listOrder"/>
-      <short value="Used to code order of authors"/>
+    <element id="Citation.citedArtifact.contributorship.entry.rankingOrder">
+      <path value="Citation.citedArtifact.contributorship.entry.rankingOrder"/>
+      <short value="Ranked order of contribution"/>
+      <definition value="Provides a numerical ranking to represent the degree of contributorship relative to other contributors, such as 1 for first author and 2 for second author."/>
       <min value="0"/>
       <max value="1"/>
       <type>
