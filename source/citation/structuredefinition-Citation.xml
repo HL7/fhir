@@ -659,21 +659,57 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
       </binding>
     </element>
-    <element id="Citation.relatesTo.target[x]">
-      <path value="Citation.relatesTo.target[x]"/>
+    <element id="Citation.relatesTo.target">
+      <path value="Citation.relatesTo.target"/>
       <short value="The article or artifact that the Citation Resource is related to"/>
       <min value="1"/>
       <max value="1"/>
       <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.relatesTo.target.url">
+      <path value="Citation.relatesTo.target.url"/>
+      <short value="The article or artifact that the Citation Resource is related to URL"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
         <code value="uri"/>
       </type>
+    </element>
+    <element id="Citation.relatesTo.target.identifier">
+      <path value="Citation.relatesTo.target.identifier"/>
+      <short value="The article or artifact that the Citation Resource is related to Identifier"/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
         <code value="Identifier"/>
       </type>
+    </element>
+    <element id="Citation.relatesTo.target.display">
+      <path value="Citation.relatesTo.target.display"/>
+      <short value="The article or artifact that the Citation Resource is related to Display"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Citation.relatesTo.target.resource">
+      <path value="Citation.relatesTo.target.resource"/>
+      <short value="The article or artifact that the Citation Resource is related to Resource reference"/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
+    </element>
+    <element id="Citation.relatesTo.target.attachment">
+      <path value="Citation.relatesTo.target.attachment"/>
+      <short value="The article or artifact that the Citation Resource is related to Attachment"/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
         <code value="Attachment"/>
       </type>
@@ -1013,21 +1049,57 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
       </binding>
     </element>
-    <element id="Citation.citedArtifact.relatesTo.target[x]">
-      <path value="Citation.citedArtifact.relatesTo.target[x]"/>
+    <element id="Citation.citedArtifact.relatesTo.target">
+      <path value="Citation.citedArtifact.relatesTo.target"/>
       <short value="The article or artifact that the cited artifact is related to"/>
       <min value="1"/>
       <max value="1"/>
       <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.target.url">
+      <path value="Citation.citedArtifact.relatesTo.target.url"/>
+      <short value="The article or artifact that the cited artifact is related to URL"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
         <code value="uri"/>
       </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.target.identifier">
+      <path value="Citation.citedArtifact.relatesTo.target.identifier"/>
+      <short value="The article or artifact that the cited artifact is related to Identifier"/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
         <code value="Identifier"/>
       </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.target.display">
+      <path value="Citation.citedArtifact.relatesTo.target.display"/>
+      <short value="The article or artifact that the cited artifact is related to Display"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.target.resource">
+      <path value="Citation.citedArtifact.relatesTo.target.resource"/>
+      <short value="The article or artifact that the cited artifact is related to Resource reference"/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.target.attachment">
+      <path value="Citation.citedArtifact.relatesTo.target.attachment"/>
+      <short value="The article or artifact that the cited artifact is related to Attachment"/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
         <code value="Attachment"/>
       </type>
@@ -1651,9 +1723,10 @@
         <code value="boolean"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.contributorship.entry.listOrder">
-      <path value="Citation.citedArtifact.contributorship.entry.listOrder"/>
-      <short value="Used to code order of authors"/>
+    <element id="Citation.citedArtifact.contributorship.entry.rankingOrder">
+      <path value="Citation.citedArtifact.contributorship.entry.rankingOrder"/>
+      <short value="Ranked order of contribution"/>
+      <definition value="Provides a numerical ranking to represent the degree of contributorship relative to other contributors, such as 1 for first author and 2 for second author."/>
       <min value="0"/>
       <max value="1"/>
       <type>
