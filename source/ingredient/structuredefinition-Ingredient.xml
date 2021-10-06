@@ -97,6 +97,43 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="Ingredient.status">
+      <path value="Ingredient.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The status of this ingredient. Enables tracking the life-cycle of the content."/>
+      <comment value="Allows filtering of ingredient that are appropriate for use versus not."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+      <!--mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="iso11179"/>
+        <map value="Registration status"/>
+      </mapping-->
+    </element>
     <element id="Ingredient.role">
       <path value="Ingredient.role"/>
       <short value="A classification of the ingredient identifying its purpose within the product, e.g. active, inactive"/>
@@ -188,6 +225,9 @@
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="IngredientManufacturerRole"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
         </extension>
         <strength value="required"/>
         <description value="The way in which this manufacturer is associated with the ingredient."/>

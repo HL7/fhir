@@ -30,6 +30,7 @@
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="Acetamin-tab-500"/>
+			<status value="active"/> 
 			<manufacturedDoseForm>
 				<coding>
 					<code value="tablet"/>
@@ -45,6 +46,7 @@
 	<contained>
 		<Ingredient>
 			<id value="Acetamin-ing-500"/>
+			<status value="active"/> 
 			<role>
 				<coding>
 					<code value="active"/>
