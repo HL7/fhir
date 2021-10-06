@@ -164,6 +164,7 @@
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="liquidItem"/>
+			<status value="active"/> 
 			<manufacturedDoseForm>
 				<coding>
 					<system value="http://example.org.uk/fhir/doseform"/>
@@ -180,6 +181,7 @@
 	<contained>
 		<Ingredient>
 			<id value="ingredient"/>
+			<status value="active"/> 
 			<role>
 				<coding>
 					<system value="http://example.org.uk/fhir/ingredientRole"/>
