@@ -38,7 +38,7 @@
 			</manufacturedDoseForm>
 		</ManufacturedItemDefinition>
 	</contained>
-	<contained>
+	<!--contained>
 		<Ingredient>
 			<id value="Acetamin-ing-500"/>
 			<status value="active"/>
@@ -74,7 +74,7 @@
 				</strength>
 			</substance>
 		</Ingredient>
-	</contained>
+	</contained-->
 	<identifier>
 		<system value="http://example.nation.org/drugs"/>
 		<value value="12345"/>
