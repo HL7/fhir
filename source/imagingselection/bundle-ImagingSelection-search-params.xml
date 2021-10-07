@@ -25,6 +25,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="ImagingSelection-based-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingSelection.basedOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingSelection-basedon"/>
+        <description value="The request associated with an imaging selection"/>
+        <code value="based-on"/>
+        <type value="reference"/>
+        <expression value="ImagingSelection.basedOn"/>
+        <xpath value="f:ImagingSelection/f:basedOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="ImagingSelection-subject"/>
         <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -118,6 +138,26 @@
         <type value="uri"/>
         <expression value="ImagingSelection.studyUid"/>
         <xpath value="f:ImagingSelection/f:studyUid"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingSelection-body-site"/>
+        <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="https://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingSelection.bodySite"/>
+        </extension>
+        <url value="https://hl7.org/fhir/build/SearchParameter/Observation-code"/>
+        <description value="The body site associated with the imaging selection"/>
+        <code value="body-site"/>
+        <type value="token"/>
+        <expression value="ImagingSelection.body-site"/>
+        <xpath value="f:ImagingSelection/f:body-site"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
