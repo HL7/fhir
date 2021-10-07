@@ -36,17 +36,15 @@
 					<code value="tablet"/>
 				</coding>
 			</manufacturedDoseForm>
-			<ingredient>
-				<reference>
-					<reference value="#Acetamin-ing-500"/>
-				</reference>
-			</ingredient>
 		</ManufacturedItemDefinition>
 	</contained>
 	<contained>
 		<Ingredient>
 			<id value="Acetamin-ing-500"/>
-			<status value="active"/> 
+			<status value="active"/>
+			<for>
+				<reference value="ManufacturedItemDefinition/Acetamin-tab-500"/>
+			</for>
 			<role>
 				<coding>
 					<code value="active"/>

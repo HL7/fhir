@@ -173,17 +173,15 @@
 					<code value="solution for injection"/>
 				</coding>
 			</manufacturedDoseForm>
-			<ingredient>
-				<reference>
-					<reference value="#ingredient"/>
-				</reference>
-			</ingredient>
 		</ManufacturedItemDefinition>
 	</contained>
 	<contained>
 		<Ingredient>
 			<id value="ingredient"/>
-			<status value="active"/> 
+			<status value="active"/>
+			<for>
+				<reference value="ManufacturedItemDefinition/liquidItem"/>
+			</for>
 			<role>
 				<coding>
 					<system value="http://example.org.uk/fhir/ingredientRole"/>
