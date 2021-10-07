@@ -40,8 +40,10 @@
         <comment value="HL7 term is a historical term. mapped to Pus"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="47002008"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="47002008"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -59,8 +61,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="7970006"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="7970006"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -71,8 +75,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="81723002"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="81723002"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -106,8 +112,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="14766002"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="14766002"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -146,8 +154,10 @@
         <comment value="submitted (PLR155) with parent of  167874004^knee joint synovial fluid (specimen), with specimen source topography 32361000^Popliteal fossa structure (body structure)"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="32361000"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="32361000"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -165,8 +175,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="339008"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="339008"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -177,8 +189,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="339008"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="339008"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -189,13 +203,17 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="59843005"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="59843005"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="14766002"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="14766002"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -234,8 +252,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="439336003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="439336003"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -253,8 +273,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="80657008"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="80657008"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -265,13 +287,17 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="11585000"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="11585000"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="14766002"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="14766002"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -282,8 +308,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="339008"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="339008"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -294,8 +322,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="86273004"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="86273004"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -313,8 +343,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="41570003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="41570003"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -375,13 +407,17 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="54535009"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="54535009"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="71252005"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="71252005"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -407,13 +443,17 @@
         <comment value="Prefer to have aspirate of the pus oozing out from cleaned insertion site - if swab is all that can be obtained, then swab after cleaning, otherwise you may get a contaminated specimen and a falsely identified infected central line. Do not just swab the reddened area - that will just collect skin flora       "/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="386144009"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="386144009"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="285570007"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="285570007"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -461,8 +501,10 @@
         <comment value="TBD in detail"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="445085009"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="445085009"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -473,8 +515,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="27925004"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="27925004"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -534,8 +578,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="31113003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="31113003"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -554,8 +600,10 @@
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead: not an acceptable specimen for micro - not specific enough term"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="122462000"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="122462000"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -567,8 +615,10 @@
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="122462000"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="122462000"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -586,13 +636,17 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="36213007"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="36213007"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="32849002"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="32849002"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -673,13 +727,17 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="14766002"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="14766002"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="321667001"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="321667001"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -698,13 +756,17 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="14766002"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="14766002"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="321667001"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="321667001"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -750,8 +812,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="303112003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="303112003"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -762,8 +826,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="83670000"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="83670000"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -818,8 +884,10 @@
         <comment value="this term is not specific enough, choose from terms that more accurately describe the specimen"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="272626006"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="272626006"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -830,8 +898,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="41695006"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="41695006"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -843,8 +913,10 @@
         <comment value="Further describe the sample as tissue or pus. or by the collection method. The term boil is not specific to a body site - need to indicate source site (spm.8). preferred term is Aspirate_Boil"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="59843005"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="59843005"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -862,13 +934,17 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="14766002"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="14766002"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="69695003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="69695003"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -879,8 +955,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="66051006"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="66051006"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -891,13 +969,17 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="235157009"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="235157009"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="69695003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="69695003"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -909,13 +991,17 @@
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="122462000"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="122462000"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="69695003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="69695003"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -947,8 +1033,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="45647009"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="45647009"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -974,13 +1062,17 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="79121003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="79121003"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="69695003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="69695003"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -999,18 +1091,24 @@
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="127490009"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="127490009"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="122462000"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="122462000"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="69695003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="69695003"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1028,8 +1126,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="303113008"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="303113008"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1071,8 +1171,10 @@
         <comment value="TBD in detail"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="445085009"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="445085009"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1083,8 +1185,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="55434001"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="55434001"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1125,8 +1229,10 @@
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead: stool is what is expected, should use stool sample"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="419954003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="419954003"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1195,8 +1301,10 @@
         <comment value="TBD in detail"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="255560000"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="255560000"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1222,13 +1330,17 @@
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead: stool is what is expected, should use stool sample"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="122462000"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="122462000"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="21306003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="21306003"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1247,8 +1359,10 @@
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="122462000"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="122462000"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1259,8 +1373,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="67889009"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="67889009"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1271,8 +1387,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="64033007"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="64033007"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1283,8 +1401,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="397394009"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="397394009"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1295,13 +1415,17 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="173830003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="173830003"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="69695003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="69695003"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1319,13 +1443,17 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="67889009"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="67889009"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="44567001"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="44567001"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1373,8 +1501,10 @@
         <comment value="The HL7 term is a historical term Mapped to CSF obtained by lumbar puncture"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="303949008"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="303949008"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1393,8 +1523,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="4147007"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="4147007"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1412,8 +1544,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="414781009"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="414781009"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1432,13 +1566,17 @@
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="122462000"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="122462000"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="2095001"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="2095001"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1463,13 +1601,17 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="6853008"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="6853008"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="69695003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="69695003"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1481,18 +1623,24 @@
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="127492001"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="127492001"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="122462000"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="122462000"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="69695003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="69695003"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1531,8 +1679,10 @@
         <comment value="be more precise use ulcer, tumor, vesicle"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="74262004"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="74262004"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1578,8 +1728,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="12921003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="12921003"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1590,8 +1742,10 @@
         <comment value="need to know what kind of lesion, so map to: UlcerTissue_penile, VesicleFluid_penile, Wound_penile, Mass tissue_penile, Necrotic tissue_penile, AbscessAspirate_penile, Anything else?"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="18911002"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="18911002"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1602,8 +1756,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="397158004"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="397158004"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1656,8 +1812,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="255587001"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="255587001"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1669,13 +1827,17 @@
         <comment value="Historical term -though in this case more often used for discharge"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="122462000"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="122462000"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="13648007"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="13648007"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1686,8 +1848,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="41329004"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="41329004"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1698,8 +1862,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="6902008"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="6902008"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1710,8 +1876,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="6902008"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="6902008"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1765,8 +1933,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="129300006"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="129300006"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1784,8 +1954,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="47002008"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="47002008"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1796,8 +1968,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="47002008"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="47002008"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1830,13 +2004,17 @@
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead: stool is what is expected, should use stool sample"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="122462000"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="122462000"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="34402009"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="34402009"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1847,8 +2025,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="34402009"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="34402009"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1859,8 +2039,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="64033007"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="64033007"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1871,8 +2053,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="64033007"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="64033007"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1905,8 +2089,10 @@
         <comment value="TBD in detail"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="9454009"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="9454009"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1917,8 +2103,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="20233005"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="20233005"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1944,13 +2132,17 @@
         <comment value="Preferred is aspiration with sterile syringe from inflamed area. Specify body location of shunt site"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="257351008"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="257351008"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="14766002"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="14766002"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1961,13 +2153,17 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="446860008"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="446860008"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="279107003"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="279107003"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -1992,8 +2188,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="240977001"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="240977001"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2011,8 +2209,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="4147007"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="4147007"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2116,8 +2316,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="64033007"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="64033007"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2128,8 +2330,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="5713008"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="5713008"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2140,8 +2344,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="4335006"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="4335006"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2153,8 +2359,10 @@
         <comment value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="122462000"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="122462000"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2165,8 +2373,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="58088002"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="58088002"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2192,13 +2402,17 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="129112001"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="129112001"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="44567001"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="44567001"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2245,8 +2459,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="255588006"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="255588006"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2257,8 +2473,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="279572002"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="279572002"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2269,8 +2487,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="129112001"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="129112001"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2323,8 +2543,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="78533007"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="78533007"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2342,13 +2564,17 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="225271002"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="225271002"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="431938005"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="431938005"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2359,13 +2585,17 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="225109005"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="225109005"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="25990002"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="25990002"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2390,13 +2620,17 @@
         <comment value="NEW specimenTERM 7"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="176178006"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="176178006"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="89837001"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="89837001"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2500,8 +2734,10 @@
         <relationship value="equivalent"/>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="122462000"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="122462000"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2554,18 +2790,24 @@
         <comment value="Prefer to have aspirate of the pus oozing out from cleaned insertion site - if swab is all that can be obtained, then swab after cleaning, otherwise you may get a contaminated specimen and a falsely identified infected central line. Do not just swab the reddened area - that will just collect skin flora"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="119295008"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="119295008"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="386144009"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="386144009"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="14766002"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="14766002"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2576,8 +2818,10 @@
         <comment value="Be more specific use either: 119326000^hair specimen, or 119327009^nail specimen"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="119326000"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="119326000"/>
+          </valueCoding>
         </product>
       </target>
     </element>
@@ -2588,13 +2832,17 @@
         <comment value="assume swab from shunt site for mapping here - clean surface of skin prior to expressing the shunt site - preferred is aspiration with sterile syringe should use SPM.8 to specify body approximate match location of shunt site"/>
         <product>
           <property value="TypeModifier"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="438660002"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="438660002"/>
+          </valueCoding>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
-          <system value="http://snomed.info/sct"/>
-          <value value="257351008"/>
+          <valueCoding>
+            <system value="http://snomed.info/sct"/>
+            <code value="257351008"/>
+          </valueCoding>
         </product>
       </target>
     </element>
