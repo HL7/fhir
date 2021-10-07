@@ -110,14 +110,14 @@
           <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MedicinalProductDefinition.ingredient.reference"/>
+          <valueString value="MedicinalProductDefinition.ingredient"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-ingredient"/>
-        <description value="Reference to a resource (by instance)"/>
+        <description value="An ingredient of this product"/>
         <code value="ingredient"/>
-        <type value="reference"/>
-        <expression value="MedicinalProductDefinition.ingredient.reference"/>
-        <xpath value="f:MedicinalProductDefinition/f:ingredient/f:reference"/>
+        <type value="token"/>
+        <expression value="MedicinalProductDefinition.ingredient"/>
+        <xpath value="f:MedicinalProductDefinition/f:ingredient"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

@@ -19,9 +19,6 @@
       <code value="Tablet"/>
     </coding>
   </unitOfPresentation>
-  <ingredient>
-    <reference value="Ingredient/example"/>
-  </ingredient>
   <routeOfAdministration>
      <code>
        <coding>
