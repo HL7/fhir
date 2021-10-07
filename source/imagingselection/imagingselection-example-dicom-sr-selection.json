@@ -1,0 +1,42 @@
+{
+  "id": "8264200c-af40-3f1a-a336-d9c2a28712d9",
+  "identifier": [
+    {
+      "system": "urn:dicom:uid",
+      "value": "urn:oid:1.2.840.113747.20080222.219722708916865704970364063666367338874.2.1"
+    }
+  ],
+  "subject": {
+    "identifier": {
+      "system": "https://fhirhospital.org",
+      "value": "ZKEZMXZUATOOVQJG"
+    },
+    "type": "Patient"
+  },
+  "code": {
+    "text": "Observation within a DICOM SR"
+  },
+  "studyUid": "urn:oid:1.2.840.113747.20080222.219722708916865704970364063666367338874",
+  "derivedFrom": [
+    {
+      "identifier": {
+        "system": "urn:dicom:uid",
+        "value": "urn:oid:1.2.840.113747.20080222.219722708916865704970364063666367338874"
+      },
+      "type": "ImagingStudy"
+    }
+  ],
+  "seriesUid": "urn:oid:1.2.840.113747.20080222.219722708916865704970364063666367338874.1",
+  "frameOfReference": "urn:oid:1.2.840.113747.20080222.219722708916865704970364063666367338874.0",
+  "instances": [
+    {
+      "sopClass": {
+        "code": "urn:oid:1.2.840.10008.5.1.4.1.1.88.22",
+        "system": "urn:ietf:rfc:3986"
+      },
+      "uid": "urn:oid:1.2.840.113747.20080222.219722708916865704970364063666367338874.1.0",
+      "observationUid": "urn:oid:1.2.840.113747.20080222.219722708916865704970364063666367338874.10.1"
+    }
+  ],
+  "resourceType": "ImagingSelection"
+}

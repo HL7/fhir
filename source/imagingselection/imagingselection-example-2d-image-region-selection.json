@@ -1,0 +1,55 @@
+{
+  "id": "cef9bea0-7952-37ad-877e-9f6b0f3b231e",
+  "identifier": [
+    {
+      "system": "urn:dicom:uid",
+      "value": "urn:oid:1.2.840.113747.20080222.234080949052735949196684173611769097906.2.1"
+    }
+  ],
+  "subject": {
+    "identifier": {
+      "system": "https://fhirhospital.org",
+      "value": "UNKLRXAPHVJRBGPU"
+    },
+    "type": "Patient"
+  },
+  "code": {
+    "text": "Region selected from image"
+  },
+  "studyUid": "urn:oid:1.2.840.113747.20080222.234080949052735949196684173611769097906",
+  "derivedFrom": [
+    {
+      "identifier": {
+        "system": "urn:dicom:uid",
+        "value": "urn:oid:1.2.840.113747.20080222.234080949052735949196684173611769097906"
+      },
+      "type": "ImagingStudy"
+    }
+  ],
+  "seriesUid": "urn:oid:1.2.840.113747.20080222.234080949052735949196684173611769097906.1",
+  "frameOfReference": "urn:oid:1.2.840.113747.20080222.234080949052735949196684173611769097906.0",
+  "instances": [
+    {
+      "sopClass": {
+        "code": "urn:oid:1.2.840.10008.5.1.4.1.1.2",
+        "system": "urn:ietf:rfc:3986"
+      },
+      "uid": "urn:oid:1.2.840.113747.20080222.234080949052735949196684173611769097906.1.0",
+      "imageRegion": {
+        "regionType": "POLYGON",
+        "coordinateType": "2D",
+        "coordinates": [
+          0.25,
+          0.25,
+          0.75,
+          0.25,
+          0.75,
+          0.75,
+          0.25,
+          0.75
+        ]
+      }
+    }
+  ],
+  "resourceType": "ImagingSelection"
+}

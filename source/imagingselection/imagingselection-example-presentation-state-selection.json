@@ -1,0 +1,41 @@
+{
+  "id": "78c23e15-080d-383b-9573-4f7947e3040b",
+  "identifier": [
+    {
+      "system": "urn:dicom:uid",
+      "value": "urn:oid:1.2.840.113747.20080222.103491265692398516837338546057441308812.2.1"
+    }
+  ],
+  "subject": {
+    "identifier": {
+      "system": "https://fhirhospital.org",
+      "value": "UUZHAEXYMPDXORJU"
+    },
+    "type": "Patient"
+  },
+  "code": {
+    "text": "Referenced DICOM Grayscale Softcopy Presentation State"
+  },
+  "studyUid": "urn:oid:1.2.840.113747.20080222.103491265692398516837338546057441308812",
+  "derivedFrom": [
+    {
+      "identifier": {
+        "system": "urn:dicom:uid",
+        "value": "urn:oid:1.2.840.113747.20080222.103491265692398516837338546057441308812"
+      },
+      "type": "ImagingStudy"
+    }
+  ],
+  "seriesUid": "urn:oid:1.2.840.113747.20080222.103491265692398516837338546057441308812.1",
+  "frameOfReference": "urn:oid:1.2.840.113747.20080222.103491265692398516837338546057441308812.0",
+  "instances": [
+    {
+      "sopClass": {
+        "code": "urn:oid:1.2.840.10008.5.1.4.1.1.11.1",
+        "system": "urn:ietf:rfc:3986"
+      },
+      "uid": "urn:oid:1.2.840.113747.20080222.103491265692398516837338546057441308812.1.0"
+    }
+  ],
+  "resourceType": "ImagingSelection"
+}

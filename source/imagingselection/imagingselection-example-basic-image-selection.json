@@ -1,0 +1,48 @@
+{
+  "id": "c8318694-0d23-3ce6-94b6-20e29009936e",
+  "identifier": [
+    {
+      "system": "urn:dicom:uid",
+      "value": "urn:oid:1.2.840.113747.20080222.120295925228860274723353810675662021877.2.1"
+    }
+  ],
+  "subject": {
+    "identifier": {
+      "system": "https://fhirhospital.org",
+      "value": "MIIAWUTSOJITCHWI"
+    },
+    "type": "Patient"
+  },
+  "code": {
+    "text": "Key Images"
+  },
+  "studyUid": "urn:oid:1.2.840.113747.20080222.120295925228860274723353810675662021877",
+  "derivedFrom": [
+    {
+      "identifier": {
+        "system": "urn:dicom:uid",
+        "value": "urn:oid:1.2.840.113747.20080222.120295925228860274723353810675662021877"
+      },
+      "type": "ImagingStudy"
+    }
+  ],
+  "seriesUid": "urn:oid:1.2.840.113747.20080222.120295925228860274723353810675662021877.1",
+  "frameOfReference": "urn:oid:1.2.840.113747.20080222.120295925228860274723353810675662021877.0",
+  "instances": [
+    {
+      "sopClass": {
+        "code": "urn:oid:1.2.840.10008.5.1.4.1.1.2",
+        "system": "urn:ietf:rfc:3986"
+      },
+      "uid": "urn:oid:1.2.840.113747.20080222.120295925228860274723353810675662021877.1.0"
+    },
+    {
+      "sopClass": {
+        "code": "urn:oid:1.2.840.10008.5.1.4.1.1.2",
+        "system": "urn:ietf:rfc:3986"
+      },
+      "uid": "urn:oid:1.2.840.113747.20080222.120295925228860274723353810675662021877.1.1"
+    }
+  ],
+  "resourceType": "ImagingSelection"
+}

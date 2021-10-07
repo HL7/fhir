@@ -1,0 +1,42 @@
+{
+  "id": "5f51c7ad-8d54-3e97-89d7-ca4e90fcf208",
+  "identifier": [
+    {
+      "system": "urn:dicom:uid",
+      "value": "urn:oid:1.2.840.113747.20080222.126144609334829622983852718463800927894.2.1"
+    }
+  ],
+  "subject": {
+    "identifier": {
+      "system": "https://fhirhospital.org",
+      "value": "TANIFLXFETMKOXKB"
+    },
+    "type": "Patient"
+  },
+  "code": {
+    "text": "Segment within a DICOM Segmentation instance"
+  },
+  "studyUid": "urn:oid:1.2.840.113747.20080222.126144609334829622983852718463800927894",
+  "derivedFrom": [
+    {
+      "identifier": {
+        "system": "urn:dicom:uid",
+        "value": "urn:oid:1.2.840.113747.20080222.126144609334829622983852718463800927894"
+      },
+      "type": "ImagingStudy"
+    }
+  ],
+  "seriesUid": "urn:oid:1.2.840.113747.20080222.126144609334829622983852718463800927894.1",
+  "frameOfReference": "urn:oid:1.2.840.113747.20080222.126144609334829622983852718463800927894.0",
+  "instances": [
+    {
+      "sopClass": {
+        "code": "urn:oid:1.2.840.10008.5.1.4.1.1.66.4",
+        "system": "urn:ietf:rfc:3986"
+      },
+      "uid": "urn:oid:1.2.840.113747.20080222.126144609334829622983852718463800927894.1.0",
+      "segmentList": "1,1"
+    }
+  ],
+  "resourceType": "ImagingSelection"
+}

@@ -1,0 +1,59 @@
+{
+  "id": "bd1e0798-4062-3204-9c8a-57889286019a",
+  "identifier": [
+    {
+      "system": "urn:dicom:uid",
+      "value": "urn:oid:1.2.840.113747.20080222.138865932603741393424288831839967358416.2.1"
+    }
+  ],
+  "subject": {
+    "identifier": {
+      "system": "https://fhirhospital.org",
+      "value": "UPKRGGQJGXQFKVED"
+    },
+    "type": "Patient"
+  },
+  "code": {
+    "text": "Region selected from multiframe CT volume"
+  },
+  "studyUid": "urn:oid:1.2.840.113747.20080222.138865932603741393424288831839967358416",
+  "derivedFrom": [
+    {
+      "identifier": {
+        "system": "urn:dicom:uid",
+        "value": "urn:oid:1.2.840.113747.20080222.138865932603741393424288831839967358416"
+      },
+      "type": "ImagingStudy"
+    }
+  ],
+  "seriesUid": "urn:oid:1.2.840.113747.20080222.138865932603741393424288831839967358416.1",
+  "frameOfReference": "urn:oid:1.2.840.113747.20080222.138865932603741393424288831839967358416.0",
+  "instances": [
+    {
+      "sopClass": {
+        "code": "urn:oid:1.2.840.10008.5.1.4.1.1.2.1",
+        "system": "urn:ietf:rfc:3986"
+      },
+      "uid": "urn:oid:1.2.840.113747.20080222.138865932603741393424288831839967358416.1.0",
+      "imageRegion": {
+        "regionType": "ELLIPSE",
+        "coordinateType": "3D",
+        "coordinates": [
+          -50,
+          -50,
+          -50,
+          50,
+          50,
+          50,
+          25,
+          -25,
+          0,
+          -25,
+          25,
+          0
+        ]
+      }
+    }
+  ],
+  "resourceType": "ImagingSelection"
+}
