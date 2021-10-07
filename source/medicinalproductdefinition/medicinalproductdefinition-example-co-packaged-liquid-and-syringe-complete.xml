@@ -258,6 +258,7 @@
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="solventItem"/>
+			<status value="active"/> 
 			<manufacturedDoseForm>
 				<coding>
 					<system value="http://example.org.uk/fhir/doseform"/>
@@ -274,6 +275,7 @@
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="powderItem"/>
+			<status value="active"/> 
 			<manufacturedDoseForm>
 				<coding>
 					<system value="http://example.org.uk/fhir/doseform"/>
@@ -305,6 +307,7 @@
 	<contained>
 		<Ingredient>
 			<id value="ingredientPowder"/>
+			<status value="active"/> 
 			<role>
 				<coding>
 					<system value="http://example.org.uk/fhir/ingredientRole"/>
@@ -329,6 +332,7 @@
 	<contained>
 		<Ingredient>
 			<id value="ingredientSolvent"/>
+			<status value="active"/> 
 			<role>
 				<coding>
 					<system value="http://example.org.uk/fhir/ingredientRole"/>
@@ -351,6 +355,7 @@
 	<contained>
 		<AdministrableProductDefinition>
 			<id value="administrable-form"/>
+			<status value="active"/> 
 			<formOf>
 				<reference value="#"/>
 			</formOf>

@@ -21,6 +21,7 @@
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="liquidItem"/>
+			<status value="active"/> 
 			<manufacturedDoseForm>
 				<coding>
 					<system value="http://example.org.uk/fhir/doseform"/>
