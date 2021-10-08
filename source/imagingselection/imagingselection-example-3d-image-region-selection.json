@@ -1,5 +1,5 @@
 {
-  "id": "bd1e0798-4062-3204-9c8a-57889286019a",
+  "id": "example-3d-image-region-selection",
   "identifier": [
     {
       "system": "urn:dicom:uid",
@@ -27,8 +27,8 @@
     }
   ],
   "seriesUid": "urn:oid:1.2.840.113747.20080222.138865932603741393424288831839967358416.1",
-  "frameOfReference": "urn:oid:1.2.840.113747.20080222.138865932603741393424288831839967358416.0",
-  "instances": [
+  "frameOfReferenceUid": "urn:oid:1.2.840.113747.20080222.138865932603741393424288831839967358416.0",
+  "instance": [
     {
       "sopClass": {
         "code": "urn:oid:1.2.840.10008.5.1.4.1.1.2.1",

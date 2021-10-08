@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ImagingSelection xmlns="http://hl7.org/fhir">
+  <id value="example-basic-image-selection"/>
+  <identifier>
+    <system value="urn:dicom:uid"/>
+    <value value="urn:oid:1.2.840.113747.20080222.35738167368358372924306270412538783781.2.1"/>
+  </identifier>
+  <subject>
+    <type value="Patient"/>
+    <identifier>
+      <system value="https://fhirhospital.org"/>
+      <value value="KUTGIQCVCDRHVBUK"/>
+    </identifier>
+  </subject>
+  <code>
+    <text value="Key Images"/>
+  </code>
+  <studyUid value="urn:oid:1.2.840.113747.20080222.35738167368358372924306270412538783781"/>
+  <derivedFrom>
+    <type value="ImagingStudy"/>
+    <identifier>
+      <system value="urn:dicom:uid"/>
+      <value value="urn:oid:1.2.840.113747.20080222.35738167368358372924306270412538783781"/>
+    </identifier>
+  </derivedFrom>
+  <seriesUid value="urn:oid:1.2.840.113747.20080222.35738167368358372924306270412538783781.1"/>
+  <frameOfReferenceUid value="urn:oid:1.2.840.113747.20080222.35738167368358372924306270412538783781.0"/>
+  <instance>
+    <sopClass>
+      <system value="urn:ietf:rfc:3986"/>
+      <code value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
+    </sopClass>
+    <uid value="urn:oid:1.2.840.113747.20080222.35738167368358372924306270412538783781.1.0"/>
+  </instance>
+  <instance>
+    <sopClass>
+      <system value="urn:ietf:rfc:3986"/>
+      <code value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
+    </sopClass>
+    <uid value="urn:oid:1.2.840.113747.20080222.35738167368358372924306270412538783781.1.1"/>
+  </instance>
+</ImagingSelection>

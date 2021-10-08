@@ -1,5 +1,5 @@
 {
-  "id": "78c23e15-080d-383b-9573-4f7947e3040b",
+  "id": "example-presentation-state-selection",
   "identifier": [
     {
       "system": "urn:dicom:uid",
@@ -27,8 +27,8 @@
     }
   ],
   "seriesUid": "urn:oid:1.2.840.113747.20080222.103491265692398516837338546057441308812.1",
-  "frameOfReference": "urn:oid:1.2.840.113747.20080222.103491265692398516837338546057441308812.0",
-  "instances": [
+  "frameOfReferenceUid": "urn:oid:1.2.840.113747.20080222.103491265692398516837338546057441308812.0",
+  "instance": [
     {
       "sopClass": {
         "code": "urn:oid:1.2.840.10008.5.1.4.1.1.11.1",

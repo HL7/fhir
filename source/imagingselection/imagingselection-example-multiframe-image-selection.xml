@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ImagingSelection xmlns="http://hl7.org/fhir">
+  <id value="example-multiframe-image-selection"/>
+  <identifier>
+    <system value="urn:dicom:uid"/>
+    <value value="urn:oid:1.2.840.113747.20080222.307765875869300489350980245024554221747.2.1"/>
+  </identifier>
+  <subject>
+    <type value="Patient"/>
+    <identifier>
+      <system value="https://fhirhospital.org"/>
+      <value value="MNSOIISABIDCHRCY"/>
+    </identifier>
+  </subject>
+  <code>
+    <text value="Key Frames"/>
+  </code>
+  <studyUid value="urn:oid:1.2.840.113747.20080222.307765875869300489350980245024554221747"/>
+  <derivedFrom>
+    <type value="ImagingStudy"/>
+    <identifier>
+      <system value="urn:dicom:uid"/>
+      <value value="urn:oid:1.2.840.113747.20080222.307765875869300489350980245024554221747"/>
+    </identifier>
+  </derivedFrom>
+  <seriesUid value="urn:oid:1.2.840.113747.20080222.307765875869300489350980245024554221747.1"/>
+  <frameOfReferenceUid value="urn:oid:1.2.840.113747.20080222.307765875869300489350980245024554221747.0"/>
+  <instance>
+    <sopClass>
+      <system value="urn:ietf:rfc:3986"/>
+      <code value="urn:oid:1.2.840.10008.5.1.4.1.1.2.1"/>
+    </sopClass>
+    <uid value="urn:oid:1.2.840.113747.20080222.307765875869300489350980245024554221747.1.0"/>
+    <frameList value="1,2,3,4,5"/>
+  </instance>
+</ImagingSelection>

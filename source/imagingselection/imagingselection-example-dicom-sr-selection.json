@@ -1,5 +1,5 @@
 {
-  "id": "8264200c-af40-3f1a-a336-d9c2a28712d9",
+  "id": "example-dicom-sr-selection",
   "identifier": [
     {
       "system": "urn:dicom:uid",
@@ -27,8 +27,8 @@
     }
   ],
   "seriesUid": "urn:oid:1.2.840.113747.20080222.219722708916865704970364063666367338874.1",
-  "frameOfReference": "urn:oid:1.2.840.113747.20080222.219722708916865704970364063666367338874.0",
-  "instances": [
+  "frameOfReferenceUid": "urn:oid:1.2.840.113747.20080222.219722708916865704970364063666367338874.0",
+  "instance": [
     {
       "sopClass": {
         "code": "urn:oid:1.2.840.10008.5.1.4.1.1.88.22",
