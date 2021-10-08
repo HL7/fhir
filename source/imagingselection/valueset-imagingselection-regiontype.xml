@@ -4,7 +4,7 @@
   <id value="imagingselection-regiontype"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
-    <profile value="https://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <text>
     <status value="generated"/>
@@ -12,25 +12,25 @@
       <ul>
         <li>Include all codes defined in 
           <a href="codesystem-imagingselection-regiontype.html">
-            <code>https://hl7.org/fhir/imagingselection-regiontype</code>
+            <code>http://hl7.org/fhir/imagingselection-regiontype</code>
           </a>
         </li>
       </ul>
     </div>
   </text>
-  <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="ii"/>
   </extension>
-  <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
-  <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/>
   </extension>
-  <url value="https://hl7.org/fhir/ValueSet/imagingselection-regiontype"/>
+  <url value="http://hl7.org/fhir/ValueSet/imagingselection-regiontype"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:TODO"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1560"/>
   </identifier>
   <version value="4.6.0"/>
   <name value="ImagingSelectionRegionType"/>
@@ -42,7 +42,7 @@
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="https://hl7.org/fhir"/>
+      <value value="http://hl7.org/fhir"/>
     </telecom>
     <telecom>
       <system value="email"/>
@@ -53,7 +53,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="https://hl7.org/fhir/imagingselection-regiontype"/>
+      <system value="http://hl7.org/fhir/imagingselection-regiontype"/>
     </include>
   </compose>
 </ValueSet>

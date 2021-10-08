@@ -6,13 +6,13 @@
     <resource>
       <SearchParameter>
         <id value="ImagingSelection-identifier"/>
-        <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <extension url="https://hl7.org/fhir/build/StructureDefinition/path">
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ImagingSelection.identifier"/>
         </extension>
-        <url value="https://hl7.org/fhir/build/SearchParameter/ImagingSelection-identifier"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingSelection-identifier"/>
         <description value="Identifiers for the imaging selection"/>
         <code value="identifier"/>
         <type value="token"/>
@@ -46,13 +46,13 @@
     <resource>
       <SearchParameter>
         <id value="ImagingSelection-subject"/>
-        <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <extension url="https://hl7.org/fhir/build/StructureDefinition/path">
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ImagingSelection.subject"/>
         </extension>
-        <url value="https://hl7.org/fhir/build/SearchParameter/ImagingSelection-patient"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingSelection-patient"/>
         <description value="The subject of the Imaging Selection, such as the associated Patient"/>
         <code value="subject"/>
         <type value="reference"/>
@@ -66,16 +66,16 @@
     <resource>
       <SearchParameter>
         <id value="ImagingSelection-issued"/>
-        <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
         </extension>
-        <extension url="https://hl7.org/fhir/build/StructureDefinition/path">
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ImagingSelection.issued"/>
         </extension>
-        <url value="https://hl7.org/fhir/build/SearchParameter/ImagingSelection-started"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingSelection-started"/>
         <description value="The date / time the imaging selection was created"/>
         <code value="issued"/>
-        <type value="instant"/>
+        <type value="date"/>
         <expression value="ImagingSelection.issued"/>
         <xpath value="f:ImagingSelection/f:issued"/>
         <xpathUsage value="normal"/>
@@ -86,13 +86,13 @@
     <resource>
       <SearchParameter>
         <id value="ImagingSelection-code"/>
-        <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <extension url="https://hl7.org/fhir/build/StructureDefinition/path">
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ImagingSelection.code"/>
         </extension>
-        <url value="https://hl7.org/fhir/build/SearchParameter/Observation-code"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-code"/>
         <description value="The imaging selection description text or code"/>
         <code value="code"/>
         <type value="token"/>
@@ -106,13 +106,13 @@
     <resource>
       <SearchParameter>
         <id value="ImagingSelection-derived-from"/>
-        <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <extension url="https://hl7.org/fhir/build/StructureDefinition/path">
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ImagingSelection.derivedFrom"/>
         </extension>
-        <url value="https://hl7.org/fhir/build/SearchParameter/ImagingSelection-derived-from"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingSelection-derived-from"/>
         <description value="The imaging study from which the imaging selection was derived"/>
         <code value="derived-from"/>
         <type value="reference"/>
@@ -126,13 +126,13 @@
     <resource>
       <SearchParameter>
         <id value="ImagingSelection-study-uid"/>
-        <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <extension url="https://hl7.org/fhir/build/StructureDefinition/path">
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ImagingSelection.studyUid"/>
         </extension>
-        <url value="https://hl7.org/fhir/build/SearchParameter/ImagingSelection-derived-from"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingSelection-derived-from"/>
         <description value="The DICOM Study Instance UID from which the images were selected"/>
         <code value="study-uid"/>
         <type value="uri"/>
@@ -146,13 +146,13 @@
     <resource>
       <SearchParameter>
         <id value="ImagingSelection-body-site"/>
-        <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <extension url="https://hl7.org/fhir/build/StructureDefinition/path">
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ImagingSelection.bodySite"/>
         </extension>
-        <url value="https://hl7.org/fhir/build/SearchParameter/Observation-code"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-code"/>
         <description value="The body site associated with the imaging selection"/>
         <code value="body-site"/>
         <type value="token"/>

@@ -5,22 +5,22 @@
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
   </meta>
-  <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
     <valueString value="Clinical.Diagnostics"/>
   </extension>
-  <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
-  <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/>
   </extension>
-  <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="patient"/>
   </extension>
-  <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="ii"/>
   </extension>
-  <url value="https://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
   <version value="4.6.0"/>
   <name value="ImagingSelection"/>
   <status value="draft"/>
@@ -29,45 +29,45 @@
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="https://hl7.org/fhir"/>
+      <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="https://www.hl7.org/Special/committees/imagemgt/index.cfm"/>
+      <value value="http://www.hl7.org/Special/committees/imagemgt/index.cfm"/>
     </telecom>
   </contact>
   <description value="A selection of DICOM SOP instances and/or frames within a single Study and Series. which may or may not include additional specifics such as region or other DICOM UIDs, for example, ObservationUID, TrackingUID or SegmentationUID, allowing linkage to an Observation Resource or transferring this information along with the ImagingStudy Resource."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="workflow"/>
-    <uri value="https://hl7.org/fhir/workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
     <name value="Workflow Pattern"/>
   </mapping>
   <mapping>
     <identity value="dicom"/>
-    <uri value="https://nema.org/dicom"/>
+    <uri value="http://nema.org/dicom"/>
     <name value="DICOM Tag Mapping"/>
   </mapping>
   <mapping>
     <identity value="w5"/>
-    <uri value="https://hl7.org/fhir/fivews"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
     <name value="FiveWs Pattern Mapping"/>
   </mapping>
   <mapping>
     <identity value="v2"/>
-    <uri value="https://hl7.org/v2"/>
+    <uri value="http://hl7.org/v2"/>
     <name value="HL7 v2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="ImagingSelection"/>
-  <baseDefinition value="https://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
   <derivation value="specialization"/>
   <differential>
     <element id="ImagingSelection">
-      <extension url="https://hl7.org/fhir/build/StructureDefinition/svg">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,0"/>
       </extension>
       <path value="ImagingSelection"/>
@@ -135,11 +135,11 @@
       </mapping>
     </element>
     <element id="ImagingSelection.subject">
-      <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
-        <valueString value="dicom=https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.2.2.html"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
+        <valueString value="dicom=http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.2.2.html"/>
       </extension>
-      <extension url="https://hl7.org/fhir/build/StructureDefinition/hint">
-        <valueString value="dicom=https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.2.2.html"/>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/hint">
+        <valueString value="dicom=http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.2.2.html"/>
       </extension>
       <path value="ImagingSelection.subject"/>
       <short value="Subject of the selected instances and / or frames"/>
@@ -148,16 +148,16 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/Group"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/Location"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/Procedure"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/Medication"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/Substance"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/Specimen"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -221,12 +221,12 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="https://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EventPerformerFunction"/>
         </extension>
         <strength value="extensible"/>
         <description value="The type of involvement of the performer."/>
-        <valueSet value="https://hl7.org/fhir/ValueSet/series-performer-function"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/series-performer-function"/>
       </binding>
       <requirements value="Allows disambiguation of the types and involvement of different performers."/>
       <isSummary value="true"/>
@@ -239,14 +239,14 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/CareTeam"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/HealthCareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthCareService"/>
       </type>
       <isSummary value="true"/>
     </element>
@@ -264,12 +264,12 @@
       </type>
       <isSummary value="true"/>
       <binding>
-        <extension url="https://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ImagingSelectionCode"/>
         </extension>
         <strength value="example"/>
         <description value="Key Object Selection Document Title."/>
-        <valueSet value="https://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_7010.html"/>
+        <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_7010.html"/>
       </binding>
       <mapping>
         <identity value="dicom"/>
@@ -280,7 +280,7 @@
       <path value="ImagingSelection.studyUid"/>
       <short value="DICOM Study Instance UID"/>
       <definition value="The Study Instance UID for the DICOM Study from which the images were selected."/>
-      <comment value="See [DICOM PS3.3 C.7.2](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html)."/>
+      <comment value="See [DICOM PS3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html)."/>
       <requirements value="DICOM Study Instance UID."/>
       <alias value="StudyInstanceUID"/>
       <min value="1"/>
@@ -305,7 +305,7 @@
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
       </type>
       <isSummary value="true"/>
     </element>
@@ -319,7 +319,7 @@
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="https://hl7.org/fhir/StructureDefinition/Endpoint"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
       </type>
       <isSummary value="true"/>
     </element>
@@ -327,7 +327,7 @@
       <path value="ImagingSelection.seriesUid"/>
       <short value="DICOM Series Instance UID"/>
       <definition value="The Series Instance UID for the DICOM Series from which the images were selected."/>
-      <comment value="See [DICOM PS3.3 C.7.3](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html)."/>
+      <comment value="See [DICOM PS3.3 C.7.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html)."/>
       <requirements value="DICOM Series Instance UID."/>
       <alias value="SeriesInstanceUID"/>
       <min value="1"/>
@@ -349,7 +349,7 @@
       <path value="ImagingSelection.frameOfReferenceUid"/>
       <short value="The Frame of Reference UID for the selected images"/>
       <definition value="The Frame of Reference UID identifying the coordinate system that conveys spatial and/or temporal information for the selected images or frames."/>
-      <comment value="See [DICOM PS3.3 C.7.4.1](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.4.html)."/>
+      <comment value="See [DICOM PS3.3 C.7.4.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.4.html)."/>
       <requirements value="DICOM Frame of Reference UID."/>
       <alias value="FrameOfReferenceUID"/>
       <min value="0"/>
@@ -370,7 +370,7 @@
     <element id="ImagingSelection.bodySite">
       <path value="ImagingSelection.bodySite"/>
       <short value="Body part examined"/>
-      <definition value="The anatomic structures examined. See DICOM Part 16 Annex L (https://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) for DICOM to SNOMED-CT mappings."/>
+      <definition value="The anatomic structures examined. See DICOM Part 16 Annex L (http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) for DICOM to SNOMED-CT mappings."/>
       <alias value="BodyPartExamined"/>
       <min value="0"/>
       <max value="1"/>
@@ -378,15 +378,15 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="https://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BodySite"/>
         </extension>
-        <extension url="https://hl7.org/fhir/build/StructureDefinition/definition">
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
           <valueString value="Codes describing anatomical locations. May include laterality."/>
         </extension>
         <strength value="example"/>
         <description value="SNOMED CT Body site concepts"/>
-        <valueSet value="https://hl7.org/fhir/ValueSet/body-site"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
       </binding>
       <mapping>
         <identity value="dicom"/>
@@ -410,7 +410,7 @@
       <path value="ImagingSelection.instance.uid"/>
       <short value="DICOM SOP Instance UID"/>
       <definition value="The SOP Instance UID for the selected DICOM instance."/>
-      <comment value="See [DICOM PS3.3 C.12.1](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.12.html)."/>
+      <comment value="See [DICOM PS3.3 C.12.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.12.html)."/>
       <requirements value="DICOM SOP Instance UID."/>
       <alias value="SOPInstanceUID"/>
       <min value="1"/>
@@ -431,7 +431,7 @@
       <path value="ImagingSelection.instance.sopClass"/>
       <short value="DICOM SOP Class UID"/>
       <definition value="The SOP Class UID for the selected DICOM instance."/>
-      <comment value="See [DICOM PS3.3 C.12.1](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.12.html)."/>
+      <comment value="See [DICOM PS3.3 C.12.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.12.html)."/>
       <requirements value="DICOM SOP Class UID."/>
       <alias value="SOPClassUID"/>
       <min value="0"/>
@@ -440,15 +440,15 @@
         <code value="coding"/>
       </type>
       <binding>
-        <extension url="https://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="sopClass"/>
         </extension>
-        <extension url="https://hl7.org/fhir/build/StructureDefinition/copyright">
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
           <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
         </extension>
         <strength value="extensible"/>
         <description value="DICOM SOP Classes."/>
-        <valueSet value="https://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1"/>
+        <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1"/>
       </binding>
       <example>
         <label value="General"/>
@@ -465,7 +465,7 @@
       <definition value="The set of frames within a multi-frame SOP Instance that are included in the imaging selection.
       Encoded as a comma separated list of one or more non duplicate frame numbers.
       If this is absent, all frames within the referenced SOP Instance are included in the selection."/>
-      <comment value="See [DICOM PS3.3 10.3](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_10.3.html)."/>
+      <comment value="See [DICOM PS3.3 10.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_10.3.html)."/>
       <requirements value="Required if not the selected instance is multi-frame and not all frames are included in the selection."/>
       <alias value="ReferencedFrameNumber"/>
       <min value="0"/>
@@ -482,7 +482,7 @@
       <path value="ImagingSelection.instance.observationUID"/>
       <short value="Selected observations in a DICOM SR"/>
       <definition value="The set of Observations within a Structured Report instance that are included in the imaging selection."/>
-      <comment value="See [DICOM PS3.3 C.12.1](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.12.html)."/>
+      <comment value="See [DICOM PS3.3 C.12.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.12.html)."/>
       <requirements value="DICOM Observation UID."/>
       <alias value="ObservationUID"/>
       <min value="0"/>
@@ -503,7 +503,7 @@
       <path value="ImagingSelection.instance.trackingUID"/>
       <short value="Selected measurements in a DICOM SR"/>
       <definition value="The set of measurements within a Structured Report instance that are included in the imaging selection."/>
-      <comment value="See [DICOM PS3.16 TID 4108](https://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_TID_4108.html)."/>
+      <comment value="See [DICOM PS3.16 TID 4108](http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_TID_4108.html)."/>
       <requirements value="DICOM Tracking Unique Identifier."/>
       <min value="0"/>
       <max value="*"/>
@@ -521,7 +521,7 @@
       <definition value="The set of segments within a segmentation SOP Instance that are included in the imaging selection.
       Encoded as a comma separated list of one or more non duplicate segment numbers.
       If this is absent, all segments within the referenced segmentation SOP Instance are included in the selection."/>
-      <comment value="See [DICOM PS3.3 10.3](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_10.3.html)."/>
+      <comment value="See [DICOM PS3.3 10.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_10.3.html)."/>
       <requirements value="Required if not the selected instance is segmentation and not all segments are included in the selection."/>
       <alias value="ReferencedSegmentNumber"/>
       <min value="0"/>
@@ -540,7 +540,7 @@
       <definition value="The set of regions of interest (ROI) within a radiotherapy structure set instance that are included in the imaging selection.
       Encoded as a comma separated list of one or more non duplicate ROI numbers.
       If this is absent, all ROIs within the referenced radiotherapy structure set SOP Instance are included in the selection."/>
-      <comment value="See [DICOM PS3.3 C.8.8.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.8.5.html)."/>
+      <comment value="See [DICOM PS3.3 C.8.8.5](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.8.5.html)."/>
       <requirements value="Required if not the selected instance is a radiotherapy structure set and not all ROIs are included in the selection."/>
       <alias value="ROINumber"/>
       <min value="0"/>
@@ -568,7 +568,7 @@
       <path value="ImagingSelection.imageRegion.regionType"/>
       <short value="Specifies the type of region"/>
       <definition value="Specifies the type of image region."/>
-      <comment value="See [DICOM PS3.3 C.18.9.1.2](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html#sect_C.18.9.1.2)."/>
+      <comment value="See [DICOM PS3.3 C.18.9.1.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html#sect_C.18.9.1.2)."/>
       <alias value="GraphicType"/>
       <min value="1"/>
       <max value="1"/>
@@ -576,12 +576,12 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="https://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ImagingSelectionGraphicType"/>
         </extension>
         <strength value="required"/>
         <description value="The type of image region."/>
-        <valueSet value="https://hl7.org/fhir/ValueSet/imagingselection-graphictype"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-graphictype"/>
       </binding>
       <mapping>
         <identity value="dicom"/>
@@ -599,12 +599,12 @@
         <code value="code"/>
       </type>
       <binding>
-        <extension url="https://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ImagingSelectionCoordinateType"/>
         </extension>
         <strength value="required"/>
         <description value="The type of coordinates describing an image region."/>
-        <valueSet value="https://hl7.org/fhir/ValueSet/imagingselection-coordinatetype"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-coordinatetype"/>
       </binding>
     </element>
     <element id="ImagingSelection.imageRegion.coordinates">
@@ -620,8 +620,8 @@
         <code value="decimal"/>
       </type>
       <alias value="GraphicData"/>
-      <comment value="For a description of how 2D coordinates are encoded, see [DICOM PS3.3 C.18.6](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.6.html).
-      For a description of how 3D coordinates are encoded, see [DICOM PS3.3 C.18.9](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html)."/>
+      <comment value="For a description of how 2D coordinates are encoded, see [DICOM PS3.3 C.18.6](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.6.html).
+      For a description of how 3D coordinates are encoded, see [DICOM PS3.3 C.18.9](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html)."/>
       <mapping>
         <identity value="dicom"/>
         <map value="Graphic Data (0070,0022)"/>

@@ -4,80 +4,55 @@
   <id value="imagingselection-coordinatetype"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    <profile value="https://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system https://hl7.org/fhir/imagingselection-coordinatetype defines the following codes:</p>
-      
+      <p>This code system http://hl7.org/fhir/imagingselection-coordinatetype defines the following codes:</p>
       <table class="codes">
-        
         <tr>
-          
           <td style="white-space:nowrap">
-            
             <b>Code</b>
-          
           </td>
-          
           <td>
-            
             <b>Display</b>
-          
           </td>
-          
           <td>
-            
-            <b>Definition</b>
-          
+            <z>Definition</z>
           </td>
-        
         </tr>
-        
         <tr>
-          
           <td style="white-space:nowrap">registered
-            
             <a name="imagingselection-coordinatetype-2d"> </a>
-          
           </td>
-          
           <td>2D</td>
-          
           <td>The selected image region is defined in a 2D coordinate system.</td>
-        
         </tr>
-
         <tr>
-
           <td style="white-space:nowrap">registered
-
             <a name="imagingselection-coordinatetype-3d"> </a>
-
           </td>
-
           <td>3D</td>
-
           <td>The selected image region is defined in a 3D coordinate system.</td>
-
         </tr>
-      
       </table>
-    
     </div>
   </text>
-  <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="ii"/>
   </extension>
-  <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
-  <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/>
   </extension>
-  <url value="https://hl7.org/fhir/imagingselection-coordinatetype"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="ii"/>
+  </extension>
+  <url value="http://hl7.org/fhir/imagingselection-coordinatetype"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:TODO"/>
@@ -92,7 +67,7 @@
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="https://hl7.org/fhir"/>
+      <value value="http://hl7.org/fhir"/>
     </telecom>
     <telecom>
       <system value="email"/>
@@ -101,7 +76,7 @@
   </contact>
   <description value="The type of coordinates describing an image region."/>
   <caseSensitive value="true"/>
-  <valueSet value="https://hl7.org/fhir/ValueSet/imagingselection-coordinatetype"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-coordinatetype"/>
   <content value="complete"/>
   <concept>
     <code value="2d"/>

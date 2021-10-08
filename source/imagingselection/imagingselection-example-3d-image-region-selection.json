@@ -8,7 +8,7 @@
   ],
   "subject": {
     "identifier": {
-      "system": "https://fhirhospital.org",
+      "system": "http://fhirhospital.org",
       "value": "UPKRGGQJGXQFKVED"
     },
     "type": "Patient"

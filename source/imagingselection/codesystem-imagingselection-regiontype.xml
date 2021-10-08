@@ -4,136 +4,79 @@
   <id value="imagingselection-regiontype"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    <profile value="https://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system https://hl7.org/fhir/imagingselection-regiontype defines the following codes:</p>
-      
+      <p>This code system http://hl7.org/fhir/imagingselection-regiontype defines the following codes:</p>
       <table class="codes">
-        
         <tr>
-          
           <td style="white-space:nowrap">
-            
             <b>Code</b>
-          
           </td>
-          
           <td>
-            
             <b>Display</b>
-          
           </td>
-          
           <td>
-            
             <b>Definition</b>
-          
           </td>
-        
         </tr>
-        
         <tr>
-          
           <td style="white-space:nowrap">registered
-            
             <a name="imagingselection-regiontype-point"> </a>
-          
           </td>
-          
           <td>POINT</td>
-          
           <td>A single location denoted by a single (x,y) pair or (x,y,z) triplet.</td>
-        
         </tr>
-
         <tr>
-
           <td style="white-space:nowrap">registered
-
             <a name="imagingselection-regiontype-multipoint"> </a>
-
           </td>
-
           <td>MULTIPOINT</td>
-
           <td>Multiple locations each denoted by an (x,) pair or an (x,y,z) triplet; the points need not be coplanar.</td>
-
         </tr>
-
         <tr>
-
           <td style="white-space:nowrap">registered
-
             <a name="imagingselection-regiontype-polyline"> </a>
-
           </td>
-
           <td>POLYLINE</td>
-
           <td>A series of connected line segments with ordered vertices denoted by (x,y) pairs or (x,y,z) triplets; the points need not be coplanar.</td>
-
         </tr>
-
         <tr>
-
           <td style="white-space:nowrap">registered
-
             <a name="imagingselection-regiontype-polygon"> </a>
-
           </td>
-
           <td>POLYGON</td>
-
           <td>A series of connected line segments with ordered vertices denoted by (x,y) pairs or (x,y,z) triplets, where the first and last vertices shall be the same forming a polygon; the points shall be coplanar.</td>
-
         </tr>
-
         <tr>
-
           <td style="white-space:nowrap">registered
-
             <a name="imagingselection-regiontype-ellipse"> </a>
-
           </td>
-
           <td>ELLIPSE</td>
-
           <td>An ellipse defined by four (x,y) pairs or four (x,y,z) triplets, the first two pairs / triplets specifying the endpoints of the major axis and the second two pairs / triplets specifying the endpoints of the minor axis.</td>
-
         </tr>
-
         <tr>
-
           <td style="white-space:nowrap">registered
-
             <a name="imagingselection-regiontype-ellipsoid"> </a>
-
           </td>
-
           <td>ELLIPSOID</td>
-
           <td>A three-dimensional geometric surface whose plane sections are either ellipses or circles and contains three intersecting orthogonal axes, "a", "b", and "c"; the ellipsoid is defined by six (x,y,z) triplets, the first and second triplets specifying the endpoints of axis "a", the third and fourth triplets specifying the endpoints of axis "b", and the fifth and sixth triplets specifying the endpoints of axis "c".</td>
-
         </tr>
-
       </table>
-    
     </div>
   </text>
-  <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="ii"/>
   </extension>
-  <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
-  <extension url="https://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/>
   </extension>
-  <url value="https://hl7.org/fhir/imagingselection-regiontype"/>
+  <url value="http://hl7.org/fhir/imagingselection-regiontype"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:TODO"/>
@@ -148,7 +91,7 @@
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="https://hl7.org/fhir"/>
+      <value value="http://hl7.org/fhir"/>
     </telecom>
     <telecom>
       <system value="email"/>
@@ -157,7 +100,7 @@
   </contact>
   <description value="The type of image region."/>
   <caseSensitive value="true"/>
-  <valueSet value="https://hl7.org/fhir/ValueSet/imagingselection-regiontype"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-regiontype"/>
   <content value="complete"/>
   <concept>
     <code value="point"/>

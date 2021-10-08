@@ -5,10 +5,10 @@
   <status value="current"/>
   <mode value="working"/>
   <entry>
-    <extension url="https://hl7.org/fhir/build/StructureDefinition/description">
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Basic Image Selection"/>
     </extension>
-    <extension url="https://hl7.org/fhir/build/StructureDefinition/title">
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="imagingselection-example-basic-image-selection"/>
     </extension>
     <item>
@@ -17,10 +17,10 @@
     </item>
   </entry>
   <entry>
-    <extension url="https://hl7.org/fhir/build/StructureDefinition/description">
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Multiframe Image Selection"/>
     </extension>
-    <extension url="https://hl7.org/fhir/build/StructureDefinition/title">
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="imagingselection-example-multiframe-image-selection"/>
     </extension>
     <item>
@@ -29,10 +29,10 @@
     </item>
   </entry>
   <entry>
-    <extension url="https://hl7.org/fhir/build/StructureDefinition/description">
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Segmentation Image Selection"/>
     </extension>
-    <extension url="https://hl7.org/fhir/build/StructureDefinition/title">
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="imagingselection-example-segmentation-image-selection"/>
     </extension>
     <item>
@@ -41,10 +41,10 @@
     </item>
   </entry>
   <entry>
-    <extension url="https://hl7.org/fhir/build/StructureDefinition/description">
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="DICOM SR Selection"/>
     </extension>
-    <extension url="https://hl7.org/fhir/build/StructureDefinition/title">
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="imagingselection-example-dicom-sr-selection"/>
     </extension>
     <item>
@@ -53,10 +53,10 @@
     </item>
   </entry>
   <entry>
-    <extension url="https://hl7.org/fhir/build/StructureDefinition/description">
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Presentation State Selection"/>
     </extension>
-    <extension url="https://hl7.org/fhir/build/StructureDefinition/title">
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="imagingselection-example-presentation-state-selection"/>
     </extension>
     <item>
@@ -65,10 +65,10 @@
     </item>
   </entry>
   <entry>
-    <extension url="https://hl7.org/fhir/build/StructureDefinition/description">
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="2D Image Region Selection"/>
     </extension>
-    <extension url="https://hl7.org/fhir/build/StructureDefinition/title">
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="imagingselection-example-2d-image-region-selection"/>
     </extension>
     <item>
@@ -77,10 +77,10 @@
     </item>
   </entry>
   <entry>
-    <extension url="https://hl7.org/fhir/build/StructureDefinition/description">
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="3D Image Region Selection"/>
     </extension>
-    <extension url="https://hl7.org/fhir/build/StructureDefinition/title">
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="imagingselection-example-3d-image-region-selection"/>
     </extension>
     <item>
