@@ -26,11 +26,6 @@
 					<code value="solution for injection"/>
 				</coding>
 			</manufacturedDoseForm>
-			<ingredient>
-				<reference>
-					<reference value="Ingredient/liquidIngredient"/>
-				</reference>
-			</ingredient>
 		</ManufacturedItemDefinition>
 	</contained>
 	<!-- the product for which this is one available package type (possibly one package type of several for this product) -->

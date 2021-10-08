@@ -244,6 +244,10 @@
 	<contained>
 		<Ingredient>
 			<id value="EquilidoniumPhosphate"/>
+			<status value="active"/>
+			<for>
+				<reference value="#"/>
+			</for>
 			<role>
 				<coding>
 					<system value="http://example.org.uk/fhir/ingredientType"/>
@@ -278,6 +282,10 @@
 	<contained>
 		<Ingredient>
 			<id value="CalciumCarbonate"/>
+			<status value="active"/> 
+			<for>
+				<reference value="#"/>
+			</for>
 			<role>
 				<coding>
 					<system value="http://example.org.uk/fhir/ingredientType"/>
@@ -333,16 +341,6 @@
 			<code value="B01A"/>
 		</coding>
 	</classification>
-	<ingredient>
-		<reference>
-		<reference value="#EquilidoniumPhosphate"/>
-		</reference>
-	</ingredient>
-	<ingredient>
-		<reference>
-		<reference value="#CalciumCarbonate"/>
-		</reference>
-	</ingredient>
 	<name>
 		<productName value="Equilidem 2.5 mg film-coated tablets"/>
 	</name>

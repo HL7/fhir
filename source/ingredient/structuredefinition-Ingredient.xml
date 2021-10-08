@@ -133,6 +133,24 @@
         <map value="Registration status"/>
       </mapping-->
     </element>
+    <element id="Ingredient.for">
+      <path value="Ingredient.for"/>
+      <short value="The product which this ingredient is a constituent part of"/>
+      <definition value="The product which this ingredient is a constituent part of."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="Ingredient.role">
       <path value="Ingredient.role"/>
       <short value="A classification of the ingredient identifying its purpose within the product, e.g. active, inactive"/>
