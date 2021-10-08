@@ -20,6 +20,14 @@
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="12345689"/>
     </identifier>
+    <basedOn>
+        <reference value="CarePlan/gpvisit"></reference>
+    </basedOn>
+    <groupIdentifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="983939393"/>
+    </groupIdentifier>
     <status value="active"/>
     <intent value="order"/>
     <medication> <!-- Linked to a RESOURCE Medication -->
@@ -40,14 +48,8 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <basedOn>
-        <reference value="CarePlan/gpvisit"></reference>
-    </basedOn>
-    <groupIdentifier>
-        <use value="official"/>
-        <system value="http://www.bmc.nl/portal/prescriptions"/>
-        <value value="983939393"/>
-    </groupIdentifier>
+
+<dose>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Administer 500mg IM as a single dose" />
@@ -80,4 +82,5 @@
         </doseAndRate>
         
     </dosageInstruction>
+</dose>
 </MedicationRequest>

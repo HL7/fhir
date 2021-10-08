@@ -335,13 +335,15 @@
     <element id="RiskAssessment.performer">
       <path value="RiskAssessment.performer"/>
       <short value="Who did assessment?"/>
-      <definition value="The provider or software application that performed the assessment."/>
+      <definition value="The provider, patient, related person, or software application that performed the assessment."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <isSummary value="true"/>

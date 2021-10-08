@@ -316,6 +316,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -569,6 +570,22 @@
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=COMP].target"/>
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.note">
+      <path value="DiagnosticReport.note"/>
+      <short value="Comments about the diagnostic report"/>
+      <definition value="Comments about the diagnostic report."/>
+      <comment value="May include general statements about the diagnostic report, or statements about significant, unexpected or unreliable results values contained within the diagnostic report, or information about its source when relevant to its interpretation."/>
+      <requirements value="Need to be able to provide free text additional information."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="unknown"/>
       </mapping>
     </element>
     <element id="DiagnosticReport.imagingStudy">
