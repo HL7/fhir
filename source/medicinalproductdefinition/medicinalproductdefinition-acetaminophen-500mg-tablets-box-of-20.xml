@@ -30,21 +30,21 @@
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="Acetamin-tab-500"/>
+			<status value="active"/> 
 			<manufacturedDoseForm>
 				<coding>
 					<code value="tablet"/>
 				</coding>
 			</manufacturedDoseForm>
-			<ingredient>
-				<reference>
-					<reference value="#Acetamin-ing-500"/>
-				</reference>
-			</ingredient>
 		</ManufacturedItemDefinition>
 	</contained>
-	<contained>
+	<!--contained>
 		<Ingredient>
 			<id value="Acetamin-ing-500"/>
+			<status value="active"/>
+			<for>
+				<reference value="ManufacturedItemDefinition/Acetamin-tab-500"/>
+			</for>
 			<role>
 				<coding>
 					<code value="active"/>
@@ -74,7 +74,7 @@
 				</strength>
 			</substance>
 		</Ingredient>
-	</contained>
+	</contained-->
 	<identifier>
 		<system value="http://example.nation.org/drugs"/>
 		<value value="12345"/>

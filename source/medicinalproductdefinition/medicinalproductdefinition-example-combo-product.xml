@@ -224,6 +224,7 @@
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="tabletItem"/>
+			<status value="active"/>
 			<manufacturedDoseForm>
 				<coding>
 					<system value="http://example.org.uk/fhir/doseform"/>
@@ -236,6 +237,7 @@
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="creamItem"/>
+			<status value="active"/>
 			<manufacturedDoseForm>
 				<coding>
 					<system value="http://example.org.uk/fhir/doseform"/>

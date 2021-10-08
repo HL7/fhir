@@ -9,5 +9,17 @@
 			This resource represents the whole package of items, and all the packaging within, rather than the individual items themselves. 
 			In some cases a "product" exists at a logically higher level, which has a variety of available packages associated with it, typically of different sizes.
 		</p>
+		<p>
+			Note about recursive relationships in this resource:
+			This resource has two recursive relationships. 
+			One is meant to be "internal" to the package - for package layers and contents, and the other for aggregated packages (e.g. for wholesaling) that are 
+			made up of other packages.<br/>  
+			PackagedProductDefinition.package.package<br/>
+			This recursive relationship is for the inner parts and containers within a package, which is normally indivisible and is marketed or prescribed as a whole entity. See also PackagedProductDefinition.package.containedItem.item(PackagedProductDefinition)
+			<br/>
+			PackagedProductDefinition.package.containedItem.item(PackagedProductDefinition)<br/> 
+			This recursive route, which is for cases where the whole (indivisible) package is then aggregated into another, divisible, package, for example a warehousing or transport pack. This represents a package of packages. It is not used for the internal parts of a single package. For which see PackagedProductDefinition.package.package.
+			<br/>
+		</p>
 	</div>
 </div>

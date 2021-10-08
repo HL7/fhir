@@ -5,6 +5,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Ingredient-for"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Ingredient.for"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-for"/>
+        <description value="The product which this ingredient is a constituent part of"/>
+        <code value="for"/>
+        <type value="reference"/>
+        <expression value="Ingredient.for"/>
+        <xpath value="f:Ingredient/f:for"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Ingredient-function"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

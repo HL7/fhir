@@ -265,11 +265,6 @@
 					<code value="solvent for powder for injection"/>
 				</coding>
 			</manufacturedDoseForm>
-			<ingredient>
-				<reference>
-					<reference value="#ingredientSolvent"/>
-				</reference>
-			</ingredient>
 		</ManufacturedItemDefinition>
 	</contained>
 	<contained>
@@ -282,11 +277,6 @@
 					<code value="powder for solution for injection"/>
 				</coding>
 			</manufacturedDoseForm>
-			<ingredient>
-				<reference>
-					<reference value="#ingredientPowder"/>
-				</reference>
-			</ingredient>
 		</ManufacturedItemDefinition>
 	</contained>
 	<contained>
@@ -302,10 +292,13 @@
 			</deviceName-->
 		</DeviceDefinition>
 	</contained>
-	<contained>
+	<!--contained>
 		<Ingredient>
 			<id value="ingredientPowder"/>
 			<status value="active"/> 
+			<for>
+				<reference value="ManufacturedItemDefinition/powderItem"/>
+			</for>
 			<role>
 				<coding>
 					<system value="http://example.org.uk/fhir/ingredientRole"/>
@@ -317,20 +310,22 @@
 					<concept>
 					<coding>
 						<system value="http://example.org.uk/fhir/ingredients"/>
-						<!-- SNOMED perhaps -->
 						<code value="12345"/>
 						<display value="Wonderdrug BP"/>
 					</coding>
 					</concept>
 				</code>
-				<!-- can be strength here but not necessary for this example -->
 			</substance>
 		</Ingredient>
 	</contained>
 	<contained>
 		<Ingredient>
 			<id value="ingredientSolvent"/>
-			<status value="active"/> 
+			<status value="active"/>
+			<for>
+				<reference value="ManufacturedItemDefinition/solventItem"/>
+			</for>
+			
 			<role>
 				<coding>
 					<system value="http://example.org.uk/fhir/ingredientRole"/>
@@ -349,7 +344,7 @@
 				</code>
 			</substance>
 		</Ingredient>
-	</contained>
+	</contained-->
 	<contained>
 		<AdministrableProductDefinition>
 			<id value="administrable-form"/>

@@ -125,16 +125,7 @@
         <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
-      <!--mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-      <mapping>
-        <identity value="iso11179"/>
-        <map value="Registration status"/>
-      </mapping-->
     </element>
-    
     <element id="ManufacturedItemDefinition.manufacturedDoseForm">
       <path value="ManufacturedItemDefinition.manufacturedDoseForm"/>
       <short value="Dose form as manufactured and before any transformation into the pharmaceutical product"/>
@@ -183,18 +174,17 @@
     </element>
     <element id="ManufacturedItemDefinition.ingredient">
       <path value="ManufacturedItemDefinition.ingredient"/>
-      <short value="The ingredients that make up this manufactured item"/>
-      <definition value="The ingredients that make up this manufactured item."/>
+      <short value="The ingredients of this manufactured item. This is only needed if the ingredients are not specified by incoming references from the Ingredient resource"/>
+      <definition value="The ingredients of this manufactured item. This is only needed if the ingredients are not specified by incoming references from the Ingredient resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Manufactured Item.Ingredient"/>
+        <map value="Manufactured Item.Ingredient (see also FHIR Ingredient resource)"/>
       </mapping>
     </element>
     <element id="ManufacturedItemDefinition.property">
