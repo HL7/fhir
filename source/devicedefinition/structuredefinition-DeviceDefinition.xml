@@ -145,7 +145,7 @@
       <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution.marketPeriod"/>
       <short value="Begin and end dates for the commercial distribution of the device"/>
       <definition value="Begin and end dates for the commercial distribution of the device."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Period"/>
@@ -155,7 +155,7 @@
       <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution.subJurisdiction"/>
       <short value="National state or territory where the device is commercialized"/>
       <definition value="National state or territory to which the marketDistribution recers, typically where the device is commercialized."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="uri"/>
