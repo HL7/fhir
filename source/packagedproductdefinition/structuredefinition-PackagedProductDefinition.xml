@@ -185,8 +185,8 @@
     </element>
     <element id="PackagedProductDefinition.containedItemQuantity">
       <path value="PackagedProductDefinition.containedItemQuantity"/>
-      <short value="A total of the amount of items in the package, per item type. This can be considered as the pack size. This attribite is repeatable so that the different item types in one pack type can be counted (e.g. a count of vials and count of syringes). Repeats are not to be used to represent differerent pack sizes (e.g. 20 pack vs 50 pack) - which would be different resource instances. This attribute differs from  containedItem.amount in that it can give a single count of all tablet types in a pack, even when these are different manufactured items"/>
-      <definition value="A total of the amount of items in the package, per item type. This can be considered as the pack size. This attribite is repeatable so that the different item types in one pack type can be counted (e.g. a count of vials and count of syringes). Repeats are not to be used to represent differerent pack sizes (e.g. 20 pack vs 50 pack) - which would be different resource instances. This attribute differs from  containedItem.amount in that it can give a single count of all tablet types in a pack, even when these are different manufactured items."/>
+      <short value="A total of the amount of items in the package, per item type. This can be considered as the pack size. This attribute differs from containedItem.amount in that it can give a single aggregated count of all tablet types in a pack, even when these are different manufactured items. For example a pill pack of 21 tablets plus 7 sugar tablets, can be denoted here as '28 tablets'. This attribute is repeatable so that the different item types in one pack type can be counted (e.g. a count of vials and count of syringes). Each repeat must have different units, so that it is clear what the different sets of counted items are, and it is not intended to allow different counts of similar items (e.g. not '2 tubes and 3 tubes'). Repeats are not to be used to represent different pack sizes (e.g. 20 pack vs. 50 pack) - which would be different instances of this resource"/>
+      <definition value="A total of the amount of items in the package, per item type. This can be considered as the pack size. This attribute differs from containedItem.amount in that it can give a single aggregated count of all tablet types in a pack, even when these are different manufactured items. For example a pill pack of 21 tablets plus 7 sugar tablets, can be denoted here as '28 tablets'. This attribute is repeatable so that the different item types in one pack type can be counted (e.g. a count of vials and count of syringes). Each repeat must have different units, so that it is clear what the different sets of counted items are, and it is not intended to allow different counts of similar items (e.g. not '2 tubes and 3 tubes'). Repeats are not to be used to represent different pack sizes (e.g. 20 pack vs. 50 pack) - which would be different instances of this resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -527,8 +527,8 @@
     </element>
     <element id="PackagedProductDefinition.package.containedItem.item">
       <path value="PackagedProductDefinition.package.containedItem.item"/>
-      <short value="The actual item(s) of medication, as manufactured, or a device (typically, but not necessarily, a co-packaged one), or other medically related item (such as food, biologicals, raw materials, medical fluids, gases etc.), as contained in the package. This also allows another packaged product to be included, which is solely for the case where a package of other entire packages is wanted - such as a wholesale or distribution pack"/>
-      <definition value="The actual item(s) of medication, as manufactured, or a device (typically, but not necessarily, a co-packaged one), or other medically related item (such as food, biologicals, raw materials, medical fluids, gases etc.), as contained in the package. This also allows another packaged product to be included, which is solely for the case where a package of other entire packages is wanted - such as a wholesale or distribution pack."/>
+      <short value="The actual item(s) of medication, as manufactured, or a device (typically, but not necessarily, a co-packaged one), or other medically related item (such as food, biologicals, raw materials, medical fluids, gases etc.), as contained in the package. This also allows another whole packaged product to be included, which is solely for the case where a package of other entire packages is wanted - such as a wholesale or distribution pack (for layers within one package, use PackagedProductDefinition.package.package)"/>
+      <definition value="The actual item(s) of medication, as manufactured, or a device (typically, but not necessarily, a co-packaged one), or other medically related item (such as food, biologicals, raw materials, medical fluids, gases etc.), as contained in the package. This also allows another whole packaged product to be included, which is solely for the case where a package of other entire packages is wanted - such as a wholesale or distribution pack (for layers within one package, use PackagedProductDefinition.package.package)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -562,8 +562,8 @@
     </element>
     <element id="PackagedProductDefinition.package.package">
       <path value="PackagedProductDefinition.package.package"/>
-      <short value="Allows containers within containers"/>
-      <definition value="Allows containers within containers."/>
+      <short value="Allows containers (and parts of containers) within containers, still a single packaged product. See also PackagedProductDefinition.package.containedItem.item(PackagedProductDefinition)"/>
+      <definition value="Allows containers (and parts of containers) parwithin containers, still a single packaged product.  See also PackagedProductDefinition.package.containedItem.item(PackagedProductDefinition)."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#PackagedProductDefinition.package"/>
