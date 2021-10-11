@@ -430,18 +430,17 @@
     </element>
     <element id="MedicinalProductDefinition.ingredient">
       <path value="MedicinalProductDefinition.ingredient"/>
-      <short value="The ingredients of this medicinal product - when not detailed in other resources. This is only needed if the ingredients are not specified by the AdministrableProductDefinition or via the PackagedProductDefinition references above. In cases where those levels of detail are not used, the ingredients may be specified directly here"/>
-      <definition value="The ingredients of this medicinal product - when not detailed in other resources. This is only needed if the ingredients are not specified by the AdministrableProductDefinition or via the PackagedProductDefinition references above. In cases where those levels of detail are not used, the ingredients may be specified directly here."/>
+      <short value="The ingredients of this medicinal product - when not detailed in other resources. This is only needed if the ingredients are not specified by incoming references from the Ingredient resource, or indirectly via incoming AdministrableProductDefinition, PackagedProductDefinition or ManufacturedItemDefinition references. In cases where those levels of detail are not used, the ingredients may be specified directly here as codes"/>
+      <definition value="The ingredients of this medicinal product - when not detailed in other resources. This is only needed if the ingredients are not specified by incoming references from the Ingredient resource, or indirectly via incoming AdministrableProductDefinition, PackagedProductDefinition or ManufacturedItemDefinition references. In cases where those levels of detail are not used, the ingredients may be specified directly here as codes."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="n/a (a direct link from Medicinal Product to Ingredient, for cases where less detail is warranted)"/>
+        <map value="Medicinal Product.Ingredient (see also FHIR Ingredient resource)"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.impurity">
@@ -478,8 +477,8 @@
     </element>
     <element id="MedicinalProductDefinition.masterFile">
       <path value="MedicinalProductDefinition.masterFile"/>
-      <short value="A master file for to the medicinal product (e.g. Pharmacovigilance System Master File)"/>
-      <definition value="A master file for to the medicinal product (e.g. Pharmacovigilance System Master File)."/>
+      <short value="A master file for the medicinal product (e.g. Pharmacovigilance System Master File)"/>
+      <definition value="A master file for the medicinal product (e.g. Pharmacovigilance System Master File). Drug master files (DMFs) are documents submitted to regulatory agencies to provide confidential detailed information about facilities, processes or articles used in the manufacturing, processing, packaging and storing of drug products."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -556,6 +555,29 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Investigational Medicinal Product.Clinical Trial Status"/>
+      </mapping>
+    </element>
+    <element id="MedicinalProductDefinition.code">
+      <path value="MedicinalProductDefinition.code"/>
+      <short value="A code that this product is known by, within some formal terminology"/>
+      <definition value="A code that this product is known by, usually within some formal terminology. Products (types of medications) tend to be known by identifiers during development and within regulatory process. However when they are prescribed they tend to be identified by codes. The same product may be have multiple codes, applied to it by multiple organizations."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationFormalRepresentation"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A coded concept that defines the type of a medication."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.name">
