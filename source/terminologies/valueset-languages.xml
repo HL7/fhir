@@ -6,14 +6,14 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/> 
-  </extension> 
+    <valueCode value="fhir"/>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/> 
-  </extension> 
+    <valueCode value="trial-use"/>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/> 
-  </extension> 
+    <valueInteger value="3"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/languages"/>
     <version value="3.1.0"/>
     <name value="CommonLanguages"/>
@@ -746,14 +746,14 @@
             </concept>
             <concept>
                 <code value="en-NZ"/>
-                <display value="English (New Zeland)"/>
+                <display value="English (New Zealand)"/>
                 <designation>
                     <language value="en"/>
                     <use>
                       <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
                       <code value="display"/>
                     </use>
-                    <value value="English (New Zeland)"/>
+                    <value value="English (New Zealand)"/>
                 </designation>
                 <designation>
                     <language value="nl"/>
