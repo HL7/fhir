@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:5e79030b-580c-4ba3-a810-a4a4c3810423",
-    "timestamp" : "2021-04-12T20:55:50.974Z",
+    "identifier" : "urn:uuid:2ee5661f-7c82-4f97-b8dc-dc946ce52ba8",
+    "timestamp" : "2021-10-11T22:41:05.198Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -33,7 +34,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "average",
-      "display" : "Average"
+      "display" : "Average",
+      "designation" : [{
+        "value" : "Average"
+      }]
     },
     {
       "extension" : [{
@@ -42,7 +46,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "maximum",
-      "display" : "Maximum"
+      "display" : "Maximum",
+      "designation" : [{
+        "value" : "Maximum"
+      }]
     },
     {
       "extension" : [{
@@ -51,7 +58,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "minimum",
-      "display" : "Minimum"
+      "display" : "Minimum",
+      "designation" : [{
+        "value" : "Minimum"
+      }]
     },
     {
       "extension" : [{
@@ -60,7 +70,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "count",
-      "display" : "Count"
+      "display" : "Count",
+      "designation" : [{
+        "value" : "Count"
+      }]
     },
     {
       "extension" : [{
@@ -69,7 +82,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "total-count",
-      "display" : "Total Count"
+      "display" : "Total Count",
+      "designation" : [{
+        "value" : "Total Count"
+      }]
     },
     {
       "extension" : [{
@@ -78,7 +94,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "median",
-      "display" : "Median"
+      "display" : "Median",
+      "designation" : [{
+        "value" : "Median"
+      }]
     },
     {
       "extension" : [{
@@ -87,7 +106,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "std-dev",
-      "display" : "Standard Deviation"
+      "display" : "Standard Deviation",
+      "designation" : [{
+        "value" : "Standard Deviation"
+      }]
     },
     {
       "extension" : [{
@@ -96,7 +118,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "sum",
-      "display" : "Sum"
+      "display" : "Sum",
+      "designation" : [{
+        "value" : "Sum"
+      }]
     },
     {
       "extension" : [{
@@ -105,7 +130,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "variance",
-      "display" : "Variance"
+      "display" : "Variance",
+      "designation" : [{
+        "value" : "Variance"
+      }]
     },
     {
       "extension" : [{
@@ -114,7 +142,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "20-percent",
-      "display" : "20th Percentile"
+      "display" : "20th Percentile",
+      "designation" : [{
+        "value" : "20th Percentile"
+      }]
     },
     {
       "extension" : [{
@@ -123,7 +154,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "80-percent",
-      "display" : "80th Percentile"
+      "display" : "80th Percentile",
+      "designation" : [{
+        "value" : "80th Percentile"
+      }]
     },
     {
       "extension" : [{
@@ -132,7 +166,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "4-lower",
-      "display" : "Lower Quartile"
+      "display" : "Lower Quartile",
+      "designation" : [{
+        "value" : "Lower Quartile"
+      }]
     },
     {
       "extension" : [{
@@ -141,7 +178,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "4-upper",
-      "display" : "Upper Quartile"
+      "display" : "Upper Quartile",
+      "designation" : [{
+        "value" : "Upper Quartile"
+      }]
     },
     {
       "extension" : [{
@@ -150,7 +190,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "4-dev",
-      "display" : "Quartile Deviation"
+      "display" : "Quartile Deviation",
+      "designation" : [{
+        "value" : "Quartile Deviation"
+      }]
     },
     {
       "extension" : [{
@@ -159,7 +202,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "5-1",
-      "display" : "1st Quintile"
+      "display" : "1st Quintile",
+      "designation" : [{
+        "value" : "1st Quintile"
+      }]
     },
     {
       "extension" : [{
@@ -168,7 +214,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "5-2",
-      "display" : "2nd Quintile"
+      "display" : "2nd Quintile",
+      "designation" : [{
+        "value" : "2nd Quintile"
+      }]
     },
     {
       "extension" : [{
@@ -177,7 +226,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "5-3",
-      "display" : "3rd Quintile"
+      "display" : "3rd Quintile",
+      "designation" : [{
+        "value" : "3rd Quintile"
+      }]
     },
     {
       "extension" : [{
@@ -186,7 +238,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "5-4",
-      "display" : "4th Quintile"
+      "display" : "4th Quintile",
+      "designation" : [{
+        "value" : "4th Quintile"
+      }]
     },
     {
       "extension" : [{
@@ -195,7 +250,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "skew",
-      "display" : "Skew"
+      "display" : "Skew",
+      "designation" : [{
+        "value" : "Skew"
+      }]
     },
     {
       "extension" : [{
@@ -204,7 +262,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "kurtosis",
-      "display" : "Kurtosis"
+      "display" : "Kurtosis",
+      "designation" : [{
+        "value" : "Kurtosis"
+      }]
     },
     {
       "extension" : [{
@@ -213,7 +274,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/observation-statistics",
       "code" : "regression",
-      "display" : "Regression"
+      "display" : "Regression",
+      "designation" : [{
+        "value" : "Regression"
+      }]
     }]
   }
 },

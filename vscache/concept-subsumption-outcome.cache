@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:ae1cb65c-6255-429e-ba4b-d8518405e96a",
-    "timestamp" : "2021-04-12T20:45:05.163Z",
+    "identifier" : "urn:uuid:fb266c9d-7c46-4bd4-98fa-68734ecedfcd",
+    "timestamp" : "2021-10-11T22:39:14.166Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -33,7 +34,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/concept-subsumption-outcome",
       "code" : "equivalent",
-      "display" : "Equivalent"
+      "display" : "Equivalent",
+      "designation" : [{
+        "value" : "Equivalent"
+      }]
     },
     {
       "extension" : [{
@@ -42,7 +46,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/concept-subsumption-outcome",
       "code" : "subsumes",
-      "display" : "Subsumes"
+      "display" : "Subsumes",
+      "designation" : [{
+        "value" : "Subsumes"
+      }]
     },
     {
       "extension" : [{
@@ -51,7 +58,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/concept-subsumption-outcome",
       "code" : "subsumed-by",
-      "display" : "Subsumed-By"
+      "display" : "Subsumed-By",
+      "designation" : [{
+        "value" : "Subsumed-By"
+      }]
     },
     {
       "extension" : [{
@@ -60,7 +70,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/concept-subsumption-outcome",
       "code" : "not-subsumed",
-      "display" : "Not-Subsumed"
+      "display" : "Not-Subsumed",
+      "designation" : [{
+        "value" : "Not-Subsumed"
+      }]
     }]
   }
 },

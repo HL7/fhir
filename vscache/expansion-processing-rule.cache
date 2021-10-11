@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:94b79997-a516-4c80-8a74-a0b00b749e4d",
-    "timestamp" : "2021-04-12T20:28:26.257Z",
+    "identifier" : "urn:uuid:dd403c39-f4df-4bf8-861a-e44a8444be89",
+    "timestamp" : "2021-10-11T22:27:06.587Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -33,7 +34,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/expansion-processing-rule",
       "code" : "all-codes",
-      "display" : "All Codes"
+      "display" : "All Codes",
+      "designation" : [{
+        "value" : "All Codes"
+      }]
     },
     {
       "extension" : [{
@@ -42,7 +46,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/expansion-processing-rule",
       "code" : "ungrouped",
-      "display" : "Groups + Ungrouped codes"
+      "display" : "Groups + Ungrouped codes",
+      "designation" : [{
+        "value" : "Groups + Ungrouped codes"
+      }]
     },
     {
       "extension" : [{
@@ -51,7 +58,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/expansion-processing-rule",
       "code" : "groups-only",
-      "display" : "Groups Only"
+      "display" : "Groups Only",
+      "designation" : [{
+        "value" : "Groups Only"
+      }]
     }]
   }
 },

@@ -305,6 +305,8 @@ e: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:handp:2008\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:handp:2008) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -315,6 +317,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:aps:2007\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:aps:2007) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -325,6 +329,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:xds-ms:2007\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:xds-ms:2007) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -335,6 +341,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:xphr:2007\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:xphr:2007) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -345,6 +353,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:edr:2007\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:edr:2007) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -355,6 +365,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:edes:2007\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:edes:2007) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -365,6 +377,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:apr:handp:2008\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:apr:handp:2008) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -375,6 +389,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:apr:lab:2008\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:apr:lab:2008) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -385,6 +401,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:apr:edu:2008\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:apr:edu:2008) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -395,6 +413,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:irc:2008\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:irc:2008) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -405,6 +425,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:crc:2008\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:crc:2008) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -415,6 +437,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:cm:2008\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:cm:2008) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -425,6 +449,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:ic:2009\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:ic:2009) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -435,6 +461,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:tn:2007\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:tn:2007) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -445,6 +473,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:nn:2007\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:nn:2007) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -455,6 +485,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:ctn:2007\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:ctn:2007) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -465,6 +497,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:edpn:2007\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:edpn:2007) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -475,6 +509,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:hp:2008\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:hp:2008) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -485,6 +521,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:ldhp:2009\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:ldhp:2009) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -495,6 +533,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:lds:2009\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:lds:2009) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -505,6 +545,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:mds:2009\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:mds:2009) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -515,6 +557,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:nds:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:nds:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -525,6 +569,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:ppvs:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:ppvs:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -535,6 +581,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:trs:2011\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:trs:2011) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -545,6 +593,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:ets:2011\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:ets:2011) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -555,6 +605,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pcc:its:2011\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pcc:its:2011) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -565,6 +617,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:iti:bppc:2007\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:iti:bppc:2007) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -575,6 +629,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:iti:bppc-sd:2007\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:iti:bppc-sd:2007) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -585,6 +641,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:iti:xdw:2011:workflowDoc\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:iti:xdw:2011:workflowDoc) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -595,6 +653,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:iti:dsg:detached:2014\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:iti:dsg:detached:2014) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -605,6 +665,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:iti:dsg:enveloping:2014\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:iti:dsg:enveloping:2014) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -615,6 +677,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:iti:xds-sd:pdf:2008\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:iti:xds-sd:pdf:2008) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -625,6 +689,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:iti:xds-sd:text:2008\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:iti:xds-sd:text:2008) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -635,6 +701,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:lab:xd-lab:2008\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:lab:xd-lab:2008) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -645,6 +713,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:rad:TEXT\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:rad:TEXT) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -655,6 +725,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:rad:PDF\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:rad:PDF) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -665,6 +737,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:rad:CDA:ImagingReportStructuredHeadings:2013\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:rad:CDA:ImagingReportStructuredHeadings:2013) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -675,6 +749,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:card:imaging:2011\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:card:imaging:2011) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -685,6 +761,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:card:CRC:2012\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:card:CRC:2012) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -695,6 +773,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:card:EPRC-IE:2014\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:card:EPRC-IE:2014) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -705,6 +785,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:dent:TEXT\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:dent:TEXT) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -715,6 +797,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:dent:PDF\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:dent:PDF) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -725,6 +809,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:dent:CDA:ImagingReportStructuredHeadings:2013\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:dent:CDA:ImagingReportStructuredHeadings:2013) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -735,6 +821,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:all:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:all:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -745,6 +833,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:all:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:all:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -755,6 +845,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:breast:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:breast:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -765,6 +857,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:colon:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:colon:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -775,6 +869,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:prostate:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:prostate:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -785,6 +881,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:thyroid:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:thyroid:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -795,6 +893,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:lung:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:lung:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -805,6 +905,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:skin:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:skin:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -815,6 +917,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:kidney:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:kidney:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -825,6 +929,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:cervix:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:cervix:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -835,6 +941,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:endometrium:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:endometrium:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -845,6 +953,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:ovary:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:ovary:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -855,6 +965,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:esophagus: 2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:esophagus: 2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -865,6 +977,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:stomach: 2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:stomach: 2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -875,6 +989,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:liver:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:liver:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -885,6 +1001,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:pancreas: 2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:pancreas: 2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -895,6 +1013,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:testis:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:testis:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -905,6 +1025,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:urinary_bladder:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:urinary_bladder:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -915,6 +1037,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:lip_oral_cavity:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:lip_oral_cavity:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -925,6 +1049,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:pharynx:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:pharynx:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -935,6 +1061,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:salivary_gland:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:salivary_gland:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -945,6 +1073,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pat:apsr:cancer:larynx:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pat:apsr:cancer:larynx:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -955,6 +1085,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pharm:pre:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pharm:pre:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -965,6 +1097,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pharm:padv:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pharm:padv:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -975,6 +1109,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pharm:dis:2010\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pharm:dis:2010) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -985,6 +1121,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:ihe:pharm:pml:2013\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:ihe:pharm:pml:2013) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -995,6 +1133,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:hl7-org:sdwg:ccda-structuredBody:1.1\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:hl7-org:sdwg:ccda-structuredBody:1.1) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
@@ -1005,6 +1145,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"urn:oid:1.3.6.1.4.1.19376.1.2.3\" is not known (encountered paired with code = \"urn:hl7-org:sdwg:ccda-nonXMLBody:1.1\"); The code provided (urn:oid:1.3.6.1.4.1.19376.1.2.3#urn:hl7-org:sdwg:ccda-nonXMLBody:1.1) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }

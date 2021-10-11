@@ -8,6 +8,3779 @@
   }
 }}####
 e: {
-  "error" : "Error from server: Unable to provide support for code system https://www.iana.org/time-zones"
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:f767912a-fc61-4c8b-a1e4-57c9507fa08c",
+    "timestamp" : "2021-10-11T22:39:48.432Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "includeDesignations",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "https://www.iana.org/time-zones|20210124"
+    }],
+    "contains" : [{
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Abidjan",
+      "display" : "Africa/Abidjan",
+      "designation" : [{
+        "value" : "Africa/Abidjan"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Accra",
+      "display" : "Africa/Accra",
+      "designation" : [{
+        "value" : "Africa/Accra"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Addis_Ababa",
+      "display" : "Africa/Addis_Ababa",
+      "designation" : [{
+        "value" : "Africa/Addis_Ababa"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Algiers",
+      "display" : "Africa/Algiers",
+      "designation" : [{
+        "value" : "Africa/Algiers"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Asmara",
+      "display" : "Africa/Asmara",
+      "designation" : [{
+        "value" : "Africa/Asmara"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Bamako",
+      "display" : "Africa/Bamako",
+      "designation" : [{
+        "value" : "Africa/Bamako"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Bangui",
+      "display" : "Africa/Bangui",
+      "designation" : [{
+        "value" : "Africa/Bangui"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Banjul",
+      "display" : "Africa/Banjul",
+      "designation" : [{
+        "value" : "Africa/Banjul"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Bissau",
+      "display" : "Africa/Bissau",
+      "designation" : [{
+        "value" : "Africa/Bissau"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Blantyre",
+      "display" : "Africa/Blantyre",
+      "designation" : [{
+        "value" : "Africa/Blantyre"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Brazzaville",
+      "display" : "Africa/Brazzaville",
+      "designation" : [{
+        "value" : "Africa/Brazzaville"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Bujumbura",
+      "display" : "Africa/Bujumbura",
+      "designation" : [{
+        "value" : "Africa/Bujumbura"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Cairo",
+      "display" : "Africa/Cairo",
+      "designation" : [{
+        "value" : "Africa/Cairo"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Casablanca",
+      "display" : "Africa/Casablanca",
+      "designation" : [{
+        "value" : "Africa/Casablanca"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Ceuta",
+      "display" : "Africa/Ceuta",
+      "designation" : [{
+        "value" : "Africa/Ceuta"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Conakry",
+      "display" : "Africa/Conakry",
+      "designation" : [{
+        "value" : "Africa/Conakry"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Dakar",
+      "display" : "Africa/Dakar",
+      "designation" : [{
+        "value" : "Africa/Dakar"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Dar_es_Salaam",
+      "display" : "Africa/Dar_es_Salaam",
+      "designation" : [{
+        "value" : "Africa/Dar_es_Salaam"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Djibouti",
+      "display" : "Africa/Djibouti",
+      "designation" : [{
+        "value" : "Africa/Djibouti"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Douala",
+      "display" : "Africa/Douala",
+      "designation" : [{
+        "value" : "Africa/Douala"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/El_Aaiun",
+      "display" : "Africa/El_Aaiun",
+      "designation" : [{
+        "value" : "Africa/El_Aaiun"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Freetown",
+      "display" : "Africa/Freetown",
+      "designation" : [{
+        "value" : "Africa/Freetown"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Gaborone",
+      "display" : "Africa/Gaborone",
+      "designation" : [{
+        "value" : "Africa/Gaborone"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Harare",
+      "display" : "Africa/Harare",
+      "designation" : [{
+        "value" : "Africa/Harare"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Johannesburg",
+      "display" : "Africa/Johannesburg",
+      "designation" : [{
+        "value" : "Africa/Johannesburg"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Juba",
+      "display" : "Africa/Juba",
+      "designation" : [{
+        "value" : "Africa/Juba"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Kampala",
+      "display" : "Africa/Kampala",
+      "designation" : [{
+        "value" : "Africa/Kampala"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Khartoum",
+      "display" : "Africa/Khartoum",
+      "designation" : [{
+        "value" : "Africa/Khartoum"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Kigali",
+      "display" : "Africa/Kigali",
+      "designation" : [{
+        "value" : "Africa/Kigali"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Kinshasa",
+      "display" : "Africa/Kinshasa",
+      "designation" : [{
+        "value" : "Africa/Kinshasa"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Lagos",
+      "display" : "Africa/Lagos",
+      "designation" : [{
+        "value" : "Africa/Lagos"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Libreville",
+      "display" : "Africa/Libreville",
+      "designation" : [{
+        "value" : "Africa/Libreville"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Lome",
+      "display" : "Africa/Lome",
+      "designation" : [{
+        "value" : "Africa/Lome"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Luanda",
+      "display" : "Africa/Luanda",
+      "designation" : [{
+        "value" : "Africa/Luanda"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Lubumbashi",
+      "display" : "Africa/Lubumbashi",
+      "designation" : [{
+        "value" : "Africa/Lubumbashi"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Lusaka",
+      "display" : "Africa/Lusaka",
+      "designation" : [{
+        "value" : "Africa/Lusaka"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Malabo",
+      "display" : "Africa/Malabo",
+      "designation" : [{
+        "value" : "Africa/Malabo"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Maputo",
+      "display" : "Africa/Maputo",
+      "designation" : [{
+        "value" : "Africa/Maputo"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Maseru",
+      "display" : "Africa/Maseru",
+      "designation" : [{
+        "value" : "Africa/Maseru"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Mbabane",
+      "display" : "Africa/Mbabane",
+      "designation" : [{
+        "value" : "Africa/Mbabane"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Mogadishu",
+      "display" : "Africa/Mogadishu",
+      "designation" : [{
+        "value" : "Africa/Mogadishu"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Monrovia",
+      "display" : "Africa/Monrovia",
+      "designation" : [{
+        "value" : "Africa/Monrovia"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Nairobi",
+      "display" : "Africa/Nairobi",
+      "designation" : [{
+        "value" : "Africa/Nairobi"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Ndjamena",
+      "display" : "Africa/Ndjamena",
+      "designation" : [{
+        "value" : "Africa/Ndjamena"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Niamey",
+      "display" : "Africa/Niamey",
+      "designation" : [{
+        "value" : "Africa/Niamey"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Nouakchott",
+      "display" : "Africa/Nouakchott",
+      "designation" : [{
+        "value" : "Africa/Nouakchott"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Ouagadougou",
+      "display" : "Africa/Ouagadougou",
+      "designation" : [{
+        "value" : "Africa/Ouagadougou"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Porto-Novo",
+      "display" : "Africa/Porto-Novo",
+      "designation" : [{
+        "value" : "Africa/Porto-Novo"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Sao_Tome",
+      "display" : "Africa/Sao_Tome",
+      "designation" : [{
+        "value" : "Africa/Sao_Tome"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Timbuktu",
+      "display" : "Africa/Timbuktu",
+      "designation" : [{
+        "value" : "Africa/Timbuktu"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Tripoli",
+      "display" : "Africa/Tripoli",
+      "designation" : [{
+        "value" : "Africa/Tripoli"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Tunis",
+      "display" : "Africa/Tunis",
+      "designation" : [{
+        "value" : "Africa/Tunis"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Africa/Windhoek",
+      "display" : "Africa/Windhoek",
+      "designation" : [{
+        "value" : "Africa/Windhoek"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Adak",
+      "display" : "America/Adak",
+      "designation" : [{
+        "value" : "America/Adak"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Anchorage",
+      "display" : "America/Anchorage",
+      "designation" : [{
+        "value" : "America/Anchorage"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Anguilla",
+      "display" : "America/Anguilla",
+      "designation" : [{
+        "value" : "America/Anguilla"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Antigua",
+      "display" : "America/Antigua",
+      "designation" : [{
+        "value" : "America/Antigua"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Araguaina",
+      "display" : "America/Araguaina",
+      "designation" : [{
+        "value" : "America/Araguaina"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Argentina/Buenos_Aires",
+      "display" : "America/Argentina/Buenos_Aires",
+      "designation" : [{
+        "value" : "America/Argentina/Buenos_Aires"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Argentina/Catamarca",
+      "display" : "America/Argentina/Catamarca",
+      "designation" : [{
+        "value" : "America/Argentina/Catamarca"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Argentina/ComodRivadavia",
+      "display" : "America/Argentina/ComodRivadavia",
+      "designation" : [{
+        "value" : "America/Argentina/ComodRivadavia"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Argentina/Cordoba",
+      "display" : "America/Argentina/Cordoba",
+      "designation" : [{
+        "value" : "America/Argentina/Cordoba"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Argentina/Jujuy",
+      "display" : "America/Argentina/Jujuy",
+      "designation" : [{
+        "value" : "America/Argentina/Jujuy"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Argentina/La_Rioja",
+      "display" : "America/Argentina/La_Rioja",
+      "designation" : [{
+        "value" : "America/Argentina/La_Rioja"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Argentina/Mendoza",
+      "display" : "America/Argentina/Mendoza",
+      "designation" : [{
+        "value" : "America/Argentina/Mendoza"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Argentina/Rio_Gallegos",
+      "display" : "America/Argentina/Rio_Gallegos",
+      "designation" : [{
+        "value" : "America/Argentina/Rio_Gallegos"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Argentina/Salta",
+      "display" : "America/Argentina/Salta",
+      "designation" : [{
+        "value" : "America/Argentina/Salta"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Argentina/San_Juan",
+      "display" : "America/Argentina/San_Juan",
+      "designation" : [{
+        "value" : "America/Argentina/San_Juan"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Argentina/San_Luis",
+      "display" : "America/Argentina/San_Luis",
+      "designation" : [{
+        "value" : "America/Argentina/San_Luis"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Argentina/Tucuman",
+      "display" : "America/Argentina/Tucuman",
+      "designation" : [{
+        "value" : "America/Argentina/Tucuman"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Argentina/Ushuaia",
+      "display" : "America/Argentina/Ushuaia",
+      "designation" : [{
+        "value" : "America/Argentina/Ushuaia"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Aruba",
+      "display" : "America/Aruba",
+      "designation" : [{
+        "value" : "America/Aruba"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Asuncion",
+      "display" : "America/Asuncion",
+      "designation" : [{
+        "value" : "America/Asuncion"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Atikokan",
+      "display" : "America/Atikokan",
+      "designation" : [{
+        "value" : "America/Atikokan"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Bahia",
+      "display" : "America/Bahia",
+      "designation" : [{
+        "value" : "America/Bahia"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Bahia_Banderas",
+      "display" : "America/Bahia_Banderas",
+      "designation" : [{
+        "value" : "America/Bahia_Banderas"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Barbados",
+      "display" : "America/Barbados",
+      "designation" : [{
+        "value" : "America/Barbados"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Belem",
+      "display" : "America/Belem",
+      "designation" : [{
+        "value" : "America/Belem"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Belize",
+      "display" : "America/Belize",
+      "designation" : [{
+        "value" : "America/Belize"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Blanc-Sablon",
+      "display" : "America/Blanc-Sablon",
+      "designation" : [{
+        "value" : "America/Blanc-Sablon"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Boa_Vista",
+      "display" : "America/Boa_Vista",
+      "designation" : [{
+        "value" : "America/Boa_Vista"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Bogota",
+      "display" : "America/Bogota",
+      "designation" : [{
+        "value" : "America/Bogota"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Boise",
+      "display" : "America/Boise",
+      "designation" : [{
+        "value" : "America/Boise"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Cambridge_Bay",
+      "display" : "America/Cambridge_Bay",
+      "designation" : [{
+        "value" : "America/Cambridge_Bay"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Campo_Grande",
+      "display" : "America/Campo_Grande",
+      "designation" : [{
+        "value" : "America/Campo_Grande"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Cancun",
+      "display" : "America/Cancun",
+      "designation" : [{
+        "value" : "America/Cancun"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Caracas",
+      "display" : "America/Caracas",
+      "designation" : [{
+        "value" : "America/Caracas"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Cayenne",
+      "display" : "America/Cayenne",
+      "designation" : [{
+        "value" : "America/Cayenne"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Cayman",
+      "display" : "America/Cayman",
+      "designation" : [{
+        "value" : "America/Cayman"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Chicago",
+      "display" : "America/Chicago",
+      "designation" : [{
+        "value" : "America/Chicago"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Chihuahua",
+      "display" : "America/Chihuahua",
+      "designation" : [{
+        "value" : "America/Chihuahua"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Coral_Harbour",
+      "display" : "America/Coral_Harbour",
+      "designation" : [{
+        "value" : "America/Coral_Harbour"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Costa_Rica",
+      "display" : "America/Costa_Rica",
+      "designation" : [{
+        "value" : "America/Costa_Rica"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Creston",
+      "display" : "America/Creston",
+      "designation" : [{
+        "value" : "America/Creston"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Cuiaba",
+      "display" : "America/Cuiaba",
+      "designation" : [{
+        "value" : "America/Cuiaba"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Curacao",
+      "display" : "America/Curacao",
+      "designation" : [{
+        "value" : "America/Curacao"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Danmarkshavn",
+      "display" : "America/Danmarkshavn",
+      "designation" : [{
+        "value" : "America/Danmarkshavn"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Dawson",
+      "display" : "America/Dawson",
+      "designation" : [{
+        "value" : "America/Dawson"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Dawson_Creek",
+      "display" : "America/Dawson_Creek",
+      "designation" : [{
+        "value" : "America/Dawson_Creek"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Denver",
+      "display" : "America/Denver",
+      "designation" : [{
+        "value" : "America/Denver"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Detroit",
+      "display" : "America/Detroit",
+      "designation" : [{
+        "value" : "America/Detroit"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Dominica",
+      "display" : "America/Dominica",
+      "designation" : [{
+        "value" : "America/Dominica"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Edmonton",
+      "display" : "America/Edmonton",
+      "designation" : [{
+        "value" : "America/Edmonton"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Eirunepe",
+      "display" : "America/Eirunepe",
+      "designation" : [{
+        "value" : "America/Eirunepe"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/El_Salvador",
+      "display" : "America/El_Salvador",
+      "designation" : [{
+        "value" : "America/El_Salvador"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Ensenada",
+      "display" : "America/Ensenada",
+      "designation" : [{
+        "value" : "America/Ensenada"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Fort_Nelson",
+      "display" : "America/Fort_Nelson",
+      "designation" : [{
+        "value" : "America/Fort_Nelson"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Fortaleza",
+      "display" : "America/Fortaleza",
+      "designation" : [{
+        "value" : "America/Fortaleza"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Glace_Bay",
+      "display" : "America/Glace_Bay",
+      "designation" : [{
+        "value" : "America/Glace_Bay"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Goose_Bay",
+      "display" : "America/Goose_Bay",
+      "designation" : [{
+        "value" : "America/Goose_Bay"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Grand_Turk",
+      "display" : "America/Grand_Turk",
+      "designation" : [{
+        "value" : "America/Grand_Turk"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Grenada",
+      "display" : "America/Grenada",
+      "designation" : [{
+        "value" : "America/Grenada"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Guadeloupe",
+      "display" : "America/Guadeloupe",
+      "designation" : [{
+        "value" : "America/Guadeloupe"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Guatemala",
+      "display" : "America/Guatemala",
+      "designation" : [{
+        "value" : "America/Guatemala"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Guayaquil",
+      "display" : "America/Guayaquil",
+      "designation" : [{
+        "value" : "America/Guayaquil"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Guyana",
+      "display" : "America/Guyana",
+      "designation" : [{
+        "value" : "America/Guyana"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Halifax",
+      "display" : "America/Halifax",
+      "designation" : [{
+        "value" : "America/Halifax"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Havana",
+      "display" : "America/Havana",
+      "designation" : [{
+        "value" : "America/Havana"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Hermosillo",
+      "display" : "America/Hermosillo",
+      "designation" : [{
+        "value" : "America/Hermosillo"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Indiana/Indianapolis",
+      "display" : "America/Indiana/Indianapolis",
+      "designation" : [{
+        "value" : "America/Indiana/Indianapolis"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Indiana/Knox",
+      "display" : "America/Indiana/Knox",
+      "designation" : [{
+        "value" : "America/Indiana/Knox"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Indiana/Marengo",
+      "display" : "America/Indiana/Marengo",
+      "designation" : [{
+        "value" : "America/Indiana/Marengo"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Indiana/Petersburg",
+      "display" : "America/Indiana/Petersburg",
+      "designation" : [{
+        "value" : "America/Indiana/Petersburg"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Indiana/Tell_City",
+      "display" : "America/Indiana/Tell_City",
+      "designation" : [{
+        "value" : "America/Indiana/Tell_City"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Indiana/Vevay",
+      "display" : "America/Indiana/Vevay",
+      "designation" : [{
+        "value" : "America/Indiana/Vevay"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Indiana/Vincennes",
+      "display" : "America/Indiana/Vincennes",
+      "designation" : [{
+        "value" : "America/Indiana/Vincennes"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Indiana/Winamac",
+      "display" : "America/Indiana/Winamac",
+      "designation" : [{
+        "value" : "America/Indiana/Winamac"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Inuvik",
+      "display" : "America/Inuvik",
+      "designation" : [{
+        "value" : "America/Inuvik"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Iqaluit",
+      "display" : "America/Iqaluit",
+      "designation" : [{
+        "value" : "America/Iqaluit"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Jamaica",
+      "display" : "America/Jamaica",
+      "designation" : [{
+        "value" : "America/Jamaica"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Juneau",
+      "display" : "America/Juneau",
+      "designation" : [{
+        "value" : "America/Juneau"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Kentucky/Louisville",
+      "display" : "America/Kentucky/Louisville",
+      "designation" : [{
+        "value" : "America/Kentucky/Louisville"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Kentucky/Monticello",
+      "display" : "America/Kentucky/Monticello",
+      "designation" : [{
+        "value" : "America/Kentucky/Monticello"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/La_Paz",
+      "display" : "America/La_Paz",
+      "designation" : [{
+        "value" : "America/La_Paz"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Lima",
+      "display" : "America/Lima",
+      "designation" : [{
+        "value" : "America/Lima"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Los_Angeles",
+      "display" : "America/Los_Angeles",
+      "designation" : [{
+        "value" : "America/Los_Angeles"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Maceio",
+      "display" : "America/Maceio",
+      "designation" : [{
+        "value" : "America/Maceio"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Managua",
+      "display" : "America/Managua",
+      "designation" : [{
+        "value" : "America/Managua"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Manaus",
+      "display" : "America/Manaus",
+      "designation" : [{
+        "value" : "America/Manaus"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Martinique",
+      "display" : "America/Martinique",
+      "designation" : [{
+        "value" : "America/Martinique"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Matamoros",
+      "display" : "America/Matamoros",
+      "designation" : [{
+        "value" : "America/Matamoros"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Mazatlan",
+      "display" : "America/Mazatlan",
+      "designation" : [{
+        "value" : "America/Mazatlan"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Menominee",
+      "display" : "America/Menominee",
+      "designation" : [{
+        "value" : "America/Menominee"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Merida",
+      "display" : "America/Merida",
+      "designation" : [{
+        "value" : "America/Merida"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Metlakatla",
+      "display" : "America/Metlakatla",
+      "designation" : [{
+        "value" : "America/Metlakatla"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Mexico_City",
+      "display" : "America/Mexico_City",
+      "designation" : [{
+        "value" : "America/Mexico_City"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Miquelon",
+      "display" : "America/Miquelon",
+      "designation" : [{
+        "value" : "America/Miquelon"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Moncton",
+      "display" : "America/Moncton",
+      "designation" : [{
+        "value" : "America/Moncton"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Monterrey",
+      "display" : "America/Monterrey",
+      "designation" : [{
+        "value" : "America/Monterrey"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Montevideo",
+      "display" : "America/Montevideo",
+      "designation" : [{
+        "value" : "America/Montevideo"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Montreal",
+      "display" : "America/Montreal",
+      "designation" : [{
+        "value" : "America/Montreal"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Montserrat",
+      "display" : "America/Montserrat",
+      "designation" : [{
+        "value" : "America/Montserrat"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Nassau",
+      "display" : "America/Nassau",
+      "designation" : [{
+        "value" : "America/Nassau"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/New_York",
+      "display" : "America/New_York",
+      "designation" : [{
+        "value" : "America/New_York"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Nipigon",
+      "display" : "America/Nipigon",
+      "designation" : [{
+        "value" : "America/Nipigon"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Nome",
+      "display" : "America/Nome",
+      "designation" : [{
+        "value" : "America/Nome"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Noronha",
+      "display" : "America/Noronha",
+      "designation" : [{
+        "value" : "America/Noronha"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/North_Dakota/Beulah",
+      "display" : "America/North_Dakota/Beulah",
+      "designation" : [{
+        "value" : "America/North_Dakota/Beulah"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/North_Dakota/Center",
+      "display" : "America/North_Dakota/Center",
+      "designation" : [{
+        "value" : "America/North_Dakota/Center"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/North_Dakota/New_Salem",
+      "display" : "America/North_Dakota/New_Salem",
+      "designation" : [{
+        "value" : "America/North_Dakota/New_Salem"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Nuuk",
+      "display" : "America/Nuuk",
+      "designation" : [{
+        "value" : "America/Nuuk"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Ojinaga",
+      "display" : "America/Ojinaga",
+      "designation" : [{
+        "value" : "America/Ojinaga"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Panama",
+      "display" : "America/Panama",
+      "designation" : [{
+        "value" : "America/Panama"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Pangnirtung",
+      "display" : "America/Pangnirtung",
+      "designation" : [{
+        "value" : "America/Pangnirtung"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Paramaribo",
+      "display" : "America/Paramaribo",
+      "designation" : [{
+        "value" : "America/Paramaribo"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Phoenix",
+      "display" : "America/Phoenix",
+      "designation" : [{
+        "value" : "America/Phoenix"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Port-au-Prince",
+      "display" : "America/Port-au-Prince",
+      "designation" : [{
+        "value" : "America/Port-au-Prince"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Port_of_Spain",
+      "display" : "America/Port_of_Spain",
+      "designation" : [{
+        "value" : "America/Port_of_Spain"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Porto_Velho",
+      "display" : "America/Porto_Velho",
+      "designation" : [{
+        "value" : "America/Porto_Velho"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Puerto_Rico",
+      "display" : "America/Puerto_Rico",
+      "designation" : [{
+        "value" : "America/Puerto_Rico"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Punta_Arenas",
+      "display" : "America/Punta_Arenas",
+      "designation" : [{
+        "value" : "America/Punta_Arenas"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Rainy_River",
+      "display" : "America/Rainy_River",
+      "designation" : [{
+        "value" : "America/Rainy_River"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Rankin_Inlet",
+      "display" : "America/Rankin_Inlet",
+      "designation" : [{
+        "value" : "America/Rankin_Inlet"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Recife",
+      "display" : "America/Recife",
+      "designation" : [{
+        "value" : "America/Recife"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Regina",
+      "display" : "America/Regina",
+      "designation" : [{
+        "value" : "America/Regina"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Resolute",
+      "display" : "America/Resolute",
+      "designation" : [{
+        "value" : "America/Resolute"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Rio_Branco",
+      "display" : "America/Rio_Branco",
+      "designation" : [{
+        "value" : "America/Rio_Branco"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Rosario",
+      "display" : "America/Rosario",
+      "designation" : [{
+        "value" : "America/Rosario"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Santarem",
+      "display" : "America/Santarem",
+      "designation" : [{
+        "value" : "America/Santarem"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Santiago",
+      "display" : "America/Santiago",
+      "designation" : [{
+        "value" : "America/Santiago"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Santo_Domingo",
+      "display" : "America/Santo_Domingo",
+      "designation" : [{
+        "value" : "America/Santo_Domingo"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Sao_Paulo",
+      "display" : "America/Sao_Paulo",
+      "designation" : [{
+        "value" : "America/Sao_Paulo"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Scoresbysund",
+      "display" : "America/Scoresbysund",
+      "designation" : [{
+        "value" : "America/Scoresbysund"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Sitka",
+      "display" : "America/Sitka",
+      "designation" : [{
+        "value" : "America/Sitka"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/St_Johns",
+      "display" : "America/St_Johns",
+      "designation" : [{
+        "value" : "America/St_Johns"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/St_Kitts",
+      "display" : "America/St_Kitts",
+      "designation" : [{
+        "value" : "America/St_Kitts"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/St_Lucia",
+      "display" : "America/St_Lucia",
+      "designation" : [{
+        "value" : "America/St_Lucia"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/St_Thomas",
+      "display" : "America/St_Thomas",
+      "designation" : [{
+        "value" : "America/St_Thomas"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/St_Vincent",
+      "display" : "America/St_Vincent",
+      "designation" : [{
+        "value" : "America/St_Vincent"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Swift_Current",
+      "display" : "America/Swift_Current",
+      "designation" : [{
+        "value" : "America/Swift_Current"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Tegucigalpa",
+      "display" : "America/Tegucigalpa",
+      "designation" : [{
+        "value" : "America/Tegucigalpa"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Thule",
+      "display" : "America/Thule",
+      "designation" : [{
+        "value" : "America/Thule"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Thunder_Bay",
+      "display" : "America/Thunder_Bay",
+      "designation" : [{
+        "value" : "America/Thunder_Bay"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Tijuana",
+      "display" : "America/Tijuana",
+      "designation" : [{
+        "value" : "America/Tijuana"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Toronto",
+      "display" : "America/Toronto",
+      "designation" : [{
+        "value" : "America/Toronto"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Tortola",
+      "display" : "America/Tortola",
+      "designation" : [{
+        "value" : "America/Tortola"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Vancouver",
+      "display" : "America/Vancouver",
+      "designation" : [{
+        "value" : "America/Vancouver"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Whitehorse",
+      "display" : "America/Whitehorse",
+      "designation" : [{
+        "value" : "America/Whitehorse"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Winnipeg",
+      "display" : "America/Winnipeg",
+      "designation" : [{
+        "value" : "America/Winnipeg"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Yakutat",
+      "display" : "America/Yakutat",
+      "designation" : [{
+        "value" : "America/Yakutat"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "America/Yellowknife",
+      "display" : "America/Yellowknife",
+      "designation" : [{
+        "value" : "America/Yellowknife"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Antarctica/Casey",
+      "display" : "Antarctica/Casey",
+      "designation" : [{
+        "value" : "Antarctica/Casey"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Antarctica/Davis",
+      "display" : "Antarctica/Davis",
+      "designation" : [{
+        "value" : "Antarctica/Davis"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Antarctica/DumontDUrville",
+      "display" : "Antarctica/DumontDUrville",
+      "designation" : [{
+        "value" : "Antarctica/DumontDUrville"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Antarctica/Macquarie",
+      "display" : "Antarctica/Macquarie",
+      "designation" : [{
+        "value" : "Antarctica/Macquarie"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Antarctica/Mawson",
+      "display" : "Antarctica/Mawson",
+      "designation" : [{
+        "value" : "Antarctica/Mawson"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Antarctica/McMurdo",
+      "display" : "Antarctica/McMurdo",
+      "designation" : [{
+        "value" : "Antarctica/McMurdo"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Antarctica/Palmer",
+      "display" : "Antarctica/Palmer",
+      "designation" : [{
+        "value" : "Antarctica/Palmer"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Antarctica/Rothera",
+      "display" : "Antarctica/Rothera",
+      "designation" : [{
+        "value" : "Antarctica/Rothera"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Antarctica/Syowa",
+      "display" : "Antarctica/Syowa",
+      "designation" : [{
+        "value" : "Antarctica/Syowa"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Antarctica/Troll",
+      "display" : "Antarctica/Troll",
+      "designation" : [{
+        "value" : "Antarctica/Troll"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Antarctica/Vostok",
+      "display" : "Antarctica/Vostok",
+      "designation" : [{
+        "value" : "Antarctica/Vostok"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Aden",
+      "display" : "Asia/Aden",
+      "designation" : [{
+        "value" : "Asia/Aden"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Almaty",
+      "display" : "Asia/Almaty",
+      "designation" : [{
+        "value" : "Asia/Almaty"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Amman",
+      "display" : "Asia/Amman",
+      "designation" : [{
+        "value" : "Asia/Amman"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Anadyr",
+      "display" : "Asia/Anadyr",
+      "designation" : [{
+        "value" : "Asia/Anadyr"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Aqtau",
+      "display" : "Asia/Aqtau",
+      "designation" : [{
+        "value" : "Asia/Aqtau"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Aqtobe",
+      "display" : "Asia/Aqtobe",
+      "designation" : [{
+        "value" : "Asia/Aqtobe"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Ashgabat",
+      "display" : "Asia/Ashgabat",
+      "designation" : [{
+        "value" : "Asia/Ashgabat"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Atyrau",
+      "display" : "Asia/Atyrau",
+      "designation" : [{
+        "value" : "Asia/Atyrau"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Baghdad",
+      "display" : "Asia/Baghdad",
+      "designation" : [{
+        "value" : "Asia/Baghdad"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Bahrain",
+      "display" : "Asia/Bahrain",
+      "designation" : [{
+        "value" : "Asia/Bahrain"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Baku",
+      "display" : "Asia/Baku",
+      "designation" : [{
+        "value" : "Asia/Baku"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Bangkok",
+      "display" : "Asia/Bangkok",
+      "designation" : [{
+        "value" : "Asia/Bangkok"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Barnaul",
+      "display" : "Asia/Barnaul",
+      "designation" : [{
+        "value" : "Asia/Barnaul"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Beirut",
+      "display" : "Asia/Beirut",
+      "designation" : [{
+        "value" : "Asia/Beirut"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Bishkek",
+      "display" : "Asia/Bishkek",
+      "designation" : [{
+        "value" : "Asia/Bishkek"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Brunei",
+      "display" : "Asia/Brunei",
+      "designation" : [{
+        "value" : "Asia/Brunei"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Chita",
+      "display" : "Asia/Chita",
+      "designation" : [{
+        "value" : "Asia/Chita"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Choibalsan",
+      "display" : "Asia/Choibalsan",
+      "designation" : [{
+        "value" : "Asia/Choibalsan"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Chongqing",
+      "display" : "Asia/Chongqing",
+      "designation" : [{
+        "value" : "Asia/Chongqing"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Colombo",
+      "display" : "Asia/Colombo",
+      "designation" : [{
+        "value" : "Asia/Colombo"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Damascus",
+      "display" : "Asia/Damascus",
+      "designation" : [{
+        "value" : "Asia/Damascus"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Dhaka",
+      "display" : "Asia/Dhaka",
+      "designation" : [{
+        "value" : "Asia/Dhaka"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Dili",
+      "display" : "Asia/Dili",
+      "designation" : [{
+        "value" : "Asia/Dili"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Dubai",
+      "display" : "Asia/Dubai",
+      "designation" : [{
+        "value" : "Asia/Dubai"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Dushanbe",
+      "display" : "Asia/Dushanbe",
+      "designation" : [{
+        "value" : "Asia/Dushanbe"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Famagusta",
+      "display" : "Asia/Famagusta",
+      "designation" : [{
+        "value" : "Asia/Famagusta"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Gaza",
+      "display" : "Asia/Gaza",
+      "designation" : [{
+        "value" : "Asia/Gaza"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Hanoi",
+      "display" : "Asia/Hanoi",
+      "designation" : [{
+        "value" : "Asia/Hanoi"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Harbin",
+      "display" : "Asia/Harbin",
+      "designation" : [{
+        "value" : "Asia/Harbin"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Hebron",
+      "display" : "Asia/Hebron",
+      "designation" : [{
+        "value" : "Asia/Hebron"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Ho_Chi_Minh",
+      "display" : "Asia/Ho_Chi_Minh",
+      "designation" : [{
+        "value" : "Asia/Ho_Chi_Minh"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Hong_Kong",
+      "display" : "Asia/Hong_Kong",
+      "designation" : [{
+        "value" : "Asia/Hong_Kong"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Hovd",
+      "display" : "Asia/Hovd",
+      "designation" : [{
+        "value" : "Asia/Hovd"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Irkutsk",
+      "display" : "Asia/Irkutsk",
+      "designation" : [{
+        "value" : "Asia/Irkutsk"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Jakarta",
+      "display" : "Asia/Jakarta",
+      "designation" : [{
+        "value" : "Asia/Jakarta"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Jayapura",
+      "display" : "Asia/Jayapura",
+      "designation" : [{
+        "value" : "Asia/Jayapura"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Jerusalem",
+      "display" : "Asia/Jerusalem",
+      "designation" : [{
+        "value" : "Asia/Jerusalem"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Kabul",
+      "display" : "Asia/Kabul",
+      "designation" : [{
+        "value" : "Asia/Kabul"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Kamchatka",
+      "display" : "Asia/Kamchatka",
+      "designation" : [{
+        "value" : "Asia/Kamchatka"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Karachi",
+      "display" : "Asia/Karachi",
+      "designation" : [{
+        "value" : "Asia/Karachi"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Kashgar",
+      "display" : "Asia/Kashgar",
+      "designation" : [{
+        "value" : "Asia/Kashgar"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Kathmandu",
+      "display" : "Asia/Kathmandu",
+      "designation" : [{
+        "value" : "Asia/Kathmandu"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Khandyga",
+      "display" : "Asia/Khandyga",
+      "designation" : [{
+        "value" : "Asia/Khandyga"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Kolkata",
+      "display" : "Asia/Kolkata",
+      "designation" : [{
+        "value" : "Asia/Kolkata"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Krasnoyarsk",
+      "display" : "Asia/Krasnoyarsk",
+      "designation" : [{
+        "value" : "Asia/Krasnoyarsk"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Kuala_Lumpur",
+      "display" : "Asia/Kuala_Lumpur",
+      "designation" : [{
+        "value" : "Asia/Kuala_Lumpur"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Kuching",
+      "display" : "Asia/Kuching",
+      "designation" : [{
+        "value" : "Asia/Kuching"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Kuwait",
+      "display" : "Asia/Kuwait",
+      "designation" : [{
+        "value" : "Asia/Kuwait"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Macau",
+      "display" : "Asia/Macau",
+      "designation" : [{
+        "value" : "Asia/Macau"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Magadan",
+      "display" : "Asia/Magadan",
+      "designation" : [{
+        "value" : "Asia/Magadan"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Makassar",
+      "display" : "Asia/Makassar",
+      "designation" : [{
+        "value" : "Asia/Makassar"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Manila",
+      "display" : "Asia/Manila",
+      "designation" : [{
+        "value" : "Asia/Manila"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Muscat",
+      "display" : "Asia/Muscat",
+      "designation" : [{
+        "value" : "Asia/Muscat"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Nicosia",
+      "display" : "Asia/Nicosia",
+      "designation" : [{
+        "value" : "Asia/Nicosia"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Novokuznetsk",
+      "display" : "Asia/Novokuznetsk",
+      "designation" : [{
+        "value" : "Asia/Novokuznetsk"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Novosibirsk",
+      "display" : "Asia/Novosibirsk",
+      "designation" : [{
+        "value" : "Asia/Novosibirsk"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Omsk",
+      "display" : "Asia/Omsk",
+      "designation" : [{
+        "value" : "Asia/Omsk"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Oral",
+      "display" : "Asia/Oral",
+      "designation" : [{
+        "value" : "Asia/Oral"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Phnom_Penh",
+      "display" : "Asia/Phnom_Penh",
+      "designation" : [{
+        "value" : "Asia/Phnom_Penh"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Pontianak",
+      "display" : "Asia/Pontianak",
+      "designation" : [{
+        "value" : "Asia/Pontianak"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Pyongyang",
+      "display" : "Asia/Pyongyang",
+      "designation" : [{
+        "value" : "Asia/Pyongyang"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Qatar",
+      "display" : "Asia/Qatar",
+      "designation" : [{
+        "value" : "Asia/Qatar"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Qostanay",
+      "display" : "Asia/Qostanay",
+      "designation" : [{
+        "value" : "Asia/Qostanay"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Qyzylorda",
+      "display" : "Asia/Qyzylorda",
+      "designation" : [{
+        "value" : "Asia/Qyzylorda"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Riyadh",
+      "display" : "Asia/Riyadh",
+      "designation" : [{
+        "value" : "Asia/Riyadh"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Sakhalin",
+      "display" : "Asia/Sakhalin",
+      "designation" : [{
+        "value" : "Asia/Sakhalin"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Samarkand",
+      "display" : "Asia/Samarkand",
+      "designation" : [{
+        "value" : "Asia/Samarkand"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Seoul",
+      "display" : "Asia/Seoul",
+      "designation" : [{
+        "value" : "Asia/Seoul"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Shanghai",
+      "display" : "Asia/Shanghai",
+      "designation" : [{
+        "value" : "Asia/Shanghai"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Singapore",
+      "display" : "Asia/Singapore",
+      "designation" : [{
+        "value" : "Asia/Singapore"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Srednekolymsk",
+      "display" : "Asia/Srednekolymsk",
+      "designation" : [{
+        "value" : "Asia/Srednekolymsk"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Taipei",
+      "display" : "Asia/Taipei",
+      "designation" : [{
+        "value" : "Asia/Taipei"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Tashkent",
+      "display" : "Asia/Tashkent",
+      "designation" : [{
+        "value" : "Asia/Tashkent"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Tbilisi",
+      "display" : "Asia/Tbilisi",
+      "designation" : [{
+        "value" : "Asia/Tbilisi"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Tehran",
+      "display" : "Asia/Tehran",
+      "designation" : [{
+        "value" : "Asia/Tehran"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Tel_Aviv",
+      "display" : "Asia/Tel_Aviv",
+      "designation" : [{
+        "value" : "Asia/Tel_Aviv"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Thimphu",
+      "display" : "Asia/Thimphu",
+      "designation" : [{
+        "value" : "Asia/Thimphu"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Tokyo",
+      "display" : "Asia/Tokyo",
+      "designation" : [{
+        "value" : "Asia/Tokyo"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Tomsk",
+      "display" : "Asia/Tomsk",
+      "designation" : [{
+        "value" : "Asia/Tomsk"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Ulaanbaatar",
+      "display" : "Asia/Ulaanbaatar",
+      "designation" : [{
+        "value" : "Asia/Ulaanbaatar"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Urumqi",
+      "display" : "Asia/Urumqi",
+      "designation" : [{
+        "value" : "Asia/Urumqi"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Ust-Nera",
+      "display" : "Asia/Ust-Nera",
+      "designation" : [{
+        "value" : "Asia/Ust-Nera"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Vientiane",
+      "display" : "Asia/Vientiane",
+      "designation" : [{
+        "value" : "Asia/Vientiane"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Vladivostok",
+      "display" : "Asia/Vladivostok",
+      "designation" : [{
+        "value" : "Asia/Vladivostok"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Yakutsk",
+      "display" : "Asia/Yakutsk",
+      "designation" : [{
+        "value" : "Asia/Yakutsk"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Yangon",
+      "display" : "Asia/Yangon",
+      "designation" : [{
+        "value" : "Asia/Yangon"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Yekaterinburg",
+      "display" : "Asia/Yekaterinburg",
+      "designation" : [{
+        "value" : "Asia/Yekaterinburg"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Asia/Yerevan",
+      "display" : "Asia/Yerevan",
+      "designation" : [{
+        "value" : "Asia/Yerevan"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Atlantic/Azores",
+      "display" : "Atlantic/Azores",
+      "designation" : [{
+        "value" : "Atlantic/Azores"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Atlantic/Bermuda",
+      "display" : "Atlantic/Bermuda",
+      "designation" : [{
+        "value" : "Atlantic/Bermuda"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Atlantic/Canary",
+      "display" : "Atlantic/Canary",
+      "designation" : [{
+        "value" : "Atlantic/Canary"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Atlantic/Cape_Verde",
+      "display" : "Atlantic/Cape_Verde",
+      "designation" : [{
+        "value" : "Atlantic/Cape_Verde"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Atlantic/Faroe",
+      "display" : "Atlantic/Faroe",
+      "designation" : [{
+        "value" : "Atlantic/Faroe"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Atlantic/Jan_Mayen",
+      "display" : "Atlantic/Jan_Mayen",
+      "designation" : [{
+        "value" : "Atlantic/Jan_Mayen"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Atlantic/Madeira",
+      "display" : "Atlantic/Madeira",
+      "designation" : [{
+        "value" : "Atlantic/Madeira"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Atlantic/Reykjavik",
+      "display" : "Atlantic/Reykjavik",
+      "designation" : [{
+        "value" : "Atlantic/Reykjavik"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Atlantic/South_Georgia",
+      "display" : "Atlantic/South_Georgia",
+      "designation" : [{
+        "value" : "Atlantic/South_Georgia"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Atlantic/St_Helena",
+      "display" : "Atlantic/St_Helena",
+      "designation" : [{
+        "value" : "Atlantic/St_Helena"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Atlantic/Stanley",
+      "display" : "Atlantic/Stanley",
+      "designation" : [{
+        "value" : "Atlantic/Stanley"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Australia/Adelaide",
+      "display" : "Australia/Adelaide",
+      "designation" : [{
+        "value" : "Australia/Adelaide"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Australia/Brisbane",
+      "display" : "Australia/Brisbane",
+      "designation" : [{
+        "value" : "Australia/Brisbane"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Australia/Broken_Hill",
+      "display" : "Australia/Broken_Hill",
+      "designation" : [{
+        "value" : "Australia/Broken_Hill"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Australia/Currie",
+      "display" : "Australia/Currie",
+      "designation" : [{
+        "value" : "Australia/Currie"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Australia/Darwin",
+      "display" : "Australia/Darwin",
+      "designation" : [{
+        "value" : "Australia/Darwin"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Australia/Eucla",
+      "display" : "Australia/Eucla",
+      "designation" : [{
+        "value" : "Australia/Eucla"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Australia/Hobart",
+      "display" : "Australia/Hobart",
+      "designation" : [{
+        "value" : "Australia/Hobart"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Australia/Lindeman",
+      "display" : "Australia/Lindeman",
+      "designation" : [{
+        "value" : "Australia/Lindeman"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Australia/Lord_Howe",
+      "display" : "Australia/Lord_Howe",
+      "designation" : [{
+        "value" : "Australia/Lord_Howe"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Australia/Melbourne",
+      "display" : "Australia/Melbourne",
+      "designation" : [{
+        "value" : "Australia/Melbourne"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Australia/Perth",
+      "display" : "Australia/Perth",
+      "designation" : [{
+        "value" : "Australia/Perth"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Australia/Sydney",
+      "display" : "Australia/Sydney",
+      "designation" : [{
+        "value" : "Australia/Sydney"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "CET",
+      "display" : "CET",
+      "designation" : [{
+        "value" : "CET"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "CST6CDT",
+      "display" : "CST6CDT",
+      "designation" : [{
+        "value" : "CST6CDT"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "EET",
+      "display" : "EET",
+      "designation" : [{
+        "value" : "EET"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "EST",
+      "display" : "EST",
+      "designation" : [{
+        "value" : "EST"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "EST5EDT",
+      "display" : "EST5EDT",
+      "designation" : [{
+        "value" : "EST5EDT"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT",
+      "display" : "Etc/GMT",
+      "designation" : [{
+        "value" : "Etc/GMT"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT+1",
+      "display" : "Etc/GMT+1",
+      "designation" : [{
+        "value" : "Etc/GMT+1"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT+10",
+      "display" : "Etc/GMT+10",
+      "designation" : [{
+        "value" : "Etc/GMT+10"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT+11",
+      "display" : "Etc/GMT+11",
+      "designation" : [{
+        "value" : "Etc/GMT+11"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT+12",
+      "display" : "Etc/GMT+12",
+      "designation" : [{
+        "value" : "Etc/GMT+12"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT+2",
+      "display" : "Etc/GMT+2",
+      "designation" : [{
+        "value" : "Etc/GMT+2"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT+3",
+      "display" : "Etc/GMT+3",
+      "designation" : [{
+        "value" : "Etc/GMT+3"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT+4",
+      "display" : "Etc/GMT+4",
+      "designation" : [{
+        "value" : "Etc/GMT+4"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT+5",
+      "display" : "Etc/GMT+5",
+      "designation" : [{
+        "value" : "Etc/GMT+5"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT+6",
+      "display" : "Etc/GMT+6",
+      "designation" : [{
+        "value" : "Etc/GMT+6"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT+7",
+      "display" : "Etc/GMT+7",
+      "designation" : [{
+        "value" : "Etc/GMT+7"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT+8",
+      "display" : "Etc/GMT+8",
+      "designation" : [{
+        "value" : "Etc/GMT+8"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT+9",
+      "display" : "Etc/GMT+9",
+      "designation" : [{
+        "value" : "Etc/GMT+9"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT-1",
+      "display" : "Etc/GMT-1",
+      "designation" : [{
+        "value" : "Etc/GMT-1"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT-10",
+      "display" : "Etc/GMT-10",
+      "designation" : [{
+        "value" : "Etc/GMT-10"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT-11",
+      "display" : "Etc/GMT-11",
+      "designation" : [{
+        "value" : "Etc/GMT-11"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT-12",
+      "display" : "Etc/GMT-12",
+      "designation" : [{
+        "value" : "Etc/GMT-12"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT-13",
+      "display" : "Etc/GMT-13",
+      "designation" : [{
+        "value" : "Etc/GMT-13"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT-14",
+      "display" : "Etc/GMT-14",
+      "designation" : [{
+        "value" : "Etc/GMT-14"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT-2",
+      "display" : "Etc/GMT-2",
+      "designation" : [{
+        "value" : "Etc/GMT-2"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT-3",
+      "display" : "Etc/GMT-3",
+      "designation" : [{
+        "value" : "Etc/GMT-3"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT-4",
+      "display" : "Etc/GMT-4",
+      "designation" : [{
+        "value" : "Etc/GMT-4"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT-5",
+      "display" : "Etc/GMT-5",
+      "designation" : [{
+        "value" : "Etc/GMT-5"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT-6",
+      "display" : "Etc/GMT-6",
+      "designation" : [{
+        "value" : "Etc/GMT-6"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT-7",
+      "display" : "Etc/GMT-7",
+      "designation" : [{
+        "value" : "Etc/GMT-7"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT-8",
+      "display" : "Etc/GMT-8",
+      "designation" : [{
+        "value" : "Etc/GMT-8"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/GMT-9",
+      "display" : "Etc/GMT-9",
+      "designation" : [{
+        "value" : "Etc/GMT-9"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Etc/UTC",
+      "display" : "Etc/UTC",
+      "designation" : [{
+        "value" : "Etc/UTC"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Amsterdam",
+      "display" : "Europe/Amsterdam",
+      "designation" : [{
+        "value" : "Europe/Amsterdam"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Andorra",
+      "display" : "Europe/Andorra",
+      "designation" : [{
+        "value" : "Europe/Andorra"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Astrakhan",
+      "display" : "Europe/Astrakhan",
+      "designation" : [{
+        "value" : "Europe/Astrakhan"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Athens",
+      "display" : "Europe/Athens",
+      "designation" : [{
+        "value" : "Europe/Athens"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Belfast",
+      "display" : "Europe/Belfast",
+      "designation" : [{
+        "value" : "Europe/Belfast"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Belgrade",
+      "display" : "Europe/Belgrade",
+      "designation" : [{
+        "value" : "Europe/Belgrade"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Berlin",
+      "display" : "Europe/Berlin",
+      "designation" : [{
+        "value" : "Europe/Berlin"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Brussels",
+      "display" : "Europe/Brussels",
+      "designation" : [{
+        "value" : "Europe/Brussels"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Bucharest",
+      "display" : "Europe/Bucharest",
+      "designation" : [{
+        "value" : "Europe/Bucharest"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Budapest",
+      "display" : "Europe/Budapest",
+      "designation" : [{
+        "value" : "Europe/Budapest"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Chisinau",
+      "display" : "Europe/Chisinau",
+      "designation" : [{
+        "value" : "Europe/Chisinau"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Copenhagen",
+      "display" : "Europe/Copenhagen",
+      "designation" : [{
+        "value" : "Europe/Copenhagen"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Dublin",
+      "display" : "Europe/Dublin",
+      "designation" : [{
+        "value" : "Europe/Dublin"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Gibraltar",
+      "display" : "Europe/Gibraltar",
+      "designation" : [{
+        "value" : "Europe/Gibraltar"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Guernsey",
+      "display" : "Europe/Guernsey",
+      "designation" : [{
+        "value" : "Europe/Guernsey"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Helsinki",
+      "display" : "Europe/Helsinki",
+      "designation" : [{
+        "value" : "Europe/Helsinki"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Isle_of_Man",
+      "display" : "Europe/Isle_of_Man",
+      "designation" : [{
+        "value" : "Europe/Isle_of_Man"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Istanbul",
+      "display" : "Europe/Istanbul",
+      "designation" : [{
+        "value" : "Europe/Istanbul"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Jersey",
+      "display" : "Europe/Jersey",
+      "designation" : [{
+        "value" : "Europe/Jersey"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Kaliningrad",
+      "display" : "Europe/Kaliningrad",
+      "designation" : [{
+        "value" : "Europe/Kaliningrad"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Kiev",
+      "display" : "Europe/Kiev",
+      "designation" : [{
+        "value" : "Europe/Kiev"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Kirov",
+      "display" : "Europe/Kirov",
+      "designation" : [{
+        "value" : "Europe/Kirov"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Lisbon",
+      "display" : "Europe/Lisbon",
+      "designation" : [{
+        "value" : "Europe/Lisbon"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Ljubljana",
+      "display" : "Europe/Ljubljana",
+      "designation" : [{
+        "value" : "Europe/Ljubljana"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/London",
+      "display" : "Europe/London",
+      "designation" : [{
+        "value" : "Europe/London"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Luxembourg",
+      "display" : "Europe/Luxembourg",
+      "designation" : [{
+        "value" : "Europe/Luxembourg"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Madrid",
+      "display" : "Europe/Madrid",
+      "designation" : [{
+        "value" : "Europe/Madrid"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Malta",
+      "display" : "Europe/Malta",
+      "designation" : [{
+        "value" : "Europe/Malta"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Minsk",
+      "display" : "Europe/Minsk",
+      "designation" : [{
+        "value" : "Europe/Minsk"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Monaco",
+      "display" : "Europe/Monaco",
+      "designation" : [{
+        "value" : "Europe/Monaco"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Moscow",
+      "display" : "Europe/Moscow",
+      "designation" : [{
+        "value" : "Europe/Moscow"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Oslo",
+      "display" : "Europe/Oslo",
+      "designation" : [{
+        "value" : "Europe/Oslo"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Paris",
+      "display" : "Europe/Paris",
+      "designation" : [{
+        "value" : "Europe/Paris"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Prague",
+      "display" : "Europe/Prague",
+      "designation" : [{
+        "value" : "Europe/Prague"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Riga",
+      "display" : "Europe/Riga",
+      "designation" : [{
+        "value" : "Europe/Riga"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Rome",
+      "display" : "Europe/Rome",
+      "designation" : [{
+        "value" : "Europe/Rome"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Samara",
+      "display" : "Europe/Samara",
+      "designation" : [{
+        "value" : "Europe/Samara"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Sarajevo",
+      "display" : "Europe/Sarajevo",
+      "designation" : [{
+        "value" : "Europe/Sarajevo"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Saratov",
+      "display" : "Europe/Saratov",
+      "designation" : [{
+        "value" : "Europe/Saratov"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Simferopol",
+      "display" : "Europe/Simferopol",
+      "designation" : [{
+        "value" : "Europe/Simferopol"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Skopje",
+      "display" : "Europe/Skopje",
+      "designation" : [{
+        "value" : "Europe/Skopje"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Sofia",
+      "display" : "Europe/Sofia",
+      "designation" : [{
+        "value" : "Europe/Sofia"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Stockholm",
+      "display" : "Europe/Stockholm",
+      "designation" : [{
+        "value" : "Europe/Stockholm"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Tallinn",
+      "display" : "Europe/Tallinn",
+      "designation" : [{
+        "value" : "Europe/Tallinn"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Tirane",
+      "display" : "Europe/Tirane",
+      "designation" : [{
+        "value" : "Europe/Tirane"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Tiraspol",
+      "display" : "Europe/Tiraspol",
+      "designation" : [{
+        "value" : "Europe/Tiraspol"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Ulyanovsk",
+      "display" : "Europe/Ulyanovsk",
+      "designation" : [{
+        "value" : "Europe/Ulyanovsk"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Uzhgorod",
+      "display" : "Europe/Uzhgorod",
+      "designation" : [{
+        "value" : "Europe/Uzhgorod"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Vaduz",
+      "display" : "Europe/Vaduz",
+      "designation" : [{
+        "value" : "Europe/Vaduz"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Vienna",
+      "display" : "Europe/Vienna",
+      "designation" : [{
+        "value" : "Europe/Vienna"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Vilnius",
+      "display" : "Europe/Vilnius",
+      "designation" : [{
+        "value" : "Europe/Vilnius"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Volgograd",
+      "display" : "Europe/Volgograd",
+      "designation" : [{
+        "value" : "Europe/Volgograd"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Warsaw",
+      "display" : "Europe/Warsaw",
+      "designation" : [{
+        "value" : "Europe/Warsaw"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Zagreb",
+      "display" : "Europe/Zagreb",
+      "designation" : [{
+        "value" : "Europe/Zagreb"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Zaporozhye",
+      "display" : "Europe/Zaporozhye",
+      "designation" : [{
+        "value" : "Europe/Zaporozhye"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Europe/Zurich",
+      "display" : "Europe/Zurich",
+      "designation" : [{
+        "value" : "Europe/Zurich"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Factory",
+      "display" : "Factory",
+      "designation" : [{
+        "value" : "Factory"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "HST",
+      "display" : "HST",
+      "designation" : [{
+        "value" : "HST"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Indian/Antananarivo",
+      "display" : "Indian/Antananarivo",
+      "designation" : [{
+        "value" : "Indian/Antananarivo"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Indian/Chagos",
+      "display" : "Indian/Chagos",
+      "designation" : [{
+        "value" : "Indian/Chagos"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Indian/Christmas",
+      "display" : "Indian/Christmas",
+      "designation" : [{
+        "value" : "Indian/Christmas"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Indian/Cocos",
+      "display" : "Indian/Cocos",
+      "designation" : [{
+        "value" : "Indian/Cocos"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Indian/Comoro",
+      "display" : "Indian/Comoro",
+      "designation" : [{
+        "value" : "Indian/Comoro"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Indian/Kerguelen",
+      "display" : "Indian/Kerguelen",
+      "designation" : [{
+        "value" : "Indian/Kerguelen"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Indian/Mahe",
+      "display" : "Indian/Mahe",
+      "designation" : [{
+        "value" : "Indian/Mahe"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Indian/Maldives",
+      "display" : "Indian/Maldives",
+      "designation" : [{
+        "value" : "Indian/Maldives"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Indian/Mauritius",
+      "display" : "Indian/Mauritius",
+      "designation" : [{
+        "value" : "Indian/Mauritius"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Indian/Mayotte",
+      "display" : "Indian/Mayotte",
+      "designation" : [{
+        "value" : "Indian/Mayotte"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Indian/Reunion",
+      "display" : "Indian/Reunion",
+      "designation" : [{
+        "value" : "Indian/Reunion"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "MET",
+      "display" : "MET",
+      "designation" : [{
+        "value" : "MET"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "MST",
+      "display" : "MST",
+      "designation" : [{
+        "value" : "MST"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "MST7MDT",
+      "display" : "MST7MDT",
+      "designation" : [{
+        "value" : "MST7MDT"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "PST8PDT",
+      "display" : "PST8PDT",
+      "designation" : [{
+        "value" : "PST8PDT"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Apia",
+      "display" : "Pacific/Apia",
+      "designation" : [{
+        "value" : "Pacific/Apia"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Auckland",
+      "display" : "Pacific/Auckland",
+      "designation" : [{
+        "value" : "Pacific/Auckland"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Bougainville",
+      "display" : "Pacific/Bougainville",
+      "designation" : [{
+        "value" : "Pacific/Bougainville"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Chatham",
+      "display" : "Pacific/Chatham",
+      "designation" : [{
+        "value" : "Pacific/Chatham"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Chuuk",
+      "display" : "Pacific/Chuuk",
+      "designation" : [{
+        "value" : "Pacific/Chuuk"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Easter",
+      "display" : "Pacific/Easter",
+      "designation" : [{
+        "value" : "Pacific/Easter"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Efate",
+      "display" : "Pacific/Efate",
+      "designation" : [{
+        "value" : "Pacific/Efate"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Enderbury",
+      "display" : "Pacific/Enderbury",
+      "designation" : [{
+        "value" : "Pacific/Enderbury"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Fakaofo",
+      "display" : "Pacific/Fakaofo",
+      "designation" : [{
+        "value" : "Pacific/Fakaofo"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Fiji",
+      "display" : "Pacific/Fiji",
+      "designation" : [{
+        "value" : "Pacific/Fiji"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Funafuti",
+      "display" : "Pacific/Funafuti",
+      "designation" : [{
+        "value" : "Pacific/Funafuti"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Galapagos",
+      "display" : "Pacific/Galapagos",
+      "designation" : [{
+        "value" : "Pacific/Galapagos"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Gambier",
+      "display" : "Pacific/Gambier",
+      "designation" : [{
+        "value" : "Pacific/Gambier"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Guadalcanal",
+      "display" : "Pacific/Guadalcanal",
+      "designation" : [{
+        "value" : "Pacific/Guadalcanal"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Guam",
+      "display" : "Pacific/Guam",
+      "designation" : [{
+        "value" : "Pacific/Guam"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Honolulu",
+      "display" : "Pacific/Honolulu",
+      "designation" : [{
+        "value" : "Pacific/Honolulu"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Johnston",
+      "display" : "Pacific/Johnston",
+      "designation" : [{
+        "value" : "Pacific/Johnston"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Kiritimati",
+      "display" : "Pacific/Kiritimati",
+      "designation" : [{
+        "value" : "Pacific/Kiritimati"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Kosrae",
+      "display" : "Pacific/Kosrae",
+      "designation" : [{
+        "value" : "Pacific/Kosrae"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Kwajalein",
+      "display" : "Pacific/Kwajalein",
+      "designation" : [{
+        "value" : "Pacific/Kwajalein"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Majuro",
+      "display" : "Pacific/Majuro",
+      "designation" : [{
+        "value" : "Pacific/Majuro"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Marquesas",
+      "display" : "Pacific/Marquesas",
+      "designation" : [{
+        "value" : "Pacific/Marquesas"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Midway",
+      "display" : "Pacific/Midway",
+      "designation" : [{
+        "value" : "Pacific/Midway"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Nauru",
+      "display" : "Pacific/Nauru",
+      "designation" : [{
+        "value" : "Pacific/Nauru"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Niue",
+      "display" : "Pacific/Niue",
+      "designation" : [{
+        "value" : "Pacific/Niue"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Norfolk",
+      "display" : "Pacific/Norfolk",
+      "designation" : [{
+        "value" : "Pacific/Norfolk"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Noumea",
+      "display" : "Pacific/Noumea",
+      "designation" : [{
+        "value" : "Pacific/Noumea"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Pago_Pago",
+      "display" : "Pacific/Pago_Pago",
+      "designation" : [{
+        "value" : "Pacific/Pago_Pago"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Palau",
+      "display" : "Pacific/Palau",
+      "designation" : [{
+        "value" : "Pacific/Palau"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Pitcairn",
+      "display" : "Pacific/Pitcairn",
+      "designation" : [{
+        "value" : "Pacific/Pitcairn"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Pohnpei",
+      "display" : "Pacific/Pohnpei",
+      "designation" : [{
+        "value" : "Pacific/Pohnpei"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Port_Moresby",
+      "display" : "Pacific/Port_Moresby",
+      "designation" : [{
+        "value" : "Pacific/Port_Moresby"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Rarotonga",
+      "display" : "Pacific/Rarotonga",
+      "designation" : [{
+        "value" : "Pacific/Rarotonga"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Saipan",
+      "display" : "Pacific/Saipan",
+      "designation" : [{
+        "value" : "Pacific/Saipan"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Tahiti",
+      "display" : "Pacific/Tahiti",
+      "designation" : [{
+        "value" : "Pacific/Tahiti"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Tarawa",
+      "display" : "Pacific/Tarawa",
+      "designation" : [{
+        "value" : "Pacific/Tarawa"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Tongatapu",
+      "display" : "Pacific/Tongatapu",
+      "designation" : [{
+        "value" : "Pacific/Tongatapu"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Wake",
+      "display" : "Pacific/Wake",
+      "designation" : [{
+        "value" : "Pacific/Wake"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "Pacific/Wallis",
+      "display" : "Pacific/Wallis",
+      "designation" : [{
+        "value" : "Pacific/Wallis"
+      }]
+    },
+    {
+      "system" : "https://www.iana.org/time-zones",
+      "code" : "WET",
+      "display" : "WET",
+      "designation" : [{
+        "value" : "WET"
+      }]
+    }]
+  }
+},
+  "error" : ""
 }
 -------------------------------------------------------------------------------------

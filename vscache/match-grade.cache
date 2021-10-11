@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:bfcf3dfc-3ff7-4019-91e1-7e543d6345d2",
-    "timestamp" : "2021-04-12T20:54:26.568Z",
+    "identifier" : "urn:uuid:1475d1a8-6aa2-46df-a5b0-f8891da89371",
+    "timestamp" : "2021-10-11T22:40:48.791Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -33,7 +34,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/match-grade",
       "code" : "certain",
-      "display" : "Certain Match"
+      "display" : "Certain Match",
+      "designation" : [{
+        "value" : "Certain Match"
+      }]
     },
     {
       "extension" : [{
@@ -42,7 +46,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/match-grade",
       "code" : "probable",
-      "display" : "Probable Match"
+      "display" : "Probable Match",
+      "designation" : [{
+        "value" : "Probable Match"
+      }]
     },
     {
       "extension" : [{
@@ -51,7 +58,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/match-grade",
       "code" : "possible",
-      "display" : "Possible Match"
+      "display" : "Possible Match",
+      "designation" : [{
+        "value" : "Possible Match"
+      }]
     },
     {
       "extension" : [{
@@ -60,7 +70,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/match-grade",
       "code" : "certainly-not",
-      "display" : "Certainly Not a Match"
+      "display" : "Certainly Not a Match",
+      "designation" : [{
+        "value" : "Certainly Not a Match"
+      }]
     }]
   }
 },

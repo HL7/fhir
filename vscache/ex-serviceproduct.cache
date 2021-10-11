@@ -5,6 +5,8 @@
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Exam",
+  "code" : "exam",
+  "system" : "http://hl7.org/fhir/ex-serviceproduct",
   "severity" : null,
   "error" : ""
 }

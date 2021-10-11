@@ -5,6 +5,8 @@
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "text/cql",
+  "code" : "text/cql",
+  "system" : "urn:ietf:bcp:13",
   "severity" : null,
   "error" : ""
 }
@@ -15,6 +17,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "text/fhirpath",
+  "code" : "text/fhirpath",
+  "system" : "urn:ietf:bcp:13",
   "severity" : null,
   "error" : ""
 }
@@ -25,6 +29,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "text/x-fhir-query",
+  "code" : "text/x-fhir-query",
+  "system" : "urn:ietf:bcp:13",
   "severity" : null,
   "error" : ""
 }
@@ -35,6 +41,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "text/cql.identifier",
+  "code" : "text/cql.identifier",
+  "system" : "urn:ietf:bcp:13",
   "severity" : null,
   "error" : ""
 }
@@ -45,6 +53,8 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "application/hl7-cda+xml",
+  "code" : "application/hl7-cda+xml",
+  "system" : "urn:ietf:bcp:13",
   "severity" : null,
   "error" : ""
 }
@@ -60,14 +70,15 @@ v: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:2759c6aa-0710-4552-b23f-da3b1bd97cb9",
-    "timestamp" : "2021-04-12T19:38:36.258Z",
+    "identifier" : "urn:uuid:eba4d5e9-acb2-493a-89b2-6cd94cf1c90a",
+    "timestamp" : "2021-10-11T22:17:53.899Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -128,10 +139,11 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:cd429eb5-753d-4d47-b673-8c9892d99f02",
-    "timestamp" : "2021-04-12T20:04:43.649Z",
+    "identifier" : "urn:uuid:84001ec5-6e69-428c-9f6a-bc673ddfe86e",
+    "timestamp" : "2021-10-11T22:20:05.133Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -147,22 +159,34 @@ e: {
     "contains" : [{
       "system" : "urn:ietf:bcp:13",
       "code" : "text/cql",
-      "display" : "CQL"
+      "display" : "text/cql",
+      "designation" : [{
+        "value" : "text/cql"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:13",
       "code" : "text/fhirpath",
-      "display" : "FHIRPath"
+      "display" : "text/fhirpath",
+      "designation" : [{
+        "value" : "text/fhirpath"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:13",
       "code" : "text/x-fhir-query",
-      "display" : "FHIR Query"
+      "display" : "text/x-fhir-query",
+      "designation" : [{
+        "value" : "text/x-fhir-query"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:13",
       "code" : "text/cql.identifier",
-      "display" : "CQL Identifier"
+      "display" : "text/cql.identifier",
+      "designation" : [{
+        "value" : "text/cql.identifier"
+      }]
     }]
   }
 },
@@ -184,10 +208,11 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:08236575-4823-4bd6-b2e2-49e02469f580",
-    "timestamp" : "2021-04-12T20:09:05.336Z",
+    "identifier" : "urn:uuid:506ee558-630f-46f3-9f03-31070c7f4f29",
+    "timestamp" : "2021-10-11T22:21:26.024Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -203,7 +228,10 @@ e: {
     "contains" : [{
       "system" : "urn:ietf:bcp:13",
       "code" : "application/hl7-cda+xml",
-      "display" : "CDA Documents"
+      "display" : "application/hl7-cda+xml",
+      "designation" : [{
+        "value" : "application/hl7-cda+xml"
+      }]
     }]
   }
 },
@@ -221,20 +249,15 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "text" : {
-    "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"border: maroon 1px solid; background-color: #FFCCCC; font-weight: bold; padding: 8px\">This value set cannot be expanded because of the way it is defined - it has an infinite number of members</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display</b></td></tr></table></div>"
-  },
+  "language" : "en",
   "status" : "active",
-
-  "description" : "Value Set Contents (Expansion) for All Media Types at Mon, Jul 5, 2021 15:26-0400",
   "expansion" : {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:58157ba4-5eec-4712-b2ad-3865a2920a1b",
-    "timestamp" : "2021-04-12T20:56:05.989Z",
+    "identifier" : "urn:uuid:99d8fca0-5c4c-44aa-be93-803b022319cc",
+    "timestamp" : "2021-10-11T22:41:38.385Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -254,40 +277,8 @@ e: {
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "application/hl7-cda+xml",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
+  "code" : "application/hl7-cda+xml",
   "system" : "urn:ietf:bcp:13",
-  "code" : "application/hl7-cda+xml"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "valueSet" : ["http://hl7.org/fhir/ValueSet/formatcodes"]
-    },
-    {
-      "system" : "http://hl7.org/fhir/resource-types"
-    },
-    {
-      "system" : "urn:ietf:rfc:3986",
-      "concept" : [{
-        "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile",
-        "display" : "Lipid Lab Report"
-      }]
-    },
-    {
-      "system" : "urn:ietf:bcp:13",
-      "concept" : [{
-        "code" : "application/hl7-cda+xml",
-        "display" : "CDA Documents"
-      }]
-    }]
-  }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "application/hl7-cda+xml",
   "severity" : null,
   "error" : ""
 }
@@ -309,6 +300,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "application/hl7-cda+xml",
+  "code" : "application/hl7-cda+xml",
+  "system" : "urn:ietf:bcp:13",
   "severity" : null,
   "error" : ""
 }

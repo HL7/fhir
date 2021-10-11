@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:710cef37-fac4-41e9-9f9c-eef7bdc64d58",
-    "timestamp" : "2021-04-12T20:45:46.694Z",
+    "identifier" : "urn:uuid:19927fe2-ff26-4ae2-8792-903e7646bbf4",
+    "timestamp" : "2021-10-11T22:39:22.479Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -33,7 +34,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/implantStatus",
       "code" : "functional",
-      "display" : "Functional"
+      "display" : "Functional",
+      "designation" : [{
+        "value" : "Functional"
+      }]
     },
     {
       "extension" : [{
@@ -42,7 +46,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/implantStatus",
       "code" : "non-functional",
-      "display" : "Non-Functional"
+      "display" : "Non-Functional",
+      "designation" : [{
+        "value" : "Non-Functional"
+      }]
     },
     {
       "extension" : [{
@@ -51,7 +58,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/implantStatus",
       "code" : "disabled",
-      "display" : "Disabled"
+      "display" : "Disabled",
+      "designation" : [{
+        "value" : "Disabled"
+      }]
     },
     {
       "extension" : [{
@@ -60,7 +70,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/implantStatus",
       "code" : "unknown",
-      "display" : "Unknown"
+      "display" : "Unknown",
+      "designation" : [{
+        "value" : "Unknown"
+      }]
     }]
   }
 },

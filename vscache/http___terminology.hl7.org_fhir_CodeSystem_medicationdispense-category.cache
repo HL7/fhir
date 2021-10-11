@@ -6,6 +6,8 @@
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Outpatient",
+  "code" : "outpatient",
+  "system" : "http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-category",
   "severity" : null,
   "error" : ""
 }

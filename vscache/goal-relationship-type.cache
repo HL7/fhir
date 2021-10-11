@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:9a272248-cc14-4f32-9d4b-7bbae16b7ccc",
-    "timestamp" : "2021-04-12T20:27:09.866Z",
+    "identifier" : "urn:uuid:b4582841-3dbf-4059-a112-bb34b78a7275",
+    "timestamp" : "2021-10-11T22:27:01.712Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -33,7 +34,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/goal-relationship-type",
       "code" : "predecessor",
-      "display" : "Predecessor"
+      "display" : "Predecessor",
+      "designation" : [{
+        "value" : "Predecessor"
+      }]
     },
     {
       "extension" : [{
@@ -42,7 +46,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/goal-relationship-type",
       "code" : "successor",
-      "display" : "Successor"
+      "display" : "Successor",
+      "designation" : [{
+        "value" : "Successor"
+      }]
     },
     {
       "extension" : [{
@@ -51,7 +58,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/goal-relationship-type",
       "code" : "replacement",
-      "display" : "Replacement"
+      "display" : "Replacement",
+      "designation" : [{
+        "value" : "Replacement"
+      }]
     },
     {
       "extension" : [{
@@ -60,7 +70,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/goal-relationship-type",
       "code" : "milestone",
-      "display" : "Milestone"
+      "display" : "Milestone",
+      "designation" : [{
+        "value" : "Milestone"
+      }]
     },
     {
       "extension" : [{
@@ -69,7 +82,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/goal-relationship-type",
       "code" : "other",
-      "display" : "Other"
+      "display" : "Other",
+      "designation" : [{
+        "value" : "Other"
+      }]
     }]
   }
 },

@@ -5,6 +5,8 @@
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Smoking cessation",
+  "code" : "smokecess",
+  "system" : "http://hl7.org/fhir/ex-pharmaservice",
   "severity" : null,
   "error" : ""
 }
@@ -15,6 +17,8 @@ v: {
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Drug Cost",
+  "code" : "drugcost",
+  "system" : "http://hl7.org/fhir/ex-pharmaservice",
   "severity" : null,
   "error" : ""
 }
@@ -25,6 +29,8 @@ v: {
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Markup",
+  "code" : "markup",
+  "system" : "http://hl7.org/fhir/ex-pharmaservice",
   "severity" : null,
   "error" : ""
 }
@@ -35,6 +41,8 @@ v: {
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Dispense Fee",
+  "code" : "dispensefee",
+  "system" : "http://hl7.org/fhir/ex-pharmaservice",
   "severity" : null,
   "error" : ""
 }
@@ -45,6 +53,8 @@ v: {
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Compounding Fee",
+  "code" : "compoundfee",
+  "system" : "http://hl7.org/fhir/ex-pharmaservice",
   "severity" : null,
   "error" : ""
 }

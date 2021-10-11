@@ -15,10 +15,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:2fa0db3e-6b5e-459d-9cb0-568305edf9e5",
-    "timestamp" : "2021-04-12T20:16:10.194Z",
+    "identifier" : "urn:uuid:2f44a4c7-e40f-4763-b450-b473a56365e2",
+    "timestamp" : "2021-10-11T22:24:05.665Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -34,147 +35,234 @@ e: {
     "contains" : [{
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "001",
-      "display" : "World"
+      "display" : "World",
+      "designation" : [{
+        "value" : "World"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "002",
-      "display" : "Africa"
+      "display" : "Africa",
+      "designation" : [{
+        "value" : "Africa"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "014",
-      "display" : "Eastern Africa"
+      "display" : "Eastern Africa",
+      "designation" : [{
+        "value" : "Eastern Africa"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "017",
-      "display" : "Middle Africa"
+      "display" : "Middle Africa",
+      "designation" : [{
+        "value" : "Middle Africa"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "015",
-      "display" : "Northern Africa"
+      "display" : "Northern Africa",
+      "designation" : [{
+        "value" : "Northern Africa"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "018",
-      "display" : "Southern Africa"
+      "display" : "Southern Africa",
+      "designation" : [{
+        "value" : "Southern Africa"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "011",
-      "display" : "Western Africa"
+      "display" : "Western Africa",
+      "designation" : [{
+        "value" : "Western Africa"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "019",
-      "display" : "Americas"
+      "display" : "Americas",
+      "designation" : [{
+        "value" : "Americas"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "419",
-      "display" : "Latin America and the Caribbean"
+      "display" : "Latin America and the Caribbean",
+      "designation" : [{
+        "value" : "Latin America and the Caribbean"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "029",
-      "display" : "Caribbean"
+      "display" : "Caribbean",
+      "designation" : [{
+        "value" : "Caribbean"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "013",
-      "display" : "Central America"
+      "display" : "Central America",
+      "designation" : [{
+        "value" : "Central America"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "005",
-      "display" : "South America"
+      "display" : "South America",
+      "designation" : [{
+        "value" : "South America"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "021",
-      "display" : "Northern America a/"
+      "display" : "Northern America a/",
+      "designation" : [{
+        "value" : "Northern America a/"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "142",
-      "display" : "Asia"
+      "display" : "Asia",
+      "designation" : [{
+        "value" : "Asia"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "143",
-      "display" : "Central Asia"
+      "display" : "Central Asia",
+      "designation" : [{
+        "value" : "Central Asia"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "030",
-      "display" : "Eastern Asia"
+      "display" : "Eastern Asia",
+      "designation" : [{
+        "value" : "Eastern Asia"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "034",
-      "display" : "Southern Asia"
+      "display" : "Southern Asia",
+      "designation" : [{
+        "value" : "Southern Asia"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "035",
-      "display" : "South-Eastern Asia"
+      "display" : "South-Eastern Asia",
+      "designation" : [{
+        "value" : "South-Eastern Asia"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "145",
-      "display" : "Western Asia"
+      "display" : "Western Asia",
+      "designation" : [{
+        "value" : "Western Asia"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "150",
-      "display" : "Europe"
+      "display" : "Europe",
+      "designation" : [{
+        "value" : "Europe"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "151",
-      "display" : "Eastern Europe"
+      "display" : "Eastern Europe",
+      "designation" : [{
+        "value" : "Eastern Europe"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "154",
-      "display" : "Northern Europe"
+      "display" : "Northern Europe",
+      "designation" : [{
+        "value" : "Northern Europe"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "039",
-      "display" : "Southern Europe"
+      "display" : "Southern Europe",
+      "designation" : [{
+        "value" : "Southern Europe"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "155",
-      "display" : "Western Europe"
+      "display" : "Western Europe",
+      "designation" : [{
+        "value" : "Western Europe"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "009",
-      "display" : "Oceania"
+      "display" : "Oceania",
+      "designation" : [{
+        "value" : "Oceania"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "053",
-      "display" : "Australia and New Zealand"
+      "display" : "Australia and New Zealand",
+      "designation" : [{
+        "value" : "Australia and New Zealand"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "054",
-      "display" : "Melanesia"
+      "display" : "Melanesia",
+      "designation" : [{
+        "value" : "Melanesia"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "057",
-      "display" : "Micronesia"
+      "display" : "Micronesia",
+      "designation" : [{
+        "value" : "Micronesia"
+      }]
     },
     {
       "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
       "code" : "061",
-      "display" : "Polynesia"
+      "display" : "Polynesia",
+      "designation" : [{
+        "value" : "Polynesia"
+      }]
     }]
   }
 },
@@ -187,6 +275,8 @@ e: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "World",
+  "code" : "001",
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "severity" : null,
   "error" : ""
 }
@@ -209,6 +299,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code provided (http://unstats.un.org/unsd/methods/m49/m49.htm#840) is not valid (from http://tx.fhir.org/r4)"
 }
@@ -238,8 +330,10 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
 v: {
   "display" : "United States of America (USA)",
+  "code" : "840",
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "severity" : "warning",
-  "error" : "The display \"United States of America\" is not a valid display for the code {http://unstats.un.org/unsd/methods/m49/m49.htm}840 - should be one of [\"United States of America (USA)\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"United States of America\" is not a valid display for the code {http://unstats.un.org/unsd/methods/m49/m49.htm}840 - should be one of ['United States of America (USA)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -248,6 +342,8 @@ v: {
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "United States of America (USA)",
+  "code" : "840",
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "severity" : null,
   "error" : ""
 }
@@ -270,6 +366,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "World",
+  "code" : "001",
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "severity" : null,
   "error" : ""
 }
@@ -298,6 +396,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
 v: {
   "display" : "World",
+  "code" : "001",
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "severity" : null,
   "error" : ""
 }
@@ -308,6 +408,8 @@ v: {
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "World",
+  "code" : "001",
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "severity" : null,
   "error" : ""
 }
@@ -330,6 +432,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Oceania",
+  "code" : "009",
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "severity" : null,
   "error" : ""
 }
@@ -359,6 +463,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
 v: {
   "display" : "Oceania",
+  "code" : "009",
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "severity" : null,
   "error" : ""
 }
@@ -369,6 +475,8 @@ v: {
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Oceania",
+  "code" : "009",
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "severity" : null,
   "error" : ""
 }
@@ -380,7 +488,9 @@ v: {
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "United States of America (USA)",
+  "code" : "840",
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "severity" : "warning",
-  "error" : "The display \"United States of America\" is not a valid display for the code {http://unstats.un.org/unsd/methods/m49/m49.htm}840 - should be one of [\"United States of America (USA)\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"United States of America\" is not a valid display for the code {http://unstats.un.org/unsd/methods/m49/m49.htm}840 - should be one of ['United States of America (USA)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
