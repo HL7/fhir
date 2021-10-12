@@ -1689,7 +1689,7 @@
 			<summary>
 				<type>
 					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/citation-summary-type"/>
+						<system value="http://terminology.hl7.org/CodeSystem/contributor-summary-type"/>
 						<version value="4.5.0"/>
 						<code value="author-string"/>
 						<display value="Author string"/>
