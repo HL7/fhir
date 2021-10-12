@@ -1,8 +1,9 @@
 [diagram]
-classes=instant,time,date,dateTime,decimal,boolean,integer,string,uri,base64Binary,code,id,oid,unsignedInt,positiveInt,markdown,url,canonical,uuid
+classes=Element,instant,time,date,dateTime,decimal,boolean,integer,string,uri,base64Binary,code,id,oid,unsignedInt,positiveInt,markdown,url,canonical,uuid
 element-attributes=true
 
 [directions]
+Element=0;0
 instant=-180;-80
 time=-60;-80
 date=30;-80

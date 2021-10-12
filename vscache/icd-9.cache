@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-9",
+  "code" : "850.0"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "code" : "",
+  "system" : "",
+  "severity" : "error",
+  "error" : "Error performing tx5 operation 'validate-code: Failed to connect to tx.fhir.org/104.196.166.17:80' (parameters = \"\")"
+}
+-------------------------------------------------------------------------------------

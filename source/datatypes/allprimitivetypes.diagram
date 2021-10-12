@@ -1,5 +1,5 @@
 [diagram]
-classes=instant,time,date,dateTime,decimal,boolean,integer,string,uri,base64Binary,code,id,oid,unsignedInt,positiveInt,markdown,url,canonical,uuid
+classes=Element,instant,time,date,dateTime,decimal,boolean,integer,string,uri,base64Binary,code,id,oid,unsignedInt,positiveInt,markdown,url,canonical,uuid
 attributes=false
 
 [size]
@@ -7,6 +7,7 @@ width=350
 height=248
 
 [directions]
+Element=-10;0
 integer=20;50
 decimal=-110;0
 instant=-110;-60

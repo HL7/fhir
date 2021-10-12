@@ -1,0 +1,68 @@
+
+#publish-box-current {
+  list-style: none;
+  padding: 0;
+}
+
+p#publish-box-current  {
+  color: rgb(0,0,0,1);
+  background-color: gold;
+  border:1px solid maroon;
+  padding: 5px;
+}
+
+img#publish-box-current  {
+text-align: baseline;
+}
+
+
+#publish-box {
+  list-style: none;
+  padding: 0;
+}
+
+p#publish-box  {
+  color: rgb(0,0,0,1);
+  background-color: gold;
+  border:1px solid maroon;
+  padding: 5px;
+}
+
+img#publish-box  {
+text-align: baseline;
+}
+
+
+#publish-box-milestone {
+  list-style: none;
+  padding: 0;
+}
+
+p#publish-box-milestone {
+  color: rgb(0,0,0,1);
+  background-color: #ffdddd;
+  border:1px solid maroon;
+  padding: 5px;
+}
+
+img#publish-box-milestone {
+text-align: baseline;
+}
+
+
+#publish-box-past {
+  list-style: none;
+  padding: 0;
+}
+
+p#publish-box-past {
+  color: rgb(0,0,0,1);
+  background-color: #ffaaaa;
+  border:1px solid maroon;
+  padding: 5px;
+}
+
+img#publish-box-past {
+text-align: baseline;
+}
+

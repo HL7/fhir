@@ -1,5 +1,5 @@
 [diagram]
-classes=Reference,Narrative,Extension,Meta,ElementDefinition,Dosage,BackboneElement,xhtml,CodeableReference,ProductShelfLife,MarketingStatus
+classes=Element,Reference,Narrative,Extension,Meta,ElementDefinition,Dosage,BackboneElement,xhtml,CodeableReference,ProductShelfLife,MarketingStatus
 attributes=false
 
 [size]
@@ -7,7 +7,7 @@ width=440
 height=148
 
 [directions]
-DataType=0;0
+Element=0;0
 Reference=100;-50
 Narrative=-70;50
 Extension=10;50
