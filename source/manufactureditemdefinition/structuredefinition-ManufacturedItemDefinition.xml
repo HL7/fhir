@@ -97,6 +97,35 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="ManufacturedItemDefinition.status">
+      <path value="ManufacturedItemDefinition.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The status of this item. Enables tracking the life-cycle of the content."/>
+      <comment value="Allows filtering of manufactured items that are appropriate for use versus not."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.1.0"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="ManufacturedItemDefinition.manufacturedDoseForm">
       <path value="ManufacturedItemDefinition.manufacturedDoseForm"/>
       <short value="Dose form as manufactured and before any transformation into the pharmaceutical product"/>
@@ -145,18 +174,17 @@
     </element>
     <element id="ManufacturedItemDefinition.ingredient">
       <path value="ManufacturedItemDefinition.ingredient"/>
-      <short value="The ingredients that make up this manufactured item"/>
-      <definition value="The ingredients that make up this manufactured item."/>
+      <short value="The ingredients of this manufactured item. This is only needed if the ingredients are not specified by incoming references from the Ingredient resource"/>
+      <definition value="The ingredients of this manufactured item. This is only needed if the ingredients are not specified by incoming references from the Ingredient resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Manufactured Item.Ingredient"/>
+        <map value="Manufactured Item.Ingredient (see also FHIR Ingredient resource)"/>
       </mapping>
     </element>
     <element id="ManufacturedItemDefinition.property">

@@ -4,7 +4,7 @@
 	<id value="example-genetics-4"/>
 	<status value="final"/>
 	<code>
-		<text value="Allele ABC"/>
+		<text value="The material on this page will be removed in a future release. This content is deprecated and SHOULD NOT be used. Implementers are instead directed to the ([Genomics Reporting Implementation Guide](http://hl7.org/fhir/uv/genomics-reporting/index.html)) for guidance. Allele ABC"/>
 	</code>
 	<subject>
 		<reference value="Patient/example"/>

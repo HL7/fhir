@@ -19,23 +19,19 @@
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="liquidItem"/>
+			<status value="active"/> 
 			<manufacturedDoseForm>
 				<coding>
 					<system value="http://example.org.uk/fhir/doseform"/>
 					<code value="solution for injection"/>
 				</coding>
 			</manufacturedDoseForm>
-			<ingredient>
-				<reference>
-					<reference value="Ingredient/liquidIngredient"/>
-				</reference>
-			</ingredient>
 		</ManufacturedItemDefinition>
 	</contained>
 	<!-- the product for which this is one available package type (possibly one package type of several for this product) -->
-	<subject>
+	<packageFor>
 		<reference value="MedicinalProductDefinition/ProductThatHasThisPackType"/>
-	</subject>
+	</packageFor>
 	<!-- package contents start here, consists of a liquid and a syringe -->
 	<package>
 		<!-- here we can describe the packaging, but in this case we just want to talk about the contents -->
@@ -48,10 +44,10 @@
 				<reference value="#liquidItem"/>
 				</reference>
 			</item>
-			<amountQuantity>
+			<amount>
 				<value value="20"/>
 				<unit value="ml"/>
-			</amountQuantity>
+			</amount>
 		</containedItem>
 		<containedItem>
 			<item>

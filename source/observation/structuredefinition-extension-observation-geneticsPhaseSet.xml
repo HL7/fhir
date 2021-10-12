@@ -77,7 +77,7 @@
       <path value="Extension.extension"/>
       <sliceName value="MolecularSequence"/>
       <short value="Phase set sequence"/>
-      <definition value="MolecularSequence pointed to phase set (from: https://www.hl7.org/fhir/STU3/extension-observation-geneticssequence.html)."/>
+      <definition value="The material on this page will be removed in a future release. This content is deprecated and SHOULD NOT be used. Implementers are instead directed to the ([Genomics Reporting Implementation Guide](http://hl7.org/fhir/uv/genomics-reporting/index.html)) for guidance. MolecularSequence pointed to phase set (from: https://www.hl7.org/fhir/STU3/extension-observation-geneticssequence.html)."/>
       <min value="1"/>
       <max value="*"/>
       <type>

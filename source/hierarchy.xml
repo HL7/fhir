@@ -133,6 +133,8 @@ signatures.html
       <page type="resource" resource="OperationOutcome"/>
       <page type="resource" resource="Parameters"/>
       <page type="resource" resource="Subscription"/>
+      <page type="resource" resource="SubscriptionStatus"/>
+      <page type="resource" resource="SubscriptionTopic"/>
       <page type="resource" resource="MessageHeader"/>
       <page type="resource" resource="MessageDefinition"/>
     </page>
@@ -395,16 +397,6 @@ signatures.html
 	  <page type="resource" resource="EvidenceReport"/>
 	  <page type="resource" resource="Citation"/>
       <page type="resource" resource="Evidence"/>
-      <page title="Statistic" filename="statistic.html">
-        <page title="Examples" filename="statistic-examples.html"/>
-        <page title="Detailed Descriptions" filename="statistic-definitions.html"/>
-        <page title="Statistic Mappings" filename="statistic-mappings.html"/>
-      </page>
-      <page title="OrderedDistribution" filename="ordereddistribution.html">
-        <page title="Examples" filename="ordereddistribution-examples.html"/>
-        <page title="Detailed Descriptions" filename="ordereddistribution-definitions.html"/>
-        <page title="OrderedDistribution Mappings" filename="ordereddistribution-mappings.html"/>
-      </page>
       <page type="resource" resource="EvidenceVariable"/>
       <page type="resource" resource="Library"/>
       <page type="resource" resource="GuidanceResponse"/>
@@ -421,7 +413,8 @@ signatures.html
       <page type="resource" resource="ManufacturedItemDefinition"/>
       <page type="resource" resource="AdministrableProductDefinition"/>
       <page type="resource" resource="RegulatedAuthorization"/>
-      <page type="resource" resource="ClinicalUseIssue"/>
+      <page type="resource" resource="ClinicalUseIssue"/><!-- ClinicalUseIssue must keep it in til it goes -->
+      <page type="resource" resource="ClinicalUseDefinition"/>
       <page type="resource" resource="Ingredient"/>
       <page type="resource" resource="SubstanceDefinition"/>
       <page title="MarketingStatus" filename="marketingstatus.html">

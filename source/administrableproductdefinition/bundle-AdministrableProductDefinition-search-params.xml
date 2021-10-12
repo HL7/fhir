@@ -73,9 +73,9 @@
           <valueString value="AdministrableProductDefinition.ingredient"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/AdministrableProductDefinition-ingredient"/>
-        <description value="The ingredients of this administrable medicinal product. Sometimes it may be appropriate to specify these via the associated manufactured item(s)"/>
+        <description value="The ingredients of this administrable medicinal product"/>
         <code value="ingredient"/>
-        <type value="reference"/>
+        <type value="token"/>
         <expression value="AdministrableProductDefinition.ingredient"/>
         <xpath value="f:AdministrableProductDefinition/f:ingredient"/>
         <xpathUsage value="normal"/>
@@ -125,19 +125,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="AdministrableProductDefinition-subject"/>
+        <id value="AdministrableProductDefinition-form-of"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AdministrableProductDefinition.subject"/>
+          <valueString value="AdministrableProductDefinition.formOf"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AdministrableProductDefinition-subject"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdministrableProductDefinition-form-of"/>
         <description value="The medicinal product that this is an administrable form of. This is not a reference to the item(s) that make up this administrable form - it is the whole product"/>
-        <code value="subject"/>
+        <code value="form-of"/>
         <type value="reference"/>
-        <expression value="AdministrableProductDefinition.subject"/>
-        <xpath value="f:AdministrableProductDefinition/f:subject"/>
+        <expression value="AdministrableProductDefinition.formOf"/>
+        <xpath value="f:AdministrableProductDefinition/f:formOf"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
