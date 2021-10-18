@@ -227,8 +227,8 @@
     </element>
     <element id="Specimen.receivedTime">
       <path value="Specimen.receivedTime"/>
-      <short value="The time when specimen was received for processing"/>
-      <definition value="Time when specimen was received for processing or testing."/>
+      <short value="The time when specimen is received by the testing laboratory"/>
+      <definition value="Time when specimen is received by the testing laboratory for processing or testing."/>
       <min value="0"/>
       <max value="1"/>
       <type>
