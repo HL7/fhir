@@ -370,7 +370,7 @@
       <definition value="A code that describes the intended kind of subject of Observation instances conforming to this ObservationDefinition."/>
       <comment value="Examples: person, animal, device, air, surface &#x2026;."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
