@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="therapy-relationship-type"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/therapy-relationship-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1560"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="TherapyRelationshipType"/>
+  <title value="TherapyRelationshipType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-08-15T16:55:11+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Classification of relationship between a therapy and a contraindication or an indication."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/therapy-relationship-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="contraindicated-only-with"/>
+    <display value="Only contraindicated if the other therapy is given"/>
+    <definition value="Only contraindicated if the other therapy is given"/>
+  </concept>
+  <concept>
+    <code value="contraindicated-except-with"/>
+    <display value="Contraindicated unless the other therapy is given"/>
+    <definition value="Contraindicated unless the other therapy is given"/>
+  </concept>
+  <concept>
+    <code value="indicated-only-with"/>
+    <display value="Indicated only when the other therapy is given (co-occurrent)"/>
+    <definition value="Indicated only when the other therapy is given (co-occurrent)"/>
+  </concept>
+  <concept>
+    <code value="indicated-except-with"/>
+    <display value="Indicated except when the other therapy is given"/>
+    <definition value="Indicated except when the other therapy is given"/>
+  </concept>
+  <concept>
+    <code value="indicated-only-before"/>
+    <display value="Indicated only if the other therapy is planned to be given afterwards (prep)"/>
+    <definition value="Indicated only if the other therapy is planned to be given afterwards (prep)"/>
+  </concept>
+  <concept>
+    <code value="indicated-only-before"/>
+    <display value="Indicated only if the other therapy was given before (follow-up)"/>
+    <definition value="Indicated only if the other therapy was given before (follow-up)"/>
+  </concept>
+  <concept>
+    <code value="replace-other-therapy"/>
+    <display value="Indicated to replace the other therapy"/>
+    <definition value="Indicated to replace the other therapy"/>
+  </concept>
+  <concept>
+    <code value="replace-other-therapy-contraindicated"/>
+    <display value="Indicated to replace the other contraindicated therapy"/>
+    <definition value="Indicated to replace the other contraindicated therapy."/>
+  </concept>
+  <concept>
+    <code value="replace-other-therapy-not-tolerated"/>
+    <display value="Indicated to replace the other therapy not well tolerated by patient"/>
+    <definition value="Indicated to replace the other therapy not well tolerated by patient"/>
+  </concept>
+  <concept>
+    <code value="replace-other-therapy-not-effective"/>
+    <display value="Indicated to replace the other therapy not effective on patient"/>
+    <definition value="Indicated to replace the other therapy not effective on patient"/>
+  </concept>
+</CodeSystem>
