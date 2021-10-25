@@ -13,7 +13,7 @@ e: {
   "resourceType" : "ValueSet",
   "id" : "action-participant-role",
   "meta" : {
-    "lastUpdated" : "2017-02-15T15:33:00.000-08:00",
+    "lastUpdated" : "2017-02-15T17:33:00.000-06:00",
     "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
   },
   "language" : "en",
@@ -24,8 +24,8 @@ e: {
   "experimental" : false,
   "date" : "2017-02-15T16:33:00.000-07:00",
   "expansion" : {
-    "identifier" : "urn:uuid:b2f76aa7-f5c5-4560-a927-900fdb2d16c9",
-    "timestamp" : "2021-09-29T02:14:40.045Z",
+    "identifier" : "urn:uuid:2dae27da-916d-440c-975d-fef49adba81b",
+    "timestamp" : "2021-10-18T18:21:09.606Z",
     "parameter" : [{
       "name" : "expansion-source",
       "valueString" : "ValueSet/action-participant-role"
@@ -85,6 +85,8 @@ e: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"\" is not known (encountered paired with code = \"self\"); The code provided (#self) is not valid in the value set 'SubscriberRelationshipCodes' (from http://tx.fhir.org/r4)"
 }
@@ -103,6 +105,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"\" is not known (encountered paired with code = \"logic-library\"); The code provided (#logic-library) is not valid in the value set 'LibraryType' (from http://tx.fhir.org/r4)"
 }
@@ -121,6 +125,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"\" is not known (encountered paired with code = \"model-definition\"); The code provided (#model-definition) is not valid in the value set 'LibraryType' (from http://tx.fhir.org/r4)"
 }
@@ -139,6 +145,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"\" is not known (encountered paired with code = \"asset-collection\"); The code provided (#asset-collection) is not valid in the value set 'LibraryType' (from http://tx.fhir.org/r4)"
 }
@@ -157,6 +165,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"\" is not known (encountered paired with code = \"proportion\"); The code provided (#proportion) is not valid in the value set 'MeasureScoring' (from http://tx.fhir.org/r4)"
 }
@@ -175,6 +185,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"\" is not known (encountered paired with code = \"process\"); The code provided (#process) is not valid in the value set 'MeasureType' (from http://tx.fhir.org/r4)"
 }
@@ -193,6 +205,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"\" is not known (encountered paired with code = \"initial-population\"); The code provided (#initial-population) is not valid in the value set 'MeasurePopulationType' (from http://tx.fhir.org/r4)"
 }
@@ -211,6 +225,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"\" is not known (encountered paired with code = \"denominator\"); The code provided (#denominator) is not valid in the value set 'MeasurePopulationType' (from http://tx.fhir.org/r4)"
 }
@@ -229,6 +245,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"\" is not known (encountered paired with code = \"denominator-exclusions\"); The code provided (#denominator-exclusions) is not valid in the value set 'MeasurePopulationType' (from http://tx.fhir.org/r4)"
 }
@@ -247,6 +265,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"\" is not known (encountered paired with code = \"numerator\"); The code provided (#numerator) is not valid in the value set 'MeasurePopulationType' (from http://tx.fhir.org/r4)"
 }
@@ -265,6 +285,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"\" is not known (encountered paired with code = \"denominator-exclusion\"); The code provided (#denominator-exclusion) is not valid in the value set 'MeasurePopulationType' (from http://tx.fhir.org/r4)"
 }
@@ -283,6 +305,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"\" is not known (encountered paired with code = \"opportunity\"); The code provided (#opportunity) is not valid in the value set 'CompositeMeasureScoring' (from http://tx.fhir.org/r4)"
 }
@@ -301,6 +325,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"\" is not known (encountered paired with code = \"cohort\"); The code provided (#cohort) is not valid in the value set 'MeasureScoring' (from http://tx.fhir.org/r4)"
 }
@@ -319,6 +345,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"\" is not known (encountered paired with code = \"create\"); The code provided (#create) is not valid in the value set 'ActionType' (from http://tx.fhir.org/r4)"
 }
@@ -337,6 +365,8 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
   "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code system \"\" is not known (encountered paired with code = \"clinical-protocol\"); The code provided (#clinical-protocol) is not valid in the value set 'PlanDefinitionType' (from http://tx.fhir.org/r4)"
 }
