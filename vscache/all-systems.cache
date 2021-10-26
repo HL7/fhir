@@ -3936,7 +3936,7 @@ e: {
   "status" : "draft",
   "experimental" : false,
   "date" : "2021-04-13T05:44:31+10:00",
-  "description" : "Value Set Contents (Expansion) for DataElement SDC Object Class at Sat, Oct 2, 2021 12:57-0500",
+  "description" : "Value Set Contents (Expansion) for DataElement SDC Object Class at Tue, Oct 26, 2021 05:43-0500",
   "expansion" : {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
@@ -3995,7 +3995,7 @@ e: {
   "title" : "Audit Event ID",
   "status" : "active",
   "date" : "2020-08-04",
-  "description" : "Value Set Contents (Expansion) for Audit Event ID at Sat, Oct 2, 2021 12:57-0500",
+  "description" : "Value Set Contents (Expansion) for Audit Event ID at Tue, Oct 26, 2021 05:43-0500",
   "expansion" : {
     "identifier" : "urn:uuid:4ac5d8b7-1869-45d6-8e41-5a0ac800be46",
     "timestamp" : "2021-04-12T20:28:44.773Z",
@@ -6799,7 +6799,7 @@ e: {
   "status" : "draft",
   "experimental" : false,
   "date" : "2017-01-30T18:00:00+01:00",
-  "description" : "Value Set Contents (Expansion) for ParticipationRoleType at Tue, Apr 13, 2021 07:21+1000",
+  "description" : "Value Set Contents (Expansion) for ParticipationRoleType at Tue, Oct 26, 2021 05:57-0500",
   "expansion" : {
     "identifier" : "urn:uuid:451a111f-1df4-4f56-9cc1-09c5fda86347",
     "timestamp" : "2021-04-12T20:54:33.255Z",
@@ -7908,9 +7908,7 @@ e: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "text/cql",
-  "severity" : null,
-  "error" : ""
+  "display" : "text/cql"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -8008,9 +8006,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "day",
-  "severity" : null,
-  "error" : ""
+  "display" : "day"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -8024,9 +8020,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/pdf",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/pdf"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -8040,9 +8034,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "image/jpeg",
-  "severity" : null,
-  "error" : ""
+  "display" : "image/jpeg"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -8056,9 +8048,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/dicom",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/dicom"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -8072,9 +8062,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "xml",
-  "severity" : null,
-  "error" : ""
+  "display" : "xml"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -8088,9 +8076,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "json",
-  "severity" : null,
-  "error" : ""
+  "display" : "json"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -8104,9 +8090,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/xml-patch+xml",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/xml-patch+xml"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -8120,9 +8104,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/json-patch+json",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/json-patch+json"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -8136,9 +8118,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "SHALL",
-  "severity" : null,
-  "error" : ""
+  "display" : "SHALL"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -8152,9 +8132,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "SHOULD",
-  "severity" : null,
-  "error" : ""
+  "display" : "SHOULD"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -8168,9 +8146,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Euro",
-  "severity" : null,
-  "error" : ""
+  "display" : "Euro"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -8184,9 +8160,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "United States dollar",
-  "severity" : null,
-  "error" : ""
+  "display" : "United States dollar"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -8200,9 +8174,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "image/jpg",
-  "severity" : null,
-  "error" : ""
+  "display" : "image/jpg"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -8216,9 +8188,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Canadian dollar",
-  "severity" : null,
-  "error" : ""
+  "display" : "Canadian dollar"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -8232,9 +8202,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/txt",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/txt"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -11048,9 +11016,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "English (Region=United States)",
-  "severity" : null,
-  "error" : ""
+  "display" : "English (Region=United States)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -11064,9 +11030,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Saudi riyal",
-  "severity" : null,
-  "error" : ""
+  "display" : "Saudi riyal"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -11164,9 +11128,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "second",
-  "severity" : null,
-  "error" : ""
+  "display" : "second"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -13980,9 +13942,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "English (Region=Australia)",
-  "severity" : null,
-  "error" : ""
+  "display" : "English (Region=Australia)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16796,9 +16756,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "English",
-  "severity" : null,
-  "error" : ""
+  "display" : "English"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16812,9 +16770,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "text/plain",
-  "severity" : null,
-  "error" : ""
+  "display" : "text/plain"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16828,9 +16784,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/hl7-v3+xml",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/hl7-v3+xml"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16844,9 +16798,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "image/gif",
-  "severity" : null,
-  "error" : ""
+  "display" : "image/gif"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16860,9 +16812,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "audio/mpeg",
-  "severity" : null,
-  "error" : ""
+  "display" : "audio/mpeg"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16876,9 +16826,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/fhir+xml",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/fhir+xml"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16892,9 +16840,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/fhir+json",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/fhir+json"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16908,9 +16854,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/hl7-v2",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/hl7-v2"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16924,9 +16868,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/hl7-sda+xml; variant=XDA/XDS",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/hl7-sda+xml; variant=XDA/XDS"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16940,9 +16882,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/dicom; variant=DICOM WADO-RS",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/dicom; variant=DICOM WADO-RS"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16956,9 +16896,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/dicom; variant=DICOM QIDO-RS",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/dicom; variant=DICOM QIDO-RS"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16972,9 +16910,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/dicom; variant=DICOM STOW-RS",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/dicom; variant=DICOM STOW-RS"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16988,9 +16924,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/dicom; variant=DICOM WADO-URI",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/dicom; variant=DICOM WADO-URI"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -17004,9 +16938,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/dicom; variant=IHE IID",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/dicom; variant=IHE IID"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -17052,9 +16984,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "text/fhirpath",
-  "severity" : null,
-  "error" : ""
+  "display" : "text/fhirpath"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -17068,9 +16998,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "text/cql",
-  "severity" : null,
-  "error" : ""
+  "display" : "text/cql"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -17084,9 +17012,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/elm+xml",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/elm+xml"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -17100,9 +17026,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/xml",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/xml"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -17116,9 +17040,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "image/png",
-  "severity" : null,
-  "error" : ""
+  "display" : "image/png"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -17132,9 +17054,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/signature+xml",
-  "severity" : null,
-  "error" : ""
+  "display" : "application/signature+xml"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -17232,9 +17152,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "hour",
-  "severity" : null,
-  "error" : ""
+  "display" : "hour"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -17332,9 +17250,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "week",
-  "severity" : null,
-  "error" : ""
+  "display" : "week"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -17432,9 +17348,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "minute",
-  "severity" : null,
-  "error" : ""
+  "display" : "minute"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -17517,9 +17431,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Normative",
-  "severity" : null,
-  "error" : ""
+  "display" : "Normative"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -17533,9 +17445,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Trial-Use",
-  "severity" : null,
-  "error" : ""
+  "display" : "Trial-Use"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -17549,9 +17459,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "text/html",
-  "severity" : null,
-  "error" : ""
+  "display" : "text/html"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -17565,9 +17473,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Groups Only",
-  "severity" : null,
-  "error" : ""
+  "display" : "Groups Only"
 }
 -------------------------------------------------------------------------------------
 {"hierarchical" : true, "valueSet" :{
@@ -17595,6 +17501,10 @@ e: {
     "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
   },
   "language" : "en",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\"><p>This value set contains 17 concepts</p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion based on <a href=\"codesystem-restful-interaction.html\">FHIR Restful Interactions v4.6.0 (CodeSystem)</a></p><p>All codes in this table are from the system <a href=\"codesystem-restful-interaction.html\"><code>http://hl7.org/fhir/restful-interaction</code></a></p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---hl7.org-fhir-restful-interaction-read\"> </a><a href=\"codesystem-restful-interaction.html#restful-interaction-read\">read</a></td><td>read</td><td>Read the current state of the resource.</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---hl7.org-fhir-restful-interaction-vread\"> </a><a href=\"codesystem-restful-interaction.html#restful-interaction-vread\">vread</a></td><td>vread</td><td>Read the state of a specific version of the resource.</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---hl7.org-fhir-restful-interaction-update\"> </a><a href=\"codesystem-restful-interaction.html#restful-interaction-update\">update</a></td><td>update</td><td>Update an existing resource by its id (or create it if it is new).</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---hl7.org-fhir-restful-interaction-patch\"> </a><a href=\"codesystem-restful-interaction.html#restful-interaction-patch\">patch</a></td><td>patch</td><td>Update an existing resource by posting a set of changes to it.</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---hl7.org-fhir-restful-interaction-delete\"> </a><a href=\"codesystem-restful-interaction.html#restful-interaction-delete\">delete</a></td><td>delete</td><td>Delete a resource.</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---hl7.org-fhir-restful-interaction-history\"> </a><a href=\"codesystem-restful-interaction.html#restful-interaction-history\">history</a></td><td>history</td><td>Retrieve the change history for a particular resource, type of resource, or the entire system.</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---hl7.org-fhir-restful-interaction-history-instance\"> </a><a href=\"codesystem-restful-interaction.html#restful-interaction-history-instance\">history-instance</a></td><td>history-instance</td><td>Retrieve the change history for a particular resource.</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---hl7.org-fhir-restful-interaction-history-type\"> </a><a href=\"codesystem-restful-interaction.html#restful-interaction-history-type\">history-type</a></td><td>history-type</td><td>Retrieve the change history for all resources of a particular type.</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---hl7.org-fhir-restful-interaction-history-system\"> </a><a href=\"codesystem-restful-interaction.html#restful-interaction-history-system\">history-system</a></td><td>history-system</td><td>Retrieve the change history for all resources on a system.</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---hl7.org-fhir-restful-interaction-create\"> </a><a href=\"codesystem-restful-interaction.html#restful-interaction-create\">create</a></td><td>create</td><td>Create a new resource with a server assigned id.</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---hl7.org-fhir-restful-interaction-search\"> </a><a href=\"codesystem-restful-interaction.html#restful-interaction-search\">search</a></td><td>search</td><td>Search a resource type or all resources based on some filter criteria.</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---hl7.org-fhir-restful-interaction-search-type\"> </a><a href=\"codesystem-restful-interaction.html#restful-interaction-search-type\">search-type</a></td><td>search-type</td><td>Search all resources of the specified type based on some filter criteria.</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---hl7.org-fhir-restful-interaction-search-system\"> </a><a href=\"codesystem-restful-interaction.html#restful-interaction-search-system\">search-system</a></td><td>search-system</td><td>Search all resources based on some filter criteria.</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---hl7.org-fhir-restful-interaction-capabilities\"> </a><a href=\"codesystem-restful-interaction.html#restful-interaction-capabilities\">capabilities</a></td><td>capabilities</td><td>Get a Capability Statement for the system.</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---hl7.org-fhir-restful-interaction-transaction\"> </a><a href=\"codesystem-restful-interaction.html#restful-interaction-transaction\">transaction</a></td><td>transaction</td><td>Update, create or delete a set of resources as a single transaction.</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---hl7.org-fhir-restful-interaction-batch\"> </a><a href=\"codesystem-restful-interaction.html#restful-interaction-batch\">batch</a></td><td>batch</td><td>perform a set of a separate interactions in a single http operation</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---hl7.org-fhir-restful-interaction-operation\"> </a><a href=\"codesystem-restful-interaction.html#restful-interaction-operation\">operation</a></td><td>operation</td><td>Perform an operation as defined by an OperationDefinition.</td></tr></table></div>"
+  },
   "url" : "http://hl7.org/fhir/ValueSet/audit-event-sub-type",
   "identifier" : [{
     "system" : "urn:ietf:rfc:3986",
@@ -17605,6 +17515,7 @@ e: {
   "title" : "Audit Event Sub-Type",
   "status" : "active",
   "date" : "2020-08-04",
+  "description" : "Value Set Contents (Expansion) for Audit Event Sub-Type at Tue, Oct 26, 2021 05:56-0500",
   "expansion" : {
     "identifier" : "urn:uuid:8506b06b-9f28-404e-a609-6dd12ed66fe4",
     "timestamp" : "2021-10-02T17:58:18.458Z",
@@ -17831,5 +17742,53 @@ e: {
   }
 },
   "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "xml"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:ietf:bcp:13"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "xml",
+  "code" : "xml",
+  "system" : "urn:ietf:bcp:13"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "json"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:ietf:bcp:13"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "json",
+  "code" : "json",
+  "system" : "urn:ietf:bcp:13"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "SHALL"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/conformance-expectation"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "SHALL",
+  "code" : "SHALL",
+  "system" : "http://hl7.org/fhir/conformance-expectation"
 }
 -------------------------------------------------------------------------------------
