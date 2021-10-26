@@ -4,7 +4,9 @@
   "code" : "text/cql"
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "text/cql"
+  "display" : "text/cql",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -12,7 +14,9 @@ v: {
   "code" : "text/fhirpath"
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "text/fhirpath"
+  "display" : "text/fhirpath",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -20,7 +24,9 @@ v: {
   "code" : "text/x-fhir-query"
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "text/x-fhir-query"
+  "display" : "text/x-fhir-query",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -28,7 +34,9 @@ v: {
   "code" : "text/cql.identifier"
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "text/cql.identifier"
+  "display" : "text/cql.identifier",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -36,7 +44,9 @@ v: {
   "code" : "application/hl7-cda+xml"
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/hl7-cda+xml"
+  "display" : "application/hl7-cda+xml",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
@@ -216,6 +226,7 @@ e: {
     "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"border: maroon 1px solid; background-color: #FFCCCC; font-weight: bold; padding: 8px\">This value set cannot be expanded because of the way it is defined - it has an infinite number of members</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display</b></td></tr></table></div>"
   },
   "status" : "active",
+
   "description" : "Value Set Contents (Expansion) for All Media Types at Mon, Jul 5, 2021 15:26-0400",
   "expansion" : {
     "extension" : [{
@@ -242,7 +253,9 @@ e: {
   "code" : "application/hl7-cda+xml"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/hl7-cda+xml"
+  "display" : "application/hl7-cda+xml",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -274,7 +287,9 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/hl7-cda+xml"
+  "display" : "application/hl7-cda+xml",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -293,111 +308,8 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "application/hl7-cda+xml"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:bcp:13",
-  "version" : "4.6.0",
-  "code" : "text/cql"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "text/cql",
-  "code" : "text/cql",
-  "system" : "urn:ietf:bcp:13"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:bcp:13",
-  "version" : "4.6.0",
-  "code" : "text/fhirpath"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "text/fhirpath",
-  "code" : "text/fhirpath",
-  "system" : "urn:ietf:bcp:13"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:bcp:13",
-  "version" : "4.6.0",
-  "code" : "text/x-fhir-query"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "text/x-fhir-query",
-  "code" : "text/x-fhir-query",
-  "system" : "urn:ietf:bcp:13"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:bcp:13",
-  "version" : "4.6.0",
-  "code" : "text/cql.identifier"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "text/cql.identifier",
-  "code" : "text/cql.identifier",
-  "system" : "urn:ietf:bcp:13"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:bcp:13",
-  "version" : "4.6.0",
-  "code" : "application/hl7-cda+xml"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
   "display" : "application/hl7-cda+xml",
-  "code" : "application/hl7-cda+xml",
-  "system" : "urn:ietf:bcp:13"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:bcp:13",
-  "code" : "text/cql"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "text/cql",
-  "code" : "text/cql",
-  "system" : "urn:ietf:bcp:13"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:bcp:13",
-  "code" : "text/fhirpath"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "text/fhirpath",
-  "code" : "text/fhirpath",
-  "system" : "urn:ietf:bcp:13"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:bcp:13",
-  "code" : "text/x-fhir-query"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "text/x-fhir-query",
-  "code" : "text/x-fhir-query",
-  "system" : "urn:ietf:bcp:13"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:bcp:13",
-  "code" : "text/cql.identifier"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "text/cql.identifier",
-  "code" : "text/cql.identifier",
-  "system" : "urn:ietf:bcp:13"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:bcp:13",
-  "code" : "application/hl7-cda+xml"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "application/hl7-cda+xml",
-  "code" : "application/hl7-cda+xml",
-  "system" : "urn:ietf:bcp:13"
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
