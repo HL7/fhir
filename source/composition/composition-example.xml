@@ -23,7 +23,7 @@
 	<category>
 		<coding>
 			<system value="http://loinc.org"/>
-			<code value="LP173421-1"/>
+			<code value="80563-0"/>
 			<display value="Report"/>
 		</coding>
 	</category>
@@ -42,7 +42,12 @@
 	<title value="Consultation Note"/>
 	<confidentiality value="N"/>
 	<attester>
-		<mode value="legal"/>
+		<mode>
+			<coding>
+				<system value="http://hl7.org/fhir/composition-attestation-mode"/>
+				<code value="legal"/>
+			</coding>
+		</mode>
 		<time value="2012-01-04T09:10:14Z"/>
 		<party>
 			<reference value="Practitioner/xcda-author"/>
@@ -54,7 +59,7 @@
 		<display value="Good Health Clinic"/>
 	</custodian>
 	<relatesTo>
-		<code value="replaces"/>
+		<type value="replaces"/>
 		<!-- 
       you can identify a composition or a document.
       A document is a frozen version of a composition
@@ -62,16 +67,18 @@
       - can refer to the composition or document by identifier
       - or by reference. to refer to a document by reference, Bundle/xxxx
     -->
-		<targetReference>
+		<resourceReference>
 			<reference value="Composition/old-example"/>
-		</targetReference>
+		</resourceReference>
 	</relatesTo>
 	<relatesTo>
-		<code value="appends"/>
-		<targetIdentifier>
-      <system value="http://example.org/fhir/NamingSystem/document-ids"/>
-      <value value="ABC123"/>
-		</targetIdentifier>
+		<type value="appends"/>
+		<resourceReference>
+			<identifier>
+				<system value="http://example.org/fhir/NamingSystem/document-ids"/>
+				<value value="ABC123"/>
+			</identifier>
+		</resourceReference>
 	</relatesTo>
 	<event>
 		<code>

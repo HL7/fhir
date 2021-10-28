@@ -486,19 +486,19 @@
     </element>
     <element id="Composition.attester.mode">
       <path value="Composition.attester.mode"/>
-      <short value="personal | professional | legal | official"/>
+      <short value="The role of the attester" />
       <definition value="The type of attestation the authenticator offers."/>
       <requirements value="Indicates the level of authority of the attestation."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CompositionAttestationMode"/>
         </extension>
-        <strength value="required"/>
+        <strength value="preferred"/>
         <description value="The way in which a person authenticated a composition."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/composition-attestation-mode"/>
       </binding>
@@ -595,7 +595,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
+        <code value="RelatedArtifact"/>
       </type>
       <mapping>
         <identity value="rim"/>
@@ -608,63 +608,6 @@
       <mapping>
         <identity value="fhirdocumentreference"/>
         <map value="DocumentReference.relatesTo"/>
-      </mapping>
-    </element>
-    <element id="Composition.relatesTo.code">
-      <path value="Composition.relatesTo.code"/>
-      <short value="replaces | transforms | signs | appends"/>
-      <definition value="The type of relationship that this composition has with anther composition or document."/>
-      <comment value="If this document appends another document, then the document cannot be fully understood without also accessing the referenced document."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DocumentRelationshipType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The type of relationship between documents."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/document-relationship-type"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship.typeCode"/>
-      </mapping>
-      <mapping>
-        <identity value="cda"/>
-        <map value=".relatedDocument.typeCode"/>
-      </mapping>
-      <mapping>
-        <identity value="fhirdocumentreference"/>
-        <map value="DocumentReference.relatesTo.code"/>
-      </mapping>
-    </element>
-    <element id="Composition.relatesTo.target[x]">
-      <path value="Composition.relatesTo.target[x]"/>
-      <short value="Target of the relationship"/>
-      <definition value="The target composition/document of this relationship."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Composition"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".target[classCode=&quot;DOC&quot;, moodCode=&quot;EVN&quot;].id"/>
-      </mapping>
-      <mapping>
-        <identity value="cda"/>
-        <map value=".relatedDocument.id"/>
-      </mapping>
-      <mapping>
-        <identity value="fhirdocumentreference"/>
-        <map value="DocumentReference.relatesTo.target"/>
       </mapping>
     </element>
     <element id="Composition.event">

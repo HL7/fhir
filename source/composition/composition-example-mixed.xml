@@ -13,7 +13,7 @@
 	<category>
 		<coding>
 			<system value="http://loinc.org"/>
-			<code value="LP173421-1"/>
+			<code value="80563-0"/>
 			<display value="Report"/>
 		</coding>
 	</category>
@@ -29,7 +29,12 @@
 	<title value="Discharge Summary (Neonatal Service)"/>
 	<confidentiality value="N"/>
 	<attester>
-		<mode value="legal"/>
+		<mode>
+			<coding>
+				<system value="http://hl7.org/fhir/composition-attestation-mode"/>
+				<code value="legal"/>
+			</coding>
+		</mode>
 		<time value="2012-01-04T09:10:14Z"/>
 		<party>
 			<reference value="Practitioner/xcda-author"/>
