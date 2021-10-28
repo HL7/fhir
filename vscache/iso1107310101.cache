@@ -47,8 +47,7 @@ e: {
     "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 0 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display</b></td></tr></table></div>"
   },
   "status" : "active",
-
-  "description" : "Value Set Contents (Expansion) for Device Metric and Component Types at Mon, Jul 5, 2021 15:26-0400",
+  "description" : "Value Set Contents (Expansion) for Device Metric and Component Types at Wed, Oct 27, 2021 09:06-0500",
   "expansion" : {
     "identifier" : "urn:uuid:fe7a31c6-eefc-4f4f-a419-84df939e682c",
     "timestamp" : "2021-04-12T20:30:41.102Z",
@@ -77,7 +76,6 @@ e: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "",
   "severity" : "error",
   "error" : "The code \"150456\" is not valid in the system urn:iso:std:iso:11073:10101; The code provided (urn:iso:std:iso:11073:10101#150456) is not valid (from http://tx.fhir.org/r4)"
 }
@@ -94,7 +92,6 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "",
   "severity" : "error",
   "error" : "The code \"262688\" is not valid in the system urn:iso:std:iso:11073:10101; The code provided (urn:iso:std:iso:11073:10101#262688) is not valid (from http://tx.fhir.org/r4)"
 }
@@ -151,8 +148,184 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
 v: {
+  "display" : "MDC_PULS_OXIM_SAT_O2"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:11073:10101",
+  "code" : "150456"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:11073:10101"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
   "display" : "MDC_PULS_OXIM_SAT_O2",
-  "severity" : null,
-  "error" : ""
+  "code" : "150456",
+  "system" : "urn:iso:std:iso:11073:10101"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:11073:10101",
+  "code" : "150456",
+  "display" : "MDC_PULS_OXIM_SAT_O2"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:11073:10101"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "MDC_PULS_OXIM_SAT_O2",
+  "code" : "150456",
+  "system" : "urn:iso:std:iso:11073:10101"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:11073:10101",
+  "code" : "150456"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "MDC_PULS_OXIM_SAT_O2",
+  "code" : "150456",
+  "system" : "urn:iso:std:iso:11073:10101"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:11073:10101",
+  "code" : "262688"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:11073:10101"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "MDC_DIM_PERCENT",
+  "code" : "262688",
+  "system" : "urn:iso:std:iso:11073:10101"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:11073:10101",
+  "code" : "262688",
+  "display" : "MDC_DIM_PERCENT"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:11073:10101"
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "MDC_DIM_PERCENT",
+  "code" : "262688",
+  "system" : "urn:iso:std:iso:11073:10101"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:11073:10101",
+  "code" : "262688"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "MDC_DIM_PERCENT",
+  "code" : "262688",
+  "system" : "urn:iso:std:iso:11073:10101"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:11073:10101",
+  "code" : "150456",
+  "display" : "MDC_PULS_OXIM_SAT_O2"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "MDC_PULS_OXIM_SAT_O2",
+  "code" : "150456",
+  "system" : "urn:iso:std:iso:11073:10101"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:11073:10101",
+  "code" : "150456",
+  "display" : "MDC_PULS_OXIM_SAT_O2"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://loinc.org",
+      "concept" : [{
+        "code" : "85353-1"
+      },
+      {
+        "code" : "9279-1"
+      },
+      {
+        "code" : "8867-4"
+      },
+      {
+        "code" : "2708-6"
+      },
+      {
+        "code" : "8310-5"
+      },
+      {
+        "code" : "8302-2"
+      },
+      {
+        "code" : "9843-4"
+      },
+      {
+        "code" : "29463-7"
+      },
+      {
+        "code" : "39156-5"
+      },
+      {
+        "code" : "85354-9"
+      },
+      {
+        "code" : "8480-6"
+      },
+      {
+        "code" : "8462-4"
+      },
+      {
+        "code" : "8478-0"
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "MDC_PULS_OXIM_SAT_O2",
+  "code" : "150456",
+  "system" : "urn:iso:std:iso:11073:10101"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:11073:10101",
+  "code" : "152584",
+  "display" : "MDC_FLOW_AWAY_EXP_FORCED_PEAK"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "MDC_FLOW_AWAY_EXP_FORCED_PEAK",
+  "code" : "152584",
+  "system" : "urn:iso:std:iso:11073:10101"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:11073:10101",
+  "code" : "265201"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "severity" : "error",
+  "error" : "The code \"265201\" is not valid in the system urn:iso:std:iso:11073:10101; The code provided (urn:iso:std:iso:11073:10101#265201) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------

@@ -401,9 +401,7 @@ e: {
   "code" : "FLUVAX"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Fluvax",
-  "severity" : null,
-  "error" : ""
+  "display" : "Fluvax"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -411,9 +409,7 @@ v: {
   "code" : "GNFLU"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Influenza",
-  "severity" : null,
-  "error" : ""
+  "display" : "Influenza"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -421,8 +417,36 @@ v: {
   "code" : "GNHEP"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
+  "display" : "Hepatitis B"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:1.2.36.1.2001.1005.17",
+  "code" : "FLUVAX"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Fluvax",
+  "code" : "FLUVAX",
+  "system" : "urn:oid:1.2.36.1.2001.1005.17"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:1.2.36.1.2001.1005.17",
+  "code" : "GNFLU"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Influenza",
+  "code" : "GNFLU",
+  "system" : "urn:oid:1.2.36.1.2001.1005.17"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:oid:1.2.36.1.2001.1005.17",
+  "code" : "GNHEP"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
   "display" : "Hepatitis B",
-  "severity" : null,
-  "error" : ""
+  "code" : "GNHEP",
+  "system" : "urn:oid:1.2.36.1.2001.1005.17"
 }
 -------------------------------------------------------------------------------------

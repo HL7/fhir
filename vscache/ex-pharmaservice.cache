@@ -4,9 +4,7 @@
   "code" : "smokecess"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Smoking cessation",
-  "severity" : null,
-  "error" : ""
+  "display" : "Smoking cessation"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -14,9 +12,7 @@ v: {
   "code" : "drugcost"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Drug Cost",
-  "severity" : null,
-  "error" : ""
+  "display" : "Drug Cost"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -24,9 +20,7 @@ v: {
   "code" : "markup"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Markup",
-  "severity" : null,
-  "error" : ""
+  "display" : "Markup"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -34,9 +28,7 @@ v: {
   "code" : "dispensefee"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Dispense Fee",
-  "severity" : null,
-  "error" : ""
+  "display" : "Dispense Fee"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -44,8 +36,56 @@ v: {
   "code" : "compoundfee"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
+  "display" : "Compounding Fee"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/ex-pharmaservice",
+  "code" : "smokecess"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Smoking cessation",
+  "code" : "smokecess",
+  "system" : "http://hl7.org/fhir/ex-pharmaservice"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/ex-pharmaservice",
+  "code" : "drugcost"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Drug Cost",
+  "code" : "drugcost",
+  "system" : "http://hl7.org/fhir/ex-pharmaservice"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/ex-pharmaservice",
+  "code" : "markup"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Markup",
+  "code" : "markup",
+  "system" : "http://hl7.org/fhir/ex-pharmaservice"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/ex-pharmaservice",
+  "code" : "dispensefee"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Dispense Fee",
+  "code" : "dispensefee",
+  "system" : "http://hl7.org/fhir/ex-pharmaservice"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/ex-pharmaservice",
+  "code" : "compoundfee"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
   "display" : "Compounding Fee",
-  "severity" : null,
-  "error" : ""
+  "code" : "compoundfee",
+  "system" : "http://hl7.org/fhir/ex-pharmaservice"
 }
 -------------------------------------------------------------------------------------

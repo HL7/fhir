@@ -5,9 +5,7 @@
   "display" : "Postlaminectomy syndrome, not elsewhere classified"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Postlaminectomy syndrome, not elsewhere classified",
-  "severity" : null,
-  "error" : ""
+  "display" : "Postlaminectomy syndrome, not elsewhere classified"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16,9 +14,7 @@ v: {
   "display" : "Chronic pain syndrome"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Chronic pain syndrome",
-  "severity" : null,
-  "error" : ""
+  "display" : "Chronic pain syndrome"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -27,9 +23,7 @@ v: {
   "display" : "Other specified dorsopathies, sacral and sacrococcygeal region"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Other specified dorsopathies, sacral and sacrococcygeal region",
-  "severity" : null,
-  "error" : ""
+  "display" : "Other specified dorsopathies, sacral and sacrococcygeal region"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -38,9 +32,7 @@ v: {
   "display" : "Spondylosis without myelopathy or radiculopathy, lumbar region"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Spondylosis without myelopathy or radiculopathy, lumbar region",
-  "severity" : null,
-  "error" : ""
+  "display" : "Spondylosis without myelopathy or radiculopathy, lumbar region"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -49,8 +41,61 @@ v: {
   "display" : "Cystic fibrosis with pulmonary manifestations"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
+  "display" : "Cystic fibrosis with pulmonary manifestations"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "M96.1",
+  "display" : "Postlaminectomy syndrome, not elsewhere classified"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Postlaminectomy syndrome, not elsewhere classified",
+  "code" : "M96.1",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "G89.4",
+  "display" : "Chronic pain syndrome"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Chronic pain syndrome",
+  "code" : "G89.4",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "M53.88",
+  "display" : "Other specified dorsopathies, sacral and sacrococcygeal region"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Other specified dorsopathies, sacral and sacrococcygeal region",
+  "code" : "M53.88",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "M47.816",
+  "display" : "Spondylosis without myelopathy or radiculopathy, lumbar region"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Spondylosis without myelopathy or radiculopathy, lumbar region",
+  "code" : "M47.816",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "E84.0",
+  "display" : "Cystic fibrosis with pulmonary manifestations"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
   "display" : "Cystic fibrosis with pulmonary manifestations",
-  "severity" : null,
-  "error" : ""
+  "code" : "E84.0",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm"
 }
 -------------------------------------------------------------------------------------

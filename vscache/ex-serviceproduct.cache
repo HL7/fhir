@@ -4,8 +4,16 @@
   "code" : "exam"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
+  "display" : "Exam"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/ex-serviceproduct",
+  "code" : "exam"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
   "display" : "Exam",
-  "severity" : null,
-  "error" : ""
+  "code" : "exam",
+  "system" : "http://hl7.org/fhir/ex-serviceproduct"
 }
 -------------------------------------------------------------------------------------

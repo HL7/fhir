@@ -2223,8 +2223,27 @@ v: {
   "code" : "104"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
+  "display" : "hepatitis A and hepatitis B vaccine"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/cvx",
+  "code" : "01",
+  "display" : "DTP"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "diphtheria, tetanus toxoids and pertussis vaccine",
+  "code" : "01",
+  "system" : "http://hl7.org/fhir/sid/cvx"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/cvx",
+  "code" : "104"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
   "display" : "hepatitis A and hepatitis B vaccine",
-  "severity" : null,
-  "error" : ""
+  "code" : "104",
+  "system" : "http://hl7.org/fhir/sid/cvx"
 }
 -------------------------------------------------------------------------------------

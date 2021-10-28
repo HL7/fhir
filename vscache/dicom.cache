@@ -162,7 +162,7 @@ e: {
   },
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 10 concepts</p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion based on <a href=\"codesystem-dicom-dcim.html\">DICOM Controlled Terminology Definitions v01 (CodeSystem)</a></p><p>All codes from system <a href=\"http://terminology.hl7.org/2.1.0/CodeSystem-v3-DCM.html\"><code>http://dicom.nema.org/resources/ontology/DCM</code></a></p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110010\"> </a>110010</td><td>Film</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110030\"> </a>110030</td><td>USB Disk Emulation</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110031\"> </a>110031</td><td>Email</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110032\"> </a>110032</td><td>CD</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110033\"> </a>110033</td><td>DVD</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110034\"> </a>110034</td><td>Compact Flash</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110035\"> </a>110035</td><td>Multi-media Card</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110036\"> </a>110036</td><td>Secure Digital Card</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110037\"> </a>110037</td><td>URI</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110038\"> </a>110038</td><td>Paper Document</td><td/></tr></table></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 10 concepts</p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion based on <a href=\"codesystem-dicom-dcim.html\">DICOM Controlled Terminology Definitions v01 (CodeSystem)</a></p><p>All codes in this table are from the system <a href=\"http://terminology.hl7.org/2.1.0/CodeSystem-v3-DCM.html\"><code>http://dicom.nema.org/resources/ontology/DCM</code></a></p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110010\"> </a>110010</td><td>Film</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110030\"> </a>110030</td><td>USB Disk Emulation</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110031\"> </a>110031</td><td>Email</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110032\"> </a>110032</td><td>CD</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110033\"> </a>110033</td><td>DVD</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110034\"> </a>110034</td><td>Compact Flash</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110035\"> </a>110035</td><td>Multi-media Card</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110036\"> </a>110036</td><td>Secure Digital Card</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110037\"> </a>110037</td><td>URI</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---dicom.nema.org-resources-ontology-DCM-110038\"> </a>110038</td><td>Paper Document</td><td/></tr></table></div>"
   },
   "url" : "http://hl7.org/fhir/ValueSet/audit-media-type",
   "identifier" : [{
@@ -174,7 +174,7 @@ e: {
   "title" : "Audit Agent Media Type",
   "status" : "active",
   "date" : "2020-08-04",
-  "description" : "Value Set Contents (Expansion) for Audit Agent Media Type at Sat, Oct 2, 2021 16:17-0500",
+  "description" : "Value Set Contents (Expansion) for Audit Agent Media Type at Wed, Oct 27, 2021 09:05-0500",
   "expansion" : {
     "identifier" : "urn:uuid:1d5595cf-8302-4d69-bb86-970f83289c04",
     "timestamp" : "2021-04-12T20:28:39.976Z",
@@ -295,9 +295,7 @@ e: {
   "display" : "Application Activity"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Application Activity",
-  "severity" : null,
-  "error" : ""
+  "display" : "Application Activity"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -317,9 +315,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Application Activity",
-  "severity" : null,
-  "error" : ""
+  "display" : "Application Activity"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -328,9 +324,7 @@ v: {
   "display" : "Application Start"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Application Start",
-  "severity" : null,
-  "error" : ""
+  "display" : "Application Start"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -360,9 +354,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Application Start",
-  "severity" : null,
-  "error" : ""
+  "display" : "Application Start"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -581,9 +573,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
-  "display" : "Source Role ID",
-  "severity" : null,
-  "error" : ""
+  "display" : "Source Role ID"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -800,9 +790,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
 v: {
-  "display" : "Source Role ID",
-  "severity" : null,
-  "error" : ""
+  "display" : "Source Role ID"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -810,9 +798,7 @@ v: {
   "code" : "110153"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Source Role ID",
-  "severity" : null,
-  "error" : ""
+  "display" : "Source Role ID"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -821,9 +807,7 @@ v: {
   "display" : "Login"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Login",
-  "severity" : null,
-  "error" : ""
+  "display" : "Login"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -839,7 +823,6 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "",
   "severity" : "error",
   "error" : "The code provided (http://dicom.nema.org/resources/ontology/DCM#110122) is not valid in the value set 'AuditEventSourceType' (from http://tx.fhir.org/r4)"
 }
@@ -850,9 +833,7 @@ v: {
   "display" : "User Authentication"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "User Authentication",
-  "severity" : null,
-  "error" : ""
+  "display" : "User Authentication"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -872,9 +853,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "User Authentication",
-  "severity" : null,
-  "error" : ""
+  "display" : "User Authentication"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -904,9 +883,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Login",
-  "severity" : null,
-  "error" : ""
+  "display" : "Login"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -915,9 +892,7 @@ v: {
   "display" : "Logout"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Logout",
-  "severity" : null,
-  "error" : ""
+  "display" : "Logout"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -947,9 +922,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Logout",
-  "severity" : null,
-  "error" : ""
+  "display" : "Logout"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -958,9 +931,7 @@ v: {
   "display" : "Export"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Export",
-  "severity" : null,
-  "error" : ""
+  "display" : "Export"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -980,9 +951,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Export",
-  "severity" : null,
-  "error" : ""
+  "display" : "Export"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1201,9 +1170,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
-  "display" : "Destination Role ID",
-  "severity" : null,
-  "error" : ""
+  "display" : "Destination Role ID"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1420,9 +1387,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
 v: {
-  "display" : "Destination Role ID",
-  "severity" : null,
-  "error" : ""
+  "display" : "Destination Role ID"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1430,9 +1395,7 @@ v: {
   "code" : "110152"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Destination Role ID",
-  "severity" : null,
-  "error" : ""
+  "display" : "Destination Role ID"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1441,9 +1404,7 @@ v: {
   "display" : "Query"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Query",
-  "severity" : null,
-  "error" : ""
+  "display" : "Query"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1463,9 +1424,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Query",
-  "severity" : null,
-  "error" : ""
+  "display" : "Query"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1684,9 +1643,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
-  "display" : "Destination Media",
-  "severity" : null,
-  "error" : ""
+  "display" : "Destination Media"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1903,9 +1860,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
 v: {
-  "display" : "Destination Media",
-  "severity" : null,
-  "error" : ""
+  "display" : "Destination Media"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1913,9 +1868,7 @@ v: {
   "code" : "110154"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Destination Media",
-  "severity" : null,
-  "error" : ""
+  "display" : "Destination Media"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1924,9 +1877,7 @@ v: {
   "display" : "DVD"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "DVD",
-  "severity" : null,
-  "error" : ""
+  "display" : "DVD"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1943,9 +1894,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "DVD",
-  "severity" : null,
-  "error" : ""
+  "display" : "DVD"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1954,9 +1903,7 @@ v: {
   "display" : "Security Alert"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Security Alert",
-  "severity" : null,
-  "error" : ""
+  "display" : "Security Alert"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1976,9 +1923,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Security Alert",
-  "severity" : null,
-  "error" : ""
+  "display" : "Security Alert"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1987,9 +1932,7 @@ v: {
   "display" : "Emergency Override Started"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Emergency Override Started",
-  "severity" : null,
-  "error" : ""
+  "display" : "Emergency Override Started"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2019,9 +1962,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Emergency Override Started",
-  "severity" : null,
-  "error" : ""
+  "display" : "Emergency Override Started"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2029,9 +1970,7 @@ v: {
   "code" : "US"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Ultrasound",
-  "severity" : null,
-  "error" : ""
+  "display" : "Ultrasound"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2039,9 +1978,7 @@ v: {
   "code" : "CT"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Computed Tomography",
-  "severity" : null,
-  "error" : ""
+  "display" : "Computed Tomography"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2049,9 +1986,7 @@ v: {
   "code" : "DX"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Digital Radiography",
-  "severity" : null,
-  "error" : ""
+  "display" : "Digital Radiography"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2071,9 +2006,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
-  "display" : "Application Activity",
-  "severity" : null,
-  "error" : ""
+  "display" : "Application Activity"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2103,9 +2036,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
-  "display" : "Application Start",
-  "severity" : null,
-  "error" : ""
+  "display" : "Application Start"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2125,9 +2056,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
-  "display" : "User Authentication",
-  "severity" : null,
-  "error" : ""
+  "display" : "User Authentication"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2157,9 +2086,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
-  "display" : "Login",
-  "severity" : null,
-  "error" : ""
+  "display" : "Login"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2189,9 +2116,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
-  "display" : "Logout",
-  "severity" : null,
-  "error" : ""
+  "display" : "Logout"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2211,9 +2136,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
-  "display" : "Export",
-  "severity" : null,
-  "error" : ""
+  "display" : "Export"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2233,9 +2156,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
-  "display" : "Query",
-  "severity" : null,
-  "error" : ""
+  "display" : "Query"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2252,9 +2173,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
-  "display" : "DVD",
-  "severity" : null,
-  "error" : ""
+  "display" : "DVD"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2274,9 +2193,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
-  "display" : "Security Alert",
-  "severity" : null,
-  "error" : ""
+  "display" : "Security Alert"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2306,9 +2223,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
-  "display" : "Emergency Override Started",
-  "severity" : null,
-  "error" : ""
+  "display" : "Emergency Override Started"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2317,9 +2232,7 @@ v: {
   "display" : "Source Role ID"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Source Role ID",
-  "severity" : null,
-  "error" : ""
+  "display" : "Source Role ID"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2328,9 +2241,7 @@ v: {
   "display" : "Destination Role ID"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Destination Role ID",
-  "severity" : null,
-  "error" : ""
+  "display" : "Destination Role ID"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2339,9 +2250,7 @@ v: {
   "display" : "Destination Media"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Destination Media",
-  "severity" : null,
-  "error" : ""
+  "display" : "Destination Media"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2360,9 +2269,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
 v: {
-  "display" : "DVD",
-  "severity" : null,
-  "error" : ""
+  "display" : "DVD"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2379,9 +2286,7 @@ v: {
   }
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
 v: {
-  "display" : "DVD",
-  "severity" : null,
-  "error" : ""
+  "display" : "DVD"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2389,8 +2294,215 @@ v: {
   "code" : "110033"
 }, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
+  "display" : "DVD"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110100",
+  "display" : "Application Activity"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Application Activity",
+  "code" : "110100",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110120",
+  "display" : "Application Start"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Application Start",
+  "code" : "110120",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110122",
+  "display" : "Login"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Login",
+  "code" : "110122",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110114",
+  "display" : "User Authentication"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "User Authentication",
+  "code" : "110114",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110153",
+  "display" : "Source Role ID"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Source Role ID",
+  "code" : "110153",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110123",
+  "display" : "Logout"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Logout",
+  "code" : "110123",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110106",
+  "display" : "Export"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Export",
+  "code" : "110106",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110152",
+  "display" : "Destination Role ID"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Destination Role ID",
+  "code" : "110152",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110112",
+  "display" : "Query"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Query",
+  "code" : "110112",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110154",
+  "display" : "Destination Media"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Destination Media",
+  "code" : "110154",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110033"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "valueSet" : ["http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_405.html"]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
   "display" : "DVD",
-  "severity" : null,
-  "error" : ""
+  "code" : "110033",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110033",
+  "display" : "DVD"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "valueSet" : ["http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_405.html"]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "DVD",
+  "code" : "110033",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110033"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "DVD",
+  "code" : "110033",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110113",
+  "display" : "Security Alert"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Security Alert",
+  "code" : "110113",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "110127",
+  "display" : "Emergency Override Started"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Emergency Override Started",
+  "code" : "110127",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "US"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Ultrasound",
+  "code" : "US",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "CT"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Computed Tomography",
+  "code" : "CT",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "DX"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Digital Radiography",
+  "code" : "DX",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
