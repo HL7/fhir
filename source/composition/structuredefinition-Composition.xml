@@ -486,7 +486,7 @@
     </element>
     <element id="Composition.attester.mode">
       <path value="Composition.attester.mode"/>
-      <short value="The role of the attester" />
+      <short value="The role in which the person or entity authenticated the composition." />
       <definition value="The type of attestation the authenticator offers."/>
       <requirements value="Indicates the level of authority of the attestation."/>
       <min value="1"/>
