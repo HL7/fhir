@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:a508f510-98a9-4b4b-a0d6-fbbb5fc6cf68",
-    "timestamp" : "2021-04-12T20:27:06.773Z",
+    "identifier" : "urn:uuid:2d45eaa9-20da-4b9f-b36c-f1db7d62ac9c",
+    "timestamp" : "2021-11-02T21:23:19.122Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -33,7 +34,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/reaction-event-certainty",
       "code" : "unlikely",
-      "display" : "Unlikely"
+      "display" : "Unlikely",
+      "designation" : [{
+        "value" : "Unlikely"
+      }]
     },
     {
       "extension" : [{
@@ -42,7 +46,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/reaction-event-certainty",
       "code" : "likely",
-      "display" : "Likely"
+      "display" : "Likely",
+      "designation" : [{
+        "value" : "Likely"
+      }]
     },
     {
       "extension" : [{
@@ -51,7 +58,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/reaction-event-certainty",
       "code" : "confirmed",
-      "display" : "Confirmed"
+      "display" : "Confirmed",
+      "designation" : [{
+        "value" : "Confirmed"
+      }]
     },
     {
       "extension" : [{
@@ -60,7 +70,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/reaction-event-certainty",
       "code" : "unknown",
-      "display" : "Unknown"
+      "display" : "Unknown",
+      "designation" : [{
+        "value" : "Unknown"
+      }]
     }]
   }
 },

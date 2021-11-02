@@ -9,7 +9,7 @@
       </p>
 	</div>
   </text>
-  <url value="Evidence/example-stroke-no-alteplase-fatalICH"/>
+  <url value="http://hl7.org/fhir/Evidence/example-stroke-no-alteplase-fatalICH"/>
   <title value="Risk of fatal ICH without alteplase for stroke"/>
   <status value="draft"/>
   <relatedArtifact>
