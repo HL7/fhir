@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:2e20a728-bd35-41f8-8396-b5f506538792",
-    "timestamp" : "2021-03-10T01:26:18.462Z",
+    "identifier" : "urn:uuid:25b40711-8b7f-458f-80c2-d38ec943475b",
+    "timestamp" : "2021-11-02T22:18:29.120Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -29,367 +30,586 @@ e: {
     "contains" : [{
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "AGRPAL",
-      "display" : "Agrippal"
+      "display" : "Agrippal",
+      "designation" : [{
+        "value" : "Agrippal"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "AVAXM",
-      "display" : "Avaxim"
+      "display" : "Avaxim",
+      "designation" : [{
+        "value" : "Avaxim"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "BCG",
-      "display" : "BCG"
+      "display" : "BCG",
+      "designation" : [{
+        "value" : "BCG"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "CDT",
-      "display" : "CDT"
+      "display" : "CDT",
+      "designation" : [{
+        "value" : "CDT"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "CMX",
-      "display" : "COMVAX"
+      "display" : "COMVAX",
+      "designation" : [{
+        "value" : "COMVAX"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "DTP",
-      "display" : "Triple Antigen"
+      "display" : "Triple Antigen",
+      "designation" : [{
+        "value" : "Triple Antigen"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "DTPA",
-      "display" : "DTPa"
+      "display" : "DTPa",
+      "designation" : [{
+        "value" : "DTPa"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "ENGP",
-      "display" : "Engerix B"
+      "display" : "Engerix B",
+      "designation" : [{
+        "value" : "Engerix B"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "FLRIX",
-      "display" : "Fluarix"
+      "display" : "Fluarix",
+      "designation" : [{
+        "value" : "Fluarix"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "FLUVAX",
-      "display" : "Fluvax"
+      "display" : "Fluvax",
+      "designation" : [{
+        "value" : "Fluvax"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "FLVRN",
-      "display" : "Fluvirin"
+      "display" : "Fluvirin",
+      "designation" : [{
+        "value" : "Fluvirin"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "FVXJNR",
-      "display" : "Fluvax Junior"
+      "display" : "Fluvax Junior",
+      "designation" : [{
+        "value" : "Fluvax Junior"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "GNDIP",
-      "display" : "Diphtheria"
+      "display" : "Diphtheria",
+      "designation" : [{
+        "value" : "Diphtheria"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "GNFLU",
-      "display" : "Influenza"
+      "display" : "Influenza",
+      "designation" : [{
+        "value" : "Influenza"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "GNHEP",
-      "display" : "Hepatitis B"
+      "display" : "Hepatitis B",
+      "designation" : [{
+        "value" : "Hepatitis B"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "GNHIB",
-      "display" : "HIB"
+      "display" : "HIB",
+      "designation" : [{
+        "value" : "HIB"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "GNHPA",
-      "display" : "Hepatitis A"
+      "display" : "Hepatitis A",
+      "designation" : [{
+        "value" : "Hepatitis A"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "GNJEN",
-      "display" : "Japanese Encephalitis"
+      "display" : "Japanese Encephalitis",
+      "designation" : [{
+        "value" : "Japanese Encephalitis"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "GNMEA",
-      "display" : "Measles"
+      "display" : "Measles",
+      "designation" : [{
+        "value" : "Measles"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "GNMEN",
-      "display" : "Meningococcal C"
+      "display" : "Meningococcal C",
+      "designation" : [{
+        "value" : "Meningococcal C"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "GNMUM",
-      "display" : "Mumps"
+      "display" : "Mumps",
+      "designation" : [{
+        "value" : "Mumps"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "GNPNE",
-      "display" : "Pneumococcal"
+      "display" : "Pneumococcal",
+      "designation" : [{
+        "value" : "Pneumococcal"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "GNPOL",
-      "display" : "Polio"
+      "display" : "Polio",
+      "designation" : [{
+        "value" : "Polio"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "GNROX",
-      "display" : "Rotavirus"
+      "display" : "Rotavirus",
+      "designation" : [{
+        "value" : "Rotavirus"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "GNRUB",
-      "display" : "Rubella"
+      "display" : "Rubella",
+      "designation" : [{
+        "value" : "Rubella"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "GNTET",
-      "display" : "Tetanus"
+      "display" : "Tetanus",
+      "designation" : [{
+        "value" : "Tetanus"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "GNVAR",
-      "display" : "Varicella"
+      "display" : "Varicella",
+      "designation" : [{
+        "value" : "Varicella"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "HATWNJ",
-      "display" : "Twinrix Junior"
+      "display" : "Twinrix Junior",
+      "designation" : [{
+        "value" : "Twinrix Junior"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "HAVAQ",
-      "display" : "Vaqta Paed/Adol"
+      "display" : "Vaqta Paed/Adol",
+      "designation" : [{
+        "value" : "Vaqta Paed/Adol"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "HAVJ",
-      "display" : "Havrix Junior"
+      "display" : "Havrix Junior",
+      "designation" : [{
+        "value" : "Havrix Junior"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "HBOC",
-      "display" : "HibTITER"
+      "display" : "HibTITER",
+      "designation" : [{
+        "value" : "HibTITER"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "HBV",
-      "display" : "HBV"
+      "display" : "HBV",
+      "designation" : [{
+        "value" : "HBV"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "HBVP",
-      "display" : "HBVAX II"
+      "display" : "HBVAX II",
+      "designation" : [{
+        "value" : "HBVAX II"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "HBX",
-      "display" : "Hiberix"
+      "display" : "Hiberix",
+      "designation" : [{
+        "value" : "Hiberix"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "IFHX",
-      "display" : "Infanrix Hexa"
+      "display" : "Infanrix Hexa",
+      "designation" : [{
+        "value" : "Infanrix Hexa"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "IFIP",
-      "display" : "Infanrix-IPV"
+      "display" : "Infanrix-IPV",
+      "designation" : [{
+        "value" : "Infanrix-IPV"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "IFPA",
-      "display" : "Infanrix Penta"
+      "display" : "Infanrix Penta",
+      "designation" : [{
+        "value" : "Infanrix Penta"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "IFX",
-      "display" : "Infanrix"
+      "display" : "Infanrix",
+      "designation" : [{
+        "value" : "Infanrix"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "IFXB",
-      "display" : "InfanrixHepB"
+      "display" : "InfanrixHepB",
+      "designation" : [{
+        "value" : "InfanrixHepB"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "INFLUV",
-      "display" : "Influvac"
+      "display" : "Influvac",
+      "designation" : [{
+        "value" : "Influvac"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "IPV",
-      "display" : "IPOL"
+      "display" : "IPOL",
+      "designation" : [{
+        "value" : "IPOL"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "JEVAX",
-      "display" : "JE-VAX"
+      "display" : "JE-VAX",
+      "designation" : [{
+        "value" : "JE-VAX"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "MENJUG",
-      "display" : "Menjugate"
+      "display" : "Menjugate",
+      "designation" : [{
+        "value" : "Menjugate"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "MENTEC",
-      "display" : "Meningitec"
+      "display" : "Meningitec",
+      "designation" : [{
+        "value" : "Meningitec"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "MENUME",
-      "display" : "Menomune"
+      "display" : "Menomune",
+      "designation" : [{
+        "value" : "Menomune"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "MENVAX",
-      "display" : "Mencevax ACWY"
+      "display" : "Mencevax ACWY",
+      "designation" : [{
+        "value" : "Mencevax ACWY"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "MMR",
-      "display" : "MMR"
+      "display" : "MMR",
+      "designation" : [{
+        "value" : "MMR"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "MMRCSL",
-      "display" : "MMR II"
+      "display" : "MMR II",
+      "designation" : [{
+        "value" : "MMR II"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "MMRSKB",
-      "display" : "Priorix"
+      "display" : "Priorix",
+      "designation" : [{
+        "value" : "Priorix"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "MNTRX",
-      "display" : "Menitorix"
+      "display" : "Menitorix",
+      "designation" : [{
+        "value" : "Menitorix"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "NEISVC",
-      "display" : "NeisVac-C"
+      "display" : "NeisVac-C",
+      "designation" : [{
+        "value" : "NeisVac-C"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "OPV",
-      "display" : "Polio"
+      "display" : "Polio",
+      "designation" : [{
+        "value" : "Polio"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "P",
-      "display" : "Pertussis"
+      "display" : "Pertussis",
+      "designation" : [{
+        "value" : "Pertussis"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "PANVAX",
-      "display" : "Panvax"
+      "display" : "Panvax",
+      "designation" : [{
+        "value" : "Panvax"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "PDCL",
-      "display" : "Pediacel"
+      "display" : "Pediacel",
+      "designation" : [{
+        "value" : "Pediacel"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "PLCL",
-      "display" : "Poliacel"
+      "display" : "Poliacel",
+      "designation" : [{
+        "value" : "Poliacel"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "PNEUMO",
-      "display" : "Pneumovax"
+      "display" : "Pneumovax",
+      "designation" : [{
+        "value" : "Pneumovax"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "PRPD",
-      "display" : "ProHIBit"
+      "display" : "ProHIBit",
+      "designation" : [{
+        "value" : "ProHIBit"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "PROQAD",
-      "display" : "ProQuad"
+      "display" : "ProQuad",
+      "designation" : [{
+        "value" : "ProQuad"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "PRPOMP",
-      "display" : "PedvaxHIB"
+      "display" : "PedvaxHIB",
+      "designation" : [{
+        "value" : "PedvaxHIB"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "PRPT",
-      "display" : "ActHIB"
+      "display" : "ActHIB",
+      "designation" : [{
+        "value" : "ActHIB"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "PRVNR",
-      "display" : "Prevenar 7"
+      "display" : "Prevenar 7",
+      "designation" : [{
+        "value" : "Prevenar 7"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "PRVTH",
-      "display" : "Prevenar 13"
+      "display" : "Prevenar 13",
+      "designation" : [{
+        "value" : "Prevenar 13"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "PRXTEX",
-      "display" : "Priorix-Tetra"
+      "display" : "Priorix-Tetra",
+      "designation" : [{
+        "value" : "Priorix-Tetra"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "QDCL",
-      "display" : "Quadracel"
+      "display" : "Quadracel",
+      "designation" : [{
+        "value" : "Quadracel"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "ROTRIX",
-      "display" : "Rotarix"
+      "display" : "Rotarix",
+      "designation" : [{
+        "value" : "Rotarix"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "ROTTEQ",
-      "display" : "Rotateq"
+      "display" : "Rotateq",
+      "designation" : [{
+        "value" : "Rotateq"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "SYNFLX",
-      "display" : "Synflorix"
+      "display" : "Synflorix",
+      "designation" : [{
+        "value" : "Synflorix"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "TCL",
-      "display" : "Tripacel"
+      "display" : "Tripacel",
+      "designation" : [{
+        "value" : "Tripacel"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "VAXGRP",
-      "display" : "Vaxigrip"
+      "display" : "Vaxigrip",
+      "designation" : [{
+        "value" : "Vaxigrip"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "VGRJNR",
-      "display" : "Vaxigrip Junior"
+      "display" : "Vaxigrip Junior",
+      "designation" : [{
+        "value" : "Vaxigrip Junior"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "VLRIX",
-      "display" : "Varilrix"
+      "display" : "Varilrix",
+      "designation" : [{
+        "value" : "Varilrix"
+      }]
     },
     {
       "system" : "urn:oid:1.2.36.1.2001.1005.17",
       "code" : "VRVAX",
-      "display" : "Varivax"
+      "display" : "Varivax",
+      "designation" : [{
+        "value" : "Varivax"
+      }]
     }]
   }
 },
@@ -399,30 +619,30 @@ e: {
 {"code" : {
   "system" : "urn:oid:1.2.36.1.2001.1005.17",
   "code" : "FLUVAX"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Fluvax",
-  "severity" : null,
-  "error" : ""
+  "code" : "FLUVAX",
+  "system" : "urn:oid:1.2.36.1.2001.1005.17"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:oid:1.2.36.1.2001.1005.17",
   "code" : "GNFLU"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Influenza",
-  "severity" : null,
-  "error" : ""
+  "code" : "GNFLU",
+  "system" : "urn:oid:1.2.36.1.2001.1005.17"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:oid:1.2.36.1.2001.1005.17",
   "code" : "GNHEP"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Hepatitis B",
-  "severity" : null,
-  "error" : ""
+  "code" : "GNHEP",
+  "system" : "urn:oid:1.2.36.1.2001.1005.17"
 }
 -------------------------------------------------------------------------------------

@@ -2,561 +2,561 @@
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "ar"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Arabic",
-  "severity" : null,
-  "error" : ""
+  "code" : "ar",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "bn"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Bengali",
-  "severity" : null,
-  "error" : ""
+  "code" : "bn",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "cs"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Czech",
-  "severity" : null,
-  "error" : ""
+  "code" : "cs",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "da"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Danish",
-  "severity" : null,
-  "error" : ""
+  "code" : "da",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "de"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "German",
-  "severity" : null,
-  "error" : ""
+  "code" : "de",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "de-AT"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "German (Region=Austria)",
-  "severity" : null,
-  "error" : ""
+  "code" : "de-AT",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "de-CH"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "German (Region=Switzerland)",
-  "severity" : null,
-  "error" : ""
+  "code" : "de-CH",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "de-DE"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "German (Region=Germany)",
-  "severity" : null,
-  "error" : ""
+  "code" : "de-DE",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "el"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Modern Greek (1453-)",
-  "severity" : null,
-  "error" : ""
+  "code" : "el",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "en"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "English",
-  "severity" : null,
-  "error" : ""
+  "code" : "en",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "en-AU"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "English (Region=Australia)",
-  "severity" : null,
-  "error" : ""
+  "code" : "en-AU",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "en-CA"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "English (Region=Canada)",
-  "severity" : null,
-  "error" : ""
+  "code" : "en-CA",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "en-GB"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "English (Region=United Kingdom)",
-  "severity" : null,
-  "error" : ""
+  "code" : "en-GB",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "en-IN"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "English (Region=India)",
-  "severity" : null,
-  "error" : ""
+  "code" : "en-IN",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "en-NZ"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "English (Region=New Zealand)",
-  "severity" : null,
-  "error" : ""
+  "code" : "en-NZ",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "en-SG"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "English (Region=Singapore)",
-  "severity" : null,
-  "error" : ""
+  "code" : "en-SG",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "en-US"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "English (Region=United States)",
-  "severity" : null,
-  "error" : ""
+  "code" : "en-US",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "es"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Spanish",
-  "severity" : null,
-  "error" : ""
+  "code" : "es",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "es-AR"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Spanish (Region=Argentina)",
-  "severity" : null,
-  "error" : ""
+  "code" : "es-AR",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "es-ES"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Spanish (Region=Spain)",
-  "severity" : null,
-  "error" : ""
+  "code" : "es-ES",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "es-UY"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Spanish (Region=Uruguay)",
-  "severity" : null,
-  "error" : ""
+  "code" : "es-UY",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "fi"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Finnish",
-  "severity" : null,
-  "error" : ""
+  "code" : "fi",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "fr"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "French",
-  "severity" : null,
-  "error" : ""
+  "code" : "fr",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "fr-BE"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "French (Region=Belgium)",
-  "severity" : null,
-  "error" : ""
+  "code" : "fr-BE",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "fr-CH"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "French (Region=Switzerland)",
-  "severity" : null,
-  "error" : ""
+  "code" : "fr-CH",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "fr-FR"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "French (Region=France)",
-  "severity" : null,
-  "error" : ""
+  "code" : "fr-FR",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "fy"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Western Frisian",
-  "severity" : null,
-  "error" : ""
+  "code" : "fy",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "fy-NL"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Western Frisian (Region=Netherlands)",
-  "severity" : null,
-  "error" : ""
+  "code" : "fy-NL",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "hi"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Hindi",
-  "severity" : null,
-  "error" : ""
+  "code" : "hi",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "hr"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Croatian",
-  "severity" : null,
-  "error" : ""
+  "code" : "hr",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "it"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Italian",
-  "severity" : null,
-  "error" : ""
+  "code" : "it",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "it-CH"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Italian (Region=Switzerland)",
-  "severity" : null,
-  "error" : ""
+  "code" : "it-CH",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "it-IT"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Italian (Region=Italy)",
-  "severity" : null,
-  "error" : ""
+  "code" : "it-IT",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "ja"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Japanese",
-  "severity" : null,
-  "error" : ""
+  "code" : "ja",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "ko"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Korean",
-  "severity" : null,
-  "error" : ""
+  "code" : "ko",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "nl"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Dutch",
-  "severity" : null,
-  "error" : ""
+  "code" : "nl",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "nl-BE"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Dutch (Region=Belgium)",
-  "severity" : null,
-  "error" : ""
+  "code" : "nl-BE",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "nl-NL"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Dutch (Region=Netherlands)",
-  "severity" : null,
-  "error" : ""
+  "code" : "nl-NL",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "no"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Norwegian",
-  "severity" : null,
-  "error" : ""
+  "code" : "no",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "no-NO"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Norwegian (Region=Norway)",
-  "severity" : null,
-  "error" : ""
+  "code" : "no-NO",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "pa"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Panjabi",
-  "severity" : null,
-  "error" : ""
+  "code" : "pa",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "pl"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Polish",
-  "severity" : null,
-  "error" : ""
+  "code" : "pl",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "pt"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Portuguese",
-  "severity" : null,
-  "error" : ""
+  "code" : "pt",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "pt-BR"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Portuguese (Region=Brazil)",
-  "severity" : null,
-  "error" : ""
+  "code" : "pt-BR",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "ru"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Russian",
-  "severity" : null,
-  "error" : ""
+  "code" : "ru",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "ru-RU"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Russian (Region=Russian Federation)",
-  "severity" : null,
-  "error" : ""
+  "code" : "ru-RU",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "sr"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Serbian",
-  "severity" : null,
-  "error" : ""
+  "code" : "sr",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "sr-RS"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Serbian (Region=Serbia)",
-  "severity" : null,
-  "error" : ""
+  "code" : "sr-RS",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "sv"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Swedish",
-  "severity" : null,
-  "error" : ""
+  "code" : "sv",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "sv-SE"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Swedish (Region=Sweden)",
-  "severity" : null,
-  "error" : ""
+  "code" : "sv-SE",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "te"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Telugu",
-  "severity" : null,
-  "error" : ""
+  "code" : "te",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "zh"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Chinese",
-  "severity" : null,
-  "error" : ""
+  "code" : "zh",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "zh-CN"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Chinese (Region=China)",
-  "severity" : null,
-  "error" : ""
+  "code" : "zh-CN",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "zh-HK"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Chinese (Region=Hong Kong)",
-  "severity" : null,
-  "error" : ""
+  "code" : "zh-HK",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "zh-SG"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Chinese (Region=Singapore)",
-  "severity" : null,
-  "error" : ""
+  "code" : "zh-SG",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "zh-TW"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Chinese (Region=Taiwan, Province of China)",
-  "severity" : null,
-  "error" : ""
+  "code" : "zh-TW",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
@@ -3370,10 +3370,11 @@ v: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:b228d285-f413-46d3-8f0d-516a63636305",
-    "timestamp" : "2021-03-10T01:34:55.228Z",
+    "identifier" : "urn:uuid:c347e369-74f3-4d13-974e-b62b7b7859f4",
+    "timestamp" : "2021-11-02T22:18:58.026Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -3389,282 +3390,1354 @@ e: {
     "contains" : [{
       "system" : "urn:ietf:bcp:47",
       "code" : "ar",
-      "display" : "Arabic"
+      "display" : "Arabisk",
+      "designation" : [{
+        "language" : "da",
+        "value" : "Arabisk"
+      },
+      {
+        "language" : "en",
+        "value" : "Arabic"
+      },
+      {
+        "language" : "nl",
+        "value" : "Arabisch"
+      },
+      {
+        "language" : "zh",
+        "value" : "阿拉伯语"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "bn",
-      "display" : "Bengali"
+      "display" : "Bengali",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Bengaals"
+      },
+      {
+        "language" : "ru",
+        "value" : "Бенгальский"
+      },
+      {
+        "language" : "zh",
+        "value" : "孟加拉语"
+      },
+      {
+        "language" : "de",
+        "value" : "Bengalisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Bengalsk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "cs",
-      "display" : "Czech"
+      "display" : "Czech",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Tsjechisch"
+      },
+      {
+        "language" : "ru",
+        "value" : "Чешский"
+      },
+      {
+        "language" : "zh",
+        "value" : "捷克语"
+      },
+      {
+        "language" : "de",
+        "value" : "Tschechisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Tjekkisk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "da",
-      "display" : "Danish"
+      "display" : "Danish",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Deens"
+      },
+      {
+        "language" : "ru",
+        "value" : "Датский"
+      },
+      {
+        "language" : "zh",
+        "value" : "丹麦语"
+      },
+      {
+        "language" : "de",
+        "value" : "Dänisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Dansk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "de",
-      "display" : "German"
+      "display" : "German",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Duits"
+      },
+      {
+        "language" : "ru",
+        "value" : "Немецкий"
+      },
+      {
+        "language" : "zh",
+        "value" : "德语"
+      },
+      {
+        "language" : "de",
+        "value" : "Deutsch"
+      },
+      {
+        "language" : "da",
+        "value" : "Tysk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "de-AT",
-      "display" : "German (Austria)"
+      "display" : "German (Austria)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Duits (Oostenrijk)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Немецкий (Австрия)"
+      },
+      {
+        "language" : "zh",
+        "value" : "德语 （奥地利）"
+      },
+      {
+        "language" : "de",
+        "value" : "Deutsch (Österreich)"
+      },
+      {
+        "language" : "da",
+        "value" : "Tysk (Østrig"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "de-CH",
-      "display" : "German (Switzerland)"
+      "display" : "German (Switzerland)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Duits (Zwitserland)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Немецкий (Швейцария)"
+      },
+      {
+        "language" : "zh",
+        "value" : "德语 （瑞士）"
+      },
+      {
+        "language" : "de",
+        "value" : "Deutsch (Schweiz)"
+      },
+      {
+        "language" : "da",
+        "value" : "Tysk (Schweiz)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "de-DE",
-      "display" : "German (Germany)"
+      "display" : "German (Germany)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Duits (Duitsland)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Немецкий (Германия)"
+      },
+      {
+        "language" : "zh",
+        "value" : "德语 （德国）"
+      },
+      {
+        "language" : "de",
+        "value" : "Deutsch (Deutschland)"
+      },
+      {
+        "language" : "da",
+        "value" : "Tysk (Tyskland)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "el",
-      "display" : "Greek"
+      "display" : "Greek",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Grieks"
+      },
+      {
+        "language" : "ru",
+        "value" : "Греческий"
+      },
+      {
+        "language" : "zh",
+        "value" : "希腊语"
+      },
+      {
+        "language" : "de",
+        "value" : "Griechisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Græsk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "en",
-      "display" : "English"
+      "display" : "English",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Engels"
+      },
+      {
+        "language" : "ru",
+        "value" : "Английский"
+      },
+      {
+        "language" : "zh",
+        "value" : "英语"
+      },
+      {
+        "language" : "de",
+        "value" : "Englisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Engelsk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "en-AU",
-      "display" : "English (Australia)"
+      "display" : "English (Australia)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Engels (Australië)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Английский (Австралия)"
+      },
+      {
+        "language" : "zh",
+        "value" : "英语 （澳大利亚）"
+      },
+      {
+        "language" : "de",
+        "value" : "Englisch (Australien)"
+      },
+      {
+        "language" : "da",
+        "value" : "Engelsk (Australien)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "en-CA",
-      "display" : "English (Canada)"
+      "display" : "English (Canada)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Engels (Canada)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Английский (Канада)"
+      },
+      {
+        "language" : "zh",
+        "value" : "英语 （加拿大）"
+      },
+      {
+        "language" : "de",
+        "value" : "Englisch (Kanada)"
+      },
+      {
+        "language" : "da",
+        "value" : "Engelsk (Canada)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "en-GB",
-      "display" : "English (Great Britain)"
+      "display" : "English (Great Britain)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Engels (Groot Brittannië)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Английский (Великобритания)"
+      },
+      {
+        "language" : "zh",
+        "value" : "英语 （英国）"
+      },
+      {
+        "language" : "de",
+        "value" : "Englisch (Großbritannien)"
+      },
+      {
+        "language" : "da",
+        "value" : "Engelsk (Storbritannien)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "en-IN",
-      "display" : "English (India)"
+      "display" : "English (India)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Engels (India)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Английский (Индия)"
+      },
+      {
+        "language" : "zh",
+        "value" : "英语 （印度）"
+      },
+      {
+        "language" : "de",
+        "value" : "Englisch (Indien)"
+      },
+      {
+        "language" : "da",
+        "value" : "Engelsk (Indien)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "en-NZ",
-      "display" : "English (New Zeland)"
+      "display" : "English (New Zeland)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Engels (Nieuw Zeeland)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Английский (Новая Зеландия)"
+      },
+      {
+        "language" : "zh",
+        "value" : "英语 （新西兰）"
+      },
+      {
+        "language" : "de",
+        "value" : "Englisch (Neuseeland)"
+      },
+      {
+        "language" : "da",
+        "value" : "Engelsk (New Zeeland)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "en-SG",
-      "display" : "English (Singapore)"
+      "display" : "English (Singapore)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Engels (Singapore)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Английский (Сингапур)"
+      },
+      {
+        "language" : "zh",
+        "value" : "英语 （新加坡）"
+      },
+      {
+        "language" : "de",
+        "value" : "Englisch (Singapur)"
+      },
+      {
+        "language" : "da",
+        "value" : "Engelsk (Singapore)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "en-US",
-      "display" : "English (United States)"
+      "display" : "English (United States)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Engels (Verenigde Staten)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Английский (США)"
+      },
+      {
+        "language" : "zh",
+        "value" : "英语 （美国）"
+      },
+      {
+        "language" : "de",
+        "value" : "Englisch (USA)"
+      },
+      {
+        "language" : "da",
+        "value" : "Engelsk (Amerikansk)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "es",
-      "display" : "Spanish"
+      "display" : "Spanish",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Spaans"
+      },
+      {
+        "language" : "ru",
+        "value" : "Испанский"
+      },
+      {
+        "language" : "zh",
+        "value" : "西班牙语"
+      },
+      {
+        "language" : "de",
+        "value" : "Spanisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Spansk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "es-AR",
-      "display" : "Spanish (Argentina)"
+      "display" : "Spanish (Argentina)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Spaans (Argentinië)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Испанский (Аргентина)"
+      },
+      {
+        "language" : "zh",
+        "value" : "西班牙语 （阿根廷）"
+      },
+      {
+        "language" : "de",
+        "value" : "Spanisch (Argentinien)"
+      },
+      {
+        "language" : "da",
+        "value" : "Spansk (Argentina)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "es-ES",
-      "display" : "Spanish (Spain)"
+      "display" : "Spanish (Spain)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Spaans (Spanje)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Испанский (Испания)"
+      },
+      {
+        "language" : "zh",
+        "value" : "西班牙语 （西班牙）"
+      },
+      {
+        "language" : "de",
+        "value" : "Spanisch (Spanien)"
+      },
+      {
+        "language" : "da",
+        "value" : "Spansk (Spanien)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "es-UY",
-      "display" : "Spanish (Uruguay)"
+      "display" : "Spanish (Uruguay)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Spaans (Uruguay)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Испанский (Уругвай)"
+      },
+      {
+        "language" : "zh",
+        "value" : "西班牙语 （乌拉圭）"
+      },
+      {
+        "language" : "de",
+        "value" : "Spanisch (Uruguay)"
+      },
+      {
+        "language" : "da",
+        "value" : "Spansk (Uruguay)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "fi",
-      "display" : "Finnish"
+      "display" : "Finnish",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Fins"
+      },
+      {
+        "language" : "ru",
+        "value" : "Финский"
+      },
+      {
+        "language" : "zh",
+        "value" : "芬兰语"
+      },
+      {
+        "language" : "de",
+        "value" : "Finnisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Finsk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "fr",
-      "display" : "French"
+      "display" : "French",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Frans"
+      },
+      {
+        "language" : "ru",
+        "value" : "Французский"
+      },
+      {
+        "language" : "zh",
+        "value" : "法语"
+      },
+      {
+        "language" : "de",
+        "value" : "Französisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Fransk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "fr-BE",
-      "display" : "French (Belgium)"
+      "display" : "French (Belgium)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Frans (België)"
+      },
+      {
+        "language" : "de",
+        "value" : "Französisch (Belgien)"
+      },
+      {
+        "language" : "da",
+        "value" : "Finsk (Belgien)"
+      },
+      {
+        "language" : "zh",
+        "value" : "法语 （比利时）"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "fr-CH",
-      "display" : "French (Switzerland)"
+      "display" : "French (Switzerland)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Frans (Zwitserland)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Французский (Швейцария)"
+      },
+      {
+        "language" : "zh",
+        "value" : "法语 （瑞士）"
+      },
+      {
+        "language" : "de",
+        "value" : "Französisch (Schweiz)"
+      },
+      {
+        "language" : "da",
+        "value" : "Fransk (Schweiz)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "fr-FR",
-      "display" : "French (France)"
+      "display" : "French (France)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Frans (Frankrijk)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Французский (Франция)"
+      },
+      {
+        "language" : "zh",
+        "value" : "法语 （法国）"
+      },
+      {
+        "language" : "de",
+        "value" : "Französisch (Frankreich)"
+      },
+      {
+        "language" : "da",
+        "value" : "Fransk (Frankrig)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "fy",
-      "display" : "Frysian"
+      "display" : "Frysian",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Fries"
+      },
+      {
+        "language" : "zh",
+        "value" : "弗里士兰语"
+      },
+      {
+        "language" : "de",
+        "value" : "Friesisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Frisisk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "fy-NL",
-      "display" : "Frysian (Netherlands)"
+      "display" : "Frysian (Netherlands)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Fries (Nederland)"
+      },
+      {
+        "language" : "zh",
+        "value" : "弗里士兰语（荷兰）"
+      },
+      {
+        "language" : "de",
+        "value" : "Friesisch (Niederlande)"
+      },
+      {
+        "language" : "da",
+        "value" : "Frisisk (Holland)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "hi",
-      "display" : "Hindi"
+      "display" : "Hindi",
+      "designation" : [{
+        "language" : "da",
+        "value" : "Hindi"
+      },
+      {
+        "language" : "nl",
+        "value" : "Hindi"
+      },
+      {
+        "language" : "zh",
+        "value" : "印地语"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "hr",
-      "display" : "Croatian"
+      "display" : "Croatian",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Kroatisch"
+      },
+      {
+        "language" : "ru",
+        "value" : "Хорватский"
+      },
+      {
+        "language" : "zh",
+        "value" : "克罗地亚语"
+      },
+      {
+        "language" : "de",
+        "value" : "Kroatisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Kroatisk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "it",
-      "display" : "Italian"
+      "display" : "Italian",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Italiaans"
+      },
+      {
+        "language" : "ru",
+        "value" : "Итальянский"
+      },
+      {
+        "language" : "zh",
+        "value" : "意大利语"
+      },
+      {
+        "language" : "de",
+        "value" : "Italienisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Italiensk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "it-CH",
-      "display" : "Italian (Switzerland)"
+      "display" : "Italian (Switzerland)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Italiaans (Zwitserland)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Итальянский (Швейцария)"
+      },
+      {
+        "language" : "zh",
+        "value" : "意大利语 （瑞士）"
+      },
+      {
+        "language" : "de",
+        "value" : "Italienisch (Schweiz)"
+      },
+      {
+        "language" : "da",
+        "value" : "Italiensk (Schweiz)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "it-IT",
-      "display" : "Italian (Italy)"
+      "display" : "Italian (Italy)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Italiaans (Italië)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Итальянский (Италия)"
+      },
+      {
+        "language" : "zh",
+        "value" : "意大利语 （意大利）"
+      },
+      {
+        "language" : "de",
+        "value" : "Italienisch (Italien)"
+      },
+      {
+        "language" : "da",
+        "value" : "Italiensk (Italien)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "ja",
-      "display" : "Japanese"
+      "display" : "Japanese",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Japans"
+      },
+      {
+        "language" : "ru",
+        "value" : "Японский"
+      },
+      {
+        "language" : "zh",
+        "value" : "日语"
+      },
+      {
+        "language" : "de",
+        "value" : "Japanisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Japansk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "ko",
-      "display" : "Korean"
+      "display" : "Korean",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Koreaans"
+      },
+      {
+        "language" : "ru",
+        "value" : "Корейский"
+      },
+      {
+        "language" : "zh",
+        "value" : "朝鲜语"
+      },
+      {
+        "language" : "de",
+        "value" : "Koreanisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Koreansk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "nl",
-      "display" : "Dutch"
+      "display" : "Dutch",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Nederlands"
+      },
+      {
+        "language" : "ru",
+        "value" : "Нидерландский"
+      },
+      {
+        "language" : "zh",
+        "value" : "荷兰语"
+      },
+      {
+        "language" : "de",
+        "value" : "Niederländisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Hollandsk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "nl-BE",
-      "display" : "Dutch (Belgium)"
+      "display" : "Dutch (Belgium)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Nederlands (België)"
+      },
+      {
+        "language" : "zh",
+        "value" : "荷兰语 （比利时）"
+      },
+      {
+        "language" : "de",
+        "value" : "Niederländisch (Belgien)"
+      },
+      {
+        "language" : "da",
+        "value" : "Hollandsk (Belgien)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "nl-NL",
-      "display" : "Dutch (Netherlands)"
+      "display" : "Dutch (Netherlands)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Nederlands (Nederland)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Нидерландский (Нидерланды)"
+      },
+      {
+        "language" : "zh",
+        "value" : "荷兰语 （荷兰）"
+      },
+      {
+        "language" : "de",
+        "value" : "Niederländisch (Niederlande)"
+      },
+      {
+        "language" : "da",
+        "value" : "Hollandsk (Holland)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "no",
-      "display" : "Norwegian"
+      "display" : "Norwegian",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Noors"
+      },
+      {
+        "language" : "ru",
+        "value" : "Норвежский"
+      },
+      {
+        "language" : "zh",
+        "value" : "挪威语"
+      },
+      {
+        "language" : "de",
+        "value" : "Norwegisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Norsk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "no-NO",
-      "display" : "Norwegian (Norway)"
+      "display" : "Norwegian (Norway)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Noors (Noorwegen)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Норвежский (Норвегия)"
+      },
+      {
+        "language" : "zh",
+        "value" : "挪威语 （挪威）"
+      },
+      {
+        "language" : "de",
+        "value" : "Norwegisch (Norwegen)"
+      },
+      {
+        "language" : "da",
+        "value" : "Norsk (Norge)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "pa",
-      "display" : "Punjabi"
+      "display" : "Punjabi",
+      "designation" : [{
+        "language" : "da",
+        "value" : "Punjabi"
+      },
+      {
+        "language" : "nl",
+        "value" : "Punjabi"
+      },
+      {
+        "language" : "zh",
+        "value" : "旁遮普语"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "pl",
-      "display" : "Polish"
+      "display" : "Polskie",
+      "designation" : [{
+        "language" : "pl",
+        "value" : "Polskie"
+      },
+      {
+        "language" : "zh",
+        "value" : "波兰语"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "pt",
-      "display" : "Portuguese"
+      "display" : "Portuguese",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Portugees"
+      },
+      {
+        "language" : "ru",
+        "value" : "Португальский"
+      },
+      {
+        "language" : "zh",
+        "value" : "葡萄牙语"
+      },
+      {
+        "language" : "de",
+        "value" : "Portugiesisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Portugisisk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "pt-BR",
-      "display" : "Portuguese (Brazil)"
+      "display" : "Portuguese (Brazil)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Portugees (Brazilië)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Португальский (Бразилия)"
+      },
+      {
+        "language" : "zh",
+        "value" : "葡萄牙语 （巴西）"
+      },
+      {
+        "language" : "de",
+        "value" : "Portugiesisch (Brasilien)"
+      },
+      {
+        "language" : "da",
+        "value" : "Portugisisk (Brasilien)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "ru",
-      "display" : "Russian"
+      "display" : "Russian",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Russisch"
+      },
+      {
+        "language" : "ru",
+        "value" : "Русский"
+      },
+      {
+        "language" : "zh",
+        "value" : "俄语"
+      },
+      {
+        "language" : "de",
+        "value" : "Russisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Russisk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "ru-RU",
-      "display" : "Russian (Russia)"
+      "display" : "Russian (Russia)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Russisch (Rusland)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Русский (Россия)"
+      },
+      {
+        "language" : "zh",
+        "value" : "俄语 （俄罗斯）"
+      },
+      {
+        "language" : "de",
+        "value" : "Russisch (Russland)"
+      },
+      {
+        "language" : "da",
+        "value" : "Russisk (Rusland)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "sr",
-      "display" : "Serbian"
+      "display" : "Serbian",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Servisch"
+      },
+      {
+        "language" : "ru",
+        "value" : "Сербский"
+      },
+      {
+        "language" : "zh",
+        "value" : "塞尔维亚语"
+      },
+      {
+        "language" : "de",
+        "value" : "Serbisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Serbisk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "sr-RS",
-      "display" : "Serbian (Serbia)"
+      "display" : "Serbian (Serbia)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Servisch (Servië)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Сербский (Сербия)"
+      },
+      {
+        "language" : "zh",
+        "value" : "塞尔维亚语 （塞尔维亚）"
+      },
+      {
+        "language" : "de",
+        "value" : "Serbisch (Serbien)"
+      },
+      {
+        "language" : "da",
+        "value" : "Serbisk (Serbien)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "sv",
-      "display" : "Swedish"
+      "display" : "Swedish",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Zweeds"
+      },
+      {
+        "language" : "ru",
+        "value" : "Шведский"
+      },
+      {
+        "language" : "zh",
+        "value" : "瑞典语"
+      },
+      {
+        "language" : "de",
+        "value" : "Schwedisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Svensk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "sv-SE",
-      "display" : "Swedish (Sweden)"
+      "display" : "Swedish (Sweden)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Zweeds (Zweden)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Шведский (Швеция)"
+      },
+      {
+        "language" : "zh",
+        "value" : "瑞典语 （瑞典）"
+      },
+      {
+        "language" : "de",
+        "value" : "Schwedisch (Schweden)"
+      },
+      {
+        "language" : "da",
+        "value" : "Svensk (Sverige)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "te",
-      "display" : "Telegu"
+      "display" : "Telegu",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Teloegoe"
+      },
+      {
+        "language" : "ru",
+        "value" : "Телугу"
+      },
+      {
+        "language" : "zh",
+        "value" : "泰卢固语"
+      },
+      {
+        "language" : "de",
+        "value" : "Telugu"
+      },
+      {
+        "language" : "da",
+        "value" : "Telugu"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "zh",
-      "display" : "Chinese"
+      "display" : "Chinese",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Chinees"
+      },
+      {
+        "language" : "ru",
+        "value" : "Kитайский"
+      },
+      {
+        "language" : "zh",
+        "value" : "中文"
+      },
+      {
+        "language" : "de",
+        "value" : "Chinesisch"
+      },
+      {
+        "language" : "da",
+        "value" : "Kinesisk"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "zh-CN",
-      "display" : "Chinese (China)"
+      "display" : "Chinese (China)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Chinees (China)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Kитайский (Китай)"
+      },
+      {
+        "language" : "zh",
+        "value" : "中文 （中国）"
+      },
+      {
+        "language" : "de",
+        "value" : "Chinesisch (China)"
+      },
+      {
+        "language" : "da",
+        "value" : "Kinesisk (Kina)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "zh-HK",
-      "display" : "Chinese (Hong Kong)"
+      "display" : "Chinese (Hong Kong)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Chinees (Hong Kong)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Kитайский (Гонконг)"
+      },
+      {
+        "language" : "zh",
+        "value" : "中文 （香港特别行政区）"
+      },
+      {
+        "language" : "de",
+        "value" : "Chinesisch (Hong Kong)"
+      },
+      {
+        "language" : "da",
+        "value" : "Kinesisk (Hong Kong)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "zh-SG",
-      "display" : "Chinese (Singapore)"
+      "display" : "Chinese (Singapore)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Chinees (Singapore)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Kитайский (Сингапур)"
+      },
+      {
+        "language" : "zh",
+        "value" : "中文 （新加坡）"
+      },
+      {
+        "language" : "de",
+        "value" : "Chinesisch (Singapur)"
+      },
+      {
+        "language" : "da",
+        "value" : "Kinesisk (Singapore)"
+      }]
     },
     {
       "system" : "urn:ietf:bcp:47",
       "code" : "zh-TW",
-      "display" : "Chinese (Taiwan)"
+      "display" : "Chinese (Taiwan)",
+      "designation" : [{
+        "language" : "nl",
+        "value" : "Chinees (Taiwan)"
+      },
+      {
+        "language" : "ru",
+        "value" : "Kитайский (Тайвань)"
+      },
+      {
+        "language" : "zh",
+        "value" : "中文 （台湾）"
+      },
+      {
+        "language" : "de",
+        "value" : "Chinesisch (Taiwan)"
+      },
+      {
+        "language" : "da",
+        "value" : "Kinesisk (Taiwan)"
+      }]
     }]
   }
 },
@@ -3682,14 +4755,15 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:717f4920-800f-48de-99da-b749013585c1",
-    "timestamp" : "2021-03-10T01:47:51.777Z",
+    "identifier" : "urn:uuid:aba6768d-05c1-483d-9103-f1411ec2d508",
+    "timestamp" : "2021-11-02T22:21:58.354Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -6513,11 +7587,11 @@ e: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "English (Region=Canada)",
-  "severity" : null,
-  "error" : ""
+  "display" : "English (Canada)",
+  "code" : "en-CA",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9330,21 +10404,21 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
 v: {
   "display" : "English (Region=Canada)",
-  "severity" : null,
-  "error" : ""
+  "code" : "en-CA",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "en-CA"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "English (Region=Canada)",
-  "severity" : null,
-  "error" : ""
+  "code" : "en-CA",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -12157,11 +13231,11 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Dutch",
-  "severity" : null,
-  "error" : ""
+  "code" : "nl",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -14975,21 +16049,21 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
 v: {
   "display" : "Dutch",
-  "severity" : null,
-  "error" : ""
+  "code" : "nl",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "nl"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Dutch",
-  "severity" : null,
-  "error" : ""
+  "code" : "nl",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -17802,11 +18876,11 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "Dutch (Region=Netherlands)",
-  "severity" : null,
-  "error" : ""
+  "display" : "Dutch (Netherlands)",
+  "code" : "nl-NL",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -20620,21 +21694,23 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
 v: {
   "display" : "Dutch (Region=Netherlands)",
+  "code" : "nl-NL",
+  "system" : "urn:ietf:bcp:47",
   "severity" : "warning",
-  "error" : "The display \"Dutch\" is not a valid display for the code {urn:ietf:bcp:47}nl-NL - should be one of [\"Dutch (Region=Netherlands)\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Dutch\" is not a valid display for the code {urn:ietf:bcp:47}nl-NL - should be one of ['Dutch (Region=Netherlands)', 'Dutch (Netherlands)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "nl-NL"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Dutch (Region=Netherlands)",
-  "severity" : null,
-  "error" : ""
+  "code" : "nl-NL",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -23448,11 +24524,13 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
 v: {
   "display" : "Dutch",
+  "code" : "nl",
+  "system" : "urn:ietf:bcp:47",
   "severity" : "warning",
-  "error" : "The display \"Netherlands\" is not a valid display for the code {urn:ietf:bcp:47}nl - should be one of [Dutch] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Netherlands\" is not a valid display for the code {urn:ietf:bcp:47}nl - should be one of ['Dutch'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -26265,11 +27343,11 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "French",
-  "severity" : null,
-  "error" : ""
+  "code" : "fr",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -29083,20 +30161,22 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
 v: {
   "display" : "French",
+  "code" : "fr",
+  "system" : "urn:ietf:bcp:47",
   "severity" : "warning",
-  "error" : "The display \"France\" is not a valid display for the code {urn:ietf:bcp:47}fr - should be one of [French] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"France\" is not a valid display for the code {urn:ietf:bcp:47}fr - should be one of ['French'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:47",
   "code" : "fr"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "French",
-  "severity" : null,
-  "error" : ""
+  "code" : "fr",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
