@@ -1,8 +1,9 @@
 [diagram]
-classes=Quantity,Attachment,Range,Period,Ratio,CodeableConcept,Coding,Annotation,Money
+classes=Element,Quantity,Attachment,Range,Period,Ratio,CodeableConcept,Coding,Annotation,Money
 element-attributes=true
 
 [directions]
+Element=0;0
 Annotation=-105;-150
 Quantity=-300;-5
 Attachment=150;-40

@@ -14,10 +14,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:024af5ef-20a8-4d5f-b783-7de5f3d3c4dd",
-    "timestamp" : "2021-03-10T01:28:50.962Z",
+    "identifier" : "urn:uuid:e1620bff-2442-4bb4-a37e-9aebb0d705d5",
+    "timestamp" : "2021-11-02T22:18:44.261Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -36,8 +37,7 @@ e: {
     }],
     "contains" : [{
       "system" : "urn:ietf:rfc:3986",
-      "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile",
-      "display" : "Lipid Lab Report"
+      "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile"
     }]
   }
 },

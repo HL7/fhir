@@ -1,8 +1,9 @@
 [diagram]
-classes=Identifier,HumanName,Address,ContactPoint,Timing,Signature,SampledData,BackboneElement
+classes=Element,Identifier,HumanName,Address,ContactPoint,Timing,Signature,SampledData,BackboneElement
 element-attributes=true
 
 [directions]
+Element=0;0
 HumanName=-230;-170
 Address=-30;-200
 ContactPoint=180;-170

@@ -2,541 +2,541 @@
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110100"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Application Activity",
-  "severity" : null,
-  "error" : ""
+  "code" : "110100",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110101"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Audit Log Used",
-  "severity" : null,
-  "error" : ""
+  "code" : "110101",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110102"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Begin Transferring DICOM Instances",
-  "severity" : null,
-  "error" : ""
+  "code" : "110102",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110103"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "DICOM Instances Accessed",
-  "severity" : null,
-  "error" : ""
+  "code" : "110103",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110104"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "DICOM Instances Transferred",
-  "severity" : null,
-  "error" : ""
+  "code" : "110104",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110105"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "DICOM Study Deleted",
-  "severity" : null,
-  "error" : ""
+  "code" : "110105",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110106"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Export",
-  "severity" : null,
-  "error" : ""
+  "code" : "110106",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110107"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Import",
-  "severity" : null,
-  "error" : ""
+  "code" : "110107",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110108"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Network Entry",
-  "severity" : null,
-  "error" : ""
+  "code" : "110108",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110109"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Order Record",
-  "severity" : null,
-  "error" : ""
+  "code" : "110109",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110110"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Patient Record",
-  "severity" : null,
-  "error" : ""
+  "code" : "110110",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110111"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Procedure Record",
-  "severity" : null,
-  "error" : ""
+  "code" : "110111",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110112"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Query",
-  "severity" : null,
-  "error" : ""
+  "code" : "110112",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110113"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Security Alert",
-  "severity" : null,
-  "error" : ""
+  "code" : "110113",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110114"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "User Authentication",
-  "severity" : null,
-  "error" : ""
+  "code" : "110114",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110150"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Application",
-  "severity" : null,
-  "error" : ""
+  "code" : "110150",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110151"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Application Launcher",
-  "severity" : null,
-  "error" : ""
+  "code" : "110151",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110152"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Destination Role ID",
-  "severity" : null,
-  "error" : ""
+  "code" : "110152",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110153"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Source Role ID",
-  "severity" : null,
-  "error" : ""
+  "code" : "110153",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110154"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Destination Media",
-  "severity" : null,
-  "error" : ""
+  "code" : "110154",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110155"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Source Media",
-  "severity" : null,
-  "error" : ""
+  "code" : "110155",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110030"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "USB Disk Emulation",
-  "severity" : null,
-  "error" : ""
+  "code" : "110030",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110031"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Email",
-  "severity" : null,
-  "error" : ""
+  "code" : "110031",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110032"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "CD",
-  "severity" : null,
-  "error" : ""
+  "code" : "110032",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110033"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "DVD",
-  "severity" : null,
-  "error" : ""
+  "code" : "110033",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110034"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Compact Flash",
-  "severity" : null,
-  "error" : ""
+  "code" : "110034",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110035"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Multi-media Card",
-  "severity" : null,
-  "error" : ""
+  "code" : "110035",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110036"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Secure Digital Card",
-  "severity" : null,
-  "error" : ""
+  "code" : "110036",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110037"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "URI",
-  "severity" : null,
-  "error" : ""
+  "code" : "110037",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110010"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Film",
-  "severity" : null,
-  "error" : ""
+  "code" : "110010",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110038"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Paper Document",
-  "severity" : null,
-  "error" : ""
+  "code" : "110038",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110120"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Application Start",
-  "severity" : null,
-  "error" : ""
+  "code" : "110120",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110121"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Application Stop",
-  "severity" : null,
-  "error" : ""
+  "code" : "110121",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110122"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Login",
-  "severity" : null,
-  "error" : ""
+  "code" : "110122",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110123"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Logout",
-  "severity" : null,
-  "error" : ""
+  "code" : "110123",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110124"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Attach",
-  "severity" : null,
-  "error" : ""
+  "code" : "110124",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110125"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Detach",
-  "severity" : null,
-  "error" : ""
+  "code" : "110125",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110126"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Node Authentication",
-  "severity" : null,
-  "error" : ""
+  "code" : "110126",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110127"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Emergency Override Started",
-  "severity" : null,
-  "error" : ""
+  "code" : "110127",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110128"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Network Configuration",
-  "severity" : null,
-  "error" : ""
+  "code" : "110128",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110129"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Security Configuration",
-  "severity" : null,
-  "error" : ""
+  "code" : "110129",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110130"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Hardware Configuration",
-  "severity" : null,
-  "error" : ""
+  "code" : "110130",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110131"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Software Configuration",
-  "severity" : null,
-  "error" : ""
+  "code" : "110131",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110132"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Use of Restricted Function",
-  "severity" : null,
-  "error" : ""
+  "code" : "110132",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110133"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Audit Recording Stopped",
-  "severity" : null,
-  "error" : ""
+  "code" : "110133",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110134"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Audit Recording Started",
-  "severity" : null,
-  "error" : ""
+  "code" : "110134",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110135"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Object Security Attributes Changed",
-  "severity" : null,
-  "error" : ""
+  "code" : "110135",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110136"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Security Roles Changed",
-  "severity" : null,
-  "error" : ""
+  "code" : "110136",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110137"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "User security Attributes Changed",
-  "severity" : null,
-  "error" : ""
+  "code" : "110137",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110138"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Emergency Override Stopped",
-  "severity" : null,
-  "error" : ""
+  "code" : "110138",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110139"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Remote Service Operation Started",
-  "severity" : null,
-  "error" : ""
+  "code" : "110139",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110140"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Remote Service Operation Stopped",
-  "severity" : null,
-  "error" : ""
+  "code" : "110140",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110141"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Local Service Operation Started",
-  "severity" : null,
-  "error" : ""
+  "code" : "110141",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110142"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Local Service Operation Stopped",
-  "severity" : null,
-  "error" : ""
+  "code" : "110142",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
@@ -701,8 +701,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:5714c105-7103-4456-a36d-905bb2a911d0",
-    "timestamp" : "2021-06-29T18:48:30.644Z",
+    "identifier" : "urn:uuid:52e8c01e-b696-4df3-8553-7f000544e12e",
+    "timestamp" : "2021-11-02T22:18:08.308Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -717,12 +717,12 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://dicom.nema.org/resources/ontology/DCM|01"
+      "valueString" : "http://dicom.nema.org/resources/ontology/DCM|2021.4.20210910"
     }],
     "contains" : [{
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Modality device that measures visual fields and perform visual perimetry"
+        "valueString" : "An acquisition device, process or method that measures visual fields and perform visual perimetry."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "OPV",
@@ -734,7 +734,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Digital Radiography device"
+        "valueString" : "An acquisition device, process or method that performs digital radiography."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "DX",
@@ -746,7 +746,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Tomography of the eye acquired by a modality that is based on light and optical principles. Tomography based on other principles, such as ultrasound, is excluded"
+        "valueString" : "An acquisition device, process or method that performs tomography of the eye that is based on light and optical principles. Tomography based on other principles, such as ultrasound, is excluded."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "OPT",
@@ -758,7 +758,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Bone Mineral Densitometry by X-Ray (modality), including dual-energy X-Ray absorptiometry (DXA) and morphometric X-Ray absorptiometry (MXA)"
+        "valueString" : "An acquisition device, process or method that performs bone mineral densitometry by X-Ray, including dual-energy X-Ray absorptiometry (DXA) and morphometric X-Ray absorptiometry (MXA)."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "BMD",
@@ -770,7 +770,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Mammography device"
+        "valueString" : "An acquisition device, process or method that performs mammography."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "MG",
@@ -782,7 +782,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Slide Microscopy"
+        "valueString" : "An acquisition device, process or method that performs slide microscopy."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "SM",
@@ -794,7 +794,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Ultrasound device"
+        "valueString" : "An acquisition device, process or method that performs ultrasound."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "US",
@@ -806,7 +806,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Ophthalmic photography modality"
+        "valueString" : "An acquisition device, process or method that performs ophthalmic photography."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "OP",
@@ -830,7 +830,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Magnetic Resonance device"
+        "valueString" : "An acquisition device, process or method that performs magnetic resonance imaging."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "MR",
@@ -842,7 +842,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Electrocardiography device"
+        "valueString" : "An acquisition device, process or method that performs electrocardiography."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "ECG",
@@ -854,7 +854,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "General Microscopy device"
+        "valueString" : "An acquisition device, process or method that performs general microscopy."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "GM",
@@ -866,7 +866,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Intra-oral Radiography device"
+        "valueString" : "An acquisition device, process or method that performs intra-oral radiography."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "IO",
@@ -878,7 +878,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "X-Ray Angiography device"
+        "valueString" : "An acquisition device, process or method that performs X-Ray angiography."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "XA",
@@ -890,7 +890,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "External-camera Photography device"
+        "valueString" : "An acquisition device, process or method that performs photography with an external camera."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "XC",
@@ -902,7 +902,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Visual Acuity device"
+        "valueString" : "An acquisition device, process or method that measures visual acuity."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "VA",
@@ -914,7 +914,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Intravascular Ultrasound device"
+        "valueString" : "An acquisition device, process or method that performs intravascular ultrasound."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "IVUS",
@@ -926,7 +926,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Computed Radiography device"
+        "valueString" : "An acquisition device, process or method that performs computed radiography."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "CR",
@@ -938,7 +938,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Endoscopy device"
+        "valueString" : "An acquisition device, process or method that records images during endoscopy."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "ES",
@@ -950,7 +950,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Autorefraction device"
+        "valueString" : "An acquisition device, process or method that measures autorefraction."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "AR",
@@ -962,7 +962,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Computed Tomography device"
+        "valueString" : "An acquisition device, process or method that performs computed tomography."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "CT",
@@ -974,19 +974,19 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "An acquisition device, process or method that performs optical surface scanning"
+        "valueString" : "An acquisition device, process or method that performs optical surface scanning."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "OSS",
-      "display" : "Optical Survace Scanner",
+      "display" : "Optical Surface Scanner",
       "designation" : [{
-        "value" : "Optical Survace Scanner"
+        "value" : "Optical Surface Scanner"
       }]
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Lensometry device"
+        "valueString" : "An acquisition device, process or method that performs lensometry."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "LEN",
@@ -998,7 +998,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Radiographic imaging (conventional film/screen)"
+        "valueString" : "An acquisition device, process or method that performs radiographic imaging (conventional film/screen)."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "RG",
@@ -1010,7 +1010,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Radiofluoroscopy device"
+        "valueString" : "An acquisition device, process or method that performs radiofluoroscopy."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "RF",
@@ -1022,7 +1022,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Keratometry device"
+        "valueString" : "An acquisition device, process or method that performs keratometry."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "KER",
@@ -1034,7 +1034,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Hemodynamic Waveform acquisition device"
+        "valueString" : "An acquisition device, process or method that records hemodynamic waveforms."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "HD",
@@ -1046,7 +1046,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Measurements of the axial length of the eye, which are done by various devices"
+        "valueString" : "An acquisition device, process or method that measures the axial length of the eye."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "OAM",
@@ -1058,7 +1058,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Nuclear Medicine device"
+        "valueString" : "An acquisition device, process or method that performs nuclear medicine imaging."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "NM",
@@ -1070,7 +1070,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Modality device that uses an interferometric, non-invasive optical tomographic technique to image 2D slices and 3D volumes of tissue using visible and near visible frequencies"
+        "valueString" : "An acquisition device, process or method that uses an interferometric, non-invasive optical tomographic technique to image 2D slices and 3D volumes of tissue using visible and near visible frequencies."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "OCT",
@@ -1082,7 +1082,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Ultrasound Bone Densitometry (modality)"
+        "valueString" : "An acquisition device, process or method that performs ultrasound bone densitometry."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "BDUS",
@@ -1094,7 +1094,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Positron emission tomography (PET) device"
+        "valueString" : "An acquisition device, process or method that performs positron emission tomography (PET)."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "PT",
@@ -1106,7 +1106,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Cardiac Electrophysiology device"
+        "valueString" : "An acquisition device, process or method that performs cardiac electrophysiology."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "EPS",
@@ -1118,7 +1118,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Panoramic X-Ray device"
+        "valueString" : "An acquisition device, process or method that performs panoramic X-Rays."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "PX",
@@ -1130,7 +1130,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Subjective Refraction device"
+        "valueString" : "An acquisition device, process or method that records subjective refraction."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "SRF",
@@ -1142,7 +1142,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Modality device that measures corneal topography, corneal or retinal thickness, and other similar parameters that are typically displayed as maps"
+        "valueString" : "An acquisition device, process or method that measures corneal topography, corneal or retinal thickness, and other similar parameters that are typically displayed as maps."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "OPM",
@@ -1154,7 +1154,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Modality device that measures the refractive characteristics of the eye"
+        "valueString" : "An acquisition device, process or method that measures the refractive characteristics of the eye."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "OPR",
@@ -1227,8 +1227,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:7136c2b3-7c2a-4d6b-a766-5bbdfae1e3a4",
-    "timestamp" : "2021-06-29T18:48:31.394Z",
+    "identifier" : "urn:uuid:818875f4-39cd-4619-93f5-115706195fef",
+    "timestamp" : "2021-11-02T22:18:14.886Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -1243,12 +1243,12 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://dicom.nema.org/resources/ontology/DCM|01"
+      "valueString" : "http://dicom.nema.org/resources/ontology/DCM|2021.4.20210910"
     }],
     "contains" : [{
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Application Activity has taken place"
+        "valueString" : "Audit event: Application Activity has taken place."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110100",
@@ -1260,7 +1260,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Audit Log has been used"
+        "valueString" : "Audit event: Audit Log has been used."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110101",
@@ -1272,7 +1272,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Storage of DICOM Instances has begun"
+        "valueString" : "Audit event: Storage of DICOM Instances has begun."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110102",
@@ -1284,7 +1284,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: DICOM Instances have been created, read, updated, or deleted"
+        "valueString" : "Audit event: DICOM Instances have been created, read, updated, or deleted -audit event."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110103",
@@ -1296,7 +1296,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Storage of DICOM Instances has been completed"
+        "valueString" : "Audit event: Storage of DICOM Instances has been completed."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110104",
@@ -1308,7 +1308,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Entire Study has been deleted"
+        "valueString" : "Audit event: Entire Study has been deleted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110105",
@@ -1320,7 +1320,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Data has been exported out of the system"
+        "valueString" : "Audit event: Data has been exported out of the system."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110106",
@@ -1332,7 +1332,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Data has been imported into the system"
+        "valueString" : "Audit event: Data has been imported into the system."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110107",
@@ -1344,7 +1344,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: System has joined or left network"
+        "valueString" : "Audit event: System has joined or left network."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110108",
@@ -1356,7 +1356,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Order has been created, read, updated or deleted"
+        "valueString" : "Audit event: Order has been created, read, updated or deleted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110109",
@@ -1368,7 +1368,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Patient Record has been created, read, updated, or deleted"
+        "valueString" : "Audit event: Patient Record has been created, read, updated, or deleted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110110",
@@ -1380,7 +1380,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Procedure Record has been created, read, updated, or deleted"
+        "valueString" : "Audit event: Procedure Record has been created, read, updated, or deleted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110111",
@@ -1392,7 +1392,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Query has been made"
+        "valueString" : "Audit event: Query has been made."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110112",
@@ -1404,7 +1404,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Security Alert has been raised"
+        "valueString" : "Audit event: Security Alert has been raised."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110113",
@@ -1416,7 +1416,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: User Authentication has been attempted"
+        "valueString" : "Audit event: User Authentication has been attempted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110114",
@@ -1462,8 +1462,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:0d2f8ddf-9515-4494-94f6-95e4bca82a4e",
-    "timestamp" : "2021-06-29T18:48:32.566Z",
+    "identifier" : "urn:uuid:d95b6af0-5d0a-482a-a0d1-d7493c5161e8",
+    "timestamp" : "2021-11-02T22:18:48.855Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -1478,12 +1478,12 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://dicom.nema.org/resources/ontology/DCM|01"
+      "valueString" : "http://dicom.nema.org/resources/ontology/DCM|2021.4.20210910"
     }],
     "contains" : [{
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit participant role ID of software application"
+        "valueString" : "Audit participant role ID of software application."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110150",
@@ -1495,7 +1495,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit participant role ID of software application launcher, i.e., the entity that started or stopped an application"
+        "valueString" : "Audit participant role ID of software application launcher, i.e., the entity that started or stopped an application."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110151",
@@ -1507,7 +1507,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit participant role ID of the receiver of data"
+        "valueString" : "Audit participant role ID of the receiver of data."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110152",
@@ -1519,7 +1519,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit participant role ID of the sender of data"
+        "valueString" : "Audit participant role ID of the sender of data."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110153",
@@ -1531,7 +1531,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit participant role ID of media receiving data during an export"
+        "valueString" : "Audit participant role ID of media receiving data during an export."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110154",
@@ -1543,7 +1543,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit participant role ID of media providing data during an import"
+        "valueString" : "Audit participant role ID of media providing data during an import."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110155",
@@ -1601,8 +1601,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:e8c742a9-3d8e-423e-8d56-a2ee8e8d0841",
-    "timestamp" : "2021-06-29T18:48:32.691Z",
+    "identifier" : "urn:uuid:41d48149-84b1-443d-b4c2-c8ea1db1fb75",
+    "timestamp" : "2021-11-02T22:18:50.261Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -1617,12 +1617,12 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://dicom.nema.org/resources/ontology/DCM|01"
+      "valueString" : "http://dicom.nema.org/resources/ontology/DCM|2021.4.20210910"
     }],
     "contains" : [{
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "A device that connects using the USB hard drive interface. These may be USB-Sticks, portable hard drives, and other technologies"
+        "valueString" : "A device that connects using the USB hard drive interface. These may be USB-Sticks, portable hard drives, and other technologies."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110030",
@@ -1634,7 +1634,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Email and email attachments used as a media for data transport"
+        "valueString" : "Email and email attachments used as a media for data transport."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110031",
@@ -1646,7 +1646,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "CD-R, CD-ROM, and CD-RW media used for data transport"
+        "valueString" : "CD-R, CD-ROM, and CD-RW media used for data transport."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110032",
@@ -1658,7 +1658,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "DVD, DVD-RAM, and other DVD formatted media used for data transport"
+        "valueString" : "DVD, DVD-RAM, and other DVD formatted media used for data transport."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110033",
@@ -1670,7 +1670,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Media that comply with the Compact Flash standard"
+        "valueString" : "Media that comply with the Compact Flash standard."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110034",
@@ -1682,7 +1682,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Media that comply with the Multi-media Card standard"
+        "valueString" : "Media that comply with the Multi-media Card standard."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110035",
@@ -1694,7 +1694,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Media that comply with the Secure Digital Card standard"
+        "valueString" : "Media that comply with the Secure Digital Card standard."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110036",
@@ -1706,7 +1706,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "URI Identifier for network or other resource, see RFC 3968"
+        "valueString" : "URI Identifier for network or other resource, see RFC3968."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110037",
@@ -1718,7 +1718,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Film type of output"
+        "valueString" : "Film type of output."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110010",
@@ -1730,7 +1730,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Any paper or similar document"
+        "valueString" : "Any paper or similar document."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110038",
@@ -1827,8 +1827,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:1ec43bf1-05dd-43de-8727-cd588689aec8",
-    "timestamp" : "2021-06-29T18:48:32.862Z",
+    "identifier" : "urn:uuid:2ed3e9c9-89a2-4dac-a726-fca4e9f235a4",
+    "timestamp" : "2021-11-02T22:18:57.308Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -1843,12 +1843,12 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://dicom.nema.org/resources/ontology/DCM|01"
+      "valueString" : "http://dicom.nema.org/resources/ontology/DCM|2021.4.20210910"
     }],
     "contains" : [{
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Application Entity has started"
+        "valueString" : "Audit event: Application Entity has started."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110120",
@@ -1860,7 +1860,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Application Entity has stopped"
+        "valueString" : "Audit event: Application Entity has stopped."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110121",
@@ -1872,7 +1872,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: User login has been attempted"
+        "valueString" : "Audit event: User login has been attempted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110122",
@@ -1884,7 +1884,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: User logout has been attempted"
+        "valueString" : "Audit event: User logout has been attempted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110123",
@@ -1896,7 +1896,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Node has been attached"
+        "valueString" : "Audit event: Node has been attached."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110124",
@@ -1908,7 +1908,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Node has been detached"
+        "valueString" : "Audit event: Node has been detached."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110125",
@@ -1920,7 +1920,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Node Authentication has been attempted"
+        "valueString" : "Audit event: Node Authentication has been attempted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110126",
@@ -1932,7 +1932,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Emergency Override has started"
+        "valueString" : "Audit event: Emergency Override has started."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110127",
@@ -1944,7 +1944,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Network configuration has been changed"
+        "valueString" : "Audit event: Network configuration has been changed."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110128",
@@ -1956,7 +1956,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Security configuration has been changed"
+        "valueString" : "Audit event: Security configuration has been changed."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110129",
@@ -1968,7 +1968,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Hardware configuration has been changed"
+        "valueString" : "Audit event: Hardware configuration has been changed."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110130",
@@ -1980,7 +1980,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Software configuration has been changed"
+        "valueString" : "Audit event: Software configuration has been changed."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110131",
@@ -1992,7 +1992,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: A use of a restricted function has been attempted"
+        "valueString" : "Audit event: A use of a restricted function has been attempted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110132",
@@ -2004,7 +2004,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Audit recording has been stopped"
+        "valueString" : "Audit event: Audit recording has been stopped."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110133",
@@ -2016,7 +2016,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Audit recording has been started"
+        "valueString" : "Audit event: Audit recording has been started."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110134",
@@ -2028,7 +2028,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Security attributes of an object have been changed"
+        "valueString" : "Audit event: Security attributes of an object have been changed."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110135",
@@ -2040,7 +2040,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Security roles have been changed"
+        "valueString" : "Audit event: Security roles have been changed."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110136",
@@ -2052,7 +2052,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Security attributes of a user have been changed"
+        "valueString" : "Audit event: Security attributes of a user have been changed."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110137",
@@ -2064,7 +2064,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Emergency Override has Stopped"
+        "valueString" : "Audit event: Emergency Override has Stopped."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110138",
@@ -2076,7 +2076,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Remote Service Operation has Begun"
+        "valueString" : "Audit event: Remote Service Operation has Begun."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110139",
@@ -2088,7 +2088,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Remote Service Operation has Stopped"
+        "valueString" : "Audit event: Remote Service Operation has Stopped."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110140",
@@ -2100,7 +2100,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Local Service Operation has Begun"
+        "valueString" : "Audit event: Local Service Operation has Begun."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110141",
@@ -2112,7 +2112,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Local Service Operation Stopped"
+        "valueString" : "Audit event: Local Service Operation Stopped."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110142",
@@ -2185,8 +2185,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:30dc95a4-36c8-4943-827c-8f91bd78e55a",
-    "timestamp" : "2021-06-29T18:51:36.765Z",
+    "identifier" : "urn:uuid:8dfa7512-8150-418f-9f0a-6877bddb854a",
+    "timestamp" : "2021-11-02T22:20:35.886Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -2197,12 +2197,12 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://dicom.nema.org/resources/ontology/DCM|01"
+      "valueString" : "http://dicom.nema.org/resources/ontology/DCM|2021.4.20210910"
     }],
     "contains" : [{
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Application Activity has taken place"
+        "valueString" : "Audit event: Application Activity has taken place."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110100",
@@ -2214,7 +2214,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Audit Log has been used"
+        "valueString" : "Audit event: Audit Log has been used."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110101",
@@ -2226,7 +2226,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Storage of DICOM Instances has begun"
+        "valueString" : "Audit event: Storage of DICOM Instances has begun."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110102",
@@ -2238,7 +2238,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: DICOM Instances have been created, read, updated, or deleted"
+        "valueString" : "Audit event: DICOM Instances have been created, read, updated, or deleted -audit event."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110103",
@@ -2250,7 +2250,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Storage of DICOM Instances has been completed"
+        "valueString" : "Audit event: Storage of DICOM Instances has been completed."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110104",
@@ -2262,7 +2262,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Entire Study has been deleted"
+        "valueString" : "Audit event: Entire Study has been deleted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110105",
@@ -2274,7 +2274,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Data has been exported out of the system"
+        "valueString" : "Audit event: Data has been exported out of the system."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110106",
@@ -2286,7 +2286,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Data has been imported into the system"
+        "valueString" : "Audit event: Data has been imported into the system."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110107",
@@ -2298,7 +2298,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: System has joined or left network"
+        "valueString" : "Audit event: System has joined or left network."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110108",
@@ -2310,7 +2310,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Order has been created, read, updated or deleted"
+        "valueString" : "Audit event: Order has been created, read, updated or deleted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110109",
@@ -2322,7 +2322,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Patient Record has been created, read, updated, or deleted"
+        "valueString" : "Audit event: Patient Record has been created, read, updated, or deleted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110110",
@@ -2334,7 +2334,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Procedure Record has been created, read, updated, or deleted"
+        "valueString" : "Audit event: Procedure Record has been created, read, updated, or deleted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110111",
@@ -2346,7 +2346,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Query has been made"
+        "valueString" : "Audit event: Query has been made."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110112",
@@ -2358,7 +2358,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Security Alert has been raised"
+        "valueString" : "Audit event: Security Alert has been raised."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110113",
@@ -2370,7 +2370,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: User Authentication has been attempted"
+        "valueString" : "Audit event: User Authentication has been attempted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110114",
@@ -2467,8 +2467,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:2973c37f-808b-4175-b280-cd5fbe98dbfe",
-    "timestamp" : "2021-06-29T18:53:33.420Z",
+    "identifier" : "urn:uuid:dd73fb59-a318-43fe-8a0f-99c059c0837f",
+    "timestamp" : "2021-11-02T22:31:17.948Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -2479,12 +2479,12 @@ e: {
     },
     {
       "name" : "version",
-      "valueString" : "http://dicom.nema.org/resources/ontology/DCM|01"
+      "valueString" : "http://dicom.nema.org/resources/ontology/DCM|2021.4.20210910"
     }],
     "contains" : [{
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Application Entity has started"
+        "valueString" : "Audit event: Application Entity has started."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110120",
@@ -2496,7 +2496,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Application Entity has stopped"
+        "valueString" : "Audit event: Application Entity has stopped."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110121",
@@ -2508,7 +2508,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: User login has been attempted"
+        "valueString" : "Audit event: User login has been attempted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110122",
@@ -2520,7 +2520,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: User logout has been attempted"
+        "valueString" : "Audit event: User logout has been attempted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110123",
@@ -2532,7 +2532,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Node has been attached"
+        "valueString" : "Audit event: Node has been attached."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110124",
@@ -2544,7 +2544,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Node has been detached"
+        "valueString" : "Audit event: Node has been detached."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110125",
@@ -2556,7 +2556,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Node Authentication has been attempted"
+        "valueString" : "Audit event: Node Authentication has been attempted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110126",
@@ -2568,7 +2568,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Emergency Override has started"
+        "valueString" : "Audit event: Emergency Override has started."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110127",
@@ -2580,7 +2580,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Network configuration has been changed"
+        "valueString" : "Audit event: Network configuration has been changed."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110128",
@@ -2592,7 +2592,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Security configuration has been changed"
+        "valueString" : "Audit event: Security configuration has been changed."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110129",
@@ -2604,7 +2604,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Hardware configuration has been changed"
+        "valueString" : "Audit event: Hardware configuration has been changed."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110130",
@@ -2616,7 +2616,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Software configuration has been changed"
+        "valueString" : "Audit event: Software configuration has been changed."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110131",
@@ -2628,7 +2628,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: A use of a restricted function has been attempted"
+        "valueString" : "Audit event: A use of a restricted function has been attempted."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110132",
@@ -2640,7 +2640,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Audit recording has been stopped"
+        "valueString" : "Audit event: Audit recording has been stopped."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110133",
@@ -2652,7 +2652,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Audit recording has been started"
+        "valueString" : "Audit event: Audit recording has been started."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110134",
@@ -2664,7 +2664,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Security attributes of an object have been changed"
+        "valueString" : "Audit event: Security attributes of an object have been changed."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110135",
@@ -2676,7 +2676,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Security roles have been changed"
+        "valueString" : "Audit event: Security roles have been changed."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110136",
@@ -2688,7 +2688,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Security attributes of a user have been changed"
+        "valueString" : "Audit event: Security attributes of a user have been changed."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110137",
@@ -2700,7 +2700,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Emergency Override has Stopped"
+        "valueString" : "Audit event: Emergency Override has Stopped."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110138",
@@ -2712,7 +2712,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Remote Service Operation has Begun"
+        "valueString" : "Audit event: Remote Service Operation has Begun."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110139",
@@ -2724,7 +2724,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Remote Service Operation has Stopped"
+        "valueString" : "Audit event: Remote Service Operation has Stopped."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110140",
@@ -2736,7 +2736,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Local Service Operation has Begun"
+        "valueString" : "Audit event: Local Service Operation has Begun."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110141",
@@ -2748,7 +2748,7 @@ e: {
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Audit event: Local Service Operation Stopped"
+        "valueString" : "Audit event: Local Service Operation Stopped."
       }],
       "system" : "http://dicom.nema.org/resources/ontology/DCM",
       "code" : "110142",
@@ -2766,17 +2766,16 @@ e: {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110100",
   "display" : "Application Activity"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Application Activity",
-  "severity" : null,
-  "error" : ""
+  "code" : "110100",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "110100",
-  "display" : "Application Activity"
+  "code" : "110100"
 }, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -2827,36 +2826,29 @@ v: {
       {
         "code" : "110114"
       }]
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/audit-event-type"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Application Activity",
-  "severity" : null,
-  "error" : ""
+  "code" : "110100",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110120",
   "display" : "Application Start"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Application Start",
-  "severity" : null,
-  "error" : ""
+  "code" : "110120",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "110120",
-  "display" : "Application Start"
+  "code" : "110120"
 }, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -2931,16 +2923,13 @@ v: {
       {
         "code" : "110142"
       }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/restful-interaction"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Application Start",
-  "severity" : null,
-  "error" : ""
+  "code" : "110120",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -2971,11 +2960,11 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Source Role ID",
-  "severity" : null,
-  "error" : ""
+  "code" : "110153",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -3204,67 +3193,48 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
 v: {
   "display" : "Source Role ID",
-  "severity" : null,
-  "error" : ""
+  "code" : "110153",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110153"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Source Role ID",
-  "severity" : null,
-  "error" : ""
+  "code" : "110153",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110122",
   "display" : "Login"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Login",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110122",
-  "display" : "Login"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://terminology.hl7.org/CodeSystem/security-source-type"
-    }]
-  }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "The code provided (http://dicom.nema.org/resources/ontology/DCM#110122) is not valid in the value set 'AuditEventSourceType' (from http://tx.fhir.org/r4)"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110114",
   "display" : "User Authentication"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "User Authentication",
-  "severity" : null,
-  "error" : ""
+  "code" : "110114",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "110114",
-  "display" : "User Authentication"
+  "code" : "110114"
 }, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -3315,25 +3285,18 @@ v: {
       {
         "code" : "110114"
       }]
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/audit-event-type"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "User Authentication",
-  "severity" : null,
-  "error" : ""
+  "code" : "110114",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "110122",
-  "display" : "Login"
+  "code" : "110122"
 }, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -3408,33 +3371,29 @@ v: {
       {
         "code" : "110142"
       }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/restful-interaction"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Login",
-  "severity" : null,
-  "error" : ""
+  "code" : "110122",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110123",
   "display" : "Logout"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Logout",
-  "severity" : null,
-  "error" : ""
+  "code" : "110123",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "110123",
-  "display" : "Logout"
+  "code" : "110123"
 }, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -3509,33 +3468,29 @@ v: {
       {
         "code" : "110142"
       }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/restful-interaction"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Logout",
-  "severity" : null,
-  "error" : ""
+  "code" : "110123",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110106",
   "display" : "Export"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Export",
-  "severity" : null,
-  "error" : ""
+  "code" : "110106",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "110106",
-  "display" : "Export"
+  "code" : "110106"
 }, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -3586,19 +3541,13 @@ v: {
       {
         "code" : "110114"
       }]
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/audit-event-type"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Export",
-  "severity" : null,
-  "error" : ""
+  "code" : "110106",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -3629,11 +3578,11 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Destination Role ID",
-  "severity" : null,
-  "error" : ""
+  "code" : "110152",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -3862,38 +3811,37 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
 v: {
   "display" : "Destination Role ID",
-  "severity" : null,
-  "error" : ""
+  "code" : "110152",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110152"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Destination Role ID",
-  "severity" : null,
-  "error" : ""
+  "code" : "110152",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110112",
   "display" : "Query"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Query",
-  "severity" : null,
-  "error" : ""
+  "code" : "110112",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "110112",
-  "display" : "Query"
+  "code" : "110112"
 }, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -3944,19 +3892,13 @@ v: {
       {
         "code" : "110114"
       }]
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/audit-event-type"
-    },
-    {
-      "system" : "http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Query",
-  "severity" : null,
-  "error" : ""
+  "code" : "110112",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -3987,11 +3929,11 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Destination Media",
-  "severity" : null,
-  "error" : ""
+  "code" : "110154",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -4220,946 +4162,32 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
 v: {
   "display" : "Destination Media",
-  "severity" : null,
-  "error" : ""
+  "code" : "110154",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110154"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Destination Media",
-  "severity" : null,
-  "error" : ""
+  "code" : "110154",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110033",
   "display" : "DVD"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "DVD",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110033",
-  "display" : "DVD"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://dicom.nema.org/resources/ontology/DCM",
-      "concept" : [{
-        "code" : "110030"
-      },
-      {
-        "code" : "110031"
-      },
-      {
-        "code" : "110032"
-      },
-      {
-        "code" : "110033"
-      },
-      {
-        "code" : "110034"
-      },
-      {
-        "code" : "110035"
-      },
-      {
-        "code" : "110036"
-      },
-      {
-        "code" : "110037"
-      },
-      {
-        "code" : "110010"
-      },
-      {
-        "code" : "110038"
-      }]
-    }]
-  }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "DVD",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "CT"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Computed Tomography",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "CT"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://dicom.nema.org/resources/ontology/DCM",
-      "concept" : [{
-        "code" : "OPV",
-        "display" : "Ophthalmic Visual Field"
-      },
-      {
-        "code" : "DX",
-        "display" : "Digital Radiography"
-      },
-      {
-        "code" : "OPT",
-        "display" : "Ophthalmic Tomography"
-      },
-      {
-        "code" : "BMD",
-        "display" : "Bone Mineral Densitometry"
-      },
-      {
-        "code" : "MG",
-        "display" : "Mammography"
-      },
-      {
-        "code" : "SM",
-        "display" : "Slide Microscopy"
-      },
-      {
-        "code" : "US",
-        "display" : "Ultrasound"
-      },
-      {
-        "code" : "OP",
-        "display" : "Ophthalmic Photography"
-      },
-      {
-        "code" : "IVOCT",
-        "display" : "Intravascular Optical Coherence Tomography"
-      },
-      {
-        "code" : "MR",
-        "display" : "Magnetic Resonance"
-      },
-      {
-        "code" : "ECG",
-        "display" : "Electrocardiography"
-      },
-      {
-        "code" : "GM",
-        "display" : "General Microscopy"
-      },
-      {
-        "code" : "IO",
-        "display" : "Intra-oral Radiography"
-      },
-      {
-        "code" : "XA",
-        "display" : "X-Ray Angiography"
-      },
-      {
-        "code" : "XC",
-        "display" : "External-camera Photography"
-      },
-      {
-        "code" : "VA",
-        "display" : "Visual Acuity"
-      },
-      {
-        "code" : "IVUS",
-        "display" : "Intravascular Ultrasound"
-      },
-      {
-        "code" : "CR",
-        "display" : "Computed Radiography"
-      },
-      {
-        "code" : "ES",
-        "display" : "Endoscopy"
-      },
-      {
-        "code" : "AR",
-        "display" : "Autorefraction"
-      },
-      {
-        "code" : "CT",
-        "display" : "Computed Tomography"
-      },
-      {
-        "code" : "OSS",
-        "display" : "Optical Surface Scanner"
-      },
-      {
-        "code" : "LEN",
-        "display" : "Lensometry"
-      },
-      {
-        "code" : "RG",
-        "display" : "Radiographic imaging"
-      },
-      {
-        "code" : "RF",
-        "display" : "Radiofluoroscopy"
-      },
-      {
-        "code" : "KER",
-        "display" : "Keratometry"
-      },
-      {
-        "code" : "HD",
-        "display" : "Hemodynamic Waveform"
-      },
-      {
-        "code" : "OAM",
-        "display" : "Ophthalmic Axial Measurements"
-      },
-      {
-        "code" : "NM",
-        "display" : "Nuclear Medicine"
-      },
-      {
-        "code" : "OCT",
-        "display" : "Optical Coherence Tomography"
-      },
-      {
-        "code" : "BDUS",
-        "display" : "Ultrasound Bone Densitometry"
-      },
-      {
-        "code" : "PT",
-        "display" : "Positron emission tomography"
-      },
-      {
-        "code" : "EPS",
-        "display" : "Cardiac Electrophysiology"
-      },
-      {
-        "code" : "PX",
-        "display" : "Panoramic X-Ray"
-      },
-      {
-        "code" : "SRF",
-        "display" : "Subjective Refraction"
-      },
-      {
-        "code" : "OPM",
-        "display" : "Ophthalmic Mapping"
-      },
-      {
-        "code" : "OPR",
-        "display" : "Ophthalmic Refraction"
-      }]
-    }]
-  }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Computed Tomography",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "DX"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Digital Radiography",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "DX"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://dicom.nema.org/resources/ontology/DCM",
-      "concept" : [{
-        "code" : "OPV",
-        "display" : "Ophthalmic Visual Field"
-      },
-      {
-        "code" : "DX",
-        "display" : "Digital Radiography"
-      },
-      {
-        "code" : "OPT",
-        "display" : "Ophthalmic Tomography"
-      },
-      {
-        "code" : "BMD",
-        "display" : "Bone Mineral Densitometry"
-      },
-      {
-        "code" : "MG",
-        "display" : "Mammography"
-      },
-      {
-        "code" : "SM",
-        "display" : "Slide Microscopy"
-      },
-      {
-        "code" : "US",
-        "display" : "Ultrasound"
-      },
-      {
-        "code" : "OP",
-        "display" : "Ophthalmic Photography"
-      },
-      {
-        "code" : "IVOCT",
-        "display" : "Intravascular Optical Coherence Tomography"
-      },
-      {
-        "code" : "MR",
-        "display" : "Magnetic Resonance"
-      },
-      {
-        "code" : "ECG",
-        "display" : "Electrocardiography"
-      },
-      {
-        "code" : "GM",
-        "display" : "General Microscopy"
-      },
-      {
-        "code" : "IO",
-        "display" : "Intra-oral Radiography"
-      },
-      {
-        "code" : "XA",
-        "display" : "X-Ray Angiography"
-      },
-      {
-        "code" : "XC",
-        "display" : "External-camera Photography"
-      },
-      {
-        "code" : "VA",
-        "display" : "Visual Acuity"
-      },
-      {
-        "code" : "IVUS",
-        "display" : "Intravascular Ultrasound"
-      },
-      {
-        "code" : "CR",
-        "display" : "Computed Radiography"
-      },
-      {
-        "code" : "ES",
-        "display" : "Endoscopy"
-      },
-      {
-        "code" : "AR",
-        "display" : "Autorefraction"
-      },
-      {
-        "code" : "CT",
-        "display" : "Computed Tomography"
-      },
-      {
-        "code" : "OSS",
-        "display" : "Optical Surface Scanner"
-      },
-      {
-        "code" : "LEN",
-        "display" : "Lensometry"
-      },
-      {
-        "code" : "RG",
-        "display" : "Radiographic imaging"
-      },
-      {
-        "code" : "RF",
-        "display" : "Radiofluoroscopy"
-      },
-      {
-        "code" : "KER",
-        "display" : "Keratometry"
-      },
-      {
-        "code" : "HD",
-        "display" : "Hemodynamic Waveform"
-      },
-      {
-        "code" : "OAM",
-        "display" : "Ophthalmic Axial Measurements"
-      },
-      {
-        "code" : "NM",
-        "display" : "Nuclear Medicine"
-      },
-      {
-        "code" : "OCT",
-        "display" : "Optical Coherence Tomography"
-      },
-      {
-        "code" : "BDUS",
-        "display" : "Ultrasound Bone Densitometry"
-      },
-      {
-        "code" : "PT",
-        "display" : "Positron emission tomography"
-      },
-      {
-        "code" : "EPS",
-        "display" : "Cardiac Electrophysiology"
-      },
-      {
-        "code" : "PX",
-        "display" : "Panoramic X-Ray"
-      },
-      {
-        "code" : "SRF",
-        "display" : "Subjective Refraction"
-      },
-      {
-        "code" : "OPM",
-        "display" : "Ophthalmic Mapping"
-      },
-      {
-        "code" : "OPR",
-        "display" : "Ophthalmic Refraction"
-      }]
-    }]
-  }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Digital Radiography",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "US"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Ultrasound",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "110100"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://dicom.nema.org/resources/ontology/DCM",
-      "concept" : [{
-        "code" : "110100"
-      },
-      {
-        "code" : "110101"
-      },
-      {
-        "code" : "110102"
-      },
-      {
-        "code" : "110103"
-      },
-      {
-        "code" : "110104"
-      },
-      {
-        "code" : "110105"
-      },
-      {
-        "code" : "110106"
-      },
-      {
-        "code" : "110107"
-      },
-      {
-        "code" : "110108"
-      },
-      {
-        "code" : "110109"
-      },
-      {
-        "code" : "110110"
-      },
-      {
-        "code" : "110111"
-      },
-      {
-        "code" : "110112"
-      },
-      {
-        "code" : "110113"
-      },
-      {
-        "code" : "110114"
-      }]
-    }]
-  }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Application Activity",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "110120"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://dicom.nema.org/resources/ontology/DCM",
-      "concept" : [{
-        "code" : "110120"
-      },
-      {
-        "code" : "110121"
-      },
-      {
-        "code" : "110122"
-      },
-      {
-        "code" : "110123"
-      },
-      {
-        "code" : "110124"
-      },
-      {
-        "code" : "110125"
-      },
-      {
-        "code" : "110126"
-      },
-      {
-        "code" : "110127"
-      },
-      {
-        "code" : "110128"
-      },
-      {
-        "code" : "110129"
-      },
-      {
-        "code" : "110130"
-      },
-      {
-        "code" : "110131"
-      },
-      {
-        "code" : "110132"
-      },
-      {
-        "code" : "110133"
-      },
-      {
-        "code" : "110134"
-      },
-      {
-        "code" : "110135"
-      },
-      {
-        "code" : "110136"
-      },
-      {
-        "code" : "110137"
-      },
-      {
-        "code" : "110138"
-      },
-      {
-        "code" : "110139"
-      },
-      {
-        "code" : "110140"
-      },
-      {
-        "code" : "110141"
-      },
-      {
-        "code" : "110142"
-      }]
-    }]
-  }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Application Start",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "110114"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://dicom.nema.org/resources/ontology/DCM",
-      "concept" : [{
-        "code" : "110100"
-      },
-      {
-        "code" : "110101"
-      },
-      {
-        "code" : "110102"
-      },
-      {
-        "code" : "110103"
-      },
-      {
-        "code" : "110104"
-      },
-      {
-        "code" : "110105"
-      },
-      {
-        "code" : "110106"
-      },
-      {
-        "code" : "110107"
-      },
-      {
-        "code" : "110108"
-      },
-      {
-        "code" : "110109"
-      },
-      {
-        "code" : "110110"
-      },
-      {
-        "code" : "110111"
-      },
-      {
-        "code" : "110112"
-      },
-      {
-        "code" : "110113"
-      },
-      {
-        "code" : "110114"
-      }]
-    }]
-  }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "User Authentication",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "110122"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://dicom.nema.org/resources/ontology/DCM",
-      "concept" : [{
-        "code" : "110120"
-      },
-      {
-        "code" : "110121"
-      },
-      {
-        "code" : "110122"
-      },
-      {
-        "code" : "110123"
-      },
-      {
-        "code" : "110124"
-      },
-      {
-        "code" : "110125"
-      },
-      {
-        "code" : "110126"
-      },
-      {
-        "code" : "110127"
-      },
-      {
-        "code" : "110128"
-      },
-      {
-        "code" : "110129"
-      },
-      {
-        "code" : "110130"
-      },
-      {
-        "code" : "110131"
-      },
-      {
-        "code" : "110132"
-      },
-      {
-        "code" : "110133"
-      },
-      {
-        "code" : "110134"
-      },
-      {
-        "code" : "110135"
-      },
-      {
-        "code" : "110136"
-      },
-      {
-        "code" : "110137"
-      },
-      {
-        "code" : "110138"
-      },
-      {
-        "code" : "110139"
-      },
-      {
-        "code" : "110140"
-      },
-      {
-        "code" : "110141"
-      },
-      {
-        "code" : "110142"
-      }]
-    }]
-  }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Login",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "110123"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://dicom.nema.org/resources/ontology/DCM",
-      "concept" : [{
-        "code" : "110120"
-      },
-      {
-        "code" : "110121"
-      },
-      {
-        "code" : "110122"
-      },
-      {
-        "code" : "110123"
-      },
-      {
-        "code" : "110124"
-      },
-      {
-        "code" : "110125"
-      },
-      {
-        "code" : "110126"
-      },
-      {
-        "code" : "110127"
-      },
-      {
-        "code" : "110128"
-      },
-      {
-        "code" : "110129"
-      },
-      {
-        "code" : "110130"
-      },
-      {
-        "code" : "110131"
-      },
-      {
-        "code" : "110132"
-      },
-      {
-        "code" : "110133"
-      },
-      {
-        "code" : "110134"
-      },
-      {
-        "code" : "110135"
-      },
-      {
-        "code" : "110136"
-      },
-      {
-        "code" : "110137"
-      },
-      {
-        "code" : "110138"
-      },
-      {
-        "code" : "110139"
-      },
-      {
-        "code" : "110140"
-      },
-      {
-        "code" : "110141"
-      },
-      {
-        "code" : "110142"
-      }]
-    }]
-  }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Logout",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "110106"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://dicom.nema.org/resources/ontology/DCM",
-      "concept" : [{
-        "code" : "110100"
-      },
-      {
-        "code" : "110101"
-      },
-      {
-        "code" : "110102"
-      },
-      {
-        "code" : "110103"
-      },
-      {
-        "code" : "110104"
-      },
-      {
-        "code" : "110105"
-      },
-      {
-        "code" : "110106"
-      },
-      {
-        "code" : "110107"
-      },
-      {
-        "code" : "110108"
-      },
-      {
-        "code" : "110109"
-      },
-      {
-        "code" : "110110"
-      },
-      {
-        "code" : "110111"
-      },
-      {
-        "code" : "110112"
-      },
-      {
-        "code" : "110113"
-      },
-      {
-        "code" : "110114"
-      }]
-    }]
-  }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Export",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://dicom.nema.org/resources/ontology/DCM",
-  "code" : "110112"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://dicom.nema.org/resources/ontology/DCM",
-      "concept" : [{
-        "code" : "110100"
-      },
-      {
-        "code" : "110101"
-      },
-      {
-        "code" : "110102"
-      },
-      {
-        "code" : "110103"
-      },
-      {
-        "code" : "110104"
-      },
-      {
-        "code" : "110105"
-      },
-      {
-        "code" : "110106"
-      },
-      {
-        "code" : "110107"
-      },
-      {
-        "code" : "110108"
-      },
-      {
-        "code" : "110109"
-      },
-      {
-        "code" : "110110"
-      },
-      {
-        "code" : "110111"
-      },
-      {
-        "code" : "110112"
-      },
-      {
-        "code" : "110113"
-      },
-      {
-        "code" : "110114"
-      }]
-    }]
-  }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Query",
-  "severity" : null,
-  "error" : ""
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -5202,11 +4230,21 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "DVD",
-  "severity" : null,
-  "error" : ""
+  "code" : "110033",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "CT"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Computed Tomography",
+  "code" : "CT",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -5367,11 +4405,21 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Computed Tomography",
-  "severity" : null,
-  "error" : ""
+  "code" : "CT",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "DX"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Digital Radiography",
+  "code" : "DX",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -5532,10 +4580,20 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Digital Radiography",
-  "severity" : null,
-  "error" : ""
+  "code" : "DX",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "code" : "US"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Ultrasound",
+  "code" : "US",
+  "system" : "http://dicom.nema.org/resources/ontology/DCM"
 }
 -------------------------------------------------------------------------------------

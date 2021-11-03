@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:8c4581c0-18d9-4741-a2bb-0ec65fcc01cf",
-    "timestamp" : "2021-03-10T01:23:45.836Z",
+    "identifier" : "urn:uuid:fd31f53a-13d5-4744-aed1-9b8709486bfd",
+    "timestamp" : "2021-11-02T22:18:12.683Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -37,7 +38,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "1",
-      "display" : "Adoption"
+      "display" : "Adoption",
+      "designation" : [{
+        "value" : "Adoption"
+      }]
     },
     {
       "extension" : [{
@@ -46,7 +50,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "2",
-      "display" : "Aged Care"
+      "display" : "Aged Care",
+      "designation" : [{
+        "value" : "Aged Care"
+      }]
     },
     {
       "extension" : [{
@@ -55,7 +62,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "34",
-      "display" : "Allied Health"
+      "display" : "Allied Health",
+      "designation" : [{
+        "value" : "Allied Health"
+      }]
     },
     {
       "extension" : [{
@@ -64,7 +74,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "3",
-      "display" : "Alternative/Complementary Therapies"
+      "display" : "Alternative/Complementary Therapies",
+      "designation" : [{
+        "value" : "Alternative/Complementary Therapies"
+      }]
     },
     {
       "extension" : [{
@@ -73,7 +86,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "4",
-      "display" : "Child Care /Kindergarten"
+      "display" : "Child Care /Kindergarten",
+      "designation" : [{
+        "value" : "Child Care /Kindergarten"
+      }]
     },
     {
       "extension" : [{
@@ -82,7 +98,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "5",
-      "display" : "Child Development"
+      "display" : "Child Development",
+      "designation" : [{
+        "value" : "Child Development"
+      }]
     },
     {
       "extension" : [{
@@ -91,7 +110,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "6",
-      "display" : "Child Protection & Family Services"
+      "display" : "Child Protection & Family Services",
+      "designation" : [{
+        "value" : "Child Protection & Family Services"
+      }]
     },
     {
       "extension" : [{
@@ -100,7 +122,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "7",
-      "display" : "Community Health Care"
+      "display" : "Community Health Care",
+      "designation" : [{
+        "value" : "Community Health Care"
+      }]
     },
     {
       "extension" : [{
@@ -109,7 +134,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "8",
-      "display" : "Counselling"
+      "display" : "Counselling",
+      "designation" : [{
+        "value" : "Counselling"
+      }]
     },
     {
       "extension" : [{
@@ -118,7 +146,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "36",
-      "display" : "Crisis Line (GPAH use only)"
+      "display" : "Crisis Line (GPAH use only)",
+      "designation" : [{
+        "value" : "Crisis Line (GPAH use only)"
+      }]
     },
     {
       "extension" : [{
@@ -127,7 +158,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "9",
-      "display" : "Death Services"
+      "display" : "Death Services",
+      "designation" : [{
+        "value" : "Death Services"
+      }]
     },
     {
       "extension" : [{
@@ -136,7 +170,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "10",
-      "display" : "Dental"
+      "display" : "Dental",
+      "designation" : [{
+        "value" : "Dental"
+      }]
     },
     {
       "extension" : [{
@@ -145,7 +182,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "11",
-      "display" : "Disability Support"
+      "display" : "Disability Support",
+      "designation" : [{
+        "value" : "Disability Support"
+      }]
     },
     {
       "extension" : [{
@@ -154,7 +194,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "12",
-      "display" : "Drug/Alcohol"
+      "display" : "Drug/Alcohol",
+      "designation" : [{
+        "value" : "Drug/Alcohol"
+      }]
     },
     {
       "extension" : [{
@@ -163,7 +206,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "13",
-      "display" : "Education & Learning"
+      "display" : "Education & Learning",
+      "designation" : [{
+        "value" : "Education & Learning"
+      }]
     },
     {
       "extension" : [{
@@ -172,7 +218,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "14",
-      "display" : "Emergency Department"
+      "display" : "Emergency Department",
+      "designation" : [{
+        "value" : "Emergency Department"
+      }]
     },
     {
       "extension" : [{
@@ -181,7 +230,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "15",
-      "display" : "Employment"
+      "display" : "Employment",
+      "designation" : [{
+        "value" : "Employment"
+      }]
     },
     {
       "extension" : [{
@@ -190,7 +242,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "16",
-      "display" : "Financial & Material Aid"
+      "display" : "Financial & Material Aid",
+      "designation" : [{
+        "value" : "Financial & Material Aid"
+      }]
     },
     {
       "extension" : [{
@@ -199,7 +254,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "17",
-      "display" : "General Practice"
+      "display" : "General Practice",
+      "designation" : [{
+        "value" : "General Practice"
+      }]
     },
     {
       "extension" : [{
@@ -208,7 +266,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "35",
-      "display" : "Hospital"
+      "display" : "Hospital",
+      "designation" : [{
+        "value" : "Hospital"
+      }]
     },
     {
       "extension" : [{
@@ -217,7 +278,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "18",
-      "display" : "Housing/Homelessness"
+      "display" : "Housing/Homelessness",
+      "designation" : [{
+        "value" : "Housing/Homelessness"
+      }]
     },
     {
       "extension" : [{
@@ -226,7 +290,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "19",
-      "display" : "Interpreting"
+      "display" : "Interpreting",
+      "designation" : [{
+        "value" : "Interpreting"
+      }]
     },
     {
       "extension" : [{
@@ -235,7 +302,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "20",
-      "display" : "Justice"
+      "display" : "Justice",
+      "designation" : [{
+        "value" : "Justice"
+      }]
     },
     {
       "extension" : [{
@@ -244,7 +314,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "21",
-      "display" : "Legal"
+      "display" : "Legal",
+      "designation" : [{
+        "value" : "Legal"
+      }]
     },
     {
       "extension" : [{
@@ -253,7 +326,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "22",
-      "display" : "Mental Health"
+      "display" : "Mental Health",
+      "designation" : [{
+        "value" : "Mental Health"
+      }]
     },
     {
       "extension" : [{
@@ -262,7 +338,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "38",
-      "display" : "NDIA"
+      "display" : "NDIA",
+      "designation" : [{
+        "value" : "NDIA"
+      }]
     },
     {
       "extension" : [{
@@ -271,7 +350,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "23",
-      "display" : "Physical Activity & Recreation"
+      "display" : "Physical Activity & Recreation",
+      "designation" : [{
+        "value" : "Physical Activity & Recreation"
+      }]
     },
     {
       "extension" : [{
@@ -280,7 +362,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "24",
-      "display" : "Regulation"
+      "display" : "Regulation",
+      "designation" : [{
+        "value" : "Regulation"
+      }]
     },
     {
       "extension" : [{
@@ -289,7 +374,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "25",
-      "display" : "Respite/Carer Support"
+      "display" : "Respite/Carer Support",
+      "designation" : [{
+        "value" : "Respite/Carer Support"
+      }]
     },
     {
       "extension" : [{
@@ -298,7 +386,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "26",
-      "display" : "Specialist Clinical Pathology"
+      "display" : "Specialist Clinical Pathology",
+      "designation" : [{
+        "value" : "Specialist Clinical Pathology"
+      }]
     },
     {
       "extension" : [{
@@ -307,7 +398,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "27",
-      "display" : "Specialist Medical"
+      "display" : "Specialist Medical",
+      "designation" : [{
+        "value" : "Specialist Medical"
+      }]
     },
     {
       "extension" : [{
@@ -316,7 +410,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "28",
-      "display" : "Specialist Obstetrics & Gynecology"
+      "display" : "Specialist Obstetrics & Gynecology",
+      "designation" : [{
+        "value" : "Specialist Obstetrics & Gynecology"
+      }]
     },
     {
       "extension" : [{
@@ -325,7 +422,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "29",
-      "display" : "Specialist Paediatric"
+      "display" : "Specialist Paediatric",
+      "designation" : [{
+        "value" : "Specialist Paediatric"
+      }]
     },
     {
       "extension" : [{
@@ -334,7 +434,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "30",
-      "display" : "Specialist Radiology/Imaging"
+      "display" : "Specialist Radiology/Imaging",
+      "designation" : [{
+        "value" : "Specialist Radiology/Imaging"
+      }]
     },
     {
       "extension" : [{
@@ -343,7 +446,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "31",
-      "display" : "Specialist Surgical"
+      "display" : "Specialist Surgical",
+      "designation" : [{
+        "value" : "Specialist Surgical"
+      }]
     },
     {
       "extension" : [{
@@ -352,7 +458,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "32",
-      "display" : "Support Group/s"
+      "display" : "Support Group/s",
+      "designation" : [{
+        "value" : "Support Group/s"
+      }]
     },
     {
       "extension" : [{
@@ -361,7 +470,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "37",
-      "display" : "Test Message (HSD admin)"
+      "display" : "Test Message (HSD admin)",
+      "designation" : [{
+        "value" : "Test Message (HSD admin)"
+      }]
     },
     {
       "extension" : [{
@@ -370,7 +482,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "33",
-      "display" : "Transport"
+      "display" : "Transport",
+      "designation" : [{
+        "value" : "Transport"
+      }]
     }]
   }
 },
@@ -388,10 +503,11 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:a037beac-9448-41b6-b3be-7b4bb659d42a",
-    "timestamp" : "2021-03-10T01:43:33.917Z",
+    "identifier" : "urn:uuid:b4ad8280-f023-424d-b235-bcb80439273a",
+    "timestamp" : "2021-11-02T22:20:11.354Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -411,7 +527,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "1",
-      "display" : "Adoption"
+      "display" : "Adoption",
+      "designation" : [{
+        "value" : "Adoption"
+      }]
     },
     {
       "extension" : [{
@@ -420,7 +539,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "2",
-      "display" : "Aged Care"
+      "display" : "Aged Care",
+      "designation" : [{
+        "value" : "Aged Care"
+      }]
     },
     {
       "extension" : [{
@@ -429,7 +551,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "34",
-      "display" : "Allied Health"
+      "display" : "Allied Health",
+      "designation" : [{
+        "value" : "Allied Health"
+      }]
     },
     {
       "extension" : [{
@@ -438,7 +563,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "3",
-      "display" : "Alternative/Complementary Therapies"
+      "display" : "Alternative/Complementary Therapies",
+      "designation" : [{
+        "value" : "Alternative/Complementary Therapies"
+      }]
     },
     {
       "extension" : [{
@@ -447,7 +575,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "4",
-      "display" : "Child Care /Kindergarten"
+      "display" : "Child Care /Kindergarten",
+      "designation" : [{
+        "value" : "Child Care /Kindergarten"
+      }]
     },
     {
       "extension" : [{
@@ -456,7 +587,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "5",
-      "display" : "Child Development"
+      "display" : "Child Development",
+      "designation" : [{
+        "value" : "Child Development"
+      }]
     },
     {
       "extension" : [{
@@ -465,7 +599,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "6",
-      "display" : "Child Protection & Family Services"
+      "display" : "Child Protection & Family Services",
+      "designation" : [{
+        "value" : "Child Protection & Family Services"
+      }]
     },
     {
       "extension" : [{
@@ -474,7 +611,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "7",
-      "display" : "Community Health Care"
+      "display" : "Community Health Care",
+      "designation" : [{
+        "value" : "Community Health Care"
+      }]
     },
     {
       "extension" : [{
@@ -483,7 +623,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "8",
-      "display" : "Counselling"
+      "display" : "Counselling",
+      "designation" : [{
+        "value" : "Counselling"
+      }]
     },
     {
       "extension" : [{
@@ -492,7 +635,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "36",
-      "display" : "Crisis Line (GPAH use only)"
+      "display" : "Crisis Line (GPAH use only)",
+      "designation" : [{
+        "value" : "Crisis Line (GPAH use only)"
+      }]
     },
     {
       "extension" : [{
@@ -501,7 +647,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "9",
-      "display" : "Death Services"
+      "display" : "Death Services",
+      "designation" : [{
+        "value" : "Death Services"
+      }]
     },
     {
       "extension" : [{
@@ -510,7 +659,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "10",
-      "display" : "Dental"
+      "display" : "Dental",
+      "designation" : [{
+        "value" : "Dental"
+      }]
     },
     {
       "extension" : [{
@@ -519,7 +671,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "11",
-      "display" : "Disability Support"
+      "display" : "Disability Support",
+      "designation" : [{
+        "value" : "Disability Support"
+      }]
     },
     {
       "extension" : [{
@@ -528,7 +683,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "12",
-      "display" : "Drug/Alcohol"
+      "display" : "Drug/Alcohol",
+      "designation" : [{
+        "value" : "Drug/Alcohol"
+      }]
     },
     {
       "extension" : [{
@@ -537,7 +695,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "13",
-      "display" : "Education & Learning"
+      "display" : "Education & Learning",
+      "designation" : [{
+        "value" : "Education & Learning"
+      }]
     },
     {
       "extension" : [{
@@ -546,7 +707,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "14",
-      "display" : "Emergency Department"
+      "display" : "Emergency Department",
+      "designation" : [{
+        "value" : "Emergency Department"
+      }]
     },
     {
       "extension" : [{
@@ -555,7 +719,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "15",
-      "display" : "Employment"
+      "display" : "Employment",
+      "designation" : [{
+        "value" : "Employment"
+      }]
     },
     {
       "extension" : [{
@@ -564,7 +731,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "16",
-      "display" : "Financial & Material Aid"
+      "display" : "Financial & Material Aid",
+      "designation" : [{
+        "value" : "Financial & Material Aid"
+      }]
     },
     {
       "extension" : [{
@@ -573,7 +743,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "17",
-      "display" : "General Practice"
+      "display" : "General Practice",
+      "designation" : [{
+        "value" : "General Practice"
+      }]
     },
     {
       "extension" : [{
@@ -582,7 +755,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "35",
-      "display" : "Hospital"
+      "display" : "Hospital",
+      "designation" : [{
+        "value" : "Hospital"
+      }]
     },
     {
       "extension" : [{
@@ -591,7 +767,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "18",
-      "display" : "Housing/Homelessness"
+      "display" : "Housing/Homelessness",
+      "designation" : [{
+        "value" : "Housing/Homelessness"
+      }]
     },
     {
       "extension" : [{
@@ -600,7 +779,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "19",
-      "display" : "Interpreting"
+      "display" : "Interpreting",
+      "designation" : [{
+        "value" : "Interpreting"
+      }]
     },
     {
       "extension" : [{
@@ -609,7 +791,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "20",
-      "display" : "Justice"
+      "display" : "Justice",
+      "designation" : [{
+        "value" : "Justice"
+      }]
     },
     {
       "extension" : [{
@@ -618,7 +803,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "21",
-      "display" : "Legal"
+      "display" : "Legal",
+      "designation" : [{
+        "value" : "Legal"
+      }]
     },
     {
       "extension" : [{
@@ -627,7 +815,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "22",
-      "display" : "Mental Health"
+      "display" : "Mental Health",
+      "designation" : [{
+        "value" : "Mental Health"
+      }]
     },
     {
       "extension" : [{
@@ -636,7 +827,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "38",
-      "display" : "NDIA"
+      "display" : "NDIA",
+      "designation" : [{
+        "value" : "NDIA"
+      }]
     },
     {
       "extension" : [{
@@ -645,7 +839,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "23",
-      "display" : "Physical Activity & Recreation"
+      "display" : "Physical Activity & Recreation",
+      "designation" : [{
+        "value" : "Physical Activity & Recreation"
+      }]
     },
     {
       "extension" : [{
@@ -654,7 +851,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "24",
-      "display" : "Regulation"
+      "display" : "Regulation",
+      "designation" : [{
+        "value" : "Regulation"
+      }]
     },
     {
       "extension" : [{
@@ -663,7 +863,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "25",
-      "display" : "Respite/Carer Support"
+      "display" : "Respite/Carer Support",
+      "designation" : [{
+        "value" : "Respite/Carer Support"
+      }]
     },
     {
       "extension" : [{
@@ -672,7 +875,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "26",
-      "display" : "Specialist Clinical Pathology"
+      "display" : "Specialist Clinical Pathology",
+      "designation" : [{
+        "value" : "Specialist Clinical Pathology"
+      }]
     },
     {
       "extension" : [{
@@ -681,7 +887,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "27",
-      "display" : "Specialist Medical"
+      "display" : "Specialist Medical",
+      "designation" : [{
+        "value" : "Specialist Medical"
+      }]
     },
     {
       "extension" : [{
@@ -690,7 +899,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "28",
-      "display" : "Specialist Obstetrics & Gynecology"
+      "display" : "Specialist Obstetrics & Gynecology",
+      "designation" : [{
+        "value" : "Specialist Obstetrics & Gynecology"
+      }]
     },
     {
       "extension" : [{
@@ -699,7 +911,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "29",
-      "display" : "Specialist Paediatric"
+      "display" : "Specialist Paediatric",
+      "designation" : [{
+        "value" : "Specialist Paediatric"
+      }]
     },
     {
       "extension" : [{
@@ -708,7 +923,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "30",
-      "display" : "Specialist Radiology/Imaging"
+      "display" : "Specialist Radiology/Imaging",
+      "designation" : [{
+        "value" : "Specialist Radiology/Imaging"
+      }]
     },
     {
       "extension" : [{
@@ -717,7 +935,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "31",
-      "display" : "Specialist Surgical"
+      "display" : "Specialist Surgical",
+      "designation" : [{
+        "value" : "Specialist Surgical"
+      }]
     },
     {
       "extension" : [{
@@ -726,7 +947,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "32",
-      "display" : "Support Group/s"
+      "display" : "Support Group/s",
+      "designation" : [{
+        "value" : "Support Group/s"
+      }]
     },
     {
       "extension" : [{
@@ -735,7 +959,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "37",
-      "display" : "Test Message (HSD admin)"
+      "display" : "Test Message (HSD admin)",
+      "designation" : [{
+        "value" : "Test Message (HSD admin)"
+      }]
     },
     {
       "extension" : [{
@@ -744,7 +971,10 @@ e: {
       }],
       "system" : "http://terminology.hl7.org/CodeSystem/service-category",
       "code" : "33",
-      "display" : "Transport"
+      "display" : "Transport",
+      "designation" : [{
+        "value" : "Transport"
+      }]
     }]
   }
 },
@@ -755,10 +985,10 @@ e: {
   "system" : "http://terminology.hl7.org/CodeSystem/service-category",
   "code" : "8",
   "display" : "Counselling"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Counselling",
-  "severity" : null,
-  "error" : ""
+  "code" : "8",
+  "system" : "http://terminology.hl7.org/CodeSystem/service-category"
 }
 -------------------------------------------------------------------------------------
