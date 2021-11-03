@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:3aa116c6-a50d-4330-bea1-5868feffae99",
-    "timestamp" : "2021-04-12T20:49:50.147Z",
+    "identifier" : "urn:uuid:67c94701-ad6a-458f-b837-fdbf47244849",
+    "timestamp" : "2021-11-02T21:35:07.214Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -33,7 +34,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/conformance-expectation",
       "code" : "SHALL",
-      "display" : "SHALL"
+      "display" : "SHALL",
+      "designation" : [{
+        "value" : "SHALL"
+      }]
     },
     {
       "extension" : [{
@@ -42,7 +46,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/conformance-expectation",
       "code" : "SHOULD",
-      "display" : "SHOULD"
+      "display" : "SHOULD",
+      "designation" : [{
+        "value" : "SHOULD"
+      }]
     },
     {
       "extension" : [{
@@ -51,7 +58,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/conformance-expectation",
       "code" : "MAY",
-      "display" : "MAY"
+      "display" : "MAY",
+      "designation" : [{
+        "value" : "MAY"
+      }]
     },
     {
       "extension" : [{
@@ -60,7 +70,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/conformance-expectation",
       "code" : "SHOULD-NOT",
-      "display" : "SHOULD-NOT"
+      "display" : "SHOULD-NOT",
+      "designation" : [{
+        "value" : "SHOULD-NOT"
+      }]
     }]
   }
 },
