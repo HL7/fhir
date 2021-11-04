@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:e40b9651-6126-4d14-bcdd-884b50e89490",
-    "timestamp" : "2021-04-12T20:30:38.070Z",
+    "identifier" : "urn:uuid:67e3391a-1f5b-49db-9b83-e8421e1815b3",
+    "timestamp" : "2021-11-02T21:24:42.278Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -33,7 +34,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/codesystem-properties-mode",
       "code" : "not-present",
-      "display" : "Not Present"
+      "display" : "Not Present",
+      "designation" : [{
+        "value" : "Not Present"
+      }]
     },
     {
       "extension" : [{
@@ -42,7 +46,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/codesystem-properties-mode",
       "code" : "partial",
-      "display" : "Partial"
+      "display" : "Partial",
+      "designation" : [{
+        "value" : "Partial"
+      }]
     },
     {
       "extension" : [{
@@ -51,7 +58,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/codesystem-properties-mode",
       "code" : "complete",
-      "display" : "Complete"
+      "display" : "Complete",
+      "designation" : [{
+        "value" : "Complete"
+      }]
     }]
   }
 },

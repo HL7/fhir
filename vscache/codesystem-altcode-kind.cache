@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:fc669a54-f722-4cfa-a3e1-be46f74dc2db",
-    "timestamp" : "2021-04-12T20:52:58.771Z",
+    "identifier" : "urn:uuid:73e5f902-a495-4a66-9292-a09d0ada8ea0",
+    "timestamp" : "2021-11-02T21:35:22.480Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -33,7 +34,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/codesystem-altcode-kind",
       "code" : "alternate",
-      "display" : "Alternate Code"
+      "display" : "Alternate Code",
+      "designation" : [{
+        "value" : "Alternate Code"
+      }]
     },
     {
       "extension" : [{
@@ -42,7 +46,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/codesystem-altcode-kind",
       "code" : "deprecated",
-      "display" : "Deprecated"
+      "display" : "Deprecated",
+      "designation" : [{
+        "value" : "Deprecated"
+      }]
     },
     {
       "extension" : [{
@@ -51,7 +58,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/codesystem-altcode-kind",
       "code" : "case-insensitive",
-      "display" : "Case Insensitive"
+      "display" : "Case Insensitive",
+      "designation" : [{
+        "value" : "Case Insensitive"
+      }]
     },
     {
       "extension" : [{
@@ -60,7 +70,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/codesystem-altcode-kind",
       "code" : "case-sensitive",
-      "display" : "Case Sensitive"
+      "display" : "Case Sensitive",
+      "designation" : [{
+        "value" : "Case Sensitive"
+      }]
     },
     {
       "extension" : [{
@@ -69,7 +82,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/codesystem-altcode-kind",
       "code" : "expression",
-      "display" : "Expression"
+      "display" : "Expression",
+      "designation" : [{
+        "value" : "Expression"
+      }]
     }]
   }
 },
