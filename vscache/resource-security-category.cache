@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:15c6e9ba-b5be-413b-a9db-0c9d5f517d3b",
-    "timestamp" : "2021-04-12T20:27:02.538Z",
+    "identifier" : "urn:uuid:caad3a1b-8f84-4c00-bb5f-f74b862c7eff",
+    "timestamp" : "2021-11-02T21:23:17.028Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -33,7 +34,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/resource-security-category",
       "code" : "anonymous",
-      "display" : "Anonymous READ Access Resource"
+      "display" : "Anonymous READ Access Resource",
+      "designation" : [{
+        "value" : "Anonymous READ Access Resource"
+      }]
     },
     {
       "extension" : [{
@@ -42,7 +46,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/resource-security-category",
       "code" : "business",
-      "display" : "Business Sensitive Resource"
+      "display" : "Business Sensitive Resource",
+      "designation" : [{
+        "value" : "Business Sensitive Resource"
+      }]
     },
     {
       "extension" : [{
@@ -51,7 +58,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/resource-security-category",
       "code" : "individual",
-      "display" : "Individual Sensitive Resource"
+      "display" : "Individual Sensitive Resource",
+      "designation" : [{
+        "value" : "Individual Sensitive Resource"
+      }]
     },
     {
       "extension" : [{
@@ -60,7 +70,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/resource-security-category",
       "code" : "patient",
-      "display" : "Patient Sensitive"
+      "display" : "Patient Sensitive",
+      "designation" : [{
+        "value" : "Patient Sensitive"
+      }]
     },
     {
       "extension" : [{
@@ -69,7 +82,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/resource-security-category",
       "code" : "not-classified",
-      "display" : "Not classified"
+      "display" : "Not classified",
+      "designation" : [{
+        "value" : "Not classified"
+      }]
     }]
   }
 },
