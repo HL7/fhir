@@ -981,7 +981,21 @@
         <map value=".telecom"/>
       </mapping>
     </element>
-
+    <element id="Device.endpoint">
+      <path value="Device.endpoint"/>
+      <short value="Technical endpoints providing access to electronic services provided by the device"/>
+      <definition value="Technical endpoints providing access to services provided by the device defined at this resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="Device.link">
       <path value="Device.link"/>
       <short value="An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device"/>
