@@ -599,6 +599,7 @@
       <path value="Device.type"/>
       <short value="The kind or type of device"/>
       <definition value="The kind or type of device. A device instance may have more than one type - in which case those are the types that apply to the specific instance of the device."/>
+      <comment value="Multiple device types are use when a device is categorized in more than one context – for example, hybrid devices in which the device is both of type gateway and sensor."/>
       <min value="0"/>
       <max value="*"/>
       <type>
