@@ -2,39 +2,63 @@
 {"code" : {
   "system" : "http://hl7.org/fhir/ex-pharmaservice",
   "code" : "smokecess"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
+<<<<<<< HEAD
   "display" : "Smoking cessation"
+=======
+  "display" : "Smoking cessation",
+  "code" : "smokecess",
+  "system" : "http://hl7.org/fhir/ex-pharmaservice"
+>>>>>>> master
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/ex-pharmaservice",
   "code" : "drugcost"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
+<<<<<<< HEAD
   "display" : "Drug Cost"
+=======
+  "display" : "Drug Cost",
+  "code" : "drugcost",
+  "system" : "http://hl7.org/fhir/ex-pharmaservice"
+>>>>>>> master
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/ex-pharmaservice",
   "code" : "markup"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
+<<<<<<< HEAD
   "display" : "Markup"
+=======
+  "display" : "Markup",
+  "code" : "markup",
+  "system" : "http://hl7.org/fhir/ex-pharmaservice"
+>>>>>>> master
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/ex-pharmaservice",
   "code" : "dispensefee"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
+<<<<<<< HEAD
   "display" : "Dispense Fee"
+=======
+  "display" : "Dispense Fee",
+  "code" : "dispensefee",
+  "system" : "http://hl7.org/fhir/ex-pharmaservice"
+>>>>>>> master
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/ex-pharmaservice",
   "code" : "compoundfee"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Compounding Fee"
 }

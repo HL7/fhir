@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Citation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/citation.xsd">
     <id value="citation-example-systematic-meta-review"/>
-	<url value="Citation/citation-example-systematic-meta-review"/>
+	<url value="http://hl7.org/fhir/Citation/citation-example-systematic-meta-review"/>
 	<identifier>
 		<type>
 			<text value="FEvIR Object Identifier"/>

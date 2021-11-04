@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:c0d7c4a1-7d0c-4aaf-8066-46cbe1fde189",
-    "timestamp" : "2021-04-12T20:28:30.133Z",
+    "identifier" : "urn:uuid:54f5a590-5fef-4fde-b4ba-a258adc3e1d8",
+    "timestamp" : "2021-11-02T21:23:26.919Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -33,7 +34,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "cbcc",
-      "display" : "Community Based Collaborative Care"
+      "display" : "Community Based Collaborative Care",
+      "designation" : [{
+        "value" : "Community Based Collaborative Care"
+      }]
     },
     {
       "extension" : [{
@@ -42,7 +46,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "cds",
-      "display" : "Clinical Decision Support"
+      "display" : "Clinical Decision Support",
+      "designation" : [{
+        "value" : "Clinical Decision Support"
+      }]
     },
     {
       "extension" : [{
@@ -51,7 +58,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "cqi",
-      "display" : "Clinical Quality Information"
+      "display" : "Clinical Quality Information",
+      "designation" : [{
+        "value" : "Clinical Quality Information"
+      }]
     },
     {
       "extension" : [{
@@ -60,7 +70,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "cg",
-      "display" : "Clinical Genomics"
+      "display" : "Clinical Genomics",
+      "designation" : [{
+        "value" : "Clinical Genomics"
+      }]
     },
     {
       "extension" : [{
@@ -69,7 +82,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "dev",
-      "display" : "Health Care Devices"
+      "display" : "Health Care Devices",
+      "designation" : [{
+        "value" : "Health Care Devices"
+      }]
     },
     {
       "extension" : [{
@@ -78,7 +94,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "ehr",
-      "display" : "Electronic Health Records"
+      "display" : "Electronic Health Records",
+      "designation" : [{
+        "value" : "Electronic Health Records"
+      }]
     },
     {
       "extension" : [{
@@ -87,7 +106,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "fhir",
-      "display" : "FHIR Infrastructure"
+      "display" : "FHIR Infrastructure",
+      "designation" : [{
+        "value" : "FHIR Infrastructure"
+      }]
     },
     {
       "extension" : [{
@@ -96,7 +118,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "fm",
-      "display" : "Financial Management"
+      "display" : "Financial Management",
+      "designation" : [{
+        "value" : "Financial Management"
+      }]
     },
     {
       "extension" : [{
@@ -105,7 +130,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "hsi",
-      "display" : "Health Standards Integration"
+      "display" : "Health Standards Integration",
+      "designation" : [{
+        "value" : "Health Standards Integration"
+      }]
     },
     {
       "extension" : [{
@@ -114,7 +142,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "ii",
-      "display" : "Imaging Integration"
+      "display" : "Imaging Integration",
+      "designation" : [{
+        "value" : "Imaging Integration"
+      }]
     },
     {
       "extension" : [{
@@ -123,7 +154,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "inm",
-      "display" : "Infrastructure And Messaging"
+      "display" : "Infrastructure And Messaging",
+      "designation" : [{
+        "value" : "Infrastructure And Messaging"
+      }]
     },
     {
       "extension" : [{
@@ -132,7 +166,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "its",
-      "display" : "Implementable Technology Specifications"
+      "display" : "Implementable Technology Specifications",
+      "designation" : [{
+        "value" : "Implementable Technology Specifications"
+      }]
     },
     {
       "extension" : [{
@@ -141,7 +178,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "mnm",
-      "display" : "Modeling and Methodology"
+      "display" : "Modeling and Methodology",
+      "designation" : [{
+        "value" : "Modeling and Methodology"
+      }]
     },
     {
       "extension" : [{
@@ -150,7 +190,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "oo",
-      "display" : "Orders and Observations"
+      "display" : "Orders and Observations",
+      "designation" : [{
+        "value" : "Orders and Observations"
+      }]
     },
     {
       "extension" : [{
@@ -159,7 +202,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "pa",
-      "display" : "Patient Administration"
+      "display" : "Patient Administration",
+      "designation" : [{
+        "value" : "Patient Administration"
+      }]
     },
     {
       "extension" : [{
@@ -168,7 +214,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "pc",
-      "display" : "Patient Care"
+      "display" : "Patient Care",
+      "designation" : [{
+        "value" : "Patient Care"
+      }]
     },
     {
       "extension" : [{
@@ -177,7 +226,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "pher",
-      "display" : "Public Health and Emergency Response"
+      "display" : "Public Health and Emergency Response",
+      "designation" : [{
+        "value" : "Public Health and Emergency Response"
+      }]
     },
     {
       "extension" : [{
@@ -186,7 +238,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "phx",
-      "display" : "Pharmacy"
+      "display" : "Pharmacy",
+      "designation" : [{
+        "value" : "Pharmacy"
+      }]
     },
     {
       "extension" : [{
@@ -195,7 +250,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "brr",
-      "display" : "Biomedical Research and Regulation"
+      "display" : "Biomedical Research and Regulation",
+      "designation" : [{
+        "value" : "Biomedical Research and Regulation"
+      }]
     },
     {
       "extension" : [{
@@ -204,7 +262,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "sd",
-      "display" : "Structured Documents"
+      "display" : "Structured Documents",
+      "designation" : [{
+        "value" : "Structured Documents"
+      }]
     },
     {
       "extension" : [{
@@ -213,7 +274,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "sec",
-      "display" : "Security"
+      "display" : "Security",
+      "designation" : [{
+        "value" : "Security"
+      }]
     },
     {
       "extension" : [{
@@ -222,7 +286,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "us",
-      "display" : "US Realm Taskforce"
+      "display" : "US Realm Taskforce",
+      "designation" : [{
+        "value" : "US Realm Taskforce"
+      }]
     },
     {
       "extension" : [{
@@ -231,7 +298,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "vocab",
-      "display" : "Vocabulary"
+      "display" : "Vocabulary",
+      "designation" : [{
+        "value" : "Vocabulary"
+      }]
     },
     {
       "extension" : [{
@@ -240,7 +310,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/hl7-work-group",
       "code" : "aid",
-      "display" : "Application Implementation and Design"
+      "display" : "Application Implementation and Design",
+      "designation" : [{
+        "value" : "Application Implementation and Design"
+      }]
     }]
   }
 },
