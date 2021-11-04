@@ -980,7 +980,6 @@
         <map value=".telecom"/>
       </mapping>
     </element>
-
     <element id="Device.endpoint">
       <path value="Device.endpoint"/>
       <short value="Technical endpoints providing access to electronic services provided by the device"/>
@@ -996,11 +995,6 @@
         <map value="n/a"/>
       </mapping>
     </element>
-
-
-
-
-
     <element id="Device.link">
       <path value="Device.link"/>
       <short value="An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device"/>
