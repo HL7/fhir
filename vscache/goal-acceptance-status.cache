@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:17007ec4-3ac7-43e9-9a75-3a250374638d",
-    "timestamp" : "2021-04-12T20:30:30.445Z",
+    "identifier" : "urn:uuid:ca5db66e-f1f2-4d14-96eb-586365bfde16",
+    "timestamp" : "2021-11-02T21:24:35.684Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -33,7 +34,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/goal-acceptance-status",
       "code" : "agree",
-      "display" : "Agree"
+      "display" : "Agree",
+      "designation" : [{
+        "value" : "Agree"
+      }]
     },
     {
       "extension" : [{
@@ -42,7 +46,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/goal-acceptance-status",
       "code" : "disagree",
-      "display" : "Disagree"
+      "display" : "Disagree",
+      "designation" : [{
+        "value" : "Disagree"
+      }]
     },
     {
       "extension" : [{
@@ -51,7 +58,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/goal-acceptance-status",
       "code" : "pending",
-      "display" : "Pending"
+      "display" : "Pending",
+      "designation" : [{
+        "value" : "Pending"
+      }]
     }]
   }
 },

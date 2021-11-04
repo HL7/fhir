@@ -9,7 +9,7 @@
       </p>
 	</div>
   </text>
-  <url value="Evidence/example-stroke-3-4half-alteplase-vs-no-alteplase-mRS0-2"/>
+  <url value="http://hl7.org/fhir/Evidence/example-stroke-3-4half-alteplase-vs-no-alteplase-mRS0-2"/>
   <title value="Effect of Alteplase vs No alteplase on mRS 0-2 at 90 days in Stroke 3-4.5 hours prior"/>
   <status value="draft"/>
   <relatedArtifact>
