@@ -197,7 +197,7 @@
     <element id="Device.udiCarrier.issuer">
       <path value="Device.udiCarrier.issuer"/>
       <short value="UDI Issuing Organization"/>
-      <definition value="Organization that is charged with issuing UDIs for devices.  For example, the US FDA issuers include :&#xA;1) GS1: &#xA;http://hl7.org/fhir/NamingSystem/gs1-di, &#xA;2) HIBCC:&#xA;http://hl7.org/fhir/NamingSystem/hibcc-dI, &#xA;3) ICCBBA for blood containers:&#xA;http://hl7.org/fhir/NamingSystem/iccbba-blood-di, &#xA;4) ICCBA for other devices:&#xA;http://hl7.org/fhir/NamingSystem/iccbba-other-di."/>
+      <definition value="Organization that is charged with issuing UDIs for devices. For example, the US FDA issuers include: &#xA;1) GS1: http://hl7.org/fhir/NamingSystem/gs1-di, &#xA;2) HIBCC: http://hl7.org/fhir/NamingSystem/hibcc-diI, &#xA;3) ICCBBA for blood containers: http://hl7.org/fhir/NamingSystem/iccbba-blood-di, &#xA;4) ICCBA for other devices: http://hl7.org/fhir/NamingSystem/iccbba-other-di # Informationsstelle für Arzneispezialitäten (IFA GmbH) (EU only): http://hl7.org/fhir/NamingSystem/ifa-gmbh-di."/>
       <alias value="Barcode System"/>
       <min value="0"/>
       <max value="1"/>
@@ -216,7 +216,7 @@
     <element id="Device.udiCarrier.jurisdiction">
       <path value="Device.udiCarrier.jurisdiction"/>
       <short value="Regional UDI authority"/>
-      <definition value="The identity of the authoritative source for UDI generation within a  jurisdiction.  All UDIs are globally unique within a single namespace with the appropriate repository uri as the system.  For example,  UDIs of devices managed in the U.S. by the FDA, the value is  http://hl7.org/fhir/NamingSystem/fda-udi."/>
+      <definition value="The identity of the authoritative source for UDI generation within a jurisdiction. All UDIs are globally unique within a single namespace with the appropriate repository uri as the system. For example, UDIs of devices managed in the U.S. by the FDA, the value is http://hl7.org/fhir/NamingSystem/us-fda-udi or in the European Union by the European Commission http://hl7.org/fhir/NamingSystem/eu-ec-udi."/>
       <requirements value="Allows a recipient of a UDI to know which database will contain the UDI-associated metadata."/>
       <min value="0"/>
       <max value="1"/>
