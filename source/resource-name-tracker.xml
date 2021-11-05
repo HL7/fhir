@@ -125,9 +125,6 @@
     <Cell><Data ss:Type="String">CareTeam</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3"><Data ss:Type="String">CatalogEntry</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">ChargeItem</Data></Cell>
     <Cell><Data ss:Type="String">ChargeItem</Data></Cell>
    </Row>
