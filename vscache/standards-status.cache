@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:86f57e85-a576-4588-b74a-482165f7296a",
-    "timestamp" : "2021-04-12T20:45:03.632Z",
+    "identifier" : "urn:uuid:ab2eb8ac-70cb-482c-8bf9-97f6ef1f0cd8",
+    "timestamp" : "2021-11-02T21:34:29.808Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -33,7 +34,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/standards-status",
       "code" : "draft",
-      "display" : "Draft"
+      "display" : "Draft",
+      "designation" : [{
+        "value" : "Draft"
+      }]
     },
     {
       "extension" : [{
@@ -42,7 +46,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/standards-status",
       "code" : "normative",
-      "display" : "Normative"
+      "display" : "Normative",
+      "designation" : [{
+        "value" : "Normative"
+      }]
     },
     {
       "extension" : [{
@@ -51,7 +58,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/standards-status",
       "code" : "trial-use",
-      "display" : "Trial-Use"
+      "display" : "Trial-Use",
+      "designation" : [{
+        "value" : "Trial-Use"
+      }]
     },
     {
       "extension" : [{
@@ -60,7 +70,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/standards-status",
       "code" : "informative",
-      "display" : "Informative"
+      "display" : "Informative",
+      "designation" : [{
+        "value" : "Informative"
+      }]
     },
     {
       "extension" : [{
@@ -69,7 +82,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/standards-status",
       "code" : "deprecated",
-      "display" : "Deprecated"
+      "display" : "Deprecated",
+      "designation" : [{
+        "value" : "Deprecated"
+      }]
     },
     {
       "extension" : [{
@@ -78,7 +94,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/standards-status",
       "code" : "external",
-      "display" : "External"
+      "display" : "External",
+      "designation" : [{
+        "value" : "External"
+      }]
     }]
   }
 },

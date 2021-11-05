@@ -175,7 +175,7 @@
       <short value="Mandatory fixed portion of UDI"/>
       <definition value="The device identifier (DI) is a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device."/>
       <alias value="DI"/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="string"/>
@@ -197,7 +197,7 @@
     <element id="Device.udiCarrier.issuer">
       <path value="Device.udiCarrier.issuer"/>
       <short value="UDI Issuing Organization"/>
-      <definition value="Organization that is charged with issuing UDIs for devices.  For example, the US FDA issuers include :&#xA;1) GS1: &#xA;http://hl7.org/fhir/NamingSystem/gs1-di, &#xA;2) HIBCC:&#xA;http://hl7.org/fhir/NamingSystem/hibcc-dI, &#xA;3) ICCBBA for blood containers:&#xA;http://hl7.org/fhir/NamingSystem/iccbba-blood-di, &#xA;4) ICCBA for other devices:&#xA;http://hl7.org/fhir/NamingSystem/iccbba-other-di."/>
+      <definition value="Organization that is charged with issuing UDIs for devices. For example, the US FDA issuers include: &#xA;1) GS1: http://hl7.org/fhir/NamingSystem/gs1-di, &#xA;2) HIBCC: http://hl7.org/fhir/NamingSystem/hibcc-diI, &#xA;3) ICCBBA for blood containers: http://hl7.org/fhir/NamingSystem/iccbba-blood-di, &#xA;4) ICCBA for other devices: http://hl7.org/fhir/NamingSystem/iccbba-other-di # Informationsstelle für Arzneispezialitäten (IFA GmbH) (EU only): http://hl7.org/fhir/NamingSystem/ifa-gmbh-di."/>
       <alias value="Barcode System"/>
       <min value="0"/>
       <max value="1"/>
@@ -216,7 +216,7 @@
     <element id="Device.udiCarrier.jurisdiction">
       <path value="Device.udiCarrier.jurisdiction"/>
       <short value="Regional UDI authority"/>
-      <definition value="The identity of the authoritative source for UDI generation within a  jurisdiction.  All UDIs are globally unique within a single namespace with the appropriate repository uri as the system.  For example,  UDIs of devices managed in the U.S. by the FDA, the value is  http://hl7.org/fhir/NamingSystem/fda-udi."/>
+      <definition value="The identity of the authoritative source for UDI generation within a jurisdiction. All UDIs are globally unique within a single namespace with the appropriate repository uri as the system. For example, UDIs of devices managed in the U.S. by the FDA, the value is http://hl7.org/fhir/NamingSystem/us-fda-udi or in the European Union by the European Commission http://hl7.org/fhir/NamingSystem/eu-ec-udi."/>
       <requirements value="Allows a recipient of a UDI to know which database will contain the UDI-associated metadata."/>
       <min value="0"/>
       <max value="1"/>
@@ -480,7 +480,7 @@
       <path value="Device.serialNumber"/>
       <short value="Serial number assigned by the manufacturer"/>
       <definition value="The serial number assigned by the organization when the device was manufactured."/>
-      <comment value="Alphanumeric Maximum 20."/>
+      <comment value="Alphanumeric Maximum 20. While a serial number is a type of identifier, in the context of devices for which a UDI is required, thus a serial number may be part of the production identifier, it is more informative to have the serial number as a dedicated attribute together with the other UDI production identifier.  When the device is not subject to including the UDI (e.g., its presence and exchange is not mandated by local regulatory requirements or specific use case at hand), thus the concept of production identifiers is not relevant as a set, it remains helpful for consistency to still use Device.serialNumber rather than using Device.identifier with an appropriate type.  Systems that do not realize an identifier is a serial number may place it in Device.identifier or if the identifier.system is known for the serial number, it may also be populated in the Device.identifier as a globally unique id_."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -599,6 +599,7 @@
       <path value="Device.type"/>
       <short value="The kind or type of device"/>
       <definition value="The kind or type of device. A device instance may have more than one type - in which case those are the types that apply to the specific instance of the device."/>
+      <comment value="Multiple device types are use when a device is categorized in more than one context – for example, hybrid devices in which the device is both of type gateway and sensor."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -980,7 +981,21 @@
         <map value=".telecom"/>
       </mapping>
     </element>
-
+    <element id="Device.endpoint">
+      <path value="Device.endpoint"/>
+      <short value="Technical endpoints providing access to electronic services provided by the device"/>
+      <definition value="Technical endpoints providing access to services provided by the device defined at this resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="Device.link">
       <path value="Device.link"/>
       <short value="An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device"/>

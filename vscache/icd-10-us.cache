@@ -1,0 +1,23 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-us",
+  "version" : "http://hl7.org/fhir/sid/icd-10-us",
+  "code" : "S52.209A"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "severity" : "error",
+  "error" : "The code system 'http://hl7.org/fhir/sid/icd-10-us' is not known (encountered paired with code = 'S52.209A'); The code provided (http://hl7.org/fhir/sid/icd-10-us#S52.209A) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)",
+  "class" : "CODESYSTEM_UNSUPPORTED"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-us",
+  "version" : "http://hl7.org/fhir/sid/icd-10-us",
+  "code" : "S52.209D"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "severity" : "error",
+  "error" : "The code system 'http://hl7.org/fhir/sid/icd-10-us' is not known (encountered paired with code = 'S52.209D'); The code provided (http://hl7.org/fhir/sid/icd-10-us#S52.209D) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)",
+  "class" : "CODESYSTEM_UNSUPPORTED"
+}
+-------------------------------------------------------------------------------------
