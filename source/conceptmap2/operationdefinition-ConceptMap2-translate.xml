@@ -75,7 +75,7 @@
     <type value="ConceptMap"/>
   </parameter>
   <parameter>
-    <name value="ConceptMapVersion"/>
+    <name value="conceptMapVersion"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
@@ -143,7 +143,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="identifies a target code system in which a mapping is sought. This parameter is an alternative to the target parameter - only one is required. Searching for any translation to a target code system irrespective of the context (e.g. target valueset) may lead to unsafe results, and it is at the discretion of the server to decide when to support this operation"/>
+    <documentation value="identifies a target code system in which a mapping is sought. This parameter is an alternative to the targetScope parameter - only one is required. Searching for any translation to a target code system irrespective of the context (e.g. target valueset) may lead to unsafe results, and it is at the discretion of the server to decide when to support this operation"/>
     <type value="uri"/>
   </parameter>
   <parameter>
@@ -161,12 +161,39 @@
       <type value="uri"/>
     </part>
     <part>
-      <name value="concept"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="code"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="Coding"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="string"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="integer"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="boolean"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="dateTime"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="decimal"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="uri"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="id"/>
+      </extension>
+      <name value="value"/>
       <use value="in"/>
       <min value="0"/>
       <max value="1"/>
       <documentation value="The value for this dependency"/>
-      <type value="CodeableConcept"/>
+      <type value="Element"/>
     </part>
   </parameter>
   <parameter>
@@ -174,7 +201,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="If true, then the operation should return all the codes that are mapped to the &#39;code&#39;/&#39;coding&#39;/&#39;codeableConcept&#39; input parameter. In this case:&#xA;&#xA;The input code or coding(s) must belong to the target{{Scope}} ValueSet (rather than the source{{Scope}} ValueSet)&#xA;&#xA;Any provided dependency parameters are matched against ConceptMap2.group.element.target.product (rather than ConceptMap2.group.element.target.dependsOn)"/>
+    <documentation value="If true, then the operation should return all the codes that are mapped to the &#39;code&#39;/&#39;coding&#39;/&#39;codeableConcept&#39; input parameter. In this case:&#xA;&#xA;The input code or coding(s) must belong to the targetScope ValueSet (rather than the sourceScope ValueSet)&#xA;&#xA;Any provided dependency parameters are matched against ConceptMap2.group.element.target.product (rather than ConceptMap2.group.element.target.dependsOn)"/>
     <type value="boolean"/>
   </parameter>
   <parameter>
