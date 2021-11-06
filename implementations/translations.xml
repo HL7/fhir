@@ -150,11 +150,6 @@
 		<translation lang="en">Catalog</translation>
 		<translation lang="it">Catalogo</translation>
 	</item>
-	<item id="CatalogEntry">
-		<translation lang="en">CatalogEntry</translation>
-		<translation lang="es">EntradaDeCatalogo</translation>
-		<translation lang="zh">条目定义</translation>
-	</item>
 	<item id="ChargeItem">
 		<translation lang="en">ChargeItem</translation>
 		<translation lang="es">CargoDeItem</translation>

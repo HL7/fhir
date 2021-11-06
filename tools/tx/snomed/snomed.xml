@@ -13248,6 +13248,12 @@
     <display value="Busulphan"/>
     <display value="Busulfan"/>
   </concept>
+  <concept id="387171003" display="Hydrogen peroxide">
+    <display value="Hydrogen peroxide (substance)"/>
+    <display value="Hydrogen peroxide"/>
+    <display value="Hydroperoxide"/>
+    <display value="Hydrogen dioxide"/>
+  </concept>
   <concept id="3872000" display="Beltsville white turkey">
     <display value="Beltsville white turkey"/>
     <display value="Beltsville white turkey (organism)"/>
@@ -14410,6 +14416,13 @@
     <display value="Pediatric nephrology"/>
     <display value="Paediatric nephrology"/>
   </concept>
+  <concept id="419442005" display="Ethyl alcohol">
+    <display value="Ethyl alcohol"/>
+    <display value="EtOH - Alcohol"/>
+    <display value="EtOH - Ethanol"/>
+    <display value="Ethanol"/>
+    <display value="Ethanol (substance)"/>
+  </concept>
   <concept id="419465000" display="Unilateral right">
     <display value="Unilateral right (qualifier value)"/>
     <display value="Unilateral right"/>
@@ -14907,7 +14920,7 @@
   <concept id="442931000124103" display="Adult soy protein isolate formula (product)">
     <display value="Adult soy protein isolate formula (product)"/>
     <display value="Adult soy protein isolate formula"/>
-    <display value="Liquid formula intended for enteral and/or oral method of delivery, formulated to meet the nutritional needs of adults and based on soy protein instead of cow?&#x20AC;&#x2122;s milk."/>
+    <display value="Liquid formula intended for enteral and/or oral method of delivery, formulated to meet the nutritional needs of adults and based on soy protein instead of cow?€™s milk."/>
   </concept>
   <concept id="442941000124108" display="Adult renal specialty formula (product)">
     <display value="Adult renal specialty formula (product)"/>
@@ -16329,6 +16342,11 @@
     <display value="Hospital-based outpatient emergency care centre"/>
     <display value="Hospital-based outpatient emergency care center (environment)"/>
   </concept>
+  <concept id="739006009" display="Solution">
+    <display value="Solution"/>
+    <display value="Solution (basic dose form)"/>
+    <display value="A liquid dose form consisting of active substance(s) in an aqueous solution."/>
+  </concept>
   <concept id="73944009" display="Minnesota pig #1">
     <display value="Minnesota pig #1"/>
     <display value="Minnesota pig #1 (organism)"/>
@@ -16591,6 +16609,12 @@
   <concept id="80522000" display="Rehabilitation hospital">
     <display value="Rehabilitation hospital"/>
     <display value="Rehabilitation hospital (environment)"/>
+  </concept>
+  <concept id="80582002" display="Glycerol">
+    <display value="Glycerol"/>
+    <display value="Glycerol (substance)"/>
+    <display value="Glycerin"/>
+    <display value="1,2,3-propanetriol"/>
   </concept>
   <concept id="80610007" display="Narragansett turkey">
     <display value="Narragansett turkey"/>

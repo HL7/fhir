@@ -30,7 +30,7 @@ These instances can be linked in different ways, depending on the needs of the w
     </tr>
     <tr>
         <td><a href="medicationdispense.html">MedicationDispense</a></td>
-        <td>Provision of a supply of a medication with the intention that it is subsequently consumed by a patient (usually in response to a prescription).  </td>
+        <td>Provision of a supply of a medication with the intention that it is subsequently consumed by a patient (usually in response to a prescription or order or request).  </td>
     </tr>
     <tr>
         <td><a href="medicationadministration.html">MedicationAdministration</a></td>

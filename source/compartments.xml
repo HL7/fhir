@@ -709,9 +709,6 @@
     <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">CatalogEntry</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SpecimenDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

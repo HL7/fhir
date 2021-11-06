@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:93ac2e2d-747d-4c32-8161-331f615f9a4a",
-    "timestamp" : "2021-04-12T20:46:42.069Z",
+    "identifier" : "urn:uuid:e491226e-96a4-402e-9aaa-67c3f3abe798",
+    "timestamp" : "2021-11-02T21:34:50.527Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -33,7 +34,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/catalogType",
       "code" : "medication",
-      "display" : "Medication Catalog"
+      "display" : "Medication Catalog",
+      "designation" : [{
+        "value" : "Medication Catalog"
+      }]
     },
     {
       "extension" : [{
@@ -42,7 +46,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/catalogType",
       "code" : "device",
-      "display" : "Device Catalog"
+      "display" : "Device Catalog",
+      "designation" : [{
+        "value" : "Device Catalog"
+      }]
     },
     {
       "extension" : [{
@@ -51,7 +58,10 @@ e: {
       }],
       "system" : "http://hl7.org/fhir/catalogType",
       "code" : "protocol",
-      "display" : "Protocol List"
+      "display" : "Protocol List",
+      "designation" : [{
+        "value" : "Protocol List"
+      }]
     }]
   }
 },

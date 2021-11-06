@@ -20,7 +20,9 @@
   <description value="HIV Indicators Reporting Example"/>
   <relatedArtifact>
     <type value="derived-from"/>
-    <url value="http://wiki.ihe.net/index.php/Aggregate_Data_Exchange_-_HIV"/>
+    <document>
+      <url value="http://wiki.ihe.net/index.php/Aggregate_Data_Exchange_-_HIV"/>
+    </document>
   </relatedArtifact>
   <content>
       <contentType value="text/cql"/>

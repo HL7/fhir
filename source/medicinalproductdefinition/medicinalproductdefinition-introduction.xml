@@ -2,7 +2,7 @@
 	<div>
 		<a name="scope"> </a>
 		<h2>Scope and Usage</h2>
-		<p><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></p>
+		<p><b><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></b></p>
 		<p>
 			The MedicinalProductDefinition resource covers the detailed defining data of medicinal products, 
 			to a level beyond what is typically needed for day to day prescribing, but that is commonly required by manufacturers and regulators, 

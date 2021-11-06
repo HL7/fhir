@@ -17,14 +17,18 @@
 		<label value="Emberson 2014"/>
 		<display value="Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials."/>
 		<citation value="Emberson J, Lees KR, Lyden P, Blackwell L, Albers G, Bluhmki E, et al;Stroke Thrombolysis Trialists&apos; Collaborative Group. Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials. Lancet 2014 Nov 29;384(9958):1929-35 PMID 25106063"/>
-		<url value="https://doi.org/10.1016/S0140-6736(14)60584-5"/>
+    <document>
+  		<url value="https://doi.org/10.1016/S0140-6736(14)60584-5"/>
+    </document>
 	</relatedArtifact>
 	<relatedArtifact>
 		<type value="citation"/>
 		<label value="Lees 2016"/>
 		<display value="Figure 2 Lees 2016"/>
 		<citation value="Lees KR, Emberson J, Blackwell L, Bluhmki E, Davis SM, Donnan GA, et al; Stroke Thrombolysis Trialists’ Collaborators Group. Effects of alteplase for acute stroke on the distribution of functional outcomes: a pooled analysis of 9 trials. Stroke. 2016;47:2373-2379. PMID 27507856"/>
-		<url value="https://doi.org/10.1161/STROKEAHA.116.013644"/>
+    <document>
+	    <url value="https://doi.org/10.1161/STROKEAHA.116.013644"/>
+    </document>
 	</relatedArtifact>
 	<actual value="true"/>
 	<characteristicCombination>

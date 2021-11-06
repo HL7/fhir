@@ -142,12 +142,16 @@
       <path value="Library.relatedArtifact.display"/>
       <mustSupport value="true"/>
     </element>
-    <element id="Library.relatedArtifact.url">
-      <path value="Library.relatedArtifact.url"/>
+    <element id="Library.relatedArtifact.document">
+      <path value="Library.relatedArtifact.document"/>
       <mustSupport value="true"/>
     </element>
     <element id="Library.relatedArtifact.resource">
       <path value="Library.relatedArtifact.resource"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.relatedArtifact.resourceReference">
+      <path value="Library.relatedArtifact.resourceReference"/>
       <mustSupport value="true"/>
     </element>
   </differential>
