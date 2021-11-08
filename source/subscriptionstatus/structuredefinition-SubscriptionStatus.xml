@@ -216,7 +216,8 @@
       <path value="SubscriptionStatus.topic"/>
       <short value="Reference to the SubscriptionTopic this notification relates to"/>
       <definition value="The reference to the SubscriptionTopic for the Subscription which generated this notification."/>
-      <min value="1"/>
+      <comment value="This value SHOULD NOT be present when using `empty` payloads, MAY be present when using `id-only` payloads, and SHOULD be present when using `full-resource` payloads."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="canonical"/>
