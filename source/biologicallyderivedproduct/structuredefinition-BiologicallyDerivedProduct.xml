@@ -318,8 +318,6 @@
         <description value="The type of the Biologically Derived Product."/>
         <valueSet value="https://www.isbt128.org/uri/"/>
       </binding>
-
-
     </element>
     <element id="BiologicallyDerivedProduct.property.value[x]">
       <path value="BiologicallyDerivedProduct.property.value[x]"/>
