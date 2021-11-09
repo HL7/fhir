@@ -875,5 +875,20 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
+    <element id="SubscriptionTopic.notificationShape.revInclude">
+      <path value="SubscriptionTopic.notificationShape.revInclude"/>
+      <short value="Reverse include directives, rooted in the resource for this shape"/>
+      <definition value="Search-style _revinclude directives, rooted in the resource for this shape. Servers SHOULD include resources listed here, if they exist and the user is authorized to receive them.  Clients SHOULD be prepared to receive these additional resources, but SHALL function properly without them."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
   </differential>
 </StructureDefinition>
