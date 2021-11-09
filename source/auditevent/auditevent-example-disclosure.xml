@@ -1,4 +1,4 @@
-﻿<AuditEvent xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
+﻿<AuditEvent xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd"> 
 	<id value="example-disclosure"/>
 	<text>
 		<status value="generated"/>
@@ -84,10 +84,7 @@
 			<reference value="Location/1"/>
 		</location>
 		<policy value="http://consent.com/yes"/>
-		<network>
-			<address value="custodian.net"/>
-			<type value="1"/>
-		</network>
+		<networkString value="custodian.net"/>
 	</agent>
 	<agent>
 		<!-- who received the data -->
@@ -103,10 +100,8 @@
 			<display value="Where"/>
 		</who>
 		<requestor value="false"/>
-		<network>
-			<address value="marketing.land"/>
-			<type value="1"/>
-		</network>
+		<networkString value="marketing.land"/>
+
 		<authorization>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>

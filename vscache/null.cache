@@ -13,7 +13,7 @@ e: {
   "resourceType" : "ValueSet",
   "id" : "action-participant-role",
   "meta" : {
-    "lastUpdated" : "2017-02-15T18:33:00.000-05:00",
+    "lastUpdated" : "2017-02-15T17:33:00.000-06:00",
     "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
   },
   "language" : "en",
@@ -24,8 +24,8 @@ e: {
   "experimental" : false,
   "date" : "2017-02-15T16:33:00.000-07:00",
   "expansion" : {
-    "identifier" : "urn:uuid:ea1fa8d6-8f11-40de-a2dc-3d4421f23677",
-    "timestamp" : "2021-11-08T15:11:16.997Z",
+    "identifier" : "urn:uuid:f257faf2-c730-42a7-9236-1f7d1d9e443e",
+    "timestamp" : "2021-11-09T18:16:01.699Z",
     "parameter" : [{
       "name" : "expansion-source",
       "valueString" : "ValueSet/action-participant-role"
@@ -103,8 +103,7 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "versionFlexible":"true"}####
 v: {
   "severity" : "error",
-  "error" : "The code system '' is not known (encountered paired with code = 'logic-library'); The code provided (#logic-library) is not valid in the value set 'LibraryType' (from http://tx.fhir.org/r4)",
-  "class" : "CODESYSTEM_UNSUPPORTED"
+  "error" : "Error performing tx5 operation 'validate-code: Failed to connect to tx.fhir.org/104.196.166.17:80' (parameters = \"\")"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -121,8 +120,7 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "versionFlexible":"true"}####
 v: {
   "severity" : "error",
-  "error" : "The code system '' is not known (encountered paired with code = 'model-definition'); The code provided (#model-definition) is not valid in the value set 'LibraryType' (from http://tx.fhir.org/r4)",
-  "class" : "CODESYSTEM_UNSUPPORTED"
+  "error" : "Error performing tx5 operation 'validate-code: Failed to connect to tx.fhir.org/104.196.166.17:80' (parameters = \"\")"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -139,8 +137,7 @@ v: {
 }, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "versionFlexible":"true"}####
 v: {
   "severity" : "error",
-  "error" : "The code system '' is not known (encountered paired with code = 'asset-collection'); The code provided (#asset-collection) is not valid in the value set 'LibraryType' (from http://tx.fhir.org/r4)",
-  "class" : "CODESYSTEM_UNSUPPORTED"
+  "error" : "Error performing tx5 operation 'validate-code: Failed to connect to tx.fhir.org/104.196.166.17:80' (parameters = \"\")"
 }
 -------------------------------------------------------------------------------------
 {"code" : {

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?> 
 
 <Bundle xmlns="http://hl7.org/fhir">
   <id value="AuditEvent-search-params"/>
@@ -22,26 +22,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="AuditEvent-address"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AuditEvent.agent.network.address"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-address"/>
-        <description value="Identifier for the network access point of the user device"/>
-        <code value="address"/>
-        <type value="string"/>
-        <expression value="AuditEvent.agent.network.address"/>
-        <xpath value="f:AuditEvent/f:agent/f:network/f:address"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
+
   <entry>
     <resource>
       <SearchParameter>

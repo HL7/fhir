@@ -1,4 +1,4 @@
-<AuditEvent xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
+<AuditEvent xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd"> 
 	<id value="example-breakglass-start"/>
 	<text>
 		<status value="generated"/>
@@ -47,10 +47,8 @@
 		<location>
 			<reference value="Location/1"/>
 		</location>
-		<network>
-			<address value="custodian.net"/>
-			<type value="1"/>
-		</network>
+		<networkString value="custodian.net"/>
+
 	</agent>
 	<source>
 		<!-- what system detected this break-glass -->
