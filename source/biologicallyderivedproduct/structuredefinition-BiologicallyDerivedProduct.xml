@@ -323,7 +323,7 @@
       <path value="BiologicallyDerivedProduct.property.value[x]"/>
       <short value="Property values"/>
       <definition value="Property values."/>
-      <comment value="For property values not represented by a code, use valueString." />
+      <comment value="The value should be provided as a boolean, integer, CodeableConcept, quantity, range, or attachment. The description can be a string only when these others are not available." />
       <min value="1"/>
       <max value="1"/>
       <type>
