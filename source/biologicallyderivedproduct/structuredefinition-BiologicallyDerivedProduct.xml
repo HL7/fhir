@@ -316,7 +316,7 @@
         </extension>
         <strength value="example"/>
         <description value="The type of the Biologically Derived Product."/>
-        <valueSet value="https://www.isbt128.org/p-databases-ref-tables"/>
+        <valueSet value="http://terminology.hl7.org/NamingSystem/ib"/>
       </binding>
     </element>
     <element id="BiologicallyDerivedProduct.property.value[x]">
