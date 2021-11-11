@@ -22,8 +22,7 @@
   </subject>
   <dateTime value="2018-12-24"/>
   <grantor>
-    <reference value="Patient/f002" />
-    <display value="Donald D DUCK"/>
+    <reference value="Patient/pat1" />
   </grantor>
   <grantee>
     <reference value="Practitioner/f007" />
