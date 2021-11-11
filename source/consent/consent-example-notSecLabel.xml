@@ -5,12 +5,11 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose.</p>
-      <p>Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.)</p>
-      <p>Patient "Donald D DUCK" wishes to withhold disclosure of all of her lab results to any provider.</p>
+      <p>Withhold or withdraw consent for disclosure of records related to a specific security label</p>
+      <p>Patient wishes to withhold disclosure of all HIV related information to any provider.</p>
     </div>
   </text>
   <status value="active"/>
-
   <category>
     <coding>
       <system value="http://loinc.org"/>
@@ -56,10 +55,10 @@
           <code value="correct"/>
         </coding>
       </action>
-      <class>
-        <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
-        <code value="laboratory"/>
-      </class>
+      <securityLabel>
+          <system value="http://terminology.hl7.org/ValueSet/v3-InformationSensitivityPolicy" />
+          <code value="HIV" />
+      </securityLabel>
     </provision>
   </provision>
 </Consent>
