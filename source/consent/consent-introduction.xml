@@ -20,7 +20,16 @@ This resource is scoped to cover all three uses, but at this time, only the priv
 The scope of the resource may change when the other possible scopes are investigated, tested, or profiled. HL7 is working on Advance Directives and would welcome participation by the community.
 
 </p>
-
+<h3>Simple vs. Computable Consent</h3>
+    <p>In its simplest form, the Consent resource provides the means to record the content and the metadata of a consent (either implicit consent as an event or an explicit consent document). At this level of implementation, basic metadata about the Consent (e.g., status, data and time, patient, and organization) is recorded in the corresponding attributes of the Consent resource to enable consent discovery by indexing, searching, and retrieval of consents based on this metadata. The `source[x]` attribute can be used to record the original consent document either in the form of a pointer to another resource or in the form of an attachment.
+    </p>
+    <p>In a more advanced usage of the Consent resource, in addition to recording the metadata and potentially the original content, the privacy preferences stated in the consent are encoded directly in the form of machine-readable rules. These rules can be processed by a decision engine to adjudicate whether the consent permits a specific given activity (e.g., sharing the patient information with a requester or enrolling the patient in a research project). In other words, the Consent resource is used directly to record rules that can be used by a rules engine to understand and enforce the preferences expressed by the consenter as they were intended.
+    </p>
+    <p>The current version of the Consent resource provides two different mechanisms for recording computable rules:</p>
+    <ul>
+        <li>the `provision` structure which provides a simple structure for capturing most common privacy rules.></li>
+        <li>the `policy` attribute which provides a more flexible mechanism to reference a policy coded in a policy language of choice (e.g., <a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=xacml">XACML</a>, <a href="https://www.w3.org/community/odrl/">ODRL</a>, etc.).</li>
+    </ul>
 </div>
 
 <div>
