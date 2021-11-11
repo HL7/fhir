@@ -13,8 +13,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:39463244-4a7f-4176-a769-5e44d897e738",
-    "timestamp" : "2021-11-02T21:20:52.216Z",
+    "identifier" : "urn:uuid:2796ec93-1369-4765-8d76-b7a0f31f5140",
+    "timestamp" : "2021-10-11T22:17:52.883Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -598,9 +598,9 @@ e: {
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "ISK",
-      "display" : "Icelandic krC3na",
+      "display" : "Icelandic króna",
       "designation" : [{
-        "value" : "Icelandic krC3na"
+        "value" : "Icelandic króna"
       }]
     },
     {
@@ -798,9 +798,9 @@ e: {
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "MNT",
-      "display" : "Mongolian tC6grC6g",
+      "display" : "Mongolian tögrög",
       "designation" : [{
-        "value" : "Mongolian tC6grC6g"
+        "value" : "Mongolian tögrög"
       }]
     },
     {
@@ -894,9 +894,9 @@ e: {
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "NIO",
-      "display" : "Nicaraguan cC3rdoba",
+      "display" : "Nicaraguan córdoba",
       "designation" : [{
-        "value" : "Nicaraguan cC3rdoba"
+        "value" : "Nicaraguan córdoba"
       }]
     },
     {
@@ -974,17 +974,17 @@ e: {
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "PLN",
-      "display" : "Polish zE\u0002oty",
+      "display" : "Polish złoty",
       "designation" : [{
-        "value" : "Polish zE\u0002oty"
+        "value" : "Polish złoty"
       }]
     },
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "PYG",
-      "display" : "Paraguayan guaranC-",
+      "display" : "Paraguayan guaraní",
       "designation" : [{
-        "value" : "Paraguayan guaranC-"
+        "value" : "Paraguayan guaraní"
       }]
     },
     {
@@ -1118,17 +1118,17 @@ e: {
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "STN",
-      "display" : "SC#o TomC) and PrC-ncipe dobra",
+      "display" : "São Tomé and Príncipe dobra",
       "designation" : [{
-        "value" : "SC#o TomC) and PrC-ncipe dobra"
+        "value" : "São Tomé and Príncipe dobra"
       }]
     },
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "SVC",
-      "display" : "Salvadoran colC3n",
+      "display" : "Salvadoran colón",
       "designation" : [{
-        "value" : "Salvadoran colC3n"
+        "value" : "Salvadoran colón"
       }]
     },
     {
@@ -1182,9 +1182,9 @@ e: {
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "TOP",
-      "display" : "Tongan paJ;anga",
+      "display" : "Tongan paʻanga",
       "designation" : [{
-        "value" : "Tongan paJ;anga"
+        "value" : "Tongan paʻanga"
       }]
     },
     {
@@ -1286,17 +1286,17 @@ e: {
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "VEF",
-      "display" : "Venezuelan bolC-var",
+      "display" : "Venezuelan bolívar",
       "designation" : [{
-        "value" : "Venezuelan bolC-var"
+        "value" : "Venezuelan bolívar"
       }]
     },
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "VND",
-      "display" : "Vietnamese D\u0017a;\u0019ng",
+      "display" : "Vietnamese đồng",
       "designation" : [{
-        "value" : "Vietnamese D\u0017a;\u0019ng"
+        "value" : "Vietnamese đồng"
       }]
     },
     {
@@ -1502,8 +1502,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:a0cb8af9-e987-4a45-aa8a-e239b1a18be2",
-    "timestamp" : "2021-11-02T21:24:53.528Z",
+    "identifier" : "urn:uuid:5d683b4c-d6c6-4040-ba95-c319b7eb9e63",
+    "timestamp" : "2021-10-11T22:30:16.368Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -2083,9 +2083,9 @@ e: {
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "ISK",
-      "display" : "Icelandic krC3na",
+      "display" : "Icelandic króna",
       "designation" : [{
-        "value" : "Icelandic krC3na"
+        "value" : "Icelandic króna"
       }]
     },
     {
@@ -2283,9 +2283,9 @@ e: {
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "MNT",
-      "display" : "Mongolian tC6grC6g",
+      "display" : "Mongolian tögrög",
       "designation" : [{
-        "value" : "Mongolian tC6grC6g"
+        "value" : "Mongolian tögrög"
       }]
     },
     {
@@ -2379,9 +2379,9 @@ e: {
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "NIO",
-      "display" : "Nicaraguan cC3rdoba",
+      "display" : "Nicaraguan córdoba",
       "designation" : [{
-        "value" : "Nicaraguan cC3rdoba"
+        "value" : "Nicaraguan córdoba"
       }]
     },
     {
@@ -2459,17 +2459,17 @@ e: {
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "PLN",
-      "display" : "Polish zE\u0002oty",
+      "display" : "Polish złoty",
       "designation" : [{
-        "value" : "Polish zE\u0002oty"
+        "value" : "Polish złoty"
       }]
     },
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "PYG",
-      "display" : "Paraguayan guaranC-",
+      "display" : "Paraguayan guaraní",
       "designation" : [{
-        "value" : "Paraguayan guaranC-"
+        "value" : "Paraguayan guaraní"
       }]
     },
     {
@@ -2603,17 +2603,17 @@ e: {
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "STN",
-      "display" : "SC#o TomC) and PrC-ncipe dobra",
+      "display" : "São Tomé and Príncipe dobra",
       "designation" : [{
-        "value" : "SC#o TomC) and PrC-ncipe dobra"
+        "value" : "São Tomé and Príncipe dobra"
       }]
     },
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "SVC",
-      "display" : "Salvadoran colC3n",
+      "display" : "Salvadoran colón",
       "designation" : [{
-        "value" : "Salvadoran colC3n"
+        "value" : "Salvadoran colón"
       }]
     },
     {
@@ -2667,9 +2667,9 @@ e: {
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "TOP",
-      "display" : "Tongan paJ;anga",
+      "display" : "Tongan paʻanga",
       "designation" : [{
-        "value" : "Tongan paJ;anga"
+        "value" : "Tongan paʻanga"
       }]
     },
     {
@@ -2771,17 +2771,17 @@ e: {
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "VEF",
-      "display" : "Venezuelan bolC-var",
+      "display" : "Venezuelan bolívar",
       "designation" : [{
-        "value" : "Venezuelan bolC-var"
+        "value" : "Venezuelan bolívar"
       }]
     },
     {
       "system" : "urn:iso:std:iso:4217",
       "code" : "VND",
-      "display" : "Vietnamese D\u0017a;\u0019ng",
+      "display" : "Vietnamese đồng",
       "designation" : [{
-        "value" : "Vietnamese D\u0017a;\u0019ng"
+        "value" : "Vietnamese đồng"
       }]
     },
     {

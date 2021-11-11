@@ -13,8 +13,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:f6b24c1b-825e-4125-b3ed-07b7d23efbba",
-    "timestamp" : "2021-11-02T21:34:36.808Z",
+    "identifier" : "urn:uuid:5ab1c752-3603-4e42-8d9a-3caeab55c434",
+    "timestamp" : "2021-10-11T22:39:24.104Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -10260,7 +10260,7 @@ e: {
   "system" : "http://nucc.org/provider-taxonomy",
   "code" : "207RI0011X",
   "display" : "Interventional Cardiology"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Interventional Cardiology Physician",
   "code" : "207RI0011X",

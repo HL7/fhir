@@ -8,67 +8,77 @@
   }
 }}####
 e: {
-  "error" : "Error from server: fdb_sqlite3_objects error: no such column: cui1"
+  "error" : "Error from server: [Microsoft][SQL Server Native Client 11.0][SQL Server]Invalid column name 'cui1'."
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "200371"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "citalopram 20 MG Oral Tablet",
   "code" : "200371",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "2556"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "citalopram",
   "code" : "2556",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "1155608",
   "display" : "alteplase injectable product"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "alteplase Injectable Product",
   "code" : "1155608",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "1160593",
   "display" : "cashew nut allergenic extract Injectable Product"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "cashew nut allergenic extract Injectable Product",
   "code" : "1160593",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "7980",
   "display" : "Penicillin G"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "penicillin G",
   "code" : "7980",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "562721",
   "display" : "Alprazolam 0.25mg (Xanax)"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "amylase / cellulase / hyoscyamine / lipase / phenyltoloxamine / protease Oral Capsule",
   "code" : "562721",
@@ -81,7 +91,7 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "203151",
   "display" : "Gemfibrozil"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "fenoldopam mesylate",
   "code" : "203151",
@@ -94,18 +104,20 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "8410",
   "display" : "alteplase"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "alteplase",
   "code" : "8410",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "213293",
   "display" : "Capecitabine 500mg oral tablet (Xeloda)"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "capecitabine 500 MG Oral Tablet [Xeloda]",
   "code" : "213293",
@@ -118,40 +130,46 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "66955",
   "display" : "Vancomycin Hydrochloride"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "vancomycin hydrochloride",
   "code" : "66955",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "203134",
   "display" : "Piperacillin Sodium"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "piperacillin sodium",
   "code" : "203134",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "221167",
   "display" : "Tazobactam Sodium"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "tazobactam sodium",
   "code" : "221167",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "1594660",
   "display" : "Alemtuzumab 10mg/ml (Lemtrada)"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "alemtuzumab 10 MG/ML [Lemtrada]",
   "code" : "1594660",
@@ -164,7 +182,7 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "82063",
   "display" : "Oxycodone HCl"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "oxycodone hydrochloride",
   "code" : "82063",
@@ -177,40 +195,46 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "161",
   "display" : "Acetaminophen"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "acetaminophen",
   "code" : "161",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "315266",
   "display" : "Acetaminophen 500 MG"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "acetaminophen 500 MG",
   "code" : "315266",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "901813",
   "display" : "Diphenhydramine Hydrochloride 25 mg"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "diphenhydramine hydrochloride 25 MG",
   "code" : "901813",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "308047",
   "display" : "Alprazolam 0.25mg Oral Tablet"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "alprazolam 0.25 MG Oral Tablet",
   "code" : "308047",
@@ -223,7 +247,7 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "358793",
   "display" : "Mometasone Furoate 0.05mg/Actuat"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "mometasone furoate 0.05 MG/ACTUAT",
   "code" : "358793",
@@ -236,7 +260,7 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "204520",
   "display" : "Potassium Chloride"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "potassium chloride 2 MEQ/ML Injectable Solution",
   "code" : "204520",
@@ -249,7 +273,7 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "313002",
   "display" : "Sodium Chloride 0.9% injectable solution"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "sodium chloride 9 MG/ML Injectable Solution",
   "code" : "313002",
@@ -262,7 +286,7 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "285018",
   "display" : "Lantus 100 unit/ml injectable solution"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "insulin glargine 100 UNT/ML Injectable Solution [Lantus]",
   "code" : "285018",
@@ -275,7 +299,7 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "1049623",
   "display" : "Oxycodone Hydrochloride 5mg oral tablet (Roxicodone"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "oxycodone hydrochloride 5 MG Oral Tablet [Roxicodone]",
   "code" : "1049623",
@@ -288,7 +312,7 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "763179",
   "display" : "Prednisone 5mg Oral Tablet 48 Count Pack"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "{48 (prednisone 5 MG Oral Tablet) } Pack",
   "code" : "763179",
@@ -301,7 +325,7 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "206819",
   "display" : "Lorazepam 2mg/ml Injectable Solution (Ativan)"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "lorazepam 2 MG/ML Injectable Solution [Ativan]",
   "code" : "206819",
@@ -314,18 +338,20 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "884375",
   "display" : "Nystex 100,000 UNT/GM Topical Ointment"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "nystatin 100 UNT/MG Topical Ointment [Nystex]",
   "code" : "884375",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "226827",
   "display" : "Azithromycin 500mg oral tablet (Zithromax)"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "azithromycin 500 MG Oral Tablet [Zithromax]",
   "code" : "226827",
@@ -338,7 +364,7 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "746763",
   "display" : "Proventil 0.09mg/actuat (Albuterol sulfate 0.108mg/actuat from mouthpiece)"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "NDA020503 200 ACTUAT albuterol 0.09 MG/ACTUAT Metered Dose Inhaler [Proventil]",
   "code" : "746763",
@@ -351,7 +377,7 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "1797870",
   "display" : "Nasonex 0.05mg/ACTUAT Nasal Inhaler"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "mometasone furoate 0.05 MG/ACTUAT Metered Dose Nasal Spray [Nasonex]",
   "code" : "1797870",
@@ -364,7 +390,7 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "856907",
   "display" : "Vicodin 5/500 Oral Tablet"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "acetaminophen 500 MG / hydrocodone bitartrate 5 MG Oral Tablet [Vicodin]",
   "code" : "856907",
@@ -377,7 +403,7 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "1313112",
   "display" : "Phenytoin 25mg/ml oral suspension"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "phenytoin 25 MG/ML Oral Suspension",
   "code" : "1313112",
@@ -390,7 +416,7 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "884308",
   "display" : "Nystatin 100UNT/MG Topical Ointment"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "nystatin 100 UNT/MG Topical Ointment",
   "code" : "884308",
@@ -403,7 +429,7 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "746763",
   "display" : "Proventil HFA 90mcg/actuat metered dose inhaler, 200 actuat"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "NDA020503 200 ACTUAT albuterol 0.09 MG/ACTUAT Metered Dose Inhaler [Proventil]",
   "code" : "746763",
@@ -416,18 +442,20 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "114194",
   "display" : "Warfarin Sodium"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "warfarin sodium",
   "code" : "114194",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "1114879",
   "display" : "Dopamine"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "dopamine hydrochloride 40 MG/ML",
   "code" : "1114879",
@@ -440,71 +468,85 @@ v: {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "12574",
   "display" : "gemcitabine"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "gemcitabine",
   "code" : "12574",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "40048",
   "display" : "Carboplatin"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "carboplatin",
   "code" : "40048",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "866426"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "metoprolol tartrate 25 MG",
   "code" : "866426",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "6918"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "metoprolol",
   "code" : "6918",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "866435"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "metoprolol tartrate 50 MG",
   "code" : "866435",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "316365"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "nitroglycerin 0.4 MG",
   "code" : "316365",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
   "code" : "4917"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "nitroglycerin",
   "code" : "4917",
-  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm"
+  "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------

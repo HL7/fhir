@@ -13,8 +13,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:0dd31bf6-ce53-456e-ae9d-d91858f85f24",
-    "timestamp" : "2021-11-02T21:21:29.763Z",
+    "identifier" : "urn:uuid:d3e09bc2-131e-4a87-a665-6bf9e3a6a80a",
+    "timestamp" : "2021-10-11T22:20:15.024Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -39,7 +39,7 @@ e: {
         "value" : "adenovirus vaccine, type 4, live, oral"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "adenovirus, type 4"
       }]
     },
@@ -51,7 +51,7 @@ e: {
         "value" : "adenovirus vaccine, type 7, live, oral"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "adenovirus, type 7"
       }]
     },
@@ -63,7 +63,7 @@ e: {
         "value" : "adenovirus vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "adenovirus, unspecified formulation"
       }]
     },
@@ -75,7 +75,7 @@ e: {
         "value" : "anthrax vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "anthrax"
       }]
     },
@@ -87,7 +87,7 @@ e: {
         "value" : "Bacillus Calmette-Guerin vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "BCG"
       }]
     },
@@ -107,7 +107,7 @@ e: {
         "value" : "cholera vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "cholera, unspecified formulation"
       }]
     },
@@ -119,7 +119,7 @@ e: {
         "value" : "cytomegalovirus immune globulin, intravenous"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "CMVIG"
       }]
     },
@@ -131,7 +131,7 @@ e: {
         "value" : "dengue fever vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "dengue fever"
       }]
     },
@@ -151,7 +151,7 @@ e: {
         "value" : "diphtheria and tetanus toxoids, adsorbed for pediatric use"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DT (pediatric)"
       }]
     },
@@ -163,7 +163,7 @@ e: {
         "value" : "diphtheria, tetanus toxoids and acellular pertussis vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP"
       }]
     },
@@ -175,7 +175,7 @@ e: {
         "value" : "diphtheria, tetanus toxoids and acellular pertussis vaccine, 5 pertussis antigens"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP, 5 pertussis antigens"
       }]
     },
@@ -187,7 +187,7 @@ e: {
         "value" : "diphtheria, tetanus toxoids and acellular pertussis vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP, unspecified formulation"
       }]
     },
@@ -199,7 +199,7 @@ e: {
         "value" : "DTaP-hepatitis B and poliovirus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP-Hep B-IPV"
       }]
     },
@@ -211,7 +211,7 @@ e: {
         "value" : "DTaP-Haemophilus influenzae type b conjugate vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP-Hib"
       }]
     },
@@ -223,7 +223,7 @@ e: {
         "value" : "diphtheria, tetanus toxoids and acellular pertussis vaccine, Haemophilus influenzae type b conjugate, and poliovirus vaccine, inactivated (DTaP-Hib-IPV)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP-Hib-IPV"
       }]
     },
@@ -235,7 +235,7 @@ e: {
         "value" : "Diphtheria, tetanus toxoids and acellular pertussis vaccine, and poliovirus vaccine, inactivated"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP-IPV"
       }]
     },
@@ -247,7 +247,7 @@ e: {
         "value" : "diphtheria, tetanus toxoids and pertussis vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTP"
       }]
     },
@@ -259,7 +259,7 @@ e: {
         "value" : "DTP-Haemophilus influenzae type b conjugate vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTP-Hib"
       }]
     },
@@ -271,7 +271,7 @@ e: {
         "value" : "DTP- Haemophilus influenzae type b conjugate and hepatitis b vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTP-Hib-Hep B"
       }]
     },
@@ -283,7 +283,7 @@ e: {
         "value" : "hantavirus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "hantavirus"
       }]
     },
@@ -295,7 +295,7 @@ e: {
         "value" : "hepatitis A vaccine, adult dosage"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A, adult"
       }]
     },
@@ -307,7 +307,7 @@ e: {
         "value" : "hepatitis A vaccine, pediatric/adolescent dosage, 2 dose schedule"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A, ped/adol, 2 dose"
       }]
     },
@@ -319,7 +319,7 @@ e: {
         "value" : "hepatitis A vaccine, pediatric/adolescent dosage, 3 dose schedule"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A, ped/adol, 3 dose"
       }]
     },
@@ -331,7 +331,7 @@ e: {
         "value" : "hepatitis A vaccine, pediatric dosage, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A, pediatric, unspecified formulation"
       }]
     },
@@ -343,7 +343,7 @@ e: {
         "value" : "hepatitis A vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A, unspecified formulation"
       }]
     },
@@ -355,7 +355,7 @@ e: {
         "value" : "hepatitis A and hepatitis B vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A-Hep B"
       }]
     },
@@ -367,7 +367,7 @@ e: {
         "value" : "hepatitis B immune globulin"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "HBIG"
       }]
     },
@@ -379,7 +379,7 @@ e: {
         "value" : "hepatitis B vaccine, pediatric or pediatric/adolescent dosage"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep B, adolescent or pediatric"
       }]
     },
@@ -391,7 +391,7 @@ e: {
         "value" : "hepatitis B vaccine, adolescent/high risk infant dosage"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep B, adolescent/high risk infant"
       }]
     },
@@ -403,7 +403,7 @@ e: {
         "value" : "hepatitis B vaccine, adult dosage"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep B, adult"
       }]
     },
@@ -415,7 +415,7 @@ e: {
         "value" : "hepatitis B vaccine, dialysis patient dosage"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep B, dialysis"
       }]
     },
@@ -427,7 +427,7 @@ e: {
         "value" : "hepatitis B vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep B, unspecified formulation"
       }]
     },
@@ -439,7 +439,7 @@ e: {
         "value" : "hepatitis C vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep C"
       }]
     },
@@ -451,7 +451,7 @@ e: {
         "value" : "hepatitis E vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep E"
       }]
     },
@@ -463,7 +463,7 @@ e: {
         "value" : "herpes simplex virus, type 2 vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "herpes simplex 2"
       }]
     },
@@ -475,7 +475,7 @@ e: {
         "value" : "Haemophilus influenzae type b vaccine, PRP-D conjugate"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hib (PRP-D)"
       }]
     },
@@ -487,7 +487,7 @@ e: {
         "value" : "Haemophilus influenzae type b vaccine, HbOC conjugate"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hib (HbOC)"
       }]
     },
@@ -499,7 +499,7 @@ e: {
         "value" : "Haemophilus influenzae type b vaccine, PRP-T conjugate"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hib (PRP-T)"
       }]
     },
@@ -511,7 +511,7 @@ e: {
         "value" : "Haemophilus influenzae type b vaccine, PRP-OMP conjugate"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hib (PRP-OMP)"
       }]
     },
@@ -523,7 +523,7 @@ e: {
         "value" : "Haemophilus influenzae type b vaccine, conjugate unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hib, unspecified formulation"
       }]
     },
@@ -535,7 +535,7 @@ e: {
         "value" : "Haemophilus influenzae type b conjugate and Hepatitis B vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hib-Hep B"
       }]
     },
@@ -547,7 +547,7 @@ e: {
         "value" : "human immunodeficiency virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "HIV"
       }]
     },
@@ -559,7 +559,7 @@ e: {
         "value" : "human papilloma virus vaccine, bivalent"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "HPV, bivalent"
       }]
     },
@@ -571,7 +571,7 @@ e: {
         "value" : "human papilloma virus vaccine, quadrivalent"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "HPV, quadrivalent"
       }]
     },
@@ -583,7 +583,7 @@ e: {
         "value" : "immune globulin, intramuscular"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "IG"
       }]
     },
@@ -595,7 +595,7 @@ e: {
         "value" : "immune globulin, intravenous"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "IGIV"
       }]
     },
@@ -607,7 +607,7 @@ e: {
         "value" : "immune globulin, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "IG, unspecified formulation"
       }]
     },
@@ -619,7 +619,7 @@ e: {
         "value" : "influenza virus vaccine, live, attenuated, for intranasal use"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, live, intranasal"
       }]
     },
@@ -631,7 +631,7 @@ e: {
         "value" : "influenza virus vaccine, split virus (incl. purified surface antigen)-retired CODE"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, split (incl. purified surface antigen)"
       }]
     },
@@ -643,7 +643,7 @@ e: {
         "value" : "influenza virus vaccine, whole virus"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, whole"
       }]
     },
@@ -655,7 +655,7 @@ e: {
         "value" : "influenza virus vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, unspecified formulation"
       }]
     },
@@ -667,7 +667,7 @@ e: {
         "value" : "influenza virus vaccine, H5N1, A/Vietnam/1203/2004 (national stockpile)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, H5N1-1203"
       }]
     },
@@ -679,7 +679,7 @@ e: {
         "value" : "poliovirus vaccine, inactivated"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "IPV"
       }]
     },
@@ -691,7 +691,7 @@ e: {
         "value" : "trivalent poliovirus vaccine, live, oral"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "OPV"
       }]
     },
@@ -703,7 +703,7 @@ e: {
         "value" : "poliovirus vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "polio, unspecified formulation"
       }]
     },
@@ -715,7 +715,7 @@ e: {
         "value" : "Japanese Encephalitis Vaccine SC"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Japanese encephalitis SC"
       }]
     },
@@ -727,7 +727,7 @@ e: {
         "value" : "Junin virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Junin virus"
       }]
     },
@@ -739,7 +739,7 @@ e: {
         "value" : "leishmaniasis vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "leishmaniasis"
       }]
     },
@@ -751,7 +751,7 @@ e: {
         "value" : "leprosy vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "leprosy"
       }]
     },
@@ -763,7 +763,7 @@ e: {
         "value" : "Lyme disease vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Lyme disease"
       }]
     },
@@ -775,7 +775,7 @@ e: {
         "value" : "measles, mumps and rubella virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "MMR"
       }]
     },
@@ -787,7 +787,7 @@ e: {
         "value" : "measles and rubella virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "M/R"
       }]
     },
@@ -799,7 +799,7 @@ e: {
         "value" : "measles, mumps, rubella, and varicella virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "MMRV"
       }]
     },
@@ -811,7 +811,7 @@ e: {
         "value" : "malaria vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "malaria"
       }]
     },
@@ -823,7 +823,7 @@ e: {
         "value" : "measles virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "measles"
       }]
     },
@@ -835,7 +835,7 @@ e: {
         "value" : "melanoma vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "melanoma"
       }]
     },
@@ -847,7 +847,7 @@ e: {
         "value" : "meningococcal polysaccharide vaccine (MPSV4)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal MPSV4"
       }]
     },
@@ -859,7 +859,7 @@ e: {
         "value" : "meningococcal C conjugate vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal C conjugate"
       }]
     },
@@ -871,7 +871,7 @@ e: {
         "value" : "meningococcal polysaccharide (groups A, C, Y and W-135) diphtheria toxoid conjugate vaccine (MCV4P)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal MCV4P"
       }]
     },
@@ -883,7 +883,7 @@ e: {
         "value" : "meningococcal ACWY vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal ACWY, unspecified formulation"
       }]
     },
@@ -895,7 +895,7 @@ e: {
         "value" : "mumps virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "mumps"
       }]
     },
@@ -907,7 +907,7 @@ e: {
         "value" : "parainfluenza-3 virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "parainfluenza-3"
       }]
     },
@@ -919,7 +919,7 @@ e: {
         "value" : "pertussis vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "pertussis"
       }]
     },
@@ -931,7 +931,7 @@ e: {
         "value" : "plague vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "plague"
       }]
     },
@@ -943,7 +943,7 @@ e: {
         "value" : "pneumococcal polysaccharide vaccine, 23 valent"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "pneumococcal polysaccharide PPV23"
       }]
     },
@@ -955,7 +955,7 @@ e: {
         "value" : "pneumococcal conjugate vaccine, 7 valent"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "pneumococcal conjugate PCV 7"
       }]
     },
@@ -967,7 +967,7 @@ e: {
         "value" : "pneumococcal vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "pneumococcal, unspecified formulation"
       }]
     },
@@ -979,7 +979,7 @@ e: {
         "value" : "Q fever vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Q fever"
       }]
     },
@@ -991,7 +991,7 @@ e: {
         "value" : "rabies vaccine, for intramuscular injection RETIRED CODE"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rabies, intramuscular injection"
       }]
     },
@@ -1003,7 +1003,7 @@ e: {
         "value" : "rabies vaccine, for intradermal injection"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rabies, intradermal injection"
       }]
     },
@@ -1015,7 +1015,7 @@ e: {
         "value" : "rabies vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rabies, unspecified formulation"
       }]
     },
@@ -1027,7 +1027,7 @@ e: {
         "value" : "rheumatic fever vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rheumatic fever"
       }]
     },
@@ -1039,7 +1039,7 @@ e: {
         "value" : "Rift Valley fever vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Rift Valley fever"
       }]
     },
@@ -1051,7 +1051,7 @@ e: {
         "value" : "rabies immune globulin"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "RIG"
       }]
     },
@@ -1063,7 +1063,7 @@ e: {
         "value" : "rotavirus, live, monovalent vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rotavirus, monovalent"
       }]
     },
@@ -1075,7 +1075,7 @@ e: {
         "value" : "rotavirus vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rotavirus, unspecified formulation"
       }]
     },
@@ -1087,7 +1087,7 @@ e: {
         "value" : "rotavirus, live, pentavalent vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rotavirus, pentavalent"
       }]
     },
@@ -1099,7 +1099,7 @@ e: {
         "value" : "rotavirus, live, tetravalent vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rotavirus, tetravalent"
       }]
     },
@@ -1111,7 +1111,7 @@ e: {
         "value" : "respiratory syncytial virus immune globulin, intravenous"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "RSV-IGIV"
       }]
     },
@@ -1123,7 +1123,7 @@ e: {
         "value" : "respiratory syncytial virus monoclonal antibody (palivizumab), intramuscular"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "RSV-MAb"
       }]
     },
@@ -1135,7 +1135,7 @@ e: {
         "value" : "rubella virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rubella"
       }]
     },
@@ -1147,7 +1147,7 @@ e: {
         "value" : "rubella and mumps virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rubella/mumps"
       }]
     },
@@ -1159,7 +1159,7 @@ e: {
         "value" : "Staphylococcus bacteriophage lysate"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Staphylococcus bacterio lysate"
       }]
     },
@@ -1171,7 +1171,7 @@ e: {
         "value" : "tetanus and diphtheria toxoids, adsorbed, preservative free, for adult use (5 Lf of tetanus toxoid and 2 Lf of diphtheria toxoid)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Td (adult), 5 Lf tetanus toxoid, preservative free, adsorbed"
       }]
     },
@@ -1183,7 +1183,7 @@ e: {
         "value" : "tetanus and diphtheria toxoids, adsorbed, preservative free, for adult use (2 Lf of tetanus toxoid and 2 Lf of diphtheria toxoid)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Td (adult), 2 Lf tetanus toxoid, preservative free, adsorbed"
       }]
     },
@@ -1195,7 +1195,7 @@ e: {
         "value" : "tetanus toxoid, reduced diphtheria toxoid, and acellular pertussis vaccine, adsorbed"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Tdap"
       }]
     },
@@ -1223,7 +1223,7 @@ e: {
         "value" : "tick-borne encephalitis vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "tick-borne encephalitis"
       }]
     },
@@ -1235,7 +1235,7 @@ e: {
         "value" : "tetanus immune globulin"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "TIG"
       }]
     },
@@ -1247,7 +1247,7 @@ e: {
         "value" : "tuberculin skin test; old tuberculin, multipuncture device"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "TST-OT tine test"
       }]
     },
@@ -1259,7 +1259,7 @@ e: {
         "value" : "tuberculin skin test; purified protein derivative solution, intradermal"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "TST-PPD intradermal"
       }]
     },
@@ -1271,7 +1271,7 @@ e: {
         "value" : "tuberculin skin test; purified protein derivative, multipuncture device"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "TST-PPD tine test"
       }]
     },
@@ -1283,7 +1283,7 @@ e: {
         "value" : "tuberculin skin test; unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "TST, unspecified formulation"
       }]
     },
@@ -1303,7 +1303,7 @@ e: {
         "value" : "typhoid vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "typhoid, unspecified formulation"
       }]
     },
@@ -1315,7 +1315,7 @@ e: {
         "value" : "typhoid vaccine, live, oral"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "typhoid, oral"
       }]
     },
@@ -1327,7 +1327,7 @@ e: {
         "value" : "typhoid vaccine, parenteral, other than acetone-killed, dried"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "typhoid, parenteral"
       }]
     },
@@ -1339,7 +1339,7 @@ e: {
         "value" : "typhoid vaccine, parenteral, acetone-killed, dried (U.S. military)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "typhoid, parenteral, AKD (U.S. military)"
       }]
     },
@@ -1351,7 +1351,7 @@ e: {
         "value" : "typhoid Vi capsular polysaccharide vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "typhoid, ViCPs"
       }]
     },
@@ -1363,7 +1363,7 @@ e: {
         "value" : "vaccinia (smallpox) vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "vaccinia (smallpox)"
       }]
     },
@@ -1375,7 +1375,7 @@ e: {
         "value" : "vaccinia (smallpox) vaccine, diluted"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "vaccinia (smallpox) diluted"
       }]
     },
@@ -1395,7 +1395,7 @@ e: {
         "value" : "varicella virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "varicella"
       }]
     },
@@ -1407,7 +1407,7 @@ e: {
         "value" : "Venezuelan equine encephalitis, inactivated"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "VEE, inactivated"
       }]
     },
@@ -1419,7 +1419,7 @@ e: {
         "value" : "Venezuelan equine encephalitis, live, attenuated"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "VEE, live"
       }]
     },
@@ -1431,7 +1431,7 @@ e: {
         "value" : "Venezuelan equine encephalitis vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "VEE, unspecified formulation"
       }]
     },
@@ -1443,7 +1443,7 @@ e: {
         "value" : "varicella zoster immune globulin"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "VZIG"
       }]
     },
@@ -1455,7 +1455,7 @@ e: {
         "value" : "varicella zoster immune globulin (Investigational New Drug)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "VZIG (IND)"
       }]
     },
@@ -1467,7 +1467,7 @@ e: {
         "value" : "yellow fever vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "yellow fever"
       }]
     },
@@ -1479,7 +1479,7 @@ e: {
         "value" : "zoster vaccine, live"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "zoster live"
       }]
     },
@@ -1499,7 +1499,7 @@ e: {
         "value" : "unknown vaccine or immune globulin"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "unknown"
       }]
     },
@@ -1519,7 +1519,7 @@ e: {
         "value" : "pneumococcal conjugate vaccine, 13 valent"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Pneumococcal conjugate PCV 13"
       }]
     },
@@ -1531,7 +1531,7 @@ e: {
         "value" : "Japanese Encephalitis vaccine for intramuscular administration"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Japanese Encephalitis IM"
       }]
     },
@@ -1551,7 +1551,7 @@ e: {
         "value" : "meningococcal oligosaccharide (groups A, C, Y and W-135) diphtheria toxoid conjugate vaccine (MCV4O)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Meningococcal MCV4O"
       }]
     },
@@ -1563,7 +1563,7 @@ e: {
         "value" : "influenza, high dose seasonal, preservative-free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Influenza, high dose seasonal"
       }]
     },
@@ -1575,7 +1575,7 @@ e: {
         "value" : "Historical record of a typhus vaccination"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "typhus, historical"
       }]
     },
@@ -1587,7 +1587,7 @@ e: {
         "value" : "Historical diphtheria and tetanus toxoids and acellular pertussis, poliovirus, Haemophilus b conjugate and hepatitis B (recombinant) vaccine."
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP-IPV-HIB-HEP B, historical"
       }]
     },
@@ -1599,7 +1599,7 @@ e: {
         "value" : "Novel influenza-H1N1-09, all formulations"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Novel Influenza-H1N1-09, all formulations"
       }]
     },
@@ -1611,7 +1611,7 @@ e: {
         "value" : "Novel Influenza-H1N1-09, live virus for nasal administration"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Novel Influenza-H1N1-09, nasal"
       }]
     },
@@ -1623,7 +1623,7 @@ e: {
         "value" : "Novel influenza-H1N1-09, preservative-free, injectable"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Novel influenza-H1N1-09, preservative-free"
       }]
     },
@@ -1635,7 +1635,7 @@ e: {
         "value" : "Novel influenza-H1N1-09, injectable"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Novel influenza-H1N1-09"
       }]
     },
@@ -1647,7 +1647,7 @@ e: {
         "value" : "tetanus and diphtheria toxoids, not adsorbed, for adult use"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Td (adult)"
       }]
     },
@@ -1675,7 +1675,7 @@ e: {
         "value" : "Japanese Encephalitis vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Japanese Encephalitis, unspecified formulation"
       }]
     },
@@ -1703,7 +1703,7 @@ e: {
         "value" : "Adenovirus, type 4 and type 7, live, oral"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Adenovirus types 4 and 7"
       }]
     },
@@ -1715,7 +1715,7 @@ e: {
         "value" : "seasonal influenza, intradermal, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, seasonal, intradermal, preservative free"
       }]
     },
@@ -1727,7 +1727,7 @@ e: {
         "value" : "respiratory syncytial virus monoclonal antibody (motavizumab), intramuscular"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "RSV-MAb (new)"
       }]
     },
@@ -1739,7 +1739,7 @@ e: {
         "value" : "Diphtheria and Tetanus Toxoids and Acellular Pertussis Adsorbed, Inactivated Poliovirus, Haemophilus b Conjugate (Meningococcal Protein Conjugate), and Hepatitis B (Recombinant) Vaccine."
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP,IPV,Hib,HepB"
       }]
     },
@@ -1751,7 +1751,7 @@ e: {
         "value" : "Meningococcal, MCV4, unspecified conjugate formulation(groups A, C, Y and W-135)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal MCV4, unspecified formulation"
       }]
     },
@@ -1763,7 +1763,7 @@ e: {
         "value" : "Meningococcal Groups C and Y and Haemophilus b Tetanus Toxoid Conjugate Vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Meningococcal C/Y-HIB PRP"
       }]
     },
@@ -1783,7 +1783,7 @@ e: {
         "value" : "Influenza, injectable, quadrivalent, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, injectable, quadrivalent, preservative free"
       }]
     },
@@ -1811,7 +1811,7 @@ e: {
         "value" : "Influenza, injectable, Madin Darby Canine Kidney, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Influenza, injectable, MDCK, preservative free"
       }]
     },
@@ -1823,7 +1823,7 @@ e: {
         "value" : "Hepatitis A immune globulin"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A, IG"
       }]
     },
@@ -1835,7 +1835,7 @@ e: {
         "value" : "Seasonal, trivalent, recombinant, injectable influenza vaccine, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, recombinant, injectable, preservative free"
       }]
     },
@@ -1847,7 +1847,7 @@ e: {
         "value" : "Rho(D) Immune globulin- IV or IM"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Rho(D)-IG"
       }]
     },
@@ -1859,7 +1859,7 @@ e: {
         "value" : "Rho(D) Immune globulin - IM"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Rho(D) -IG IM"
       }]
     },
@@ -1871,7 +1871,7 @@ e: {
         "value" : "influenza, injectable, quadrivalent, contains preservative"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, injectable, quadrivalent"
       }]
     },
@@ -1883,7 +1883,7 @@ e: {
         "value" : "Rho(D) Unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Rho(D) - Unspecified formulation"
       }]
     },
@@ -1895,7 +1895,7 @@ e: {
         "value" : "Influenza A monovalent (H5N1), adjuvanted, National stockpile 2013"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Influenza A monovalent (H5N1), ADJUVANTED-2013"
       }]
     },
@@ -1923,7 +1923,7 @@ e: {
         "value" : "meningococcal B vaccine, fully recombinant"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal B, recombinant"
       }]
     },
@@ -1935,7 +1935,7 @@ e: {
         "value" : "meningococcal B vaccine, recombinant, OMV, adjuvanted"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal B, OMV"
       }]
     },
@@ -1947,7 +1947,7 @@ e: {
         "value" : "meningococcal B, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal B, unspecified"
       }]
     },
@@ -1959,7 +1959,7 @@ e: {
         "value" : "Human Papillomavirus 9-valent vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "HPV9"
       }]
     },
@@ -1971,7 +1971,7 @@ e: {
         "value" : "influenza, intradermal, quadrivalent, preservative free, injectable"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, intradermal, quadrivalent, preservative free"
       }]
     },
@@ -1983,7 +1983,7 @@ e: {
         "value" : "meningococcal vaccine of unknown formulation and unknown serogroups"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal, unknown serogroups"
       }]
     },
@@ -1995,7 +1995,7 @@ e: {
         "value" : "Seasonal trivalent influenza vaccine, adjuvanted, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, trivalent, adjuvanted"
       }]
     },
@@ -2007,7 +2007,7 @@ e: {
         "value" : "Hep A, live attenuated-IM"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A, live attenuated"
       }]
     },
@@ -2019,7 +2019,7 @@ e: {
         "value" : "non-US diphtheria, tetanus toxoids and acellular pertussis vaccine, Haemophilus influenzae type b conjugate, and poliovirus vaccine, inactivated (DTaP-Hib-IPV)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTAP/IPV/HIB - non-US"
       }]
     },
@@ -2031,7 +2031,7 @@ e: {
         "value" : "Influenza, injectable, Madin Darby Canine Kidney, preservative free, quadrivalent"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Influenza, injectable, MDCK, preservative free, quadrivalent"
       }]
     },
@@ -2067,7 +2067,7 @@ e: {
         "value" : "Human Rabies vaccine from human diploid cell culture"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Rabies - IM Diploid cell culture"
       }]
     },
@@ -2079,7 +2079,7 @@ e: {
         "value" : "Human rabies vaccine from Chicken fibroblast culture"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Rabies - IM fibroblast culture"
       }]
     },
@@ -2091,7 +2091,7 @@ e: {
         "value" : "pneumococcal conjugate vaccine, 10 valent"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "PCV10"
       }]
     },
@@ -2103,7 +2103,7 @@ e: {
         "value" : "Non-US bivalent oral polio vaccine (types 1 and 3)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "OPV bivalent"
       }]
     },
@@ -2115,7 +2115,7 @@ e: {
         "value" : "Non-US monovalent oral polio vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "OPV ,monovalent, unspecified"
       }]
     },
@@ -2143,7 +2143,7 @@ e: {
         "value" : "Oral Polio Vaccine, Unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "OPV, Unspecified"
       }]
     },
@@ -2155,7 +2155,7 @@ e: {
         "value" : "Yellow fever vaccine alternative formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Yellow fever vaccine - alt"
       }]
     },
@@ -2167,7 +2167,7 @@ e: {
         "value" : "Yellow fever vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Yellow fever, unspecified formulation"
       }]
     },
@@ -2179,7 +2179,7 @@ e: {
         "value" : "Seasonal, quadrivalent, recombinant, injectable influenza vaccine, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, recombinant, quadrivalent,injectable, preservative free"
       }]
     },
@@ -2191,7 +2191,7 @@ e: {
         "value" : "Influenza, injectable, Madin Darby Canine Kidney,  quadrivalent with preservative"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Influenza, injectable, MDCK, quadrivalent, preservative"
       }]
     },
@@ -2203,7 +2203,7 @@ e: {
         "value" : "zoster vaccine recombinant"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "zoster recombinant"
       }]
     },
@@ -2215,7 +2215,7 @@ e: {
         "value" : "zoster vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "zoster, unspecified formulation"
       }]
     },
@@ -2227,7 +2227,7 @@ e: {
         "value" : "Hepatitis B vaccine (recombinant), CpG adjuvanted"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "HepB-CpG"
       }]
     },
@@ -2239,7 +2239,7 @@ e: {
         "value" : "Typhoid conjugate vaccine (non-US)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Typhoid conjugate vaccine (TCV)"
       }]
     },
@@ -2251,7 +2251,7 @@ e: {
         "value" : "meningococcal A polysaccharide vaccine (non-US)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal A polysaccharide (non-US)"
       }]
     },
@@ -2263,7 +2263,7 @@ e: {
         "value" : "meningococcal AC polysaccharide vaccine (non-US)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal AC polysaccharide (non-US)"
       }]
     },
@@ -2275,7 +2275,7 @@ e: {
         "value" : "hepatitis A and hepatitis B vaccine, pediatric/adolescent (non-US)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A-Hep B, pediatric/adolescent"
       }]
     },
@@ -2287,7 +2287,7 @@ e: {
         "value" : "influenza, Southern Hemisphere, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Influenza, Southern Hemisphere"
       }]
     },
@@ -2299,7 +2299,7 @@ e: {
         "value" : "Diphtheria, Tetanus, Poliomyelitis adsorbed"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DT, IPV adsorbed"
       }]
     },
@@ -2311,7 +2311,7 @@ e: {
         "value" : "tetanus and diphtheria toxoids, adsorbed, preservative free, for adult use, Lf unspecified"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Td, adsorbed, preservative free, adult use, Lf unspecified"
       }]
     },
@@ -2323,7 +2323,7 @@ e: {
         "value" : "influenza, high-dose seasonal, quadrivalent, .7mL dose, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, high-dose, quadrivalent"
       }]
     },
@@ -2335,7 +2335,7 @@ e: {
         "value" : "influenza, seasonal, Southern Hemisphere, quadrivalent, pediatric 0.25mL dose, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, Southern Hemisphere, pediatric, preservative free"
       }]
     },
@@ -2347,7 +2347,7 @@ e: {
         "value" : "influenza, seasonal, Southern Hemisphere, quadrivalent, 0.5mL dose, no preservative"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, Southern Hemisphere, preservative free"
       }]
     },
@@ -2359,7 +2359,7 @@ e: {
         "value" : "influenza, seasonal, Southern Hemisphere, quadrivalent, 0.5mL dose, with preservative"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, Southern Hemisphere, quadrivalent, with preservative"
       }]
     },
@@ -2371,7 +2371,7 @@ e: {
         "value" : "Diphtheria, pertussis, tetanus, hepatitis B, Haemophilus Influenza Type b, (Pentavalent)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTP-hepB-Hib Pentavalent Non-US"
       }]
     },
@@ -2383,7 +2383,7 @@ e: {
         "value" : "meningococcal polysaccharide (groups A, C, Y, W-135) tetanus toxoid conjugate vaccine .5mL dose, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal polysaccharide (groups A, C, Y, W-135) TT conjugate"
       }]
     },
@@ -2395,7 +2395,7 @@ e: {
         "value" : "influenza, seasonal vaccine, quadrivalent, adjuvanted, .5mL dose, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Influenza vaccine, quadrivalent, adjuvanted"
       }]
     },
@@ -2407,7 +2407,7 @@ e: {
         "value" : "smallpox monkeypox vaccine, live attenuated, preservative free (National Stockpile)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Smallpox monkeypox vaccine (National Stockpile)"
       }]
     },
@@ -2419,7 +2419,7 @@ e: {
         "value" : "SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein, LNP, preservative free, 100 mcg/0.5mL dose"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "COVID-19, mRNA, LNP-S, PF, 100 mcg/0.5 mL dose"
       }]
     },
@@ -2431,7 +2431,7 @@ e: {
         "value" : "SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein, LNP, preservative free, 30 mcg/0.3mL dose"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "COVID-19, mRNA, LNP-S, PF, 30 mcg/0.3 mL dose"
       }]
     },
@@ -2451,7 +2451,7 @@ e: {
         "value" : "SARS-COV-2 (COVID-19) vaccine, vector non-replicating, recombinant spike protein-ChAdOx1, preservative free, 0.5 mL"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "COVID-19 vaccine, vector-nr, rS-ChAdOx1, PF, 0.5 mL"
       }]
     },
@@ -2463,7 +2463,7 @@ e: {
         "value" : "SARS-COV-2 (COVID-19) vaccine, vector non-replicating, recombinant spike protein-Ad26, preservative free, 0.5 ml"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "COVID-19 vaccine, vector-nr, rS-Ad26, PF, 0.5 mL"
       }]
     },
@@ -2472,6 +2472,10 @@ e: {
       "code" : "204",
       "display" : "Ebola Zaire vaccine, live, recombinant, 1mL dose",
       "designation" : [{
+        "value" : "Ebola Zaire vaccine, live, recombinant, 1mL dose"
+      },
+      {
+        "language" : "en-US",
         "value" : "Ebola Zaire vaccine, live, recombinant, 1mL dose"
       }]
     },
@@ -2491,7 +2495,7 @@ e: {
         "value" : "SARS-COV-2 (COVID-19) vaccine, Subunit, recombinant spike protein-nanoparticle+Matrix-M1 Adjuvant, preservative free, 0.5mL per dose"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "COVID-19 vaccine, Subunit, rS-nanoparticle+Matrix-M1 Adjuvant, PF, 0.5 mL"
       }]
     }]
@@ -2514,8 +2518,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:8aafdde3-8d2a-4767-9158-a1d699941d2d",
-    "timestamp" : "2021-11-02T21:24:44.887Z",
+    "identifier" : "urn:uuid:b2fc4e52-fdb4-4f31-84e1-f70ec6988e94",
+    "timestamp" : "2021-10-11T22:30:01.572Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -2536,7 +2540,7 @@ e: {
         "value" : "adenovirus vaccine, type 4, live, oral"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "adenovirus, type 4"
       }]
     },
@@ -2548,7 +2552,7 @@ e: {
         "value" : "adenovirus vaccine, type 7, live, oral"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "adenovirus, type 7"
       }]
     },
@@ -2560,7 +2564,7 @@ e: {
         "value" : "adenovirus vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "adenovirus, unspecified formulation"
       }]
     },
@@ -2572,7 +2576,7 @@ e: {
         "value" : "anthrax vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "anthrax"
       }]
     },
@@ -2584,7 +2588,7 @@ e: {
         "value" : "Bacillus Calmette-Guerin vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "BCG"
       }]
     },
@@ -2604,7 +2608,7 @@ e: {
         "value" : "cholera vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "cholera, unspecified formulation"
       }]
     },
@@ -2616,7 +2620,7 @@ e: {
         "value" : "cytomegalovirus immune globulin, intravenous"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "CMVIG"
       }]
     },
@@ -2628,7 +2632,7 @@ e: {
         "value" : "dengue fever vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "dengue fever"
       }]
     },
@@ -2648,7 +2652,7 @@ e: {
         "value" : "diphtheria and tetanus toxoids, adsorbed for pediatric use"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DT (pediatric)"
       }]
     },
@@ -2660,7 +2664,7 @@ e: {
         "value" : "diphtheria, tetanus toxoids and acellular pertussis vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP"
       }]
     },
@@ -2672,7 +2676,7 @@ e: {
         "value" : "diphtheria, tetanus toxoids and acellular pertussis vaccine, 5 pertussis antigens"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP, 5 pertussis antigens"
       }]
     },
@@ -2684,7 +2688,7 @@ e: {
         "value" : "diphtheria, tetanus toxoids and acellular pertussis vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP, unspecified formulation"
       }]
     },
@@ -2696,7 +2700,7 @@ e: {
         "value" : "DTaP-hepatitis B and poliovirus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP-Hep B-IPV"
       }]
     },
@@ -2708,7 +2712,7 @@ e: {
         "value" : "DTaP-Haemophilus influenzae type b conjugate vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP-Hib"
       }]
     },
@@ -2720,7 +2724,7 @@ e: {
         "value" : "diphtheria, tetanus toxoids and acellular pertussis vaccine, Haemophilus influenzae type b conjugate, and poliovirus vaccine, inactivated (DTaP-Hib-IPV)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP-Hib-IPV"
       }]
     },
@@ -2732,7 +2736,7 @@ e: {
         "value" : "Diphtheria, tetanus toxoids and acellular pertussis vaccine, and poliovirus vaccine, inactivated"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP-IPV"
       }]
     },
@@ -2744,7 +2748,7 @@ e: {
         "value" : "diphtheria, tetanus toxoids and pertussis vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTP"
       }]
     },
@@ -2756,7 +2760,7 @@ e: {
         "value" : "DTP-Haemophilus influenzae type b conjugate vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTP-Hib"
       }]
     },
@@ -2768,7 +2772,7 @@ e: {
         "value" : "DTP- Haemophilus influenzae type b conjugate and hepatitis b vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTP-Hib-Hep B"
       }]
     },
@@ -2780,7 +2784,7 @@ e: {
         "value" : "hantavirus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "hantavirus"
       }]
     },
@@ -2792,7 +2796,7 @@ e: {
         "value" : "hepatitis A vaccine, adult dosage"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A, adult"
       }]
     },
@@ -2804,7 +2808,7 @@ e: {
         "value" : "hepatitis A vaccine, pediatric/adolescent dosage, 2 dose schedule"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A, ped/adol, 2 dose"
       }]
     },
@@ -2816,7 +2820,7 @@ e: {
         "value" : "hepatitis A vaccine, pediatric/adolescent dosage, 3 dose schedule"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A, ped/adol, 3 dose"
       }]
     },
@@ -2828,7 +2832,7 @@ e: {
         "value" : "hepatitis A vaccine, pediatric dosage, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A, pediatric, unspecified formulation"
       }]
     },
@@ -2840,7 +2844,7 @@ e: {
         "value" : "hepatitis A vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A, unspecified formulation"
       }]
     },
@@ -2852,7 +2856,7 @@ e: {
         "value" : "hepatitis A and hepatitis B vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A-Hep B"
       }]
     },
@@ -2864,7 +2868,7 @@ e: {
         "value" : "hepatitis B immune globulin"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "HBIG"
       }]
     },
@@ -2876,7 +2880,7 @@ e: {
         "value" : "hepatitis B vaccine, pediatric or pediatric/adolescent dosage"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep B, adolescent or pediatric"
       }]
     },
@@ -2888,7 +2892,7 @@ e: {
         "value" : "hepatitis B vaccine, adolescent/high risk infant dosage"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep B, adolescent/high risk infant"
       }]
     },
@@ -2900,7 +2904,7 @@ e: {
         "value" : "hepatitis B vaccine, adult dosage"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep B, adult"
       }]
     },
@@ -2912,7 +2916,7 @@ e: {
         "value" : "hepatitis B vaccine, dialysis patient dosage"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep B, dialysis"
       }]
     },
@@ -2924,7 +2928,7 @@ e: {
         "value" : "hepatitis B vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep B, unspecified formulation"
       }]
     },
@@ -2936,7 +2940,7 @@ e: {
         "value" : "hepatitis C vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep C"
       }]
     },
@@ -2948,7 +2952,7 @@ e: {
         "value" : "hepatitis E vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep E"
       }]
     },
@@ -2960,7 +2964,7 @@ e: {
         "value" : "herpes simplex virus, type 2 vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "herpes simplex 2"
       }]
     },
@@ -2972,7 +2976,7 @@ e: {
         "value" : "Haemophilus influenzae type b vaccine, PRP-D conjugate"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hib (PRP-D)"
       }]
     },
@@ -2984,7 +2988,7 @@ e: {
         "value" : "Haemophilus influenzae type b vaccine, HbOC conjugate"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hib (HbOC)"
       }]
     },
@@ -2996,7 +3000,7 @@ e: {
         "value" : "Haemophilus influenzae type b vaccine, PRP-T conjugate"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hib (PRP-T)"
       }]
     },
@@ -3008,7 +3012,7 @@ e: {
         "value" : "Haemophilus influenzae type b vaccine, PRP-OMP conjugate"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hib (PRP-OMP)"
       }]
     },
@@ -3020,7 +3024,7 @@ e: {
         "value" : "Haemophilus influenzae type b vaccine, conjugate unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hib, unspecified formulation"
       }]
     },
@@ -3032,7 +3036,7 @@ e: {
         "value" : "Haemophilus influenzae type b conjugate and Hepatitis B vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hib-Hep B"
       }]
     },
@@ -3044,7 +3048,7 @@ e: {
         "value" : "human immunodeficiency virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "HIV"
       }]
     },
@@ -3056,7 +3060,7 @@ e: {
         "value" : "human papilloma virus vaccine, bivalent"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "HPV, bivalent"
       }]
     },
@@ -3068,7 +3072,7 @@ e: {
         "value" : "human papilloma virus vaccine, quadrivalent"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "HPV, quadrivalent"
       }]
     },
@@ -3080,7 +3084,7 @@ e: {
         "value" : "immune globulin, intramuscular"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "IG"
       }]
     },
@@ -3092,7 +3096,7 @@ e: {
         "value" : "immune globulin, intravenous"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "IGIV"
       }]
     },
@@ -3104,7 +3108,7 @@ e: {
         "value" : "immune globulin, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "IG, unspecified formulation"
       }]
     },
@@ -3116,7 +3120,7 @@ e: {
         "value" : "influenza virus vaccine, live, attenuated, for intranasal use"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, live, intranasal"
       }]
     },
@@ -3128,7 +3132,7 @@ e: {
         "value" : "influenza virus vaccine, split virus (incl. purified surface antigen)-retired CODE"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, split (incl. purified surface antigen)"
       }]
     },
@@ -3140,7 +3144,7 @@ e: {
         "value" : "influenza virus vaccine, whole virus"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, whole"
       }]
     },
@@ -3152,7 +3156,7 @@ e: {
         "value" : "influenza virus vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, unspecified formulation"
       }]
     },
@@ -3164,7 +3168,7 @@ e: {
         "value" : "influenza virus vaccine, H5N1, A/Vietnam/1203/2004 (national stockpile)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, H5N1-1203"
       }]
     },
@@ -3176,7 +3180,7 @@ e: {
         "value" : "poliovirus vaccine, inactivated"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "IPV"
       }]
     },
@@ -3188,7 +3192,7 @@ e: {
         "value" : "trivalent poliovirus vaccine, live, oral"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "OPV"
       }]
     },
@@ -3200,7 +3204,7 @@ e: {
         "value" : "poliovirus vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "polio, unspecified formulation"
       }]
     },
@@ -3212,7 +3216,7 @@ e: {
         "value" : "Japanese Encephalitis Vaccine SC"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Japanese encephalitis SC"
       }]
     },
@@ -3224,7 +3228,7 @@ e: {
         "value" : "Junin virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Junin virus"
       }]
     },
@@ -3236,7 +3240,7 @@ e: {
         "value" : "leishmaniasis vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "leishmaniasis"
       }]
     },
@@ -3248,7 +3252,7 @@ e: {
         "value" : "leprosy vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "leprosy"
       }]
     },
@@ -3260,7 +3264,7 @@ e: {
         "value" : "Lyme disease vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Lyme disease"
       }]
     },
@@ -3272,7 +3276,7 @@ e: {
         "value" : "measles, mumps and rubella virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "MMR"
       }]
     },
@@ -3284,7 +3288,7 @@ e: {
         "value" : "measles and rubella virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "M/R"
       }]
     },
@@ -3296,7 +3300,7 @@ e: {
         "value" : "measles, mumps, rubella, and varicella virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "MMRV"
       }]
     },
@@ -3308,7 +3312,7 @@ e: {
         "value" : "malaria vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "malaria"
       }]
     },
@@ -3320,7 +3324,7 @@ e: {
         "value" : "measles virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "measles"
       }]
     },
@@ -3332,7 +3336,7 @@ e: {
         "value" : "melanoma vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "melanoma"
       }]
     },
@@ -3344,7 +3348,7 @@ e: {
         "value" : "meningococcal polysaccharide vaccine (MPSV4)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal MPSV4"
       }]
     },
@@ -3356,7 +3360,7 @@ e: {
         "value" : "meningococcal C conjugate vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal C conjugate"
       }]
     },
@@ -3368,7 +3372,7 @@ e: {
         "value" : "meningococcal polysaccharide (groups A, C, Y and W-135) diphtheria toxoid conjugate vaccine (MCV4P)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal MCV4P"
       }]
     },
@@ -3380,7 +3384,7 @@ e: {
         "value" : "meningococcal ACWY vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal ACWY, unspecified formulation"
       }]
     },
@@ -3392,7 +3396,7 @@ e: {
         "value" : "mumps virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "mumps"
       }]
     },
@@ -3404,7 +3408,7 @@ e: {
         "value" : "parainfluenza-3 virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "parainfluenza-3"
       }]
     },
@@ -3416,7 +3420,7 @@ e: {
         "value" : "pertussis vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "pertussis"
       }]
     },
@@ -3428,7 +3432,7 @@ e: {
         "value" : "plague vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "plague"
       }]
     },
@@ -3440,7 +3444,7 @@ e: {
         "value" : "pneumococcal polysaccharide vaccine, 23 valent"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "pneumococcal polysaccharide PPV23"
       }]
     },
@@ -3452,7 +3456,7 @@ e: {
         "value" : "pneumococcal conjugate vaccine, 7 valent"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "pneumococcal conjugate PCV 7"
       }]
     },
@@ -3464,7 +3468,7 @@ e: {
         "value" : "pneumococcal vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "pneumococcal, unspecified formulation"
       }]
     },
@@ -3476,7 +3480,7 @@ e: {
         "value" : "Q fever vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Q fever"
       }]
     },
@@ -3488,7 +3492,7 @@ e: {
         "value" : "rabies vaccine, for intramuscular injection RETIRED CODE"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rabies, intramuscular injection"
       }]
     },
@@ -3500,7 +3504,7 @@ e: {
         "value" : "rabies vaccine, for intradermal injection"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rabies, intradermal injection"
       }]
     },
@@ -3512,7 +3516,7 @@ e: {
         "value" : "rabies vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rabies, unspecified formulation"
       }]
     },
@@ -3524,7 +3528,7 @@ e: {
         "value" : "rheumatic fever vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rheumatic fever"
       }]
     },
@@ -3536,7 +3540,7 @@ e: {
         "value" : "Rift Valley fever vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Rift Valley fever"
       }]
     },
@@ -3548,7 +3552,7 @@ e: {
         "value" : "rabies immune globulin"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "RIG"
       }]
     },
@@ -3560,7 +3564,7 @@ e: {
         "value" : "rotavirus, live, monovalent vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rotavirus, monovalent"
       }]
     },
@@ -3572,7 +3576,7 @@ e: {
         "value" : "rotavirus vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rotavirus, unspecified formulation"
       }]
     },
@@ -3584,7 +3588,7 @@ e: {
         "value" : "rotavirus, live, pentavalent vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rotavirus, pentavalent"
       }]
     },
@@ -3596,7 +3600,7 @@ e: {
         "value" : "rotavirus, live, tetravalent vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rotavirus, tetravalent"
       }]
     },
@@ -3608,7 +3612,7 @@ e: {
         "value" : "respiratory syncytial virus immune globulin, intravenous"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "RSV-IGIV"
       }]
     },
@@ -3620,7 +3624,7 @@ e: {
         "value" : "respiratory syncytial virus monoclonal antibody (palivizumab), intramuscular"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "RSV-MAb"
       }]
     },
@@ -3632,7 +3636,7 @@ e: {
         "value" : "rubella virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rubella"
       }]
     },
@@ -3644,7 +3648,7 @@ e: {
         "value" : "rubella and mumps virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "rubella/mumps"
       }]
     },
@@ -3656,7 +3660,7 @@ e: {
         "value" : "Staphylococcus bacteriophage lysate"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Staphylococcus bacterio lysate"
       }]
     },
@@ -3668,7 +3672,7 @@ e: {
         "value" : "tetanus and diphtheria toxoids, adsorbed, preservative free, for adult use (5 Lf of tetanus toxoid and 2 Lf of diphtheria toxoid)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Td (adult), 5 Lf tetanus toxoid, preservative free, adsorbed"
       }]
     },
@@ -3680,7 +3684,7 @@ e: {
         "value" : "tetanus and diphtheria toxoids, adsorbed, preservative free, for adult use (2 Lf of tetanus toxoid and 2 Lf of diphtheria toxoid)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Td (adult), 2 Lf tetanus toxoid, preservative free, adsorbed"
       }]
     },
@@ -3692,7 +3696,7 @@ e: {
         "value" : "tetanus toxoid, reduced diphtheria toxoid, and acellular pertussis vaccine, adsorbed"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Tdap"
       }]
     },
@@ -3720,7 +3724,7 @@ e: {
         "value" : "tick-borne encephalitis vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "tick-borne encephalitis"
       }]
     },
@@ -3732,7 +3736,7 @@ e: {
         "value" : "tetanus immune globulin"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "TIG"
       }]
     },
@@ -3744,7 +3748,7 @@ e: {
         "value" : "tuberculin skin test; old tuberculin, multipuncture device"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "TST-OT tine test"
       }]
     },
@@ -3756,7 +3760,7 @@ e: {
         "value" : "tuberculin skin test; purified protein derivative solution, intradermal"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "TST-PPD intradermal"
       }]
     },
@@ -3768,7 +3772,7 @@ e: {
         "value" : "tuberculin skin test; purified protein derivative, multipuncture device"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "TST-PPD tine test"
       }]
     },
@@ -3780,7 +3784,7 @@ e: {
         "value" : "tuberculin skin test; unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "TST, unspecified formulation"
       }]
     },
@@ -3800,7 +3804,7 @@ e: {
         "value" : "typhoid vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "typhoid, unspecified formulation"
       }]
     },
@@ -3812,7 +3816,7 @@ e: {
         "value" : "typhoid vaccine, live, oral"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "typhoid, oral"
       }]
     },
@@ -3824,7 +3828,7 @@ e: {
         "value" : "typhoid vaccine, parenteral, other than acetone-killed, dried"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "typhoid, parenteral"
       }]
     },
@@ -3836,7 +3840,7 @@ e: {
         "value" : "typhoid vaccine, parenteral, acetone-killed, dried (U.S. military)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "typhoid, parenteral, AKD (U.S. military)"
       }]
     },
@@ -3848,7 +3852,7 @@ e: {
         "value" : "typhoid Vi capsular polysaccharide vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "typhoid, ViCPs"
       }]
     },
@@ -3860,7 +3864,7 @@ e: {
         "value" : "vaccinia (smallpox) vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "vaccinia (smallpox)"
       }]
     },
@@ -3872,7 +3876,7 @@ e: {
         "value" : "vaccinia (smallpox) vaccine, diluted"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "vaccinia (smallpox) diluted"
       }]
     },
@@ -3892,7 +3896,7 @@ e: {
         "value" : "varicella virus vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "varicella"
       }]
     },
@@ -3904,7 +3908,7 @@ e: {
         "value" : "Venezuelan equine encephalitis, inactivated"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "VEE, inactivated"
       }]
     },
@@ -3916,7 +3920,7 @@ e: {
         "value" : "Venezuelan equine encephalitis, live, attenuated"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "VEE, live"
       }]
     },
@@ -3928,7 +3932,7 @@ e: {
         "value" : "Venezuelan equine encephalitis vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "VEE, unspecified formulation"
       }]
     },
@@ -3940,7 +3944,7 @@ e: {
         "value" : "varicella zoster immune globulin"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "VZIG"
       }]
     },
@@ -3952,7 +3956,7 @@ e: {
         "value" : "varicella zoster immune globulin (Investigational New Drug)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "VZIG (IND)"
       }]
     },
@@ -3964,7 +3968,7 @@ e: {
         "value" : "yellow fever vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "yellow fever"
       }]
     },
@@ -3976,7 +3980,7 @@ e: {
         "value" : "zoster vaccine, live"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "zoster live"
       }]
     },
@@ -3996,7 +4000,7 @@ e: {
         "value" : "unknown vaccine or immune globulin"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "unknown"
       }]
     },
@@ -4016,7 +4020,7 @@ e: {
         "value" : "pneumococcal conjugate vaccine, 13 valent"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Pneumococcal conjugate PCV 13"
       }]
     },
@@ -4028,7 +4032,7 @@ e: {
         "value" : "Japanese Encephalitis vaccine for intramuscular administration"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Japanese Encephalitis IM"
       }]
     },
@@ -4048,7 +4052,7 @@ e: {
         "value" : "meningococcal oligosaccharide (groups A, C, Y and W-135) diphtheria toxoid conjugate vaccine (MCV4O)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Meningococcal MCV4O"
       }]
     },
@@ -4060,7 +4064,7 @@ e: {
         "value" : "influenza, high dose seasonal, preservative-free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Influenza, high dose seasonal"
       }]
     },
@@ -4072,7 +4076,7 @@ e: {
         "value" : "Historical record of a typhus vaccination"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "typhus, historical"
       }]
     },
@@ -4084,7 +4088,7 @@ e: {
         "value" : "Historical diphtheria and tetanus toxoids and acellular pertussis, poliovirus, Haemophilus b conjugate and hepatitis B (recombinant) vaccine."
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP-IPV-HIB-HEP B, historical"
       }]
     },
@@ -4096,7 +4100,7 @@ e: {
         "value" : "Novel influenza-H1N1-09, all formulations"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Novel Influenza-H1N1-09, all formulations"
       }]
     },
@@ -4108,7 +4112,7 @@ e: {
         "value" : "Novel Influenza-H1N1-09, live virus for nasal administration"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Novel Influenza-H1N1-09, nasal"
       }]
     },
@@ -4120,7 +4124,7 @@ e: {
         "value" : "Novel influenza-H1N1-09, preservative-free, injectable"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Novel influenza-H1N1-09, preservative-free"
       }]
     },
@@ -4132,7 +4136,7 @@ e: {
         "value" : "Novel influenza-H1N1-09, injectable"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Novel influenza-H1N1-09"
       }]
     },
@@ -4144,7 +4148,7 @@ e: {
         "value" : "tetanus and diphtheria toxoids, not adsorbed, for adult use"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Td (adult)"
       }]
     },
@@ -4172,7 +4176,7 @@ e: {
         "value" : "Japanese Encephalitis vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Japanese Encephalitis, unspecified formulation"
       }]
     },
@@ -4200,7 +4204,7 @@ e: {
         "value" : "Adenovirus, type 4 and type 7, live, oral"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Adenovirus types 4 and 7"
       }]
     },
@@ -4212,7 +4216,7 @@ e: {
         "value" : "seasonal influenza, intradermal, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, seasonal, intradermal, preservative free"
       }]
     },
@@ -4224,7 +4228,7 @@ e: {
         "value" : "respiratory syncytial virus monoclonal antibody (motavizumab), intramuscular"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "RSV-MAb (new)"
       }]
     },
@@ -4236,7 +4240,7 @@ e: {
         "value" : "Diphtheria and Tetanus Toxoids and Acellular Pertussis Adsorbed, Inactivated Poliovirus, Haemophilus b Conjugate (Meningococcal Protein Conjugate), and Hepatitis B (Recombinant) Vaccine."
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTaP,IPV,Hib,HepB"
       }]
     },
@@ -4248,7 +4252,7 @@ e: {
         "value" : "Meningococcal, MCV4, unspecified conjugate formulation(groups A, C, Y and W-135)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal MCV4, unspecified formulation"
       }]
     },
@@ -4260,7 +4264,7 @@ e: {
         "value" : "Meningococcal Groups C and Y and Haemophilus b Tetanus Toxoid Conjugate Vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Meningococcal C/Y-HIB PRP"
       }]
     },
@@ -4280,7 +4284,7 @@ e: {
         "value" : "Influenza, injectable, quadrivalent, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, injectable, quadrivalent, preservative free"
       }]
     },
@@ -4308,7 +4312,7 @@ e: {
         "value" : "Influenza, injectable, Madin Darby Canine Kidney, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Influenza, injectable, MDCK, preservative free"
       }]
     },
@@ -4320,7 +4324,7 @@ e: {
         "value" : "Hepatitis A immune globulin"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A, IG"
       }]
     },
@@ -4332,7 +4336,7 @@ e: {
         "value" : "Seasonal, trivalent, recombinant, injectable influenza vaccine, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, recombinant, injectable, preservative free"
       }]
     },
@@ -4344,7 +4348,7 @@ e: {
         "value" : "Rho(D) Immune globulin- IV or IM"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Rho(D)-IG"
       }]
     },
@@ -4356,7 +4360,7 @@ e: {
         "value" : "Rho(D) Immune globulin - IM"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Rho(D) -IG IM"
       }]
     },
@@ -4368,7 +4372,7 @@ e: {
         "value" : "influenza, injectable, quadrivalent, contains preservative"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, injectable, quadrivalent"
       }]
     },
@@ -4380,7 +4384,7 @@ e: {
         "value" : "Rho(D) Unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Rho(D) - Unspecified formulation"
       }]
     },
@@ -4392,7 +4396,7 @@ e: {
         "value" : "Influenza A monovalent (H5N1), adjuvanted, National stockpile 2013"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Influenza A monovalent (H5N1), ADJUVANTED-2013"
       }]
     },
@@ -4420,7 +4424,7 @@ e: {
         "value" : "meningococcal B vaccine, fully recombinant"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal B, recombinant"
       }]
     },
@@ -4432,7 +4436,7 @@ e: {
         "value" : "meningococcal B vaccine, recombinant, OMV, adjuvanted"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal B, OMV"
       }]
     },
@@ -4444,7 +4448,7 @@ e: {
         "value" : "meningococcal B, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal B, unspecified"
       }]
     },
@@ -4456,7 +4460,7 @@ e: {
         "value" : "Human Papillomavirus 9-valent vaccine"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "HPV9"
       }]
     },
@@ -4468,7 +4472,7 @@ e: {
         "value" : "influenza, intradermal, quadrivalent, preservative free, injectable"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, intradermal, quadrivalent, preservative free"
       }]
     },
@@ -4480,7 +4484,7 @@ e: {
         "value" : "meningococcal vaccine of unknown formulation and unknown serogroups"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal, unknown serogroups"
       }]
     },
@@ -4492,7 +4496,7 @@ e: {
         "value" : "Seasonal trivalent influenza vaccine, adjuvanted, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, trivalent, adjuvanted"
       }]
     },
@@ -4504,7 +4508,7 @@ e: {
         "value" : "Hep A, live attenuated-IM"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A, live attenuated"
       }]
     },
@@ -4516,7 +4520,7 @@ e: {
         "value" : "non-US diphtheria, tetanus toxoids and acellular pertussis vaccine, Haemophilus influenzae type b conjugate, and poliovirus vaccine, inactivated (DTaP-Hib-IPV)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTAP/IPV/HIB - non-US"
       }]
     },
@@ -4528,7 +4532,7 @@ e: {
         "value" : "Influenza, injectable, Madin Darby Canine Kidney, preservative free, quadrivalent"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Influenza, injectable, MDCK, preservative free, quadrivalent"
       }]
     },
@@ -4564,7 +4568,7 @@ e: {
         "value" : "Human Rabies vaccine from human diploid cell culture"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Rabies - IM Diploid cell culture"
       }]
     },
@@ -4576,7 +4580,7 @@ e: {
         "value" : "Human rabies vaccine from Chicken fibroblast culture"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Rabies - IM fibroblast culture"
       }]
     },
@@ -4588,7 +4592,7 @@ e: {
         "value" : "pneumococcal conjugate vaccine, 10 valent"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "PCV10"
       }]
     },
@@ -4600,7 +4604,7 @@ e: {
         "value" : "Non-US bivalent oral polio vaccine (types 1 and 3)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "OPV bivalent"
       }]
     },
@@ -4612,7 +4616,7 @@ e: {
         "value" : "Non-US monovalent oral polio vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "OPV ,monovalent, unspecified"
       }]
     },
@@ -4640,7 +4644,7 @@ e: {
         "value" : "Oral Polio Vaccine, Unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "OPV, Unspecified"
       }]
     },
@@ -4652,7 +4656,7 @@ e: {
         "value" : "Yellow fever vaccine alternative formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Yellow fever vaccine - alt"
       }]
     },
@@ -4664,7 +4668,7 @@ e: {
         "value" : "Yellow fever vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Yellow fever, unspecified formulation"
       }]
     },
@@ -4676,7 +4680,7 @@ e: {
         "value" : "Seasonal, quadrivalent, recombinant, injectable influenza vaccine, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, recombinant, quadrivalent,injectable, preservative free"
       }]
     },
@@ -4688,7 +4692,7 @@ e: {
         "value" : "Influenza, injectable, Madin Darby Canine Kidney,  quadrivalent with preservative"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Influenza, injectable, MDCK, quadrivalent, preservative"
       }]
     },
@@ -4700,7 +4704,7 @@ e: {
         "value" : "zoster vaccine recombinant"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "zoster recombinant"
       }]
     },
@@ -4712,7 +4716,7 @@ e: {
         "value" : "zoster vaccine, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "zoster, unspecified formulation"
       }]
     },
@@ -4724,7 +4728,7 @@ e: {
         "value" : "Hepatitis B vaccine (recombinant), CpG adjuvanted"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "HepB-CpG"
       }]
     },
@@ -4736,7 +4740,7 @@ e: {
         "value" : "Typhoid conjugate vaccine (non-US)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Typhoid conjugate vaccine (TCV)"
       }]
     },
@@ -4748,7 +4752,7 @@ e: {
         "value" : "meningococcal A polysaccharide vaccine (non-US)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal A polysaccharide (non-US)"
       }]
     },
@@ -4760,7 +4764,7 @@ e: {
         "value" : "meningococcal AC polysaccharide vaccine (non-US)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal AC polysaccharide (non-US)"
       }]
     },
@@ -4772,7 +4776,7 @@ e: {
         "value" : "hepatitis A and hepatitis B vaccine, pediatric/adolescent (non-US)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Hep A-Hep B, pediatric/adolescent"
       }]
     },
@@ -4784,7 +4788,7 @@ e: {
         "value" : "influenza, Southern Hemisphere, unspecified formulation"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Influenza, Southern Hemisphere"
       }]
     },
@@ -4796,7 +4800,7 @@ e: {
         "value" : "Diphtheria, Tetanus, Poliomyelitis adsorbed"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DT, IPV adsorbed"
       }]
     },
@@ -4808,7 +4812,7 @@ e: {
         "value" : "tetanus and diphtheria toxoids, adsorbed, preservative free, for adult use, Lf unspecified"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Td, adsorbed, preservative free, adult use, Lf unspecified"
       }]
     },
@@ -4820,7 +4824,7 @@ e: {
         "value" : "influenza, high-dose seasonal, quadrivalent, .7mL dose, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, high-dose, quadrivalent"
       }]
     },
@@ -4832,7 +4836,7 @@ e: {
         "value" : "influenza, seasonal, Southern Hemisphere, quadrivalent, pediatric 0.25mL dose, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, Southern Hemisphere, pediatric, preservative free"
       }]
     },
@@ -4844,7 +4848,7 @@ e: {
         "value" : "influenza, seasonal, Southern Hemisphere, quadrivalent, 0.5mL dose, no preservative"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, Southern Hemisphere, preservative free"
       }]
     },
@@ -4856,7 +4860,7 @@ e: {
         "value" : "influenza, seasonal, Southern Hemisphere, quadrivalent, 0.5mL dose, with preservative"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "influenza, Southern Hemisphere, quadrivalent, with preservative"
       }]
     },
@@ -4868,7 +4872,7 @@ e: {
         "value" : "Diphtheria, pertussis, tetanus, hepatitis B, Haemophilus Influenza Type b, (Pentavalent)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "DTP-hepB-Hib Pentavalent Non-US"
       }]
     },
@@ -4880,7 +4884,7 @@ e: {
         "value" : "meningococcal polysaccharide (groups A, C, Y, W-135) tetanus toxoid conjugate vaccine .5mL dose, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "meningococcal polysaccharide (groups A, C, Y, W-135) TT conjugate"
       }]
     },
@@ -4892,7 +4896,7 @@ e: {
         "value" : "influenza, seasonal vaccine, quadrivalent, adjuvanted, .5mL dose, preservative free"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Influenza vaccine, quadrivalent, adjuvanted"
       }]
     },
@@ -4904,7 +4908,7 @@ e: {
         "value" : "smallpox monkeypox vaccine, live attenuated, preservative free (National Stockpile)"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "Smallpox monkeypox vaccine (National Stockpile)"
       }]
     },
@@ -4916,7 +4920,7 @@ e: {
         "value" : "SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein, LNP, preservative free, 100 mcg/0.5mL dose"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "COVID-19, mRNA, LNP-S, PF, 100 mcg/0.5 mL dose"
       }]
     },
@@ -4928,7 +4932,7 @@ e: {
         "value" : "SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein, LNP, preservative free, 30 mcg/0.3mL dose"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "COVID-19, mRNA, LNP-S, PF, 30 mcg/0.3 mL dose"
       }]
     },
@@ -4948,7 +4952,7 @@ e: {
         "value" : "SARS-COV-2 (COVID-19) vaccine, vector non-replicating, recombinant spike protein-ChAdOx1, preservative free, 0.5 mL"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "COVID-19 vaccine, vector-nr, rS-ChAdOx1, PF, 0.5 mL"
       }]
     },
@@ -4960,7 +4964,7 @@ e: {
         "value" : "SARS-COV-2 (COVID-19) vaccine, vector non-replicating, recombinant spike protein-Ad26, preservative free, 0.5 ml"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "COVID-19 vaccine, vector-nr, rS-Ad26, PF, 0.5 mL"
       }]
     },
@@ -4969,6 +4973,10 @@ e: {
       "code" : "204",
       "display" : "Ebola Zaire vaccine, live, recombinant, 1mL dose",
       "designation" : [{
+        "value" : "Ebola Zaire vaccine, live, recombinant, 1mL dose"
+      },
+      {
+        "language" : "en-US",
         "value" : "Ebola Zaire vaccine, live, recombinant, 1mL dose"
       }]
     },
@@ -4988,7 +4996,7 @@ e: {
         "value" : "SARS-COV-2 (COVID-19) vaccine, Subunit, recombinant spike protein-nanoparticle+Matrix-M1 Adjuvant, preservative free, 0.5mL per dose"
       },
       {
-        "language" : "en",
+        "language" : "en-US",
         "value" : "COVID-19 vaccine, Subunit, rS-nanoparticle+Matrix-M1 Adjuvant, PF, 0.5 mL"
       }]
     }]
@@ -5001,20 +5009,24 @@ e: {
   "system" : "http://hl7.org/fhir/sid/cvx",
   "code" : "01",
   "display" : "DTP"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "diphtheria, tetanus toxoids and pertussis vaccine",
   "code" : "01",
-  "system" : "http://hl7.org/fhir/sid/cvx"
+  "system" : "http://hl7.org/fhir/sid/cvx",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/cvx",
   "code" : "104"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "hepatitis A and hepatitis B vaccine",
   "code" : "104",
-  "system" : "http://hl7.org/fhir/sid/cvx"
+  "system" : "http://hl7.org/fhir/sid/cvx",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------

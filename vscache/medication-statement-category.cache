@@ -3,10 +3,12 @@
   "system" : "http://terminology.hl7.org/CodeSystem/medication-statement-category",
   "code" : "inpatient",
   "display" : "Inpatient"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Inpatient",
   "code" : "inpatient",
-  "system" : "http://terminology.hl7.org/CodeSystem/medication-statement-category"
+  "system" : "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------

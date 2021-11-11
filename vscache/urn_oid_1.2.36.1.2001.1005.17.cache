@@ -13,8 +13,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:40bc089f-5975-4552-b619-ff4f34939573",
-    "timestamp" : "2021-11-02T21:21:30.200Z",
+    "identifier" : "urn:uuid:750a4435-4eba-48c4-8f81-ac475d20a406",
+    "timestamp" : "2021-10-11T22:20:16.211Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -619,30 +619,36 @@ e: {
 {"code" : {
   "system" : "urn:oid:1.2.36.1.2001.1005.17",
   "code" : "FLUVAX"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Fluvax",
   "code" : "FLUVAX",
-  "system" : "urn:oid:1.2.36.1.2001.1005.17"
+  "system" : "urn:oid:1.2.36.1.2001.1005.17",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:oid:1.2.36.1.2001.1005.17",
   "code" : "GNFLU"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Influenza",
   "code" : "GNFLU",
-  "system" : "urn:oid:1.2.36.1.2001.1005.17"
+  "system" : "urn:oid:1.2.36.1.2001.1005.17",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:oid:1.2.36.1.2001.1005.17",
   "code" : "GNHEP"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Hepatitis B",
   "code" : "GNHEP",
-  "system" : "urn:oid:1.2.36.1.2001.1005.17"
+  "system" : "urn:oid:1.2.36.1.2001.1005.17",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------

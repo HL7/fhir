@@ -18,8 +18,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:1e738f40-6880-4692-9521-b5e7e1a4055c",
-    "timestamp" : "2021-11-02T21:22:09.638Z",
+    "identifier" : "urn:uuid:2f44a4c7-e40f-4763-b450-b473a56365e2",
+    "timestamp" : "2021-10-11T22:24:05.665Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -272,11 +272,13 @@ e: {
 {"code" : {
   "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "code" : "001"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "World",
   "code" : "001",
-  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm"
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -294,8 +296,11 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
+  "display" : "",
+  "code" : "",
+  "system" : "",
   "severity" : "error",
   "error" : "The code provided (http://unstats.un.org/unsd/methods/m49/m49.htm#840) is not valid (from http://tx.fhir.org/r4)"
 }
@@ -304,13 +309,43 @@ v: {
   "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "code" : "840",
   "display" : "United States of America"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166:-2"
+    },
+    {
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "filter" : [{
+        "property" : "class",
+        "op" : "=",
+        "value" : "region"
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
 v: {
   "display" : "United States of America (USA)",
   "code" : "840",
   "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "severity" : "warning",
   "error" : "The display \"United States of America\" is not a valid display for the code {http://unstats.un.org/unsd/methods/m49/m49.htm}840 - should be one of ['United States of America (USA)'] (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "code" : "840"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "United States of America (USA)",
+  "code" : "840",
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -328,11 +363,13 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "World",
   "code" : "001",
-  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm"
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -356,21 +393,25 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
 v: {
   "display" : "World",
   "code" : "001",
-  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm"
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "code" : "001"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "World",
   "code" : "001",
-  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm"
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -388,11 +429,13 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Oceania",
   "code" : "009",
-  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm"
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -417,20 +460,37 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
 v: {
   "display" : "Oceania",
   "code" : "009",
-  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm"
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "code" : "009"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Oceania",
   "code" : "009",
-  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm"
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "code" : "840",
+  "display" : "United States of America"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "United States of America (USA)",
+  "code" : "840",
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "severity" : "warning",
+  "error" : "The display \"United States of America\" is not a valid display for the code {http://unstats.un.org/unsd/methods/m49/m49.htm}840 - should be one of ['United States of America (USA)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------

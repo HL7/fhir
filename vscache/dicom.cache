@@ -27,8 +27,8 @@ e: {
   "status" : "active",
   "date" : "2020-08-04",
   "expansion" : {
-    "identifier" : "urn:uuid:f2dcbb5c-67a1-4362-8c02-9d4d17f0bb14",
-    "timestamp" : "2021-11-02T21:21:18.622Z",
+    "identifier" : "urn:uuid:360e6457-4c68-4f99-80ea-aab39bfb54bf",
+    "timestamp" : "2021-10-11T22:19:21.289Z",
     "parameter" : [{
       "name" : "expansion-source",
       "valueString" : "ValueSet/audit-media-type"
@@ -64,7 +64,7 @@ e: {
   "resourceType" : "ValueSet",
   "id" : "audit-media-type",
   "meta" : {
-    "lastUpdated" : "2021-11-03T08:19:47.058+11:00",
+    "lastUpdated" : "2021-10-12T09:14:31.459+11:00",
     "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
   },
   "language" : "en",
@@ -82,10 +82,10 @@ e: {
   "title" : "Audit Agent Media Type",
   "status" : "active",
   "date" : "2020-08-04",
-  "description" : "Value Set Contents (Expansion) for Audit Agent Media Type at Wed, Nov 3, 2021 08:23+1100",
+  "description" : "Value Set Contents (Expansion) for Audit Agent Media Type at Tue, Oct 12, 2021 09:27+1100",
   "expansion" : {
-    "identifier" : "urn:uuid:f6f87886-fcf6-4428-8669-26106014850a",
-    "timestamp" : "2021-11-02T21:23:32.591Z",
+    "identifier" : "urn:uuid:15c79c77-785b-4948-9a4c-6e58f36af38b",
+    "timestamp" : "2021-10-11T22:27:27.024Z",
     "parameter" : [{
       "name" : "expansion-source",
       "valueString" : "ValueSet/audit-media-type"
@@ -107,110 +107,130 @@ e: {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110100",
   "display" : "Application Activity"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Application Activity",
   "code" : "110100",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110120",
   "display" : "Application Start"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Application Start",
   "code" : "110120",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110122",
   "display" : "Login"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Login",
   "code" : "110122",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110114",
   "display" : "User Authentication"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "User Authentication",
   "code" : "110114",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110153",
   "display" : "Source Role ID"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Source Role ID",
   "code" : "110153",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110123",
   "display" : "Logout"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Logout",
   "code" : "110123",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110106",
   "display" : "Export"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Export",
   "code" : "110106",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110152",
   "display" : "Destination Role ID"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Destination Role ID",
   "code" : "110152",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110112",
   "display" : "Query"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Query",
   "code" : "110112",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110154",
   "display" : "Destination Media"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Destination Media",
   "code" : "110154",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -224,11 +244,13 @@ v: {
       "valueSet" : ["http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_405.html"]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "DVD",
   "code" : "110033",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -243,72 +265,86 @@ v: {
       "valueSet" : ["http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_405.html"]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK"}####
 v: {
   "display" : "DVD",
   "code" : "110033",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110033"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "DVD",
   "code" : "110033",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110113",
   "display" : "Security Alert"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Security Alert",
   "code" : "110113",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "110127",
   "display" : "Emergency Override Started"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Emergency Override Started",
   "code" : "110127",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "US"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Ultrasound",
   "code" : "US",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "CT"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Computed Tomography",
   "code" : "CT",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://dicom.nema.org/resources/ontology/DCM",
   "code" : "DX"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Digital Radiography",
   "code" : "DX",
-  "system" : "http://dicom.nema.org/resources/ontology/DCM"
+  "system" : "http://dicom.nema.org/resources/ontology/DCM",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------

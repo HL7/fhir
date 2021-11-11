@@ -130,7 +130,7 @@
     <Cell><Data ss:Type="String">A stream of bytes, base64 encoded</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">base64Binary</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">(\s*([0-9a-zA-Z*\/*\+\=]){4}\s*)+</Data></Cell>
+    <Cell><Data ss:Type="String">\s*([0-9a-zA-Z+=]{4}\s*)+</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">BIN</Data></Cell>
     <Cell><Data ss:Type="String">~ED</Data></Cell>
    </Row>
@@ -327,7 +327,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

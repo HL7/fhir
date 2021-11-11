@@ -17,8 +17,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:c2b5901a-691e-414a-a6c7-b4c5be8950cf",
-    "timestamp" : "2021-11-02T21:22:27.091Z",
+    "identifier" : "urn:uuid:0bcd6192-1ca5-4390-987d-7157e6c4802b",
+    "timestamp" : "2021-10-11T22:24:40.430Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -12187,8 +12187,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:9b29afd6-cdc3-4c07-8b16-a9d45c257002",
-    "timestamp" : "2021-11-02T21:35:31.667Z",
+    "identifier" : "urn:uuid:3285ab1e-7fee-4936-a2bb-7dbfbdf0d0b6",
+    "timestamp" : "2021-10-11T22:40:49.479Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -24339,20 +24339,24 @@ e: {
   "system" : "http://hl7.org/fhir/sid/icd-10",
   "code" : "I51.6",
   "display" : "Cardiovascular disease, unspecified"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Cardiovascular disease, unspecified",
   "code" : "I51.6",
-  "system" : "http://hl7.org/fhir/sid/icd-10"
+  "system" : "http://hl7.org/fhir/sid/icd-10",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10",
   "code" : "K07.3"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Anomalies of tooth position",
   "code" : "K07.3",
-  "system" : "http://hl7.org/fhir/sid/icd-10"
+  "system" : "http://hl7.org/fhir/sid/icd-10",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="designation-use"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <url value="http://hl7.org/fhir/designation-use"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="DesignationUse"/>
+  <title value="Designation Use"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2021-10-06T11:50:00+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Common Designation Codes used across the FHIR eco-system"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="consumer"/>
+    <display value="Consumer Friendly Designation"/>
+    <definition value="A designation for the concept that uses informal, common words and phrases about health. it may include jargon, slang, ambiguous, and even misspelled words as used by consumers, and health care professionals communicating with patients. These designations are designed for use in consumer-facing applications. They may be vague and or ambiguous with regard to other consumer friendly designations for other concepts"/>
+  </concept>
+  <concept>
+    <code value="preferredForLanguage"/>
+    <display value="Preferred for Language"/>
+    <definition value="This designation is the preferred designation for the specified language. Note that the &#39;display&#39; for the code is the preferredForLanguage designation in the language of the resource"/>
+  </concept>
+</CodeSystem>

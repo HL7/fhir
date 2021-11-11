@@ -2,51 +2,61 @@
 {"code" : {
   "system" : "urn:ietf:bcp:13",
   "code" : "text/cql"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "text/cql",
   "code" : "text/cql",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:13",
   "code" : "text/fhirpath"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "text/fhirpath",
   "code" : "text/fhirpath",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:13",
   "code" : "text/x-fhir-query"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "text/x-fhir-query",
   "code" : "text/x-fhir-query",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:13",
   "code" : "text/cql.identifier"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "text/cql.identifier",
   "code" : "text/cql.identifier",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:bcp:13",
   "code" : "application/hl7-cda+xml"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "application/hl7-cda+xml",
   "code" : "application/hl7-cda+xml",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
@@ -67,8 +77,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:e7ca753c-c6fc-47ef-9284-a1a9a2736fe5",
-    "timestamp" : "2021-11-02T21:20:52.497Z",
+    "identifier" : "urn:uuid:eba4d5e9-acb2-493a-89b2-6cd94cf1c90a",
+    "timestamp" : "2021-10-11T22:17:53.899Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -132,8 +142,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:fe54584a-0dd4-4f0f-ab40-686f679e324f",
-    "timestamp" : "2021-11-02T21:21:26.435Z",
+    "identifier" : "urn:uuid:84001ec5-6e69-428c-9f6a-bc673ddfe86e",
+    "timestamp" : "2021-10-11T22:20:05.133Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -201,8 +211,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:581e27d1-06fb-4374-9c81-b20d39030ade",
-    "timestamp" : "2021-11-02T21:21:50.606Z",
+    "identifier" : "urn:uuid:506ee558-630f-46f3-9f03-31070c7f4f29",
+    "timestamp" : "2021-10-11T22:21:26.024Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -246,8 +256,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:348bc977-8483-43f0-b123-9d92a8fcfabf",
-    "timestamp" : "2021-11-02T21:35:45.995Z",
+    "identifier" : "urn:uuid:99d8fca0-5c4c-44aa-be93-803b022319cc",
+    "timestamp" : "2021-10-11T22:41:38.385Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -264,11 +274,13 @@ e: {
 {"code" : {
   "system" : "urn:ietf:bcp:13",
   "code" : "application/hl7-cda+xml"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "application/hl7-cda+xml",
   "code" : "application/hl7-cda+xml",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -285,10 +297,12 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "application/hl7-cda+xml",
   "code" : "application/hl7-cda+xml",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------

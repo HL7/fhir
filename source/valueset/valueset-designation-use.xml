@@ -33,5 +33,8 @@
         <code value="900000000000013009"/>
       </concept>
     </include>
+    <include>
+      <system value="http://hl7.org/fhir/designation-use"/>
+    </include>
   </compose>
 </ValueSet>

@@ -13,8 +13,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:c2506d59-5cbe-4ddd-b355-50b40ad17956",
-    "timestamp" : "2021-11-02T21:21:13.388Z",
+    "identifier" : "urn:uuid:9d6cab02-6fdb-4a53-be8d-acaef501d525",
+    "timestamp" : "2021-10-11T22:18:43.821Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -506,8 +506,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:c2d2b90a-9a19-4575-a79c-f5125aa4b50b",
-    "timestamp" : "2021-11-02T21:23:23.716Z",
+    "identifier" : "urn:uuid:506c78f2-dba7-4215-b27a-d5b33bce48a8",
+    "timestamp" : "2021-10-11T22:27:05.759Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -985,10 +985,12 @@ e: {
   "system" : "http://terminology.hl7.org/CodeSystem/service-category",
   "code" : "8",
   "display" : "Counselling"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Counselling",
   "code" : "8",
-  "system" : "http://terminology.hl7.org/CodeSystem/service-category"
+  "system" : "http://terminology.hl7.org/CodeSystem/service-category",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
