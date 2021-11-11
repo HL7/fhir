@@ -49,6 +49,12 @@
           <reference value="Organization/f203"/>
         </reference>
       </actor>
+      <action>
+         <coding>
+           <system value="http://terminology.hl7.org/CodeSystem/consentaction" />
+           <code value="disclose" />
+         </coding>       
+      </action>
     </provision>
   </provision>
 </Consent>
