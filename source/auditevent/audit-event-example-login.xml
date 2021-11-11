@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?> 
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
 	<id value="example-login"/>
-	<type>
+	<category>
 		<coding>
 		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 		<code value="110114"/>
 		<display value="User Authentication"/>
 		</coding>
-	</type>
-	<subtype>
+	</category>
+	<code>
 		<coding>
 		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 		<code value="110122"/>
 		<display value="Login"/>
 		</coding>
-	</subtype>
+	</code>
 	<action value="E"/>
 	<recorded value="2013-06-20T23:41:23Z"/>
 	<outcome>
-		<coding>
+		<code>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
 			<code value="0"/>
 			<display value="Success"/>
-		</coding>
+		</code>
 	</outcome> 
 	<agent>
 		<type>

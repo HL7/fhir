@@ -314,7 +314,7 @@
       </mapping>
       <mapping>
         <identity value="fhirauditevent"/>
-        <map value="AuditEvent.subtype"/>
+        <map value="AuditEvent.code"/>
       </mapping>
       <mapping>
         <identity value="w3c.prov"/>

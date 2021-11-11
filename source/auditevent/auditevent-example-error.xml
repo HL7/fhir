@@ -18,29 +18,31 @@
 			</issue>
 		</OperationOutcome>
 	</contained>
-	<type>
+	<category>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-event-type"/>
 			<code value="rest"/>
 			<display value="Restful Operation"/>
 		</coding>
-	</type>
-	<subtype>
+	</category>
+	<code>
 		<coding>
 			<system value="http://hl7.org/fhir/restful-interaction"/>
 			<code value="create"/>
 			<display value="create"/>
 		</coding>
-	</subtype>
+	</code>
 	<action value="C"/>
 	<recorded value="2017-09-07T23:42:24Z"/>
 	<outcome>
-		<coding>
+		<code>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
 			<code value="8"/>
 			<display value="Serious Failure"/>
-		</coding>
-		<text value="Invalid request to create an Operation resource on the Patient endpoint."/>
+		</code>
+		<detail>
+			<text value="Invalid request to create an Operation resource on the Patient endpoint."/>
+		</detail>
 	</outcome>
 	<agent>
 		<type>

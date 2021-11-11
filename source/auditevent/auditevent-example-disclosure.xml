@@ -5,9 +5,9 @@
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<p>Disclosure by some idiot, for marketing reasons, to places unknown, of a Poor Sap, data about Everthing important.</p>
 			<p>
-				<b> type:</b> Export</p>
+				<b> category:</b> Export</p>
 			<p>
-				<b> subtype:</b> HIPAA Disclosure</p>
+				<b> code:</b> HIPAA Disclosure</p>
 			<p>
 				<b> action:</b> Read</p>
 			<p>
@@ -32,29 +32,31 @@
 				<b> data exposed:</b> list of data</p>
 		</div>
 	</text>
-	<type>
+	<category>
 	   <coding>
 		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 		<code value="110106"/>
 		<display value="Export"/>
 	   </coding>
-	</type>
-	<subtype>
+	</category>
+	<code>
 	   <coding>
 		<code value="Disclosure"/>
 		<display value="HIPAA disclosure"/>
 	   </coding>
-	</subtype>
+	</code>
 	<action value="R"/>
 	<severity value="notice"/>
 	<recorded value="2013-09-22T00:08:00Z"/>
 	<outcome>
-		<coding>
+		<code>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
 			<code value="0"/>
 			<display value="Success"/>
-		</coding>
-		<text value="Successful Disclosure"/>
+		</code>
+		<detail>
+			<text value="Successful Disclosure"/>
+		</detail>
 	</outcome> 
 
 	<authorization>

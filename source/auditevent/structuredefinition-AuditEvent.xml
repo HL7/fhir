@@ -105,13 +105,14 @@
         <map value="infrastructure.information"/>
       </mapping>
     </element>
-    <element id="AuditEvent.type">
-      <path value="AuditEvent.type"/>
+    <element id="AuditEvent.category">
+      <path value="AuditEvent.category"/>
       <short value="Type/identifier of event"/>
-      <definition value="Identifier for a family of the event.  For example, a menu item, program, rule, policy, function code, application name or URL. It identifies the performed function."/>
-      <requirements value="This identifies the performed function. For &quot;Execute&quot; Event Action Code audit records, this identifies the application function performed."/>
-      <min value="1"/>
-      <max value="1"/>
+      <definition value="Classification of the type of event."/>
+      <requirements value="Codes that classify the general type of event that happened."/>
+	  <alias value="type"/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -148,13 +149,14 @@
         <map value="Activity"/>
       </mapping>
     </element>
-    <element id="AuditEvent.subtype">
-      <path value="AuditEvent.subtype"/>
-      <short value="More specific type/id for the event"/>
-      <definition value="Identifier for the category of event."/>
+    <element id="AuditEvent.code">
+      <path value="AuditEvent.code"/>
+      <short value="Specific type of event."/>
+      <definition value="Describes what happened. The most specific code for the event."/>
       <requirements value="This field enables queries of messages by implementation-defined event categories."/>
-      <min value="0"/>
-      <max value="*"/>
+	  <alias value="subtype"/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -167,7 +169,7 @@
           <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
         </extension>
         <strength value="example"/>
-        <description value="Sub-type of event."/>
+        <description value="Specific type of event."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/audit-event-sub-type"/>
       </binding>
       <mapping>
@@ -331,7 +333,20 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="AuditEvent.outcome.code">
+      <path value="AuditEvent.outcome.code"/>
+      <short value="Whether the event succeeded or failed"/>
+      <definition value="Indicates whether the event succeeded or failed."/>
+      <comment value="In some cases a &quot;success&quot; may be partial, for example, an incomplete or interrupted transfer of a radiological study. For the purpose of establishing accountability, these distinctions are not relevant."/>
+      <requirements value="when a code is given there must be one code from the given codeSystem."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -360,8 +375,28 @@
         <identity value="dicom"/>
         <map value="EventOutcomeIndicator EventOutcomeIndicator"/>
       </mapping>
-    </element>
-    <element id="AuditEvent.authorization">
+    </element>    
+	<element id="AuditEvent.outcome.detail">
+      <path value="AuditEvent.outcome.detail"/>
+      <short value="Additional outcome detail"/>
+      <definition value="Additional details about the error. This may be a text description of the error or a system code that identifies the error."/>
+      <comment value="A human readable description of the error issue SHOULD be placed in details.text."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="IssueDetails"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A code that provides details as the exact issue."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/operation-outcome"/>
+      </binding>
+    </element>    
+	<element id="AuditEvent.authorization">
       <path value="AuditEvent.authorization"/>
       <short value="Authorization related to the event"/>
       <definition value="The authorization (e.g., PurposeOfUse) that was used during the event being recorded."/>
