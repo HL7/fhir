@@ -151,7 +151,7 @@
     </element>
     <element id="AuditEvent.code">
       <path value="AuditEvent.code"/>
-      <short value="Specific type of event."/>
+      <short value="Specific type of event"/>
       <definition value="Describes what happened. The most specific code for the event."/>
       <requirements value="This field enables queries of messages by implementation-defined event categories."/>
 	  <alias value="subtype"/>
