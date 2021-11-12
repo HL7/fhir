@@ -336,6 +336,14 @@
         <code value="BackboneElement"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=OUT].target.text"/>
+      </mapping>
     </element>
     <element id="AuditEvent.outcome.code">
       <path value="AuditEvent.outcome.code"/>
@@ -395,7 +403,14 @@
         <description value="A code that provides details as the exact issue."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/operation-outcome"/>
       </binding>
-    </element>    
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=OUT].target.text"/>
+      </mapping>    </element>    
 	<element id="AuditEvent.authorization">
       <path value="AuditEvent.authorization"/>
       <short value="Authorization related to the event"/>
