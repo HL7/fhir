@@ -367,7 +367,7 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
           <valueString value="Indicates whether the event succeeded or failed."/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="DICOM Audit Event Outcome"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/audit-event-outcome"/>
       </binding>
@@ -397,11 +397,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="IssueDetails"/>
+          <valueString value="AuditEventOutcomeDetail"/>
         </extension>
         <strength value="example"/>
         <description value="A code that provides details as the exact issue."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/operation-outcome"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/audit-event-outcome-detail"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -410,7 +410,8 @@
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=OUT].target.text"/>
-      </mapping>    </element>    
+      </mapping>
+    </element>    
 	<element id="AuditEvent.authorization">
       <path value="AuditEvent.authorization"/>
       <short value="Authorization related to the event"/>
