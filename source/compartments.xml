@@ -425,6 +425,10 @@
     <Cell><Data ss:Type="String">HealthcareService</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ImagingSelection</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ImagingStudy</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
