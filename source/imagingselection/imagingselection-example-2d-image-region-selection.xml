@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ImagingSelection xmlns="http://hl7.org/fhir">
+  <id value="example-2d-image-region-selection"/>
+  <identifier>
+    <system value="urn:dicom:uid"/>
+    <value value="urn:oid:1.2.840.113747.20080222.324856729726823100954657132726086516575.2.1"/>
+  </identifier>
+  <subject>
+    <type value="Patient"/>
+    <identifier>
+      <system value="https://fhirhospital.org"/>
+      <value value="NTCGFHHKYUYKDPQX"/>
+    </identifier>
+  </subject>
+  <code>
+    <text value="Region selected from image"/>
+  </code>
+  <studyUid value="urn:oid:1.2.840.113747.20080222.324856729726823100954657132726086516575"/>
+  <derivedFrom>
+    <type value="ImagingStudy"/>
+    <identifier>
+      <system value="urn:dicom:uid"/>
+      <value value="urn:oid:1.2.840.113747.20080222.324856729726823100954657132726086516575"/>
+    </identifier>
+  </derivedFrom>
+  <seriesUid value="urn:oid:1.2.840.113747.20080222.324856729726823100954657132726086516575.1"/>
+  <frameOfReferenceUid value="urn:oid:1.2.840.113747.20080222.324856729726823100954657132726086516575.0"/>
+  <instance>
+    <uid value="urn:oid:1.2.840.113747.20080222.324856729726823100954657132726086516575.1.0"/>
+    <sopClass>
+      <system value="urn:ietf:rfc:3986"/>
+      <code value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
+    </sopClass>
+  </instance>
+  <imageRegion>
+      <regionType value="POLYGON"/>
+      <coordinateType value="2d"/>
+      <coordinates value="0.25"/>
+      <coordinates value="0.25"/>
+      <coordinates value="0.75"/>
+      <coordinates value="0.25"/>
+      <coordinates value="0.75"/>
+      <coordinates value="0.75"/>
+      <coordinates value="0.25"/>
+      <coordinates value="0.75"/>
+    </imageRegion>
+
+</ImagingSelection>

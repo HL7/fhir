@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Provenance"/>
   <meta>
@@ -312,6 +311,10 @@
       <mapping>
         <identity value="rim"/>
         <map value="Act.code"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirauditevent"/>
+        <map value="AuditEvent.code"/>
       </mapping>
       <mapping>
         <identity value="w3c.prov"/>
@@ -632,6 +635,10 @@
       <mapping>
         <identity value="rim"/>
         <map value="./author/role"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirauditevent"/>
+        <map value="AuditEvent.entity.agent"/>
       </mapping>
     </element>
     <element id="Provenance.signature">
