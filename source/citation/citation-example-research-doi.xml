@@ -134,7 +134,7 @@ The Non-Invasive Multimodal Foetal ECG-Doppler Dataset for Antenatal Cardiology 
 		<webLocation>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/article-url-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
 					<version value="4.6.0"/>
 					<code value="webpage"/>
 					<display value="Webpage"/>
@@ -145,7 +145,7 @@ The Non-Invasive Multimodal Foetal ECG-Doppler Dataset for Antenatal Cardiology 
 		<webLocation>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/article-url-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
 					<version value="4.6.0"/>
 					<code value="doi-based"/>
 					<display value="DOI Based"/>
@@ -156,7 +156,7 @@ The Non-Invasive Multimodal Foetal ECG-Doppler Dataset for Antenatal Cardiology 
 		<webLocation>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/article-url-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
 					<version value="4.6.0"/>
 					<code value="doi-based"/>
 					<display value="DOI Based"/>
@@ -168,7 +168,7 @@ The Non-Invasive Multimodal Foetal ECG-Doppler Dataset for Antenatal Cardiology 
 		<webLocation>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/article-url-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
 					<version value="4.6.0"/>
 					<code value="compressed-file"/>
 					<display value="Compressed file"/>

@@ -1226,10 +1226,10 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ArticleUrlType"/>
+          <valueString value="ArtifactUrlClassifier"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/article-url-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-url-classifier"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.webLocation.url">

@@ -809,7 +809,7 @@
 		<webLocation>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/article-url-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
 					<code value="doi-based"/>
 					<display value="DOI Based"/>
 				</coding>
@@ -819,7 +819,7 @@
 		<webLocation>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/article-url-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
 					<version value="4.6.0"/>
 					<code value="abstract"/>
 					<display value="Abstract"/>
@@ -832,7 +832,7 @@
 		<webLocation>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/article-url-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
 					<version value="4.6.0"/>
 					<code value="full-text"/>
 					<display value="Full-Text"/>
