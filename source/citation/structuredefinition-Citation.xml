@@ -1216,11 +1216,11 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.webLocation.type">
-      <path value="Citation.citedArtifact.webLocation.type"/>
+    <element id="Citation.citedArtifact.webLocation.classifier">
+      <path value="Citation.citedArtifact.webLocation.classifier"/>
       <short value="Code the reason for different URLs, e.g. abstract and full-text"/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
