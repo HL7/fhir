@@ -265,7 +265,6 @@
       <path value="Observation.status"/>
       <short value="registered | preliminary | final | amended +"/>
       <definition value="The status of the result value."/>
-      <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <requirements value="Need to track the status of individual results. Some results are finalized before the whole report is finalized."/>
       <min value="1"/>
       <max value="1"/>
