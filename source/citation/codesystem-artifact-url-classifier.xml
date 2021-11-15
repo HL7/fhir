@@ -35,7 +35,7 @@
           </td>
         
         </tr>
-        
+		
         <tr>
           
           <td style="white-space:nowrap">abstract
@@ -46,38 +46,12 @@
           
           <td>Abstract</td>
           
-          <td>URL to reach the abstract for the article.</td>
+          <td>The URL will reach a brief summary for the article.</td>
         
         </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">abstract-version
-            
-            <a name="artifact-url-classifier-abstract-version"> </a>
-          
-          </td>
-          
-          <td>Abstract Version</td>
-          
-          <td>URL to reach a specific version of the abstract for the article.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">doi-based
-            
-            <a name="artifact-url-classifier-doi-based"> </a>
-          
-          </td>
-          
-          <td>DOI Based</td>
-          
-          <td>URL derived from DOI.</td>
-        
-        </tr>
-        
+
+
+
         <tr>
           
           <td style="white-space:nowrap">full-text
@@ -88,135 +62,12 @@
           
           <td>Full-Text</td>
           
-          <td>URL to reach the full-text of the article.</td>
+          <td>The URL will reach the full-text of the article.</td>
         
         </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">full-text-version
-            
-            <a name="artifact-url-classifier-full-text-version"> </a>
-          
-          </td>
-          
-          <td>Full-Text Version</td>
-          
-          <td>URL to reach a specific version of the full-text of the article.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">pdf
-            
-            <a name="artifact-url-classifier-pdf"> </a>
-          
-          </td>
-          
-          <td>PDF</td>
-          
-          <td>URL to reach the full-text of the article in PDF form.</td>
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">pdf-version
-            
-            <a name="artifact-url-classifier-pdf-version"> </a>
-          
-          </td>
-          
-          <td>PDF Version</td>
-          
-          <td>URL to reach a specific version of the full-text of the article in PDF form.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">webpage
-            
-            <a name="artifact-url-classifier-webpage"> </a>
-          
-          </td>
-          
-          <td>Webpage</td>
-          
-          <td>Used when URL type is a webpage, but other codes do not apply.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">not-specified
-            
-            <a name="artifact-url-classifier-not-specified"> </a>
-          
-          </td>
-          
-          <td>Not Specified</td>
-          
-          <td>Used when URL type is not specified, commonly when only a single URL is provided.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">json
-            
-            <a name="artifact-url-classifier-json"> </a>
-          
-          </td>
-          
-          <td>JSON</td>
-          
-          <td>URL to reach the computable content in JSON format.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">json-version
-            
-            <a name="artifact-url-classifier-json-version"> </a>
-          
-          </td>
-          
-          <td>JSON Version</td>
-          
-          <td>URL to reach a specific version of computable content in JSON format.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">xml
-            
-            <a name="artifact-url-classifier-xml"> </a>
-          
-          </td>
-          
-          <td>XML</td>
-          
-          <td>URL to reach the computable content in XML format.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">xml-version
-            
-            <a name="artifact-url-classifierxml-version"> </a>
-          
-          </td>
-          
-          <td>JSON Version</td>
-          
-          <td>URL to reach a specific version of computable content in XML format.</td>
-        
-        </tr>
-		
+
+
+
         <tr>
           
           <td style="white-space:nowrap">supplement
@@ -227,24 +78,76 @@
           
           <td>Supplement</td>
           
-          <td>Supplement</td>
+          <td>The URL will reach a supplement, appendix, or additional supporting information for the article.</td>
         
-        </tr>   
-        
+        </tr>
+
+
+
         <tr>
           
-          <td style="white-space:nowrap">supplementary-file-directory
+          <td style="white-space:nowrap">webpage
             
-            <a name="artifact-url-classifier-supplementary-file-directory"> </a>
+            <a name="artifact-url-classifier-webpage"> </a>
           
           </td>
           
-          <td>Supplementary File Directory</td>
+          <td>Webpage</td>
           
-          <td>Supplementary File Directory</td>
+          <td>The URL will reach a webpage related to the article, where the content is not easily classified as abstract, full-text or supplement.</td>
         
         </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">file-directory
+            
+            <a name="artifact-url-classifier-file-directory"> </a>
+          
+          </td>
+          
+          <td>File directory</td>
+          
+          <td>The URL will reach a file directory.</td>
         
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">code-repository
+            
+            <a name="artifact-url-classifier-code-repository"> </a>
+          
+          </td>
+          
+          <td>Code repository</td>
+          
+          <td>File archive and web hosting facility for source code of software, documentation, web pages, and other works.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">restricted
+            
+            <a name="artifact-url-classifier-restricted"> </a>
+          
+          </td>
+          
+          <td>Restricted</td>
+          
+          <td>The URL content has restricted access (e.g. subcription required).</td>
+        
+        </tr>
+
+
+
         <tr>
           
           <td style="white-space:nowrap">compressed-file
@@ -256,6 +159,118 @@
           <td>Compressed file</td>
           
           <td>Compressed archive file (e.g. a zip file) that contains multiple files</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">doi-based
+            
+            <a name="artifact-url-classifier-doi-based"> </a>
+          
+          </td>
+          
+          <td>DOI Based</td>
+          
+          <td>The URL is derived from the Digital Object Identifier (DOI).</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">pdf
+            
+            <a name="artifact-url-classifier-pdf"> </a>
+          
+          </td>
+          
+          <td>PDF</td>
+          
+          <td>The URL will reach content in PDF form.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">json
+            
+            <a name="artifact-url-classifier-json"> </a>
+          
+          </td>
+          
+          <td>JSON</td>
+          
+          <td>The URL will reach content in JSON format.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">xml
+            
+            <a name="artifact-url-classifier-xml"> </a>
+          
+          </td>
+          
+          <td>XML</td>
+          
+          <td>The URL will reach content in XML format.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">version-specific
+            
+            <a name="artifact-url-classifier-version-specific"> </a>
+          
+          </td>
+          
+          <td>Version Specific</td>
+          
+          <td>The URL will reach content that is a specific version of the article.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">computable-resource
+            
+            <a name="artifact-url-classifier-computable-resource"> </a>
+          
+          </td>
+          
+          <td>Computable resource</td>
+          
+          <td>The URL will reach content that is machine-interpretable.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">not-specified
+            
+            <a name="artifact-url-classifier-not-specified"> </a>
+          
+          </td>
+          
+          <td>Not Specified</td>
+          
+          <td>Used when URL classifier is not specified but expected in a system.</td>
         
         </tr>
       
@@ -301,81 +316,76 @@
   <concept>
     <code value="abstract"/>
     <display value="Abstract"/>
-    <definition value="URL to reach the abstract for the article."/>
-  </concept>
-  <concept>
-    <code value="abstract-version"/>
-    <display value="Abstract Version"/>
-    <definition value="URL to reach a specific version of the abstract for the article."/>
-  </concept>
-  <concept>
-    <code value="doi-based"/>
-    <display value="DOI Based"/>
-    <definition value="URL derived from DOI."/>
+    <definition value="The URL will reach a brief summary for the article."/>
   </concept>
   <concept>
     <code value="full-text"/>
     <display value="Full-Text"/>
-    <definition value="URL to reach the full-text of the article."/>
-  </concept>
-  <concept>
-    <code value="full-text-version"/>
-    <display value="Full-Text Version"/>
-    <definition value="URL to reach a specific version of the full-text of the article."/>
-  </concept>
-  <concept>
-    <code value="pdf"/>
-    <display value="PDF"/>
-    <definition value="URL to reach the full-text of the article in PDF form."/>
-  </concept>
-  <concept>
-    <code value="pdf-version"/>
-    <display value="PDF Version"/>
-    <definition value="URL to reach a specific version of the full-text of the article in PDF form."/>
-  </concept>
-  <concept>
-    <code value="webpage"/>
-    <display value="Webpage"/>
-    <definition value="Used when URL type is a webpage, but other codes do not apply."/>
-  </concept>
-  <concept>
-    <code value="not-specified"/>
-    <display value="Not Specified"/>
-    <definition value="Used when URL type is not specified, commonly when only a single URL is provided."/>
-  </concept>
-  <concept>
-    <code value="json"/>
-    <display value="JSON"/>
-    <definition value="URL to reach computable content in JSON format."/>
-  </concept>
-  <concept>
-    <code value="json-version"/>
-    <display value="JSON Version"/>
-    <definition value="URL to reach a specific version of computable content in JSON format."/>
-  </concept>
-  <concept>
-    <code value="xml"/>
-    <display value="XML"/>
-    <definition value="URL to reach computable content in XML format."/>
-  </concept>
-  <concept>
-    <code value="xml-version"/>
-    <display value="XML"/>
-    <definition value="URL to reach a specific version of computable content in XML format."/>
+    <definition value="The URL will reach the full-text of the article."/>
   </concept>
   <concept>
     <code value="supplement"/>
     <display value="Supplement"/>
-    <definition value="Supplement"/>
+    <definition value="The URL will reach a supplement, appendix, or additional supporting information for the article."/>
   </concept>
   <concept>
-    <code value="supplementary-file-directory"/>
-    <display value="Supplementary file directory"/>
-    <definition value="Supplementary file directory"/>
+    <code value="webpage"/>
+    <display value="Webpage"/>
+    <definition value="The URL will reach a webpage related to the article, where the content is not easily classified as abstract, full-text or supplement."/>
+  </concept>
+  <concept>
+    <code value="file-directory"/>
+    <display value="File directory"/>
+    <definition value="The URL will reach a file directory."/>
+  </concept>
+  <concept>
+    <code value="code-repository"/>
+    <display value="Code repository"/>
+    <definition value="File archive and web hosting facility for source code of software, documentation, web pages, and other works."/>
+  </concept>
+  <concept>
+    <code value="restricted"/>
+    <display value="Restricted"/>
+    <definition value="The URL content has restricted access (e.g. subcription required)."/>
   </concept>
   <concept>
     <code value="compressed-file"/>
     <display value="Compressed file"/>
     <definition value="Compressed archive file (e.g. a zip file) that contains multiple files"/>
+  </concept>
+  <concept>
+    <code value="doi-based"/>
+    <display value="DOI Based"/>
+    <definition value="The URL is derived from the Digital Object Identifier (DOI)."/>
+  </concept>
+  <concept>
+    <code value="pdf"/>
+    <display value="PDF"/>
+    <definition value="The URL will reach content in PDF form."/>
+  </concept>
+  <concept>
+    <code value="json"/>
+    <display value="JSON"/>
+    <definition value="The URL will reach content in JSON format."/>
+  </concept>
+  <concept>
+    <code value="xml"/>
+    <display value="XML"/>
+    <definition value="The URL will reach content in XML format."/>
+  </concept>
+  <concept>
+    <code value="version-specific"/>
+    <display value="Version Specific"/>
+    <definition value="The URL will reach content that is a specific version of the article."/>
+  </concept>
+  <concept>
+    <code value="computable-resource"/>
+    <display value="Computable resource"/>
+    <definition value="The URL will reach content that is machine-interpretable."/>
+  </concept>
+  <concept>
+    <code value="not-specified"/>
+    <display value="Not Specified"/>
+    <definition value="Used when URL classifier is not specified but expected in a system."/>
   </concept>
 </CodeSystem>
