@@ -618,8 +618,8 @@
         <code value="Period"/>
       </type>
     </element>
-    <element id="Citation.relatesTo">
-      <path value="Citation.relatesTo"/>
+    <element id="Citation.relatedArtifact">
+      <path value="Citation.relatedArtifact"/>
       <short value="Artifact related to the Citation Resource"/>
       <min value="0"/>
       <max value="*"/>
