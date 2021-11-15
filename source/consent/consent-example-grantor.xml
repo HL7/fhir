@@ -10,7 +10,6 @@
     </div>
   </text>
   <status value="active"/>
-
   <category>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
@@ -22,6 +21,13 @@
     <display value="Donald D DUCK"/>
   </subject>
   <dateTime value="2018-12-24"/>
+  <grantor>
+    <reference value="Patient/pat1" />
+  </grantor>
+  <grantee>
+    <reference value="Practitioner/f007" />
+    <display value="Simone Heps"/>
+  </grantee>
   <controller>
     <reference value="Organization/f203"/>
   </controller>
