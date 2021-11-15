@@ -73,7 +73,7 @@
 			<start value="2021-06-07"/>
 		</period>
 	</statusDate>
-	<relatesTo>
+	<relatedArtifact>
 		<type value="derived-from"/>
 		<classifier>
 			<coding>
@@ -94,7 +94,7 @@
 			</identifier>
 			<display value="32876694 Medline Base"/>
 		</resourceReference>
-	</relatesTo>
+	</relatedArtifact>
 	<citedArtifact>
 		<identifier>
 			<system value="https://pubmed.ncbi.nlm.nih.gov"/>
@@ -807,17 +807,17 @@
 			<pageString value="1330-1341"/>
 		</publicationForm>
 		<webLocation>
-			<type>
+			<classifier>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
 					<code value="doi-based"/>
 					<display value="DOI Based"/>
 				</coding>
-			</type>
+			</classifier>
 			<url value="http://doi.org/10.1001/jama.2020.17023"/>
 		</webLocation>
 		<webLocation>
-			<type>
+			<classifier>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
 					<version value="4.6.0"/>
@@ -826,11 +826,11 @@
 					<userSelected value="true"/>
 				</coding>
 				<text value="on PubMed"/>
-			</type>
+			</classifier>
 			<url value="https://pubmed.ncbi.nlm.nih.gov/32876694/"/>
 		</webLocation>
 		<webLocation>
-			<type>
+			<classifier>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
 					<version value="4.6.0"/>
@@ -839,7 +839,7 @@
 					<userSelected value="true"/>
 				</coding>
 				<text value="on JAMA"/>
-			</type>
+			</classifier>
 			<url value="https://jamanetwork.com/journals/jama/fullarticle/2770279"/>
 		</webLocation>
 		<classification>
