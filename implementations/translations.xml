@@ -480,6 +480,9 @@
 		<translation lang="fr">ImagingManifest</translation>
 		<translation lang="zh">成像清单</translation>
 	</item>
+	<item id="ImagingSelection">
+		<translation lang="en">ImagingSelection</translation>
+	</item>
 	<item id="ImagingStudy">
 		<translation lang="en">ImagingStudy</translation>
 		<translation lang="es">EstudioImagen  / EstudioImagen</translation>

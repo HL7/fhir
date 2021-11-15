@@ -27,10 +27,10 @@ This table summarizes common event scenarios, and the codes that should be used 
 				<b>Scenario</b>
 			</td>
 			<td>
-				<b>type</b>
+				<b>category</b>
 			</td>
 			<td>
-				<b>subtype</b>
+				<b>code</b>
 			</td>
 			<td>
 				<b>action</b>
@@ -86,7 +86,7 @@ This table summarizes common event scenarios, and the codes that should be used 
 				<a href="codesystem-dicom-dcim.html#110122">110127</a> Emergency Override Started</td>
 			<td>
 				<a href="valueset-audit-event-action.html">E</a> Execute</td>
-			<td>Agent is the user who is authorized to break-glass and has declared an emergency override. Note there is an Emergency Override Stopped subtype that can be used to indicate the closing of the break-glass event, when it is known.</td>
+			<td>Agent is the user who is authorized to break-glass and has declared an emergency override. Note there is an Emergency Override Stopped code that can be used to indicate the closing of the break-glass event, when it is known.</td>
 		</tr>
 	</table>
 	<p>
@@ -125,7 +125,7 @@ Audit Event Actions for RESTful operations:
 	<a name="recordingsearch"/>
 	<h4>Recording Search Events</h4>
 	<p>
-A search event is recorded as an Execute action as the server must execute the search parameters to get the results. The type is a <code>rest</code> operation. The subtype should be <code>search</code>. The Server is identified in an <code>.agent</code> as the role <code>Destination Role ID</code>, and the client is identified in an <code>.agent</code> as the role <code>Source Role ID</code>. Additional <code>.agent</code> elements may be used to identify user, application, organization, etc.
+A search event is recorded as an Execute action as the server must execute the search parameters to get the results. The category is a <code>rest</code> operation. The code should be <code>search</code>. The Server is identified in an <code>.agent</code> as the role <code>Destination Role ID</code>, and the client is identified in an <code>.agent</code> as the role <code>Source Role ID</code>. Additional <code>.agent</code> elements may be used to identify user, application, organization, etc.
 </p><p>
 A Search Event records one <code>.entity</code> element that holds the search request, and should not record the contents of the search response so as to limit duplication of sensitive health information that is already present in the system, and discoverable by replaying the search request.
 </p><p>

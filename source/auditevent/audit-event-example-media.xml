@@ -1,28 +1,28 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?> 
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
 	<id value="example-media"/>
-	<type>
+	<category>
 		<coding>
 			<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 			<code value="110106"/>
 			<display value="Export"/>
 		</coding>
-	</type>
-	<subtype>
+	</category>
+	<code>
 		<coding>
 			<system value="urn:ihe:event-type-code"/>
 			<code value="ITI-32"/>
 			<display value="Distribute Document Set on Media"/>
 		</coding>
-	</subtype>
+	</code>
 	<action value="R"/>
 	<recorded value="2015-08-27T23:42:24Z"/>
 	<outcome>
-		<coding>
+		<code>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
 			<code value="0"/>
 			<display value="Success"/>
-		</coding>
+		</code>
 	</outcome>
 	<agent>
 		<!-- Source active participant, the software making the PIX query
@@ -72,13 +72,7 @@
 			<display value="Media title: Hello World"/>
 		</who>
 		<requestor value="false"/>
-		<media>
-			<coding>
-				<system value="http://dicom.nema.org/resources/ontology/DCM"/>
-				<code value="110033"/>
-				<display value="DVD"/>
-			</coding>
-		</media>
+
 	</agent>
 	<source>
 		<observer>
@@ -133,4 +127,13 @@
 			<reference value="DocumentManifest/example"/>
 		</what>
 	</entity>
+	<!-- TODO need to make a new style entity with entity.agent for this media
+		<media>
+			<coding>
+				<system value="http://dicom.nema.org/resources/ontology/DCM"/>
+				<code value="110033"/>
+				<display value="DVD"/>
+			</coding>
+		</media>
+  -->
 </AuditEvent>
