@@ -132,64 +132,64 @@ The Non-Invasive Multimodal Foetal ECG-Doppler Dataset for Antenatal Cardiology 
 			<copyright value="https://physionet.org/content/ninfea/view-license/1.0.0/ and https://physionet.org/content/ninfea/1.0.0/LICENSE.txt"/>
 		</publicationForm>
 		<webLocation>
-			<type>
+			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/article-url-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
 					<version value="4.6.0"/>
 					<code value="webpage"/>
 					<display value="Webpage"/>
 				</coding>
-			</type>
+			</classifier>
 			<url value="https://physionet.org/content/ninfea/1.0.0/"/>
 		</webLocation>
 		<webLocation>
-			<type>
+			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/article-url-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
 					<version value="4.6.0"/>
 					<code value="doi-based"/>
 					<display value="DOI Based"/>
 				</coding>
-			</type>
+			</classifier>
 			<url value="https://doi.org/10.13026/c4n5-3b04"/>
 		</webLocation>
 		<webLocation>
-			<type>
+			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/article-url-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
 					<version value="4.6.0"/>
 					<code value="doi-based"/>
 					<display value="DOI Based"/>
 				</coding>
 				<text value="original publication"/>
-			</type>
+			</classifier>
 			<url value="https://doi.org/10.1038/s41597-021-00811-3"/>
 		</webLocation>
 		<webLocation>
-			<type>
+			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/article-url-type"/>
+					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
 					<version value="4.6.0"/>
 					<code value="compressed-file"/>
 					<display value="Compressed file"/>
 				</coding>
-			</type>
+			</classifier>
 			<url value="https://physionet.org/static/published-projects/ninfea/ninfea-non-invasive-multimodal-foetal-ecg-doppler-dataset-for-antenatal-cardiology-research-1.0.0.zip"/>
 		</webLocation>
 		<webLocation>
-			<type>
+			<classifier>
 				<text value="DOI-for-metadata"/>
-			</type>
+			</classifier>
 			<url value="https://doi.org/10.6084/m9.figshare.13283492"/>
 		</webLocation>
 		<classification>
-			<type>
+			<classifier>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
 					<code value="knowledge-artifact-type"/>
 					<display value="Knowledge Artifact Type"/>
 				</coding>
-			</type>
+			</classifier>
 			<classifier>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
