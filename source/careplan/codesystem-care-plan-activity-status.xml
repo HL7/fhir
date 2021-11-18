@@ -224,6 +224,7 @@
   <description value="Codes that reflect the current state of a care plan activity within its overall life cycle."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/care-plan-activity-status"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="not-started"/>
