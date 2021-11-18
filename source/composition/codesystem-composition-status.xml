@@ -91,6 +91,20 @@
           <td>The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid.</td>
         
         </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">deprecated
+            
+            <a name="composition-status-deprecated"> </a>
+          
+          </td>
+          
+          <td>Deprecated</td>
+          
+          <td>This composition has been withdrawn or superseded and should no longer be used.</td>
+        
+        </tr>
       
       </table>
     
@@ -150,5 +164,10 @@
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
     <definition value="The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid."/>
+  </concept>
+  <concept>
+    <code value="deprecated"/>
+    <display value="Deprecated"/>
+    <definition value="This composition has been withdrawn or superseded and should no longer be used."/>
   </concept>
 </CodeSystem>
