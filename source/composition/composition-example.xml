@@ -60,7 +60,10 @@
 		<display value="Good Health Clinic"/>
 	</custodian>
 	<relatesTo>
-		<code value="replaces"/>
+	    <code>
+			<coding>
+			  <system value="http://hl7.org/fhir/document-relationship-type"/>
+			  <code value="replaces"/>
 		<!-- 
       you can identify a composition or a document.
       A document is a frozen version of a composition
@@ -68,12 +71,19 @@
       - can refer to the composition or document by identifier
       - or by reference. to refer to a document by reference, Bundle/xxxx
     -->
+			</coding>
+		</code>
 		<targetReference>
 			<reference value="Composition/old-example"/>
 		</targetReference>
 	</relatesTo>
 	<relatesTo>
-		<code value="appends"/>
+	    <code>
+			<coding>
+			  <system value="http://hl7.org/fhir/document-relationship-type"/>
+			  <code value="appends"/>
+			</coding>
+		</code>
 		<targetIdentifier>
       <system value="http://example.org/fhir/NamingSystem/document-ids"/>
       <value value="ABC123"/>

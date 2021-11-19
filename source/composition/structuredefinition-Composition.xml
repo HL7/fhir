@@ -612,13 +612,13 @@
     </element>
     <element id="Composition.relatesTo.code">
       <path value="Composition.relatesTo.code"/>
-      <short value="replaces | transforms | signs | appends"/>
+      <short value="The relationship type with another document"/>
       <definition value="The type of relationship that this composition has with anther composition or document."/>
       <comment value="If this document appends another document, then the document cannot be fully understood without also accessing the referenced document."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
