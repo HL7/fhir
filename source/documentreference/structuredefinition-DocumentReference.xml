@@ -797,7 +797,7 @@
     </element>
     <element id="DocumentReference.relatesTo.code">
       <path value="DocumentReference.relatesTo.code"/>
-      <short value="replaces | transforms | signs | appends"/>
+      <short value="The relationship type with another document"/>
       <definition value="The type of relationship that this document has with anther document."/>
       <comment value="If this document appends another document, then the document cannot be fully understood without also accessing the referenced document."/>
       <min value="1"/>

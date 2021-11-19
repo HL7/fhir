@@ -85,7 +85,12 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 		<reference value="Organization/f001"/>
 	</custodian>
 	<relatesTo>
-		<code value="appends"/>
+	    <code>
+			<coding>
+			  <system value="http://hl7.org/fhir/document-relationship-type"/>
+			  <code value="appends"/>
+			</coding>
+		</code>
 		<target>
 			<reference value="DocumentReference/example"/>
 		</target>
