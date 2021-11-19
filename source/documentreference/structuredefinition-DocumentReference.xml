@@ -803,15 +803,15 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DocumentRelationshipType"/>
         </extension>
-        <strength value="required"/>
-        <description value="The type of relationship between documents."/>
+        <strength value="extensible"/>
+        <description value="The type of relationship between the documents."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/document-relationship-type"/>
       </binding>
       <mapping>
