@@ -117,6 +117,20 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+    <element id="ArtifactAssessment.citeAs[x]">
+      <path value="ArtifactAssessment.citeAs[x]"/>
+      <short value="How to cite the comment or rating"/>
+      <definition value="Display of or reference to the bibliographic citation of the comment, classifier, or rating."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
+      </type>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
     <element id="ArtifactAssessment.date">
       <path value="ArtifactAssessment.date"/>
       <short value="Date last changed"/>
@@ -204,6 +218,7 @@
       <type>
         <code value="date"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Definition.lastReviewDate"/>
@@ -216,6 +231,188 @@
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
       </mapping>
+    </element>
+    <element id="ArtifactAssessment.artifact[x]">
+      <path value="ArtifactAssessment.artifact[x]"/>
+      <short value="The artifact assessed, commented upon or rated"/>
+      <definition value="A reference to a resource, canonical resource, or non-FHIR resource which the comment or assessment is about."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Any"/>
+      </type>
+      <isSummary value="true"/>
+      <type>
+        <code value="canonical"/>
+      </type>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="ArtifactAssessment.content">
+      <path value="ArtifactAssessment.content"/>
+      <short value="Comment, classifier, or rating content"/>
+      <definition value="A component comment, classifier, or rating of the artifact."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ArtifactAssessment.content.informationType">
+      <path value="ArtifactAssessment.content.informationType"/>
+      <short value="comment | classifier | rating | container | response | change-request"/>
+      <definition value="The type of information this component of the content represents."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InformationType"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-information-type|4.6.0"/>
+      </binding>
+    </element>
+    <element id="ArtifactAssessment.content.summary">
+      <path value="ArtifactAssessment.content.summary"/>
+      <short value="Brief summary of the content"/>
+      <definition value="A brief summary of the content of this component."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="ArtifactAssessment.content.type">
+      <path value="ArtifactAssessment.content.type"/>
+      <short value="What type of content"/>
+      <definition value="Indicates what type of content this component represents."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EvidenceCertaintyType"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/certainty-type"/>
+      </binding>
+    </element>
+    <element id="ArtifactAssessment.content.classifier">
+      <path value="ArtifactAssessment.content.classifier"/>
+      <short value="Rating, classifier, or assessment"/>
+      <definition value="Represents a rating, classifier, or assessment of the artifact."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EvidenceCertaintyRating"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/certainty-rating"/>
+      </binding>
+    </element>
+    <element id="ArtifactAssessment.content.author[x]">
+      <path value="ArtifactAssessment.content.author[x]"/>
+      <short value="Who authored the content"/>
+      <definition value="Indicates who or what authored the content."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="ArtifactAssessment.content.path">
+      <path value="ArtifactAssessment.content.path"/>
+      <short value="What the comment is directed to"/>
+      <definition value="A URI that points to what the comment is about, such as a line of text in the CQL, or a specific element in a resource."/>
+      <comment value="The target element is used to point the comment to aspect of the artifact, such as a text range within a CQL library (e.g. #content?0:0-120:80)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="ArtifactAssessment.content.relatedArtifact">
+      <path value="ArtifactAssessment.content.relatedArtifact"/>
+      <short value="Additional information"/>
+      <definition value="Additional related artifacts that provide supporting documentation, additional evidence, or further information related to the content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="RelatedArtifact"/>
+      </type>
+    </element>
+    <element id="ArtifactAssessment.content.freeToShare">
+      <path value="ArtifactAssessment.content.freeToShare"/>
+      <short value="Acceptable to publicly share the resource content"/>
+      <definition value="Acceptable to publicly share the comment, classifier or rating."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="ArtifactAssessment.content.component">
+      <path value="ArtifactAssessment.content.component"/>
+      <short value="Contained content"/>
+      <definition value="If the informationType is container, the components of the content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#ArtifactAssessment.content"/>
+    </element>
+    <element id="ArtifactAssessment.workflowStatus">
+      <path value="ArtifactAssessment.workflowStatus"/>
+      <short value="submitted | triaged | waiting-for-input | resolved-no-change | resolved-change-required | deferred | duplicate | applied | published"/>
+      <definition value="Indicates the workflow status of the comment or change request."/>
+      <min value="0"/>
+      <max value="1"/>
+      <isSummary value="true"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="WorkflowStatus"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-workflow-status|4.6.0"/>
+      </binding>
+    </element>
+    <element id="ArtifactAssessment.disposition">
+      <path value="ArtifactAssessment.disposition"/>
+      <short value="unresolved | not-persuasive | persuasive | persuasive-with-modification | not-persuasive-with-modification"/>
+      <definition value="Indicates the disposition of the responsible party to the comment or change request."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Disposition"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-disposition|4.6.0"/>
+      </binding>
     </element>
   </differential>
 </StructureDefinition>
