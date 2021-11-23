@@ -215,6 +215,62 @@ the <a href="http://www.ihe.net/Technical_Frameworks/#radiology">IHE Technical F
 or the introduction on the <a href="http://wiki.ihe.net/index.php/Invoke_Image_Display">IHE IID Profile Wiki</a>.
 </p>
 
+
+<a name="additional-dicom-attributes"></a>
+<h4>Additional DICOM attributes</h4>
+<p>
+Some imaging uses may require information beyond what is present in an ImagingStudy resource. Many of the DICOM patient and study level attributes are found in the FHIR Patient, Procedure, or other resources which are referenced from an ImagingStudy instance. Other DICOM content may be transformed into other FHIR resources, such as DiagnosticReports or Observations, which are not directly referenced, but may be easily found.
+</p><p>
+Although many ImagingStudy consumers are expected to need only the DICOM information contained in FHIR resources, some may need additional DICOM attributes. For these cases, which by their nature involve more imaging-aware consumers, the most flexible solution is to leverage the DICOM WADO-RS metadata-only endpoint to retrieve an XML or JSON representation of the DICOM study, series, instance, or frame information.
+</p><p>
+A benefit of using the metadata endpoint in this way is that the ImagingStudy creator does not need to know each of the attributes that each of the (current or future) ImagingStudy consumers is (or will be) interested in.
+</p>
+<h5>Example Metadata Retrieval</h5>
+<p>
+A client retrieves the following ImagingStudy:
+</p>
+<pre>
+{
+  "resourceType": "ImagingStudy",
+  "id": "example-xr",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "urn:dicom:uid",
+      "value": "urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430046"
+    }
+  ],
+  ...
+  "series": [
+    {
+      "uid": "2.16.124.113543.6003.1154777499.30246.19789.3503430045.1",
+      ...
+      "endpoint": [
+        {
+          "reference": "Endpoint/example-wadors"
+        }
+      ]
+      ...
+    }
+    ...
+  ]
+}
+</pre>
+<p>
+(See <a href="imagingstudy-example-xr.json.html">Example XR</a> for full example)
+</p><p>
+The client retrieves the referenced Endpoint (see <a href="endpoint-example-wadors.json.html">Example WADO-RS</a>) and extracts the WADO-RS URL: <pre>https://pacs.hospital.org/wado-rs</pre>.
+</p><p>
+The client uses the WADO-RS URL, the identifier.value and the series.uid to construct a WADO-RS metadata request:
+</p>
+<pre>
+GET https://pacs.hospital.org/wado-rs/studies/2.16.124.113543.6003.1154777499.30246.19789.3503430046/series/2.16.124.113543.6003.1154777499.30246.19789.3503430045.1/metadata HTTP/1.1
+Accept: application/dicom+json
+</pre>
+<p>
+The WADO-RS server then returns the complete DICOM metadata for the requested series.
+</p>
+
 <a name="use-case"></a>
 <h3>Use Case</h3>
 <a name="ehr-usecase"></a>
@@ -315,7 +371,6 @@ capable DICOM viewing software.
 </p>
 </blockquote>
 -->
-
 
 <a name="size"></a>
 <h3>Size Considerations</h3>
