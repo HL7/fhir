@@ -1,1 +1,1 @@
-﻿Resource Examples failed instance validation
+﻿expected = after attribute name (position: TEXT seen ...ed with the device when describing the device, for example "knee i... @134:127) 
