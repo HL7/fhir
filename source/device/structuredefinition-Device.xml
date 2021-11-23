@@ -528,8 +528,8 @@
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
       <path value="Device.deviceName.type"/>
-      <short value="udi-label-name | user-friendly-name | patient-reported-name | manufacturer-name | model-name | other"/>
-      <definition value="The type of deviceName. Note that ManufactureDeviceName means that the name is the name as given by the manufacturer, not the name of the manufacturer.&#xA;UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | ModelName."/>
+      <short value="registered-name | user-friendly-name | patient-reported-name"/>
+      <definition value="The type of deviceName. Note that ManufactureDeviceName means that the name is the name as given by the manufacturer, not the name of the manufacturer.&#xA;RegisteredName | UserFriendlyName | PatientReportedName."/>
       <min value="1"/>
       <max value="1"/>
       <type>
