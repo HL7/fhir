@@ -201,7 +201,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <isSummary value="true"/>
 </element>
 <element id="BodyStructure.includedStructure.structure">
       <path value="BodyStructure.includedStructure.structure"/>
@@ -212,6 +211,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BodySite"/>
@@ -316,8 +316,7 @@
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>    
+      </type>   
 </element>
 <element id="BodyStructure.excludedStructure.structure">
       <path value="BodyStructure.excludedStructure.structure"/>
@@ -328,6 +327,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/> 
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BodySite"/>
