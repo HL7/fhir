@@ -5,7 +5,8 @@
     <p>This resource is an <a href="workflow.html#event">
       <em>event resource</em>
     </a> from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</p>
-    <p>A selection of DICOM SOP instances and/or frames within a single Study and Series which might or might not include additional specifics such as region or other DICOM UIDs, for example, ObservationUID, TrackingUID or SegmentationUID, allowing linkage to an <a href="observation.html">Observation</a> or transferring this information along with the <a href="imagingstudy.html">ImagingStudy</a>.</p>
+    <p>A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, an Observation UID or a Segmentation Number, allowing linkage to an <a href="observation.html">Observation</a> or transferring this information along with the <a href="imagingstudy.html">ImagingStudy</a>.</p>
+    <p>A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, an Observation UID or a Segmentation Number, allowing linkage to an <a href="observation.html">Observation</a> or transferring this information along with the <a href="imagingstudy.html">ImagingStudy</a>.</p>
     <p><b>Note:</b> DICOM SOP Instances can include images, videos, waveforms or documents.</p>
     <p>Uses for ImagingSelection resources include:</p>
     <ul>
