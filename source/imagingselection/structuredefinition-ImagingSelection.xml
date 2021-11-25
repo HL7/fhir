@@ -289,9 +289,10 @@
       <short value="DICOM Study Instance UID"/>
       <definition value="The Study Instance UID for the DICOM Study from which the images were selected."/>
       <comment value="See [DICOM PS3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html)."/>
-      <requirements value="DICOM Study Instance UID."/>
+      <requirements value="DICOM Study Instance UID.
+      Required unless frameOfReferenceUid and imageRegion are present."/>
       <alias value="StudyInstanceUID"/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="oid"/>
@@ -337,9 +338,10 @@
       <short value="DICOM Series Instance UID"/>
       <definition value="The Series Instance UID for the DICOM Series from which the images were selected."/>
       <comment value="See [DICOM PS3.3 C.7.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html)."/>
-      <requirements value="DICOM Series Instance UID."/>
+      <requirements value="DICOM Series Instance UID.
+      Required unless frameOfReferenceUid and imageRegion are present."/>
       <alias value="SeriesInstanceUID"/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="oid"/>
@@ -359,7 +361,8 @@
       <short value="The Frame of Reference UID for the selected images"/>
       <definition value="The Frame of Reference UID identifying the coordinate system that conveys spatial and/or temporal information for the selected images or frames."/>
       <comment value="See [DICOM PS3.3 C.7.4.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.4.html)."/>
-      <requirements value="DICOM Frame of Reference UID."/>
+      <requirements value="DICOM Frame of Reference UID.
+                           Required if studyInstanceUid and seriesInstanceUid are not present."/>
       <alias value="FrameOfReferenceUID"/>
       <min value="0"/>
       <max value="1"/>
@@ -547,19 +550,20 @@
         <map value="ROI Number (3006,0022)"/>
       </mapping>
     </element>
-    <element id="ImagingSelection.instance.imageRegion">
-      <path value="ImagingSelection.instance.imageRegion"/>
+    <element id="ImagingSelection.imageRegion">
+      <path value="ImagingSelection.imageRegion"/>
       <short value="A specific region in a DICOM image / frame"/>
       <definition value="Each imaging selection might includes one or more image regions. Image regions are specified by a region type and a set of 2D or 3D coordinates."/>
-      <requirements value="A single imaging selection shall not include both 2D and 3D coordinates."/>
+      <requirements value="Required if studyInstanceUid and seriesInstanceUid are not present.
+      A single imaging selection shall not include both 2D and 3D coordinates."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="ImagingSelection.instance.imageRegion.regionType">
-      <path value="ImagingSelection.instance.imageRegion.regionType"/>
+    <element id="ImagingSelection.imageRegion.regionType">
+      <path value="ImagingSelection.imageRegion.regionType"/>
       <short value="POINT | MULTIPOINT | POLYLINE | POLYGON | ELLIPSE | ELLIPSOID"/>
       <definition value="Specifies the type of image region."/>
       <comment value="See [DICOM PS3.3 C.18.9.1.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html#sect_C.18.9.1.2)."/>
@@ -582,8 +586,8 @@
         <map value="Graphic Type (0070,0023)"/>
       </mapping>
     </element>
-    <element id="ImagingSelection.instance.imageRegion.coordinateType">
-      <path value="ImagingSelection.instance.imageRegion.coordinateType"/>
+    <element id="ImagingSelection.imageRegion.coordinateType">
+      <path value="ImagingSelection.imageRegion.coordinateType"/>
       <short value="2d | 3d"/>
       <definition value="Specifies the type of coordinate system that define the image region."/>
       <min value="1"/>
@@ -600,8 +604,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-coordinatetype"/>
       </binding>
     </element>
-    <element id="ImagingSelection.instance.imageRegion.coordinates">
-      <path value="ImagingSelection.instance.imageRegion.coordinates"/>
+    <element id="ImagingSelection.imageRegion.coordinates">
+      <path value="ImagingSelection.imageRegion.coordinates"/>
       <short value="Specifies the type of coordinates that define the image region 2d | 3d"/>
       <definition value="The coordinates describing the image region.
       If coordinateType is 2D this specifies sequence of (x,y) coordinates in the coordinate system of the image specified by the instance.uid element that contains this image region.

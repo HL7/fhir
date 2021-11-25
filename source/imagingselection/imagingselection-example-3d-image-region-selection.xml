@@ -31,7 +31,8 @@
       <system value="urn:ietf:rfc:3986"/>
       <code value="urn:oid:1.2.840.10008.5.1.4.1.1.2.1"/>
     </sopClass>
-    <imageRegion>
+  </instance>
+  <imageRegion>
       <regionType value="ELLIPSE"/>
       <coordinateType value="3d"/>
       <coordinates value="-50.0"/>
@@ -47,6 +48,5 @@
       <coordinates value="25.0"/>
       <coordinates value="0.0"/>
     </imageRegion>
-  </instance>
 
 </ImagingSelection>
