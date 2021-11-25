@@ -31,8 +31,7 @@
       <system value="urn:ietf:rfc:3986"/>
       <code value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
     </sopClass>
-  </instance>
-  <imageRegion>
+    <imageRegion>
       <regionType value="POLYGON"/>
       <coordinateType value="2d"/>
       <coordinates value="0.25"/>
@@ -44,5 +43,6 @@
       <coordinates value="0.25"/>
       <coordinates value="0.75"/>
     </imageRegion>
+  </instance>
 
 </ImagingSelection>

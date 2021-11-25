@@ -38,7 +38,7 @@
       <value value="http://www.hl7.org/Special/committees/imagemgt/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A selection of DICOM SOP instances and/or frames within a single Study and Series. which might or might not include additional specifics such as region or other DICOM UIDs, for example, ObservationUID, TrackingUID or SegmentationUID, allowing linkage to an Observation Resource or transferring this information along with the ImagingStudy Resource."/>
+  <description value="A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, an Observation UID or a Segmentation Number, allowing linkage to an Observation Resource or transferring this information along with the ImagingStudy Resource."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -72,7 +72,7 @@
       </extension>
       <path value="ImagingSelection"/>
       <short value="A selection of DICOM SOP instances and/or frames"/>
-      <definition value="A selection of DICOM SOP instances and/or frames within a single Study and Series. which might or might not include additional specifics such as region or other DICOM UIDs, for example, ObservationUID, TrackingUID or SegmentationUID, allowing linkage to an Observation Resource or transferring this information along with the ImagingStudy Resource."/>
+      <definition value="A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, an Observation UID or a Segmentation Number, allowing linkage to an Observation Resource or transferring this information along with the ImagingStudy Resource."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -491,7 +491,7 @@
     <element id="ImagingSelection.instance.observationUid">
       <path value="ImagingSelection.instance.observationUid"/>
       <short value="Selected observations in a DICOM SR"/>
-      <definition value="The set of Observations within a Structured Report instance that are included in the imaging selection."/>
+      <definition value="The unique identifier for the observation Content Item (and its subsidiary Content Items, if any) that are included in the imaging selection."/>
       <comment value="See [DICOM PS3.3 C.12.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.12.html)."/>
       <requirements value="DICOM Observation UID."/>
       <alias value="ObservationUID"/>
@@ -508,22 +508,6 @@
         <identity value="dicom"/>
         <map value="Observation UID (0040,A171)"/>
       </mapping>
-    </element>
-    <element id="ImagingSelection.instance.trackingUid">
-      <path value="ImagingSelection.instance.trackingUid"/>
-      <short value="Selected measurements in a DICOM SR"/>
-      <definition value="The set of measurements within a Structured Report instance that are included in the imaging selection."/>
-      <comment value="See [DICOM PS3.16 TID 4108](http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_TID_4108.html)."/>
-      <requirements value="DICOM Tracking Unique Identifier."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="oid"/>
-      </type>
-      <example>
-        <label value="General"/>
-        <valueId value="urn:oid:1.2.840.113747.20080222.12753225430534207565993148475333748793.1.1.2.3"/>
-      </example>
     </element>
     <element id="ImagingSelection.instance.segmentList">
       <path value="ImagingSelection.instance.segmentList"/>
@@ -563,8 +547,8 @@
         <map value="ROI Number (3006,0022)"/>
       </mapping>
     </element>
-    <element id="ImagingSelection.imageRegion">
-      <path value="ImagingSelection.imageRegion"/>
+    <element id="ImagingSelection.instance.imageRegion">
+      <path value="ImagingSelection.instance.imageRegion"/>
       <short value="A specific region in a DICOM image / frame"/>
       <definition value="Each imaging selection might includes one or more image regions. Image regions are specified by a region type and a set of 2D or 3D coordinates."/>
       <requirements value="A single imaging selection shall not include both 2D and 3D coordinates."/>
@@ -574,8 +558,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="ImagingSelection.imageRegion.regionType">
-      <path value="ImagingSelection.imageRegion.regionType"/>
+    <element id="ImagingSelection.instance.imageRegion.regionType">
+      <path value="ImagingSelection.instance.imageRegion.regionType"/>
       <short value="POINT | MULTIPOINT | POLYLINE | POLYGON | ELLIPSE | ELLIPSOID"/>
       <definition value="Specifies the type of image region."/>
       <comment value="See [DICOM PS3.3 C.18.9.1.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html#sect_C.18.9.1.2)."/>
@@ -598,8 +582,8 @@
         <map value="Graphic Type (0070,0023)"/>
       </mapping>
     </element>
-    <element id="ImagingSelection.imageRegion.coordinateType">
-      <path value="ImagingSelection.imageRegion.coordinateType"/>
+    <element id="ImagingSelection.instance.imageRegion.coordinateType">
+      <path value="ImagingSelection.instance.imageRegion.coordinateType"/>
       <short value="2d | 3d"/>
       <definition value="Specifies the type of coordinate system that define the image region."/>
       <min value="1"/>
@@ -616,8 +600,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-coordinatetype"/>
       </binding>
     </element>
-    <element id="ImagingSelection.imageRegion.coordinates">
-      <path value="ImagingSelection.imageRegion.coordinates"/>
+    <element id="ImagingSelection.instance.imageRegion.coordinates">
+      <path value="ImagingSelection.instance.imageRegion.coordinates"/>
       <short value="Specifies the type of coordinates that define the image region 2d | 3d"/>
       <definition value="The coordinates describing the image region.
       If coordinateType is 2D this specifies sequence of (x,y) coordinates in the coordinate system of the image specified by the instance.uid element that contains this image region.
