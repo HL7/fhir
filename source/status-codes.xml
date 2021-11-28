@@ -333,14 +333,13 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Status Codes'!R3C1:R120C30"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="133" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="133" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="237"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="69.75"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.25"/>
    <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.75"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.25"/>
-   <Column ss:Index="36" ss:StyleID="s63" ss:Width="45"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Path</Data></Cell>
     <Cell><Data ss:Type="String">c0</Data></Cell>
@@ -377,7 +376,6 @@
     <Cell><Data ss:Type="String">c31</Data></Cell>
     <Cell><Data ss:Type="String">c32</Data></Cell>
     <Cell><Data ss:Type="String">C33</Data></Cell>
-    <Cell><Data ss:Type="String">C34</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String" x:Ticked="1">@codes</Data></Cell>
@@ -1459,7 +1457,8 @@
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">deprecated</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">amended</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">final</Data><NamedCell
@@ -1478,7 +1477,6 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="36"><Data ss:Type="String">deprecated</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ConceptMap.status</Data><NamedCell
@@ -3573,7 +3571,6 @@
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Observation.status</Data><NamedCell
@@ -4885,7 +4882,7 @@
    <SplitHorizontal>4</SplitHorizontal>
    <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>14</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4900,7 +4897,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>29</ActiveRow>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>34</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
