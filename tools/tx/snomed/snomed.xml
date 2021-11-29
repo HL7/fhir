@@ -12559,6 +12559,10 @@
     <display value="Hyperlipidemia screening test"/>
     <display value="Hyperlipidemia screening test (procedure)"/>
   </concept>
+  <concept id="314204000" display="Early stage of pregnancy">
+    <display value="Early stage of pregnancy"/>
+    <display value="Early stage of pregnancy (finding)"/>
+  </concept>
   <concept id="314453003" display="Average diastolic blood pressure">
     <display value="Average diastolic blood pressure"/>
     <display value="Average diastolic blood pressure (observable entity)"/>
@@ -16395,6 +16399,13 @@
   <concept id="75359005" display="Timolol maleate">
     <display value="Timolol maleate"/>
     <display value="Timolol maleate (substance)"/>
+  </concept>
+  <concept id="75444003" display="Fetal electrocardiogram">
+    <display value="Fetal electrocardiogram"/>
+    <display value="Fetal ECG"/>
+    <display value="Fetal electrocardiogram (procedure)"/>
+    <display value="Foetal ECG"/>
+    <display value="Foetal electrocardiogram"/>
   </concept>
   <concept id="75702008" display="Brucellosis">
     <display value="Brucellosis"/>

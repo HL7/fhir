@@ -16,6 +16,7 @@
   <version value="4.6.0"/>
   <name value="AlternativeCodeKind"/>
   <caseSensitive value="true"/>
+  <content value="complete"/>
   <concept>
     <code value="alternate"/>
     <display value="Alternate Code"/>

@@ -175,6 +175,9 @@ see <a href="security.html#authentication">Security: Authentication</a> as an
 externally-reviewed authorization mechanism with a real-world deployment base -
 but we note that community efforts are underway to explore a variety of
 approaches to authorization. 
+</p><p>
+Resource Servers MUST enforce the authorization associated with the access token. This enforcement includes verification of the token, verification of the token expiration, and might include using introspection to verify the token has not been revoked. This enforcement includes constraining results returned to the scopes authorized by the access token. The Resource server might have further access controls beyond those in the token to enforce, such as Consent or business rules.
+</p><p>
 For further details, see <a href="security.html#binding">Security: Authorization and Access Control</a>.
 
 </p>

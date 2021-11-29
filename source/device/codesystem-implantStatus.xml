@@ -16,6 +16,7 @@
   <version value="4.6.0"/>
   <name value="Implant Status"/>
   <caseSensitive value="true"/>
+  <content value="complete"/>
   <concept>
     <code value="functional"/>
     <display value="Functional"/>

@@ -240,6 +240,7 @@
   <description value="The status of the diagnostic report."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/diagnostic-report-status"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="registered"/>

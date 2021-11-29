@@ -86,6 +86,11 @@
 		<translation lang="it">RispostaAppuntamento</translation>
 		<translation lang="zh">预约响应</translation>
 	</item>
+	<item id="ArtifactAssessment">
+		<translation lang="en">ArtifactAssessment</translation>
+		<translation lang="es">ArtefactoEvaluacion</translation>
+		<translation lang="it">ArtefattoValutazione</translation>
+	</item>
 	<item id="AuditEvent">
 		<translation lang="en">AuditEvent</translation>
 		<translation lang="es">EventoSeguridad</translation>
@@ -479,6 +484,9 @@
 		<translation lang="es">ManifiestoDeImagen</translation>
 		<translation lang="fr">ImagingManifest</translation>
 		<translation lang="zh">成像清单</translation>
+	</item>
+	<item id="ImagingSelection">
+		<translation lang="en">ImagingSelection</translation>
 	</item>
 	<item id="ImagingStudy">
 		<translation lang="en">ImagingStudy</translation>

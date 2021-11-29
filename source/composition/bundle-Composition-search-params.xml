@@ -225,39 +225,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Composition-related-id"/>
+        <id value="Composition-related"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Composition.relatesTo.targetIdentifier"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-related-id"/>
-        <description value="Target of the relationship"/>
-        <code value="related-id"/>
-        <type value="token"/>
-        <expression value="(Composition.relatesTo.target as Identifier)"/>
-        <xpath value="f:Composition/f:relatesTo/f:targetIdentifier"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="Composition-related-ref"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Composition.relatesTo.targetReference"/>
+          <valueString value="Composition.relatesTo.resourceReference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Composition-related-ref"/>
         <description value="Target of the relationship"/>
-        <code value="related-ref"/>
+        <code value="related"/>
         <type value="reference"/>
-        <expression value="(Composition.relatesTo.target as Reference)"/>
-        <xpath value="f:Composition/f:relatesTo/f:targetReference"/>
+        <expression value="Composition.relatesTo.resourceReference"/>
+        <xpath value="f:Composition/f:relatesTo/f:resourceReference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

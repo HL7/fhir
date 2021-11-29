@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="artifactassessment-workflow-status"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/artifactassessment-workflow-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ArtifactAssessmentWorkflowStatus"/>
+  <title value="Artifact Assessment Workflow Status"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Possible values for the workflow status of the comment or assessment, typically used to coordinate workflow around the process of accepting and rejecting changes and comments on the artifact."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-workflow-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="submitted"/>
+    <display value="Submitted"/>
+    <definition value="The comment has been submitted, but the responsible party has not yet been determined, or the responsible party has not yet determined the next steps to be taken."/>
+  </concept>
+  <concept>
+    <code value="triaged"/>
+    <display value="Triaged"/>
+    <definition value="The comment has been triaged, meaning the responsible party has been determined and next steps have been identified to address the comment."/>
+  </concept>
+  <concept>
+    <code value="waiting-for-input"/>
+    <display value="Waiting for Input"/>
+    <definition value="The comment is waiting for input from a specific party before next steps can be taken."/>
+  </concept>
+  <concept>
+    <code value="resolved-no-change"/>
+    <display value="Resolved - No Change"/>
+    <definition value="The comment has been resolved and no changes resulted from the resolution"/>
+  </concept>
+  <concept>
+    <code value="resolved-change-required"/>
+    <display value="Resolved - Change Required"/>
+    <definition value="The comment has been resolved and changes are required to address the comment"/>
+  </concept>
+  <concept>
+    <code value="deferred"/>
+    <display value="Deferred"/>
+    <definition value="The comment is acceptable, but resolution of the comment and application of any associated changes have been deferred"/>
+  </concept>
+  <concept>
+    <code value="duplicate"/>
+    <display value="Duplicate"/>
+    <definition value="The comment is a duplicate of another comment already received"/>
+  </concept>
+  <concept>
+    <code value="applied"/>
+    <display value="Applied"/>
+    <definition value="The comment is resolved and any necessary changes have been applied"/>
+  </concept>
+  <concept>
+    <code value="published"/>
+    <display value="Published"/>
+    <definition value="The necessary changes to the artifact have been published in a new version of the artifact"/>
+  </concept>
+</CodeSystem>

@@ -61,19 +61,19 @@
   <numberOfSeries value="1"/>
   <numberOfInstances value="2"/>
   <procedure>
-  <valueReference>
+  <reference>
     <reference value="Procedure/example"/>
-  </valueReference>
+  </reference>
   </procedure>
   <procedure>
-  <valueCodeableConcept>
+  <concept>
     <coding>
       <system value="http://www.radlex.org"/>
       <code value="RPID2589"/>
       <display value="XR Wrist 3+ Views"/>
     </coding>
     <text value="XR Wrist 3+ Views"/>
-  </valueCodeableConcept>
+  </concept>
   </procedure>
   <reason>
     <concept>
