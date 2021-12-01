@@ -43,6 +43,11 @@ task("printVersion") {
             "\nGenerating code using kindling version ${properties["kindlingVersion"]}" +
             "\nFor more information on kindling, and to check latest version, check here:" +
             "\nhttps://github.com/HL7/kindling" +
+            "\n"+
+            "\nVerbose or customized output can be further configured using the logback.configurationFile gradle property:"+
+            "\n"+
+            "\n  ./gradlew publish -Plogback.configurationFile=~/my-logback-config.xml"+
+            "\n"+
             "\n==============================")
 }
 
