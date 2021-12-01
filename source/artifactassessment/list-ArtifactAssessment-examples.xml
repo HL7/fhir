@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="ArtifactAssessment-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ArtifactAssessment that contains a series of nested ratings to document the risk of bias assessment of an Evidence resource"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="artifactassessment-risk-of-bias-example"/>
+    </extension>
+    <item>
+      <reference value="ArtifactAssessment/risk-of-bias-example"/>
+      <display value="Risk of Bias Example"/>
+    </item>
+  </entry>
+</List>

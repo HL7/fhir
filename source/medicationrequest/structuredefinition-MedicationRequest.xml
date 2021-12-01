@@ -130,9 +130,111 @@
         <map value=".id"/>
       </mapping>
     </element>
+    <element id="MedicationRequest.instantiatesCanonical">
+      <path value="MedicationRequest.instantiatesCanonical"/>
+      <short value="Instantiates FHIR protocol or definition"/>
+      <definition value="The URL pointing to a protocol, guideline, orderset, or other definition that is adhered to in whole or in part by this MedicationRequest."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.instantiates"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target"/>
+      </mapping>
+    </element>
+    <element id="MedicationRequest.instantiatesUri">
+      <path value="MedicationRequest.instantiatesUri"/>
+      <short value="Instantiates external protocol or definition"/>
+      <definition value="The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this MedicationRequest."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target"/>
+      </mapping>
+    </element>
+    <element id="MedicationRequest.basedOn">
+      <path value="MedicationRequest.basedOn"/>
+      <short value="What request fulfills"/>
+      <definition value="A plan or request that is fulfilled in whole or in part by this medication request."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.basedOn"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=FLFS].target[classCode=SBADM or PROC or PCPR or OBS, moodCode=RQO orPLAN or PRP]"/>
+      </mapping>
+    </element>
+    <element id="MedicationRequest.priorPrescription">
+      <path value="MedicationRequest.priorPrescription"/>
+      <short value="An order/prescription that is being replaced"/>
+      <definition value="A link to a resource representing an earlier order related order or prescription."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.replaces"/>
+      </mapping>
+      <mapping>
+        <identity value="script10.6"/>
+        <map value="not mapped"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=?RPLC or ?SUCC]/target[classCode=SBADM,moodCode=RQO]"/>
+      </mapping>
+    </element>
+    <element id="MedicationRequest.groupIdentifier">
+      <path value="MedicationRequest.groupIdentifier"/>
+      <short value="Composite request this is part of"/>
+      <definition value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition or prescription."/>
+      <requirements value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.groupIdentifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship(typeCode=COMP].target[classCode=SBADM, moodCode=INT].id"/>
+      </mapping>
+    </element>
     <element id="MedicationRequest.status">
       <path value="MedicationRequest.status"/>
-      <short value="active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown"/>
+      <short value="active | on-hold | ended | stopped | completed | cancelled | entered-in-error | draft | unknown"/>
       <definition value="A code specifying the current state of the order.  Generally, this will be active or completed state."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.&#xA;&#xA;Clinical decision support systems should take the status into account when determining which medications to include in their algorithms."/>
       <min value="1"/>
@@ -196,6 +298,20 @@
       <mapping>
         <identity value="rim"/>
         <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN].reasonCOde"/>
+      </mapping>
+    </element>
+    <element id="MedicationRequest.statusChanged">
+      <path value="MedicationRequest.statusChanged"/>
+      <short value="When the status was changed"/>
+      <definition value="The date (and perhaps time) when the status was changed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="subjectOf Observation[code = statusChange].value = date"/>
       </mapping>
     </element>
     <element id="MedicationRequest.intent">
@@ -312,40 +428,6 @@
         <map value="SubstanceAdministration.actionNegationInd"/>
       </mapping>
     </element>
-    <element id="MedicationRequest.reported">
-      <path value="MedicationRequest.reported"/>
-      <short value="Reported rather than primary record"/>
-      <definition value="Indicates if this record was captured as a secondary &#39;reported&#39; record rather than as an original primary source-of-truth record.  It may also indicate the source of the report."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=INF].role"/>
-      </mapping>
-    </element>
-    <element id="MedicationRequest.informationSource">
-      <path value="MedicationRequest.informationSource"/>
-      <short value="The person or organization who provided the information about this request, if the source is someone other than the requestor"/>
-      <definition value="The person or organization who provided the information about this request, if the source is someone other than the requestor.  This is often used when the MedicationRequest is reported by another person."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=INF].role[classCode=PAT, or codes for Practitioner or Related Person or Practitioner Role or Organization"/>
-      </mapping>
-    </element>
     <element id="MedicationRequest.medication">
       <path value="MedicationRequest.medication"/>
       <short value="Medication to be taken"/>
@@ -423,6 +505,25 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="MedicationRequest.informationSource">
+      <path value="MedicationRequest.informationSource"/>
+      <short value="The person or organization who provided the information about this request, if the source is someone other than the requestor"/>
+      <definition value="The person or organization who provided the information about this request, if the source is someone other than the requestor.  This is often used when the MedicationRequest is reported by another person."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=INF].role[classCode=PAT, or codes for Practitioner or Related Person or Practitioner Role or Organization"/>
       </mapping>
     </element>
     <element id="MedicationRequest.encounter">
@@ -541,6 +642,49 @@
         <map value=".participation[typeCode=AUT].role"/>
       </mapping>
     </element>
+    <element id="MedicationRequest.reported">
+      <path value="MedicationRequest.reported"/>
+      <short value="Reported rather than primary record"/>
+      <definition value="Indicates if this record was captured as a secondary &#39;reported&#39; record rather than as an original primary source-of-truth record.  It may also indicate the source of the report."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=INF].role"/>
+      </mapping>
+    </element>
+    <element id="MedicationRequest.performerType">
+      <path value="MedicationRequest.performerType"/>
+      <short value="Desired kind of performer of the medication administration"/>
+      <definition value="Indicates the type of performer of the administration of the medication."/>
+      <comment value="If specified without indicating a performer, this indicates that the performer must be of the specified type. If specified with a performer then it indicates the requirements of the performer if the designated performer is not available."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationRequestPerformerType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Identifies the type of individual that is desired to administer the medication."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-intended-performer-role"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.performerType"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRF].role[scoper.determinerCode=KIND].code"/>
+      </mapping>
+    </element>
     <element id="MedicationRequest.performer">
       <path value="MedicationRequest.performer"/>
       <short value="Intended performer of administration"/>
@@ -569,34 +713,6 @@
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"/>
-      </mapping>
-    </element>
-    <element id="MedicationRequest.performerType">
-      <path value="MedicationRequest.performerType"/>
-      <short value="Desired kind of performer of the medication administration"/>
-      <definition value="Indicates the type of performer of the administration of the medication."/>
-      <comment value="If specified without indicating a performer, this indicates that the performer must be of the specified type. If specified with a performer then it indicates the requirements of the performer if the designated performer is not available."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicationRequestPerformerType"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Identifies the type of individual that is desired to administer the medication."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/performer-role"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.performerType"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=PRF].role[scoper.determinerCode=KIND].code"/>
       </mapping>
     </element>
     <element id="MedicationRequest.recorder">
@@ -660,85 +776,6 @@
         <map value="reason.observation.reasonCode | reason.observation[code=ASSERTION].value"/>
       </mapping>
     </element>
-    <element id="MedicationRequest.instantiatesCanonical">
-      <path value="MedicationRequest.instantiatesCanonical"/>
-      <short value="Instantiates FHIR protocol or definition"/>
-      <definition value="The URL pointing to a protocol, guideline, orderset, or other definition that is adhered to in whole or in part by this MedicationRequest."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.instantiates"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
-    <element id="MedicationRequest.instantiatesUri">
-      <path value="MedicationRequest.instantiatesUri"/>
-      <short value="Instantiates external protocol or definition"/>
-      <definition value="The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this MedicationRequest."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
-    <element id="MedicationRequest.basedOn">
-      <path value="MedicationRequest.basedOn"/>
-      <short value="What request fulfills"/>
-      <definition value="A plan or request that is fulfilled in whole or in part by this medication request."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.basedOn"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=FLFS].target[classCode=SBADM or PROC or PCPR or OBS, moodCode=RQO orPLAN or PRP]"/>
-      </mapping>
-    </element>
-    <element id="MedicationRequest.groupIdentifier">
-      <path value="MedicationRequest.groupIdentifier"/>
-      <short value="Composite request this is part of"/>
-      <definition value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition or prescription."/>
-      <requirements value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.groupIdentifier"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship(typeCode=COMP].target[classCode=SBADM, moodCode=INT].id"/>
-      </mapping>
-    </element>
     <element id="MedicationRequest.courseOfTherapyType">
       <path value="MedicationRequest.courseOfTherapyType"/>
       <short value="Overall pattern of medication administration"/>
@@ -753,7 +790,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationRequestCourseOfTherapy"/>
         </extension>
-        <strength value="example"/>
+        <strength value="extensible"/>
         <description value="Identifies the overall pattern of medication administratio."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-course-of-therapy"/>
       </binding>
@@ -804,8 +841,22 @@
         <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=&quot;annotation&quot;].value"/>
       </mapping>
     </element>
-    <element id="MedicationRequest.renderedDosageInstruction">
-      <path value="MedicationRequest.renderedDosageInstruction"/>
+    <element id="MedicationRequest.dose">
+      <path value="MedicationRequest.dose"/>
+      <short value="How the medication should be taken"/>
+      <definition value="Indicates how the medication is to be used by the patient."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="SubstanceAdministration &gt; ActRelationship[COMP] &gt; SubstanceAdministration"/>
+      </mapping>
+    </element>
+    <element id="MedicationRequest.dose.renderedDosageInstruction">
+      <path value="MedicationRequest.dose.renderedDosageInstruction"/>
       <short value="Full representation of the dosage instructions"/>
       <definition value="The full representation of the dose of the medication included in all dosage instructions.  To be used when multiple dosage instructions are included to represent complex dosing such as increasing or tapering doses."/>
       <requirements value="The content of the renderedDosageInstructions must not be different than the dose represented in the dosageInstruction content."/>
@@ -819,20 +870,30 @@
         <map value="SubstanceAdministration.text"/>
       </mapping>
     </element>
-    <element id="MedicationRequest.dosageInstruction">
-      <path value="MedicationRequest.dosageInstruction"/>
-      <short value="How the medication should be taken"/>
-      <definition value="Indicates how the medication is to be used by the patient."/>
+    <element id="MedicationRequest.dose.effectiveDosePeriod">
+      <path value="MedicationRequest.dose.effectiveDosePeriod"/>
+      <short value="Period over which the medication is to be taken"/>
+      <definition value="The period over which the medication is to be taken.  Where there are multiple dosageInstruction lines (for example, tapering doses), this is the earliest date and the latest end date of the dosageInstructions."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="substanceAdministration.effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="MedicationRequest.dose.dosageInstruction">
+      <path value="MedicationRequest.dose.dosageInstruction"/>
+      <short value="Specific instructions for how the medication should be taken"/>
+      <definition value="Specific instructions for how the medication is to be used by the patient."/>
       <comment value="There are examples where a medication request may include the option of an oral dose or an Intravenous or Intramuscular dose.  For example, &quot;Ondansetron 8mg orally or IV twice a day as needed for nausea&quot; or &quot;Compazine&#xAE; (prochlorperazine) 5-10mg PO or 25mg PR bid prn nausea or vomiting&quot;.  In these cases, two medication requests would be created that could be grouped together.  The decision on which dose and route of administration to use is based on the patient&#39;s condition at the time the dose is needed. In general, each prescribed drug will be a separate Medication Request. &#xA;&#xA;When drug orders are grouped together at the time of order entry,  but each of the drugs can be manipulated independently e.g. changing the status of one order to &quot;completed&quot; or &quot;cancelled&quot;, changing another order status to &quot;on-hold&quot;, the method to &quot;group&quot; all of the medication requests together is to use  MedicationRequest.groupIdentifier element.  All of the orders grouped together in this manner will have the same groupIdentifier, and separately, each order in the group may have a unique identifier.  &#xA;&#xA;There are cases that require grouping of Medication orders together when it is necessary to specify optionality e.g. order two drugs at one time, but stating either of these drugs may be used to treat the patient.  The use of a RequestGroup should be used as a parent for the Medication orders that require this type of grouping. An example when it may be necessary to group medication orders together is when you specify timing relationships e.g. order drug &quot;xyz&quot; with dose 123, then taper the same drug to a different dose after some interval of time&#xA;precedence:&#xA;e.g. give drug &quot;abc&quot; followed by drug &quot;def&quot;&#xA;e.g. give drug 30 minutes before some procedure was performed&#xA;more generically this supports - hierarchical groups of actions, where each specific action references the action to be performed (in terms of a Request resource), and each group describes additional behavior, relationships, and applicable conditions between the actions in the overall group.&#xA;Note that one should NOT use the List or Composition resource to accomplish the above requirements.  You may use List or Composition for other business requirements, but not to address the specific requirements of grouping medication orders."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Dosage"/>
       </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.occurrence[x]"/>
-      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value="see dosageInstruction mapping"/>
@@ -1094,7 +1155,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationRequestSubstitution"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Identifies the type of substitution allowed."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActSubstanceAdminSubstitutionCode"/>
       </binding>
@@ -1142,29 +1203,6 @@
       <mapping>
         <identity value="rim"/>
         <map value="reasonCode"/>
-      </mapping>
-    </element>
-    <element id="MedicationRequest.priorPrescription">
-      <path value="MedicationRequest.priorPrescription"/>
-      <short value="An order/prescription that is being replaced"/>
-      <definition value="A link to a resource representing an earlier order related order or prescription."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.replaces"/>
-      </mapping>
-      <mapping>
-        <identity value="script10.6"/>
-        <map value="not mapped"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=?RPLC or ?SUCC]/target[classCode=SBADM,moodCode=RQO]"/>
       </mapping>
     </element>
     <element id="MedicationRequest.detectedIssue">

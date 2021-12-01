@@ -27,8 +27,15 @@
 				<display value="Intracranial hemorrhage (disorder)"/>
 			</coding>
     </definitionCodeableConcept>
-    <timeFromStart>
+    <timeFromEvent>
 			<description value="within 7 days"/>
+			<event>
+				<coding>
+					<system value="http://hl7.org/fhir/evidence-variable-event"/>
+					<code value="study-start"/>
+					<display value="Study Start"/>
+				</coding>
+			</event>
 			<range>
 				<low>
 					<value value="0"/>
@@ -43,7 +50,7 @@
 					<code value="d"/>
 				</high>
 			</range>
-    </timeFromStart>
+    </timeFromEvent>
   </characteristic>
   <characteristic>
 		<description value="death within 7 days"/>
@@ -54,7 +61,7 @@
 				<display value="Death (event)"/>
 			</coding>
 		</definitionCodeableConcept>
-		<timeFromStart>
+		<timeFromEvent>
 			<description value="within 7 days"/>
 			<range>
 				<low>
@@ -70,7 +77,7 @@
 					<code value="d"/>
 				</high>
 			</range>
-		</timeFromStart>
+		</timeFromEvent>
   </characteristic>
   <handling value="dichotomous"/>
 </EvidenceVariable>

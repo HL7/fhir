@@ -43,12 +43,15 @@
   <contained>
     <Substance>
       <id value="citalopramSubstance"/>
+      <instance value="false"/>
       <code>
+        <concept>
           <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
             <code value="2556"/>
           </coding>
           <text value="citalopram"/>
+        </concept>
       </code>
     </Substance>
   </contained>
@@ -203,7 +206,9 @@
     <relatedArtifact>
       <type value="citation"/>
       <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
-      <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
+      <document>
+        <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
+      </document>
 	</relatedArtifact>
 	<relatedArtifact>
       <type value="composed-of"/>

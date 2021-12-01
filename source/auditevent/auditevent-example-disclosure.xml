@@ -1,13 +1,13 @@
-﻿<AuditEvent xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
+﻿<AuditEvent xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd"> 
 	<id value="example-disclosure"/>
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<p>Disclosure by some idiot, for marketing reasons, to places unknown, of a Poor Sap, data about Everthing important.</p>
 			<p>
-				<b> type:</b> Export</p>
+				<b> category:</b> Export</p>
 			<p>
-				<b> subtype:</b> HIPAA Disclosure</p>
+				<b> code:</b> HIPAA Disclosure</p>
 			<p>
 				<b> action:</b> Read</p>
 			<p>
@@ -32,34 +32,40 @@
 				<b> data exposed:</b> list of data</p>
 		</div>
 	</text>
-	<type>
+	<category>
+	   <coding>
 		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 		<code value="110106"/>
 		<display value="Export"/>
-	</type>
-	<subtype>
+	   </coding>
+	</category>
+	<code>
+	   <coding>
 		<code value="Disclosure"/>
 		<display value="HIPAA disclosure"/>
-	</subtype>
+	   </coding>
+	</code>
 	<action value="R"/>
 	<severity value="notice"/>
 	<recorded value="2013-09-22T00:08:00Z"/>
 	<outcome>
-		<coding>
+		<code>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
 			<code value="0"/>
 			<display value="Success"/>
-		</coding>
-		<text value="Successful Disclosure"/>
+		</code>
+		<detail>
+			<text value="Successful Disclosure"/>
+		</detail>
 	</outcome> 
 
-	<purposeOfEvent>
+	<authorization>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
 			<code value="HMARKT"/>
 			<display value="healthcare marketing"/>
 		</coding>
-	</purposeOfEvent>
+	</authorization>
 	<agent>
 		<!-- who disclosed the data -->
 		<type>
@@ -73,18 +79,14 @@
 			<identifier>
 				<value value="SomeIdiot@nowhere"/>
 			</identifier>
+		<display value="That guy everyone wishes would be caught"/>
 		</who>
-		<altId value="notMe"/>
-		<name value="That guy everyone wishes would be caught"/>
 		<requestor value="true"/>
 		<location>
 			<reference value="Location/1"/>
 		</location>
 		<policy value="http://consent.com/yes"/>
-		<network>
-			<address value="custodian.net"/>
-			<type value="1"/>
-		</network>
+		<networkString value="custodian.net"/>
 	</agent>
 	<agent>
 		<!-- who received the data -->
@@ -100,28 +102,28 @@
 			<display value="Where"/>
 		</who>
 		<requestor value="false"/>
-		<network>
-			<address value="marketing.land"/>
-			<type value="1"/>
-		</network>
-		<purposeOfUse>
+		<networkString value="marketing.land"/>
+
+		<authorization>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
 				<code value="HMARKT"/>
 				<display value="healthcare marketing"/>
 			</coding>
-		</purposeOfUse>
+		</authorization>
 	</agent>
 	<source>
 		<!-- what system detected this disclosure -->
-		<site value="Watcher"/>
+
 		<observer>
 			<display value="Watchers Accounting of Disclosures Application"/>
 		</observer>
 		<type>
+			<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/security-source-type"/>
 			<code value="4"/>
 			<display value="Application Server"/>
+			</coding>
 		</type>
 	</source>
 	<entity>
@@ -129,15 +131,13 @@
 		<what>
 			<reference value="Patient/example"/>
 		</what>
-		<type>
-			<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
-			<code value="1"/>
-			<display value="Person"/>
-		</type>
+
 		<role>
+			<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
 			<code value="1"/>
 			<display value="Patient"/>
+			</coding>
 		</role>
 	</entity>
 	<entity>
@@ -147,37 +147,36 @@
 			<identifier>
 				<value value="What.id"/>
 			</identifier>
+		<display value="data about Everthing important"/>
 		</what>
-		<type>
-			<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
-			<code value="2"/>
-			<display value="System Object"/>
-		</type>
+
 		<role>
+			<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
 			<code value="4"/>
 			<display value="Domain Resource"/>
+			</coding>
 		</role>
-		<lifecycle>
-			<system value="http://terminology.hl7.org/CodeSystem/dicom-audit-lifecycle"/>
-			<code value="11"/>
-			<display value="Disclosure"/>
-		</lifecycle>
 		<securityLabel>
+			<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
 			<code value="V"/>
 			<display value="very restricted"/>
+			</coding>
 		</securityLabel>
 		<securityLabel>
+			<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
 			<code value="STD"/>
 			<display value="sexually transmitted disease information sensitivity"/>
+			</coding>
 		</securityLabel>
 		<securityLabel>
+			<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
 			<code value="DELAU"/>
 			<display value="delete after use"/>
+			</coding>
 		</securityLabel>
-		<name value="data about Everthing important"/>
 	</entity>
 </AuditEvent>

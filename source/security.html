@@ -34,7 +34,8 @@ in one section. A summary:
      Not all the capabilities that FHIR enables may be appropriate or legal for use in some combinations of context and jurisdiction (e.g. HIPAA, GDPR). 
      It is the responsibility of implementers to ensure that relevant regulations and other requirements are met</li>
  <li><a href="#narrative">Narrative</a> - Care must be taken when displaying the narrative from FHIR resources</li>
- <li><a href="#narrative">Input Validation</a>  - Validate all input received from other actors to assure the data is well formed and does not contain content that would cause unwanted system behaviour. Testing ensures that the input is not susceptible to data input validation errors by using techniques such as fuzzing, invalid input attacks, and injection attacks.</li>
+ <li><a href="#input">Input Validation</a>  - Validate all input received from other actors to assure the data is well formed and does not contain content that would cause unwanted system behaviour. Testing ensures that the input is not susceptible to data input validation errors by using techniques such as fuzzing, invalid input attacks, and injection attacks.</li>
+ <li><a href="#oauth">When using OAuth</a> - Consider the draft <a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics">Best-Current-Practice for OAuth</a></li>
 </ol>
 <p>
 Time critical concerns regarding security flaws in the FHIR specification should be addressed to 
@@ -263,7 +264,7 @@ The rules behind the access control decision are often very complex, and potenti
  <li>Client, such as user identity, user role, location, level of assurance</li>
  <li>Resource, such as confidentiality, sensitivity, type of data, date ranges covered by the data, author of the data</li>
  <li>Patient, such as the patient identity, patient relationship to the user, patient consent policies</li>
- <li>Context of the transaction, system identity, time-of-day, purpose of use, workflow state, and transport security</li>
+ <li>Context of the transaction, system identity, time-of-day, token expiration, token scope, purpose of use, workflow state, and transport security</li>
 </ul>
 <!-- HL7 has papers on this topic. -->
 <p>For one source of further information, see the 

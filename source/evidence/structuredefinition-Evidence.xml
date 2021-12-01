@@ -44,7 +44,7 @@
       <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
     </telecom>
   </contact>
-  <description value="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (eg population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence."/>
+  <description value="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (e.g., population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="w5"/>
@@ -78,7 +78,7 @@
       </extension>
       <path value="Evidence"/>
       <short value="Single evidence bit"/>
-      <definition value="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (eg population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence."/>
+      <definition value="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (e.g., population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -593,7 +593,7 @@
     </element>
     <element id="Evidence.statistic.statisticType">
       <path value="Evidence.statistic.statisticType"/>
-      <short value="Type of statistic, eg relative risk"/>
+      <short value="Type of statistic, e.g., relative risk"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -743,7 +743,7 @@
     </element>
     <element id="Evidence.statistic.attributeEstimate.type">
       <path value="Evidence.statistic.attributeEstimate.type"/>
-      <short value="The type of attribute estimate, eg confidence interval or p value"/>
+      <short value="The type of attribute estimate, e.g., confidence interval or p value"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -751,7 +751,7 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="StatisticAttributeEstimateType"/>
+          <valueString value="AttributeEstimateType"/>
         </extension>
         <strength value="extensible"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/attribute-estimate-type"/>
@@ -769,7 +769,7 @@
     </element>
     <element id="Evidence.statistic.attributeEstimate.level">
       <path value="Evidence.statistic.attributeEstimate.level"/>
-      <short value="Level of confidence interval, eg 0.95 for 95% confidence interval"/>
+      <short value="Level of confidence interval, e.g., 0.95 for 95% confidence interval"/>
       <definition value="Use 95 for a 95% confidence interval."/>
       <min value="0"/>
       <max value="1"/>
@@ -794,74 +794,7 @@
       <comment value="A nested attribute estimate; which is the attribute estimate of an attribute estimate"/>
       <min value="0"/>
       <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.attributeEstimate.attributeEstimate.description">
-      <path value="Evidence.statistic.attributeEstimate.attributeEstimate.description"/>
-      <short value="Textual description of the attribute estimate"/>
-      <definition value="Human-readable summary of the estimate."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.attributeEstimate.attributeEstimate.note">
-      <path value="Evidence.statistic.attributeEstimate.attributeEstimate.note"/>
-      <short value="Footnote or explanatory note about the estimate"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Annotation"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.attributeEstimate.attributeEstimate.type">
-      <path value="Evidence.statistic.attributeEstimate.attributeEstimate.type"/>
-      <short value="The type of attribute estimate, eg confidence interval or p value"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="StatisticAttributeEstimateType"/>
-        </extension>
-        <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/attribute-estimate-type"/>
-      </binding>
-    </element>
-    <element id="Evidence.statistic.attributeEstimate.attributeEstimate.quantity">
-      <path value="Evidence.statistic.attributeEstimate.attributeEstimate.quantity"/>
-      <short value="The singular quantity of the attribute estimate, for attribute estimates represented as single values; also used to report unit of measure"/>
-      <comment value="Often the pvalue"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Quantity"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.attributeEstimate.attributeEstimate.level">
-      <path value="Evidence.statistic.attributeEstimate.attributeEstimate.level"/>
-      <short value="Level of confidence interval, eg 0.95 for 95% confidence interval"/>
-      <definition value="Use 95 for a 95% confidence interval."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="decimal"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.attributeEstimate.attributeEstimate.range">
-      <path value="Evidence.statistic.attributeEstimate.attributeEstimate.range"/>
-      <short value="Lower and upper bound values of the attribute estimate"/>
-      <definition value="Lower bound of confidence interval."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Range"/>
-      </type>
+      <contentReference value="#Evidence.statistic.attributeEstimate"/>
     </element>
     <element id="Evidence.statistic.modelCharacteristic">
       <path value="Evidence.statistic.modelCharacteristic"/>
@@ -964,6 +897,13 @@
       <type>
         <code value="Range"/>
       </type>
+    </element>
+    <element id="Evidence.statistic.modelCharacteristic.attributeEstimate">
+      <path value="Evidence.statistic.modelCharacteristic.attributeEstimate"/>
+      <short value="An attribute of the statistic used as a model characteristic"/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#Evidence.statistic.attributeEstimate"/>
     </element>
     <element id="Evidence.certainty">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">

@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
-      
+
 [%settitle Clinical Reasoning%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
 </head>
-<body> 
+<body>
 [%file newnavbar%]
 
 
@@ -52,8 +52,8 @@
 		<tr><td>NQF Number</td><td>0..1</td><td>Measure.identifier</td><td>identifier type code as http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/nqf</td></tr>
 		<tr><td>GUID</td><td>0..1</td><td>Measure.identifier</td><td>identifier type code as http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/guid</td></tr>
 		<tr><td>Measure Steward</td><td>0..1</td><td>Measure.publisher</td><td></td></tr>
-		<tr><td>Measure Developer</td><td>0..1</td><td>Measure.contributor</td><td>type.code of author</td></tr>
-		<tr><td>Endorser</td><td>0..1</td><td>Measure.contributor</td><td>type.code of endorser</td></tr>
+		<tr><td>Measure Developer</td><td>0..1</td><td>Measure.author</td><td></td></tr>
+		<tr><td>Endorser</td><td>0..1</td><td>Measure.endorser</td><td></td></tr>
 		<tr><td>Description</td><td>0..1</td><td>Measure.description</td><td></td></tr>
 		<tr><td>Copyright</td><td>0..1</td><td>Measure.copyright</td><td></td></tr>
 		<tr><td>Reference</td><td>0..*</td><td>Measure.relatedArtifact</td><td>type.code of citation</td></tr>
@@ -189,7 +189,7 @@
 <p>The $evaluate-measure operation has the following properties:</p>
 
 <ul>
-<li><b>Idempotent</b> The operation may be invoked multiple times without side effects. Note that the result of invoking the operation may vary over time if clinical data used in the eMeasure changes between invocations. Note also that the parameters supplied with the operation invocation can affect the results. 
+<li><b>Idempotent</b> The operation may be invoked multiple times without side effects. Note that the result of invoking the operation may vary over time if clinical data used in the eMeasure changes between invocations. Note also that the parameters supplied with the operation invocation can affect the results.
 </li>
 <li><b>InvocationTarget</b> The operation can be invoked on instances of the MeasureArtifact resource that represent a particular eMeasure or on the type of the resource with a parameter that specifies the eMeasure to calculate.
 </li>
@@ -212,7 +212,7 @@ The above examples show how to obtain the results of evaluating the eMeasure wit
 <li>the first variant evaluates the operation on <code>[base]/Measure</code> which is the type of resource and specifies the eMeasure to evaluate using a parameter </li>
 <li>the second variant evaluates the operation on <code>[base]/Measure/CMS146</code> which is the Measure instance that represents that measure so there's no need to also include a reference to the eMeasure in the operation parameters</li>
 <li>the <code>HTTP GET</code> method is used since the <code>$evaluate-measure</code> operation is idempotent</li>
-<li><code>[base]</code> is used as a shortcut for the base URI of the FHIR server</li> 
+<li><code>[base]</code> is used as a shortcut for the base URI of the FHIR server</li>
 <li>the period start and end values are both specified to a granularity of a year, the description of the parameters above explains why this results in a measure period that spans the entire year</li>
 </ul>
 

@@ -9,15 +9,17 @@
       </p>
 	</div>
   </text>
-  <url value="Evidence/example-stroke-3-4half-alteplase-vs-no-alteplase-mRS0-2"/>
+  <url value="http://hl7.org/fhir/Evidence/example-stroke-3-4half-alteplase-vs-no-alteplase-mRS0-2"/>
   <title value="Effect of Alteplase vs No alteplase on mRS 0-2 at 90 days in Stroke 3-4.5 hours prior"/>
   <status value="draft"/>
   <relatedArtifact>
-	<type value="citation"/>
-	<label value="Lees 2016"/>
-	<display value="Figure 2 Lees 2016"/>
-	<citation value="Lees KR, Emberson J, Blackwell L, Bluhmki E, Davis SM, Donnan GA, et al; Stroke Thrombolysis Trialists’ Collaborators Group. Effects of alteplase for acute stroke on the distribution of functional outcomes: a pooled analysis of 9 trials. Stroke. 2016;47:2373-2379. PMID 27507856"/>
-	<url value="https://doi.org/10.1161/STROKEAHA.116.013644"/>
+  	<type value="citation"/>
+  	<label value="Lees 2016"/>
+  	<display value="Figure 2 Lees 2016"/>
+  	<citation value="Lees KR, Emberson J, Blackwell L, Bluhmki E, Davis SM, Donnan GA, et al; Stroke Thrombolysis Trialists’ Collaborators Group. Effects of alteplase for acute stroke on the distribution of functional outcomes: a pooled analysis of 9 trials. Stroke. 2016;47:2373-2379. PMID 27507856"/>
+    <document>
+  	  <url value="https://doi.org/10.1161/STROKEAHA.116.013644"/>
+    </document>
   </relatedArtifact>
   <description value="mRS 0-2 at 90 days Odds Ratio 1.2 for Alteplase vs. No Alteplase in patients with acute ischemic stroke 3-4.5 hours prior"/>
   <variableDefinition>

@@ -10,11 +10,14 @@
 	<contained>
 		<Substance>
 			<id value="hep"/>
+			<instance value="false"/>
 			<code>
+				<concept>
 					<coding>
 						<system value="http://terminology.hl7.org/CodeSystem/v3-EntityCode"/>
 						<code value="HEPL"/>
 					</coding>
+				</concept>
 			</code>
 		</Substance>
 	</contained>
@@ -76,12 +79,13 @@
 		</method>
 		<!-- bodysite is usually implied by type too its here to demonstrate its usage to indicating the draw site in this case-->
 		<bodySite>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="49852007"/>
-				<display value="Structure of median cubital vein (body structure)"/>
-			</coding>
-			<text value="Right median cubital vein"/>
+		     <concept>
+			      <coding>
+				          <system value="http://snomed.info/sct"/>
+				          <code value="49852007"/>
+				          <display value="Structure of median cubital vein (body structure)"/>
+			          </coding>
+			 </concept>
 		</bodySite>
 	</collection>
 	<!--

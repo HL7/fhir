@@ -21,7 +21,7 @@
     </coding>
   </category>
   <subject>
-    <reference value="Patient/Example"/>
+    <reference value="Patient/example"/>
     <display value="Peter James Chalmers"/>
   </subject>
   <dateTime value="2018-12-28"/>

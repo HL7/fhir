@@ -197,8 +197,8 @@
     </element>
     <element id="Specimen.subject">
       <path value="Specimen.subject"/>
-      <short value="Where the specimen came from. This may be from patient(s), from a location (e.g., the source of an environmental sample), or a sampling of a substance or a device"/>
-      <definition value="Where the specimen came from. This may be from patient(s), from a location (e.g., the source of an environmental sample), or a sampling of a substance or a device."/>
+      <short value="Where the specimen came from. This may be from patient(s), from a location (e.g., the source of an environmental sample), or a sampling of a substance, a biologically-derived product, or a device"/>
+      <definition value="Where the specimen came from. This may be from patient(s), from a location (e.g., the source of an environmental sample), or a sampling of a substance, a biologically-derived product, or a device."/>
       <requirements value="Must know the subject context."/>
       <min value="0"/>
       <max value="1"/>
@@ -207,6 +207,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
@@ -226,8 +227,8 @@
     </element>
     <element id="Specimen.receivedTime">
       <path value="Specimen.receivedTime"/>
-      <short value="The time when specimen was received for processing"/>
-      <definition value="Time when specimen was received for processing or testing."/>
+      <short value="The time when specimen is received by the testing laboratory"/>
+      <definition value="Time when specimen is received by the testing laboratory for processing or testing."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -324,6 +325,8 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -425,6 +428,44 @@
         <map value=".methodCode"/>
       </mapping>
     </element>
+
+    <element id="Specimen.collection.device">
+      <path value="Specimen.collection.device"/>
+      <short value="Device used to perform collection"/>
+      <definition value="A coded value specifying the technique that is used to perform the procedure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SpecimenCollectionDevice"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The device that was used to obtain the specimen (e.g. a catheter or catheter part used to draw the blood via a central line)."/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="SPM-14"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=DEV]"/>
+      </mapping>
+    </element>
+    <element id="Specimen.collection.procedure">
+      <path value="Specimen.collection.procedure"/>
+      <short value="The procedure that collects the specimen"/>
+      <definition value="The procedure event during which the specimen was collected (e.g. the surgery leading to the collection of a pathology sample)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+      </type>
+    </element>
     <element id="Specimen.collection.bodySite">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="#6253."/>
@@ -436,7 +477,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -520,10 +562,10 @@
         <map value=".text"/>
       </mapping>
     </element>
-    <element id="Specimen.processing.procedure">
-      <path value="Specimen.processing.procedure"/>
+    <element id="Specimen.processing.method">
+      <path value="Specimen.processing.method"/>
       <short value="Indicates the treatment step  applied to the specimen"/>
-      <definition value="A coded value specifying the procedure used to process the specimen."/>
+      <definition value="A coded value specifying the method used to process the specimen."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -531,11 +573,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SpecimenProcessingProcedure"/>
+          <valueString value="SpecimenProcessingMethod"/>
         </extension>
         <strength value="example"/>
         <description value="Type indicating the technique used to process the specimen."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/specimen-processing-procedure"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/specimen-processing-method"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -626,6 +668,25 @@
       <mapping>
         <identity value="rim"/>
         <map value=".desc"/>
+      </mapping>
+    </element>
+    <element id="Specimen.container.location">
+      <path value="Specimen.container.location"/>
+      <short value="Where the container is"/>
+      <definition value="The location of the container holding the specimen."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.where[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=LOC].role"/>
       </mapping>
     </element>
     <element id="Specimen.container.type">

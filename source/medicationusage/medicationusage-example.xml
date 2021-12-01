@@ -9,7 +9,7 @@
     </div>
   </text> 
   <!--  -->
-  <status value="completed"/>
+  <status value="recorded"/>
   <medicationReference>
     <reference value="Medication/example"/> 
   </medicationReference>

@@ -139,16 +139,6 @@
       <min value="0"/>
       <max value="*"/>
     </element>
-    <element id="Composition.section.entry">
-      <path value="Composition.section.entry"/>
-      <short value="The Content of the section"/>
-      <definition value="The content (narrative and data) associated with the section."/>
-      <min value="1"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CatalogEntry"/>
-      </type>
-    </element>
+    
   </differential>
 </StructureDefinition>

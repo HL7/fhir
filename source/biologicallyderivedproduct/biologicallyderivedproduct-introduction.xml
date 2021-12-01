@@ -3,17 +3,8 @@
 		<a name="bnc"> </a>
 		<h2>Scope and Usage</h2>
 
-[%stu-note%]
-<a name="dstu"/>
-<strong>Note that this content is preliminary has not undergone proper review by the appropriate Workgroups.</strong>
-[%end-note%]
-
-
 		<p>
-A material substance originating from a biological entity intended to be transplanted or infused into another (possibly the same) biological entity.
-</p>
-		<p>
-Examples include:
+This is a base resource that represents a biological substance such as:
 </p>
 		<ul>
 			<li>hematopoietic stem cells (bone marrow, peripheral blood, or cord blood extraction)
@@ -28,15 +19,15 @@ Examples include:
 
 </li>
 		</ul>
-		<p>
-The workflow using this resource (e.g., request, administration) should be discussed and implemented in a consistent way as other similar resources are handled (e.g., device, medication)
-</p>
 	</div>
 
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resource relates to these other resource:</p>
+A NutritionalProduct, such as breast milk, fruits, vegetables, etc., distinguishes from a BiologicallyDerivedProduct, although a NutritionalProduct is mostly biological and could be processed for further use, its primary purpose is nutrition, not therapeutic, and consumed by mouth or tube feeding, not intravenously.  Note that parenteral nutrition, e.g., TPN or Lipids, is not considered a NutritionalProduct, rather a medication.
+</p>
+<p>
+This resource relates to these other resources:</p>
 
 <ul>
 	<li>ProcedureRequest (for collection)</li>

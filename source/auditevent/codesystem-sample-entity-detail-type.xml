@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="sample-entity-detail-type"/>
+  <url value="http://hl7.org/fhir/sample-entity-detail-type"/>
+  <name value="SampleEntityDetailType"/>
+  <title value="Sample Codes for AuditEvent.entity.detail.type"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <description value="This codeSystem contains examples of codes. These are not known to be used."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="orientation"/>
+    <display value="Orientation"/>
+    <definition value="The orientation of the entity with respect to the event"/>
+  </concept>
+  <concept>
+	<code value="spin"/>
+	<display value="Spin"/>
+	<definition value="The spin of the entity with respect to the event"/>
+  </concept>
+
+</CodeSystem>

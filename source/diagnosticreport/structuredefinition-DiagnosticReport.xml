@@ -316,6 +316,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -571,6 +572,22 @@
         <map value="outboundRelationship[typeCode=COMP].target"/>
       </mapping>
     </element>
+    <element id="DiagnosticReport.note">
+      <path value="DiagnosticReport.note"/>
+      <short value="Comments about the diagnostic report"/>
+      <definition value="Comments about the diagnostic report."/>
+      <comment value="May include general statements about the diagnostic report, or statements about significant, unexpected or unreliable results values contained within the diagnostic report, or information about its source when relevant to its interpretation."/>
+      <requirements value="Need to be able to provide free text additional information."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="unknown"/>
+      </mapping>
+    </element>
     <element id="DiagnosticReport.imagingStudy">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="6246."/>
@@ -595,9 +612,9 @@
         <valueCode value="400,125"/>
       </extension>
       <path value="DiagnosticReport.media"/>
-      <short value="Key images associated with this report"/>
-      <definition value="A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest)."/>
-      <requirements value="Many diagnostic services include images in the report as part of their service."/>
+      <short value="Key images or data associated with this report"/>
+      <definition value="A list of key images or data associated with this report. The images or data are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest)."/>
+      <requirements value="Many diagnostic services include images or data in the report as part of their service."/>
       <alias value="DICOM"/>
       <alias value="Slides"/>
       <alias value="Scans"/>
@@ -618,10 +635,10 @@
     </element>
     <element id="DiagnosticReport.media.comment">
       <path value="DiagnosticReport.media.comment"/>
-      <short value="Comment about the image (e.g. explanation)"/>
-      <definition value="A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer&#39;s attention to important features."/>
-      <comment value="The comment should be displayed with the image. It would be common for the report to include additional discussion of the image contents in other sections such as the conclusion."/>
-      <requirements value="The provider of the report should make a comment about each image included in the report."/>
+      <short value="Comment about the image or data (e.g. explanation)"/>
+      <definition value="A comment about the image or data. Typically, this is used to provide an explanation for why the image or data is included, or to draw the viewer&#39;s attention to important features."/>
+      <comment value="The comment should be displayed with the image or data. It would be common for the report to include additional discussion of the image or data contents or in other sections such as the conclusion."/>
+      <requirements value="The provider of the report should make a comment about each image or data included in the report."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -634,8 +651,8 @@
     </element>
     <element id="DiagnosticReport.media.link">
       <path value="DiagnosticReport.media.link"/>
-      <short value="Reference to the image source"/>
-      <definition value="Reference to the image source."/>
+      <short value="Reference to the image or data source"/>
+      <definition value="Reference to the image or data source."/>
       <min value="1"/>
       <max value="1"/>
       <type>

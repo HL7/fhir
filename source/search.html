@@ -400,7 +400,7 @@ the following prefixes are used:
  <tr>
 	<td><code>eb</code></td>
 	<td>the value for the parameter in the resource ends before the provided value</td>
-  <td>the range of the search value does overlap not with the range of the target value, and the range below the search value contains the range of the target value</td>
+  <td>the range of the search value does not overlap with the range of the target value, and the range below the search value contains the range of the target value</td>
  </tr>
  <tr>
 	<td><code>ap</code></td>
@@ -815,6 +815,12 @@ Token search parameters are used for the following data types:
   <td>The implicit system for boolean values is <a href="valueset-special-values.html">http://hl7.org/fhir/special-values</a> but this is never actually used</td>
  </tr>
  <tr>
+  <td><a href="datatypes.html#id">id</a></td>
+  <td></td>
+  <td>id</td>
+  <td></td>
+ </tr>
+ <tr>
   <td><a href="datatypes.html#uri">uri</a></td>
   <td></td>
   <td>uri</td>
@@ -859,7 +865,7 @@ Example searches:
  <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
  <tr><td><pre> GET [base]/Patient?identifier=http://acme.org/patient|2345</pre></td><td>Search for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient"</td></tr>
  <tr><td><pre> GET [base]/Patient?gender=male</pre></td><td>Search for any patient with a gender that has the code "male"</td></tr>
- <tr><td><pre> GET [base]/Patient?gender:not=male</pre></td><td>Search for any patient with a gender that does not have the code "male". Note that for <code>:not</code>, the search does not return any resources that have a gen</td></tr>
+ <tr><td><pre> GET [base]/Patient?gender:not=male</pre></td><td>Search for any patient with a gender that does not have the code "male", including those that do not have a code for gender at all.</td></tr>
  <tr><td><pre> GET [base]/Composition?section=48765-2</pre></td><td>Search for any Composition that contains an Allergies and adverse reaction section</td></tr>
  <tr><td><pre> GET [base]/Composition?section:not=48765-2</pre></td><td>Search for any Composition that does not contain an Allergies and adverse reaction section. Note that this search does not return "any document that has a section
     that is not an Allergies and adverse reaction section" (e.g. in the presence of multiple possible matches, the <i>negation</i> applies to the set, not each individual entry)</td></tr>
@@ -1628,7 +1634,7 @@ server returns a bundle that reports the total number of resources that match in
 but with no entries, and no prev/next/last links. Note that the <code>Bundle.total</code> only
 include the total number of matching resources. It does not count extra resources such as
 <a href="operationoutcome.html">OperationOutcome</a> or <a href="#include">included</a> resources that may also be returned.
-In the same way, the _count parameter only applies to resources with <code>entry.search.mode = search</code>, and does not include
+In the same way, the _count parameter only applies to resources with <code>entry.search.mode = match</code>, and does not include
 included resources or operation outcomes.
 </p>
 <p>
@@ -1917,6 +1923,10 @@ to store the summarized form(s) in advance. Servers SHOULD mark the resources wi
 tag <a href="v3/SecurityIntegrityObservationValue/cs.html#SUBSETTED"><code>SUBSETTED</code></a>
 to ensure that the incomplete resource is not accidentally used to overwrite
 a complete resource.
+</p>
+<p>
+The self link in the search result Bundle is important for the interpretation of the result 
+and should always be returned, regardless of the type of _summary.  
 </p>
 <p>
 Note that the <code>_include</code> and <code>_revinclude</code> parameters cannot be mixed with <code>_summary=text</code>.

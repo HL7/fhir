@@ -7047,66 +7047,6 @@
     <Cell ss:StyleID="s117"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s147"><Data ss:Type="String">CatalogEntryType</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The type of entry that is mentioned in the catalog</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">#catalog-entry-type</Data></Cell>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s117"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s147"><Data ss:Type="String">CatalogEntryStatus</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The status of the entry that is mentioned in the catalog</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">#catalog-entry-status</Data></Cell>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s117"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">CatalogEntryRelatedItemRelationtype</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The type of relation from the main entry to the related entry</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">#catalog-item-relation-type</Data></Cell>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s117"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">CatalogEntryRelatedItemType</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The type of the related entry</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">#catalog-entry-type</Data></Cell>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s117"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s115"/>

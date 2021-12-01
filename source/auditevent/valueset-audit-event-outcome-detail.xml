@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="audit-event-outcome-detail"/>
+  <meta>
+    <lastUpdated value="2021-11-12T16:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <ul>
+        
+        <li>Include all codes defined in 
+          
+          <a href="Should actually be the OperationOutcome defined operation-outcome http://hl7.org/fhir/ValueSet/operation-outcome">
+            
+            <code>http://terminology.hl7.org/CodeSystem/audit-event-outcome</code>
+          
+          </a>
+        
+        </li>
+      
+      </ul>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sec"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/audit-event-outcome-detail"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="AuditEventOutcomeDetail"/>
+  <title value="AuditEventOutcomeDetail"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-11-12T16:55:11+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Indicates more detailed reason for outcome."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/operation-outcome"/>
+    </include>
+  </compose>
+</ValueSet>

@@ -84,8 +84,8 @@
     </element>
     <element id="RegulatedAuthorization.identifier">
       <path value="RegulatedAuthorization.identifier"/>
-      <short value="Business identifier for the authorization, typically this is assigned by the authorizing body"/>
-      <definition value="Business identifier for the authorization, typically this is assigned by the authorizing body."/>
+      <short value="Business identifier for the authorization, typically assigned by the authorizing body"/>
+      <definition value="Business identifier for the authorization, typically assigned by the authorizing body."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -99,10 +99,10 @@
     </element>
     <element id="RegulatedAuthorization.subject">
       <path value="RegulatedAuthorization.subject"/>
-      <short value="The type of regulated product, treatment, facility or activity that is being authorized"/>
-      <definition value="The type of regulated product, treatment, facility or activity that is being authorized."/>
+      <short value="The product type, treatment, facility or activity that is being authorized"/>
+      <definition value="The product type, treatment, facility or activity that is being authorized."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
@@ -261,7 +261,7 @@
         <map value="Marketing Authorisation.Status Reasons.Legal Grounds"/>
       </mapping>
     </element>
-    <element id="RegulatedAuthorization.relatedDate">
+    <!--element id="RegulatedAuthorization.relatedDate">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="650,160"/>
       </extension>
@@ -311,7 +311,7 @@
         <identity value="idmp"/>
         <map value="(type of date from the ones above)"/>
       </mapping>
-    </element>
+    </element-->
     <element id="RegulatedAuthorization.holder">
       <path value="RegulatedAuthorization.holder"/>
       <short value="The organization that holds the granted authorization"/>

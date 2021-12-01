@@ -175,6 +175,9 @@ see <a href="security.html#authentication">Security: Authentication</a> as an
 externally-reviewed authorization mechanism with a real-world deployment base -
 but we note that community efforts are underway to explore a variety of
 approaches to authorization. 
+</p><p>
+Resource Servers MUST enforce the authorization associated with the access token. This enforcement includes verification of the token, verification of the token expiration, and might include using introspection to verify the token has not been revoked. This enforcement includes constraining results returned to the scopes authorized by the access token. The Resource server might have further access controls beyond those in the token to enforce, such as Consent or business rules.
+</p><p>
 For further details, see <a href="security.html#binding">Security: Authorization and Access Control</a>.
 
 </p>
@@ -210,6 +213,10 @@ be conveyed using standard codes from <a href="valueset-security-role-type.html"
 </p><p>
 A purpose of use should be asserted for each requested action on a Resource.  Purpose of use 
 should be conveyed using standard codes from <a href="v3/PurposeOfUse/vs.html">Purpose of Use Vocabulary</a>.
+</p><p>
+The FHIR core specification does not include a "User" resource, as a User resource would be general IT and used well
+beyond healthcare workflows. A RESTful User resource is defined in 
+the <a href="https://en.wikipedia.org/wiki/System_for_Cross-domain_Identity_Management">System for Cross-domain Identity Management (SCIM) specification</a>.
 </p><p>
 When using OAuth, the requested action on a Resource for specified one or more purpose of use and 
 the role of the user are managed by the OAuth authorization service (AS) and may be communicated 

@@ -14,7 +14,6 @@
    </div>
   </text>
   <status value="active"/>
-
   <category>
     <coding>
       <system value="http://loinc.org"/>
@@ -41,6 +40,16 @@
       <code value="INFA"/>
     </coding>
   </policyRule>
+  <verification>
+    <verified value="true" />
+    <verifiedBy>
+      <reference value="Organization/f001"/>
+    </verifiedBy>
+    <verifiedWith>
+      <reference value="RelatedPerson/benedicte" />
+    </verifiedWith>
+    <verificationDate value="2021-11-11"/>
+  </verification>
   <provision>
     <type value="permit"/>
     <provision>

@@ -104,7 +104,9 @@
   <relatedArtifact>
     <type value="derived-from"/>
     <display value="Overweight and Obesity Treatment Guidelines"/>
-    <url value="http://www.nhlbi.nih.gov/health-pro/guidelines/current/obesity-guidelines/e_textbook/txgd/algorthm/algorthm.htm"/>
+    <document>
+      <url value="http://www.nhlbi.nih.gov/health-pro/guidelines/current/obesity-guidelines/e_textbook/txgd/algorthm/algorthm.htm"/>
+    </document>
   </relatedArtifact>
   <!--What does the protocol want to achieve-->
   <goal id="reduce-bmi-ratio">
@@ -130,7 +132,9 @@
 	<documentation>
 		<type value="justification"/>
 		<display value="Evaluation and Treatment Strategy"/>
-		<url value="https://www.nhlbi.nih.gov/health-pro/guidelines/current/obesity-guidelines/e_textbook/txgd/42.htm"/>
+    <document>
+	    <url value="https://www.nhlbi.nih.gov/health-pro/guidelines/current/obesity-guidelines/e_textbook/txgd/42.htm"/>
+    </document>
 	</documentation>
 	<target>
 	  <measure>

@@ -658,37 +658,38 @@
         <code value="uri"/>
       </type>
     </element>
-    <element id="ConceptMap2.group.element.target.dependsOn.system">
-      <path value="ConceptMap2.group.element.target.dependsOn.system"/>
-      <short value="Code System (if necessary)"/>
-      <definition value="An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
-      </type>
-      <meaningWhenMissing value="The code is in the source (dependsOn) or target (product) system"/>
-    </element>
-    <element id="ConceptMap2.group.element.target.dependsOn.value">
-      <path value="ConceptMap2.group.element.target.dependsOn.value"/>
-      <short value="Value of the referenced element"/>
-      <definition value="Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to."/>
+    <element id="ConceptMap2.group.element.target.dependsOn.value[x]">
+      <path value="ConceptMap2.group.element.target.dependsOn.value[x]"/>
+      <short value="Value of the referenced property"/>
+      <definition value="Property value that the map depends on."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="code"/>
       </type>
-    </element>
-    <element id="ConceptMap2.group.element.target.dependsOn.display">
-      <path value="ConceptMap2.group.element.target.dependsOn.display"/>
-      <short value="Display for the code (if value is a code)"/>
-      <definition value="The display for the code. The display is only provided to help editors when editing the concept map."/>
-      <comment value="The display is ignored when processing the map."/>
-      <min value="0"/>
-      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
       <type>
         <code value="string"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <type>
+        <code value="uri"/>
+      </type>
+      <type>
+        <code value="id"/>
       </type>
     </element>
     <element id="ConceptMap2.group.element.target.product">
