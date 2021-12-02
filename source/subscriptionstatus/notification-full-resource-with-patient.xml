@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Bundle.xsd">
-  <id value="00b99077-2bda-436e-98cc-a4f65d6c2fe0"/>
+  <id value="fdd78223-f79f-43b4-8979-ad49d4ac248c"/>
   <type value="subscription-notification"/>
   <timestamp value="2020-04-17T10:24:13.1882432-05:00" />
   <entry>
-    <fullUrl value="urn:uuid:d195d9b8-6f78-4d71-9d22-3c1a923bfea5"/>
+    <fullUrl value="urn:uuid:641244a4-7c34-44e9-8df3-0a04c6ba5fa7"/>
     <resource>
       <SubscriptionStatus xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionStatus.xsd">
-        <id value="d195d9b8-6f78-4d71-9d22-3c1a923bfea5"/>
+        <id value="641244a4-7c34-44e9-8df3-0a04c6ba5fa7"/>
         <status value="active"/>
         <type value="event-notification"/>
         <eventsSinceSubscriptionStart value="2"/>
@@ -18,6 +18,9 @@
           <focus>
             <reference value="http://example.org/FHIR/R5/Encounter/2"/>
           </focus>
+          <additionalContext>
+            <reference value="http://example.org/FHIR/R5/Patient/ABC"/>
+          </additionalContext>
         </notificationEvent>
         <subscription>
           <reference value="http://example.org/FHIR/R5/Subscription/123"/>
@@ -53,5 +56,22 @@
     <response>
       <status value="201"/>
     </response>
+  </entry>
+  <entry>
+    <fullUrl value="https://example.org/FHIR/R5/Patient/ABC" />
+    <resource>
+      <Patient xmlns="http://hl7.org/fhir">
+        <id value="ABC" />
+        <meta>
+          <versionId value="1" />
+          <lastUpdated value="2019-08-07T10:49:22Z" />
+        </meta>
+        <name>
+          <use value="official"/>
+          <family value="Example"/>
+          <given value="Patient"/>
+        </name>
+      </Patient>
+    </resource>
   </entry>
 </Bundle>
