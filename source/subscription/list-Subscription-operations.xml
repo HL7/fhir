@@ -6,6 +6,11 @@
   <mode value="working"/>
   <entry>
     <item>
+      <reference value="OperationDefinition/Subscription-events"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
       <reference value="OperationDefinition/Subscription-status"/>
     </item>
   </entry>
