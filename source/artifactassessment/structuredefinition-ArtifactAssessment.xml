@@ -192,7 +192,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="date"/>
+        <code value="dateTime"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -216,7 +216,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="date"/>
+        <code value="dateTime"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -242,13 +242,13 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Any"/>
       </type>
-      <isSummary value="true"/>
       <type>
         <code value="canonical"/>
       </type>
       <type>
         <code value="uri"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="ArtifactAssessment.content">
       <path value="ArtifactAssessment.content"/>
@@ -321,8 +321,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/certainty-rating"/>
       </binding>
     </element>
-    <element id="ArtifactAssessment.content.author[x]">
-      <path value="ArtifactAssessment.content.author[x]"/>
+    <element id="ArtifactAssessment.content.author">
+      <path value="ArtifactAssessment.content.author"/>
       <short value="Who authored the content"/>
       <definition value="Indicates who or what authored the content."/>
       <min value="0"/>
@@ -334,9 +334,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-      </type>
-      <type>
-        <code value="string"/>
       </type>
     </element>
     <element id="ArtifactAssessment.content.path">
@@ -384,10 +381,10 @@
       <definition value="Indicates the workflow status of the comment or change request."/>
       <min value="0"/>
       <max value="1"/>
-      <isSummary value="true"/>
       <type>
         <code value="code"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="WorkflowStatus"/>
