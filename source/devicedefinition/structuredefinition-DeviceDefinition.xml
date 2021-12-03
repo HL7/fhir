@@ -74,6 +74,16 @@
         <map value="administrative.device"/>
       </mapping>
     </element>
+    <element id="DeviceDefinition.description">
+      <path value="DeviceDefinition.description"/>
+      <short value="DeviceDefinition description"/>
+      <definition value="Additional information to describe the device."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
     <element id="DeviceDefinition.identifier">
       <path value="DeviceDefinition.identifier"/>
       <short value="Instance identifier"/>
