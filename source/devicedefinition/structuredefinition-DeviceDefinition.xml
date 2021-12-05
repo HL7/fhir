@@ -76,7 +76,7 @@
     </element>
     <element id="DeviceDefinition.description">
       <path value="DeviceDefinition.description"/>
-      <short value="DeviceDefinition description"/>
+      <short value="Additional information to describe the device"/>
       <definition value="Additional information to describe the device."/>
       <min value="0"/>
       <max value="1"/>
