@@ -187,12 +187,22 @@
 			</p>
 
   <a name="notification-shape"/>
-  <h3>Including Additional Resources</h3>
+  <h3>Notification Shape</h3>
+  <p>
+    In addition to the triggering information for a topic, this resource also defines the expected 'shape' of notifications via <code>SubscriptionTopic.notificationShape</code>.  This element defines the possible 'root' resources for a notification, as well as additional resources that may be included.
+  </p>
+
+  <h4>Root Resource</h4>
+  <p>
+    The element <code>SubscriptionTopic.notificationShape.resource</code> defines a 'root' resource for notifications.  Typically, this resource will be the same as the triggering resource (e.g., <code>SubscriptionTopic.resourceTrigger.resource</code> or <code>SubscriptionTopic.eventTrigger.resource</code>), however there may be situations where this is not the case.  For example, a topic may be defined across all resources (e.g., every time a resource is deleted), but the author may want additional information depending on which resource is involved.  In that scenario, the <code>resourceTrigger.resource</code> could be set to <code>Resource</code> to trigger on all resources.  However, shapes could be defined for each resource in the patient compartment to include patient information with those notifications (e.g., if an <code>Encounter</code> is deleted, include the <code>Patient</code> record as well).  Note that the opposite scenario is also supported - an author may define multiple triggers on different types of events and simply define a shape that is valid for all of those resources.
+  </p>
+ 
+  <h4>Including Additional Resources</h4>
   <p>
     Sometimes it is benficial to include additional resources with a subscription notification.  For example, queries for additional resources may be complex in the future, but simple at the time of notification due to context in the event.  Alternatively, the subscriber may have limited ability to request additional resource (e.g., a client that is generally offline).
   </p>
   <p>
-    In order to facilitate these workflows, a Subscription can define additional resources that MAY be included when a notification is sent.  These additions are based off of the focus resource of the notification, and are described as a list of <a href="search.html#include">include</a> directives.  When notifications are generated, a server SHOULD check the appropriate <code>SubscriptionTopic.notificationShape.resource</code> for a matching resource and SHOULD include any additional resources listed via <code>SubscriptionTopic.notificationShape.include</code>, if they exist and the user context for the subscription is authorized to access them.
+    In order to facilitate these workflows, a Subscription can define additional resources that MAY be included when a notification is sent.  These additions are based off of the focus resource of the notification, and are described as a list of <a href="search.html#include">_include and _revinclude</a> directives.  When notifications are generated, a server SHOULD check the appropriate <code>SubscriptionTopic.notificationShape.resource</code> for a matching resource and SHOULD include any additional resources listed via <code>SubscriptionTopic.notificationShape.include</code> and <code>SubscriptionTopic.notificationShape.revInclude</code>, if they exist and the user context for the subscription is authorized to access them.
   </p>
   <p>
     Included resources should be added in the same style as the focus resource - e.g., if notifications are <code>id-only</code>, then included resources should only include their ids as well.

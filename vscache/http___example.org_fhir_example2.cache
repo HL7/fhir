@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://example.org/fhir/example2",
+  "version" : "http://example.org/fhir/example2",
+  "code" : "code2"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "severity" : "error",
+  "error" : "The code system 'http://example.org/fhir/example2' is not known (encountered paired with code = 'code2'); The code provided (http://example.org/fhir/example2#code2) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)",
+  "class" : "CODESYSTEM_UNSUPPORTED"
+}
+-------------------------------------------------------------------------------------
