@@ -6,14 +6,16 @@
 		<system value="http://goodhealth.org/bodystructure/identifiers"/>
 		<value value="12345"/>
 	</identifier>
-	<location>
-		<coding>
+	<includedStructure>
+		<structure>
+		  <coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="83418008"/>
 			<display value="Entire fetus (body structure)"/>
-		</coding>
-		<text value="Fetus"/>
-	</location>
+		  </coding>
+		  <text value="Fetus"/>
+		</structure>
+	</includedStructure>
 	<description value="EDD 1/1/2017 confirmation by LMP"/>
 	<patient>
 		<reference value="Patient/example"/>

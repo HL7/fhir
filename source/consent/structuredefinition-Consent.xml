@@ -392,7 +392,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConsentPolicyRule"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="Regulatory policy examples."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/consent-policy"/>
       </binding>
@@ -437,7 +437,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConsentVerificationType"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="Types of Verification/Validation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/consent-verification"/>
       </binding>
@@ -569,7 +569,7 @@
       <path value="Consent.provision.actor.reference"/>
       <short value="Resource for the actor (or group, by role)"/>
       <definition value="The resource that identifies the actor. To identify actors by type, use group to identify a set of actors by some property they share (e.g. &#39;admitting officers&#39;)."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>

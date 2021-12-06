@@ -16,6 +16,7 @@
   <version value="4.6.0"/>
   <name value="AllergyIntoleranceSubstanceExposureRisk"/>
   <caseSensitive value="true"/>
+  <content value="complete"/>
   <concept>
     <code value="known-reaction-risk"/>
     <display value="Known Reaction Risk"/>

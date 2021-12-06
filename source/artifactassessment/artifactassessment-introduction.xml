@@ -1,0 +1,36 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="bnc"></a>
+<h2>Scope and Usage</h2>
+
+<!-- TODO: Is there a pattern that this resource does fit? Metadata? Artifact?
+<p><strong>This resource is a <em>definition</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>
+ -->
+
+<p>The ArtifactAssessment Resource represents one or more assessments of another record or resource. The resource captures metadata about the assessment, as well as the data for the results of the assessment which might include comments, classifications, ratings, questions, and responses.</p>
+
+<p>The ArtifactAssessment Resource provides a structure to communicate judgments or qualitative data about a record (a resource or other set of data with a known identity or URL by which it can be accessed), including comments, corrections, classifications, and ratings. The ArtifactAssessment Resource is used when the content attribution and management rights differ from the record being commented upon, or the commenter desires to separate the comments from the target record. The scope is intended to cover assessments (added information) regarding clinical records about individual human subjects, assessments (added information) regarding healthcare provision for individual persons (such as care plans), and assessments (added information) regarding records related to community knowledge such as scientific evidence and group-oriented guidance.</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+
+<p>ArtifactAssessment may by referenced by ArtifactAssessment and by Task.</p>
+
+<p>ArtifactAssessment may reference any resource of 'community knowledge' and will likely reference Evidence, EvidenceVariable, EvidenceReport, PlanDefinition, ActivityDefinition, Library, Measure, and Citation. ArtifactAssessment may reference any resource of a 'medical record' and will likely reference DocumentReference, Composition, CarePlan, and DiagnosticReport.</p>
+
+<p>ArtifactAssessment is about the content of a Resource and not about the provenance of the Resource so should not be confused with Provenance.</p>
+
+<p>ArtifactAssessment is not used for communications that are not about a Resource so should not be confused with Communication or Composition (or profiles of Composition) which may be used for the primary communication about the subject matter.</p>
+
+<p>Observation Resource is used extensively for observations about people, groups, devices, locations, substances, and procedures – not about the record describing these entities. ArtifiactAssessment is used for observations where the subject is the artifact or record, not the entity described by the artifact.  Simple "assessments" about an Observation such as status, dataAbsentReason, interpretation and note would use the Observation Resource where this is already structured. ArtifactAssessment Resource may be used for complex assessments of an Observation such as justifications for reasons to correct the record.</p>
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+Across healthcare communities, there are an extensive number of comments and corrections regarding resources where the commenter is not able or permitted to modify the resource content, and there are many situations in which assessments with classifications and ratings of medical record content are made by parties who would not include the assessments in the medical record. Across the academic, scientific, quality measurement development, and clinical decision support communities there is an extensive need to report assessments and feedback about resources and records. These artifact assessments may take multiple forms (including text, classifications, ratings or measurements) and might or might not be created, queried and maintained independently from the artifact being rated or commented upon.</p>
+</div>
+
+</div>

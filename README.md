@@ -10,11 +10,11 @@ This library builds and publishes the FHIR specification, based on the contained
 1. Run `./gradlew publish` from the command line
 2. Wait for it to finish (~20 minutes)
 
-See also: [FHIR Build Process][Link-Wiki]
+See also: [Getting Started][Link-Wiki] and [FHIR Build Process][Link-Confluence]
 
 ##### If running commands on the terminal is a frightening prospect for you...
 
-We provide executable script files for windows (publish.bat) and mac (publish.sh).
+We provide executable script files for windows (publish.bat) and for a Bash shell for mac/linux/windows (publish.sh).
 
 ### Command line parameters
 
@@ -64,7 +64,8 @@ This project is maintained by [Grahame Grieve][Link-grahameGithub] and [Mark Ian
 [Link-BuildFhirOrgMaster]: https://build.fhir.org
 [Link-BuildFhirOrgBranches]: https://build.fhir.org/branches/
 [Link-BuildFhirOrgR4B]: https://build.fhir.org/branches/R4B/
-[Link-Wiki]: http://wiki.hl7.org/index.php?title=FHIR_Build_Process
+[Link-Wiki]: https://github.com/hl7/fhir/wiki/Get-Started-with-FHIR-on-GitHub
+[Link-Confluence]: https://confluence.hl7.org/display/FHIR/FHIR+Build+Process
 [Link-R4BGithub]: https://github.com/HL7/fhir/tree/R4B
 [Link-grahameGithub]: https://github.com/grahamegrieve
 [Link-markGithub]: https://github.com/markiantorno

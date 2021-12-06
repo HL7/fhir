@@ -1,13 +1,13 @@
-﻿<AuditEvent xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
+﻿<AuditEvent xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd"> 
 	<id value="example-disclosure"/>
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<p>Disclosure by some idiot, for marketing reasons, to places unknown, of a Poor Sap, data about Everthing important.</p>
 			<p>
-				<b> type:</b> Export</p>
+				<b> category:</b> Export</p>
 			<p>
-				<b> subtype:</b> HIPAA Disclosure</p>
+				<b> code:</b> HIPAA Disclosure</p>
 			<p>
 				<b> action:</b> Read</p>
 			<p>
@@ -32,29 +32,31 @@
 				<b> data exposed:</b> list of data</p>
 		</div>
 	</text>
-	<type>
+	<category>
 	   <coding>
 		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 		<code value="110106"/>
 		<display value="Export"/>
 	   </coding>
-	</type>
-	<subtype>
+	</category>
+	<code>
 	   <coding>
 		<code value="Disclosure"/>
 		<display value="HIPAA disclosure"/>
 	   </coding>
-	</subtype>
+	</code>
 	<action value="R"/>
 	<severity value="notice"/>
 	<recorded value="2013-09-22T00:08:00Z"/>
 	<outcome>
-		<coding>
+		<code>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
-			<code value="0"/>
+			<code value="success"/>
 			<display value="Success"/>
-		</coding>
-		<text value="Successful Disclosure"/>
+		</code>
+		<detail>
+			<text value="Successful Disclosure"/>
+		</detail>
 	</outcome> 
 
 	<authorization>
@@ -84,10 +86,7 @@
 			<reference value="Location/1"/>
 		</location>
 		<policy value="http://consent.com/yes"/>
-		<network>
-			<address value="custodian.net"/>
-			<type value="1"/>
-		</network>
+		<networkString value="custodian.net"/>
 	</agent>
 	<agent>
 		<!-- who received the data -->
@@ -103,10 +102,8 @@
 			<display value="Where"/>
 		</who>
 		<requestor value="false"/>
-		<network>
-			<address value="marketing.land"/>
-			<type value="1"/>
-		</network>
+		<networkString value="marketing.land"/>
+
 		<authorization>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>

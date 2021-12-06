@@ -618,8 +618,8 @@
         <code value="Period"/>
       </type>
     </element>
-    <element id="Citation.relatesTo">
-      <path value="Citation.relatesTo"/>
+    <element id="Citation.relatedArtifact">
+      <path value="Citation.relatedArtifact"/>
       <short value="Artifact related to the Citation Resource"/>
       <min value="0"/>
       <max value="*"/>
@@ -1216,20 +1216,20 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.webLocation.type">
-      <path value="Citation.citedArtifact.webLocation.type"/>
+    <element id="Citation.citedArtifact.webLocation.classifier">
+      <path value="Citation.citedArtifact.webLocation.classifier"/>
       <short value="Code the reason for different URLs, e.g. abstract and full-text"/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ArticleUrlType"/>
+          <valueString value="ArtifactUrlClassifier"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/article-url-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-url-classifier"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.webLocation.url">
@@ -1377,7 +1377,7 @@
       <path value="Citation.citedArtifact.contributorship.entry.name"/>
       <short value="A name associated with the person"/>
       <definition value="A name associated with the individual."/>
-      <comment value="humanName.family can match MEDLINE-based lastName (used for surname or single name), humanName.given can match MEDLINE-based forename (used for remainder of name except for suffix), humanName.suffix can match MEDLINE-based suffix (eg 2nd, 3rd, Jr, Sr)."/>
+      <comment value="humanName.family can match MEDLINE-based lastName (used for surname or single name), humanName.given can match MEDLINE-based forename (used for remainder of name except for suffix), humanName.suffix can match MEDLINE-based suffix (e.g., 2nd, 3rd, Jr, Sr)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1406,7 +1406,7 @@
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.identifier">
       <path value="Citation.citedArtifact.contributorship.entry.identifier"/>
-      <short value="Author identifier, eg ORCID"/>
+      <short value="Author identifier, e.g., ORCID"/>
       <definition value="Unique person identifier."/>
       <comment value="Avoids needing to disambiguate common last names or changes of name. ORCID is commonly used as author identifier."/>
       <min value="0"/>

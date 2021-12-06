@@ -176,6 +176,7 @@
   <description value="How an entity was used in an activity."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/provenance-entity-role"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="derivation"/>

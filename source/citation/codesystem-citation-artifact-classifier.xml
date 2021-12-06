@@ -446,6 +446,100 @@
         
         
         </tr>
+		
+        <tr>
+          
+          <td style="white-space:nowrap">cds-artifact
+            
+            <a name="citation-artifact-classifier-cds-artifact"> </a>
+          
+          </td>
+          
+          <td>Clinical Decision Support Artifact</td>
+          
+          <td>The artifact is used for decision support for healthcare decisions.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">prediction-model
+            
+            <a name="citation-artifact-classifier-prediction-model"> </a>
+          
+          </td>
+          
+          <td>Prediction Model</td>
+          
+          <td>A formula or expression used to calculate an outcome representing a predicted result.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">interactive-form
+            
+            <a name="citation-artifact-classifier-interactive-form"> </a>
+          
+          </td>
+          
+          <td>Interactive Form</td>
+          
+          <td>A user interface that supports data entry and data display.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">terminology
+            
+            <a name="citation-artifact-classifier-terminology"> </a>
+          
+          </td>
+          
+          <td>Terminology</td>
+          
+          <td>A structured set of codes and display values, which may be subtyped as a code system, value set, taxonomy, or ontology.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">pseudocode
+            
+            <a name="citation-artifact-classifier-pseudocode"> </a>
+          
+          </td>
+          
+          <td>PseudoCode</td>
+          
+          <td>A non-executable, human-readable representation of software code.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">standard-specification
+            
+            <a name="citation-artifact-classifier-standard-specification"> </a>
+          
+          </td>
+          
+          <td>Standard Specification</td>
+          
+          <td>An explicit set of requirements for an item, material, component, system or service, often used to define a technical standard which is an established norm or requirement for a repeatable technical task.</td>
+        
+        </tr>		
         
       </table>
     
@@ -606,5 +700,35 @@
     <code value="project-specific"/>
     <display value="Project Specific"/>
     <definition value="Citation Resource containing value added data specific to a project"/>
+  </concept>
+  <concept>
+    <code value="cds-artifact"/>
+    <display value="Clinical Decision Support Artifact"/>
+    <definition value="The artifact is used for decision support for healthcare decisions."/>
+  </concept>
+  <concept>
+    <code value="prediction-model"/>
+    <display value="Prediction Model"/>
+    <definition value="A formula or expression used to calculate an outcome representing a predicted result."/>
+  </concept>
+  <concept>
+    <code value="interactive-form"/>
+    <display value="Interactive Form"/>
+    <definition value="A user interface that supports data entry and data display."/>
+  </concept>
+  <concept>
+    <code value="terminology"/>
+    <display value="Terminology"/>
+    <definition value="A structured set of codes and display values, which may be subtyped as a code system, value set, taxonomy, or ontology."/>
+  </concept>
+  <concept>
+    <code value="pseudocode"/>
+    <display value="PseudoCode"/>
+    <definition value="A non-executable, human-readable representation of software code."/>
+  </concept>
+  <concept>
+    <code value="standard-specification"/>
+    <display value="Standard Specification"/>
+    <definition value="An explicit set of requirements for an item, material, component, system or service, often used to define a technical standard which is an established norm or requirement for a repeatable technical task."/>
   </concept>
 </CodeSystem>

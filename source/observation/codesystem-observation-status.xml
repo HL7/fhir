@@ -211,6 +211,7 @@
   <description value="Codes providing the status of an observation."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/observation-status"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="registered"/>
