@@ -349,25 +349,25 @@
         <map value="FiveWs.status"/>
       </mapping>
     </element>
-    <element id="Device.distinctIdentifier">
+    <element id="Device.biologicalSource">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
-      <path value="Device.distinctIdentifier"/>
+      <path value="Device.biologicalSource"/>
       <short value="The distinct identification string"/>
-      <definition value="The distinct identification string as required by regulation for a human cell, tissue, or cellular and tissue-based product."/>
-      <comment value="For example, this applies to devices in the United States regulated under *Code of Federal Regulation 21CFR&#xA7;1271.290(c)*."/>
+      <definition value="An identifier that supports traceability to the biological entity that is the source of biological material in the product."/>
+      <comment value="Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa.  The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device. For example, this applies to devices in the United States regulated under *Code of Federal Regulation 21CFR&#xA7;1271.290(c)*."/>
       <alias value="Distinct Identification Code (DIC)"/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="Identifier"/>
       </type>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
       </mapping>
-      <mapping>
+<!--      <mapping>
         <identity value="rim"/>
         <map value=".lotNumberText"/>
       </mapping>
@@ -375,6 +375,7 @@
         <identity value="udi"/>
         <map value="The lot or batch number within which a device was manufactured - which is a component of the production identifier (PI), a conditional, variable portion of a UDI."/>
       </mapping>
+-->
     </element>
     <element id="Device.manufacturer">
       <path value="Device.manufacturer"/>
