@@ -21,7 +21,7 @@
 	<outcome>
 		<code>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
-			<code value="0"/>
+			<code value="success"/>
 			<display value="Success"/>
 		</code>
 	</outcome> 
