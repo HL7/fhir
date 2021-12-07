@@ -39,9 +39,7 @@
   </contact>
   <description value="The production identifier(s) that are expected to appear in the UDI carrier."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-productidentifierinudi"/>
   <content value="complete"/>
-, serial-number, , expiration-date, biological-source, software-version
   <concept>
     <code value="lot-number"/>
     <display value="Lot Number"/>

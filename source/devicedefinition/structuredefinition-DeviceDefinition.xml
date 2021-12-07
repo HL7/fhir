@@ -933,8 +933,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-productidentifierinudi"/>
       </binding>
     </element>
-
-
     <element id="DeviceDefinition.guideline">
       <path value="DeviceDefinition.guideline"/>
       <short value="Information aimed at providing directions for the usage of this model of device"/>
