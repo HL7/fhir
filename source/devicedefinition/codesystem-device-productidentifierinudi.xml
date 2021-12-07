@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="devicedefinition-productidentifierinudi"/>
+  <id value="device-productidentifierinudi"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -21,8 +21,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="DeviceDefinitionProductionIdentifierInUDI"/>
-  <title value="DeviceDefinitionProductionIdentifierInUDI"/>
+  <name value="DeviceProductionIdentifierInUDI"/>
+  <title value="DeviceProductionIdentifierInUDI"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>

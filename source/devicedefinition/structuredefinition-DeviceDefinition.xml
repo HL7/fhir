@@ -926,11 +926,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceDefinitionProductionIdentifierInUDI"/>
+          <valueString value="DeviceProductionIdentifierInUDI"/>
         </extension>
         <strength value="required"/>
         <description value="The production identifier(s) that are expected to appear in the UDI carrier."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-productidentifierinudi"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-productidentifierinudi"/>
       </binding>
     </element>
     <element id="DeviceDefinition.guideline">
