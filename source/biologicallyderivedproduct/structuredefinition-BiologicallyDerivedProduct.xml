@@ -163,7 +163,7 @@
     </element>
     <element id="BiologicallyDerivedProduct.biologicalSource">
       <path value="BiologicallyDerivedProduct.biologicalSource"/>
-      <short value="An identifier that supports traceability to the biological entity that is the source of biological material in the product."/>
+      <short value="An identifier that supports traceability to the biological entity that is the source of biological material in the product"/>
       <definition value="An identifier that supports traceability to the biological entity that is the source of biological material in the product."/>
       <comment value="Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa.  The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device." />
       <min value="0"/>
