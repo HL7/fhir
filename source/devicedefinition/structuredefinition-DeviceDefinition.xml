@@ -74,6 +74,16 @@
         <map value="administrative.device"/>
       </mapping>
     </element>
+    <element id="DeviceDefinition.description">
+      <path value="DeviceDefinition.description"/>
+      <short value="Additional information to describe the device"/>
+      <definition value="Additional information to describe the device."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
     <element id="DeviceDefinition.identifier">
       <path value="DeviceDefinition.identifier"/>
       <short value="Instance identifier"/>
@@ -161,8 +171,28 @@
         <code value="uri"/>
       </type>
     </element>
-
-
+    <element id="Device.partNumber">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="W5 note what = what.productidentification."/>
+      </extension>
+      <path value="Device.partNumber"/>
+      <short value="The part number or catalog number of the device"/>
+      <definition value="The part number or catalog number of the device."/>
+      <comment value="Alphanumeric Maximum 20."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playedRole[typeCode=MANU].id"/>
+      </mapping>
+    </element>
     <element id="DeviceDefinition.manufacturer[x]">
       <path value="DeviceDefinition.manufacturer[x]"/>
       <short value="Name of device manufacturer"/>
