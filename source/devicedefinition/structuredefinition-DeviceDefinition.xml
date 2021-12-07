@@ -915,8 +915,8 @@
         <code value="boolean"/>
       </type>
     </element>
-    <element id="DeviceDefinition.material.productionIdentifierInUDI">
-      <path value="DeviceDefinition.material.productionIdentifierInUDI"/>
+    <element id="DeviceDefinition.productionIdentifierInUDI">
+      <path value="DeviceDefinition.productionIdentifierInUDI"/>
       <short value="Indicates the production identifier(s) that are expected to appear in the UDI carrier on the device label"/>
       <definition value="Indicates the production identifier(s) that are expected to appear in the UDI carrier on the device label."/>
       <min value="0"/>

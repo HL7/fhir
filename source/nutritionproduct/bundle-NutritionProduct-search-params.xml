@@ -56,8 +56,8 @@
         <description value="The biological source for the nutrition product"/>
         <code value="type"/>
         <type value="token"/>
-        <expression value="NutritionProduct.biologicalSource"/>
-        <xpath value="f:NutritionProduct/f:biologicalSource"/>
+        <expression value="NutritionProduct.instance.biologicalSource"/>
+        <xpath value="f:NutritionProduct/f:instance/f:biologicalSource"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
