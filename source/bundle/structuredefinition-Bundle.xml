@@ -154,8 +154,8 @@
         <key value="bdl-10"/>
         <severity value="error"/>
         <human value="A document must have a date"/>
-        <expression value="type = &#39;document&#39; implies (meta.lastUpdated.hasValue())"/>
-        <xpath value="not(f:type/@value = &#39;document&#39;) or exists(f:meta/f:lastUpdated/f:value)"/>
+        <expression value="type = &#39;document&#39; implies (Bundle.timestamp.hasValue())"/>
+        <xpath value="not(f:type/@value = &#39;document&#39;) or exists(f:timestamp/f:value)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <mapping>
