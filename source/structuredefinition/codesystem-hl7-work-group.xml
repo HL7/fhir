@@ -16,6 +16,7 @@
   <version value="4.6.0"/>
   <name value="HL7Workgroup"/>
   <caseSensitive value="true"/>
+  <content value="complete"/>
   <concept>
     <code value="cbcc"/>
     <display value="Community Based Collaborative Care"/>

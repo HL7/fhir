@@ -16,6 +16,7 @@
   <version value="4.6.0"/>
   <name value="StatisticsCode"/>
   <caseSensitive value="true"/>
+  <content value="complete"/>
   <concept>
     <code value="average"/>
     <display value="Average"/>

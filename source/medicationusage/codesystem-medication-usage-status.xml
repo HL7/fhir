@@ -20,8 +20,8 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/medication-usage-status"/>
   <content value="complete"/>
   <concept>
-    <code value="completed"/>
-    <display value="Completed"/>
+    <code value="recorded"/>
+    <display value="Recorded"/>
     <definition value="The action of recording the medication statement is finished."/>
   </concept>
   <concept>
@@ -30,8 +30,8 @@
     <definition value="Some of the actions that are implied by the medication usage may have occurred.  For example, the patient may have taken some of the medication.  Clinical decision support systems should take this status into account."/>
   </concept>
   <concept>
-    <code value="unknown"/>
-    <display value="Unknown"/>
-    <definition value="The state of the medication usage is not currently known."/>
+    <code value="draft"/>
+    <display value="Draft"/>
+    <definition value="The medication usage is draft or preliminary."/>
   </concept>
 </CodeSystem>

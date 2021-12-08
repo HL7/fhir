@@ -1,26 +1,31 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?> 
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
 	<id value="example-search"/>
-	<type>
+	<category>
+		<coding>
 		<system value="http://terminology.hl7.org/CodeSystem/audit-event-type"/>
 		<code value="rest"/>
 		<display value="Restful Operation"/>
-	</type>
-	<subtype>
+		</coding>
+	</category>
+	<code>
+		<coding>
 		<system value="http://hl7.org/fhir/restful-interaction"/>
 		<code value="search"/>
 		<display value="search"/>
-	</subtype>
+		</coding>
+	</code>
 	<action value="E"/>
 	<recorded value="2015-08-22T23:42:24Z"/>
 	<outcome>
-		<coding>
+		<code>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
-			<code value="0"/>
+			<code value="success"/>
 			<display value="Success"/>
-		</coding>
+		</code>
 	</outcome> 
 	<agent>
+
 		<type>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/extra-security-role-type"/>
@@ -33,13 +38,20 @@
 			<identifier>
 				<value value="95"/>
 			</identifier>
+		<display value="Grahame Grieve"/>
 		</who>
-		<altId value="601847123"/>
-		<name value="Grahame Grieve"/>
 		<requestor value="true"/>
 	</agent>
 	<agent>
 		<!-- Source active participant, the software making the . AlternativeUserId - Process ID --> 
+		<extension url="http://hl7.org/fhir/StructureDefinition/auditevent-AlternativeUserID">
+			<valueIdentifier>
+			  <type>
+				<text value="process ID"/>
+			  </type>
+			  <value value="6580"/>
+			</valueIdentifier>
+		</extension>
 		<type>
 			<coding>
 				<system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -53,37 +65,32 @@
 				<value value="2.16.840.1.113883.4.2"/> 
 			</identifier>
 		</who>
-		<altId value="6580"/> 
 		<requestor value="false"/> 
-		<network>
-			<address value="Workstation1.ehr.familyclinic.com"/>
-			<type value="1"/>
-		</network> 
+		<networkString value="Workstation1.ehr.familyclinic.com"/>
 	</agent>
 	<source>
-		<site value="Cloud"/>
 		<observer>
 			<display value="hl7connect.healthintersections.com.au"/>
 		</observer>
 		<type>
+			<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/security-source-type"/>
 			<code value="3"/>
 			<display value="Web Server"/>
+			</coding>
 		</type>
 	</source>
 	<entity>
 		<!-- HTTP GET encoded in base64Binary -->
 		<!-- orignal example encoded here is -->
 		<!-- "http://fhir-dev.healthintersections.com.au/open/Encounter?participant=13" -->
-		<type>
-			<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
-			<code value="2"/>
-			<display value="System Object"/>
-		</type>
+
 		<role>
+			<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
 			<code value="24"/>
 			<display value="Query"/>
+			</coding>
 		</role>
 		<query value="aHR0cDovL2ZoaXItZGV2LmhlYWx0aGludGVyc2VjdGlvbnMuY29tLmF1L29wZW4vRW5jb3VudGVyP3BhcnRpY2lwYW50PTEz"/>
 	</entity>

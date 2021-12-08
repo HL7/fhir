@@ -11,7 +11,7 @@
 
 
 
-<h1>Subscriptions Framework</h1>
+<h1>Topic-Based Subscriptions Framework</h1>
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 0</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Draft</a></td></tr></table>
 
 <p>
@@ -19,32 +19,59 @@
 </p>
 
 <p>
-  This document contains general information about the Subscriptions framework in FHIR.  Documentation about specific values (e.g., the <code>rest-hook</code> channel type) can be found in the appropriate resource documentation.  For convenience, below is a list of common topics and links to their documentation.
+  The FHIR Topic-Based Subscription model is composed of three parts:
 </p>
 
-<table class="grid">
-  <thead>
-    <tr>
-      <th>Resource</th><th>Topic</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>SubscriptionTopic</td><td><a href="subscriptiontopic.html">Resource</a></td></tr>
-    <tr><td/><td><a href="subscriptiontopic.html#defining">Defining Topics</a></td></tr>
-    <tr><td/><td><a href="subscriptiontopic.html#deriving">Deriving from existing Topics</a></td></tr>
-    <tr/>
+<ul>
+  <li>Subscription Topic
+    <ul>
+      <li>What is it?
+        <ul>
+          <li>Defines <strong>what</strong> triggers a notification</li>
+          <li>Defines <strong>filters</strong> available to clients</li>
+          <li>Defines <string>notification shape</string></li>
+          <li>Always referenced by a canonical URL</li>
+        </ul>
+      </li>
+      <li><a href="#overview-topic">Overview</a> (in this document)</li>
+      <li><a href="subscriptiontopic.html">SubscriptionTopic resource</a></li>
+    </ul>
+  </li>
 
-    <tr><td>Subscription</td><td><a href="subscription.html">Resource</a></td></tr>
-    <tr><td/><td><a href="subscription.html#payloads">Payload Options</a></td></tr>
-    <tr><td/><td><a href="subscription.html#channels">Standard Channels</a></td></tr>
-    <tr><td/><td><a href="subscription.html#channel-extending">Creating Channels</a></td></tr>
-    <tr><td/><td><a href="subscription-operation-status.html">$status Operation</a></td></tr>
-    <tr/>
+  <li>Subscription
+    <ul>
+      <li>What is it?
+        <ul>
+          <li>Describes a request to be notified about a <strong>topic</strong>
+            <ul>
+              <li>Canonical URL to a <code>SubscriptionTopic</code></li>
+              <li>Set <strong>filters</strong>, as allowed by the topic</li>
+            </ul>
+          </li>
+          <li>Describe <strong>how to send</strong> to send notifications (<a href="subscription.html#channels">channel</a> information - e.g., transport type, endpoint, etc.)</li>
+          <li>Describe <strong>the contents</strong> of notifications (<a href="subscription.html#payloads">payload</a> information - e.g.,  MIME type, content level, etc.)</li>
+        </ul>
+      </li>
+      <li><a href="#overview-subscription">Overview</a> (in this document)</li>
+      <li><a href="subscription.html">Subscription resource</a></li>
+    </ul>
+  </li>
 
-    <tr><td>SubscriptionStatus</td><td><a href="subscriptionstatus.html">Resource</a></td></tr>
-    <tr><td/><td><a href="subscriptionstatus.html#notification-types">Notification Types</a></td></tr>
-  </tbody>
-</table>
+  <li>Notification Bundle
+    <ul>
+      <li>What is it?
+        <ul>
+          <li>A <a href="bundle.html#subscription-notification">notification bundle</a> related to a subscription</li>
+          <li>First entry is always a <a href="subscriptionstatus.html">SubscriptionStatus</a> resource</li>
+          <li>MAY contain additional entries, related to the included events</li>
+        </ul>
+      </li>
+      <li><a href="#overview-notification">Overview</a> (in this document)</li>
+      <li><a href="bundle.html">Bundle resource</a></li>
+      <li><a href="subscriptionstatus.html">SubscriptionStatus resource</a></li>
+    </ul>
+  </li>
+</ul>
 
 <a name="actors-and-roles"/>
 <h2>Actors and Roles</h2>
@@ -52,7 +79,7 @@
   Any FHIR application may support the use of Subscriptions.  In this documentation:
   <ul>
     <li><b>Server</b> refers to the FHIR application or applications acting as the subscription provider.  This includes the responsibilities of implementing one or more <code>SubscriptionTopics</code>, managing <code>Subscriptions</code>, and sending notifications.</li>
-    <li><b>Client</b> or <b>Subscriber</b> refers to the application or applications acting as subscriber.  This includes the responsibilites of acting as a FHIR client (to create a <code>Subscription</code>) and receiving notifications on a supported channel.</li>
+    <li><b>Client</b> or <b>Subscriber</b> refers to the application or applications acting as subscriber.  This includes the responsibilities of acting as a FHIR client (to create a <code>Subscription</code>) and receiving notifications on a supported channel.</li>
   </ul>
   Note: either role may be implemented by one or more applications across one or more systems.
 </p>
@@ -136,6 +163,63 @@
   FHIR <a href="messaging.html">Messaging</a> is a message-based protocol which can be used for communication. When combining Messaging and Subscriptions, complete notifications are wrapped into Messaging Bundles.  More details are provided <a href="#messaging">below</a>.
 </p>
 
+<a name="overview-workflow"/>
+<h2>Workflow Overview</h2>
+
+<p>
+  This section gives an overview of the workflow for both Servers and Clients to work with Subscriptions.  Each <a href="subscription.html#channels">channel</a> MAY vary slightly from this general overview - specifically around interactions involving the <code>Endpoint</code> (e.g., when using a <code>rest-hook</code> the client must pre-configure an HTTP endpoint which the server validates, but when using a <code>websocket</code> the client simply connects to the server).
+</p>
+
+<a name="creating-a-subscription"/>
+<h3>Creating a Subscription</h3>
+
+<p>
+  A workflow for creating a subscription is below:
+</p>
+
+<figure>
+  <img src="subscription-workflow-general.svg" alt="Sequence diagram of creating a FHIR Subscription" />
+  <figcaption>Sequence diagram of creating a FHIR Subscription</figcaption>
+</figure>
+
+<ol>
+  <li>
+    Server implements the core functionality required for topic-based subscriptions.
+  </li>
+  <li>
+    Server implements one or more <a href="subscriptiontopic.html">SubscriptionTopic</a> resources.  Implementation is specific to each topic, and will vary between servers.
+  </li>
+  <li>
+    Client asks the server for the list of supported <a href="subscriptiontopic.html">SubscriptionTopic</a> resources, via querying the resource.
+  </li>
+  <li>
+    Server responds with a <a href="bundle.html#searchset">searchset Bundle</a>.
+  </li>
+  <li>
+    Client ensures that the endpoint is prepared (if applicable - see <a href="subscription.html#channels">channels</a>).
+  </li>
+  <li>
+    Client requests a <a href="subscription.html">Subscription</a> (e.g., via <code>HTTP POST</code>, <code>HTTP PUT</code>, etc.).
+  </li>
+  <li>
+    Server MAY accept the <a href="subscription.html">Subscription</a> request (e.g., supported channel and payload).  Note that the server MAY modify the request to be suitable (e.g., changing heartbeat timeouts, etc.).  Clients SHALL check the returned resource or query for the accepted version if not returned to ensure an accepted request conforms with their expectations.
+  </li>
+  <li>
+    Server MAY reject the <a href="subscription.html">Subscription</a> request (e.g., unsupported channel type).
+  </li>
+  <li>
+    If applicable, the server MAY send a <a href="subscriptionstatus.html#handshake-notification">handshake</a> to the endpoint.
+  </li>
+  <li>
+    If the Server sends a <a href="subscriptionstatus.html#handshake-notification">handshake</a>, the endpoint <b>SHOULD</b> respond appropriately.
+  </li>
+</ol>
+
+<p>
+  Once the subscription is active, notifications will be sent according to the <a href="subscription.html#channels">channel</a>.  Note that error states may occur, see <a href="#errors">Managing Subscriptions and Errors</a> for more information.
+</p>
+
+
 <a name="overview-topic"/>
 <h2>Subscription Topics</h2>
 <p>
@@ -166,6 +250,29 @@
     <li>is willing to make a <a href="https://tools.ietf.org/html/rfc5290">simple best effort</a> attempt at delivering a notification for each occurance of a matching event.</li>
   </ul>
 </p>
+<p>
+  When processing a request for a subscription, following are <i>some</i> checks that a server <b>SHOULD</b> validate:
+</p>
+<ul>
+  <li>
+    that the <code>SubscriptionTopic</code> is valid and implemented by the server
+  </li>
+  <li>
+    that all requested filters are defined in the requested topic and are implemented in the server
+  </li>
+  <li>
+    that the channel type is known and implemented by the server
+  </li>
+  <li>
+    that the channel endpoint is valid for the channel provided (e.g., is it a valid URL of the expected type)
+  </li>
+  <li>
+    that the payload configuration is known and implemented by the server
+  </li>
+  <li>
+    that the payload configuration is valid for the channel type requested (e.g., complies with the server's security policy)
+  </li>
+</ul>
 
 <a name="overview-notification"/>
 <h2>Subscription Notifications</h2>
@@ -193,7 +300,7 @@
   Applications are responsible for following <a href="security.html">FHIR security guidance</a>.  Some recommendations specific to subscriptions are provided below.
 </p>
 <p>
-  A subscription is a request for future event notifications. As with any client-initiated interaction, a <code>Subscription</code> could request information a client is not allowed to see. Applications SHALL enforce authorization in accordance with their policy requirements. Applications SHOULD take a subscription's <code>SubscriptionTopic</code> and filters into account when authorizing the creation of a <code>Subscription</code>, and SHOULD ensure that authorization is (still) in place when sending any event notifications.
+  A subscription is a request for future event notifications. As with any client-initiated interaction, a <code>Subscription</code> could request information a client is not allowed to see. Applications SHALL enforce authorization in accordance with their policy requirements. Applications <b>SHOULD</b> take a subscription's <code>SubscriptionTopic</code> and filters into account when authorizing the creation of a <code>Subscription</code>, and <b>SHOULD</b> ensure that authorization is (still) in place when sending any event notifications.
 </p>
 <p>
   When sending an event notification, applications can adopt various strategies to ensure that authorization is still in place. Some strategies may provide imperfect assurance (e.g., a server might rely on signed tokens with some pre-specified lifetime as evidence of authorization). In addition to these strategies, servers can mitigate the risk of disclosing sensitive information by limiting the payload types it supports (e.g., by prohibiting certain clients from requesting <code>full-resource</code> notification payloads and relying instead on <code>id-only</code> payloads).
@@ -205,7 +312,7 @@
   Each notification sent by the application could reveal information about the application and subscriber relationship, as well as sensitive administrative or clinical information. Applications are responsible for ensuring appropriate security is employed for each channel they support. The <code>Subscription</code> resource does not address these concerns directly; it is assumed that these are administered by other configuration processes. For instance, an application might maintain a whitelist of acceptable endpoints or trusted certificate authorities for <code>rest-hook</code> channels.
 </p>
 <p>
-  Some topic and server implementation combinations may trigger internal notification workflows when notifications should NOT be sent.  For example, if a topic is designed around <code>Observation</code> resources being removed (e.g., deleted), an implementation may be triggered if an <code>Observation</code> is moved to a higher security level and is no longer available to a user.  These types of situations are implementation-specific, so this note is to raise awareness of potential pitfalls when implementing subscriptions.
+  Some topic and server implementation combinations may trigger internal notification workflows when notifications <b>SHOULD NOT</b> be sent.  For example, if a topic is designed around <code>Observation</code> resources being removed (e.g., deleted), an implementation may be triggered if an <code>Observation</code> is moved to a higher security level and is no longer available to a user.  These types of situations are implementation-specific, so this note is to raise awareness of potential pitfalls when implementing subscriptions.
 </p>
 <p>
   Subscribers should ensure an appropriate process to validate incoming messages.  For example, if the <code>full-resource</code> content type is used, clients should provide a header or some other secret to the server so that messages can be verified prior to being used for health decisions.  Using content types of <code>empty</code> or <code>id-only</code> can mitigate this risk, as resources must be retrieved from a trusted location prior to use.
@@ -221,6 +328,27 @@
 </p>
 
 
+<a name="scoping"/>
+<h2>Scoping Responsibilities</h2>
+<p>
+  Unless otherwise specified by a server implementation and channel, the Subscriptions Framework does not involve guaranteed delivery of notifications. While the Subscriptions Framework is able to support such mechanisms, defining them are beyond the scope of the standard or this guide.
+</p>
+
+<p>
+  Servers <b>SHOULD</b> detect errors and take appropriate action where possible.  In general, this boundary is when the notification is delivered.  For example, during a REST-hook notification, the subscription server can detect errors up until the REST endpoint returns a HTTP status code (e.g., 200).  This does not imply that a client successfully processed (or even received) a notification - simply that the server has sent the notification successfully.
+</p>
+
+<p>
+  Therefore, clients <b>SHOULD</b> be aware of some limitations regarding delivery. In particular:
+</p>
+<ul>
+  <li>Some notifications might not be delivered.</li>
+  <li>Some notifications might be delivered multiple times.</li>
+</ul>
+
+<p>
+  In order to mitigate the impact from the above issues, the Subscriptions Framework includes mechanisms to detect both scenarios.
+</p>
 
 <a name="errors"/>
 <h2>Managing Subscriptions and Errors</h2>
@@ -228,7 +356,7 @@
   The subscription resource is authored by the client with an initial status of <code>requested</code>. A new subscription is created on the server using the RESTful create or update interaction. After a successful transaction, the client parses the Location header and saves the new Subscription's logical id for use in subsequent operations.
 </p>
 <p>
-  When the server receives a subscription, it SHOULD check that it is prepared to accept/process the subscription. If it is, it sets the subscription to <code>requested</code> and process it like a normal <a href="http.html#create">create</a>. If it isn't, it SHOULD return an error with an <a href="operationoutcome.html">OperationOutcome</a> instead of processing the <code>create</code>.
+  When the server receives a subscription, it <b>SHOULD</b> check that it is prepared to accept/process the subscription. If it is, it sets the subscription to <code>requested</code> and process it like a normal <a href="http.html#create">create</a>. If it isn't, it <b>SHOULD</b> return an error with an <a href="operationoutcome.html">OperationOutcome</a> instead of processing the <code>create</code>.
 </p>
 <p>
   The criteria are subject to the same limitations as the client that created it, such as access to patient compartments etc. Note that the subscription MAY remain active after the client access tokens expire (e.g., if the client's authorization period outlasts the access token lifetime).
@@ -240,10 +368,10 @@
   An appropriately authorized client can use search and/or history operations to see what subscriptions are currently active on the server. Once the subscription is no longer desired, the client deletes the subscription from the server.
 </p>
 <p>
-  The server may retry the notification a fixed number of times and/or refer errors to its own alert logs. If the notification fails, the server SHOULD set the status to <code>error</code> and mark the error in the resource. If the notification succeeds, the server SHOULD update the status to <code>active</code> and may remove any error codes. If a subscription fails consistently a server may choose set the subscription status to <code>off</code> and stop trying to send notifications.
+  The server may retry the notification a fixed number of times and/or refer errors to its own alert logs. If the notification fails, the server <b>SHOULD</b> set the status to <code>error</code> and mark the error in the resource. If the notification succeeds, the server <b>SHOULD</b> update the status to <code>active</code> and may remove any error codes. If a subscription fails consistently a server may choose set the subscription status to <code>off</code> and stop trying to send notifications.
 </p>
 <p>
-  Errors a server wishes to make accessible to clients are stored in <code>Subscription.error</code>. Servers should provide a mechanism for clearing errors (e.g., when resetting a <code>Subscription.status</code> back to <code>requested</code> after an error). Since <code>Subscription.error</code> represents server errors, a server SHOULD NOT allow clients to add errors.
+  Errors a server wishes to make accessible to clients are stored in <code>Subscription.error</code>. Servers should provide a mechanism for clearing errors (e.g., when resetting a <code>Subscription.status</code> back to <code>requested</code> after an error). Since <code>Subscription.error</code> represents server errors, a server <b>SHOULD NOT</b> allow clients to add errors.
 </p>
 
 <a name="errors-delivery"/>
@@ -252,26 +380,46 @@
   There are several mechanisms available to subscribers in order to understand the current state of notification delivery.  Below are some example error scenarios with details about how a subscriber can detect the problem state.
 </p>
 
-<a name="errors-delivery-skipped"/>
-<h4>Skipped Event</h4>
+<a name="errors-missing-event"/>
+<h4>Missing Event</h4>
 <p>
-  The diagram below shows how a subscriber can use the <code>SubscriptionStatus.eventsSinceSubscriptionStart</code> element on received notifications to determine that an event has been missed.
+  The diagram below shows how a subscriber can use the <code>SubscriptionStatus.eventsSinceSubscriptionStart</code> parameter on received notifications to determine that an event has been missed.
 </p>
-<img src="subscriptions-skipped-event.svg" alt="Diagram of missing event workflow"/>
+<figure>
+  <img src="subscription-error-missing-event.svg" alt="Diagram showing a missed-event detection and recovery workflow"/>
+  <figcaption>Diagram showing a missed-event detection and recovery workflow</figcaption>
+</figure>
 <p>
   In the above sequence, the subscriber tracks the <code>eventsSinceSubscriptionStart</code> of each received notification (per Subscription).  When the subscriber received event 23, the subscriber was aware that the last notification it received was a single notification for event 21.  The subscriber then waited an amount of time to ensure that event 22 was indeed missing (and not, for example, still being processed) and started a recovery process.  The recovery process itself will vary by subscriber, but should be a well-understood method for recovering in the event of errors.
 </p>
 
-<a name="errors-delivery-heartbeat"/>
+<a name="errors-broken-communication"/>
 <h4>Broken Communication</h4>
 <p>
   The diagram below show how a subscriber can use the <code>Subscription.heartbeatPeriod</code> to determine errors which prevent notifications from reaching the endpoint.
 </p>
-<img src="subscriptions-no-event.svg" alt="Diagram of heartbeat-detection workflow"/>
+<figure>
+  <img src="subscription-error-missing-event.svg" alt="Diagram showing broken communication detection and recovery workflow" />
+  <figcaption>Diagram showing broken communication detection and recovery workflow</figcaption>
+</figure>
 <p>
   In the above sequence, the subscriber is aware that the <code>heartbeatPeriod</code> has elapsed for a subscription without receiving any notifications.  The subscriber then asks the server for the <code>$status</code> of the subscription, and seeing an error, begins a recovery process.  As in the previous scenario, the recovery process itself will vary by subscriber, but should be a well-understood method for recovering in the event of errors.
 </p>
 
+<a name="recovering-from-errors"/>
+<h4>Recovering from Errors</h4>
+<p>
+  Clients are responsible for devising an appropriate method for recovering from errors.  Often, this process will include a series or batch of requests that allow a client to know the current state.  For example, an application may need to query all relevant resources for a patient in order to ensure nothing has been missed.  Once an application has returned to a functional state, it should request the subscription is reactivated by updating the <code>status</code> to either <code>requested</code> or <code>active</code> as appropriate.
+</p>
+
+<a name="using-events-operation"/>
+<h4>Using the <code>$events</code> operation</h4>
+<p>
+  Servers MAY choose to support the <code>$events</code> operation, as defined on the <code>Subscription</code> resource.  The <code>$events</code> operation allows clients to request events which have occurred in the past.  Servers which implement the operation MAY use implementation-specific criteria to restrict availability of events (e.g., most recent 10 events, events within the past 30 days, etc.).
+</p>
+<p>
+  During a recovery process, clients MAY try to retrieve missing events via the <code>$events</code> operation, which should allow processing to continue as normal.
+</p>
 
 [%file newfooter%]
 

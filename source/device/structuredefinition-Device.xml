@@ -175,7 +175,7 @@
       <short value="Mandatory fixed portion of UDI"/>
       <definition value="The device identifier (DI) is a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device."/>
       <alias value="DI"/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="string"/>
@@ -197,7 +197,7 @@
     <element id="Device.udiCarrier.issuer">
       <path value="Device.udiCarrier.issuer"/>
       <short value="UDI Issuing Organization"/>
-      <definition value="Organization that is charged with issuing UDIs for devices.  For example, the US FDA issuers include :&#xA;1) GS1: &#xA;http://hl7.org/fhir/NamingSystem/gs1-di, &#xA;2) HIBCC:&#xA;http://hl7.org/fhir/NamingSystem/hibcc-dI, &#xA;3) ICCBBA for blood containers:&#xA;http://hl7.org/fhir/NamingSystem/iccbba-blood-di, &#xA;4) ICCBA for other devices:&#xA;http://hl7.org/fhir/NamingSystem/iccbba-other-di."/>
+      <definition value="Organization that is charged with issuing UDIs for devices. For example, the US FDA issuers include: &#xA;1) GS1: http://hl7.org/fhir/NamingSystem/gs1-di, &#xA;2) HIBCC: http://hl7.org/fhir/NamingSystem/hibcc-diI, &#xA;3) ICCBBA for blood containers: http://hl7.org/fhir/NamingSystem/iccbba-blood-di, &#xA;4) ICCBA for other devices: http://hl7.org/fhir/NamingSystem/iccbba-other-di # Informationsstelle für Arzneispezialitäten (IFA GmbH) (EU only): http://hl7.org/fhir/NamingSystem/ifa-gmbh-di."/>
       <alias value="Barcode System"/>
       <min value="0"/>
       <max value="1"/>
@@ -216,7 +216,7 @@
     <element id="Device.udiCarrier.jurisdiction">
       <path value="Device.udiCarrier.jurisdiction"/>
       <short value="Regional UDI authority"/>
-      <definition value="The identity of the authoritative source for UDI generation within a  jurisdiction.  All UDIs are globally unique within a single namespace with the appropriate repository uri as the system.  For example,  UDIs of devices managed in the U.S. by the FDA, the value is  http://hl7.org/fhir/NamingSystem/fda-udi."/>
+      <definition value="The identity of the authoritative source for UDI generation within a jurisdiction. All UDIs are globally unique within a single namespace with the appropriate repository uri as the system. For example, UDIs of devices managed in the U.S. by the FDA, the value is http://hl7.org/fhir/NamingSystem/us-fda-udi or in the European Union by the European Commission http://hl7.org/fhir/NamingSystem/eu-ec-udi."/>
       <requirements value="Allows a recipient of a UDI to know which database will contain the UDI-associated metadata."/>
       <min value="0"/>
       <max value="1"/>
@@ -349,25 +349,25 @@
         <map value="FiveWs.status"/>
       </mapping>
     </element>
-    <element id="Device.distinctIdentifier">
+    <element id="Device.biologicalSource">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
-      <path value="Device.distinctIdentifier"/>
+      <path value="Device.biologicalSource"/>
       <short value="The distinct identification string"/>
-      <definition value="The distinct identification string as required by regulation for a human cell, tissue, or cellular and tissue-based product."/>
-      <comment value="For example, this applies to devices in the United States regulated under *Code of Federal Regulation 21CFR&#xA7;1271.290(c)*."/>
+      <definition value="An identifier that supports traceability to the biological entity that is the source of biological material in the product."/>
+      <comment value="Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa.  The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device. For example, this applies to devices in the United States regulated under *Code of Federal Regulation 21CFR&#xA7;1271.290(c)*."/>
       <alias value="Distinct Identification Code (DIC)"/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="Identifier"/>
       </type>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
       </mapping>
-      <mapping>
+<!--      <mapping>
         <identity value="rim"/>
         <map value=".lotNumberText"/>
       </mapping>
@@ -375,6 +375,7 @@
         <identity value="udi"/>
         <map value="The lot or batch number within which a device was manufactured - which is a component of the production identifier (PI), a conditional, variable portion of a UDI."/>
       </mapping>
+-->
     </element>
     <element id="Device.manufacturer">
       <path value="Device.manufacturer"/>
@@ -480,7 +481,7 @@
       <path value="Device.serialNumber"/>
       <short value="Serial number assigned by the manufacturer"/>
       <definition value="The serial number assigned by the organization when the device was manufactured."/>
-      <comment value="Alphanumeric Maximum 20."/>
+      <comment value="Alphanumeric Maximum 20. While a serial number is a type of identifier, in the context of devices for which a UDI is required, thus a serial number may be part of the production identifier, it is more informative to have the serial number as a dedicated attribute together with the other UDI production identifier.  When the device is not subject to including the UDI (e.g., its presence and exchange is not mandated by local regulatory requirements or specific use case at hand), thus the concept of production identifiers is not relevant as a set, it remains helpful for consistency to still use Device.serialNumber rather than using Device.identifier with an appropriate type.  Systems that do not realize an identifier is a serial number may place it in Device.identifier or if the identifier.system is known for the serial number, it may also be populated in the Device.identifier as a globally unique id_."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -528,8 +529,8 @@
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
       <path value="Device.deviceName.type"/>
-      <short value="udi-label-name | user-friendly-name | patient-reported-name | manufacturer-name | model-name | other"/>
-      <definition value="The type of deviceName. Note that ManufactureDeviceName means that the name is the name as given by the manufacturer, not the name of the manufacturer.&#xA;UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | ModelName."/>
+      <short value="registered-name | user-friendly-name | patient-reported-name"/>
+      <definition value="The type of deviceName. Note that ManufactureDeviceName means that the name is the name as given by the manufacturer, not the name of the manufacturer.&#xA;RegisteredName | UserFriendlyName | PatientReportedName."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -599,6 +600,7 @@
       <path value="Device.type"/>
       <short value="The kind or type of device"/>
       <definition value="The kind or type of device. A device instance may have more than one type - in which case those are the types that apply to the specific instance of the device."/>
+      <comment value="Multiple device types are use when a device is categorized in more than one context – for example, hybrid devices in which the device is both of type gateway and sensor."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -733,7 +735,7 @@
       <short value="Property value - as a code or quantity"/>
       <definition value="Property value - the data type depends on the property type."/>
       <comment value="The usage of CodeableConcept is for concepts that are normally coded but for which a code is not available - for example a device implant size that is not standardized. The property string is for text characteristics, e.g. long descriptions, warnings, etc."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Quantity"/>
@@ -897,6 +899,47 @@
         <map value=".scopedRole[typeCode=CON].player"/>
       </mapping>
     </element>
+
+    <element id="Device.distributor">
+      <path value="The distributor of the model of device"/>
+      <definition value="The distributor of the model of device, other than the manufacturer."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playedRole[typeCode=DIST].scoper.name"/>
+      </mapping>
+      </element>
+      <element id="Device.distributor.name">
+        <path value="Device.distributor.name"/>
+        <short value="The name of the distributor"/>
+        <definition value="The human-readble name of the device distributor."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="string"/>
+        </type>
+      </element>
+      <element id="Device.distributor.organizationReference">
+        <path value="Device.distributor.organizationReference"/>
+        <short value="The organization of the device distributor"/>
+        <definition value="The organization that the distributor of the device belongs to."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Reference"/>
+          <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        </type>
+      </element>
+    
+
     <element id="Device.location">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="#7418."/>
@@ -939,7 +982,21 @@
         <map value=".telecom"/>
       </mapping>
     </element>
-
+    <element id="Device.endpoint">
+      <path value="Device.endpoint"/>
+      <short value="Technical endpoints providing access to electronic services provided by the device"/>
+      <definition value="Technical endpoints providing access to services provided by the device defined at this resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="Device.link">
       <path value="Device.link"/>
       <short value="An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device"/>

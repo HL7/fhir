@@ -73,9 +73,9 @@
           <valueString value="AdministrableProductDefinition.ingredient"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/AdministrableProductDefinition-ingredient"/>
-        <description value="The ingredients of this administrable medicinal product. Sometimes it may be appropriate to specify these via the associated manufactured item(s)"/>
+        <description value="The ingredients of this administrable medicinal product"/>
         <code value="ingredient"/>
-        <type value="reference"/>
+        <type value="token"/>
         <expression value="AdministrableProductDefinition.ingredient"/>
         <xpath value="f:AdministrableProductDefinition/f:ingredient"/>
         <xpathUsage value="normal"/>

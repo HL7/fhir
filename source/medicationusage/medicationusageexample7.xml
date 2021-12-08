@@ -24,7 +24,7 @@
       
     </Medication>
   </contained>
-  <status value="completed"/>
+  <status value="recorded"/>
   <medication> <!-- Linked to a RESOURCE Medication -->
     <reference>
     <reference value="#med0315"/>

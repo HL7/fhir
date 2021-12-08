@@ -17,4 +17,5 @@
   <name value="TemplateStatusCode"/>
   <status value="active"/>
   <caseSensitive value="true"/>
+  <content value="complete"/>
 </CodeSystem>

@@ -12,13 +12,13 @@
          <display value="Current"/>
       </coding>
    </status>
-   <category>
+   <classification>
       <coding>
          <system value="http://example.europa.eu/fhir/SubstanceType"/>
          <code value="100000075670"/>
          <display value="Chemical"/>
       </coding>
-   </category>
+   </classification>
    <domain>
       <coding>
          <system value="http://example.europa.eu/fhir/Domain"/>

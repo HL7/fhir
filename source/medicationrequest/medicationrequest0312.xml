@@ -8,6 +8,9 @@
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="12345689"/>
     </identifier>
+    <priorPrescription>
+        <reference value="MedicationRequest/medrx0304"/>
+    </priorPrescription>
     <status value="active"/>
     <intent value="order"/>
     <medication>
@@ -40,6 +43,7 @@
     <note>
         <text value="Patient should be counselled to ensure good dental hygiene"/>
     </note>
+    <dose>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="100mg (4ml) three times daily" />
@@ -74,6 +78,7 @@
         </doseAndRate>
         
     </dosageInstruction> 
+    </dose>
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>
@@ -103,7 +108,5 @@
             </coding>
         </reason>
     </substitution>
-    <priorPrescription>
-        <reference value="MedicationRequest/medrx0304"/>
-    </priorPrescription>
+
 </MedicationRequest>

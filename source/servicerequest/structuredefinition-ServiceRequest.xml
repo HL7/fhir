@@ -945,6 +945,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DetectedIssue"/>
       </type>
       <isSummary value="true"/>
       <binding>

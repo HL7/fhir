@@ -1,27 +1,29 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?> 
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
 	<id value="example-media"/>
-
-	<type>
-		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
-		<code value="110106"/>
-		<display value="Export"/>
-	</type>
-	<subtype>
-		<system value="urn:oid:1.3.6.1.4.1.19376.1.2"/>
-		<code value="ITI-32"/>
-		<display value="Distribute Document Set on Media"/>
-	</subtype>
+	<category>
+		<coding>
+			<system value="http://dicom.nema.org/resources/ontology/DCM"/>
+			<code value="110106"/>
+			<display value="Export"/>
+		</coding>
+	</category>
+	<code>
+		<coding>
+			<system value="urn:ihe:event-type-code"/>
+			<code value="ITI-32"/>
+			<display value="Distribute Document Set on Media"/>
+		</coding>
+	</code>
 	<action value="R"/>
 	<recorded value="2015-08-27T23:42:24Z"/>
 	<outcome>
-		<coding>
+		<code>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
-			<code value="0"/>
+			<code value="success"/>
 			<display value="Success"/>
-		</coding>
-	</outcome> 
-
+		</code>
+	</outcome>
 	<agent>
 		<!-- Source active participant, the software making the PIX query
   UserId - The identity of the Patient Identifier Cross-reference Consumer Actor facility and sending application from the HL7 message; 
@@ -48,14 +50,13 @@
 				<code value="humanuser"/>
 				<display value="human user"/>
 			</coding>
-		</type> 
+		</type>
 		<who>
 			<identifier>
 				<value value="95"/>
 			</identifier>
+			<display value="Grahame Grieve"/>
 		</who>
-		<altId value="601847123"/>
-		<name value="Grahame Grieve"/>
 		<requestor value="true"/>
 	</agent>
 	<agent>
@@ -66,18 +67,19 @@
 				<code value="110154"/>
 				<display value="Destination Media"/>
 			</coding>
-		</type> 
-		<name value="Media title: Hello World"/>
+		</type>
+		<who>
+			<display value="Media title: Hello World"/>
+		</who>
 		<requestor value="false"/>
-		<media>
-			<system value="http://dicom.nema.org/resources/ontology/DCM"/>
-			<code value="110033"/>
-			<display value="DVD"/>
-		</media>
+
 	</agent>
 	<source>
 		<observer>
-			<display value="hl7connect.healthintersections.com.au"/>
+			<identifier>
+				<value value="hl7connect.healthintersections.com.au"/>
+			</identifier>
+			<display value="Cloud"/>
 		</observer>
 	</source>
 	<entity>
@@ -89,15 +91,12 @@
 				<value value="e3cdfc81a0d24bd^^^&amp;2.16.840.1.113883.4.2&amp;ISO"/>
 			</identifier>
 		</what>
-		<type>
-			<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
-			<code value="1"/>
-			<display value="Person"/>
-		</type>
 		<role>
-			<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
-			<code value="1"/>
-			<display value="Patient"/>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
+				<code value="1"/>
+				<display value="Patient"/>
+			</coding>
 		</role>
 	</entity>
 	<entity>
@@ -114,15 +113,12 @@
 				<value value="e3cdfc81a0d24bd^^^&amp;2.16.840.1.113883.4.2&amp;ISO"/>
 			</identifier>
 		</what>
-		<type>
-			<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
-			<code value="2"/>
-			<display value="System Object"/>
-		</type>
 		<role>
-			<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
-			<code value="20"/>
-			<display value="Job"/>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
+				<code value="20"/>
+				<display value="Job"/>
+			</coding>
 		</role>
 	</entity>
 	<entity>
@@ -130,10 +126,14 @@
 		<what>
 			<reference value="DocumentManifest/example"/>
 		</what>
-		<type>
-			<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
-			<code value="2"/>
-			<display value="System Object"/>
-		</type>
 	</entity>
+	<!-- TODO need to make a new style entity with entity.agent for this media
+		<media>
+			<coding>
+				<system value="http://dicom.nema.org/resources/ontology/DCM"/>
+				<code value="110033"/>
+				<display value="DVD"/>
+			</coding>
+		</media>
+  -->
 </AuditEvent>

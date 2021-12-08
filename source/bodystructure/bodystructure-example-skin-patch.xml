@@ -12,30 +12,32 @@
 		<morphology>
 		<text value="Skin patch"/>
 	</morphology>
-	<location>
-		<coding>
+	<includedStructure>
+		<structure>
+		  <coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="14975008"/>
 			<display value="Forearm"/>
-		</coding>
-		<text value="Forearm"/>
-	</location>
-		<locationQualifier>
-		<coding>
+		  </coding>
+		  <text value="Forearm"/>
+		</structure>
+		<laterality>
+	      <coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="419161000"/>
 			<display value="Unilateral left"/>
 		</coding>
 		<text value="Left"/>
-	</locationQualifier>
-			<locationQualifier>
-		<coding>
+		</laterality>
+		<qualifier>
+		  <coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="263929005"/>
 			<display value="Volar"/>
-		</coding>
-		<text value="Volar"/>
-	</locationQualifier>
+		  </coding>
+		  <text value="Volar"/>
+		</qualifier>
+	</includedStructure>
 	<description value="inner surface (volar) of the left forearm"/>
 	<patient>
 		<reference value="Patient/example"/>

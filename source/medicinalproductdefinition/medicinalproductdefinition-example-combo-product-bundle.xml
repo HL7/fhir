@@ -198,9 +198,9 @@
 						(left blank to stop example creating something automatically)
 					</div>
 				</text>
-				<subject>
+				<packageFor>
 					<reference value="MedicinalProductDefinition/drug-combo-product-bundle-mp"/>
-				</subject>
+				</packageFor>
 				<package>
 					<type>
 						<coding>
@@ -257,6 +257,7 @@
 						(left blank to stop example creating something automatically)
 					</div>
 				</text>
+				<status value="active"/>
 				<manufacturedDoseForm>
 					<coding>
 						<system value="http://example.org.uk/fhir/doseform"/>
@@ -279,6 +280,7 @@
 						(left blank to stop example creating something automatically)
 					</div>
 				</text>
+				<status value="active"/>
 				<manufacturedDoseForm>
 					<coding>
 						<system value="http://example.org.uk/fhir/doseform"/>
