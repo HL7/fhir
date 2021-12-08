@@ -2,4 +2,24 @@
 
 <Bundle xmlns="http://hl7.org/fhir">
   <id value="BiologicallyDerivedProduct-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BiologicallyDerivedProduct-biological-source"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BiologicallyDerivedProduct.biologicalSource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-biological-source"/>
+        <description value="The biological source for the biologically derived product"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="BiologicallyDerivedProduct.biologicalSource"/>
+        <xpath value="f:BiologicallyDerivedProduct/f:biologicalSource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
