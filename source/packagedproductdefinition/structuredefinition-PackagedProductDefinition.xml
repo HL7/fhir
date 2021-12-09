@@ -325,7 +325,7 @@
     </element>
     <element id="PackagedProductDefinition.package">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="403,30"/>
+        <valueCode value="403,29"/>
       </extension>
       <path value="PackagedProductDefinition.package"/>
       <short value="A packaging item, as a container for medically related items, possibly with other packaging items within, or a packaging component, such as bottle cap (which is not a device or a medication manufactured item)"/>
