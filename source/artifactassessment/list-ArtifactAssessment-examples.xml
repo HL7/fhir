@@ -16,4 +16,16 @@
       <display value="Risk of Bias Example"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Certainty Rating of all-cause mortality in meta-analysis of RCTs of heparin for moderately ill patients with COVID-19"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="artifactassessment-example-certainty-rating"/>
+    </extension>
+    <item>
+      <reference value="ArtifactAssessment/example-certainty-rating"/>
+      <display value="Certainty Rating Example"/>
+    </item>
+  </entry>
 </List>
