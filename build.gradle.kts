@@ -31,8 +31,9 @@ dependencies {
 
 task("publish", JavaExec::class) {
     dependsOn(":printVersion")
-    jvmArgs = listOf("-Dlogback.configurationFile=${properties["logback.configurationFile"]}")
-    //jvmArgs = listOf("-Dlogback.configurationFile=publish-logback.xml")
+    if (properties["logback.configurationFile"] != null) {
+        jvmArgs = listOf("-Dlogback.configurationFile=${properties["logback.configurationFile"]}")
+    }
     main = "org.hl7.fhir.tools.publisher.Publisher"
     classpath = sourceSets["main"].compileClasspath
 }
