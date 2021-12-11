@@ -9,9 +9,6 @@ repositories {
     google()
     mavenCentral()
     maven {
-        url = uri("https://dl.bintray.com/labra/maven")
-    }
-    maven {
         url = uri("https://jitpack.io")
     }
     maven {
