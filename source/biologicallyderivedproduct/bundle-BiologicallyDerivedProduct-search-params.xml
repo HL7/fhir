@@ -14,7 +14,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-biological-source"/>
         <description value="The biological source for the biologically derived product"/>
-        <code value="type"/>
+        <code value="biological-source"/>
         <type value="token"/>
         <expression value="BiologicallyDerivedProduct.biologicalSource"/>
         <xpath value="f:BiologicallyDerivedProduct/f:biologicalSource"/>
