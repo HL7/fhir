@@ -133,7 +133,7 @@
 		<dependency org="org.slf4j" name="slf4j-log4j12" rev="1.7.22" />
 		<dependency org="org.slf4j" name="slf4j-jdk14" rev="1.7.22"/>
 		<dependency org="org.slf4j" name="slf4j-api" rev="1.7.22"/>
-		<dependency org="org.apache.logging.log4j" name="log4j" rev="2.11.1" />
+		<dependency org="org.apache.logging.log4j" name="log4j" rev="2.15.0" />
 
     <dependency org="com.squareup.okhttp3" name="okhttp" rev="4.9.0"/>
     <dependency org="com.squareup.okio" name="okio" rev="2.9.0"/>

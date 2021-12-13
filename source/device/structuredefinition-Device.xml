@@ -354,7 +354,7 @@
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
       <path value="Device.biologicalSource"/>
-      <short value="The distinct identification string"/>
+      <short value="An identifier that supports traceability to the biological entity that is the source of biological material in the product"/>
       <definition value="An identifier that supports traceability to the biological entity that is the source of biological material in the product."/>
       <comment value="Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa.  The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device. For example, this applies to devices in the United States regulated under *Code of Federal Regulation 21CFR&#xA7;1271.290(c)*."/>
       <alias value="Distinct Identification Code (DIC)"/>
