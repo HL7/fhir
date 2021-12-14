@@ -10,6 +10,11 @@
 			In some cases a "product" exists at a logically higher level, which has a variety of available packages associated with it, typically of different sizes.
 		</p>
 		<p>
+			This resource is usually used with MedicinalProductDefinition, via the productFor relationship. For cases where only a subset of PackagedProductDefinition
+			is need in a product, use as a contained resource to MPD may be appropriate. 
+			See <a href="medicinalproductdefinition.html#contained">MedicinalProductDefinition</a> for an example.
+		</p>
+		<p>
 			Note about recursive relationships in this resource:
 			This resource has two recursive relationships. 
 			One is meant to be "internal" to the package - for package layers and contents, and the other for aggregated packages (e.g. for wholesaling) that are 
