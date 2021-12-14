@@ -54,7 +54,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/NutritionProduct-biological-source"/>
         <description value="The biological source for the nutrition product"/>
-        <code value="type"/>
+        <code value="biological-source"/>
         <type value="token"/>
         <expression value="NutritionProduct.instance.biologicalSource"/>
         <xpath value="f:NutritionProduct/f:instance/f:biologicalSource"/>
