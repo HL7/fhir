@@ -171,11 +171,11 @@
         <code value="uri"/>
       </type>
     </element>
-    <element id="Device.partNumber">
+    <element id="DeviceDefinition.partNumber">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
-      <path value="Device.partNumber"/>
+      <path value="DeviceDefinition.partNumber"/>
       <short value="The part number or catalog number of the device"/>
       <definition value="The part number or catalog number of the device."/>
       <comment value="Alphanumeric Maximum 20."/>
