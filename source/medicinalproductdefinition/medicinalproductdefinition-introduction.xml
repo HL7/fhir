@@ -52,10 +52,26 @@
 			These defining characteristics are some of the key features that marketing approvals and approved usage indications are based on. 
 			A change of any of these would usually mean a different product - a different MedicinalProductDefinition instance - and a different approval being needed.
 		</p>
+
+		<a name="authorisations"></a>
+		<h2>Authorisations</h2>
 		<p id="auth">
-			<b>A key aspect of a regulated medicinal product is the authorisation (marketing authorisation). 
-			This is not directly carried on the product resource, but instead a <a href="regulatedauthorization.html">RegulatedAuthorization</a> resource is 
-				created which points back to this resource.</b>
+			A key aspect of a regulated medicinal product is the authorisation (marketing authorisation). 
+				This is not directly carried on the product resource, but instead a <a href="regulatedauthorization.html">RegulatedAuthorization</a> resource is 
+				created which points back to this resource.
 		</p>
+
+		<a name="contained"></a>
+		<h2>Contained Resources</h2>
+		<p>Because of the amount of detail, cardinalities, and update granularity necessary for some applications, the full product model
+			is split over several resources. If you need just a coded package type list for your product you can use MedicinalProductDefinition.packagedMedicinalProduct, 
+			but full package information go in an instance of PackagedMedicinalProduct resource (linked back to the MedicinalProductDefinition using 
+			PackagedMedicinalProduct.productFor).
+			There are occasions where an identified package is not necessary, and yet one or more parts of the PackagedMedicinalProduct resource are needed. 
+			In this case it may be appropriate
+			to use a contained PPD resource. Similarly if the Ingredient resource is too much but a link to a substance as component part of a product is needed, 
+			consider a contained Ingredient, that links straight to a SubstanceDefinition. Examples of both of these cases are in the examples here.  
+		</p>
+		
 	</div>
 </div>
