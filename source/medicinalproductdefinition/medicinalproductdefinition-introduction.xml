@@ -63,14 +63,16 @@
 
 		<a name="contained"></a>
 		<h2>Contained Resources</h2>
-		<p>Because of the amount of detail, cardinalities, and update granularity necessary for some applications, the full product model
-			is split over several resources. If you need just a coded package type list for your product you can use MedicinalProductDefinition.packagedMedicinalProduct, 
-			but full package information go in an instance of PackagedMedicinalProduct resource (linked back to the MedicinalProductDefinition using 
-			PackagedMedicinalProduct.productFor).
-			There are occasions where an identified package is not necessary, and yet one or more parts of the PackagedMedicinalProduct resource are needed. 
-			In this case it may be appropriate
-			to use a contained PPD resource. Similarly if the Ingredient resource is too much but a link to a substance as component part of a product is needed, 
-			consider a contained Ingredient, that links straight to a SubstanceDefinition. Examples of both of these cases are in the examples here.  
+		<p>Due to the amount of information, cardinalities, and update granularity necessary for some applications, the full product model
+			is split over several resources. 
+			If you need just a coded "package type" list for your product you can use MedicinalProductDefinition.packagedMedicinalProduct. 
+			But full package information goes in an instance of PackagedProductDefinition resource (linked back to the MedicinalProductDefinition using 
+			PackagedProductDefinition.productFor).
+			There are occasions where an identified package is not necessary, and yet one or more parts of the PackagedProductDefinition resource are needed. 
+			In this case it may be appropriate to use a contained PackagedProductDefinition resource. 
+			Similarly if the Ingredient resource is too much, but a link to a substance as component part of a product is needed, 
+			consider a contained Ingredient, that links straight to a SubstanceDefinition. 
+			This <a href="medicinalproductdefinition-with-contained-package-and-ingredient.html">example</a> demonstates both of these cases.  
 		</p>
 		
 	</div>
