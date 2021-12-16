@@ -24,7 +24,7 @@
     <valueCode value=".status = retired"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/InsurancePlan"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="InsurancePlan"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Details of a Health Insurance product/plan provided by an organization."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>
@@ -68,7 +68,7 @@
       <constraint>
         <key value="ipn-1"/>
         <severity value="error"/>
-        <human value="The organization SHALL at least have a name or an idendtifier, and possibly more than one"/>
+        <human value="The organization SHALL at least have a name or an identifier, and possibly more than one"/>
         <expression value="(identifier.count() + name.count()) &gt; 0"/>
         <xpath value="count(f:identifier | f:name) &gt; 0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/InsurancePlan"/>

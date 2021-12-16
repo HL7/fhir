@@ -38,6 +38,7 @@
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>           
     </subject>
+
     <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
         <reference value="Encounter/f001"/>
         <display value="encounter who leads to this prescription"/>
@@ -63,7 +64,9 @@
     <note>
         <text value="Patient told to take with food"/>
     </note>
-    <dosageInstruction>
+    <dose>
+        
+   <dosageInstruction>
         <sequence value="1"/>
         <text value="one tablet one time daily in the morning for rib pain" />
         <additionalInstruction>
@@ -120,6 +123,7 @@
         </doseAndRate>
         
     </dosageInstruction>
+    </dose>
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>

@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="EvidenceVariable"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -46,7 +46,7 @@
   </contact>
   <description value="The EvidenceVariable resource describes an element that knowledge (Evidence) is about."/>
   <purpose value="Need to be able to define and reuse the definition of individual elements of a research question."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -432,9 +432,20 @@
     </element>
     <element id="EvidenceVariable.characteristicCombination">
       <path value="EvidenceVariable.characteristicCombination"/>
-      <short value="intersection | union"/>
-      <definition value="Used to specify if two or more characteristics are combined with OR or AND."/>
+      <short value="Used to specify how two or more characteristics are combined"/>
+      <definition value="Used to specify how two or more characteristics are combined."/>
       <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="EvidenceVariable.characteristicCombination.code">
+      <path value="EvidenceVariable.characteristicCombination.code"/>
+      <short value="all-of | any-of | at-least | at-most | net-effect"/>
+      <definition value="Used to specify if two or more characteristics are combined with OR or AND."/>
+      <requirements value="If code is &quot;at-least&quot; or &quot;at-most&quot; then threshold SHALL be used. If code is neither &quot;at-least&quot; nor &quot;at-most&quot; then threshold SHALL NOT be used."/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="code"/>
@@ -444,9 +455,18 @@
           <valueString value="CharacteristicCombination"/>
         </extension>
         <strength value="required"/>
-        <description value="Logical grouping of characteristics."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/characteristic-combination"/>
       </binding>
+    </element>
+    <element id="EvidenceVariable.characteristicCombination.threshold">
+      <path value="EvidenceVariable.characteristicCombination.threshold"/>
+      <short value="Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used"/>
+      <definition value="Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
     </element>
     <element id="EvidenceVariable.characteristic">
       <path value="EvidenceVariable.characteristic"/>
@@ -470,6 +490,23 @@
       <type>
         <code value="string"/>
       </type>
+    </element>
+    <element id="EvidenceVariable.characteristic.type">
+      <path value="EvidenceVariable.characteristic.type"/>
+      <short value="Expresses the type of characteristic"/>
+      <definition value="Used to expressing the type of characteristic."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="UsageContextType"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/usage-context-type"/>
+      </binding>
     </element>
     <element id="EvidenceVariable.characteristic.definition[x]">
       <path value="EvidenceVariable.characteristic.definition[x]"/>
@@ -539,48 +576,60 @@
       </type>
       <meaningWhenMissing value="False"/>
     </element>
-    <element id="EvidenceVariable.characteristic.timeFromStart">
-      <path value="EvidenceVariable.characteristic.timeFromStart"/>
-      <short value="Observation time from study start"/>
-      <definition value="Indicates duration, period, or point of observation from the participant&#39;s study entry."/>
+    <element id="EvidenceVariable.characteristic.timeFromEvent">
+      <path value="EvidenceVariable.characteristic.timeFromEvent"/>
+      <short value="Observation time from study specified event"/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="EvidenceVariable.characteristic.timeFromStart.description">
-      <path value="EvidenceVariable.characteristic.timeFromStart.description"/>
+    <element id="EvidenceVariable.characteristic.timeFromEvent.description">
+      <path value="EvidenceVariable.characteristic.timeFromEvent.description"/>
       <short value="Human readable description"/>
-      <definition value="A short, natural language description."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
     </element>
-    <element id="EvidenceVariable.characteristic.timeFromStart.quantity">
-      <path value="EvidenceVariable.characteristic.timeFromStart.quantity"/>
+    <element id="EvidenceVariable.characteristic.timeFromEvent.event">
+      <path value="EvidenceVariable.characteristic.timeFromEvent.event"/>
+      <short value="The event used as a base point (reference point) in time"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EvidenceVariableEvent"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-event"/>
+      </binding>
+    </element>
+    <element id="EvidenceVariable.characteristic.timeFromEvent.quantity">
+      <path value="EvidenceVariable.characteristic.timeFromEvent.quantity"/>
       <short value="Used to express the observation at a defined amount of time after the study start"/>
-      <definition value="Used to express the observation at a defined amount of time after the study start."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Quantity"/>
       </type>
     </element>
-    <element id="EvidenceVariable.characteristic.timeFromStart.range">
-      <path value="EvidenceVariable.characteristic.timeFromStart.range"/>
+    <element id="EvidenceVariable.characteristic.timeFromEvent.range">
+      <path value="EvidenceVariable.characteristic.timeFromEvent.range"/>
       <short value="Used to express the observation within a period after the study start"/>
-      <definition value="Used to express the observation within a period after the study start."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Range"/>
       </type>
     </element>
-    <element id="EvidenceVariable.characteristic.timeFromStart.note">
-      <path value="EvidenceVariable.characteristic.timeFromStart.note"/>
+    <element id="EvidenceVariable.characteristic.timeFromEvent.note">
+      <path value="EvidenceVariable.characteristic.timeFromEvent.note"/>
       <short value="Used for footnotes or explanatory notes"/>
       <definition value="A human-readable string to clarify or explain concepts about the resource."/>
       <min value="0"/>
@@ -592,7 +641,7 @@
     <element id="EvidenceVariable.characteristic.groupMeasure">
       <path value="EvidenceVariable.characteristic.groupMeasure"/>
       <short value="mean | median | mean-of-mean | mean-of-median | median-of-mean | median-of-median"/>
-      <definition value="Indicates how elements are aggregated within the study effective period."/>
+      <definition value="Value or set of values that define the grouping."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -603,33 +652,28 @@
           <valueString value="GroupMeasure"/>
         </extension>
         <strength value="required"/>
-        <description value="Possible group measure aggregates (E.g. Mean, Median)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/group-measure"/>
       </binding>
     </element>
     <element id="EvidenceVariable.handling">
       <path value="EvidenceVariable.handling"/>
       <short value="continuous | dichotomous | ordinal | polychotomous"/>
-      <definition value="Used for an outcome to classify."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
-      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EvidenceVariableHandling"/>
         </extension>
         <strength value="required"/>
-        <description value="The handling of the variable in statistical analysis for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/variable-handling"/>
       </binding>
     </element>
     <element id="EvidenceVariable.category">
       <path value="EvidenceVariable.category"/>
       <short value="A grouping for ordinal or polychotomous variables"/>
-      <definition value="A grouping (or set of values) described along with other groupings to specify the set of groupings allowed for the variable."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -639,7 +683,6 @@
     <element id="EvidenceVariable.category.name">
       <path value="EvidenceVariable.category.name"/>
       <short value="Description of the grouping"/>
-      <definition value="A human-readable title or representation of the grouping."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -649,7 +692,6 @@
     <element id="EvidenceVariable.category.value[x]">
       <path value="EvidenceVariable.category.value[x]"/>
       <short value="Definition of the grouping"/>
-      <definition value="Value or set of values that define the grouping."/>
       <min value="0"/>
       <max value="1"/>
       <type>

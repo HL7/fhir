@@ -17,6 +17,11 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/device-commercialBrand"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
         <reference value="SearchParameter/device-extensions-Device-din"/>
       </reference>
     </resource>

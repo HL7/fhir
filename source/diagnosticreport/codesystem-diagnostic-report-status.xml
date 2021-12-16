@@ -220,7 +220,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.236"/>
   </identifier>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="DiagnosticReportStatus"/>
   <title value="DiagnosticReportStatus"/>
   <status value="draft"/>
@@ -240,6 +240,7 @@
   <description value="The status of the diagnostic report."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/diagnostic-report-status"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="registered"/>

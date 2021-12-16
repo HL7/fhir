@@ -27,7 +27,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="TestScript"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -108,7 +108,7 @@
       <alias value="authoritative-url"/>
       <alias value="destination"/>
       <alias value="identity"/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="uri"/>
@@ -130,7 +130,7 @@
       <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this test script outside of FHIR, where it is not possible to use the logical URI."/>
       <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Identifier"/>
       </type>

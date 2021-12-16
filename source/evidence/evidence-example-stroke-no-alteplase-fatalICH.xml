@@ -9,15 +9,17 @@
       </p>
 	</div>
   </text>
-  <url value="Evidence/example-stroke-no-alteplase-fatalICH"/>
+  <url value="http://hl7.org/fhir/Evidence/example-stroke-no-alteplase-fatalICH"/>
   <title value="Risk of fatal ICH without alteplase for stroke"/>
   <status value="draft"/>
   <relatedArtifact>
-	<type value="citation"/>
-	<label value="Emberson 2014"/>
-	<display value="Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials."/>
-	<citation value="Emberson J, Lees KR, Lyden P, Blackwell L, Albers G, Bluhmki E, et al;Stroke Thrombolysis Trialists&apos; Collaborative Group. Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials. Lancet 2014 Nov 29;384(9958):1929-35 PMID 25106063"/>
-	<url value="https://doi.org/10.1016/S0140-6736(14)60584-5"/>
+  	<type value="citation"/>
+  	<label value="Emberson 2014"/>
+  	<display value="Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials."/>
+  	<citation value="Emberson J, Lees KR, Lyden P, Blackwell L, Albers G, Bluhmki E, et al;Stroke Thrombolysis Trialists&apos; Collaborative Group. Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials. Lancet 2014 Nov 29;384(9958):1929-35 PMID 25106063"/>
+    <document>
+  	  <url value="https://doi.org/10.1016/S0140-6736(14)60584-5"/>
+    </document>
   </relatedArtifact>
   <description value="0.4% incidence of fatal intracranial hemorrhage within 7 days without alteplase in patients with acute ischemic stroke"/>
   <variableDefinition>

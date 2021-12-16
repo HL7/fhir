@@ -90,14 +90,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ResearchSubject.progress.state"/>
+          <valueString value="ResearchSubject.progress.subjectProgress"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ResearchSubject-state"/>
         <description value="candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn"/>
-        <code value="state"/>
+        <code value="subject_state"/>
         <type value="token"/>
-        <expression value="ResearchSubject.progress.state"/>
-        <xpath value="f:ResearchSubject/f:progress/f:state"/>
+        <expression value="ResearchSubject.progress.subjectState"/>
+        <xpath value="f:ResearchSubject/f:progress/f:subjectState"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -113,7 +113,7 @@
           <valueString value="ResearchSubject.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ResearchSubject-status"/>
-        <description value="candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn"/>
+        <description value="draft | active | retired | unknown"/>
         <code value="status"/>
         <type value="token"/>
         <expression value="ResearchSubject.status"/>

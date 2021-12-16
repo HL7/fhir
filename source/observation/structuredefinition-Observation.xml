@@ -27,7 +27,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="Observation"/>
   <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -46,7 +46,7 @@
   </contact>
   <description value="Measurements and simple assertions made about a patient, device or other subject."/>
   <purpose value="Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -265,7 +265,6 @@
       <path value="Observation.status"/>
       <short value="registered | preliminary | final | amended +"/>
       <definition value="The status of the result value."/>
-      <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <requirements value="Need to track the status of individual results. Some results are finalized before the whole report is finalized."/>
       <min value="1"/>
       <max value="1"/>
@@ -403,6 +402,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
       </type>
       <isSummary value="true"/>
       <mapping>

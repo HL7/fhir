@@ -36,6 +36,7 @@
       <display value="Ohio Bureau of Motor Vehicles"/>
     </assigner>
   </identifier>
+  <active value="true"/>
   <name>
     <use value="official"/>
     <family value="Everywoman"/>
@@ -61,7 +62,6 @@
     <reference value="http://www.goodhealth.com/Organization/12"/>
     <display value="Goodhealth Patient Portal"/>
   </managingOrganization>
-  <active value="true"/>
   <link>
     <target>
       <reference value="http://www.goodhealth.com/Patient/98574"/>

@@ -82,6 +82,7 @@
   <note>
     <text value="Check blood sugar levels before taking insulin"/>
   </note>
+  <dose>
   <dosageInstruction>
     <sequence value="2"/>
     <text value="inject 10 units subcut 10 minutes before breakfast"/>
@@ -170,6 +171,7 @@
     </doseAndRate>
     
   </dosageInstruction>
+  </dose>
   <dispenseRequest>
     <validityPeriod>
       <start value="2015-01-15"/>
