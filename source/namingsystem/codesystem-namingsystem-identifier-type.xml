@@ -77,6 +77,20 @@
           <td>A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org.</td>
         
         </tr>
+		
+		<tr>
+          
+          <td style="white-space:nowrap">v2csmnemonic
+            
+            <a name="namingsystem-identifier-type-v2csmnemonic"> </a>
+          
+          </td>
+          
+          <td>V2CSMNemonic</td>
+          
+          <td>A short string published by HL7 for use in the V2 family of standsrds to idenfify a code system in the V12 coded data types CWE, CNE, and CF. The code values are also published by HL7 at http://www.hl7.org/Special/committees/vocab/table_0396/index.cfm</td>
+        
+        </tr>
         
         <tr>
           
@@ -110,7 +124,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.493"/>
   </identifier>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="NamingSystemIdentifierType"/>
   <title value="NamingSystemIdentifierType"/>
   <status value="draft"/>
@@ -145,6 +159,11 @@
     <code value="uri"/>
     <display value="URI"/>
     <definition value="A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org."/>
+  </concept>
+  <concept>
+    <code value="v2csmnemonic"/>
+    <display value="V2CSMNemonic"/>
+    <definition value="A short string published by HL7 for use in the V2 family of standsrds to idenfify a code system in the V12 coded data types CWE, CNE, and CF. The code values are also published by HL7 at http://www.hl7.org/Special/committees/vocab/table_0396/index.cfm"/>
   </concept>
   <concept>
     <code value="other"/>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="researchStudy-siteRecruitment"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/researchStudy-siteRecruitment"/>
+  <version value="4.6.0"/>
+  <name value="siteRecruitment"/>
+  <title value="siteRecruitment"/>
+  <status value="draft"/>
+  <date value="2021-03-31T00:00:00+00:00"/>
+  <publisher value="HL7"/>
+  <description value="Target and actual numbers of sites for a study."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="ResearchStudy"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="Target and actual numbers of sites for a study"/>
+      <definition value="Target and actual numbers of sites for a study."/>
+      <comment value="Using Group for sites in the same way as for subjects would be appropriate but would need to extend Group to allow this."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    
+    <!-- targetNumber -->
+    <element id="Extension.extension:targetNumber">
+      <path value="Extension.extension"/>
+      <sliceName value="targetNumber"/>
+      <short value="The desired number of sites"/>
+      <definition value="The desired number of sites."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:targetNumber.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:targetNumber.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="targetNumber"/>
+    </element>
+    <element id="Extension.extension:targetNumber.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+    </element>
+
+    <!-- actualNumber -->
+    <element id="Extension.extension:actualNumber">
+      <path value="Extension.extension"/>
+      <sliceName value="actualNumber"/>
+      <short value="The actual number of sites"/>
+      <definition value="The actual number of sites."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:actualNumber.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:actualNumber.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="actualNumber"/>
+    </element>
+    <element id="Extension.extension:actualNumber.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+    </element>
+    
+    <!-- eligibility -->
+    <element id="Extension.extension:eligibility">
+      <path value="Extension.extension"/>
+      <sliceName value="eligibility"/>
+      <short value="Inclusion and exclusion criteria"/>
+      <definition value="Criteria for inclusion or exclusion of sites."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:eligibility.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:eligibility.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="eligibility"/>
+    </element>
+    <element id="Extension.extension:eligibility.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    
+    <!-- Wrap up -->
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/patient-animal"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+  </differential>
+</StructureDefinition>

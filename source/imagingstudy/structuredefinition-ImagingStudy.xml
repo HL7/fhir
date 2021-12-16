@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
+    <valueInteger value="4"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="patient"/>
@@ -24,7 +24,7 @@
     <valueCode value="Imaging Study state is managed in PACS."/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="ImagingStudy"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -103,11 +103,10 @@
     <element id="ImagingStudy.identifier">
       <path value="ImagingStudy.identifier"/>
       <short value="Identifiers for the whole study"/>
-      <definition value="Identifiers for the ImagingStudy such as DICOM Study Instance UID, and Accession Number."/>
-      <comment value="See discussion under [Imaging Study Implementation Notes](imagingstudy.html#notes) for encoding of DICOM Study Instance UID. Accession Number should use ACSN Identifier type."/>
+      <definition value="Identifiers for the ImagingStudy such as DICOM Study Instance UID."/>
+      <comment value="See discussion under [Imaging Study Implementation Notes](imagingstudy.html#notes) for encoding of DICOM Study Instance UID. "/>
       <requirements value="If one or more series elements are present in the ImagingStudy, then there shall be one DICOM Study UID identifier (see [DICOM PS 3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html)."/>
       <alias value="StudyInstanceUID"/>
-      <alias value="AccessionNumber"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -128,13 +127,13 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="StudyInstanceUID (0020,000D) | Accession Number and Issuer (0080,0050)+(0080,0051) | Study ID (0020,0010)"/>
+        <map value="StudyInstanceUID (0020,000D) | study ID (0020,0010)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.status">
       <path value="ImagingStudy.status"/>
       <short value="registered | available | cancelled | entered-in-error | unknown"/>
-      <definition value="The current state of the ImagingStudy."/>
+      <definition value="The current state of the ImagingStudy resource. This is not the status of any ServiceRequest or Task resources associated with the ImagingStudy."/>
       <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
       <max value="1"/>
@@ -142,7 +141,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -172,7 +171,7 @@
     <element id="ImagingStudy.modality">
       <path value="ImagingStudy.modality"/>
       <short value="All of the distinct values for series&#39; modalities"/>
-      <definition value="A list of all the distinct values of series.modality. This may include both aquisition and non-aquisition modalities."/>
+      <definition value="A list of all the distinct values of series.modality. This may include both acquisition and non-acquisition modalities."/>
       <alias value="ModalitiesInStudy"/>
       <min value="0"/>
       <max value="*"/>
@@ -313,7 +312,8 @@
       <path value="ImagingStudy.basedOn"/>
       <short value="Request fulfilled"/>
       <definition value="A list of the diagnostic requests that resulted in this imaging study being performed."/>
-      <requirements value="To support grouped procedures (one imaging study supporting multiple ordered procedures, e.g. chest/abdomen/pelvis CT)."/>
+      <requirements value="To support grouped procedures (one imaging study supporting multiple ordered procedures, e.g. chest/abdomen/pelvis CT).&#xA;If the ImagingStudy is associated with an Accession Number, this field should include a reference to that value in the form:&#xA;-  type = ServiceRequest&#xA;-  identifier.value = (Accession Number Value)&#xA;-  identifier.type = ACSN&#xA;A reference value pointing to a ServiceRequest resource is allowed but is not required."/>
+      <alias value="AccessionNumber"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -339,7 +339,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="(0032,1064)"/>
+        <map value="Accession Number and Issuer (0080,0050)+(0080,0051) | Requested Procedure Code Sequence (0032,1064)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.referrer">
@@ -459,25 +459,8 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=COMP].target[classCode=PROC, moodCode=EVN]"/>
-      </mapping>
-    </element>
-    <element id="ImagingStudy.procedure.value[x]">
-      <path value="ImagingStudy.procedure.value[x]"/>
-      <short value="The performed Procedure"/>
-      <definition value="The procedure which this ImagingStudy was part of."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
-      </type>
-      <type>
-        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -493,7 +476,7 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/vs-oid">
           <valueString value="1.3.6.1.4.1.12009.10.2.5.1"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="Use of RadLex is preferred"/>
         <valueSet value="http://loinc.org/download/loincrsna-radiology-playbook-file/"/>
       </binding>
@@ -692,7 +675,7 @@
     <element id="ImagingStudy.series.modality">
       <path value="ImagingStudy.series.modality"/>
       <short value="The modality used for this series"/>
-      <definition value="The distinct modality for this series. This may include both aquisition and non-aquisition modalities."/>
+      <definition value="The distinct modality for this series. This may include both acquisition and non-acquisition modalities."/>
       <alias value="Modality"/>
       <min value="1"/>
       <max value="1"/>

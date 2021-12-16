@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DetectedIssue"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="DetectedIssue"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -153,6 +153,10 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".statusCode"/>
       </mapping>
     </element>
     <element id="DetectedIssue.code">
@@ -358,6 +362,10 @@
         <identity value="w5"/>
         <map value="FiveWs.why[x]"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=EVID].target[classCode=ACT, moodCode=EVN]"/>
+      </mapping>
     </element>
     <element id="DetectedIssue.evidence.code">
       <path value="DetectedIssue.evidence.code"/>
@@ -380,6 +388,10 @@
         <identity value="w5"/>
         <map value="FiveWs.why[x]"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
     </element>
     <element id="DetectedIssue.evidence.detail">
       <path value="DetectedIssue.evidence.detail"/>
@@ -394,6 +406,10 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
       </mapping>
     </element>
     <element id="DetectedIssue.detail">

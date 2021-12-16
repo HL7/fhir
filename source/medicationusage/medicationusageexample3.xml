@@ -3,7 +3,7 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationusage.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example003"/>
-  <status value="active"/>
+  <status value="recorded"/>
   <medication>
     <concept>
       <text value="Little Pink Pill for water retention"></text>

@@ -96,7 +96,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1082"/>
   </identifier>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="FHIRDeviceStatusReason"/>
   <title value="FHIRDeviceStatusReason"/>
   <status value="draft"/>
@@ -119,17 +119,17 @@
   <content value="complete"/>
   <concept>
     <code value="discarded"/>
-    <display value="Online"/>
+    <display value="Discarded"/>
     <definition value="The device has been discarded."/>
   </concept>
   <concept>
     <code value="obsolete"/>
-    <display value="Paused"/>
+    <display value="Obsolete"/>
     <definition value="The device is obsolete."/>
   </concept>
   <concept>
     <code value="removed"/>
-    <display value="Standby"/>
+    <display value="Removed"/>
     <definition value="The device has been removed."/>
   </concept>
 </CodeSystem>

@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="ActivityDefinition"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -257,7 +257,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.5.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -762,7 +762,7 @@
         </extension>
         <strength value="required"/>
         <description value="The kind of activity the definition is describing."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-resource-types|4.5.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-resource-types|4.6.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -825,7 +825,7 @@
         </extension>
         <strength value="required"/>
         <description value="Codes indicating the degree of authority/intentionality associated with a request."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-intent|4.5.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-intent|4.6.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -847,7 +847,7 @@
         </extension>
         <strength value="required"/>
         <description value="Identifies the level of importance to be assigned to actioning the request."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|4.5.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|4.6.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -875,7 +875,8 @@
     <element id="ActivityDefinition.timing[x]">
       <path value="ActivityDefinition.timing[x]"/>
       <short value="When activity is to occur"/>
-      <definition value="The period, timing or frequency upon which the described activity is to occur."/>
+      <definition value="The timing or frequency upon which the described activity is to occur."/>
+      <comment value="The intent of the timing element is to provide timing when the action should be performed. As a definitional resource, this timing is interpreted as part of an apply operation so that the timing of the result actions in a CarePlan or RequestGroup, for example, would be specified by evaluating the timing definition in the context of the apply and setting the resulting timing on the appropriate elements of the target resource. If the timing is an Age, the activity is expected to be performed when the subject is the given Age. When the timing is a Duration, the activity is expected to be performed within the specified duration from the apply. When the timing is a Range, it may be a range of Ages or Durations, providing a range for the expected timing of the resulting activity. When the timing is a Timing, it is establishing a schedule for the timing of the resulting activity."/>
       <requirements value="Allows prompting for activities and detection of missed planned activities."/>
       <min value="0"/>
       <max value="1"/>
@@ -883,13 +884,7 @@
         <code value="Timing"/>
       </type>
       <type>
-        <code value="dateTime"/>
-      </type>
-      <type>
         <code value="Age"/>
-      </type>
-      <type>
-        <code value="Period"/>
       </type>
       <type>
         <code value="Range"/>
@@ -912,7 +907,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
       <mapping>
@@ -936,9 +931,9 @@
     </element>
     <element id="ActivityDefinition.participant.type">
       <path value="ActivityDefinition.participant.type"/>
-      <short value="patient | practitioner | related-person | device"/>
+      <short value="careteam | device | group | healthcareservice | location | organization | patient | practitioner | practitionerrole | relatedperson"/>
       <definition value="The type of participant in the action."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
@@ -949,8 +944,33 @@
         </extension>
         <strength value="required"/>
         <description value="The type of participant in the activity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|4.5.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|4.6.0"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".role.classCode"/>
+      </mapping>
+    </element>
+    <element id="ActivityDefinition.participant.typeReference">
+      <path value="ActivityDefinition.participant.typeReference"/>
+      <short value="Who or what can participate"/>
+      <definition value="The type of participant in the action."/>
+      <comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
       <mapping>
         <identity value="rim"/>
         <map value=".role.classCode"/>
@@ -972,6 +992,27 @@
         <strength value="example"/>
         <description value="Defines roles played by participants for the action."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/action-participant-role"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".role.code"/>
+      </mapping>
+    </element>
+    <element id="ActivityDefinition.participant.function">
+      <path value="ActivityDefinition.participant.function"/>
+      <short value="E.g. Author, Reviewer, Witness, etc."/>
+      <definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ActionParticipantFunction"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-function"/>
       </binding>
       <mapping>
         <identity value="rim"/>

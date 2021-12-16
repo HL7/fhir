@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Ingredient"/>
   <meta>
@@ -24,7 +23,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="Ingredient"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
@@ -42,7 +41,7 @@
     </telecom>
   </contact>
   <description value="An ingredient of a manufactured item or pharmaceutical product."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="idmp"/>
     <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
@@ -97,6 +96,61 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="Ingredient.status">
+      <path value="Ingredient.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The status of this ingredient. Enables tracking the life-cycle of the content."/>
+      <comment value="Allows filtering of ingredient that are appropriate for use versus not."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+      <!--mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="iso11179"/>
+        <map value="Registration status"/>
+      </mapping-->
+    </element>
+    <element id="Ingredient.for">
+      <path value="Ingredient.for"/>
+      <short value="The product which this ingredient is a constituent part of"/>
+      <definition value="The product which this ingredient is a constituent part of."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="Ingredient.role">
       <path value="Ingredient.role"/>
       <short value="A classification of the ingredient identifying its purpose within the product, e.g. active, inactive"/>
@@ -127,14 +181,14 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Ingredient.description">
-      <path value="Ingredient.description"/>
-      <short value="A general description of the ingredient, or any supporting text. May be used for an unstructured list of excipients"/>
-      <definition value="A general description of the ingredient, or any supporting text. May be used for an unstructured list of excipients."/>
+    <element id="Ingredient.group">
+      <path value="Ingredient.group"/>
+      <short value="A classification of the ingredient according to where in the physical item it tends to be used, such the outer shell of a tablet, inner body or ink"/>
+      <definition value="A classification of the ingredient according to where in the physical item it tends to be used, such the outer shell of a tablet, inner body or ink."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="markdown"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -158,11 +212,55 @@
       </mapping>
     </element>
     <element id="Ingredient.manufacturer">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="160,300"/>
+      </extension>
       <path value="Ingredient.manufacturer"/>
-      <short value="The organization that manufactures this ingredient"/>
-      <definition value="The organization that manufactures this ingredient."/>
+      <short value="An organization that manufactures this ingredient"/>
+      <definition value="An organization that manufactures this ingredient."/>
       <min value="0"/>
       <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Ingredient.manufacturer"/>
+      </mapping>
+    </element>
+    <element id="Ingredient.manufacturer.role">
+      <path value="Ingredient.manufacturer.role"/>
+      <short value="The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role"/>
+      <definition value="The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/> <!-- but needs to be code -->
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="IngredientManufacturerRole"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The way in which this manufacturer is associated with the ingredient."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ingredient-manufacturer-role"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Ingredient.Manufacturer / Establishment (Organisation)"/>
+      </mapping>
+    </element>
+    <element id="Ingredient.manufacturer.manufacturer">
+      <path value="Ingredient.manufacturer.manufacturer"/>
+      <short value="An organization that manufactures this ingredient"/>
+      <definition value="An organization that manufactures this ingredient."/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
@@ -180,7 +278,7 @@
       <path value="Ingredient.substance"/>
       <short value="The substance that comprises this ingredient"/>
       <definition value="The substance that comprises this ingredient."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="BackboneElement"/>
@@ -200,7 +298,6 @@
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -213,8 +310,8 @@
         <valueCode value="350,106"/>
       </extension>
       <path value="Ingredient.substance.strength"/>
-      <short value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item. When there is a range of strengths, this represents the lower limit"/>
-      <definition value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item. When there is a range of strengths, this represents the lower limit."/>
+      <short value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item"/>
+      <definition value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -226,8 +323,8 @@
         <map value="Specified Substance.Strength"/>
       </mapping>
     </element>
-    <element id="Ingredient.substance.strength.presentation">
-      <path value="Ingredient.substance.strength.presentation"/>
+    <element id="Ingredient.substance.strength.presentation[x]">
+      <path value="Ingredient.substance.strength.presentation[x]"/>
       <short value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item"/>
       <definition value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item."/>
       <min value="0"/>
@@ -235,23 +332,15 @@
       <type>
         <code value="Ratio"/>
       </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Strength.Strength (Presentation)"/>
-      </mapping>
-    </element>
-    <element id="Ingredient.substance.strength.presentationHighLimit">
-      <path value="Ingredient.substance.strength.presentationHighLimit"/>
-      <short value="An upper limit for the quantity of substance in the unit of presentation. When there is a range of strengths, this represents the upper limit"/>
-      <definition value="An upper limit for the quantity of substance in the unit of presentation. When there is a range of strengths, this represents the upper limit."/>
-      <min value="0"/>
-      <max value="1"/>
       <type>
-        <code value="Ratio"/>
+        <code value="RatioRange"/>
       </type>
-      <isModifier value="true"/>
-      <isModifierReason value="If this is present it implies that the whole strength is expressed as a range, due to uncertainty or variation"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -273,8 +362,8 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Ingredient.substance.strength.concentration">
-      <path value="Ingredient.substance.strength.concentration"/>
+    <element id="Ingredient.substance.strength.concentration[x]">
+      <path value="Ingredient.substance.strength.concentration[x]"/>
       <short value="The strength per unitary volume (or mass)"/>
       <definition value="The strength per unitary volume (or mass)."/>
       <min value="0"/>
@@ -282,23 +371,15 @@
       <type>
         <code value="Ratio"/>
       </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Strength.Strength (Concentration)"/>
-      </mapping>
-    </element>
-    <element id="Ingredient.substance.strength.concentrationHighLimit">
-      <path value="Ingredient.substance.strength.concentrationHighLimit"/>
-      <short value="An upper limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the lower limit"/>
-      <definition value="An upper limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the lower limit."/>
-      <min value="0"/>
-      <max value="1"/>
       <type>
-        <code value="Ratio"/>
+        <code value="RatioRange"/>
       </type>
-      <isModifier value="true"/>
-      <isModifierReason value="If this is present it implies that the whole strength is expressed as a range, due to uncertainty or variation"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -313,6 +394,22 @@
       <max value="1"/>
       <type>
         <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+        
+    <element id="Ingredient.substance.strength.basis">
+      <path value="Ingredient.substance.strength.basis"/>
+      <short value="A code that indicates if the strength is, for example, based on the ingredient substance as stated or on the substance base (when the ingredient is a salt)"/>
+      <definition value="A code that indicates if the strength is, for example, based on the ingredient substance as stated or on the substance base (when the ingredient is a salt)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -352,7 +449,7 @@
     </element>
     <element id="Ingredient.substance.strength.referenceStrength">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="640,117"/>
+        <valueCode value="740,117"/>
       </extension>
       <path value="Ingredient.substance.strength.referenceStrength"/>
       <short value="Strength expressed in terms of a reference substance"/>
@@ -377,7 +474,6 @@
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -385,29 +481,20 @@
         <map value="Reference Strength.Reference Specified Substance"/>
       </mapping>
     </element>
-    <element id="Ingredient.substance.strength.referenceStrength.strength">
-      <path value="Ingredient.substance.strength.referenceStrength.strength"/>
-      <short value="Strength expressed in terms of a reference substance. When there is a range of strengths, this represents the lower limit"/>
-      <definition value="Strength expressed in terms of a reference substance. When there is a range of strengths, this represents the lower limit."/>
+    <element id="Ingredient.substance.strength.referenceStrength.strength[x]">
+      <path value="Ingredient.substance.strength.referenceStrength.strength[x]"/>
+      <short value="Strength expressed in terms of a reference substance"/>
+      <definition value="Strength expressed in terms of a reference substance."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Ratio"/>
       </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Reference Strength.Reference Strength"/>
-      </mapping>
-    </element>
-    <element id="Ingredient.substance.strength.referenceStrength.strengthHighLimit">
-      <path value="Ingredient.substance.strength.referenceStrength.strengthHighLimit"/>
-      <short value="Strength expressed in terms of a reference substance. When there is a range of strengths, this represents the upper limit"/>
-      <definition value="Strength expressed in terms of a reference substance. When there is a range of strengths, this represents the upper limit."/>
-      <min value="0"/>
-      <max value="1"/>
       <type>
-        <code value="Ratio"/>
+        <code value="RatioRange"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -445,9 +532,9 @@
         <map value="Reference Strength.Country"/>
       </mapping>
     </element>
-    <element id="Ingredient.specifiedSubstance">
+    <!--element id="Ingredient.specifiedSubstance">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="160,300"/>
+        <valueCode value="140,320"/>
       </extension>
       <path value="Ingredient.specifiedSubstance"/>
       <short value="A specified substance that comprises this ingredient"/>
@@ -522,6 +609,6 @@
         <identity value="idmp"/>
         <map value="Substance.Strength"/>
       </mapping>
-    </element>
+    </element-->
   </differential>
 </StructureDefinition>

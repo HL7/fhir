@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="AdministrableProductDefinition"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A medicinal product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc. has been performed)."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="idmp"/>
     <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
@@ -95,10 +95,39 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="AdministrableProductDefinition.subject">
-      <path value="AdministrableProductDefinition.subject"/>
-      <short value="The medicinal product that this is an administrable form of. This is not a reference to the item(s) that make up this administrable form - it is the whole product"/>
-      <definition value="The medicinal product that this is an administrable form of. This is not a reference to the item(s) that make up this administrable form - it is the whole product."/>
+    <element id="AdministrableProductDefinition.status">
+      <path value="AdministrableProductDefinition.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The status of this administrable product. Enables tracking the life-cycle of the content."/>
+      <comment value="Allows filtering of administrable products that are appropriate for use versus not."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.formOf">
+      <path value="AdministrableProductDefinition.formOf"/>
+      <short value="The medicinal product that this is a prepared administrable form of. This element is not a reference to the item(s) that make up this administrable form (for which see AdministrableProductDefinition.producedFrom). It is medicinal product as a whole, which may have several components (as well as packaging, devices etc.), that are given to the patient in this final administrable form. A single medicinal product may have several different administrable products (e.g. a tablet and a cream), and these could have different administrable forms (e.g. tablet as oral solid, or tablet crushed)"/>
+      <definition value="The medicinal product that this is a prepared administrable form of. This element is not a reference to the item(s) that make up this administrable form (for which see AdministrableProductDefinition.producedFrom). It is medicinal product as a whole, which may have several components (as well as packaging, devices etc.), that are given to the patient in this final administrable form. A single medicinal product may have several different administrable products (e.g. a tablet and a cream), and these could have different administrable forms (e.g. tablet as oral solid, or tablet crushed)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -113,8 +142,8 @@
     </element>
     <element id="AdministrableProductDefinition.administrableDoseForm">
       <path value="AdministrableProductDefinition.administrableDoseForm"/>
-      <short value="The administrable dose form, i.e. the dose form of the final product after necessary reconstitution or processing"/>
-      <definition value="The administrable dose form, i.e. the dose form of the final product after necessary reconstitution or processing."/>
+      <short value="The dose form of the final product after necessary reconstitution or processing. Contrasts to the manufactured dose form (see ManufacturedItemDefinition). If the manufactured form was 'powder for solution for injection', the administrable dose form could be 'solution for injection' (once mixed with another item having manufactured form 'solvent for solution for injection')"/>
+      <definition value="The dose form of the final product after necessary reconstitution or processing. Contrasts to the manufactured dose form (see ManufacturedItemDefinition). If the manufactured form was 'powder for solution for injection', the administrable dose form could be 'solution for injection' (once mixed with another item having manufactured form 'solvent for solution for injection')."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -128,8 +157,9 @@
     </element>
     <element id="AdministrableProductDefinition.unitOfPresentation">
       <path value="AdministrableProductDefinition.unitOfPresentation"/>
-      <short value="The units of presentation for the administrable product, for example &#39;tablet&#39;"/>
-      <definition value="The units of presentation for the administrable product, for example &#39;tablet&#39;."/>
+      
+      <short value="The presentation type in which this item is given to a patient. e.g. for a spray - 'puff' (as in 'contains 100 mcg per puff'), or for a liquid - 'vial' (as in 'contains 5 ml per vial')"/>
+      <definition value="The presentation type in which this item is given to a patient. e.g. for a spray - 'puff' (as in 'contains 100 mcg per puff'), or for a liquid - 'vial' (as in 'contains 5 ml per vial')."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -143,8 +173,8 @@
     </element>
     <element id="AdministrableProductDefinition.producedFrom">
       <path value="AdministrableProductDefinition.producedFrom"/>
-      <short value="The manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g. a power item and a solution item). Note that these are not raw ingredients"/>
-      <definition value="The manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g. a power item and a solution item). Note that these are not raw ingredients."/>
+      <short value="The constituent manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g. a power item and a solvent item, to make a consumable solution). Note the items this is produced from are not raw ingredients (see AdministrableProductDefinition.ingredient), but manufactured medication items (ManufacturedItemDefinitions), which may be combined or prepared and transformed for patient use. The constituent items that this administrable form is produced from are all part of the product (for which see AdministrableProductDefinition.formOf)"/>
+      <definition value="The constituent manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g. a power item and a solvent item, to make a consumable solution). Note the items this is produced from are not raw ingredients (see AdministrableProductDefinition.ingredient), but manufactured medication items (ManufacturedItemDefinitions), which may be combined or prepared and transformed for patient use. The constituent items that this administrable form is produced from are all part of the product (for which see AdministrableProductDefinition.formOf)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -159,18 +189,17 @@
     </element>
     <element id="AdministrableProductDefinition.ingredient">
       <path value="AdministrableProductDefinition.ingredient"/>
-      <short value="The ingredients of this administrable medicinal product. Sometimes it may be appropriate to specify these via the associated manufactured item(s)"/>
-      <definition value="The ingredients of this administrable medicinal product. Sometimes it may be appropriate to specify these via the associated manufactured item(s)."/>
+      <short value="The ingredients of this administrable medicinal product. This is only needed if the ingredients are not specified either using ManufacturedItemDefiniton (via AdministrableProductDefinition.producedFrom) to state which component items are used to make this, or using by incoming references from the Ingredient resource, to state in detail which substances exist within this. This element allows a basic coded ingredient to be used"/>
+      <definition value="The ingredients of this administrable medicinal product. This is only needed if the ingredients are not specified either using ManufacturedItemDefiniton (via AdministrableProductDefinition.producedFrom) to state which component items are used to make this, or using by incoming references from the Ingredient resource, to state in detail which substances exist within this. This element allows a basic coded ingredient to be used."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Pharmaceutical Product.Ingredient"/>
+        <map value="Pharmaceutical Product.Ingredient (see also FHIR Ingredient resource)"/>
       </mapping>
     </element>
     <element id="AdministrableProductDefinition.device">
@@ -178,7 +207,7 @@
       <short value="A device that is integral to the medicinal product, in effect being considered as an &quot;ingredient&quot; of the medicinal product. This is not intended for devices that are just co-packaged"/>
       <definition value="A device that is integral to the medicinal product, in effect being considered as an &quot;ingredient&quot; of the medicinal product. This is not intended for devices that are just co-packaged."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>

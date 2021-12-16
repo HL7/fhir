@@ -45,5 +45,10 @@
         <reference value="StructureDefinition/condition-diseaseCourse"/>
       </reference>
     </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/condition-reviewed"/>
+      </reference>
+    </resource>
   </definition>
 </ImplementationGuide>

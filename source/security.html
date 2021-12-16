@@ -10,7 +10,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <h1>FHIR Security</h1>
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
@@ -30,11 +30,13 @@ in one section. A summary:
  <li><a href="signatures.html">Digital Signatures</a> - FHIR includes several specifically reserved locations for digital signatures</li>
  <li><a href="#attachments">Attachments</a> - FHIR allows for binary resources and attachments. These have their own concerns</li>
  <li><a href="security-labels.html">Labels</a> - FHIR allows for set of security related tags that affect the way resources are handled</li>
- <li>Data Management Policies - FHIR defines a set of capabilities to support data exchange.
+ <li><b>Data Management Policies</b> - FHIR defines a set of capabilities to support data exchange.
      Not all the capabilities that FHIR enables may be appropriate or legal for use in some combinations of context and jurisdiction (e.g. HIPAA, GDPR). 
-     It is the responsibility of implementers to ensure that relevant regulations and other requirements are met</li>
+     It is the responsibility of implementers to ensure that relevant regulations and other requirements are met.</li>
  <li><a href="#narrative">Narrative</a> - Care must be taken when displaying the narrative from FHIR resources</li>
- <li><a href="#narrative">Input Validation</a>  - Validate all input received from other actors to assure the data is well formed and does not contain content that would cause unwanted system behaviour. Testing ensures that the input is not susceptible to data input validation errors by using techniques such as fuzzing, invalid input attacks, and injection attacks.</li>
+ <li><a href="#input">Input Validation</a>  - Validate all input received from other actors to assure the data is well formed and does not contain content that would cause unwanted system behaviour. Testing ensures that the input is not susceptible to data input validation errors by using techniques such as fuzzing, invalid input attacks, and injection attacks.</li>
+ <li><a href="#oauth">When using OAuth</a> - Consider the draft <a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics">Best-Current-Practice for OAuth</a></li>
+ <li><b>Security / Privacy Event Reporting</b> - Consider legal obligations and ethical obligations to provide a means for Security and/or Privacy Event Reporting such as security vulnerability, or breach.  </li>
 </ol>
 <p>
 Time critical concerns regarding security flaws in the FHIR specification should be addressed to 
@@ -117,6 +119,7 @@ some other kind of profiled REST interface.
             Any declaration of 'required' or 'optional' requirements that could be mentioned here are only recommendations for that kind of Resource
             in general for the most common use of that Resource. Where one uses the Resource in a way that is different than this most common use, one will 
             have different risks and thus need different protections. 
+			Each Resource is indicated with the common "Security Category", and all of the Resources Security Category is shown on the <a href="resourcelist.html">Resource Types</a> page with the <a href="resourcelist.html#tabs-7">Security Category</a> tab.
       </p>
       <p>
             Most Resources will need some form of Access Control to Create, Update, or Delete. 
@@ -263,7 +266,7 @@ The rules behind the access control decision are often very complex, and potenti
  <li>Client, such as user identity, user role, location, level of assurance</li>
  <li>Resource, such as confidentiality, sensitivity, type of data, date ranges covered by the data, author of the data</li>
  <li>Patient, such as the patient identity, patient relationship to the user, patient consent policies</li>
- <li>Context of the transaction, system identity, time-of-day, purpose of use, workflow state, and transport security</li>
+ <li>Context of the transaction, system identity, time-of-day, token expiration, token scope, purpose of use, workflow state, and transport security</li>
 </ul>
 <!-- HL7 has papers on this topic. -->
 <p>For one source of further information, see the 
@@ -421,8 +424,6 @@ without checking their safety first, and that session/identifying information
 does not leak with any use of external links.
 </p>
 
-
-</div>
 
 [%file newfooter%]
     

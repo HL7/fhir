@@ -3,8 +3,8 @@
   <id value="med0308"/>
   <contained>
     <Organization>
-      <id value="org1"/>
-      <name value="Stat Rx USA LLC" />
+      <id value="mmanu"/>
+      <name value="Medication Manufacturer" />
     </Organization>
   </contained>
   <code>
@@ -15,9 +15,9 @@
     </coding>
   </code>
   
-  <manufacturer>
-    <reference value="#org1"/>
-  </manufacturer>
+  <marketingAuthorizationHolder>
+    <reference value="#mmanu" />
+  </marketingAuthorizationHolder>
     <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>

@@ -3,31 +3,46 @@ trigger:
 
 pr:
 - master
+- R4B
 
 variables:
 - group: ZULIP_VAR_GROUP
 - group: SSH_UPLOAD
 
 jobs:
-- job: buildSpecification
+- job: setupEnvironment
+  steps:
+  - task: Bash@3
+    displayName: 'Download java sdk'
+    inputs:
+      targetType: 'inline'
+      script: 'wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/8u262-b10/openlogic-openjdk-8u262-b10-linux-x64.tar.gz -O $(Build.ArtifactStagingDirectory)/java8.tar.gz'
+  - task: JavaToolInstaller@0
+    inputs:
+      versionSpec: "8"
+      jdkArchitectureOption: x64
+      jdkSourceOption: LocalDirectory
+      jdkFile: "$(Build.ArtifactStagingDirectory)/java8.tar.gz"
+      jdkDestinationDirectory: ""
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        echo JAVA_HOME set to -> $JAVA_HOME
+        echo JAVA_HOME_8_X64 set to -> $JAVA_HOME_8_X64
+        echo which java returns
+        which java
+
+- job: buildAndPublishSpecification
   steps:
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
   - task: Gradle@2
     inputs:
-      workingDirectory: ''
       gradleWrapperFile: 'gradlew'
-      gradleOptions: '-Xmx16384m'
       javaHomeOption: 'JDKVersion'
-      jdkVersionOption: '1.8'
-      jdkArchitectureOption: 'x64'
-      publishJUnitResults: true
-      testResultsFiles: '**/TEST-*.xml'
-      tasks: 'publish'
+      publishJUnitResults: false
+      tasks: 'publish --stacktrace'
 
-- job: publishBranchBuild
-  dependsOn: buildSpecification
-  condition: succeeded()
-  steps:
   # We need a valid ssh key to upload to build.fhir.org. This is stored in the azure pipelines secure filesystem.
   # This step downloads the file for use within this job.
   - task: DownloadSecureFile@1
@@ -44,12 +59,12 @@ jobs:
         chmod 400 $(Agent.TempDirectory)/deploy.rsa
         TARGET_DIRECTORY=$(echo "$(System.PullRequest.SourceBranch)" | sed -r 's/\//_/g')
         echo "Publishing to target $TARGET_DIRECTORY"
-        tar czf - * | ssh  -i $(Agent.TempDirectory)/deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish $TARGET_DIRECTORY
+        tar czf - * | ssh -o "StrictHostKeyChecking=no" -i $(Agent.TempDirectory)/deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish $TARGET_DIRECTORY || true
 
 # In the case of a successful build and subsequent publish, we trigger a message to the committers/notifications channel
 # on Zulip (chat.fhir.org) to let users know that the build is available.
 - job: successNotification
-  dependsOn: publishBranchBuild
+  dependsOn: buildAndPublishSpecification
   condition: succeeded()
   timeoutInMinutes: 5
   steps:
@@ -63,12 +78,12 @@ jobs:
             -d "type=stream" \
             -d "to=$(ZULIP_STREAM_ID_COMMITTERS)" \
             -d "subject=FHIR Build Status" \
-            -d $"content=PR Build success for branch $TARGET_DIRECTORY:thumbs_up:! [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildNumber)&_a=summary&view=logs)
+            -d $"content=PR Build success for branch $TARGET_DIRECTORY :thumbs_up:! [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildNumber)&_a=summary&view=logs)
             Published webpage can be viewed [here](https://build.fhir.org/branches/$TARGET_DIRECTORY)
             "
 
 - job: failureNotification
-  dependsOn: publishBranchBuild
+  dependsOn: buildAndPublishSpecification
   condition: failed()
   timeoutInMinutes: 5
   steps:

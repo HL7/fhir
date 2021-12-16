@@ -22,7 +22,7 @@
   </contact>
   <date value="2014-01-31"/>
   <description value="Consent Directive"/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>

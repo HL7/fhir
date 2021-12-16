@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="MedicinalProductDefinition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs)."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="idmp"/>
     <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
@@ -66,7 +66,7 @@
   <differential>
     <element id="MedicinalProductDefinition">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="290,0"/>
+        <valueCode value="290,30"/>
       </extension>
       <path value="MedicinalProductDefinition"/>
       <short value="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs)"/>
@@ -108,6 +108,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicinalProductType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Overall defining type of this medicinal product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="(indicates if this is Medicinal Product or an Investigational Medicinal Product)"/>
@@ -123,6 +131,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicinalProductType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Applicable domain for this product (e.g. human, veterinary)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-domain"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -152,6 +168,8 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that a record should not be treated as valid"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -206,15 +224,46 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CombinedDoseForm"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Dose forms for a product as a whole, considering all individual parts, but before any mixing"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/combined-dose-form"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product.Combined Pharmaceutical Dose Form"/>
       </mapping>
     </element>
+    <element id="MedicinalProductDefinition.route">
+      <path value="MedicinalProductDefinition.route"/>
+      <short value="The path by which the product is taken into or makes contact with the body. In some regions this is referred to as the licenced or approved route. See also AdministrableProductDefinition resource"/>
+      <definition value="The path by which the product is taken into or makes contact with the body. In some regions this is referred to as the licenced or approved route. See also AdministrableProductDefinition resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTRouteCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient's body."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/route-codes"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Pharmaceutical Product.Route of Administration"/>
+      </mapping>
+    </element>
     <element id="MedicinalProductDefinition.indication">
       <path value="MedicinalProductDefinition.indication"/>
-      <short value="Description of indication(s) for this product, used when structured indications are not required. In cases where structured indications are required, they are captured using the ClinicalUseIssue resource. An indication is a medical situation for which using the product is appropriate"/>
-      <definition value="Description of indication(s) for this product, used when structured indications are not required. In cases where structured indications are required, they are captured using the ClinicalUseIssue resource. An indication is a medical situation for which using the product is appropriate."/>
+      <short value="Description of indication(s) for this product, used when structured indications are not required. In cases where structured indications are required, they are captured using the ClinicalUseDefinition resource. An indication is a medical situation for which using the product is appropriate"/>
+      <definition value="Description of indication(s) for this product, used when structured indications are not required. In cases where structured indications are required, they are captured using the ClinicalUseDefinition resource. An indication is a medical situation for which using the product is appropriate."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -236,6 +285,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="LegalStatusOfSupply"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The prescription supply types appropriate to a medicinal product"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/legal-status-of-supply"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Marketing Authorisation.Legal Status of Supply (moved here for practicality)"/>
@@ -251,6 +308,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <!--binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicinalProductType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Overall defining type of this medicinal product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
+      </binding-->
       <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product.Additional Monitoring Indicator"/>
@@ -266,13 +331,21 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <!--binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicinalProductType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Overall defining type of this medicinal product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
+      </binding-->
       <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product.Special Measures"/>
       </mapping>
     </element>
-    <element id="MedicinalProductDefinition.paediatricUseIndicator">
-      <path value="MedicinalProductDefinition.paediatricUseIndicator"/>
+    <element id="MedicinalProductDefinition.pediatricUseIndicator">
+      <path value="MedicinalProductDefinition.pediatricUseIndicator"/>
       <short value="If authorised for use in children"/>
       <definition value="If authorised for use in children."/>
       <min value="0"/>
@@ -281,9 +354,17 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <!--binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicinalProductType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Overall defining type of this medicinal product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
+      </binding-->
       <mapping>
         <identity value="idmp"/>
-        <map value="Medicinal Product.Paediatric Use Indicator"/>
+        <map value="Medicinal Product.Pediatric Use Indicator"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.classification">
@@ -296,21 +377,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Product Classification.Value"/>
-      </mapping>
-    </element>
-    <element id="MedicinalProductDefinition.characteristic">
-      <path value="MedicinalProductDefinition.characteristic"/>
-      <short value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;"/>
-      <definition value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
+      <!--binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicinalProductType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Overall defining type of this medicinal product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
+      </binding-->
       <mapping>
         <identity value="idmp"/>
         <map value="Product Classification.Value"/>
@@ -334,14 +408,21 @@
     <element id="MedicinalProductDefinition.packagedMedicinalProduct">
       <path value="MedicinalProductDefinition.packagedMedicinalProduct"/>
       <short value="Package representation for the product"/>
-      <definition value="Package representation for the product."/>
+      <definition value="Package representation for the product. See also the PackagedProductDefinition resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicinalProductPackageType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Types of medicinal product packs"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-package-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Packaged Medicinal Product"/>
@@ -349,18 +430,17 @@
     </element>
     <element id="MedicinalProductDefinition.ingredient">
       <path value="MedicinalProductDefinition.ingredient"/>
-      <short value="The ingredients of this medicinal product - when not detailed in other resources. This is only needed if the ingredients are not specified by the AdministrableProductDefinition or via the PackagedProductDefinition references above. In cases where those levels of detail are not used, the ingredients may be specified directly here"/>
-      <definition value="The ingredients of this medicinal product - when not detailed in other resources. This is only needed if the ingredients are not specified by the AdministrableProductDefinition or via the PackagedProductDefinition references above. In cases where those levels of detail are not used, the ingredients may be specified directly here."/>
+      <short value="The ingredients of this medicinal product - when not detailed in other resources. This is only needed if the ingredients are not specified by incoming references from the Ingredient resource, or indirectly via incoming AdministrableProductDefinition, PackagedProductDefinition or ManufacturedItemDefinition references. In cases where those levels of detail are not used, the ingredients may be specified directly here as codes"/>
+      <definition value="The ingredients of this medicinal product - when not detailed in other resources. This is only needed if the ingredients are not specified by incoming references from the Ingredient resource, or indirectly via incoming AdministrableProductDefinition, PackagedProductDefinition or ManufacturedItemDefinition references. In cases where those levels of detail are not used, the ingredients may be specified directly here as codes."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="n/a (a direct link from Medicinal Product to Ingredient, for cases where less detail is warranted)"/>
+        <map value="Medicinal Product.Ingredient (see also FHIR Ingredient resource)"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.impurity">
@@ -370,7 +450,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
       </type>
       <isSummary value="true"/>
@@ -397,8 +477,8 @@
     </element>
     <element id="MedicinalProductDefinition.masterFile">
       <path value="MedicinalProductDefinition.masterFile"/>
-      <short value="A master file for to the medicinal product (e.g. Pharmacovigilance System Master File)"/>
-      <definition value="A master file for to the medicinal product (e.g. Pharmacovigilance System Master File)."/>
+      <short value="A master file for the medicinal product (e.g. Pharmacovigilance System Master File)"/>
+      <definition value="A master file for the medicinal product (e.g. Pharmacovigilance System Master File). Drug master files (DMFs) are documents submitted to regulatory agencies to provide confidential detailed information about facilities, processes or articles used in the manufacturing, processing, packaging and storing of drug products."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -413,7 +493,7 @@
     </element>
     <element id="MedicinalProductDefinition.contact">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="720,250"/>
+        <valueCode value="750,250"/>
       </extension>
       <path value="MedicinalProductDefinition.contact"/>
       <short value="A product specific contact, person (in a role), or an organization"/>
@@ -477,9 +557,32 @@
         <map value="Investigational Medicinal Product.Clinical Trial Status"/>
       </mapping>
     </element>
+    <element id="MedicinalProductDefinition.code">
+      <path value="MedicinalProductDefinition.code"/>
+      <short value="A code that this product is known by, within some formal terminology"/>
+      <definition value="A code that this product is known by, usually within some formal terminology. Products (types of medications) tend to be known by identifiers during development and within regulatory process. However when they are prescribed they tend to be identified by codes. The same product may be have multiple codes, applied to it by multiple organizations."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationFormalRepresentation"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A coded concept that defines the type of a medication."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="MedicinalProductDefinition.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="80,147"/>
+        <valueCode value="80,177"/>
       </extension>
       <path value="MedicinalProductDefinition.name"/>
       <short value="The product&#39;s name, including full name and possibly coded parts"/>
@@ -527,7 +630,7 @@
     </element>
     <element id="MedicinalProductDefinition.name.namePart">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="50,257"/>
+        <valueCode value="50,292"/>
       </extension>
       <path value="MedicinalProductDefinition.name.namePart"/>
       <short value="Coding words or phrases of the name"/>
@@ -575,7 +678,7 @@
     </element>
     <element id="MedicinalProductDefinition.name.countryLanguage">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="50,12"/>
+        <valueCode value="50,42"/>
       </extension>
       <path value="MedicinalProductDefinition.name.countryLanguage"/>
       <short value="Country where the name applies"/>
@@ -630,18 +733,15 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <isSummary value="true"/>
+      <isSummary value="true"/> 
       <mapping>
         <identity value="idmp"/>
         <map value="Country / Language.Language"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.crossReference">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Wanted to make this a choice of identifier or reference to MedicinalProductDefinition but that cannot be 0..*."/>
-      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="720,10"/>
+        <valueCode value="750,10"/>
       </extension>
       <path value="MedicinalProductDefinition.crossReference"/>
       <short value="Reference to another product, e.g. for linking authorised to investigational product"/>
@@ -696,7 +796,7 @@
     </element>
     <element id="MedicinalProductDefinition.operation">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="720,110"/>
+        <valueCode value="750,110"/>
       </extension>
       <path value="MedicinalProductDefinition.operation"/>
       <short value="A manufacturing or administrative process or step associated with (or performed on) the medicinal product"/>
@@ -714,13 +814,14 @@
     </element>
     <element id="MedicinalProductDefinition.operation.type">
       <path value="MedicinalProductDefinition.operation.type"/>
-      <short value="The type of manufacturing operation e.g. manufacturing itself, re-packaging. This may be a subtype of some other wider scope of authorized operation, referenced by the authorization attribute"/>
-      <definition value="The type of manufacturing operation e.g. manufacturing itself, re-packaging. This may be a subtype of some other wider scope of authorized operation, referenced by the authorization attribute."/>
+      <short value="The type of manufacturing operation e.g. manufacturing itself, re-packaging. For the authorization of this, a RegulatedAuthorization would point to the same plan or activity referenced here"/>
+      <definition value="The type of manufacturing operation e.g. manufacturing itself, re-packaging. For the authorization of this, a RegulatedAuthorization would point to the same plan or activity referenced here."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -759,22 +860,6 @@
         <map value="Manufacturer / Establishment (Organisation)"/>
       </mapping>
     </element>
-    <element id="MedicinalProductDefinition.operation.authorization">
-      <path value="MedicinalProductDefinition.operation.authorization"/>
-      <short value="An authorization for this process, either as a logical reference, holding just an identifier, or a full reference to a resource that captures the details. The authorization may possibly apply to several products or a wider scope of process of which this is a part"/>
-      <definition value="An authorization for this process, either as a logical reference, holding just an identifier, or a full reference to a resource that captures the details. The authorization may possibly apply to several products or a wider scope of process of which this is a part."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RegulatedAuthorization"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="An authorization for this process, possibly applying to several products or a wider scope of process of which this is a part"/>
-      </mapping>
-    </element>
     <element id="MedicinalProductDefinition.operation.confidentialityIndicator">
       <path value="MedicinalProductDefinition.operation.confidentialityIndicator"/>
       <short value="Specifies whether this particular business or manufacturing process is considered proprietary or confidential"/>
@@ -790,13 +875,13 @@
         <map value="Manufacturing / Business Operation.Confidentiality Indicator"/>
       </mapping>
     </element>
-    <element id="MedicinalProductDefinition.administrableProduct">
+    <element id="MedicinalProductDefinition.characteristic">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="327,400"/>
+        <valueCode value="750,350"/>
       </extension>
-      <path value="MedicinalProductDefinition.administrableProduct"/>
-      <short value="The product in its final form, mixed from its components if necessary, and ready to be administered to the patient. Also known as the &#39;Pharmaceutical Product&#39;. Can repeat, for cases where the product has components that result in more than one administrable item"/>
-      <definition value="The product in its final form, mixed from its components if necessary, and ready to be administered to the patient. Also known as the &#39;Pharmaceutical Product&#39;. Can repeat, for cases where the product has components that result in more than one administrable item."/>
+      <path value="MedicinalProductDefinition.characteristic"/>
+      <short value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;"/>
+      <definition value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -805,38 +890,49 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Pharmaceutical Product"/>
+        <map value="Package Item (Container).Physical Characteristics"/>
       </mapping>
     </element>
-    <element id="MedicinalProductDefinition.administrableProduct.route">
-      <path value="MedicinalProductDefinition.administrableProduct.route"/>
-      <short value="The path by which the product is taken into or makes contact with the body. In some regions this is referred to as the licenced or approved route"/>
-      <definition value="The path by which the product is taken into or makes contact with the body. In some regions this is referred to as the licenced or approved route."/>
-      <min value="0"/>
-      <max value="*"/>
+    <element id="MedicinalProductDefinition.characteristic.type">
+      <path value="MedicinalProductDefinition.characteristic.type"/>
+      <short value="A code expressing the type of characteristic"/>
+      <definition value="A code expressing the type of characteristic."/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Pharmaceutical Product.Route of Administration"/>
+        <map value="Physical Characteristics, all attributes"/>
       </mapping>
     </element>
-    <element id="MedicinalProductDefinition.administrableProduct.product">
-      <path value="MedicinalProductDefinition.administrableProduct.product"/>
-      <short value="Full description of the administrable product"/>
-      <definition value="Full description of the administrable product."/>
+    <element id="MedicinalProductDefinition.characteristic.value[x]">
+      <path value="MedicinalProductDefinition.characteristic.value[x]"/>
+      <short value="A value for the characteristic"/>
+      <definition value="A value for the characteristic."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="date"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
       </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Pharmaceutical Product"/>
+        <map value="Physical Characteristics, attribute&#39;s value"/>
       </mapping>
     </element>
   </differential>

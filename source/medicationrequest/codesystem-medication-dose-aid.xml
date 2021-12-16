@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="medication-dose-aid"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/medication-dose-aid"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="Medication dose aid"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medication-dose-aid"/>
+  <content value="complete"/>
+  <concept>
+    <code value="blisterpack"/>
+    <display value="Blister Pack"/>
+    <definition value="A type of packaging in which a medication is sealed in plastic, often with a cardboard backing."/>
+  </concept>
+  <concept>
+    <code value="dosette"/>
+    <display value="Dosette"/>
+    <definition value="A box or tray that organizes mediations into separate compartments"/>
+  </concept>
+  <concept>
+    <code value="sachets"/>
+    <display value="Sachets"/>
+    <definition value="A small packet that contains medication for individual use."/>
+  </concept>
+</CodeSystem>

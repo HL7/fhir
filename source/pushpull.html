@@ -26,7 +26,7 @@ or consumer.
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <h2>Managing Push and Pull</h2>
@@ -73,9 +73,6 @@ The FHIR specification supports and enables both push and pull:
  <li>Pull: The source is a server, and the destination is a client. When the client wants to use the data, it uses a combination of <a href="http.html#search">search</a> and <a href="http.html#read">read</a> so the users can find the data they need</li>
  <li>Push/Pull: The source is a server, and the destination is a client. On a regular basis, the destination queries the server for its <a href="http.html#history">history</a>, and replicates the changes in its own copy of the database</li>
 </ul>
-
-
-</div>
 
 
 [%file newfooter%]

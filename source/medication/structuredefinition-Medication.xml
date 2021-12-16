@@ -24,7 +24,7 @@
     <valueCode value="Medication does not have a status"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Medication"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="Medication"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="script10.6"/>
     <uri value="http://ncpdp.org/SCRIPT10_6"/>
@@ -173,10 +173,10 @@
         <map value=".statusCode"/>
       </mapping>
     </element>
-    <element id="Medication.manufacturer">
-      <path value="Medication.manufacturer"/>
-      <short value="Manufacturer of the item"/>
-      <definition value="Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product."/>
+    <element id="Medication.marketingAuthorizationHolder">
+      <path value="Medication.marketingAuthorizationHolder"/>
+      <short value="Organization responsible for manufacturing the item"/>
+      <definition value="Describes&#xA0;the organization that is responsible for the manufacturing of the item and holds the registration to market the product in a jurisdiction. This might not be the company that physically manufactures the product.&#xA0; May be known as &quot;Sponsor&quot; and is commonly called &quot;Manufacturer&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -184,18 +184,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="script10.6"/>
-        <map value="no mapping"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="RXD-20-Substance Manufacturer Name / RXG-21-Substance Manufacturer Name / RXA-17-Substance Manufacturer Name"/>
-      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".player.scopingRole[typeCode=MANU].scoper"/>
@@ -232,10 +220,10 @@
         <map value=".formCode"/>
       </mapping>
     </element>
-    <element id="Medication.amount">
-      <path value="Medication.amount"/>
-      <short value="Amount of drug in package"/>
-      <definition value="Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)."/>
+    <element id="Medication.totalVolume">
+      <path value="Medication.totalVolume"/>
+      <short value="When the specified product code does not infer a package size, this is the specific amount of drug in the product"/>
+      <definition value="When the specified product code does not infer a package size, this is the specific amount of drug in the product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -277,6 +265,13 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationFormalRepresentation"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
+      </binding>
       <mapping>
         <identity value="script10.6"/>
         <map value="coding.code = //element(*,MedicationType)/DrugCoded/ProductCode&#xD;&#xD;coding.system = //element(*,MedicationType)/DrugCoded/ProductCodeQualifier&#xD;&#xD;coding.display = //element(*,MedicationType)/DrugDescription"/>
@@ -324,7 +319,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MedicationIngredientStrength"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="A coded concpet defining the strength of an ingredient."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-ingredientstrength"/>
       </binding>
