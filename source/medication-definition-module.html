@@ -160,6 +160,19 @@ This module is concerned with resources and functionality in areas such as:
 	   A simpler example of a co-packaged device and liquid is <a href="medicinalproductdefinition-example-co-packaged-liquid-and-syringe.html">here</a>.
 	</p>
 	
+	<a name="package-detail-consistency"/>
+	<p>The PackagedProductDefinition resource can be used for different aspects of package information:</p>
+	<ul>
+		<li>Complete package definitions (a package type, and its internals)</li>	
+		<li>Just the internal packaging (perhaps only the innermost layer of packaging that touches the tablet)</li>	
+		<li>A package type definition that has no internals specified (a common case for a drug dictionary)</li>	
+	</ul>
+	<p>The resource elements must be used in a consistent way for each case. This diagram shows how these three cases are handled. 
+	See the <a href="packagedproductdefinition.html">PackagedProductDefinition</a> resource for more information.
+	</p>
+	<img src="package-and-backbone.png" alt="Package resource and package packbone"/>
+	
+	
 	<a name="ings"></a>
 	<h4>Ingredients and Substances</h4>
 	<table class="bare">
