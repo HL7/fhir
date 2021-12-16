@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-07-14T22:07:44Z</LastSaved>
+  <LastSaved>2021-09-19T22:45:47Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -13,12 +13,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  
-  
-  
-  
+
+
+
+
   <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -721,6 +720,9 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s150">
+   <Alignment ss:Vertical="Center" ss:WrapText="1"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R49C1"/>
@@ -824,7 +826,7 @@
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">This data type was defined to support reuse of the pattern of contributor elements across multiple conformance and knowledge asset resources</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">This data type was defined to support reuse of the pattern of related artifact elements across multiple conformance and knowledge artifact resources</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s88"><Data ss:Type="String">RelatedArtifact.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -839,8 +841,34 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">The type of relationship to the related artifact</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The presence of both sides of a relationship type (e.g. successor and predecessor) is required to support use cases where one side of a relationship is not represented in FHIR. However, this feature SHALL NOT be used to create bi-directional resource links in FHIR instances</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
+    <Cell ss:StyleID="s88"><Data ss:Type="String">RelatedArtifact.classifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">RelatedArtifactClassifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Additional classifiers</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Provides additional classifiers of the related artifact</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -931,32 +959,6 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">RelatedArtifact.url</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">url</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Where the artifact can be accessed</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">A url for the artifact that can be followed to access the actual content</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">If a document or resource element is present, this element SHALL NOT be provided (use the url or reference in the Attachment or resource reference)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s88"><Data ss:Type="String">RelatedArtifact.document</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -995,8 +997,8 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">What resource is being referenced</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">The related resource, such as a library, value set, profile, or other knowledge resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">What artifact is being referenced</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The related artifact, such as a library, value set, profile, or other knowledge resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">If the type is predecessor, this is a reference to the succeeding knowledge resource. If the type is successor, this is a reference to the prior knowledge resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1009,7 +1011,11 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">RelatedArtifact.resourceReference</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Reference(Any)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1017,14 +1023,10 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">What artifact, if not a conformance resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The related artifact, if the artifact is not a canonical resource, or a resource reference to a canonical resource.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">If both resource and resourceReference are present, they SHOULD be consistent and reference the same resource. Although relatedArtifact is intended to support references to definitional resources, there are cases where non-definitional resources can be definitional (such as Location where the kind is mode). Related artifacts SHOULD be used to reference definitional resources, and profiles SHOULD be used to make that explicit for particular use cases</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3418,9 +3420,9 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3948,7 +3950,7 @@
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -4190,7 +4192,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -4774,7 +4776,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -5034,7 +5036,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -5305,7 +5307,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -5698,7 +5700,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -5752,11 +5754,11 @@
     <Cell ss:StyleID="s116"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">RelatedArtifactClassifier</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Additional classifiers for the related artifact</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/citation-artifact-classifier</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
@@ -6146,7 +6148,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -6730,7 +6732,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -6741,7 +6743,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='related-artifact-type'!R1C1:R1C9"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s134" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="47" ss:StyleID="s134" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s134" ss:Width="80.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s134" ss:Width="34.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s134" ss:Width="155.0"/>
@@ -6777,7 +6779,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">Justification</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">A summary of the justification for the knowledge resource including supporting evidence, relevant guidelines, or other clinically important information. This information is intended to provide a way to make the justification for the knowledge resource available to the consumer of interventions or results produced by the knowledge resource</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The target artifact is a summary of the justification for the knowledge resource including supporting evidence, relevant guidelines, or other clinically important information. This information is intended to provide a way to make the justification for the knowledge resource available to the consumer of interventions or results produced by the knowledge resource.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -6821,7 +6823,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">Derived From</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">The knowledge resource is derived from the related artifact. This is intended to capture the relationship in which a particular knowledge resource is based on the content of another artifact, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact is derived from the target artifact. This is intended to capture the relationship in which a particular knowledge resource is based on the content of another artifact, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting. The artifact may be derived from one or more target artifacts.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -6832,7 +6834,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">Depends On</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">The knowledge resource depends on the given related artifact</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact depends on the target artifact. There is a requirement to use the target artifact in the creation or interpretation of this artifact.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -6843,315 +6845,247 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">Composed Of</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">The knowledge resource is composed of the given related artifact</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact is composed of the target artifact. This artifact is constructed with the target artifact as a component. The target artifact is a part of this artifact. (A dataset is composed of data.)</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s140"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">part-of</Data></Cell>
+    <Cell><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Part Of</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact is a part of the target artifact. The target artifact is composed of this artifact (and possibly other artifacts).</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s140"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">amends</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Amends</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact amends or changes the target artifact. This artifact adds additional information that is functionally expected to replace information in the target artifact. This artifact replaces a part but not all of the target artifact.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s140"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">amended-with</Data></Cell>
+    <Cell><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Amended With</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact is amended with or changed by the target artifact. There is information in this artifact that should be functionally replaced with information in the target artifact.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s140"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">appends</Data></Cell>
+    <Cell><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Appends</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact adds additional information to the target artifact. The additional information does not replace or change information in the target artifact.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s140"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">appended-with</Data></Cell>
+    <Cell><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Appended With</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact has additional information in the target artifact.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s140"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">cites</Data></Cell>
+    <Cell><Data ss:Type="Number">14</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Cites</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact cites the target artifact. This may be a bibliographic citation for papers, references, or other relevant material for the knowledge resource. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this knowledge resource.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s140"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">cited-by</Data></Cell>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Cited By</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact is cited by the target artifact.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s140"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">comments-on</Data></Cell>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Is Comment On</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact contains comments about the target artifact. </Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s140"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">comment-in</Data></Cell>
+    <Cell><Data ss:Type="Number">17</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Has Comment In</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact has comments about it in the target artifact.  The type of comments may be expressed in the targetClassifier element such as reply, review, editorial, feedback, solicited, unsolicited, structured, unstructured.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s140"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">contains</Data></Cell>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Contains</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact is a container in which the target artifact is contained. A container is a data structure whose instances are collections of other objects. (A database contains the dataset.)</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s140"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">contained-in</Data></Cell>
+    <Cell><Data ss:Type="Number">19</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Contained In</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact is contained in the target artifact. The target artifact is a data structure whose instances are collections of other objects.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s140"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">corrects</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Corrects</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact identifies errors and replacement content for the target artifact.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s140"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">correction-in</Data></Cell>
+    <Cell><Data ss:Type="Number">21</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Correction In</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact has corrections to it in the target artifact. The target artifact identifies errors and replacement content for this artifact.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">replaces</Data></Cell>
+    <Cell><Data ss:Type="Number">22</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Replaces</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact replaces or supersedes the target artifact. The target artifact may be considered deprecated.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">replaced-with</Data></Cell>
+    <Cell><Data ss:Type="Number">23</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Replaced With</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact is replaced with or superseded by the target artifact. This artifact may be considered deprecated.</Data></Cell>
     <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s148"/>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s140"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s150"><Data ss:Type="String">retracts</Data></Cell>
+    <Cell><Data ss:Type="Number">24</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Retracts</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact retracts the target artifact. The content that was published in the target artifact should be considered removed from publication and should no longer be considered part of the public record.</Data></Cell>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s140"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s150"><Data ss:Type="String">retracted-by</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Retracted By</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact is retracted by the target artifact. The content that was published in this artifact should be considered removed from publication and should no longer be considered part of the public record.</Data></Cell>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s140"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s150"><Data ss:Type="String">signs</Data></Cell>
+    <Cell><Data ss:Type="Number">26</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Signs</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact is a signature of the target artifact.</Data></Cell>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s140"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s150"><Data ss:Type="String">similar-to</Data></Cell>
+    <Cell><Data ss:Type="Number">27</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Similar To</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact has characteristics in common with the target artifact. This relationship may be used in systems to “deduplicate” knowledge artifacts from different sources, or in systems to show “similar items”.</Data></Cell>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s140"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s150"><Data ss:Type="String">supports</Data></Cell>
+    <Cell><Data ss:Type="Number">28</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Supports</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact provides additional documentation for the target artifact. This could include additional instructions on usage as well as additional information on clinical context or appropriateness.</Data></Cell>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s140"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s150"><Data ss:Type="String">supported-with</Data></Cell>
+    <Cell><Data ss:Type="Number">29</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Supported With</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The target artifact contains additional documentation for the knowledge resource. This could include additional instructions on usage as well as additional information on clinical context or appropriateness.</Data></Cell>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s140"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s150"><Data ss:Type="String">transforms</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Transforms</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact was generated by transforming the target artifact (e.g., format or language conversion). This is intended to capture the relationship in which a particular knowledge resource is based on the content of another artifact, but changes are only apparent in form and there is only one target artifact with the “transforms” relationship type.</Data></Cell>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s140"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s150"><Data ss:Type="String">transformed-into</Data></Cell>
+    <Cell><Data ss:Type="Number">31</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Transformed Into</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact was transformed into the target artifact (e.g., by format or language conversion).</Data></Cell>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s140"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s150"><Data ss:Type="String">transformed-with</Data></Cell>
+    <Cell><Data ss:Type="Number">32</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s148"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Transformed With</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This artifact was generated by transforming a related artifact (e.g., format or language conversion), noted separately with the “transforms” relationship type. This transformation used the target artifact to inform the transformation. The target artifact may be a conversion script or translation guide.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -7314,7 +7248,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

@@ -3,6 +3,7 @@
   <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
 <!--  <xsl:variable name="fhirpath" select="'[%fhir-path%]'"/>  TODO: Put this back once validation doesn't choke on it -->
   <xsl:variable name="fhirpath" select="'{{site.data.fhir.path}}'"/>
+  <xsl:variable name="expectation-extension" select="('http://hl7.org/fhir/StructureDefinition/conformance-expectation', 'http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation')"/>
 <!--  <xsl:variable name="fhirpath" select="'../'"/>-->
   <xsl:template match="@*|node()">
     <xsl:copy>
@@ -15,11 +16,16 @@
       <text xmlns="http://hl7.org/fhir">
         <status xmlns="http://hl7.org/fhir" value="generated"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <xsl:for-each select="name">
-            <h2>
-              <xsl:value-of select="@value"/>
-            </h2>
-          </xsl:for-each>
+          <h2>
+            <xsl:choose>
+              <xsl:when test="title">
+                <xsl:value-of select="title/@value"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of select="name/@value"/>
+              </xsl:otherwise>
+            </xsl:choose>
+          </h2>
           <p>
             <xsl:text>(</xsl:text>
             <xsl:choose>
@@ -46,40 +52,42 @@
             </xsl:variable>
             <xsl:value-of select="normalize-space(string-join($content, ' '))"/>
           </p>
-          <xsl:variable name="firstTelecom" as="xs:string?">
-            <xsl:choose>
-              <xsl:when test="telecom[system/@value='url']">
-                <xsl:value-of select="telecom[system/@value='url'][1]/value/@value"/>
-              </xsl:when>
-              <xsl:when test="telecom[system/@value='email']">
-                <xsl:value-of select="concat('mailto:', telecom[system/@value='email'][1]/value/@value)"/>
-              </xsl:when>
-            </xsl:choose>
-          </xsl:variable>
-          <p>
-            <xsl:text>Published by: </xsl:text>
-            <b>
+          <xsl:if test="telecom|publisher">
+            <xsl:variable name="firstTelecom" as="xs:string?">
               <xsl:choose>
-                <xsl:when test="$firstTelecom">
-                  <a href="{$firstTelecom}">
-                    <xsl:value-of select="publisher/@value"/>
-                  </a>
+                <xsl:when test="telecom[system/@value='url']">
+                  <xsl:value-of select="telecom[system/@value='url'][1]/value/@value"/>
                 </xsl:when>
-                <xsl:otherwise>
-                  <xsl:value-of select="publisher/@value"/>
-                </xsl:otherwise>
+                <xsl:when test="telecom[system/@value='email']">
+                  <xsl:value-of select="concat('mailto:', telecom[system/@value='email'][1]/value/@value)"/>
+                </xsl:when>
               </xsl:choose>
-            </b>
-            <xsl:variable name="telecoms" as="xs:string*">
-              <xsl:for-each select="telecom[not(starts-with($firstTelecom, value/@value))]">
-                <xsl:if test="system/@value">
-                  <xsl:value-of select="concat(system/@value, ': ')"/>
-                </xsl:if>
-                <xsl:value-of select="value/@value"/>
-              </xsl:for-each>
             </xsl:variable>
-            <xsl:value-of select="string-join($telecoms, ' ')"/>
-          </p>
+            <p>
+              <xsl:text>Published by: </xsl:text>
+              <b>
+                <xsl:choose>
+                  <xsl:when test="$firstTelecom">
+                    <a href="{$firstTelecom}">
+                      <xsl:value-of select="publisher/@value"/>
+                    </a>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:value-of select="publisher/@value"/>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </b>
+              <xsl:variable name="telecoms" as="xs:string*">
+                <xsl:for-each select="telecom[not(starts-with($firstTelecom, value/@value))]">
+                  <xsl:if test="system/@value">
+                    <xsl:value-of select="concat(system/@value, ': ')"/>
+                  </xsl:if>
+                  <xsl:value-of select="value/@value"/>
+                </xsl:for-each>
+              </xsl:variable>
+              <xsl:value-of select="string-join($telecoms, ' ')"/>
+            </p>
+          </xsl:if>
           <xsl:copy-of select="fn:handleMarkdownLines(description/@value)"/>
           <xsl:for-each select="requirements">
             <p>
@@ -114,57 +122,61 @@
           <xsl:if test="fhirVersion/@value|acceptUnknown/@value|format/@value|profile/@value">
             <h2>General</h2>
             <div class="table-wrapper">
-              <table>
-              <tbody>
-                <xsl:for-each select="fhirVersion/@value">
+              <table class="grid">
+                <tbody>
                   <tr>
                     <th>FHIR Version:</th>
-                    <td>$ver$</td>
-                  </tr>
-                </xsl:for-each>
-                <xsl:for-each select="acceptnknown/@value">
-                  <tr>
-                    <th>Accepts elements from future versions:</th>
                     <td>
-                      <xsl:value-of select="."/>
+                      <xsl:value-of select="string-join(fhirVersion/@value, ', ')"/>
                     </td>
                   </tr>
-                </xsl:for-each>
-                <xsl:if test="format/@value">
-                  <tr>
-                    <th>Supported formats:</th>
-                    <td>
-                      <xsl:value-of select="string-join(format/@value, ', ')"/>
-                    </td>
-                  </tr>
-                </xsl:if>
-                <xsl:if test="profile/@value">
-                  <tr>
-                    <th>Supported profiles:</th>
-                    <td>
-                      <xsl:for-each select="profile/@value">
-                        <p>
-                          <a href="{.}.html">
-                            <xsl:value-of select="."/>
-                          </a>
-                        </p>
-                      </xsl:for-each>
-                    </td>
-                  </tr>
-                </xsl:if>
-              </tbody>
-            </table>
+                  <xsl:for-each select="acceptunknown/@value">
+                    <tr>
+                      <th>Accepts elements from future versions:</th>
+                      <td>
+                        <xsl:value-of select="."/>
+                      </td>
+                    </tr>
+                  </xsl:for-each>
+                  <xsl:if test="format/@value">
+                    <tr>
+                      <th>Supported formats:</th>
+                      <td>
+                        <xsl:value-of select="string-join(format/@value, ', ')"/>
+                      </td>
+                    </tr>
+                  </xsl:if>
+                  <xsl:if test="profile/@value">
+                    <tr>
+                      <th>Supported profiles:</th>
+                      <td>
+                        <xsl:for-each select="profile/@value">
+                          <p>
+                            <a href="{.}.html">
+                              <xsl:value-of select="."/>
+                            </a>
+                          </p>
+                        </xsl:for-each>
+                      </td>
+                    </tr>
+                  </xsl:if>
+                </tbody>
+              </table>
             </div>
           </xsl:if>
           <xsl:for-each select="rest">
             <h2>
-              <xsl:value-of select="concat('REST ', @mode, ' behavior')"/>
+              <xsl:value-of select="concat('REST ', mode/@value, ' behavior')"/>
             </h2>
             <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
             <xsl:for-each select="security/description/@value">
               <p>
                 <b>Security:</b>
               </p>
+              <xsl:if test="service/coding/code">
+                <xsl:value-of select="string-join(service/coding/code/@value, ', ')"/>
+                <br/>
+              </xsl:if>
               <xsl:copy-of select="fn:handleMarkdownLines(.)"/>
             </xsl:for-each>
             <xsl:if test="resource">
@@ -182,6 +194,7 @@
                     <th>Create</th>
                     <th>Update</th>
                     <th>Delete</th>
+                    <th>Operations</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -203,6 +216,10 @@
                       <td>
                         <xsl:for-each select="interaction[code/@value='read']">
                           <xsl:call-template name="doCapabilityStatement"/>
+                        </xsl:for-each>
+                        <xsl:for-each select="conditionalRead/@value">
+                          <br/>(conditional read:<br/>
+                          <xsl:value-of select="concat(., ')')"/>
                         </xsl:for-each>
                       </td>
                       <td>
@@ -240,6 +257,15 @@
                         </xsl:for-each>
                         <xsl:if test="conditionalDelete/@value='true'">(conditional supported)</xsl:if>
                       </td>
+                      <td>
+                        <xsl:for-each select="operation">
+                          <xsl:if test="position()!=1">
+                            <br/>
+                          </xsl:if>
+                          <xsl:value-of select="concat('$', name/@value, ': ')"/>
+                          <xsl:call-template name="doCapabilityStatement"/>
+                        </xsl:for-each>
+                      </td>
                     </tr>
                   </xsl:for-each>
                 </tbody>
@@ -254,12 +280,12 @@
                 <xsl:for-each select="operation">
                   <li>
                     <a href="{lower-case(definition/reference/@value)}{lower-case(definition/@value)}">
-                      <xsl:value-of select="name/@value"/>
+                      <xsl:value-of select="concat('$', name/@value)"/>
                     </a>
                     <xsl:for-each select="definition/display/@value">
                       <xsl:value-of select="concat(' - ', .)"/>
                     </xsl:for-each>
-                    <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value">
+                    <xsl:for-each select="extension[@url=$expectation-extension]/valueCode/@value">
                       <i>
                         <xsl:value-of select="concat(' ', .)"/>
                       </i>
@@ -269,7 +295,7 @@
               </ul>
             </xsl:if>
             <xsl:if test="interaction">
-              <xsl:variable name="doCapabilityStatement" as="xs:boolean" select="exists(interaction/extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value)"/>
+              <xsl:variable name="doCapabilityStatement" as="xs:boolean" select="exists(interaction/extension[@url=$expectation-extension]/valueCode/@value)"/>
               <h3>General interactions</h3>
               <div class="table-wrapper">
                 <table class="list">
@@ -306,28 +332,58 @@
                   </a>
                 </p>
               </xsl:for-each>
-              <xsl:copy-of select="fn:handleMarkdownLines(description/@value)">
-                <!-- This doesn't exist yet -->
-              </xsl:copy-of>
+              <xsl:if test="supportedProfile">
+                <p>Supported Profile(s):</p>
+                <ul>
+                  <xsl:for-each select="supportedProfile/@value">
+                    <li>
+                      <a href="{.}.html">
+                        <xsl:value-of select="."/>
+                      </a>
+                    </li>
+                  </xsl:for-each>
+                </ul>
+              </xsl:if>
+              <xsl:variable name="behavior" as="element()*">
+                <xsl:for-each select="versioning/@value">
+                  <p>
+                    <xsl:value-of select="concat('Versioning support: ', .)"/>
+                  </p>
+                </xsl:for-each>
+                <xsl:for-each select="referencePolicy/@value">
+                  <p>
+                    <xsl:value-of select="concat('Reference policy: ', .)"/>
+                  </p>
+                </xsl:for-each>
+              </xsl:variable>
+              <xsl:if test="$behavior">
+                <h4>Behavior</h4>
+                <xsl:copy-of select="$behavior"/>
+              </xsl:if>              
+              <!-- Note: description doesn't exist yet -->
+              <xsl:copy-of select="fn:handleMarkdownLines(description/@value)"/>
               <h4>Interactions</h4>
               <div class="table-wrapper">
                 <table class="list">
-                <xsl:variable name="doCapabilityStatement" as="xs:boolean" select="exists(interaction/extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value)"/>
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <xsl:if test="$doCapabilityStatement">
-                      <th>Conformance</th>
-                    </xsl:if>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <xsl:apply-templates select="interaction[documentation]">
-                    <xsl:with-param name="doCapabilityStatement" select="$doCapabilityStatement"/>
-                  </xsl:apply-templates>
-                </tbody>
-              </table>
+                  <xsl:variable name="doCapabilityStatement" as="xs:boolean" select="exists(interaction/extension[@url=$expectation-extension]/valueCode/@value)"/>
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <xsl:if test="$doCapabilityStatement">
+                        <th>Conformance</th>
+                      </xsl:if>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <xsl:apply-templates select="interaction[documentation]">
+                      <xsl:with-param name="doCapabilityStatement" select="$doCapabilityStatement"/>
+                    </xsl:apply-templates>
+                    <xsl:apply-templates select="operation[documentation]">
+                      <xsl:with-param name="doCapabilityStatement" select="$doCapabilityStatement"/>
+                    </xsl:apply-templates>
+                  </tbody>
+                </table>
               </div>
               <xsl:if test="searchInclude or searchParam">
                 <h4>Search</h4>
@@ -352,79 +408,79 @@
                 <b>End point(s): </b>
               </p>
               <div class="table-wrapper">
-                <table>
-                <tbody>
-                  <tr>
-                    <th>Address</th>
-                    <th>Protocol(s)</th>
-                  </tr>
-                  <xsl:for-each select="endpoint">
+                <table cellpadding="grid">
+                  <tbody>
                     <tr>
-                      <td>
-                        <xsl:value-of select="address/@value"/>
-                      </td>
-                      <td>
-                        <xsl:for-each select="protocol">
-                          <xsl:if test="position()!=1">, </xsl:if>
-                          <xsl:value-of select="if (display) then display/@value else code/@value"/>
-                        </xsl:for-each>
-                      </td>
+                      <th>Address</th>
+                      <th>Protocol(s)</th>
                     </tr>
-                  </xsl:for-each>
-                </tbody>
-              </table>
+                    <xsl:for-each select="endpoint">
+                      <tr>
+                        <td>
+                          <xsl:value-of select="address/@value"/>
+                        </td>
+                        <td>
+                          <xsl:for-each select="protocol">
+                            <xsl:if test="position()!=1">, </xsl:if>
+                            <xsl:value-of select="if (display) then display/@value else code/@value"/>
+                          </xsl:for-each>
+                        </td>
+                      </tr>
+                    </xsl:for-each>
+                  </tbody>
+                </table>
               </div>
             </xsl:if>
             <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
             <div class="table-wrapper">
               <table class="grid">
-              <thead>
-                <tr>
-                  <th>Event</th>
-                  <th>Category</th>
-                  <th>Mode</th>
-                  <th>Focus</th>
-                  <th>Request</th>
-                  <th>Response</th>
-                  <th>Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                <xsl:for-each select="event">
+                <thead>
                   <tr>
-                    <td>
-                      <xsl:value-of select="code/@value"/>
-                    </td>
-                    <td>
-                      <xsl:value-of select="category/@value"/>
-                    </td>
-                    <td>
-                      <xsl:value-of select="mode/@value"/>
-                    </td>
-                    <td>
-                      <xsl:value-of select="focus/@value"/>
-                    </td>
-                    <td>
-                      <xsl:for-each select="request/refereince/@value">
-                        <a href="{.}.html">
-                          <xsl:value-of select="."/>
-                        </a>
-                      </xsl:for-each>
-                    </td>
-                    <td>
-                      <xsl:for-each select="response/reference/@value">
-                        <a href="{.}.html">
-                          <xsl:value-of select="."/>
-                        </a>
-                      </xsl:for-each>
-                    </td>
-                    <td>
-                      <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
-                    </td>
+                    <th>Event</th>
+                    <th>Category</th>
+                    <th>Mode</th>
+                    <th>Focus</th>
+                    <th>Request</th>
+                    <th>Response</th>
+                    <th>Notes</th>
                   </tr>
-                </xsl:for-each>
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  <xsl:for-each select="event">
+                    <tr>
+                      <td>
+                        <xsl:value-of select="code/@value"/>
+                      </td>
+                      <td>
+                        <xsl:value-of select="category/@value"/>
+                      </td>
+                      <td>
+                        <xsl:value-of select="mode/@value"/>
+                      </td>
+                      <td>
+                        <xsl:value-of select="focus/@value"/>
+                      </td>
+                      <td>
+                        <xsl:for-each select="request/refereince/@value">
+                          <a href="{.}.html">
+                            <xsl:value-of select="."/>
+                          </a>
+                        </xsl:for-each>
+                      </td>
+                      <td>
+                        <xsl:for-each select="response/reference/@value">
+                          <a href="{.}.html">
+                            <xsl:value-of select="."/>
+                          </a>
+                        </xsl:for-each>
+                      </td>
+                      <td>
+                        <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
+                      </td>
+                    </tr>
+                  </xsl:for-each>
+                </tbody>
+              </table>
             </div>
           </xsl:for-each>
           <xsl:if test="document">
@@ -436,33 +492,33 @@
             </xsl:for-each>
             <div class="table-wrapper">
               <table class="grid">
-              <thead>
-                <tr>
-                  <th>Mode</th>
-                  <th>Profile</th>
-                  <th>Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                <xsl:for-each select="document">
+                <thead>
                   <tr>
-                    <td>
-                      <xsl:value-of select="mode/@value"/>
-                    </td>
-                    <td>
-                      <xsl:for-each select="profile/@value">
-                        <a href="{.}.html">
-                          <xsl:value-of select="."/>
-                        </a>
-                      </xsl:for-each>
-                    </td>
-                    <td>
-                      <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
-                    </td>
+                    <th>Mode</th>
+                    <th>Profile</th>
+                    <th>Notes</th>
                   </tr>
-                </xsl:for-each>
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  <xsl:for-each select="document">
+                    <tr>
+                      <td>
+                        <xsl:value-of select="mode/@value"/>
+                      </td>
+                      <td>
+                        <xsl:for-each select="profile/@value">
+                          <a href="{.}.html">
+                            <xsl:value-of select="."/>
+                          </a>
+                        </xsl:for-each>
+                      </td>
+                      <td>
+                        <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
+                      </td>
+                    </tr>
+                  </xsl:for-each>
+                </tbody>
+              </table>
             </div>
           </xsl:if>
         </div>
@@ -471,7 +527,7 @@
     </xsl:copy>
   </xsl:template>
   <xsl:template name="doParams" as="element(xhtml:div)">
-    <xsl:variable name="doCapabilityStatement" as="xs:boolean" select="exists(*[self::searchParam or self::parameter]/extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value)"/>
+    <xsl:variable name="doCapabilityStatement" as="xs:boolean" select="exists(*[self::searchParam or self::parameter]/extension[@url=$expectation-extension]/valueCode/@value)"/>
     <div class="table-wrapper">
       <table class="list">
       <thead>
@@ -502,7 +558,7 @@
             </th>
             <xsl:if test="$doCapabilityStatement">
               <td>
-                <xsl:value-of select="extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value"/>
+                <xsl:value-of select="extension[@url=$expectation-extension]/valueCode/@value"/>
               </td>
             </xsl:if>
             <td>
@@ -537,7 +593,34 @@
       </th>
       <xsl:if test="$doCapabilityStatement">
         <td>
-          <xsl:value-of select="extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value"/>
+          <xsl:value-of select="extension[@url=$expectation-extension]/valueCode/@value"/>
+        </td>
+      </xsl:if>
+      <td>
+        <xsl:if test="code/@value='transaction'">
+          <p>
+            <xsl:value-of select="concat('Modes: ', string-join(transactionMode/@value, ', '))"/>
+          </p>
+        </xsl:if>
+        <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
+      </td>
+    </tr>
+  </xsl:template>
+  <xsl:template match="operation">
+    <xsl:param name="doCapabilityStatement" as="xs:boolean" required="yes"/>
+    <tr>
+      <th>
+        <a name="{ancestor::resource/type/@value}-{name/@value}">
+          <!-- To get around browser issue -->
+          <xsl:text>&#xA0;</xsl:text>
+        </a>
+        <span>
+          <xsl:value-of select="concat('$', name/@value)"/>
+        </span>
+      </th>
+      <xsl:if test="$doCapabilityStatement">
+        <td>
+          <xsl:value-of select="extension[@url=$expectation-extension]/valueCode/@value"/>
         </td>
       </xsl:if>
       <td>
@@ -553,13 +636,13 @@
   <xsl:template name="doCapabilityStatement" as="node()">
     <xsl:variable name="documentation" as="xs:string">
       <xsl:if test="normalize-space(documentation/@value)!=''">
-        <xsl:copy-of select="string-join(fn:markDownToString(fn:handleMarkdown(documentation/@value)), '')"/>
+        <xsl:copy-of select="string-join(fn:markDownToString(fn:handleMarkdown(documentation/@value)),'')"/>
       </xsl:if>
     </xsl:variable>
     <xsl:variable name="value" as="xs:string">
       <xsl:choose>
-        <xsl:when test="extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']">
-          <xsl:value-of select="extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value"/>
+        <xsl:when test="extension[@url=$expectation-extension]">
+          <xsl:value-of select="extension[@url=$expectation-extension]/valueCode/@value"/>
         </xsl:when>
         <xsl:otherwise>Yes</xsl:otherwise>
       </xsl:choose>
@@ -569,7 +652,7 @@
         <xsl:value-of select="$value"/>
       </xsl:when>
       <xsl:otherwise>
-        <a title="{$documentation}" href="#{ancestor::resource/type/@value}-{code/@value}">
+        <a title="{$documentation}" href="#{ancestor::resource/type/@value}-{code/@value|name/@value}">
           <xsl:value-of select="$value"/>
         </a>
       </xsl:otherwise>
@@ -670,8 +753,8 @@
       </xsl:apply-templates>
     </xsl:if>
   </xsl:template>
-  <xsl:variable name="BOLD" select="''''''''"/>
-  <xsl:variable name="ITALIC" select="''''''"/>
+  <xsl:variable name="BOLD">'''</xsl:variable>
+  <xsl:variable name="ITALIC">''</xsl:variable>
   <xsl:variable name="H5" select="'====='"/>
   <xsl:variable name="H4" select="'===='"/>
   <xsl:variable name="H3" select="'==='"/>
@@ -719,7 +802,7 @@
         <xsl:variable name="linkBase" as="xs:string" select="$linkParts[1]"/>
         <xsl:variable name="linkExt" as="xs:string?" select="if (ends-with($linkBase, '.html') or contains($linkBase, '#')) then '' else '.html'"/>
         <xsl:variable name="name" as="xs:string?" select="$linkParts[2]"/>
-        <a href="{if(contains($linkBase, ':') or ends-with($linkBase, '.html') or $name) then '' else $fhirpath}{lower-case($linkBase)}{$linkExt}">
+        <a href="{if(contains($linkBase, ':') or ends-with($linkBase, '.html') or $name) then '' else $fhirpath}{$linkBase}{$linkExt}">
           <xsl:value-of select="if ($name) then $name else $linkBase"/>
         </a>
         <xsl:copy-of select="fn:handleMarkdown($parts[3])"/>

@@ -8,7 +8,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <%fmtheader json%>
 
@@ -58,7 +58,7 @@ Using this format:
  <li>Objects are never empty. If an element is present in the resource, it SHALL have properties as defined for its type, or 1 or more <a href="extensibility.html">extensions</a></li>
  <li>String property values can never be empty. Either the property is absent, or it is present with at least one character of content</li>
  <li>The <span style="color: brown"><b>R!</b></span> denotes that an element is mandatory - it must be present (or in an array, at least one item must be present)</li>
- <li>In this format, <code>//</code> is used for comments. While // is legal in Javascript, it is not legal in JSON, and comments SHALL not be in JSON instances irrespective of whether partiular applications ignore them</li>
+ <li>In this format, <code>//</code> is used for comments. While // is legal in Javascript, it is not legal in JSON, and comments SHALL not be in JSON instances irrespective of whether particular applications ignore them</li>
  <li>The character encoding is always UTF-8</li>
  <li>The MIME-type for this format is <code>application/fhir+json</code>.</li>
 </ul>
@@ -377,8 +377,6 @@ on <a href="documents.html">Document bundles</a> and their related processes is 
 use of digital signatures.
 [%end-note%]
 
-
-</div>
 
 [%file newfooter%]
 </body>

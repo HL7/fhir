@@ -42,4 +42,24 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionProduct-biological-source"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionProduct.biologicalSource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionProduct-biological-source"/>
+        <description value="The biological source for the nutrition product"/>
+        <code value="biological-source"/>
+        <type value="token"/>
+        <expression value="NutritionProduct.instance.biologicalSource"/>
+        <xpath value="f:NutritionProduct/f:instance/f:biologicalSource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

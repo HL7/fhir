@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Citation"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="Citation"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>
@@ -365,6 +365,15 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+    <element id="Citation.copyright">
+      <path value="Citation.copyright"/>
+      <short value="Use and/or publishing restrictions for the Citation, not for the cited artifact"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
     <element id="Citation.approvalDate">
       <path value="Citation.approvalDate"/>
       <short value="When the citation was approved by publisher"/>
@@ -424,6 +433,42 @@
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
       </mapping>
+    </element>
+    <element id="Citation.author">
+      <path value="Citation.author"/>
+      <short value="Who authored the Citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="Citation.editor">
+      <path value="Citation.editor"/>
+      <short value="Who edited the Citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="Citation.reviewer">
+      <path value="Citation.reviewer"/>
+      <short value="Who reviewed the Citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="Citation.endorser">
+      <path value="Citation.endorser"/>
+      <short value="Who endorsed the Citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
     </element>
     <element id="Citation.summary">
       <path value="Citation.summary"/>
@@ -573,64 +618,13 @@
         <code value="Period"/>
       </type>
     </element>
-    <element id="Citation.relatesTo">
-      <path value="Citation.relatesTo"/>
+    <element id="Citation.relatedArtifact">
+      <path value="Citation.relatedArtifact"/>
       <short value="Artifact related to the Citation Resource"/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="Citation.relatesTo.relationshipType">
-      <path value="Citation.relatesTo.relationshipType"/>
-      <short value="How the Citation resource relates to the target artifact"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ArtifactRelationshipType"/>
-        </extension>
-        <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
-      </binding>
-    </element>
-    <element id="Citation.relatesTo.targetClassifier">
-      <path value="Citation.relatesTo.targetClassifier"/>
-      <short value="The clasification of the related artifact"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="CitationArtifactClassifier"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
-      </binding>
-    </element>
-    <element id="Citation.relatesTo.target[x]">
-      <path value="Citation.relatesTo.target[x]"/>
-      <short value="The article or artifact that the Citation Resource is related to"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-      <type>
-        <code value="Attachment"/>
+        <code value="RelatedArtifact"/>
       </type>
     </element>
     <element id="Citation.citedArtifact">
@@ -780,7 +774,7 @@
       <short value="The kind of title"/>
       <definition value="Used to express the reason or specific aspect for the title."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -933,58 +927,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.relatesTo.relationshipType">
-      <path value="Citation.citedArtifact.relatesTo.relationshipType"/>
-      <short value="How the cited artifact resource relates to the target artifact"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ArtifactRelationshipType"/>
-        </extension>
-        <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
-      </binding>
-    </element>
-    <element id="Citation.citedArtifact.relatesTo.targetClassifier">
-      <path value="Citation.citedArtifact.relatesTo.targetClassifier"/>
-      <short value="The clasification of the related artifact"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="CitationArtifactClassifier"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
-      </binding>
-    </element>
-    <element id="Citation.citedArtifact.relatesTo.target[x]">
-      <path value="Citation.citedArtifact.relatesTo.target[x]"/>
-      <short value="The article or artifact that the cited artifact is related to"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-      <type>
-        <code value="Attachment"/>
+        <code value="RelatedArtifact"/>
       </type>
     </element>
     <element id="Citation.citedArtifact.publicationForm">
@@ -1061,16 +1004,6 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.publishedIn.startDate">
-      <path value="Citation.citedArtifact.publicationForm.publishedIn.startDate"/>
-      <short value="When the database was first available or when the book was published"/>
-      <comment value="Date can be specific to database version or book edition if specified in the name."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="date"/>
-      </type>
-    </element>
     <element id="Citation.citedArtifact.publicationForm.periodicRelease">
       <path value="Citation.citedArtifact.publicationForm.periodicRelease"/>
       <short value="The specific issue in which the cited article resides"/>
@@ -1092,10 +1025,10 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="JournalIssueMedium"/>
+          <valueString value="CitedMedium"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/journal-issue-medium"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/cited-medium"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.publicationForm.periodicRelease.volume">
@@ -1283,20 +1216,20 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.webLocation.type">
-      <path value="Citation.citedArtifact.webLocation.type"/>
+    <element id="Citation.citedArtifact.webLocation.classifier">
+      <path value="Citation.citedArtifact.webLocation.classifier"/>
       <short value="Code the reason for different URLs, e.g. abstract and full-text"/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ArticleUrlType"/>
+          <valueString value="ArtifactUrlClassifier"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/article-url-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-url-classifier"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.webLocation.url">
@@ -1444,7 +1377,7 @@
       <path value="Citation.citedArtifact.contributorship.entry.name"/>
       <short value="A name associated with the person"/>
       <definition value="A name associated with the individual."/>
-      <comment value="humanName.family can match MEDLINE-based lastName (used for surname or single name), humanName.given can match MEDLINE-based forename (used for remainder of name except for suffix), humanName.suffix can match MEDLINE-based suffix (eg 2nd, 3rd, Jr, Sr)."/>
+      <comment value="humanName.family can match MEDLINE-based lastName (used for surname or single name), humanName.given can match MEDLINE-based forename (used for remainder of name except for suffix), humanName.suffix can match MEDLINE-based suffix (e.g., 2nd, 3rd, Jr, Sr)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1473,7 +1406,7 @@
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.identifier">
       <path value="Citation.citedArtifact.contributorship.entry.identifier"/>
-      <short value="Author identifier, eg ORCID"/>
+      <short value="Author identifier, e.g., ORCID"/>
       <definition value="Unique person identifier."/>
       <comment value="Avoids needing to disambiguate common last names or changes of name. ORCID is commonly used as author identifier."/>
       <min value="0"/>
@@ -1616,9 +1549,10 @@
         <code value="boolean"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.contributorship.entry.listOrder">
-      <path value="Citation.citedArtifact.contributorship.entry.listOrder"/>
-      <short value="Used to code order of authors"/>
+    <element id="Citation.citedArtifact.contributorship.entry.rankingOrder">
+      <path value="Citation.citedArtifact.contributorship.entry.rankingOrder"/>
+      <short value="Ranked order of contribution"/>
+      <definition value="Provides a numerical ranking to represent the degree of contributorship relative to other contributors, such as 1 for first author and 2 for second author."/>
       <min value="0"/>
       <max value="1"/>
       <type>

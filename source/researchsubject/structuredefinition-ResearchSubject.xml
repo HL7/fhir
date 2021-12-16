@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="ResearchSubject"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A physical entity which is the primary unit of operational and/or administrative interest in a study."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="BRIDG5.1"/>
     <uri value="https://bridgmodel.nci.nih.gov"/>
@@ -118,27 +118,24 @@
       </mapping>
     </element>
     <element id="ResearchSubject.status">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
-        <valueString value="Should this be a common code system for all events?"/>
-      </extension>
       <path value="ResearchSubject.status"/>
-      <short value="candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn"/>
-      <definition value="The current state of the subject."/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The publication state of the resource (not of the subject)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should be treated as invalid"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchSubjectStatus"/>
+          <valueString value="PublicationStatus"/>
         </extension>
         <strength value="required"/>
-        <description value="Indicates the progression of a study subject through a study."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-status"/>
+        <description value="Codes that convey the current publication status of the research study resource."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -153,6 +150,8 @@
         <map value=".status"/>
       </mapping>
     </element>
+
+    <!-- Progress -->
     <element id="ResearchSubject.progress">
       <path value="ResearchSubject.progress"/>
       <short value="Subject status"/>
@@ -166,7 +165,7 @@
     </element>
     <element id="ResearchSubject.progress.type">
       <path value="ResearchSubject.progress.type"/>
-      <short value="Kind of state that is being described"/>
+      <short value="state | milestone"/>
       <definition value="Identifies the aspect of the subject&#39;s journey that the state refers to."/>
       <min value="0"/>
       <max value="1"/>
@@ -182,8 +181,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-state-type"/>
       </binding>
     </element>
-    <element id="ResearchSubject.progress.state">
-      <path value="ResearchSubject.progress.state"/>
+    <element id="ResearchSubject.progress.subjectState">
+      <path value="ResearchSubject.progress.subjectState"/>
       <short value="candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn"/>
       <definition value="The current state of the subject."/>
       <min value="0"/>
@@ -193,11 +192,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchSubjectState"/>
+          <valueString value="ResearchSubjectProgresss"/>
         </extension>
-        <strength value="example"/>
+        <strength value="required"/>
         <description value="Indicates the progression of a study subject through a study."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-state"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-progress"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -260,9 +259,22 @@
     <element id="ResearchSubject.progress.startDate">
       <path value="ResearchSubject.progress.startDate"/>
       <short value="State change date"/>
-      <definition value="The date when the change in status occurred."/>
+      <definition value="The date when the new status started."/>
       <comment value="This is NOT the date the change in state was recorded."/>
-      <min value="1"/>
+      <requirements value="This was originally defined as the date when the change in status occurred.  This assumed all 
+                    states were recorded which is not true.  Hence the need to track the end of the state."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="ResearchSubject.progress.endDate">
+      <path value="ResearchSubject.progress.endDate"/>
+      <short value="State change date"/>
+      <definition value="The date when the state ended."/>
+      <requirements value="See the requirement on the start date."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="dateTime"/>

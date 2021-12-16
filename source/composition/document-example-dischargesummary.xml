@@ -392,7 +392,8 @@
         </reason>
       <!--   a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
         within the document bundle or simply a reference to a remote server. See comment in the contained resource  -->
-             <dosageInstruction>
+             <dose>
+        <dosageInstruction>
           <additionalInstruction>
             <text value="Take with Food"/>
           </additionalInstruction>
@@ -429,6 +430,7 @@
                </doseAndRate>
 
         </dosageInstruction>
+             </dose>
       </MedicationRequest>
     </resource>
   </entry>
@@ -448,7 +450,7 @@
         </text>
       <!--   The patient details will generally be in the Document resource in the Document bundle, but could just as easily
         point to a patient resource on a server  -->
-        <status value='completed'/>
+        <status value='recorded'/>
 	<!--   a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
         within the document bundle or simply a reference to a remote server. See comment in the contained resource  -->
         <medication>

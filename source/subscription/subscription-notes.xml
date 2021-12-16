@@ -80,21 +80,74 @@
 	<a name="channels"/>
 	<h2>Channels</h2>
 		
+    <a name="channels-deciding"/>
+    <h3>Deciding on Channel Type</h3>
+    <p>
+      Both the FHIR specification and this guide rely on the definitions of a reduced set of channel types.  While the specification allows for additional channel type definitions, the included set attempts to cover the majority of common use cases.  Below is some guidance for implementers to consider when selecting a channel type.
+    </p>
+
+    <a name="deciding-rest-hook"/>
+    <h4>REST-Hook</h4>
+    <p>
+      The FHIR standard makes extensive use of the RESTful model.  Given the popularity of REST and widespread adoption, most implementers should assume REST-hook as the 'default' channel type.  In general, REST-based systems are well-supported (e.g., tooling, infrastructure, documentation, etc.), and will present the lowest bar for implementation.
+    </p>
+
+    <a name="deciding-websocket"/>
+    <h4>Websocket</h4>
+    <p>
+      Websockets are unique in the pre-defined channel types in being the only channel that does not require the client to have an endpoint.  Due to this property, the websocket channel is very useful for clients where creating an endpoint would be difficult or impossible (e.g., mobile clients, web-based clients, etc.).
+    </p>
+
+    <a name="deciding-email"/>
+    <h4>Email</h4>
+    <p>
+      The Email channel is the only channel that could contest REST in non-FHIR implementations.  That said, Email communication is often high-latency and is typically used for communication to individuals - not applications.  Email channels are particularly useful in the context of these non-application use cases, such as public health notifications.  For example, if a public health agency does not have the ability or desire to build a custom RESTful solution (e.g., creating and maintaining an endpoint to receive notifications, as well as software to consume those notifications), it is straightforward to map notifications to email addresses or aliases.
+    </p>
+
+    <a name="deciding-messaging"/>
+    <h4>FHIR Messaging</h4>
+    <p>
+      FHIR Messaging is a mechanism defined to allow for non-RESTful communication between FHIR servers and clients.  One common use case is when connectivity is an issue (e.g., remote sites that batch all communications when connections are available).  This channel defines how to integrate topic-based subscriptions with the FHIR Messaging model.
+    </p>
+
+    <a name="deciding-custom"/>
+    <h4>Custom Channels</h4>
+    <p>
+      For use cases that are not well-met by any of the predefined channels, the Subscriptions Framework allows for custom channel definitions.  Some examples of scenarios where custom channels may be applicable include:
+    </p>
+    <ul>
+      <li>requirements for reliable (guaranteed) delivery (e.g., message queues)</li>
+      <li>implementations using other communication protocols (e.g., protocols specific to a cloud-based provider)</li>
+      <li>implementations using a non-standard serialization format</li>
+    </ul>
+
 		<a name="rest-hook"/>
 		<h3>REST Hook</h3>
-		<p>
-			When a Subscription is created for a REST Hook channel type, the server SHALL set initial status to <code>requested</code>, pending verification of the nominated endpoint URL. After a successful handshake notification has been sent and accepted, the server SHALL update the status to <code>active</code>. Any errors in the initial handshake SHALL result in the status being changed to <code>error</code>.
-		</p>
-		<p>
-			To receive notifications via HTTP/S POST, a client should request a subscription with the channel type (<code>Subscription.channelType</code>) of <code>rest-hook</code> (from the subscription-channel-type Code System) and set the endpoint (<code>Subscription.endpoint</code>) to the appropriate client URL.  Note that this URL must be accessible by the hosting server.
-		</p>
-		<p>
-			To convey an event notification, the server POSTs a Bundle to the client's nominated endpoint URL per the format requests in the Subscription. The content-type of the POST SHALL match the contentType (<code>channel.contentType</code>) requested during creation of the Subscription. Each <code>Subscription.header</code> value SHALL be conveyed as an HTTP request header.
-		</p>
+    <p>
+      To receive notifications via HTTP/S POST, a client should request a subscription with the channel type of `rest-hook` and set the endpoint to the appropriate client URL. Note that this URL must be accessible by the hosting server.
+    </p>
 
-		<p>
-			An example workflow for establishing a <code>rest-hook</code> subscription is included below.
-		</p>
+    <p>
+      To convey an event notification, the server POSTs a <code>notification Bundle</code> to the client's nominated endpoint URL per the format requests in the Subscription:
+    </p>
+    <ul>
+      <li>The <code>content-type</code> of the POST SHALL match the MIME type on the Subscription <a href="subscription-definitions.html#Subscription.contentType">Subscription.contentType</a>.</li>
+      <li>Each <a href="subscription-definitions.html#Subscription.header">Subscription.header</a> value SHALL be conveyed as an HTTP request header.</li>
+    </ul>
+
+    <p>
+      When a subscription is created for a REST Hook channel type, the server SHALL set initial status to <code>requested</code>, pending verification of the nominated endpoint URL. After a successful <code>handshake</code> notification has been sent and accepted, the server SHALL update the status to <code>active</code>. Any errors in the initial <code>handshake</code> SHALL result in the status being changed to <code>error</code>.
+    </p>
+
+    <p>
+      An example workflow for establishing a <code>rest-hook</code> subscription is shown below.
+    </p>
+
+    <figure>
+      <img src="channel-rest-hook.svg"/>
+      <figcaption>Diagram showing a possible workflow for rest-hook subscriptions</figcaption>
+    </figure>
+
 		<img src="subscription-rest-hook-flow.svg" alt="Diagram with a worflow for a Subscription using REST hooks" />
 		<ol type="1">
 			<li>
@@ -107,29 +160,32 @@
 				Server performs an HTTP POST to the requested endpoint with a <code>handshake</code> notification.
 			</li>
 			<li>
-				Client Endpoint accepts the POST and returns a success HTTP code (e.g., 200).
+				Client Endpoint accepts the POST and returns a success HTTP code (e.g., <code>200</code>).
 			</li>
 			<li>
 				Server may send a notification of type <code>heartbeat</code> at any time.
 			</li>
 			<li>
+				Client Endpoint accepts the POST and returns a success HTTP code (e.g., <code>200</code>).
+			</li>
+			<li>
 				Server may send a notificaiton of type <code>event-notificaiton</code> at any time.
+			</li>
+			<li>
+				Client Endpoint accepts the POST and returns a success HTTP code (e.g., <code>200</code>).
 			</li>
 		</ol>
 
-			<a name="rest-hook-security"/>
-			<h4>Channel Security Notes</h4>
-			<p>
-				HTTP is neither a secure nor an encrypted channel.  It is strongly recommended that production implementations refuse requests to send notifications to URLs using the HTTP protocol (use HTTPS instead).
-			</p>
-			<p>
-				HTTP does not provide endpoint verification.  It is strongly recommended that implementations refuse requests to send notifications to URLs using the HTTP protocol (use HTTPS instead).
-			</p>
+    <a name="rest-hook-security"/>
+    <h4>Channel Security Notes</h4>
+    <p>
+      HTTP is neither a secure nor an encrypted channel, nor does it provide endpoint verification. It is strongly recommended that implementations refuse requests to send notifications to URLs using the HTTP protocol (use HTTPS instead).
+    </p>
 
 		<a name="websockets"/>
 		<h3>WebSockets</h3>
 		<p>
-			While the primary interface for FHIR servers is the FHIR REST API, notifications need not occur via REST.  Indeed, some subscribers may be unable to expose an outward-facing HTTP server to receive triggered notifications.  For example, a pure client-side Web app or mobile app may want to subscribe to a data feed without polling using the /history operation. This can be accomplished using a websocket notification channel.
+			While the primary interface for FHIR servers is the FHIR REST API, notifications need not occur via REST. Indeed, some subscribers may be unable to expose an outward-facing HTTP server to receive triggered notifications. For example, a pure client-side Web app or mobile app may want to subscribe to a data feed. This can be accomplished using a <code>websocket</code> notification channel.
 		</p>
 		<p>
 			A client can declare its intention to receive notifications via Web Sockets by requesting a subscription with the channel type (<code>Subscription.channelType</code>) of <code>websocket</code> (from the subscription-channel-type Code System).
@@ -137,7 +193,12 @@
 		<p>
 			An example workflow for receiving notifications via websockets is shown below:
 		</p>
-		<img src="subscription-websocket-flow.svg" alt="Diagram with a worflow for a Subscription using websockets" />
+
+    <figure>
+      <img src="channel-websocket.svg"/>
+      <figcaption>Diagram showing a possible workflow for websocket subscriptions</figcaption>
+    </figure>
+
 		<ol type="1">
 			<li>
 				Client creates a <code>Subscription</code> with the <code>channelType</code> set to <code>websocket</code>.
@@ -146,20 +207,14 @@
 				Server responds with a success code and creates the subscription.
 			</li>
 			<li>
-				Client requests FHIR server's <a href="capabilitystatement.html">CapabilityStatement</a> to find the server's websocket URL via the <a href="extension-capabilitystatement-websocket.html">websocket extension</a>.
-			</li>
-			<li>
-				Server returns its <a href="capabilitystatement.html">CapabilityStatement</a>.
-			</li>
-			<li>
-				Client connects to the server via websockets (ws:// or wss://).
-			</li>
-			<li>
 				Client requests a websocket binding token, by invoking the <a href="subscription-operation-get-ws-binding-token.html">$get-ws-binding-token</a> operation via REST.  Note: this call is intended to be repeated as necessary (e.g., prior to a token expiring, a client should request a new one).
 			</li>
 			<li>
-				Server returns <a href="parameters.html">Parameters</a> with a <code>token</code> and an <code>expiration</code>.
+				Server returns <a href="parameters.html">Parameters</a> with a <code>token</code>, <code>expiration</code>, and <code>websocket-url</code>.
 			</li>
+      <li>
+        Client connects to the server via websockets, via the returned <code>websocket-url</code> (<code>wss://</code> preferred).
+      </li>
 			<li>
 				Client sends a <code>bind-with-token</code> message via websockets, with the token provided by the server.  Note: this operation can be repeated concurrently for multiple subscriptions, and serially for continued operation over a single websocket connection.
 			</li>
@@ -172,12 +227,27 @@
 			<li>
 				Server may send an <code>event-notification</code> message via websockets at any time.
 			</li>
+      <li>
+        If the token is expiring soon and the Client wishes to continue receiving notifications, it should invoke the `$get-ws-binding-token` operation via REST.
+      </li>
+      <li>
+				Server returns <a href="parameters.html">Parameters</a> with a new <code>token</code>, <code>expiration</code>, and <code>websocket-url</code>.
+      </li>
+      <li>
+        If the <code>websocket-url</code> is different from the existing connection, the Client establishes a new connection to the Client Endpoint.
+      </li>
+      <li>
+				Client sends a <code>bind-with-token</code> message via websockets, with the token provided by the server.  Note: this operation can be repeated concurrently for multiple subscriptions, and serially for continued operation over a single websocket connection.
+      </li>
+      <li>
+				Server sends one or more <code>handshake</code> messages via websockets (one per Subscription included in the token).  Note: some servers may additionally send one or more <code>event-notification</code> messages at this time (e.g., all messages since last connected, last 'n' messages, etc.).  Clients are expected to handle either flow.
+      </li>
 			<li>
 				Either the server or the client may close the websocket connection.
 			</li>
 		</ol>
 		<p>
-			Note: all notifications sent from the server SHALL be in the format specified by the <code>Subscription</code> it is for (e.g., <code>contentType</code> and <code>content</code> fields).
+			Note: all notifications sent from the server SHALL be in the MIME Type specified by the <a href="subscription-definitions.html#Subscription.contentType">Subscription.contentType</a> and the content level specified by <a href="subscription-definitions.html#Subscription.content">Subscription.content</a>.
 		</p>
 		<p>
 			[%stu-note%]
@@ -192,7 +262,7 @@
 			</p>
 			<ul>
 				<li>
-					Authentication of WebSockets is not generically interoperable with JWT or other 'Authentication header' protocols - WS and WSS do NOT allow for the required headers.
+					Authentication of WebSockets is not generically interoperable with JWT or other 'Authentication header' protocols - the <a href="https://html.spec.whatwg.org/multipage/web-sockets.html#network">JavaScript WebSocket API</a> does not include the ability to include them.
 				</li>
 				<li>
 					Given client limitations on concurrent WebSocket connections (commonly 6), it is recommended that a single connection be able to authenticate to multiple Subscription resources.
@@ -205,7 +275,7 @@
 		<a name="email"/>
 		<h3>Email</h3>
 		<p>
-			While the primary interface for FHIR servers is the FHIR REST API, notifications need not occur via REST.  Indeed, some subscribers may be unable to maintain an outward-facing HTTP server to receive triggered notifications.  For example, a public health organization may want to be notified of outbreaks of various illnesses.  This can be accomplished using an email notification channel.
+			While the primary interface for FHIR servers is the FHIR REST API, notifications need not occur via REST.  Indeed, some subscribers may be unable to maintain an outward-facing HTTP server to receive triggered notifications.  For example, a public health organization may want to be notified of outbreaks of various illnesses.  This can be accomplished using an <code>email</code> notification channel.
 		</p>
 		<p>
 			A client can declare its intention to receive notifications via Email by requesting a subscription with the channel type (<code>Subscription.channelType</code>) of <code>email</code> (from the subscription-channel-type Code System) and setting the endpoint (<code>Subscription.endpoint</code>) to the appropriate email URI (e.g., <code>mailto:public_health_notifications@example.org</code>).
@@ -234,16 +304,27 @@
 		<p>
 			An example workflow using the <code>email</code> channel type is included below.
 		</p>
-		<img src="subscription-email-flow.svg" alt="Diagram with a worflow for a Subscription using email" />
+
+    <figure>
+      <img src="channel-email.svg"/>
+      <figcaption>Diagram showing a possible workflow for email subscriptions</figcaption>
+    </figure>
+
 		<ol type="1">
 			<li>
 				Client creates a <code>Subscription</code> with the <code>channelType</code> set to <code>email</code>.
 			</li>
 			<li>
-				Server responds with a success code and creates the subscription with a state of either <code>requested</code> or <code>active</code>.
+				Server MAY respond with a success code and create the subscription with a state of <code>active</code>.
 			</li>
 			<li>
-				Optional: Server sends a email message to the requested endpoint with a <code>handshake</code> notification.  If the subscription was set to <code>requested</code>, it should be updated to <code>active</code> after successfully sending the email (pending additional steps such as user confirmation, etc.).
+				Server MAY respond with a success code and create the subscription with a state of <code>requested</code>.
+			</li>
+			<li>
+				Server sends an initial message via the specified email server (e.g., verify the request, opt-out instructions, etc.).
+			</li>
+			<li>
+				Email Server responds with a channel appropriate response code (e.g., <code>250: OK</code>).
 			</li>
 			<li>
 				Server may send an email for a notification of type <code>heartbeat</code> at any time.
@@ -262,19 +343,22 @@
 		<a name="messaging" />
 		<h3>Messaging</h3>
 		<p>
-			There are times when it is desireable to use Subscriptions as a communication channel between FHIR servers.  This can be accomplished using a <code>Subscription</code> with the channel type of <code>message</code>.
+			There are times when it is desireable to use Subscriptions as a communication channel between FHIR servers that are connected via Messaging instead of REST.  This can be accomplished using a <code>Subscription</code> with the channel type of <code>message</code>.
 		</p>
 		<p>
 			To receive notifications via messaging, a client should request a subscription with the channel type (<code>Subscription.channelType</code>) of <code>message</code> and set the endpoint (<code>Subscription.endpoint</code>) to the destination FHIR server base URL.  Note that this URL must be accessible by the hosting server.
 		</p>
 		<p>
-			The FHIR server hosting the subscription (server) will send FHIR messages to the destination FHIR server (endpoint) as needed.  These messages will, as the contents of the message, have a fully-formed <code>subscription-notification</code> Bundle.  An example message can be found <a href="notification-message-id-only.xml.html">here</a>.
+			The FHIR server hosting the subscription (server) will send FHIR messages to the destination FHIR server (endpoint) as needed.  These messages will, as the contents of the message, have a fully-formed <code>subscription-notification</code> Bundle.  An example message can be found <a href="notification-message-full-resource.xml.html">here</a>.
 		</p>
 
 		<p>
 			An example workflow using the <code>message</code> channel type is included below.
 		</p>
-		<img src="subscription-message-flow.svg" alt="Diagram with a worflow for a Subscription using FHIR messaging" />
+    <figure>
+      <img src="channel-messaging.svg"/>
+      <figcaption>Diagram showing a possible workflow for FHIR Messaging subscriptions</figcaption>
+    </figure>
 		<ol type="1">
 			<li>
 				Client creates a <code>Subscription</code> with the <code>channelType</code> set to <code>message</code>.
