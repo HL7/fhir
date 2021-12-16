@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Slot"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="Slot"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A slot of time on a schedule that may be available for booking appointments."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -169,8 +169,9 @@
       <path value="Slot.appointmentType"/>
       <short value="The style of appointment or patient that may be booked in the slot (not service type)"/>
       <definition value="The style of appointment or patient that may be booked in the slot (not service type)."/>
+      <comment value="A slot may be allow multiple appointment types, but when booked, would only be used for one of the given appointment types."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>

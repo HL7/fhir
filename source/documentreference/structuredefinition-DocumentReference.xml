@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="DocumentReference"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A reference to a document of any kind for any purpose. While the term &#x201C;document&#x201D; implies a more narrow focus, for this resource this &quot;document&quot; encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -218,7 +218,7 @@
     </element>
     <element id="DocumentReference.docStatus">
       <path value="DocumentReference.docStatus"/>
-      <short value="preliminary | final | amended | entered-in-error"/>
+      <short value="preliminary | final | amended | entered-in-error | deprecated"/>
       <definition value="The status of the underlying document."/>
       <comment value="The document that is pointed to might be in various lifecycle states."/>
       <min value="0"/>
@@ -797,21 +797,21 @@
     </element>
     <element id="DocumentReference.relatesTo.code">
       <path value="DocumentReference.relatesTo.code"/>
-      <short value="replaces | transforms | signs | appends"/>
+      <short value="The relationship type with another document"/>
       <definition value="The type of relationship that this document has with anther document."/>
       <comment value="If this document appends another document, then the document cannot be fully understood without also accessing the referenced document."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DocumentRelationshipType"/>
         </extension>
-        <strength value="required"/>
-        <description value="The type of relationship between documents."/>
+        <strength value="extensible"/>
+        <description value="The type of relationship between the documents."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/document-relationship-type"/>
       </binding>
       <mapping>
@@ -895,7 +895,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="Security Labels from the Healthcare Privacy and Security Classification System."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/security-labels"/>
       </binding>

@@ -15,7 +15,6 @@
   
   
   <ActiveSheet>4</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4395,7 +4394,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="240">
     <Cell ss:StyleID="s136"><Data ss:Type="String">episodeOfCare</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Observation;DiagnosticReport;DocumentReference;DeviceRequest;ServiceRequest;NutritionOrder;DeviceUsage;AdverseEvent;CarePlan;ClinicalImpression;Communication;CommunicationRequest;Condition;Procedure;QuestionnaireResponse</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">AdverseEvent;Appointment;Basic;CarePlan;ClinicalImpression;Communication;CommunicationRequest;Composition;Condition;Consent;DetectedIssue;DeviceRequest;DeviceUsage;DiagnosticReport;DocumentReference;Encounter;EnrollmentRequest;EnrollmentResponse;FamilyMemberHistory;Flag;Goal;ImagingStudy;Immunization;ImmunizationEvaluation;ImmunizationRecommendation;Invoice;List;MeasureReport;MedicationAdministration;MedicationDispense;MedicationRequest;MedicationUsage;MolecularSequence;NutritionIntake;NutritionOrder;Observation;Procedure;QuestionnaireResponse;RequestGroup;ResearchSubject;RiskAssessment;SupplyDelivery;SupplyRequest;VisionPrescription;ServiceRequest&#10;</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Episode of Care</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">context</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4407,7 +4406,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Associated Encounter episode of care</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">The episode(s) of care that establishes the context for this {{title}}.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Identifies the episode(s) of care that this resource is relevant to.  Establishes the EpisodeOfCare as a 'grouper' of resources that are relevant to that episode.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Links the {{title}} to the episode of care context.&#10;&#10;{This element isn't sufficiently common to be part of the core patterns for any resource, but it is potentially relevant to resources from both the [Event](event.html) and [Request](request.html) patterns.}</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5037,7 +5036,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>16</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

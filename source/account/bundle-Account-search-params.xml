@@ -145,6 +145,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Account-guarantor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Account.guarantor.party"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Account-guarantor"/>
+        <description value="The parties ultimately responsible for balancing the Account"/>
+        <code value="guarantor"/>
+        <type value="reference"/>
+        <expression value="Account.guarantor.party"/>
+        <xpath value="f:Account/f:guarantor/f:party"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Account-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

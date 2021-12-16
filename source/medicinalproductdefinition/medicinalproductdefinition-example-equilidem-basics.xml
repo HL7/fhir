@@ -170,14 +170,10 @@
 		</coding>
 	</classification>
 	<ingredient>
-		<reference>
-		<display value="Equilidonium Phosphate"/>
-		</reference>
+		<text value="Equilidonium Phosphate"/>
 	</ingredient>
 	<ingredient>
-		<reference>
-		<display value="Calcium Carbonate"/>
-		</reference>
+		<text value="Calcium Carbonate"/>
 	</ingredient>
 	<name>
 		<productName value="Equilidem 2.5 mg film-coated tablets"/>

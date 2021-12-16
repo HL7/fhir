@@ -11,6 +11,11 @@
   <definition>
     <resource>
       <reference>
+        <reference value="StructureDefinition/structuredefinition-conformance-derivedFrom"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/structuredefinition-display-hint"/>
       </reference>
     </resource>
@@ -27,6 +32,11 @@
     <resource>
       <reference>
         <reference value="StructureDefinition/structuredefinition-fmm-no-warnings"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/structuredefinition-fmm-support"/>
       </reference>
     </resource>
     <resource>

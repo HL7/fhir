@@ -1,98 +1,97 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?> 
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
- <id value="example"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">Application Start for under service login "Grahame" (id: Grahame's Test HL7Connect)</div>
-  </text>
-
-    <type>
-        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-        <code value="110100"/>
-        <display value="Application Activity"/>
-    </type>
-    <subtype>
-        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-        <code value="110120"/>
-        <display value="Application Start"/>
-    </subtype>
-    <action value="E"/>
-    <recorded value="2012-10-25T22:04:27+11:00"/>
-	<outcome>
+	<id value="example"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Application Start for under service login "Grahame" (id: Grahame's Test HL7Connect)</div>
+	</text>
+	<category>
 		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
-			<code value="0"/>
-			<display value="Success"/>
+			<system value="http://dicom.nema.org/resources/ontology/DCM"/>
+			<code value="110100"/>
+			<display value="Application Activity"/>
 		</coding>
-	</outcome> 
-  <agent>
-      <type> <coding> <system value="http://terminology.hl7.org/CodeSystem/extra-security-role-type"/> <code value="humanuser"/> <display value="human user"/> </coding> </type> 
-
-    <role>
-      <text value="Service User (Logon)"/>
-    </role>
-			<who>
-			<identifier>
-		<value value="Grahame"/>
-			</identifier>
-		</who>
-
-    <requestor value="false"/>
-    <network>
-      <address value="127.0.0.1"/>
-      <type value="2"/>
-    </network>
-  </agent>
-  <agent> <!-- Source active participant, the software making the . AlternativeUserId - Process ID --> 
-    <type> <coding> <system value="http://dicom.nema.org/resources/ontology/DCM"/> <code value="110153"/> <display value="Source Role ID"/> </coding> </type> 
+	</category>
+	<code>
+		<coding>
+			<system value="http://dicom.nema.org/resources/ontology/DCM"/>
+			<code value="110120"/>
+			<display value="Application Start"/>
+		</coding>
+	</code>
+	<action value="E"/>
+	<recorded value="2012-10-25T22:04:27+11:00"/>
+	<outcome>
+		<code>
+			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
+			<code value="success"/>
+			<display value="Success"/>
+		</code>
+	</outcome>
+	<agent>
+		<role>
+			<text value="Service User (Logon)"/>
+		</role>
 		<who>
 			<identifier>
-				<system value="urn:oid:2.16.840.1.113883.4.2"/> 
-				<value value="2.16.840.1.113883.4.2"/> 
+				<value value="Grahame"/>
 			</identifier>
 		</who>
-    <altId value="6580"/> 
-    <requestor value="false"/> 
-    <network> <address value="Workstation1.ehr.familyclinic.com"/> <type value="1"/> </network> 
-  </agent>
-  <source>
-    <site value="Development"/>
-	<observer>
-		<display value="Grahame's Laptop"/>
-	</observer>
-    <type>
-      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-      <code value="110122"/>
-      <display value="Login"/>
-    </type>
-  </source>
-  <entity>
-    <what><identifier>
-      <type>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
-          <code value="SNO"/>
-        </coding>
-        <text value="Dell Serial Number"/>
-      </type>
-      <value value="ABCDEF"/>
-    </identifier>
-	</what>
-	<type>
-		<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
-		<code value="4"/>
-		<display value="Other"/>
-	</type>
-	<role>
-		<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
-		<code value="4"/>
-		<display value="Domain Resource"/>
-	</role>
-    <lifecycle>
-		<system value="http://terminology.hl7.org/CodeSystem/dicom-audit-lifecycle"/>
-		<code value="6"/>
-		<display value="Access / Use"/>
-	</lifecycle>
-    <name value="Grahame's Laptop"/>
-  </entity>
+		<requestor value="false"/>
+
+	</agent>
+	<agent>
+		<!-- Source active participant, the software making the . AlternativeUserId - Process ID -->
+		<extension url="http://hl7.org/fhir/StructureDefinition/auditevent-AlternativeUserID">
+			<valueIdentifier>
+				<type>
+					<text value="process ID"/>
+				</type>
+				<value value="6580"/>
+			</valueIdentifier>
+		</extension>
+		<who>
+			<identifier>
+				<system value="urn:oid:2.16.840.1.113883.4.2"/>
+				<value value="2.16.840.1.113883.4.2"/>
+			</identifier>
+		</who>
+		<requestor value="false"/>
+		<networkString value="Workstation1.ehr.familyclinic.com"/>
+
+	</agent>
+	<source>
+		<observer>
+			<display value="Grahame's Laptop"/>
+		</observer>
+		<type>
+			<coding>
+				<system value="http://dicom.nema.org/resources/ontology/DCM"/>
+				<code value="110122"/>
+				<display value="Login"/>
+			</coding>
+		</type>
+	</source>
+	<entity>
+		<what>
+			<identifier>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+						<code value="SNO"/>
+					</coding>
+					<text value="Dell Serial Number"/>
+				</type>
+				<value value="ABCDEF"/>
+			</identifier>
+		</what>
+
+		<role>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
+				<code value="4"/>
+				<display value="Domain Resource"/>
+			</coding>
+		</role>
+	</entity>
 </AuditEvent>

@@ -85,6 +85,46 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Provenance-based-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Provenance.basedOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Provenance-based-on"/>
+        <description value="Reference to the service request."/>
+        <code value="based-on"/>
+        <type value="reference"/>
+        <expression value="Provenance.basedOn"/>
+        <xpath value="f:Provenance/f:basedOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Provenance-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Provenance.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Provenance-encounter"/>
+        <description value="Encounter related to the Provenance"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="Provenance.encounter"/>
+        <xpath value="f:Provenance/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Provenance-entity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

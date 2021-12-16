@@ -13,9 +13,9 @@
 			  <display value="Cardiac pacemaker implant"/> 
 			</coding> 
 		</type> 
-		<patient> 
+		<subject> 
 			<reference value="Patient/example"/> 
-		</patient> 
+		</subject> 
 	</Device>
   </contained>
   <status value="completed"/>

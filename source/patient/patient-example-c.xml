@@ -2,6 +2,9 @@
 
 <Patient xmlns="http://hl7.org/fhir">
   <id value="pat3"/>
+  <meta>
+    <versionId value="1"/>
+  </meta>  
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -22,10 +25,14 @@
     <value value="123457"/>
   </identifier>
   <active value="true"/>
-  <name>
+  <name id="n1">
     <use value="official"/>
     <family value="Notsowell"/>
     <given value="Simon"/>
+  </name>
+  <name id="n2">
+    <use value="nickname"/>
+    <given value="Jock"/>
   </name>
   <gender value="male"/>
   <birthDate value="1982-01-23"/>

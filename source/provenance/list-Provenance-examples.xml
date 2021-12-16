@@ -18,6 +18,42 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Targeted Provenance Example #1"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example1"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example1"/>
+      <display value="Targetted #1"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Targeted Provenance Example #2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example2"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example2"/>
+      <display value="Targetted #2"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Targeted Provenance Example #3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example3"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example3"/>
+      <display value="Targetted #3"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Provenance holding a signature"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">

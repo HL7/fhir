@@ -38,15 +38,31 @@
         
         <tr>
           
-          <td style="white-space:nowrap">Default
+          <td style="white-space:nowrap">systematic-assessment
             
-            <a name="characteristic-method-Default"> </a>
+            <a name="characteristic-method-systematic-assessment"> </a>
           
           </td>
           
-          <td>Default</td>
+          <td>Systematic Assessment</td>
           
-          <td>Default.</td>
+          <td>Any method of routinely determining whether or not certain adverse events have occurred, for example through a standard questionnaire, regular investigator assessment, regular laboratory testing, or other method</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">non-systematic-assessment
+            
+            <a name="characteristic-method-non-systematic-assessment"> </a>
+          
+          </td>
+          
+          <td>Non-Systematic Assessment</td>
+          
+          <td>Any non-systematic method for determining whether or not adverse events have occurred, such as self-reporting by participants or occasional assessment/testing</td>
         
         </tr>
       
@@ -68,7 +84,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1453"/>
   </identifier>
-  <version value="4.5.0"/>
+  <version value="4.6.0"/>
   <name value="CharacteristicMethod"/>
   <title value="CharacteristicMethod"/>
   <status value="draft"/>
@@ -90,8 +106,13 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/characteristic-method"/>
   <content value="complete"/>
   <concept>
-    <code value="Default"/>
-    <display value="Default"/>
-    <definition value="Default."/>
+    <code value="systematic-assessment"/>
+    <display value="Systematic Assessment"/>
+    <definition value="Any method of routinely determining whether or not certain adverse events have occurred, for example through a standard questionnaire, regular investigator assessment, regular laboratory testing, or other method"/>
+  </concept>
+  <concept>
+    <code value="non-systematic-assessment"/>
+    <display value="Non-Systematic Assessment"/>
+    <definition value="Any non-systematic method for determining whether or not adverse events have occurred, such as self-reporting by participants or occasional assessment/testing"/>
   </concept>
 </CodeSystem>

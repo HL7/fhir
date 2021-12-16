@@ -167,6 +167,9 @@
 	<contained>
 		<PackagedProductDefinition>
 			<id value="packageCombo"/>
+			<packageFor>
+				<reference value="#"/>
+			</packageFor>
 			<package>
 				<type>
 					<coding>
@@ -185,9 +188,9 @@
 							<reference value="#tabletItem"/>
 							</reference>
 						</item>
-						<amountQuantity>
+						<amount>
 							<value value="1"/>
-						</amountQuantity>
+						</amount>
 					</containedItem>
 				</package>
 				<package>
@@ -202,10 +205,10 @@
 							<reference value="#creamItem"/>
 							</reference>
 						</item>
-						<amountQuantity>
+						<amount>
 							<value value="20"/>
 							<unit value="g"/>
-						</amountQuantity>
+						</amount>
 					</containedItem>
 					<package>
 						<type>
@@ -221,6 +224,7 @@
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="tabletItem"/>
+			<status value="active"/>
 			<manufacturedDoseForm>
 				<coding>
 					<system value="http://example.org.uk/fhir/doseform"/>
@@ -233,6 +237,7 @@
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="creamItem"/>
+			<status value="active"/>
 			<manufacturedDoseForm>
 				<coding>
 					<system value="http://example.org.uk/fhir/doseform"/>
@@ -255,9 +260,4 @@
 	<name>
 		<productName value="ThrushTreat Combo"/>
 	</name>
-	<package>
-		<package>
-			<reference value="#packageCombo"/>
-		</package>
-	</package>
 </MedicinalProductDefinition>

@@ -61,9 +61,9 @@
 		<start value="2017-06-06"/>
 	</occurredPeriod>
 	<recorded value="2016-06-09T08:12:14+10:00"/>
-	<reason>
+	<activity>
 		<text value="antiviral resistance detection"/>
-	</reason>
+	</activity>
 
 	<agent>
 		<type>
