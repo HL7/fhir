@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-  <version value="4.1.0"/>
+  <version value="4.3.0-CIBUILD"/>
   <name value="CareTeam"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient."/>
-  <fhirVersion value="4.1.0"/>
+  <fhirVersion value="4.3.0-CIBUILD"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>
@@ -278,7 +278,7 @@
         </extension>
         <strength value="example"/>
         <description value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/participant-role"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/careteam-participant-role"/>
       </binding>
       <mapping>
         <identity value="v2"/>

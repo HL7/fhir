@@ -6,8 +6,9 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <url value="http://hl7.org/fhir/activity-definition-category"/>
-  <version value="4.1.0"/>
+  <version value="4.3.0-CIBUILD"/>
   <name value="ActivityDefinitionCategory"/>
+  <content value="complete"/>
   <concept>
     <code value="treatment"/>
     <display value="Treatment"/>

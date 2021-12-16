@@ -13,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1074"/>
   </identifier>
-  <version value="4.1.0"/>
+  <version value="4.3.0-CIBUILD"/>
   <name value="ConditionClinicalStatusCodes"/>
   <title value="Condition Clinical Status Codes"/>
   <status value="draft"/>
@@ -21,6 +21,7 @@
   <description value="Preferred value set for Condition Clinical Status."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/condition-clinical"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="active"/>

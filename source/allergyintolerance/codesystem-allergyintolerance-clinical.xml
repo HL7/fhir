@@ -13,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1373"/>
   </identifier>
-  <version value="4.1.0"/>
+  <version value="4.3.0-CIBUILD"/>
   <name value="AllergyIntoleranceClinicalStatusCodes"/>
   <title value="AllergyIntolerance Clinical Status Codes"/>
   <status value="draft"/>
@@ -21,6 +21,7 @@
   <description value="Preferred value set for AllergyIntolerance Clinical Status."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/allergyintolerance-clinical"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="active"/>
