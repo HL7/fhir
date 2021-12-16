@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="AdministrableProductDefinition-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdministrableProductDefinition-device"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdministrableProductDefinition.device"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdministrableProductDefinition-device"/>
+        <description value="A device that is integral to the medicinal product, in effect being considered as an &quot;ingredient&quot; of the medicinal product. This is not intended for devices that are just co-packaged"/>
+        <code value="device"/>
+        <type value="reference"/>
+        <expression value="AdministrableProductDefinition.device"/>
+        <xpath value="f:AdministrableProductDefinition/f:device"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdministrableProductDefinition-dose-form"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdministrableProductDefinition.administrableDoseForm"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdministrableProductDefinition-dose-form"/>
+        <description value="The administrable dose form, i.e. the dose form of the final product after necessary reconstitution or processing"/>
+        <code value="dose-form"/>
+        <type value="token"/>
+        <expression value="AdministrableProductDefinition.administrableDoseForm"/>
+        <xpath value="f:AdministrableProductDefinition/f:administrableDoseForm"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdministrableProductDefinition-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdministrableProductDefinition.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdministrableProductDefinition-identifier"/>
+        <description value="An identifier for the administrable product"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="AdministrableProductDefinition.identifier"/>
+        <xpath value="f:AdministrableProductDefinition/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdministrableProductDefinition-ingredient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdministrableProductDefinition.ingredient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdministrableProductDefinition-ingredient"/>
+        <description value="The ingredients of this administrable medicinal product"/>
+        <code value="ingredient"/>
+        <type value="token"/>
+        <expression value="AdministrableProductDefinition.ingredient"/>
+        <xpath value="f:AdministrableProductDefinition/f:ingredient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdministrableProductDefinition-manufactured-item"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdministrableProductDefinition.producedFrom"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdministrableProductDefinition-manufactured-item"/>
+        <description value="The manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g. a power item and a solution item). Note that these are not raw ingredients"/>
+        <code value="manufactured-item"/>
+        <type value="reference"/>
+        <expression value="AdministrableProductDefinition.producedFrom"/>
+        <xpath value="f:AdministrableProductDefinition/f:producedFrom"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdministrableProductDefinition-route"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdministrableProductDefinition.routeOfAdministration.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdministrableProductDefinition-route"/>
+        <description value="Coded expression for the route"/>
+        <code value="route"/>
+        <type value="token"/>
+        <expression value="AdministrableProductDefinition.routeOfAdministration.code"/>
+        <xpath value="f:AdministrableProductDefinition/f:routeOfAdministration/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdministrableProductDefinition-form-of"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdministrableProductDefinition.formOf"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdministrableProductDefinition-form-of"/>
+        <description value="The medicinal product that this is an administrable form of. This is not a reference to the item(s) that make up this administrable form - it is the whole product"/>
+        <code value="form-of"/>
+        <type value="reference"/>
+        <expression value="AdministrableProductDefinition.formOf"/>
+        <xpath value="f:AdministrableProductDefinition/f:formOf"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdministrableProductDefinition-target-species"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdministrableProductDefinition.routeOfAdministration.targetSpecies.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdministrableProductDefinition-target-species"/>
+        <description value="Coded expression for the species"/>
+        <code value="target-species"/>
+        <type value="token"/>
+        <expression value="AdministrableProductDefinition.routeOfAdministration.targetSpecies.code"/>
+        <xpath value="f:AdministrableProductDefinition/f:routeOfAdministration/f:targetSpecies/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

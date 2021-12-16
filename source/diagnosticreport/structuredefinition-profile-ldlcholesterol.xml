@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ldlcholesterol"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/ldlcholesterol"/>
+  <version value="4.6.0"/>
+  <name value="Example Lipid Profile"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2012-05-12"/>
+  <publisher value="Grahame Grieve"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="grahame@healthintersections.com.au"/>
+    </telecom>
+  </contact>
+  <description value="LDL Cholesterol Result"/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="sct-concept"/>
+    <uri value="http://snomed.info/conceptdomain"/>
+    <name value="SNOMED CT Concept Domain Binding"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="sct-attr"/>
+    <uri value="http://snomed.org/attributebinding"/>
+    <name value="SNOMED CT Attribute Binding"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Observation"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Observation">
+      <path value="Observation"/>
+      <short value="LDL Cholesterol Result"/>
+      <definition value="Group of elements for LDL Cholesterol result."/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Observation.code">
+      <path value="Observation.code"/>
+      <short value="LDL Cholesterol -measured or calculated per code"/>
+      <definition value="LDL Cholesterol -measured or calculated per code."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <mustSupport value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="LDLCodes"/>
+        </extension>
+        <strength value="required"/>
+        <description value="LDL Cholesterol codes - measured or calculated."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/lipid-ldl-codes"/>
+      </binding>
+    </element>
+    <element id="Observation.valueQuantity">
+      <path value="Observation.valueQuantity"/>
+      <short value="LDL Cholesterol value"/>
+      <definition value="LDL Cholesterol value. If a result is not available, use the comments field."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Observation.interpretation">
+      <path value="Observation.interpretation"/>
+      <short value="+ | ++ | +++ | - | -- | ---"/>
+      <definition value="+ | ++ | +++ | - | -- | ---."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Observation.note">
+      <path value="Observation.note"/>
+      <short value="Comments about result"/>
+      <definition value="Comments about result."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Observation.referenceRange">
+      <path value="Observation.referenceRange"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Observation.referenceRange.low">
+      <path value="Observation.referenceRange.low"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Observation.referenceRange.high">
+      <path value="Observation.referenceRange.high"/>
+      <definition value="&lt;3.0 mmol/L."/>
+      <comment value="Per Australian NHF Recommendations."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <fixedQuantity>
+        <value value="3.0"/>
+      </fixedQuantity>
+    </element>
+    <element id="Observation.referenceRange.type">
+      <path value="Observation.referenceRange.type"/>
+      <min value="0"/>
+      <max value="0"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="Observation.referenceRange.appliesTo">
+      <path value="Observation.referenceRange.appliesTo"/>
+      <min value="0"/>
+      <max value="0"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="Observation.referenceRange.age">
+      <path value="Observation.referenceRange.age"/>
+      <min value="0"/>
+      <max value="0"/>
+      <type>
+        <code value="Range"/>
+      </type>
+    </element>
+    <element id="Observation.hasMember">
+      <path value="Observation.hasMember"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Observation.derivedFrom">
+      <path value="Observation.derivedFrom"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+  </differential>
+</StructureDefinition>

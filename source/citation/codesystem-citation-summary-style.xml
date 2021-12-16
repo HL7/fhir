@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="citation-summary-style"/>
+  <meta>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/citation-summary-style defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">vancouver
+            
+            <a name="citation-summary-style-vancouver"> </a>
+          
+          </td>
+          
+          <td>Vancouver style</td>
+          
+          <td>Citation style used by International Committee of Medical Journal Editors and maintained by US National Library of Medicine.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">ama11
+            
+            <a name="citation-summary-style-ama11"> </a>
+          
+          </td>
+          
+          <td>American Medical Association 11th edition</td>
+          
+          <td>Medicine.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">apa7
+            
+            <a name="citation-summary-style-apa7"> </a>
+          
+          </td>
+          
+          <td>American Psychological Association 7th edition</td>
+          
+          <td>APA 7th edition (October 2019) used by Education, Psychology and Sciences.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">apa6
+            
+            <a name="citation-summary-style-apa6"> </a>
+          
+          </td>
+          
+          <td>American Psychological Association 6th edition</td>
+          
+          <td>APA 6th edition used by Education, Psychology and Sciences.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">asa6
+            
+            <a name="citation-summary-style-asa6"> </a>
+          
+          </td>
+          
+          <td>American Sociological Association 6th edition</td>
+          
+          <td>Sociology.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">mla8
+            
+            <a name="citation-summary-style-mla8"> </a>
+          
+          </td>
+          
+          <td>Modern Language Association 8th edition</td>
+          
+          <td>MLA 8th edition used by the Humanities.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">cochrane
+            
+            <a name="citation-summary-style-cochrane"> </a>
+          
+          </td>
+          
+          <td>Cochrane Style</td>
+          
+          <td>Used by Cochrane reviews, example: Huang, M, Tang T, Pang, P, Li, M, Ma R, Lu, J, et al. Treating COVID-19 with Chloroquine. J Mol Cell Biol 2020; 12(4):322–5.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">elsevier-harvard
+            
+            <a name="citation-summary-style-elsevier-harvard"> </a>
+          
+          </td>
+          
+          <td>Elsevier-Harvard Style</td>
+          
+          <td>Biology ecology.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">nature
+            
+            <a name="citation-summary-style-nature"> </a>
+          
+          </td>
+          
+          <td>Nature Referencing style</td>
+          
+          <td>Biology.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">acs
+            
+            <a name="citation-summary-style-acs"> </a>
+          
+          </td>
+          
+          <td>American Chemical Society</td>
+          
+          <td>Chemistry.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">chicago-a-17
+            
+            <a name="citation-summary-style-chicago-a-17"> </a>
+          
+          </td>
+          
+          <td>Chicago Style Version 17
+Author Date</td>
+          
+          <td>Used by Business, History and the Fine Arts.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">chicago-b-17
+            
+            <a name="citation-summary-style-chicago-b-17"> </a>
+          
+          </td>
+          
+          <td>Chicago Style Version 17 Full note</td>
+          
+          <td>Used by Business, History and the Fine Arts.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">ieee
+            
+            <a name="citation-summary-style-ieee"> </a>
+          
+          </td>
+          
+          <td>Institute of Electrical and Electronics Engineers</td>
+          
+          <td>IT, Engineering.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">comppub
+            
+            <a name="citation-summary-style-comppub"> </a>
+          
+          </td>
+          
+          <td>Computable Publishing</td>
+          
+          <td>Citation style to report human-readable and/or machine-readable access paths, example: Alper BS, Dehnbostel J, Shahin K. 14-day mortality remdesivir vs placebo meta-analysis (ACTT-1, Wang et al, WHO SOLIDARITY).  Fast Evidence Interoperability Resources (FEvIR) Platform, entry 55, version 4. Created 2020 Dec 17. Revised 2020 Dec 21. Accessed 2021 Mar 13. Computable resource at: https://fevir.net/resources/Evidence/55.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/citation-summary-style"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="CitationSummaryStyle"/>
+  <title value="CitationSummaryStyle"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The format for display of the citation."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/citation-summary-style"/>
+  <content value="complete"/>
+  <concept>
+    <code value="vancouver"/>
+    <display value="Vancouver style"/>
+    <definition value="Citation style used by International Committee of Medical Journal Editors and maintained by US National Library of Medicine."/>
+  </concept>
+  <concept>
+    <code value="ama11"/>
+    <display value="American Medical Association 11th edition"/>
+    <definition value="Medicine."/>
+  </concept>
+  <concept>
+    <code value="apa7"/>
+    <display value="American Psychological Association 7th edition"/>
+    <definition value="APA 7th edition (October 2019) used by Education, Psychology and Sciences."/>
+  </concept>
+  <concept>
+    <code value="apa6"/>
+    <display value="American Psychological Association 6th edition"/>
+    <definition value="APA 6th edition used by Education, Psychology and Sciences."/>
+  </concept>
+  <concept>
+    <code value="asa6"/>
+    <display value="American Sociological Association 6th edition"/>
+    <definition value="Sociology."/>
+  </concept>
+  <concept>
+    <code value="mla8"/>
+    <display value="Modern Language Association 8th edition"/>
+    <definition value="MLA 8th edition used by the Humanities."/>
+  </concept>
+  <concept>
+    <code value="cochrane"/>
+    <display value="Cochrane Style"/>
+    <definition value="Used by Cochrane reviews, example: Huang, M, Tang T, Pang, P, Li, M, Ma R, Lu, J, et al. Treating COVID-19 with Chloroquine. J Mol Cell Biol 2020; 12(4):322&#x2013;5."/>
+  </concept>
+  <concept>
+    <code value="elsevier-harvard"/>
+    <display value="Elsevier-Harvard Style"/>
+    <definition value="Biology ecology."/>
+  </concept>
+  <concept>
+    <code value="nature"/>
+    <display value="Nature Referencing style"/>
+    <definition value="Biology."/>
+  </concept>
+  <concept>
+    <code value="acs"/>
+    <display value="American Chemical Society"/>
+    <definition value="Chemistry."/>
+  </concept>
+  <concept>
+    <code value="chicago-a-17"/>
+    <display value="Chicago Style Version 17 Author Date"/>
+    <definition value="Used by Business, History and the Fine Arts."/>
+  </concept>
+  <concept>
+    <code value="chicago-b-17"/>
+    <display value="Chicago Style Version 17 Full note"/>
+    <definition value="Used by Business, History and the Fine Arts."/>
+  </concept>
+  <concept>
+    <code value="ieee"/>
+    <display value="Institute of Electrical and Electronics Engineers"/>
+    <definition value="IT, Engineering."/>
+  </concept>
+  <concept>
+    <code value="comppub"/>
+    <display value="Computable Publishing"/>
+    <definition value="Citation style to report human-readable and/or machine-readable access paths, example: Alper BS, Dehnbostel J, Shahin K. 14-day mortality remdesivir vs placebo meta-analysis (ACTT-1, Wang et al, WHO SOLIDARITY).  Fast Evidence Interoperability Resources (FEvIR) Platform, entry 55, version 4. Created 2020 Dec 17. Revised 2020 Dec 21. Accessed 2021 Mar 13. Computable resource at: https://fevir.net/resources/Evidence/55."/>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="VisionPrescription"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Care Provision"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
+  <version value="4.6.0"/>
+  <name value="VisionPrescription"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Financial Management)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fm/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="An authorization for the provision of glasses and/or contact lenses to a patient."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="VisionPrescription"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="VisionPrescription">
+      <path value="VisionPrescription"/>
+      <short value="Prescription for vision correction products for a patient"/>
+      <definition value="An authorization for the provision of glasses and/or contact lenses to a patient."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="CombinedVisionRequest"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.careprovision"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.identifier">
+      <path value="VisionPrescription.identifier"/>
+      <short value="Business Identifier for vision prescription"/>
+      <definition value="A unique identifier assigned to this vision prescription."/>
+      <requirements value="Allows vision prescriptions to be distinguished and referenced."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC-2-Placer Order Number / ORC-3-Filler Order Number"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="id"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.status">
+      <path value="VisionPrescription.status"/>
+      <short value="active | cancelled | draft | entered-in-error"/>
+      <definition value="The status of the resource instance."/>
+      <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <requirements value="Need to track the status of the resource as &#39;draft&#39; resources may undergo further edits while &#39;active&#39; resources are immutable and may only have their status changed to &#39;cancelled&#39;."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VisionStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="A code specifying the state of the resource instance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/fm-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act.status"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.created">
+      <path value="VisionPrescription.created"/>
+      <short value="Response creation date"/>
+      <definition value="The date this resource was created."/>
+      <requirements value="Need to record a timestamp for use by both the recipient and the issuer."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="VisionPrescription.patient">
+      <path value="VisionPrescription.patient"/>
+      <short value="Who prescription is for"/>
+      <definition value="A resource reference to the person to whom the vision prescription applies."/>
+      <requirements value="Needed to identify the patient for whom the vision prescription has been issued."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-3-Patient ID List"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="subject.role"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.encounter">
+      <path value="VisionPrescription.encounter"/>
+      <short value="Created during encounter / admission / stay"/>
+      <definition value="A reference to a resource that identifies the particular occurrence of contact between patient and health care provider during which the prescription was issued."/>
+      <requirements value="Used in some jurisdictions to link clinical events to claim items."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.context"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-19-Visit Number"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="componentOf.patientEncounter"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.dateWritten">
+      <path value="VisionPrescription.dateWritten"/>
+      <short value="When prescription was authorized"/>
+      <definition value="The date (and perhaps time) when the prescription was written."/>
+      <comment value="Jurisdictions determine the valid lifetime of a prescription. Typically vision prescriptions are valid for two years from the date written."/>
+      <requirements value="Need to record a timestamp for use by both the recipient and the issuer."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.authoredOn"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXE-32-Original Order Date/Time / ORC-9-Date/Time of Transaction"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="author.time"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.prescriber">
+      <path value="VisionPrescription.prescriber"/>
+      <short value="Who authorized the vision prescription"/>
+      <definition value="The healthcare professional responsible for authorizing the prescription."/>
+      <requirements value="Need to record the authorizing practitioner."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.requester"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXE-13-Ordering Provider&#39;s DEA Number / RXO-14-Ordering Provider&#39;s DEA Number / RXE-14-Pharmacist/Treatment Supplier&#39;s Verifier ID / RXO-15-Pharmacist/Treatment Supplier&#39;s Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation=&#39;OP&#39; (all but last deprecated)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="author.role"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.lensSpecification">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="VisionPrescription.lensSpecification"/>
+      <short value="Vision lens authorization"/>
+      <definition value="Contain the details of  the individual lens specifications and serves as the authorization for the fullfillment by certified professionals."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="component.supplyEvent"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.lensSpecification.product">
+      <path value="VisionPrescription.lensSpecification.product"/>
+      <short value="Product to be supplied"/>
+      <definition value="Identifies the type of vision correction product which is required for the patient."/>
+      <requirements value="Need to identify whether glasses or contacts."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VisionProduct"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A coded concept describing the vision products."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/vision-product"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXE-2-Give Code / RXO-1-Requested Give Code / RXD-2-Dispense/Give Code"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="consumable.role"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.lensSpecification.eye">
+      <path value="VisionPrescription.lensSpecification.eye"/>
+      <short value="right | left"/>
+      <definition value="The eye for which the lens specification applies."/>
+      <comment value="May also appear as OD (oculus dexter) for the right eye and OS (oculus siniter) for the left eye."/>
+      <requirements value="Needed to identify which eye the lens specification applies to."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VisionEyes"/>
+        </extension>
+        <strength value="required"/>
+        <description value="A coded concept listing the eye codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/vision-eye-codes"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.lensSpecification.sphere">
+      <path value="VisionPrescription.lensSpecification.sphere"/>
+      <short value="Power of the lens"/>
+      <definition value="Lens power measured in dioptres (0.25 units)."/>
+      <comment value="The value is negative for near-sighted and positive for far sighted.&#xA;Often insurance will not cover a lens with power between +75 and -75."/>
+      <requirements value="Standard lens prescription measures."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.lensSpecification.cylinder">
+      <path value="VisionPrescription.lensSpecification.cylinder"/>
+      <short value="Lens power for astigmatism"/>
+      <definition value="Power adjustment for astigmatism measured in dioptres (0.25 units)."/>
+      <requirements value="Standard lens prescription measures."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.lensSpecification.axis">
+      <path value="VisionPrescription.lensSpecification.axis"/>
+      <short value="Lens meridian which contain no power for astigmatism"/>
+      <definition value="Adjustment for astigmatism measured in integer degrees."/>
+      <comment value="The limits are +180 and -180 degrees."/>
+      <requirements value="Standard lens prescription measures."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.lensSpecification.prism">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Prism"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="780,40"/>
+      </extension>
+      <path value="VisionPrescription.lensSpecification.prism"/>
+      <short value="Eye alignment compensation"/>
+      <definition value="Allows for adjustment on two axis."/>
+      <requirements value="Standard lens prescription measures."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="VisionPrescription.lensSpecification.prism.amount">
+      <path value="VisionPrescription.lensSpecification.prism.amount"/>
+      <short value="Amount of adjustment"/>
+      <definition value="Amount of prism to compensate for eye alignment in fractional units."/>
+      <requirements value="Standard lens prescription measures."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.lensSpecification.prism.base">
+      <path value="VisionPrescription.lensSpecification.prism.base"/>
+      <short value="up | down | in | out"/>
+      <definition value="The relative base, or reference lens edge, for the prism."/>
+      <requirements value="Standard lens prescription measures."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VisionBase"/>
+        </extension>
+        <strength value="required"/>
+        <description value="A coded concept listing the base codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/vision-base-codes"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.lensSpecification.add">
+      <path value="VisionPrescription.lensSpecification.add"/>
+      <short value="Added power for multifocal levels"/>
+      <definition value="Power adjustment for multifocal lenses measured in dioptres (0.25 units)."/>
+      <requirements value="Standard lens prescription measures."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.lensSpecification.power">
+      <path value="VisionPrescription.lensSpecification.power"/>
+      <short value="Contact lens power"/>
+      <definition value="Contact lens power measured in dioptres (0.25 units)."/>
+      <requirements value="Standard contact lens prescription measures."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.lensSpecification.backCurve">
+      <path value="VisionPrescription.lensSpecification.backCurve"/>
+      <short value="Contact lens back curvature"/>
+      <definition value="Back curvature measured in millimetres."/>
+      <requirements value="Standard contact lens prescription measures."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.lensSpecification.diameter">
+      <path value="VisionPrescription.lensSpecification.diameter"/>
+      <short value="Contact lens diameter"/>
+      <definition value="Contact lens diameter measured in millimetres."/>
+      <requirements value="Standard contact lens prescription measures."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.lensSpecification.duration">
+      <path value="VisionPrescription.lensSpecification.duration"/>
+      <short value="Lens wear duration"/>
+      <definition value="The recommended maximum wear period for the lens."/>
+      <requirements value="Standard contact lens prescription measures."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.lensSpecification.color">
+      <path value="VisionPrescription.lensSpecification.color"/>
+      <short value="Color required"/>
+      <definition value="Special color or pattern."/>
+      <requirements value="Standard contact lens prescription measures."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.lensSpecification.brand">
+      <path value="VisionPrescription.lensSpecification.brand"/>
+      <short value="Brand required"/>
+      <definition value="Brand recommendations or restrictions."/>
+      <requirements value="Standard lens prescription measures."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="VisionPrescription.lensSpecification.note">
+      <path value="VisionPrescription.lensSpecification.note"/>
+      <short value="Notes for coatings"/>
+      <definition value="Notes for special requirements such as coatings and lens materials."/>
+      <requirements value="Standard lens prescription measures."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

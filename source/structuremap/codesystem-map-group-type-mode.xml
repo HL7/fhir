@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="map-group-type-mode"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/map-group-type-mode defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">types
+            
+            <a name="map-group-type-mode-types"> </a>
+          
+          </td>
+          
+          <td>Default for Type Combination</td>
+          
+          <td>This group is a default mapping group for the specified types and for the primary source type.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">type-and-types
+            
+            <a name="map-group-type-mode-type-and-types"> </a>
+          
+          </td>
+          
+          <td>Default for type + combination</td>
+          
+          <td>This group is a default mapping group for the specified types.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/map-group-type-mode"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.688"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="StructureMapGroupTypeMode"/>
+  <title value="StructureMapGroupTypeMode"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="If this is the default rule set to apply for the source type, or this combination of types."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/map-group-type-mode"/>
+  <content value="complete"/>
+  <concept>
+    <code value="types"/>
+    <display value="Default for Type Combination"/>
+    <definition value="This group is a default mapping group for the specified types and for the primary source type."/>
+  </concept>
+  <concept>
+    <code value="type-and-types"/>
+    <display value="Default for type + combination"/>
+    <definition value="This group is a default mapping group for the specified types."/>
+  </concept>
+</CodeSystem>

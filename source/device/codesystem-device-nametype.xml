@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="device-nametype"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/device-nametype defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">registered-name
+            
+            <a name="device-nametype-registered-name"> </a>
+          
+          </td>
+          
+          <td>Registered name</td>
+          
+          <td>The term assigned to a medical device by the entity who registers or submits information about it to a jurisdiction or its databases. This may be considered the manufacturer assigned name (e.g., brand name assigned by the labeler or manufacturer in US, or device name assigned by the manufacturer in EU) and may also be synonymous with proprietary name or trade name of the device.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">user-friendly-name
+            
+            <a name="device-nametype-user-friendly-name"> </a>
+          
+          </td>
+          
+          <td>User Friendly name</td>
+          
+          <td>The term that generically describes the device by a name as assigned by the manufacturer that is recognized by lay person.  This common or generic name may be printed on the package it came in or some combination of that name with the model number, serial number, or other attribute that makes the name easy to understand for the user of that device. It is often exposed in communicating devices transport protocols. It is provided to help users identify the device when reported in discovery operations.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">patient-reported-name
+            
+            <a name="device-nametype-patient-reported-name"> </a>
+          
+          </td>
+          
+          <td>Patient Reported name</td>
+          
+          <td>The term used by the patient associated with the device when describing the device, for example "knee implant", when documented as a self-reported device.</td>
+        
+        </tr>
+        
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/device-nametype"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1084"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="DeviceNameType"/>
+  <title value="DeviceNameType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The type of name the device is referred by."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/device-nametype"/>
+  <content value="complete"/>
+  <concept>
+    <code value="registered-name"/>
+    <display value="Registered name"/>
+    <definition value="The term assigned to a medical device by the entity who registers or submits information about it to a jurisdiction or its databases. This may be considered the manufacturer assigned name (e.g., brand name assigned by the labeler or manufacturer in US, or device name assigned by the manufacturer in EU) and may also be synonymous with proprietary name or trade name of the device."/>
+  </concept>
+  <concept>
+    <code value="user-friendly-name"/>
+    <display value="User Friendly name"/>
+    <definition value="The term that generically describes the device by a name as assigned by the manufacturer that is recognized by lay person.  This common or generic name may be printed on the package it came in or some combination of that name with the model number, serial number, or other attribute that makes the name easy to understand for the user of that device. It is often exposed in communicating devices transport protocols. It is provided to help users identify the device when reported in discovery operations."/>
+  </concept>
+  <concept>
+    <code value="patient-reported-name"/>
+    <display value="Patient Reported name"/>
+    <definition value="the term used by the patient associated with the device when describing the device, for example 'knee implant', when documented as a self-reported device."/>
+  </concept>
+  
+</CodeSystem>

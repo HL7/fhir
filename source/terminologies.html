@@ -10,7 +10,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <%txheader%>
 
@@ -149,32 +149,83 @@ The correct value to use in the <i>system</i> for a given code system can be det
 by working through the following list, in order:
 </p>
 <ul>
- <li>The specification <a href="terminologies-systems.html">Code System Registry</a>
-     - if a code system is listed here, it SHALL be used</li>
- <li>A system URI or OID defined as the correct value to use in FHIR by the publisher of the code system</li>
- <li>The FHIR <a href="https://registry.fhir.org/search?q=resourcetype:codesystem">community code system registry</a>
-     - if a code system is listed here with <a href="namingsystem-definitions.html#NamingSystem.status">status = active</a>, it SHALL be used</li>
- <li>An OID registered in the <a href="http://hl7.org/oid">HL7 OID registry</a> - if a code system is registered here, the OID SHOULD be used (using the syntax urn:oid:[oid])</li>
+ <li><a href="https://terminology.hl7.org/">Terminology.hl7.org </a> (THO) -  If a code system is listed here, the canonical CodeSystem URL SHALL be used.</li>
+ <li>Not listed in <a href="https://terminology.hl7.org/">Terminology.hl7.org </a>, and the code system is external to HL7, the CodeSystem identifier authorized by HTA SHALL be used.
+  <ul>
+   <li>Check the HL7 Terminology Authority (HTA) JIRA project to determine if a request is in process to obtain an identifier
+    <ul>
+	 <li><a href="https://jira.hl7.org/projects/HTA/issues/">https://jira.hl7.org/projects/HTA/issues/</a></li>
+	 <li>No JIRA in progress? Check the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=91999004">HTA Confluence pages</a> to determine if a request is in process to obtain an identifier.</li>
+	</ul>
+   </li>
+   <li>If none of the HTA resources address your issue,
+    <ul>
+	 <li>Start the <a href="https://confluence.hl7.org/display/TA/Request+Content+in+External+Terminologies">HTA process to request content in external terminologies</a> communicating the temporary identifier you assigned</li>
+	 <li>Create a temporary identifier following this pattern:
+	  <ul>
+	   <li>terminology.hl7.org/temporary/CodeSystem/xxxxx   (where xxxx is a meaningful text string)</li>
+	  </ul>
+	 </li>
+	</ul>
+   </li>
+   <li>Monitor the HTA request and update your specification when an authoritative identifier is available</li>
+  </ul>
+ </li>
+ <li>Not listed in <a href="http://terminology.hl7.org/">Terminology.hl7.org</a>, and the code system is internal to HL7, and is expected to be used in a production system
+  <ul>
+  <li>If you don't see your CodeSystem in THO,
+    <ul>
+	 <li>Create a canonical URL following this pattern: terminology.hl7.org/CodeSystem/xxxxx    (where xxxx is a meaningful text string)
+	  <ul>
+	   <li>This will start the process to create a NamingSystem resource in terminology.hl7.org for your CodeSystem </li>
+	   <li>The CodeSystem content may remain within the IG</li>
+	  </ul>
+	 </li>
+	</ul>
+   </li>
+   <li>When the CodeSystem is at a state where the IG authors/developers/interested parties are confident it is sufficient, and as early in the process as possible,
+    <ul>
+	 <li><a href="https://confluence.hl7.org/display/VMAH/How+To+Submit+a+UTG+Change+Proposal">Start the UTG process</a> to move the CodeSystem content to THO</li>
+	</ul>
+   </li>
+   <li>Set yourself as a watcher on the UP JIRA ticket and update your specification when your CodeSystem is in THO</li>
+  </ul>
+ </li>
+ <li>Not listed in <a href="http://terminology.hl7.org/">Terminology.hl7.org</a>, and the code system is intended to <i>never be used in a production system,</i> and will be used to create a value set bound with Example binding strength
+  <ul>
+  <li>If the example concept codes will be used in multiple IGs,
+   <ul>
+    <li>Use the following URL pattern:  [ig-base-canonical]/CodeSystem/example-xxxxx (from one of the multiple IGs, there is no reason to define the same example CodeSystem in multiple IGs)</li>
+   </ul>
+  </li>
+  <li>If the example concept codes will only ever be used in a single IG:
+   <ul>
+    <li>Create an identifier following this pattern: [ig-base-canonical]/CodeSystem/example-xxxxx  (where xxxxx is a specific string that conveys intent)</li>
+   </ul>
+  </li>
+  </ul>
+ </li>
 </ul>
 <p>
-If a code system is not resolved by this list, and there is no publisher to consult, implementers
-must choose a URI to use. The priority should be to choose a unique value that won't
-accidentally be used by another implementer for a different purpose - or a very similar purpose
-with a different scope. See <a href="https://confluence.hl7.org/display/FHIR/Registering+Code+Systems">Registering Code Systems</a> for further advice.
+
+In the unusual situation where a code system is not resolved by this list, create a temporary identifier following this pattern: terminology.hl7.org/temporary/CodeSystem/xxxx. Contact the HL7 Vocabulary co-chairs.
 </p>
 <p>
 For publishers of code systems, the following considerations should be kept in mind when
 defining the correct URI to use:
 </p>
 <ul>
- <li>Once defined, the URI will require agreement from all implementers to change, and some might not be able to change (stored resources). If the set of users is not closed, it will usually not be possible to change the URI</li>
- <li>Implementers strongly prefer a human readable URI. http://acme.com/patients/mrn is a great deal easier to work with than urn:oid:1.2.3.4.5.6.7</li>
+ <li>Once defined and in production use, in rare situations, the code system URI may change. Implementers should design their system to support a code system identifier change. Terminology.hl7.org implements NamingSystem resources to manage code system identifiers and their effective date range.</li>
  <li>An http: address SHOULD resolve to some useful description of the code system. Ideally, if a user makes a request of the address with the media type set to a FHIR media type, the server will respond
    with a <a href="codesystem.html">CodeSystem resource</a>, but some other human or computable definition is allowed</li>
  <li>HTTP addresses should be permalinks which may re-direct to the current correct content</li>
- <li>A scope of the code system URI and the correct usage of codes and displays in its namespace SHOULD be clearly defined.
-   See examples for <a href="snomedct.html">SNOMED CT</a>, <a href="rxnorm.html">RxNorm</a>, <a href="loinc.html">LOINC</a>, <a href="ndc.html">NDC</a></li>
- <li>Generally, allocation of URLs is hierarchical, and most care is required in choosing the Base URL. Once sub-URL policies are clearly defined, URIs can often be automatically assigned</li>
+ <li>A scope of the code system URI and the correct usage of codes and displays in its namespace will be clearly defined by HTA.
+   See examples for <a href="http://build.fhir.org/snomedct.html">SNOMED CT</a>, <a href="http://build.fhir.org/rxnorm.html">RxNorm</a>, <a href="http://build.fhir.org/loinc.html">LOINC</a>, <a href="http://build.fhir.org/ndc.html">NDC</a></li>
+ <li>All code systems internal to HL7 use <a href="http://terminology.hl7.org/">Terminology.hl7.org</a> as the base. Generally, allocation of URLs is hierarchical, and most care is required in choosing the Base URL.
+  <ul>
+   <li>The url pattern is:  terminology.hl7.org/CodeSystem/xxxxxx/xxxxxxx</li>
+  </ul>
+ </li>
 </ul>
 <p>
 Note: if the code system is made available packaged inside a <a href="valueset.html">ValueSet</a> resource, the
@@ -396,7 +447,7 @@ any value set at all. Bindings are to be provided for these elements.
 
 <a name="strength"></a>
 
-<h2>Binding Strengths</h2>
+<h3>Binding Strengths</h3>
 <p>
 Almost all the elements that have a coded data type are bound to a value set. The bindings
 are associated with various degrees of flexibility as to how closely the value set should be
@@ -417,7 +468,7 @@ will work together to choose actual working value sets.
 <a name="simple"></a>
 <a name="code"></a>
 <a name="required"></a>
-<h3>Required</h3>
+<h4>Required</h4>
 <p>
 <i>To be conformant, codes in this element SHALL be from the specified value set.</i>
 </p>
@@ -464,7 +515,7 @@ may state rules on which codes can be used, including removing codes from allowe
 </p>
 
 <a name="extensible"></a>
-<h3>Extensible</h3>
+<h4>Extensible</h4>
 <p>
 <i>To be conformant, codes in this element SHALL be from the specified value set if any of the codes within the value set
 can apply to the concept being communicated.</i>
@@ -528,14 +579,14 @@ Note that if the valueset-reference extension is being used and the code in the 
 value set, the extension must reference a different value set that the code was chosen from (or if no other value set 
 reference is available the extension cannot be used in that instance).
 </p>
-<h4>Examples for Extensible Bindings</h4>
+<h5>Examples for Extensible Bindings</h5>
 <p>
 See <a href="terminologies-binding-examples.html#extensible">examples</a> to help explain the 
 difficult but important subject of Extensible bindings.
 </p>                                                                                                                                                
     
 <a name="preferred"></a>
-<h3>Preferred</h3>
+<h4>Preferred</h4>
 <p>
 <i>Instances are encouraged to draw from the specified codes for interoperability purposes but
 are not required to do so to be considered conformant.</i>
@@ -555,7 +606,7 @@ serve interoperability purposes in the future.
 When an element is bound to a preferred value set, <a href="profiling.html">derived profiles</a>
 may bind the element to any value set they choose.
 </p>
-<h4>Examples for Preferred Bindings</h4>
+<h5>Examples for Preferred Bindings</h5>
 <p>
 See <a href="terminologies-binding-examples.html#preferred">examples</a> of how Preferred bindings work.
 </p>                                                                                                                                                
@@ -587,6 +638,17 @@ When an element is bound to an example value set, <a href="profiling.html">deriv
 may bind the element to any value set they choose.
 </p>
 
+<a name="max"></a>
+<h3>Max Value Set</h3>
+<p>
+When binding a ValueSet to an element, values may be limited by declaring a maximum value set with the extension:
+maxValueSet http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet
+</p>
+<ul>
+ <li>When the binding strength is extensible or preferred, and a maximum ValueSet is defined,
+ any codes provided beyond the bound value set must be in the expansion of the maxValueSet.</li>
+</ul>
+
 <a name="other"></a>
 <h2>Other notes</h2>
 
@@ -614,8 +676,6 @@ and display values are ignored.
 FHIR has defined a <a href="terminology-service.html">Terminology Service</a> specification which sets requirements for systems that
 support the use of codes, value sets and code systems.
 </p>
-</div>
-
 [%file newfooter%]
 
 </body>

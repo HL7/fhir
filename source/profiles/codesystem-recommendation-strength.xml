@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="recommendation-strength"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/recommendation-strength"/>
+  <version value="4.6.0"/>
+  <name value="StrengthOfRecommendationRating"/>
+  <concept>
+    <code value="strong"/>
+    <display value="Strong"/>
+    <definition value="Strong recommendation."/>
+  </concept>
+  <concept>
+    <code value="weak"/>
+    <display value="Weak"/>
+    <definition value="Weak recommendation."/>
+  </concept>
+</CodeSystem>

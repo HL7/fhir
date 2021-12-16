@@ -1,16 +1,28 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="care-plan-activity-kind"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/care-plan-activity-kind"/>
-	<name value="CarePlanActivityKind"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.145"/>
+  </identifier>
+  <name value="CarePlanActivityKind"/>
   <title value="Care Plan Activity Kind"/>
-	<status value="draft"/>
-	<publisher value="HL7 International - Patient Care WG"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.hl7.org/Special/committees/patientcare/"/>
-		</telecom>
-	</contact>
+  <status value="draft"/>
+  <publisher value="HL7 International - Patient Care WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare/"/>
+    </telecom>
+  </contact>
   <description value="Resource types defined as part of FHIR that can be represented as in-line definitions of a care plan activity."/>
   <compose>
     <include>
@@ -18,28 +30,27 @@
       <concept>
         <code value="Appointment"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="CommunicationRequest"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="DeviceRequest"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="MedicationRequest"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="NutritionOrder"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="Task"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="ServiceRequest"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="VisionPrescription"/>
       </concept>
     </include>
   </compose>
 </ValueSet>
-

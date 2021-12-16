@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Communication-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of an alert message"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="communication-example"/>
+    </extension>
+    <item>
+      <reference value="Communication/example"/>
+      <display value="Alert Message"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a response to a request for additional information"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="communication-example-fm-solicited-attachment"/>
+    </extension>
+    <item>
+      <reference value="Communication/fm-solicited"/>
+      <display value="FM Solicited Attachment"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of an unsolicited attachment - provision of additional information"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="communication-example-fm-attachment"/>
+    </extension>
+    <item>
+      <reference value="Communication/fm-attachment"/>
+      <display value="FM Unsolicited Attachment"/>
+    </item>
+  </entry>
+</List>

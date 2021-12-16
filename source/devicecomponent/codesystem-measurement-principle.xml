@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="measurement-principle"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/measurement-principle"/>
+  <version value="4.6.0"/>
+  <name value="MeasmntPrinciple"/>
+  <concept>
+    <code value="other"/>
+    <display value="MSP Other"/>
+    <definition value="Measurement principle isn&#39;t in the list."/>
+  </concept>
+  <concept>
+    <code value="chemical"/>
+    <display value="MSP Chemical"/>
+    <definition value="Measurement is done using the chemical principle."/>
+  </concept>
+  <concept>
+    <code value="electrical"/>
+    <display value="MSP Electrical"/>
+    <definition value="Measurement is done using the electrical principle."/>
+  </concept>
+  <concept>
+    <code value="impedance"/>
+    <display value="MSP Impedance"/>
+    <definition value="Measurement is done using the impedance principle."/>
+  </concept>
+  <concept>
+    <code value="nuclear"/>
+    <display value="MSP Nuclear"/>
+    <definition value="Measurement is done using the nuclear principle."/>
+  </concept>
+  <concept>
+    <code value="optical"/>
+    <display value="MSP Optical"/>
+    <definition value="Measurement is done using the optical principle."/>
+  </concept>
+  <concept>
+    <code value="thermal"/>
+    <display value="MSP Thermal"/>
+    <definition value="Measurement is done using the thermal principle."/>
+  </concept>
+  <concept>
+    <code value="biological"/>
+    <display value="MSP Biological"/>
+    <definition value="Measurement is done using the biological principle."/>
+  </concept>
+  <concept>
+    <code value="mechanical"/>
+    <display value="MSP Mechanical"/>
+    <definition value="Measurement is done using the mechanical principle."/>
+  </concept>
+  <concept>
+    <code value="acoustical"/>
+    <display value="MSP Acoustical"/>
+    <definition value="Measurement is done using the acoustical principle."/>
+  </concept>
+  <concept>
+    <code value="manual"/>
+    <display value="MSP Manual"/>
+    <definition value="Measurement is done using the manual principle."/>
+  </concept>
+</CodeSystem>

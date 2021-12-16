@@ -706,7 +706,7 @@
             <unit value="{tbl}"/>
           </doseQuantity>
         </doseAndRate>
-        
+
       </dosage>
       <dynamicValue>
         <path value="dispenseRequest.numberOfRepeatsAllowed"/>
@@ -927,7 +927,9 @@
   <relatedArtifact>
     <type value="derived-from"/>
     <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
-    <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
+    <document>
+      <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
+    </document>
   </relatedArtifact>
   <relatedArtifact>
     <type value="composed-of"/>

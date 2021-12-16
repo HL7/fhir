@@ -1,40 +1,59 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="audit-event-sub-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <id value="audit-event-sub-type" />
-  <version value="20200804"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sec"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/audit-event-sub-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.464"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="AuditEventSub-Type"/>
   <title value="Audit Event Sub-Type"/>
   <status value="active"/>
   <date value="2020-08-04"/>
-  <publisher value="HL7 (FHIR Project)"/> 
+  <publisher value="HL7 (FHIR Project)"/>
   <description value="More detailed code concerning the type of the audit event - defined by DICOM with some additional FHIR, HL7, and other additions."/>
-  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis"/> 
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis"/>
   <compose>
     <include>
-	<!-- DICOM General Message Sub-Type codes -->
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-	  <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_401.html" />
+      <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_401.html"/>
     </include>
     <include>
-	<!-- DICOM Security Alert Sub-Type codes -->
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-	  <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_403.html" />
+      <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_403.html"/>
     </include>
     <include>
-	<!-- FHIR REST interactions -->
       <system value="http://hl7.org/fhir/restful-interaction"/>
     </include>
-    <include>
-	<!-- FHIR Bundle types -->
-      <system value="http://hl7.org/fhir/bundle-type"/>
-    </include>
-    <include>
-	<!-- lifecycle events -->
-      <system value="http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"/>
-    </include>
+	<!-- JFM: want these here, but build does not like a system value like this
+	<include>
+		<system value="urn:ihe:event-type-code" />
+		<concept>
+			<code value="ITI-65" />
+			<display value="Provide Document Bundle" />
+		</concept>
+		<concept>
+			<code value="ITI-66" />
+			<display value="Find Document Lists" />
+		</concept>
+		<concept>
+			<code value="ITI-67" />
+			<display value="Find Document References" />
+		</concept>
+		<concept>
+			<code value="ITI-68" />
+			<display value="Retrieve Document" />
+		</concept>
+
+	</include>
+	-->
   </compose>
 </ValueSet>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="device-definition-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <url value="http://hl7.org/fhir/ValueSet/device-definition-status"/>
+  <version value="4.6.0"/>
+  <name value="FHIRDeviceStatus"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/device-definition-status"/>
+    </include>
+  </compose>
+</ValueSet>

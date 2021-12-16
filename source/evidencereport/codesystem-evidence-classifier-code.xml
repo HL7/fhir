@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="evidence-classifier-code"/>
+  <meta>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/evidence-classifier-code defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">COVID19Specific
+            
+            <a name="evidence-classifier-code-COVID19Specific"> </a>
+          
+          </td>
+          
+          <td>COVID-19 specific article</td>
+          
+          <td>About COVID-19.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">COVID19Relevant
+            
+            <a name="evidence-classifier-code-COVID19Relevant"> </a>
+          
+          </td>
+          
+          <td>COVID-19 relevant (but not specific) article</td>
+          
+          <td>Not about COVID-19 but relevant to COVID-19 management or understanding.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">COVID19HumanResearch
+            
+            <a name="evidence-classifier-code-COVID19HumanResearch"> </a>
+          
+          </td>
+          
+          <td>COVID-19 human data in population, exposure, or outcome</td>
+          
+          <td>contains human COVID-19 disease in the research data as any variable (population, exposure or outcome).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">OriginalResearch
+            
+            <a name="evidence-classifier-code-OriginalResearch"> </a>
+          
+          </td>
+          
+          <td>Article includes original research</td>
+          
+          <td>such as randomized trial, observational study.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">ResearchSynthesis
+            
+            <a name="evidence-classifier-code-ResearchSynthesis"> </a>
+          
+          </td>
+          
+          <td>Article includes synthesis of research</td>
+          
+          <td>such as systematic review, meta-analysis, rapid review.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">Guideline
+            
+            <a name="evidence-classifier-code-Guideline"> </a>
+          
+          </td>
+          
+          <td>Article includes guideline</td>
+          
+          <td>for clinical practice guidelines.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">ResearchProtocol
+            
+            <a name="evidence-classifier-code-ResearchProtocol"> </a>
+          
+          </td>
+          
+          <td>Article provides protocol without results</td>
+          
+          <td>for research protocols.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">NotResearchNotGuideline
+            
+            <a name="evidence-classifier-code-NotResearchNotGuideline"> </a>
+          
+          </td>
+          
+          <td>Article is neither research nor guideline</td>
+          
+          <td>for things that are not research reports, research protocols or guidelines.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">Treatment
+            
+            <a name="evidence-classifier-code-Treatment"> </a>
+          
+          </td>
+          
+          <td>Article about treatment</td>
+          
+          <td>about therapeutic interventions.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">PreventionAndControl
+            
+            <a name="evidence-classifier-code-PreventionAndControl"> </a>
+          
+          </td>
+          
+          <td>Article about prevention and control</td>
+          
+          <td>about preventive care and interventions.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">Diagnosis
+            
+            <a name="evidence-classifier-code-Diagnosis"> </a>
+          
+          </td>
+          
+          <td>Article about diagnosis</td>
+          
+          <td>about methods to distinguish having or not having a condition.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">PrognosisPrediction
+            
+            <a name="evidence-classifier-code-PrognosisPrediction"> </a>
+          
+          </td>
+          
+          <td>Article about prognosis or prediction</td>
+          
+          <td>about predicting risk for something or risk factors for it.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">RatedAsYes
+            
+            <a name="evidence-classifier-code-RatedAsYes"> </a>
+          
+          </td>
+          
+          <td>Rated as yes, affirmative, positive, present, or include</td>
+          
+          <td/>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">RatedAsNo
+            
+            <a name="evidence-classifier-code-RatedAsNo"> </a>
+          
+          </td>
+          
+          <td>Rated as no, negative, absent, or exclude</td>
+          
+          <td>Rated as no, negative, absent, or exclude.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">NotAssessed
+            
+            <a name="evidence-classifier-code-NotAssessed"> </a>
+          
+          </td>
+          
+          <td>Not rated, not assessed</td>
+          
+          <td>Neither rated as yes nor rated as no.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">RatedAsRCT
+            
+            <a name="evidence-classifier-code-RatedAsRCT"> </a>
+          
+          </td>
+          
+          <td>classified as randomized controlled trial</td>
+          
+          <td>classified as randomized controlled trial.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">RatedAsControlledTrial
+            
+            <a name="evidence-classifier-code-RatedAsControlledTrial"> </a>
+          
+          </td>
+          
+          <td>classified as nonrandomized controlled trial (experimental)</td>
+          
+          <td>classified as nonrandomized controlled trial (experimental).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">RatedAsComparativeCohort
+            
+            <a name="evidence-classifier-code-RatedAsComparativeCohort"> </a>
+          
+          </td>
+          
+          <td>classified as comparative cohort study (observational)</td>
+          
+          <td>classified as comparative cohort study (observational).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">RatedAsCaseControl
+            
+            <a name="evidence-classifier-code-RatedAsCaseControl"> </a>
+          
+          </td>
+          
+          <td>classified as case-control study</td>
+          
+          <td>classified as case-control study.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">RatedAsUncontrolledSeries
+            
+            <a name="evidence-classifier-code-RatedAsUncontrolledSeries"> </a>
+          
+          </td>
+          
+          <td>classified as uncontrolled cohort (case series)</td>
+          
+          <td>classified as uncontrolled cohort (case series).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">RatedAsMixedMethods
+            
+            <a name="evidence-classifier-code-RatedAsMixedMethods"> </a>
+          
+          </td>
+          
+          <td>classified as mixed-methods study</td>
+          
+          <td>classified as mixed-methods study.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">RatedAsOther
+            
+            <a name="evidence-classifier-code-RatedAsOther"> </a>
+          
+          </td>
+          
+          <td>classified as other concept (not elsewhere classified)</td>
+          
+          <td>classified as other concept (not elsewhere classified).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">RiskOfBias
+            
+            <a name="evidence-classifier-code-RiskOfBias"> </a>
+          
+          </td>
+          
+          <td>Risk of bias assessment</td>
+          
+          <td>Risk of bias assessment.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">NoBlinding
+            
+            <a name="evidence-classifier-code-NoBlinding"> </a>
+          
+          </td>
+          
+          <td>No blinding</td>
+          
+          <td>No blinding.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">AllocConcealNotStated
+            
+            <a name="evidence-classifier-code-AllocConcealNotStated"> </a>
+          
+          </td>
+          
+          <td>Allocation concealment not stated</td>
+          
+          <td>Allocation concealment not stated.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">EarlyTrialTermination
+            
+            <a name="evidence-classifier-code-EarlyTrialTermination"> </a>
+          
+          </td>
+          
+          <td>Early trial termination</td>
+          
+          <td>Early trial termination.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">NoITT
+            
+            <a name="evidence-classifier-code-NoITT"> </a>
+          
+          </td>
+          
+          <td>No intention-to-treat analysis</td>
+          
+          <td>No intention-to-treat analysis.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">Preprint
+            
+            <a name="evidence-classifier-code-Preprint"> </a>
+          
+          </td>
+          
+          <td>Preprint (not final publication)</td>
+          
+          <td>Results presented in preprint (pre-final publication) form.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">PreliminaryAnalysis
+            
+            <a name="evidence-classifier-code-PreliminaryAnalysis"> </a>
+          
+          </td>
+          
+          <td>Preliminary analysis</td>
+          
+          <td>Preliminary analysis.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">BaselineImbalance
+            
+            <a name="evidence-classifier-code-BaselineImbalance"> </a>
+          
+          </td>
+          
+          <td>Baseline imbalances</td>
+          
+          <td>Differences between groups at start of trial may confound or bias the findings.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">SubgroupAnalysis
+            
+            <a name="evidence-classifier-code-SubgroupAnalysis"> </a>
+          
+          </td>
+          
+          <td>Subgroup analysis</td>
+          
+          <td>Subgroup analysis.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/evidence-classifier-code"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="EvidenceClassifier"/>
+  <title value="EvidenceClassifier"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Commonly used classifiers for evidence sets."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/evidence-classifier-code"/>
+  <content value="complete"/>
+  <concept>
+    <code value="COVID19Specific"/>
+    <display value="COVID-19 specific article"/>
+    <definition value="About COVID-19."/>
+  </concept>
+  <concept>
+    <code value="COVID19Relevant"/>
+    <display value="COVID-19 relevant (but not specific) article"/>
+    <definition value="Not about COVID-19 but relevant to COVID-19 management or understanding."/>
+  </concept>
+  <concept>
+    <code value="COVID19HumanResearch"/>
+    <display value="COVID-19 human data in population, exposure, or outcome"/>
+    <definition value="contains human COVID-19 disease in the research data as any variable (population, exposure or outcome)."/>
+  </concept>
+  <concept>
+    <code value="OriginalResearch"/>
+    <display value="Article includes original research"/>
+    <definition value="such as randomized trial, observational study."/>
+  </concept>
+  <concept>
+    <code value="ResearchSynthesis"/>
+    <display value="Article includes synthesis of research"/>
+    <definition value="such as systematic review, meta-analysis, rapid review."/>
+  </concept>
+  <concept>
+    <code value="Guideline"/>
+    <display value="Article includes guideline"/>
+    <definition value="for clinical practice guidelines."/>
+  </concept>
+  <concept>
+    <code value="ResearchProtocol"/>
+    <display value="Article provides protocol without results"/>
+    <definition value="for research protocols."/>
+  </concept>
+  <concept>
+    <code value="NotResearchNotGuideline"/>
+    <display value="Article is neither research nor guideline"/>
+    <definition value="for things that are not research reports, research protocols or guidelines."/>
+  </concept>
+  <concept>
+    <code value="Treatment"/>
+    <display value="Article about treatment"/>
+    <definition value="about therapeutic interventions."/>
+  </concept>
+  <concept>
+    <code value="PreventionAndControl"/>
+    <display value="Article about prevention and control"/>
+    <definition value="about preventive care and interventions."/>
+  </concept>
+  <concept>
+    <code value="Diagnosis"/>
+    <display value="Article about diagnosis"/>
+    <definition value="about methods to distinguish having or not having a condition."/>
+  </concept>
+  <concept>
+    <code value="PrognosisPrediction"/>
+    <display value="Article about prognosis or prediction"/>
+    <definition value="about predicting risk for something or risk factors for it."/>
+  </concept>
+  <concept>
+    <code value="RatedAsYes"/>
+    <display value="Rated as yes, affirmative, positive, present, or include"/>
+  </concept>
+  <concept>
+    <code value="RatedAsNo"/>
+    <display value="Rated as no, negative, absent, or exclude"/>
+    <definition value="Rated as no, negative, absent, or exclude."/>
+  </concept>
+  <concept>
+    <code value="NotAssessed"/>
+    <display value="Not rated, not assessed"/>
+    <definition value="Neither rated as yes nor rated as no."/>
+  </concept>
+  <concept>
+    <code value="RatedAsRCT"/>
+    <display value="classified as randomized controlled trial"/>
+    <definition value="classified as randomized controlled trial."/>
+  </concept>
+  <concept>
+    <code value="RatedAsControlledTrial"/>
+    <display value="classified as nonrandomized controlled trial (experimental)"/>
+    <definition value="classified as nonrandomized controlled trial (experimental)."/>
+  </concept>
+  <concept>
+    <code value="RatedAsComparativeCohort"/>
+    <display value="classified as comparative cohort study (observational)"/>
+    <definition value="classified as comparative cohort study (observational)."/>
+  </concept>
+  <concept>
+    <code value="RatedAsCaseControl"/>
+    <display value="classified as case-control study"/>
+    <definition value="classified as case-control study."/>
+  </concept>
+  <concept>
+    <code value="RatedAsUncontrolledSeries"/>
+    <display value="classified as uncontrolled cohort (case series)"/>
+    <definition value="classified as uncontrolled cohort (case series)."/>
+  </concept>
+  <concept>
+    <code value="RatedAsMixedMethods"/>
+    <display value="classified as mixed-methods study"/>
+    <definition value="classified as mixed-methods study."/>
+  </concept>
+  <concept>
+    <code value="RatedAsOther"/>
+    <display value="classified as other concept (not elsewhere classified)"/>
+    <definition value="classified as other concept (not elsewhere classified)."/>
+  </concept>
+  <concept>
+    <code value="RiskOfBias"/>
+    <display value="Risk of bias assessment"/>
+    <definition value="Risk of bias assessment."/>
+  </concept>
+  <concept>
+    <code value="NoBlinding"/>
+    <display value="No blinding"/>
+    <definition value="No blinding."/>
+  </concept>
+  <concept>
+    <code value="AllocConcealNotStated"/>
+    <display value="Allocation concealment not stated"/>
+    <definition value="Allocation concealment not stated."/>
+  </concept>
+  <concept>
+    <code value="EarlyTrialTermination"/>
+    <display value="Early trial termination"/>
+    <definition value="Early trial termination."/>
+  </concept>
+  <concept>
+    <code value="NoITT"/>
+    <display value="No intention-to-treat analysis"/>
+    <definition value="No intention-to-treat analysis."/>
+  </concept>
+  <concept>
+    <code value="Preprint"/>
+    <display value="Preprint (not final publication)"/>
+    <definition value="Results presented in preprint (pre-final publication) form."/>
+  </concept>
+  <concept>
+    <code value="PreliminaryAnalysis"/>
+    <display value="Preliminary analysis"/>
+    <definition value="Preliminary analysis."/>
+  </concept>
+  <concept>
+    <code value="BaselineImbalance"/>
+    <display value="Baseline imbalances"/>
+    <definition value="Differences between groups at start of trial may confound or bias the findings."/>
+  </concept>
+  <concept>
+    <code value="SubgroupAnalysis"/>
+    <display value="Subgroup analysis"/>
+    <definition value="Subgroup analysis."/>
+  </concept>
+</CodeSystem>

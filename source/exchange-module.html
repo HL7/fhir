@@ -13,7 +13,7 @@ in order to support consistent definitions for schema and UML derived code.
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 <table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <a name="root"></a>
@@ -31,6 +31,7 @@ methods for exchanging data between systems:
   <li><a href="#doc">Documents</a></li>
   <li><a href="#soa">Services</a></li>
   <li><a href="#store">Database / Persistent Storage</a></li>
+  <li><a href="#subscriptions">Subscriptions Framework</a></li>
 </ul>
 <p>
 Each of these approaches can be used to exchange information, and each has its own strengths and weaknesses and applicability.
@@ -103,6 +104,15 @@ and read the resources as part of their implementation. Using resources in this
 fashion is described here.
 </p>
 
+<a name="subscriptions"></a>
+<h4>Subscriptions Framework</h4>
+<p>
+The <a href="subscriptions.html">Subscriptions Framework</a> can be used to establish proactive event notifications 
+from a FHIR application to another system. Applications which have implemented support for Subscriptions will advertise 
+their use via the resources <a href="subscription.html">Subscription</a> and 
+<a href="subscriptiontopic.html">SubscriptionTopic</a>. Operations allowed on these resources may be discovered via the 
+FHIR Application's <a href="capabilitystatement.html">CapabilityStatement</a>.
+</p>
 
 <a name="secpriv"></a>
 <h3>Security and Privacy</h3>
@@ -163,8 +173,6 @@ comments are welcome.
 
 [%end-note%]
 
-
-</div>
 
 [%file newfooter%]
 </body>

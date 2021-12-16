@@ -34,6 +34,20 @@
       </coding>
     </valueCodeableConcept>
   </useContext>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="program"/>
+    </code>
+    <valueRange>
+      <low>
+        <value value="2018" />
+        <unit value="year" />
+        <system value="http://unitsofmeasure.org" />
+        <code value="a" />
+      </low>
+    </valueRange>
+  </useContext>
   <jurisdiction>
     <coding>
       <system value="urn:iso:std:iso:3166"/>
@@ -86,7 +100,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="delete"/>
         </type>
         <resource value="Patient"/>
@@ -103,13 +117,14 @@
         <direction value="response"/>
         <operator value="in"/>
         <responseCode value="200,204"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="update"/>
         </type>
         <resource value="Patient"/>
@@ -127,13 +142,14 @@
         <description value="Confirm that the returned HTTP status is 201(Created)."/>
         <direction value="response"/>
         <responseCode value="201"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="read"/>
         </type>
         <resource value="Patient"/>
@@ -147,6 +163,7 @@
         <description value="Confirm that the returned HTTP status is 200(OK)."/>
         <direction value="response"/>
         <response value="okay"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -156,6 +173,7 @@
         <compareToSourceId value="fixture-patient-create"/>
         <compareToSourceExpression value="Patient.name.first().family"/>
         <operator value="equals"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -166,7 +184,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="read"/>
         </type>
         <resource value="Patient"/>
@@ -182,6 +200,7 @@
         <description value="Confirm that the returned HTTP status is 200(OK)."/>
         <direction value="response"/>
         <response value="okay"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -191,6 +210,7 @@
         <direction value="response"/>
         <headerField value="Last-Modified"/>
         <operator value="notEmpty"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="true"/>
       </assert>
     </action>
@@ -198,12 +218,14 @@
       <assert>
         <description value="Confirm that the returned resource type is Patient."/>
         <resource value="Patient"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
     <action>
       <assert>
         <description value="Confirm that the returned Patient conforms to the base FHIR specification."/>
+        <stopTestOnFail value="false"/>
         <validateProfileId value="patient-profile"/>
         <warningOnly value="false"/>
       </assert>
@@ -214,6 +236,7 @@
         <operator value="equals"/>
         <path value="fhir:Patient/fhir:name/fhir:family/@value"/>
         <sourceId value="fixture-patient-read"/>
+        <stopTestOnFail value="false"/>
         <value value="Chalmers"/>
         <warningOnly value="false"/>
       </assert>
@@ -224,6 +247,7 @@
         <operator value="equals"/>
         <path value="fhir:Patient/fhir:name/fhir:given/@value"/>
         <sourceId value="fixture-patient-read"/>
+        <stopTestOnFail value="false"/>
         <value value="Peter"/>
         <warningOnly value="false"/>
       </assert>
@@ -235,6 +259,7 @@
         <compareToSourcePath value="fhir:Patient/fhir:name/fhir:family/@value"/>
         <operator value="equals"/>
         <path value="fhir:Patient/fhir:name/fhir:family/@value"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -245,6 +270,7 @@
         <compareToSourcePath value="fhir:Patient/fhir:name/fhir:given/@value"/>
         <path value="fhir:Patient/fhir:name/fhir:given/@value"/>
         <sourceId value="fixture-patient-read"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -252,6 +278,7 @@
       <assert>
         <description value="Confirm that the returned resource contains the expected retained elements and values. Warning only to provide users with reviewable results."/>
         <minimumId value="fixture-patient-minimum"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="true"/>
       </assert>
     </action>
@@ -260,7 +287,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="delete"/>
         </type>
         <resource value="Patient"/>

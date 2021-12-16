@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Organization-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="HL7 itself"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="organization-example"/>
+    </extension>
+    <item>
+      <reference value="Organization/hl7"/>
+      <display value="HL7"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Gastroenterology team at ACME Healthcare"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="organization-example-gastro"/>
+    </extension>
+    <item>
+      <reference value="Organization/1"/>
+      <display value="Gastro"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Clinical Laboratory at ACME Healthcare"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="organization-example-lab"/>
+    </extension>
+    <item>
+      <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+      <display value="Laboratory"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="XYZ Insurance"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="organization-example-insurer"/>
+    </extension>
+    <item>
+      <reference value="Organization/2"/>
+      <display value="Insurer"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Good Health Clinic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="organization-example-good-health-care"/>
+    </extension>
+    <item>
+      <reference value="Organization/2.16.840.1.113883.19.5"/>
+      <display value="x-CDA"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world organization example (Burgers MC)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="organization-example-f001-burgers"/>
+    </extension>
+    <item>
+      <reference value="Organization/f001"/>
+      <display value="Burgers Amsterdam"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world organization example (Burgers MC Cardiology)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="organization-example-f002-burgers-card"/>
+    </extension>
+    <item>
+      <reference value="Organization/f002"/>
+      <display value="Burgers Cardio"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world organization example (Artis UMC)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="organization-example-f201-aumc"/>
+    </extension>
+    <item>
+      <reference value="Organization/f201"/>
+      <display value="Artis UMC"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world organization example (Blijdorp MC)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="organization-example-f203-bumc"/>
+    </extension>
+    <item>
+      <reference value="Organization/f203"/>
+      <display value="Blijdorp"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world organization example (ENT)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="organization-example-f003-burgers-ENT"/>
+    </extension>
+    <item>
+      <reference value="Organization/f003"/>
+      <display value="ENT"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Medication Manufacturer"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="organization-example-mmanu"/>
+    </extension>
+    <item>
+      <reference value="Organization/mmanu"/>
+      <display value="Manufacturer"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Government Department of Health"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="organization-example-mihealth"/>
+    </extension>
+    <item>
+      <reference value="Organization/3"/>
+      <display value="Government Organization"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="HL7 Payer Network"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="organization-example-hl7pay"/>
+    </extension>
+    <item>
+      <reference value="Organization/hl7pay"/>
+      <display value="HL7 Payer Network"/>
+    </item>
+  </entry>
+</List>

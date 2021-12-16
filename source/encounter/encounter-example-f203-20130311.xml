@@ -52,9 +52,9 @@
                 <code value="PART"/>
             </coding>
         </type>
-        <individual>
+        <actor>
             <reference value="Practitioner/f201"/>
-        </individual>
+        </actor>
     </participant>
     <appointment>
         <reference value="Appointment/example"/>

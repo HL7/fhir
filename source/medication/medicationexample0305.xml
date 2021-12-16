@@ -3,8 +3,8 @@
   <id value="med0305"/>
   <contained>
     <Organization>
-      <id value="org5"/>
-      <name value="Aton Pharma Inc" />
+      <id value="mmanu"/>
+      <name value="Medication Manufacturer" />
     </Organization>
   </contained>
   <code>
@@ -14,9 +14,9 @@
       <display value="Timoptic 5mg/ml solution"/>
     </coding>
   </code>
-  <manufacturer>
-    <reference value="#org5" />
-  </manufacturer>
+  <marketingAuthorizationHolder>
+    <reference value="#mmanu" />
+  </marketingAuthorizationHolder>
     <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>

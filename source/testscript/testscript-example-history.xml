@@ -74,7 +74,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="delete"/>
         </type>
         <resource value="Patient"/>
@@ -91,13 +91,14 @@
         <direction value="response"/>
         <operator value="in"/>
         <responseCode value="200,204"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="update"/>
         </type>
         <resource value="Patient"/>
@@ -115,13 +116,14 @@
         <description value="Confirm that the returned HTTP status is 201(Created)."/>
         <direction value="response"/>
         <responseCode value="201"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="update"/>
         </type>
         <resource value="Patient"/>
@@ -139,6 +141,7 @@
         <description value="Confirm that the returned HTTP status is 200(OK)."/>
         <direction value="response"/>
         <responseCode value="200"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -149,7 +152,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="history"/>
         </type>
         <resource value="Patient"/>
@@ -165,6 +168,7 @@
         <description value="Confirm that the returned HTTP status is 200(OK)."/>
         <direction value="response"/>
         <response value="okay"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -172,12 +176,14 @@
       <assert>
         <description value="Confirm that the returned resource type is Bundle."/>
         <resource value="Bundle"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
     <action>
       <assert>
         <description value="Confirm that the returned Bundle conforms to the base FHIR specification."/>
+        <stopTestOnFail value="false"/>
         <validateProfileId value="bundle-profile"/>
         <warningOnly value="false"/>
       </assert>
@@ -187,6 +193,7 @@
         <description value="Confirm that the returned Bundle type equals &#39;history&#39;."/>
         <operator value="equals"/>
         <path value="fhir:Bundle/fhir:type/@value"/>
+        <stopTestOnFail value="false"/>
         <value value="history"/>
         <warningOnly value="false"/>
       </assert>

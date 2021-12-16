@@ -88,7 +88,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="read"/>
         </type>
         <resource value="Patient"/>
@@ -106,6 +106,7 @@
       <assert>
         <description value="Confirm that the request method GET was sent by the client system under test."/>
         <requestMethod value="get"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -115,6 +116,7 @@
         <direction value="request"/>
         <headerField value="Accept"/>
         <operator value="contains"/>
+        <stopTestOnFail value="false"/>
         <value value="xml"/>
         <warningOnly value="false"/>
       </assert>
@@ -124,6 +126,7 @@
         <description value="Confirm that the returned HTTP status is 200(OK)."/>
         <direction value="response"/>
         <response value="okay"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -132,6 +135,7 @@
         <description value="Confirm that the returned format is XML."/>
         <direction value="response"/>
         <contentType value="xml"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -140,6 +144,7 @@
         <description value="Confirm that the returned resource type is Patient."/>
         <direction value="response"/>
         <resource value="Patient"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -150,7 +155,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="read"/>
         </type>
         <resource value="Patient"/>
@@ -173,6 +178,7 @@
         <direction value="request"/>
         <headerField value="Accept"/>
         <operator value="contains"/>
+        <stopTestOnFail value="false"/>
         <value value="xml"/>
         <warningOnly value="false"/>
       </assert>
@@ -182,6 +188,7 @@
         <description value="Confirm that the returned HTTP status is 200(OK)."/>
         <direction value="response"/>
         <response value="okay"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -190,6 +197,7 @@
         <description value="Confirm that the returned format is XML."/>
         <direction value="response"/>
         <contentType value="xml"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -198,6 +206,7 @@
         <description value="Confirm that the returned resource type is Patient."/>
         <direction value="response"/>
         <resource value="Patient"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>

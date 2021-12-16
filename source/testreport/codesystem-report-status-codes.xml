@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="report-status-codes"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/report-status-codes defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">completed
+            
+            <a name="report-status-codes-completed"> </a>
+          
+          </td>
+          
+          <td>Completed</td>
+          
+          <td>All test operations have completed.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">in-progress
+            
+            <a name="report-status-codes-in-progress"> </a>
+          
+          </td>
+          
+          <td>In Progress</td>
+          
+          <td>A test operations is currently executing.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">waiting
+            
+            <a name="report-status-codes-waiting"> </a>
+          
+          </td>
+          
+          <td>Waiting</td>
+          
+          <td>A test operation is waiting for an external client request.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">stopped
+            
+            <a name="report-status-codes-stopped"> </a>
+          
+          </td>
+          
+          <td>Stopped</td>
+          
+          <td>The test script execution was manually stopped.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            <a name="report-status-codes-entered-in-error"> </a>
+          
+          </td>
+          
+          <td>Entered In Error</td>
+          
+          <td>This test report was entered or created in error.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/report-status-codes"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.725"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="TestReportStatus"/>
+  <title value="TestReportStatus"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The current status of the test report."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/report-status-codes"/>
+  <content value="complete"/>
+  <concept>
+    <code value="completed"/>
+    <display value="Completed"/>
+    <definition value="All test operations have completed."/>
+  </concept>
+  <concept>
+    <code value="in-progress"/>
+    <display value="In Progress"/>
+    <definition value="A test operations is currently executing."/>
+  </concept>
+  <concept>
+    <code value="waiting"/>
+    <display value="Waiting"/>
+    <definition value="A test operation is waiting for an external client request."/>
+  </concept>
+  <concept>
+    <code value="stopped"/>
+    <display value="Stopped"/>
+    <definition value="The test script execution was manually stopped."/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered In Error"/>
+    <definition value="This test report was entered or created in error."/>
+  </concept>
+</CodeSystem>

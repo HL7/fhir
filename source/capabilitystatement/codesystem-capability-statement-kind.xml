@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="capability-statement-kind"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="extensions"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/capability-statement-kind defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Comments</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">instance
+            
+            <a name="capability-statement-kind-instance"> </a>
+          
+          </td>
+          
+          <td>Instance</td>
+          
+          <td>The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by /metadata for a FHIR server end-point.</td>
+          
+          <td/>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">capability
+            
+            <a name="capability-statement-kind-capability"> </a>
+          
+          </td>
+          
+          <td>Capability</td>
+          
+          <td>The CapabilityStatement instance represents the capabilities of a system or piece of software, independent of a particular installation.</td>
+          
+          <td>Elements marked as &#39;optional&#39; represent configurable capabilities</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">requirements
+            
+            <a name="capability-statement-kind-requirements"> </a>
+          
+          </td>
+          
+          <td>Requirements</td>
+          
+          <td>The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or &#39;request for proposal&#39;.</td>
+          
+          <td/>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+    <valueCode value="4.0.0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <url value="http://hl7.org/fhir/capability-statement-kind"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.199"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="CapabilityStatementKind"/>
+  <title value="CapabilityStatementKind"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="How a capability statement is intended to be used."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/capability-statement-kind"/>
+  <content value="complete"/>
+  <concept>
+    <code value="instance"/>
+    <display value="Instance"/>
+    <definition value="The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by /metadata for a FHIR server end-point."/>
+  </concept>
+  <concept>
+    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
+      <valueString value="Elements marked as &#39;optional&#39; represent configurable capabilities"/>
+    </extension>
+    <code value="capability"/>
+    <display value="Capability"/>
+    <definition value="The CapabilityStatement instance represents the capabilities of a system or piece of software, independent of a particular installation."/>
+  </concept>
+  <concept>
+    <code value="requirements"/>
+    <display value="Requirements"/>
+    <definition value="The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or &#39;request for proposal&#39;."/>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ObservationDefinition-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ObservationDefinition-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ObservationDefinition.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ObservationDefinition-category"/>
+        <description value="Category (class) of observation"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="ObservationDefinition.category"/>
+        <xpath value="f:ObservationDefinition/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ObservationDefinition-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ObservationDefinition.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ObservationDefinition-code"/>
+        <description value="Observation code"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="ObservationDefinition.code"/>
+        <xpath value="f:ObservationDefinition/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ObservationDefinition-experimental"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ObservationDefinition.experimental"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ObservationDefinition-experimental"/>
+        <description value="Not for genuine usage (true)"/>
+        <code value="experimental"/>
+        <type value="token"/>
+        <expression value="ObservationDefinition.experimental"/>
+        <xpath value="f:ObservationDefinition/f:experimental"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ObservationDefinition-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ObservationDefinition.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ObservationDefinition-identifier"/>
+        <description value="The unique identifier associated with the specimen definition"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="ObservationDefinition.identifier"/>
+        <xpath value="f:ObservationDefinition/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ObservationDefinition-method"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ObservationDefinition.method"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ObservationDefinition-method"/>
+        <description value="Method of observation"/>
+        <code value="method"/>
+        <type value="token"/>
+        <expression value="ObservationDefinition.method"/>
+        <xpath value="f:ObservationDefinition/f:method"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ObservationDefinition-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ObservationDefinition.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ObservationDefinition-status"/>
+        <description value="Publication status of the ObservationDefinition: draft, active, retired, unknown"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="ObservationDefinition.status"/>
+        <xpath value="f:ObservationDefinition/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ObservationDefinition-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ObservationDefinition.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ObservationDefinition-title"/>
+        <description value="Human-friendly name of the ObservationDefinition"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="ObservationDefinition.title"/>
+        <xpath value="f:ObservationDefinition/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ObservationDefinition-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ObservationDefinition.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ObservationDefinition-url"/>
+        <description value="The uri that identifies the observation definition"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="ObservationDefinition.url"/>
+        <xpath value="f:ObservationDefinition/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

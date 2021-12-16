@@ -13,7 +13,7 @@ in order to support consistent definitions for schema and UML derived code.
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 <table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg oo%]">[%wgt oo%]</a> &amp; <a _target="blank" href="[%wg cg%]">[%wgt cg%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <a name="root"></a>
@@ -40,6 +40,7 @@ The Diagnostics Module provides an overview and guide to the FHIR content that a
  <td width="33%">
 <ul>
 <li><a href="documentreference.html">DocumentReference</a></li>
+<li><a href="imagingselection.html">ImagingSelection</a></li>
 <li><a href="imagingstudy.html">ImagingStudy</a></li>
 <li><a href="molecularsequence.html">MolecularSequence</a></li>
 </ul>
@@ -66,6 +67,7 @@ See the <a href="genomics.html">Genomics Implementation Guidance</a> for additio
         [%res-item DiagnosticReport%]
         [%res-item ServiceRequest%]
         [%res-item Media%]
+        [%res-item ImagingSelection%]
         [%res-item ImagingStudy%]
         [%res-item MolecularSequence%]
         [%res-item Specimen%]
@@ -87,7 +89,7 @@ Diagnostic resources are commonly used to plan, recommend, order and report clin
 <li>Planning a diagnostic test such as in this <a href="careplan-example-f203-sepsis.html">Careplan-example</a></li>
 <li>Recommending diagnostics such as is done by Clinical Decision Support tools. See the <a href="clinicalreasoning-module.html">Clinical Reasoning module</a> for more information.</li>
 <li>Ordering a Laboratory Test such as a <a href="servicerequest-example-lipid.html">lipid panel</a></li>
-<li>Reporting a Laboratory Test such as a <a href="diagnosticreport-example-lipids.html">lipid panel</a></li>
+<li>Reporting a Laboratory Test such as a <a href="diagnosticreport-core.html">lipid panel</a></li>
 <li>Ordering an imaging study such as a <a href="servicerequest-example-di.html">CT study</a></li>
 <li>Reporting an imaging study such as a <a href="imagingstudy-example.html">CT study</a></li>
 </ul>
@@ -124,8 +126,6 @@ There are many ways to use these resources independently as well.  The Observati
 
 
 </p>
-</div>
-
 [%file newfooter%]
 </body>
 </html>

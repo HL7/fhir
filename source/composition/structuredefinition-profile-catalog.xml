@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="catalog"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sd"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/catalog"/>
+  <version value="4.6.0"/>
+  <name value="Profile for Catalog"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2014-01-31"/>
+  <publisher value="Health Level Seven, Inc. - Clinical Quality Information WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/cqi/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A set of resources composed into a single coherent clinical statement with clinical attestation"/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="cda"/>
+    <uri value="http://hl7.org/v3/cda"/>
+    <name value="CDA (R2)"/>
+  </mapping>
+  <mapping>
+    <identity value="fhirdocumentreference"/>
+    <uri value="http://hl7.org/fhir/documentreference"/>
+    <name value="FHIR DocumentReference"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Composition"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Composition">
+      <path value="Composition"/>
+      <short value="A set of resources composed into a single coherent clinical statement with clinical attestation"/>
+      <definition value="A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained."/>
+      <min value="0"/>
+      <max value="*"/>
+    </element>
+    <element id="Composition.extension:ValidityPeriod">
+      <path value="Composition.extension"/>
+      <sliceName value="ValidityPeriod"/>
+      <short value="The validity of the catalog"/>
+      <definition value="The validity of the catalog."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/cqm-ValidityPeriod"/>
+      </type>
+    </element>
+    <element id="Composition.type">
+      <path value="Composition.type"/>
+      <short value="The type of document - a Catalog"/>
+      <definition value="The type of document - a Catalog."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <fixedCodeableConcept>
+        <text value="Catalog"/>
+      </fixedCodeableConcept>
+    </element>
+    <element id="Composition.category">
+      <path value="Composition.category"/>
+      <short value="The Content of the section"/>
+      <definition value="The content (narrative and data) associated with the section."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CatalogType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type of catalog."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/catalogType"/>
+      </binding>
+    </element>
+    <element id="Composition.subject">
+      <path value="Composition.subject"/>
+      <short value="Who and/or what the composition is about"/>
+      <definition value="Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)."/>
+      <min value="0"/>
+      <max value="0"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+    </element>
+    <element id="Composition.date:IssueDate">
+      <path value="Composition.date"/>
+      <sliceName value="IssueDate"/>
+      <short value="When the Catalog was created"/>
+      <definition value="When the Catalog was created."/>
+      <alias value="IssueDate"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="Composition.section">
+      <path value="Composition.section"/>
+      <min value="0"/>
+      <max value="*"/>
+    </element>
+    
+  </differential>
+</StructureDefinition>

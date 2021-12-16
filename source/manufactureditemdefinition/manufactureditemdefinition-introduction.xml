@@ -2,17 +2,26 @@
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
-		<p><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></p>
+		<p><b><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></b></p>
 		<p>
 			ManufacturedItemDefinition is to be used when you need to describe an actual physical medication item such as a tablet or capsule. 
 			This is typically for regulatory or manufacturing use cases, rather than day to day prescribing or dispensing.
+		</p>
+		<p>
+			A defining aspect is that the item is in the state as it comes from being manufactured, 
+			and has had no other preparatory steps - such as crushing or mixing. 
+			It is in the state ready for packaging and distribution to consumers, 
+			and not necessarily in the state ready for administration (for which see AdministrableProductDefinition).
+			This is the state where medication items are commonly encountered, within packaging, before actually being used. 
+			It is a medication item "as manufactured", recognizing that other non-medication items are also manufactured, 
+			and that even the administrable form of a drug, and the packaging that an item is placed into, have been manufactured at some stage.
 		</p>
 		<p>
 			The manufactured item describes the physical characteristics of the item, as opposed to its pharmaceutical aspects 
 			(which may only apply after mixing with other items - to become an AdministrableProductDefinition), 
 			or its packaging, or legal aspects (which apply only to the whole group of packing and manufactured items). 
 			There are typically multiple instances of the item in the packaging (a PackagedProductDefinition resource) 
-			and this is indicated by the quantity within the package (e.g. 12 tablets), referencing a single copy of the manufactured item.
+			and this is indicated by the quantity within the containing package (e.g. 12 tablets), referencing a single copy of the manufactured item.
 		</p>
 		<p>
 			This is the only resource that treats the "tablet" (or whatever it may be) as a physical object.
@@ -25,11 +34,12 @@
 			To define several package variations, e.g. pack of 10 tablets and of 50 tablets, you would need only one ManufacturedItemDefinition, 
 			referenced from both (and associated with a numeric quantity of 10 or 50 in the respective PackagedProductDefintions).
 			To prescribe or dispense 100 tablets, you would not generally need this resource at all, 
-			because usually the code of the medication as a whole is sufficient, plus a quantity, e.g. 100 of "ABC123" (meaning e.g. aspirin 75 mg).
+			because usually the code of the medication product as a whole is sufficient, plus a quantity, e.g. 100 of "ABC123" (meaning e.g. aspirin 75 mg).
 		</p>
 		<p>
-			This resource excludes devices and other items found in medication packaging such as scissors, bottle stoppers, 
-			applicators and so on (which would use DeviceDefinition).
+			This resource excludes devices and other items found in medication packaging such as scissors, 
+			applicators and so on (which would use DeviceDefinition), and components of packaging that are not considered devices, 
+			such bottle stoppers (use PackagedProductDefintion.package.package).
 		</p>
 	</div>
 </div>

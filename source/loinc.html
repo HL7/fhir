@@ -9,7 +9,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <%txheader%>
 
@@ -257,17 +257,17 @@ Here is an example of a LOINC Answer list used in a Questionnaire
 question:
 </p>
 <pre class="xml">
-&lt;question&gt;
-  &lt;concept&gt;
+&lt;item&gt;
+  &lt;code&gt;
     &lt;system value=&quot;http://loinc.org&quot;/&gt;
     &lt;code value=&quot;11125-2&quot;/&gt;
     &lt;display value=&quot;Plat morph Bld&quot;/&gt;
-  &lt;/concept&gt;
-  &lt;type value=&quot;choice&quot;/&gt;
-  &lt;options&gt;
+  &lt;/code&gt;
+  &lt;type value=&quot;Coding&quot;/&gt;
+  &lt;answerValueset&gt;
     &lt;reference value=&quot;http://loinc.org/vs/LL715-4&quot;/&gt;
-  &lt;/options&gt;
-&lt;/question&gt;
+  &lt;/answerValueset&gt;
+&lt;/item&gt;
 </pre>
 
 
@@ -393,8 +393,6 @@ using this table:
   <td>Attachment</td>
  </tr>
 </table>
-
-</div>
 
 [%file newfooter%]
 

@@ -44,6 +44,21 @@
       <capabilities value="http://hl7.org/fhir/CapabilityStatement/example"/>
     </capability>
   </metadata>
+  <scope>
+    <artifact value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+    <conformance>
+      <coding>
+        <system value="http://hl7.org/fhir/testscript-scope-conformance-codes"/>
+        <code value="optional"/>
+      </coding>
+    </conformance>
+    <phase>
+      <coding>
+        <system value="http://hl7.org/fhir/testscript-scope-phase-codes"/>
+        <code value="unit"/>
+      </coding>
+    </phase>
+  </scope>
   <profile id="patient-profile">
     <reference value="http://hl7.org/fhir/StructureDefinition/Patient"/>
   </profile>
@@ -61,7 +76,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="read"/>
         </type>
         <resource value="Patient"/>
@@ -75,6 +90,7 @@
       <assert>
         <description value="Confirm that the returned HTTP status is 200(OK)."/>
         <response value="okay"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -82,6 +98,7 @@
       <assert>
         <description value="Confirm that the returned format is XML."/>
         <contentType value="xml"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -90,6 +107,7 @@
         <description value="Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server might not support versioning."/>
         <headerField value="Last-Modified"/>
         <operator value="notEmpty"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="true"/>
       </assert>
     </action>
@@ -97,12 +115,14 @@
       <assert>
         <description value="Confirm that the returned resource type is Patient."/>
         <resource value="Patient"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
     <action>
       <assert>
         <description value="Confirm that the returned Patient conforms to the base FHIR specification."/>
+        <stopTestOnFail value="false"/>
         <validateProfileId value="patient-profile"/>
         <warningOnly value="false"/>
       </assert>
@@ -114,7 +134,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="read"/>
         </type>
         <resource value="Patient"/>
@@ -128,6 +148,7 @@
       <assert>
         <description value="Confirm that the returned HTTP status is 404(Not Found)."/>
         <response value="notFound"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -138,7 +159,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="read"/>
         </type>
         <resource value="Patient"/>
@@ -152,6 +173,7 @@
       <assert>
         <description value="Confirm that the returned HTTP status is 404(Not Found)."/>
         <response value="notFound"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>
@@ -162,7 +184,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="read"/>
         </type>
         <resource value="Patient"/>
@@ -176,6 +198,7 @@
       <assert>
         <description value="Confirm that the returned HTTP status is 400(Bad Request)."/>
         <response value="bad"/>
+        <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>
     </action>

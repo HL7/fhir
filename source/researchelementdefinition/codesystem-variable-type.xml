@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="variable-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/variable-type"/>
+  <version value="4.6.0"/>
+  <name value="VariableType"/>
+  <concept>
+    <code value="dichotomous"/>
+    <display value="Dichotomous"/>
+    <definition value="The variable is dichotomous, such as present or absent."/>
+  </concept>
+  <concept>
+    <code value="continuous"/>
+    <display value="Continuous"/>
+    <definition value="The variable is a continuous result such as a quantity."/>
+  </concept>
+  <concept>
+    <code value="descriptive"/>
+    <display value="Descriptive"/>
+    <definition value="The variable is described narratively rather than quantitatively."/>
+  </concept>
+</CodeSystem>

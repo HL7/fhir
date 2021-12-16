@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="consent-data-meaning"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/consent-data-meaning defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">instance
+            
+            <a name="consent-data-meaning-instance"> </a>
+          
+          </td>
+          
+          <td>Instance</td>
+          
+          <td>The consent applies directly to the instance of the resource.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">related
+            
+            <a name="consent-data-meaning-related"> </a>
+          
+          </td>
+          
+          <td>Related</td>
+          
+          <td>The consent applies directly to the instance of the resource and instances it refers to.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">dependents
+            
+            <a name="consent-data-meaning-dependents"> </a>
+          
+          </td>
+          
+          <td>Dependents</td>
+          
+          <td>The consent applies directly to the instance of the resource and instances that refer to it.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">authoredby
+            
+            <a name="consent-data-meaning-authoredby"> </a>
+          
+          </td>
+          
+          <td>AuthoredBy</td>
+          
+          <td>The consent applies to instances of resources that are authored by.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cbcc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/consent-data-meaning"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.760"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ConsentDataMeaning"/>
+  <title value="ConsentDataMeaning"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="How a resource reference is interpreted when testing consent restrictions."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/consent-data-meaning"/>
+  <content value="complete"/>
+  <concept>
+    <code value="instance"/>
+    <display value="Instance"/>
+    <definition value="The consent applies directly to the instance of the resource."/>
+  </concept>
+  <concept>
+    <code value="related"/>
+    <display value="Related"/>
+    <definition value="The consent applies directly to the instance of the resource and instances it refers to."/>
+  </concept>
+  <concept>
+    <code value="dependents"/>
+    <display value="Dependents"/>
+    <definition value="The consent applies directly to the instance of the resource and instances that refer to it."/>
+  </concept>
+  <concept>
+    <code value="authoredby"/>
+    <display value="AuthoredBy"/>
+    <definition value="The consent applies to instances of resources that are authored by."/>
+  </concept>
+</CodeSystem>

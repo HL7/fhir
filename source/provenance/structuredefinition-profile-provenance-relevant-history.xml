@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="provenance-relevant-history"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sec"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/provenance-relevant-history"/>
+  <version value="4.6.0"/>
+  <name value="Provenance Relevant History"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2013-12-03"/>
+  <publisher value="Health Level Seven International"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/Committees/fhir-i"/>
+    </telecom>
+  </contact>
+  <description value="Guidance on using Provenance for related history elements"/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w3c.prov"/>
+    <uri value="http://www.w3.org/ns/prov"/>
+    <name value="W3C PROV"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="fhirauditevent"/>
+    <uri value="http://hl7.org/fhir/auditevent"/>
+    <name value="FHIR AuditEvent Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Provenance"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Provenance">
+      <path value="Provenance"/>
+      <min value="0"/>
+      <max value="*"/>
+    </element>
+    <element id="Provenance.target">
+      <path value="Provenance.target"/>
+      <short value="Resource version"/>
+      <definition value="This points to the version of the resource that was created as a result of this historical record action.  Typically only a single resource will be referenced, but if the same action is performed to multiple resources in the context of a transaction, some systems may link multiple resource instances."/>
+      <comment value="The reference SHALL be version-specific."/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Provenance.occurred[x]">
+      <path value="Provenance.occurred[x]"/>
+      <definition value="This indicates the time the resource action (creation, revision, deletion, etc.) occurred."/>
+      <comment value="Both low and high will be set to the time the record event occurred.  (In a future version, this element will likely be a choice with dateTime so that multiple values aren&#39;t needed.)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Provenance.authorization">
+      <path value="Provenance.authorization"/>
+      <comment value="Plain text reasons can be sent in the &quot;text&quot; component with no codings.  Domains may wish to define a constrained terminology.  The authorization for the resource&#39;s existence of the resource itself will be maintained on the resource, not here."/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Provenance.activity">
+      <path value="Provenance.activity"/>
+      <short value="Record activity"/>
+      <definition value="Indicates what action occurred to the referenced resource."/>
+      <comment value="This should be captured at a sufficiently useful level of granularity.  For example &quot;suspended&quot; is more useful than &quot;updated&quot;.  Domains will need to map the listed codes to their own state transitions and may wish to define additional domain-specific fine-grained codes."/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProvenanceHistoryRecordActivity"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Types of activities that are relevant for tracking event history using Provenance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/provenance-history-record-activity"/>
+      </binding>
+    </element>
+    <element id="Provenance.agent">
+      <path value="Provenance.agent"/>
+      <slicing>
+        <discriminator>
+          <type value="value"/>
+          <path value="type"/>
+        </discriminator>
+        <ordered value="false"/>
+        <rules value="open"/>
+      </slicing>
+      <short value="Who was involved with change"/>
+      <definition value="Who was involved with change."/>
+      <comment value="Generally the author will be specified.  Others are optional."/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Provenance.agent.type">
+      <path value="Provenance.agent.type"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProvenanceHistoryAgentType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Types of roles that agents can play when tracking event history using Provenance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/provenance-history-agent-type"/>
+      </binding>
+    </element>
+    <element id="Provenance.agent:Author">
+      <path value="Provenance.agent"/>
+      <sliceName value="Author"/>
+      <short value="Author"/>
+      <definition value="Author."/>
+      <min value="0"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Provenance.agent:Author.type">
+      <path value="Provenance.agent.type"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+          <code value="AUT"/>
+        </coding>
+      </patternCodeableConcept>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Provenance.agent:Author.who">
+      <path value="Provenance.agent.who"/>
+      <short value="Author Reference"/>
+      <definition value="Author Reference."/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

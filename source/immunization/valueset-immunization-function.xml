@@ -1,12 +1,24 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
-	  <valueBoolean value="true"/>
-	</extension>
+  <id value="immunization-function"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
+    <valueBoolean value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pher"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/immunization-function"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.995"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="ImmunizationFunctionCodes"/>
   <title value="Immunization Function Codes"/>
-
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -25,6 +37,6 @@
       <concept>
         <code value="AP"/>
       </concept>
-	</include>
+    </include>
   </compose>
 </ValueSet>

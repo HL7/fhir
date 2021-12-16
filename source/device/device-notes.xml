@@ -9,10 +9,12 @@
 
 
 		<ul>
-		<li><a href="valueset-device-kind.html">SNOMED CT</a> - the example binding used here</li>
+		<li><a href="valueset-device-type.html">SNOMED CT</a> - the example binding used here</li>
 			<li><a href="https://www.gmdnagency.org/">Global Medical Device Nomenclature (GMDN&reg;)</a></li>
 			<li><a href="https://rtmms.nist.gov/rtmms/index.htm">Rosetta Terminology Mapping (RTM)</a></li>
 		</ul>
+
+	<p>For systems that do have a system URI for device types (indicating the model number or part number), they can and should appear as codings in <code>Device.type</code>.</p>
 
 <a name="udi"></a>
 <h4>Unique Device Identifier (UDI)</h4>

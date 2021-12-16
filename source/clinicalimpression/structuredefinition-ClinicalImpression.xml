@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ClinicalImpression"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Summary"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/ClinicalImpression"/>
+  <version value="4.6.0"/>
+  <name value="ClinicalImpression"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Patient Care)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient&#39;s condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called &quot;ClinicalImpression&quot; rather than &quot;ClinicalAssessment&quot; to avoid confusion with the recording of assessment tools such as Apgar score."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="ClinicalImpression"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="ClinicalImpression">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="ClinicalImpression"/>
+      <short value="A clinical assessment performed when planning treatments and management strategies for a patient"/>
+      <definition value="A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient&#39;s condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called &quot;ClinicalImpression&quot; rather than &quot;ClinicalAssessment&quot; to avoid confusion with the recording of assessment tools such as Apgar score."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Partial mapping for problem evaluation"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.general"/>
+      </mapping>
+    </element>
+    <element id="ClinicalImpression.identifier">
+      <path value="ClinicalImpression.identifier"/>
+      <short value="Business identifier"/>
+      <definition value="Business identifiers assigned to this clinical impression by the performer or other systems which remain constant as the resource is updated and propagates from server to server."/>
+      <comment value="This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+      <requirements value="Allows identification of the clinical impression as it is known by various participating systems and in a way that remains consistent across servers."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-3"/>
+      </mapping>
+    </element>
+    <element id="ClinicalImpression.status">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#22730."/>
+      </extension>
+      <path value="ClinicalImpression.status"/>
+      <short value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
+      <definition value="Identifies the workflow status of the assessment."/>
+      <comment value="This element is labeled as a modifier because the status contains the code entered-in-error that marks the clinical impression as not currently valid."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ClinicalImpressionStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The workflow state of a clinical impression."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/event-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PRB-14"/>
+      </mapping>
+    </element>
+    <element id="ClinicalImpression.statusReason">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#22730."/>
+      </extension>
+      <path value="ClinicalImpression.statusReason"/>
+      <short value="Reason for current status"/>
+      <definition value="Captures the reason for the current state of the ClinicalImpression."/>
+      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;on-hold&quot; or &quot;stopped&quot;."/>
+      <alias value="Suspended Reason"/>
+      <alias value="Cancelled Reason"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ClinicalImpressionStatusReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes identifying the reason for the current state of a clinical impression."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/clinicalimpression-status-reason"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.statusReason"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN].reasonCOde"/>
+      </mapping>
+    </element>
+    <element id="ClinicalImpression.description">
+      <path value="ClinicalImpression.description"/>
+      <short value="Why/how the assessment was performed"/>
+      <definition value="A summary of the context and/or cause of the assessment - why / where it was performed, and what patient events/status prompted it."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ClinicalImpression.subject">
+      <path value="ClinicalImpression.subject"/>
+      <short value="Patient or group assessed"/>
+      <definition value="The patient or group of individuals assessed as part of this record."/>
+      <requirements value="Group is typically for veterinary and/or public health purposes."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-3"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="ClinicalImpression.encounter">
+      <path value="ClinicalImpression.encounter"/>
+      <short value="The Encounter during which this ClinicalImpression was created"/>
+      <definition value="The Encounter during which this ClinicalImpression was created or to which the creation of this record is tightly associated."/>
+      <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.context"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+    </element>
+    <element id="ClinicalImpression.effective[x]">
+      <path value="ClinicalImpression.effective[x]"/>
+      <short value="Time of assessment"/>
+      <definition value="The point in time or period over which the subject was assessed."/>
+      <comment value="This SHOULD be accurate to at least the minute, though some assessments only have a known date."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PRB-2"/>
+      </mapping>
+    </element>
+    <element id="ClinicalImpression.date">
+      <path value="ClinicalImpression.date"/>
+      <short value="When the assessment was documented"/>
+      <definition value="Indicates when the documentation of the assessment was complete."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="ClinicalImpression.performer">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#18861."/>
+      </extension>
+      <path value="ClinicalImpression.performer"/>
+      <short value="The clinician performing the assessment"/>
+      <definition value="The clinician performing the assessment."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ROL-4"/>
+      </mapping>
+    </element>
+    <element id="ClinicalImpression.previous">
+      <path value="ClinicalImpression.previous"/>
+      <short value="Reference to last assessment"/>
+      <definition value="A reference to the last assessment that was conducted on this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient&#39;s conditions changes."/>
+      <comment value="It is always likely that multiple previous assessments exist for a patient. The point of quoting a previous assessment is that this assessment is relative to it (see resolved)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalImpression"/>
+      </type>
+    </element>
+    <element id="ClinicalImpression.problem">
+      <path value="ClinicalImpression.problem"/>
+      <short value="Relevant impressions of patient state"/>
+      <definition value="A list of the relevant problems/conditions for a patient."/>
+      <comment value="e.g. The patient is a pregnant, has congestive heart failure, has an &#x200E;Adenocarcinoma, and is allergic to penicillin."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PRB-3 / IAM-7"/>
+      </mapping>
+    </element>
+    <element id="ClinicalImpression.protocol">
+      <path value="ClinicalImpression.protocol"/>
+      <short value="Clinical Protocol followed"/>
+      <definition value="Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="ClinicalImpression.summary">
+      <path value="ClinicalImpression.summary"/>
+      <short value="Summary of the assessment"/>
+      <definition value="A text summary of the investigations and the diagnosis."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX"/>
+      </mapping>
+    </element>
+    <element id="ClinicalImpression.finding">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,140"/>
+      </extension>
+      <path value="ClinicalImpression.finding"/>
+      <short value="Possible or likely findings and diagnoses"/>
+      <definition value="Specific findings or diagnoses that were considered likely or relevant to ongoing treatment."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ClinicalImpression.finding.item">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#14150."/>
+      </extension>
+      <path value="ClinicalImpression.finding.item"/>
+      <short value="What was found"/>
+      <definition value="Specific text, code or reference for finding or diagnosis, which may include ruled-out or resolved conditions."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ConditionKind"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Identification of the Condition or diagnosis."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX"/>
+      </mapping>
+    </element>
+    <element id="ClinicalImpression.finding.basis">
+      <path value="ClinicalImpression.finding.basis"/>
+      <short value="Which investigations support finding"/>
+      <definition value="Which investigations support finding or diagnosis."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="ClinicalImpression.prognosisCodeableConcept">
+      <path value="ClinicalImpression.prognosisCodeableConcept"/>
+      <short value="Estimate of likely outcome"/>
+      <definition value="Estimate of likely outcome."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ClinicalImpressionPrognosis"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Prognosis or outlook findings."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/clinicalimpression-prognosis"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PRB-22"/>
+      </mapping>
+    </element>
+    <element id="ClinicalImpression.prognosisReference">
+      <path value="ClinicalImpression.prognosisReference"/>
+      <short value="RiskAssessment expressing likely outcome"/>
+      <definition value="RiskAssessment expressing likely outcome."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
+      </type>
+    </element>
+    <element id="ClinicalImpression.supportingInfo">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#7185, GF#18860."/>
+      </extension>
+      <path value="ClinicalImpression.supportingInfo"/>
+      <short value="Information supporting the clinical impression"/>
+      <definition value="Information supporting the clinical impression, which can contain investigation results."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+    </element>
+    <element id="ClinicalImpression.note">
+      <path value="ClinicalImpression.note"/>
+      <short value="Comments made about the ClinicalImpression"/>
+      <definition value="Commentary about the impression, typically recorded after the impression itself was made, though supplemental notes by the original author could also appear."/>
+      <comment value="Don&#39;t use this element for content that should more properly appear as one of the specific elements of the impression."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.note"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

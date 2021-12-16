@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="reaction-event-certainty"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <url value="http://hl7.org/fhir/reaction-event-certainty"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.943"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="AllergyIntoleranceCertainty"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="unlikely"/>
+    <display value="Unlikely"/>
+    <definition value="There is a low level of clinical certainty that the reaction was caused by the identified substance."/>
+  </concept>
+  <concept>
+    <code value="likely"/>
+    <display value="Likely"/>
+    <definition value="There is a high level of clinical certainty that the reaction was caused by the identified substance."/>
+  </concept>
+  <concept>
+    <code value="confirmed"/>
+    <display value="Confirmed"/>
+    <definition value="There is a very high level of clinical certainty that the reaction was due to the identified substance, which may include clinical evidence by testing or rechallenge."/>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The clinical certainty that the reaction was caused by the identified substance is unknown.  It is an explicit assertion that certainty is not known."/>
+  </concept>
+</CodeSystem>

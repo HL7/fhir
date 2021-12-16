@@ -985,6 +985,23 @@
                </td>
             </tr>
          </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Evaluated Resource: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <span style="padding-left: 25px;">
+                     <b>reference: </b>
+                     <span>Condition/example</span>
+                     <br/>
+                  </span>
+               </td>
+            </tr>
+         </table>
       </div>
   </text>
   <!--code>
@@ -1036,7 +1053,7 @@
     <stratifier>
       <code><text value="stratifier-ages-up-to-9"/></code>
       <stratum>
-        <value><text value="true"/></value>
+        <valueBoolean value="true"/>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="1"/>
@@ -1055,7 +1072,7 @@
         </population>
       </stratum>
       <stratum>
-        <value><text value="false"/></value>
+        <valueBoolean value="false"/>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="0"/>
@@ -1077,7 +1094,7 @@
     <stratifier>
       <code><text value="stratifier-ages-10-plus"/></code>
       <stratum>
-        <value><text value="true"/></value>
+        <valueBoolean value="true"/>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="0"/>
@@ -1096,7 +1113,7 @@
         </population>
       </stratum>
       <stratum>
-        <value><text value="false"/></value>
+        <valueBoolean value="true"/>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="1"/>
@@ -1118,7 +1135,7 @@
     <stratifier>
       <code><text value="stratifier-gender"/></code>
       <stratum>
-        <value><text value="male"/></value>
+        <valueCodeableConcept><text value="male"/></valueCodeableConcept>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="1"/>
@@ -1137,7 +1154,7 @@
         </population>
       </stratum>
       <stratum>
-        <value><text value="female"/></value>
+        <valueCodeableConcept><text value="female"/></valueCodeableConcept>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="0"/>
@@ -1156,7 +1173,7 @@
         </population>
       </stratum>
       <stratum>
-        <value><text value="other"/></value>
+        <valueCodeableConcept><text value="other"/></valueCodeableConcept>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="0"/>
@@ -1175,7 +1192,7 @@
         </population>
       </stratum>
       <stratum>
-        <value><text value="unknown"/></value>
+        <valueCodeableConcept><text value="unknown"/></valueCodeableConcept>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="0"/>
@@ -1196,7 +1213,7 @@
     </stratifier>
   </group>
   <evaluatedResource>
-    <!-- Condition #123 is a condition that was considered in evaluating the measure for Patient #123 -->
-    <reference value="Condition/123"/>
+    <!-- Condition #example is a condition that was considered in evaluating the measure for Patient #123 -->
+    <reference value="Condition/example"/>
   </evaluatedResource>
 </MeasureReport>

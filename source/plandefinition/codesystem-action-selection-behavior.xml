@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="action-selection-behavior"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/action-selection-behavior defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">any
+            
+            <a name="action-selection-behavior-any"> </a>
+          
+          </td>
+          
+          <td>Any</td>
+          
+          <td>Any number of the actions in the group may be chosen, from zero to all.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">all
+            
+            <a name="action-selection-behavior-all"> </a>
+          
+          </td>
+          
+          <td>All</td>
+          
+          <td>All the actions in the group must be selected as a single unit.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">all-or-none
+            
+            <a name="action-selection-behavior-all-or-none"> </a>
+          
+          </td>
+          
+          <td>All Or None</td>
+          
+          <td>All the actions in the group are meant to be chosen as a single unit: either all must be selected by the end user, or none may be selected.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">exactly-one
+            
+            <a name="action-selection-behavior-exactly-one"> </a>
+          
+          </td>
+          
+          <td>Exactly One</td>
+          
+          <td>The end user must choose one and only one of the selectable actions in the group. The user SHALL NOT choose none of the actions in the group.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">at-most-one
+            
+            <a name="action-selection-behavior-at-most-one"> </a>
+          
+          </td>
+          
+          <td>At Most One</td>
+          
+          <td>The end user may choose zero or at most one of the actions in the group.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">one-or-more
+            
+            <a name="action-selection-behavior-one-or-more"> </a>
+          
+          </td>
+          
+          <td>One Or More</td>
+          
+          <td>The end user must choose a minimum of one, and as many additional as desired.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/action-selection-behavior"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.802"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ActionSelectionBehavior"/>
+  <title value="ActionSelectionBehavior"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Defines selection behavior of a group."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/action-selection-behavior"/>
+  <content value="complete"/>
+  <concept>
+    <code value="any"/>
+    <display value="Any"/>
+    <definition value="Any number of the actions in the group may be chosen, from zero to all."/>
+  </concept>
+  <concept>
+    <code value="all"/>
+    <display value="All"/>
+    <definition value="All the actions in the group must be selected as a single unit."/>
+  </concept>
+  <concept>
+    <code value="all-or-none"/>
+    <display value="All Or None"/>
+    <definition value="All the actions in the group are meant to be chosen as a single unit: either all must be selected by the end user, or none may be selected."/>
+  </concept>
+  <concept>
+    <code value="exactly-one"/>
+    <display value="Exactly One"/>
+    <definition value="The end user must choose one and only one of the selectable actions in the group. The user SHALL NOT choose none of the actions in the group."/>
+  </concept>
+  <concept>
+    <code value="at-most-one"/>
+    <display value="At Most One"/>
+    <definition value="The end user may choose zero or at most one of the actions in the group."/>
+  </concept>
+  <concept>
+    <code value="one-or-more"/>
+    <display value="One Or More"/>
+    <definition value="The end user must choose a minimum of one, and as many additional as desired."/>
+  </concept>
+</CodeSystem>

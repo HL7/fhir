@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="container-cap"/>
+  <meta>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/container-cap defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">red
+            
+            <a name="container-cap-red"> </a>
+          
+          </td>
+          
+          <td>red cap</td>
+          
+          <td>red cap.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">yellow
+            
+            <a name="container-cap-yellow"> </a>
+          
+          </td>
+          
+          <td>yellow cap</td>
+          
+          <td>yellow cap.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">dark-yellow
+            
+            <a name="container-cap-dark-yellow"> </a>
+          
+          </td>
+          
+          <td>dark yellow cap</td>
+          
+          <td>dark yellow cap.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">grey
+            
+            <a name="container-cap-grey"> </a>
+          
+          </td>
+          
+          <td>grey cap</td>
+          
+          <td>grey cap.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">light-blue
+            
+            <a name="container-cap-light-blue"> </a>
+          
+          </td>
+          
+          <td>light blue cap</td>
+          
+          <td>light blue cap.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">black
+            
+            <a name="container-cap-black"> </a>
+          
+          </td>
+          
+          <td>black cap</td>
+          
+          <td>black cap.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">green
+            
+            <a name="container-cap-green"> </a>
+          
+          </td>
+          
+          <td>green cap</td>
+          
+          <td>green cap.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">light-green
+            
+            <a name="container-cap-light-green"> </a>
+          
+          </td>
+          
+          <td>light green cap</td>
+          
+          <td>light green cap.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">lavender
+            
+            <a name="container-cap-lavender"> </a>
+          
+          </td>
+          
+          <td>lavender cap</td>
+          
+          <td>lavender cap.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">brown
+            
+            <a name="container-cap-brown"> </a>
+          
+          </td>
+          
+          <td>brown cap</td>
+          
+          <td>brown cap.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">white
+            
+            <a name="container-cap-white"> </a>
+          
+          </td>
+          
+          <td>white cap</td>
+          
+          <td>white cap.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">pink
+            
+            <a name="container-cap-pink"> </a>
+          
+          </td>
+          
+          <td>pink cap</td>
+          
+          <td>pink cap.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/container-cap"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1258"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ContainerCap"/>
+  <title value="ContainerCap"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Color of the container cap."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/container-cap"/>
+  <content value="complete"/>
+  <concept>
+    <code value="red"/>
+    <display value="red cap"/>
+    <definition value="red cap."/>
+  </concept>
+  <concept>
+    <code value="yellow"/>
+    <display value="yellow cap"/>
+    <definition value="yellow cap."/>
+  </concept>
+  <concept>
+    <code value="dark-yellow"/>
+    <display value="dark yellow cap"/>
+    <definition value="dark yellow cap."/>
+  </concept>
+  <concept>
+    <code value="grey"/>
+    <display value="grey cap"/>
+    <definition value="grey cap."/>
+  </concept>
+  <concept>
+    <code value="light-blue"/>
+    <display value="light blue cap"/>
+    <definition value="light blue cap."/>
+  </concept>
+  <concept>
+    <code value="black"/>
+    <display value="black cap"/>
+    <definition value="black cap."/>
+  </concept>
+  <concept>
+    <code value="green"/>
+    <display value="green cap"/>
+    <definition value="green cap."/>
+  </concept>
+  <concept>
+    <code value="light-green"/>
+    <display value="light green cap"/>
+    <definition value="light green cap."/>
+  </concept>
+  <concept>
+    <code value="lavender"/>
+    <display value="lavender cap"/>
+    <definition value="lavender cap."/>
+  </concept>
+  <concept>
+    <code value="brown"/>
+    <display value="brown cap"/>
+    <definition value="brown cap."/>
+  </concept>
+  <concept>
+    <code value="white"/>
+    <display value="white cap"/>
+    <definition value="white cap."/>
+  </concept>
+  <concept>
+    <code value="pink"/>
+    <display value="pink cap"/>
+    <definition value="pink cap."/>
+  </concept>
+</CodeSystem>

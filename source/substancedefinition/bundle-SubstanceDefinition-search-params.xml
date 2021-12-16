@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="SubstanceDefinition-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SubstanceDefinition-classification"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SubstanceDefinition.classification"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SubstanceDefinition-classification"/>
+        <description value="High or low level categorization, e.g. polymer vs. nucleic acid or linear vs. branch chain"/>
+        <code value="classification"/>
+        <type value="token"/>
+        <expression value="SubstanceDefinition.classification"/>
+        <xpath value="f:SubstanceDefinition/f:classification"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SubstanceDefinition-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SubstanceDefinition.code.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SubstanceDefinition-code"/>
+        <description value="The specific code"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="SubstanceDefinition.code.code"/>
+        <xpath value="f:SubstanceDefinition/f:code/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SubstanceDefinition-domain"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SubstanceDefinition.domain"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SubstanceDefinition-domain"/>
+        <description value="If the substance applies to only human or veterinary use"/>
+        <code value="domain"/>
+        <type value="token"/>
+        <expression value="SubstanceDefinition.domain"/>
+        <xpath value="f:SubstanceDefinition/f:domain"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SubstanceDefinition-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SubstanceDefinition.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SubstanceDefinition-identifier"/>
+        <description value="Identifier by which this substance is known"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="SubstanceDefinition.identifier"/>
+        <xpath value="f:SubstanceDefinition/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SubstanceDefinition-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SubstanceDefinition.name.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SubstanceDefinition-name"/>
+        <description value="The actual name"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="SubstanceDefinition.name.name"/>
+        <xpath value="f:SubstanceDefinition/f:name/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

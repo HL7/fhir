@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="allergy-intolerance-criticality"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/allergy-intolerance-criticality defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">low
+            
+            <a name="allergy-intolerance-criticality-low"> </a>
+          
+          </td>
+          
+          <td>Low Risk</td>
+          
+          <td>Worst case result of a future exposure is not assessed to be life-threatening or having high potential for organ system failure.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">high
+            
+            <a name="allergy-intolerance-criticality-high"> </a>
+          
+          </td>
+          
+          <td>High Risk</td>
+          
+          <td>Worst case result of a future exposure is assessed to be life-threatening or having high potential for organ system failure.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">unable-to-assess
+            
+            <a name="allergy-intolerance-criticality-unable-to-assess"> </a>
+          
+          </td>
+          
+          <td>Unable to Assess Risk</td>
+          
+          <td>Unable to assess the worst case result of a future exposure.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/allergy-intolerance-criticality"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.130"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="AllergyIntoleranceCriticality"/>
+  <title value="AllergyIntoleranceCriticality"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Estimate of the potential clinical harm, or seriousness, of a reaction to an identified substance."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality"/>
+  <content value="complete"/>
+  <concept>
+    <code value="low"/>
+    <display value="Low Risk"/>
+    <definition value="Worst case result of a future exposure is not assessed to be life-threatening or having high potential for organ system failure."/>
+  </concept>
+  <concept>
+    <code value="high"/>
+    <display value="High Risk"/>
+    <definition value="Worst case result of a future exposure is assessed to be life-threatening or having high potential for organ system failure."/>
+  </concept>
+  <concept>
+    <code value="unable-to-assess"/>
+    <display value="Unable to Assess Risk"/>
+    <definition value="Unable to assess the worst case result of a future exposure."/>
+  </concept>
+</CodeSystem>

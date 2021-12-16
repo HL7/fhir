@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="conformance-expectation"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/conformance-expectation"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.920"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ConformanceExpectation"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="SHALL"/>
+    <display value="SHALL"/>
+    <definition value="Support for the specified capability is required to be considered conformant."/>
+  </concept>
+  <concept>
+    <code value="SHOULD"/>
+    <display value="SHOULD"/>
+    <definition value="Support for the specified capability is strongly encouraged, and failure to support it should only occur after careful consideration."/>
+  </concept>
+  <concept>
+    <code value="MAY"/>
+    <display value="MAY"/>
+    <definition value="Support for the specified capability is not necessary to be considered conformant, and the requirement should be considered strictly optional."/>
+  </concept>
+  <concept>
+    <code value="SHOULD-NOT"/>
+    <display value="SHOULD-NOT"/>
+    <definition value="Support for the specified capability is strongly discouraged and should occur only after careful consideration."/>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="relation-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/relation-type"/>
+  <version value="4.6.0"/>
+  <name value="EntryDefinitionRelationType"/>
+  <concept>
+    <code value="has-input"/>
+    <display value="Has Input"/>
+    <definition value="the related entry represents an item to be provided as input to the current item."/>
+  </concept>
+  <concept>
+    <code value="has-output"/>
+    <display value="Has Output"/>
+    <definition value="the related entry represents an item produced as out put of the current item."/>
+  </concept>
+  <concept>
+    <code value="uses"/>
+    <display value="Uses"/>
+    <definition value="the related entry represents an item (product or material or substance) used by the current item."/>
+  </concept>
+  <concept>
+    <code value="triggers"/>
+    <display value="Triggers"/>
+    <definition value="the related entry represents an activity that may be triggered by the current item."/>
+  </concept>
+  <concept>
+    <code value="is-replaced-by"/>
+    <display value="Replaced By"/>
+    <definition value="the related entry represents an item that replaces the current retired item."/>
+  </concept>
+</CodeSystem>

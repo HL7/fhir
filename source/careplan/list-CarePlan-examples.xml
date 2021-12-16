@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="CarePlan-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Care plan to address obesity that has a goal of weight loss"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="careplan-example"/>
+    </extension>
+    <item>
+      <reference value="CarePlan/example"/>
+      <display value="Weight Loss"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Care plan to address pregnancy"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="careplan-example-pregnancy"/>
+    </extension>
+    <item>
+      <reference value="CarePlan/preg"/>
+      <display value="Pregnancy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Integrated care plan with multiple goals &amp; conditions (from Mayo)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="careplan-example-integrated"/>
+    </extension>
+    <item>
+      <reference value="CarePlan/integrate"/>
+      <display value="Integrated"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Encounter-specific care plan for GP visit"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="careplan-example-GPVisit"/>
+    </extension>
+    <item>
+      <reference value="CarePlan/gpvisit"/>
+      <display value="GPVisit"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Care plan for an operative procedure on heart"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="careplan-example-f001-heart"/>
+    </extension>
+    <item>
+      <reference value="CarePlan/f001"/>
+      <display value="Operative procedure on heart"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Care plan for a partial lobectomy of lung"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="careplan-example-f002-lung"/>
+    </extension>
+    <item>
+      <reference value="CarePlan/f002"/>
+      <display value="Partial lobectomy of lung"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Care plan with goal of retropharyngeal abscess removal"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="careplan-example-f003-pharynx"/>
+    </extension>
+    <item>
+      <reference value="CarePlan/f003"/>
+      <display value="Incision of retropharyngeal abscess"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Care plan to address renal insufficiency"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="careplan-example-f201-renal"/>
+    </extension>
+    <item>
+      <reference value="CarePlan/f201"/>
+      <display value="Cure of renal insufficiency"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Care plan to address head-neck tumor by chemotherapy"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="careplan-example-f202-malignancy"/>
+    </extension>
+    <item>
+      <reference value="CarePlan/f202"/>
+      <display value="Sphenoid bone tumor demission"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Care plan to address sepsis"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="careplan-example-f203-sepsis"/>
+    </extension>
+    <item>
+      <reference value="CarePlan/f203"/>
+      <display value="Sepsis treatment"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Primarily narrative care plan to address obesity"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="careplan-example-obesity-narrative"/>
+    </extension>
+    <item>
+      <reference value="CarePlan/obesity-narrative"/>
+      <display value="Narrative"/>
+    </item>
+  </entry>
+</List>

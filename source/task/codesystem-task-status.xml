@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="task-status"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/task-status defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">draft
+            
+            <a name="task-status-draft"> </a>
+          
+          </td>
+          
+          <td>Draft</td>
+          
+          <td>The task is not yet ready to be acted upon.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">requested
+            
+            <a name="task-status-requested"> </a>
+          
+          </td>
+          
+          <td>Requested</td>
+          
+          <td>The task is ready to be acted upon and action is sought.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">received
+            
+            <a name="task-status-received"> </a>
+          
+          </td>
+          
+          <td>Received</td>
+          
+          <td>A potential performer has claimed ownership of the task and is evaluating whether to perform it.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">accepted
+            
+            <a name="task-status-accepted"> </a>
+          
+          </td>
+          
+          <td>Accepted</td>
+          
+          <td>The potential performer has agreed to execute the task but has not yet started work.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">rejected
+            
+            <a name="task-status-rejected"> </a>
+          
+          </td>
+          
+          <td>Rejected</td>
+          
+          <td>The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">ready
+            
+            <a name="task-status-ready"> </a>
+          
+          </td>
+          
+          <td>Ready</td>
+          
+          <td>The task is ready to be performed, but no action has yet been taken.  Used in place of requested/received/accepted/rejected when request assignment and acceptance is a given.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">cancelled
+            
+            <a name="task-status-cancelled"> </a>
+          
+          </td>
+          
+          <td>Cancelled</td>
+          
+          <td>The task was not completed.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">in-progress
+            
+            <a name="task-status-in-progress"> </a>
+          
+          </td>
+          
+          <td>In Progress</td>
+          
+          <td>The task has been started but is not yet complete.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">on-hold
+            
+            <a name="task-status-on-hold"> </a>
+          
+          </td>
+          
+          <td>On Hold</td>
+          
+          <td>The task has been started but work has been paused.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">failed
+            
+            <a name="task-status-failed"> </a>
+          
+          </td>
+          
+          <td>Failed</td>
+          
+          <td>The task was attempted but could not be completed due to some error.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">completed
+            
+            <a name="task-status-completed"> </a>
+          
+          </td>
+          
+          <td>Completed</td>
+          
+          <td>The task has been completed.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            <a name="task-status-entered-in-error"> </a>
+          
+          </td>
+          
+          <td>Entered in Error</td>
+          
+          <td>The task should never have existed and is retained only because of the possibility it may have used.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/task-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.791"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="TaskStatus"/>
+  <title value="TaskStatus"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The current status of the task."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/task-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="draft"/>
+    <display value="Draft"/>
+    <definition value="The task is not yet ready to be acted upon."/>
+  </concept>
+  <concept>
+    <code value="requested"/>
+    <display value="Requested"/>
+    <definition value="The task is ready to be acted upon and action is sought."/>
+  </concept>
+  <concept>
+    <code value="received"/>
+    <display value="Received"/>
+    <definition value="A potential performer has claimed ownership of the task and is evaluating whether to perform it."/>
+  </concept>
+  <concept>
+    <code value="accepted"/>
+    <display value="Accepted"/>
+    <definition value="The potential performer has agreed to execute the task but has not yet started work."/>
+  </concept>
+  <concept>
+    <code value="rejected"/>
+    <display value="Rejected"/>
+    <definition value="The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action."/>
+  </concept>
+  <concept>
+    <code value="ready"/>
+    <display value="Ready"/>
+    <definition value="The task is ready to be performed, but no action has yet been taken.  Used in place of requested/received/accepted/rejected when request assignment and acceptance is a given."/>
+  </concept>
+  <concept>
+    <code value="cancelled"/>
+    <display value="Cancelled"/>
+    <definition value="The task was not completed."/>
+  </concept>
+  <concept>
+    <code value="in-progress"/>
+    <display value="In Progress"/>
+    <definition value="The task has been started but is not yet complete."/>
+  </concept>
+  <concept>
+    <code value="on-hold"/>
+    <display value="On Hold"/>
+    <definition value="The task has been started but work has been paused."/>
+  </concept>
+  <concept>
+    <code value="failed"/>
+    <display value="Failed"/>
+    <definition value="The task was attempted but could not be completed due to some error."/>
+  </concept>
+  <concept>
+    <code value="completed"/>
+    <display value="Completed"/>
+    <definition value="The task has been completed."/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered in Error"/>
+    <definition value="The task should never have existed and is retained only because of the possibility it may have used."/>
+  </concept>
+</CodeSystem>

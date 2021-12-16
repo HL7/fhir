@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="expansion-parameter-source"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <url value="http://hl7.org/fhir/expansion-parameter-source"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ExpansionParameterSource"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="input"/>
+    <display value="Client Input"/>
+    <definition value="The parameter was supplied by the client in the $expand request."/>
+  </concept>
+  <concept>
+    <code value="server"/>
+    <display value="Server Engine"/>
+    <definition value="The parameter was added by the expansion engine on the server."/>
+  </concept>
+  <concept>
+    <code value="codesystem"/>
+    <display value="Code System"/>
+    <definition value="The parameter was added from one the code systems used in the $expand operation."/>
+  </concept>
+</CodeSystem>

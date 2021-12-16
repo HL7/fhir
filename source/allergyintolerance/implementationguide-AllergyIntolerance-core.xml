@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="AllergyIntolerance-core"/>
+  <version value="0.1"/>
+  <name value="AllergyIntolerance HL7 Extensions"/>
+  <title value="AllergyIntolerance HL7 Extensions"/>
+  <status value="draft"/>
+  <date value="2015-02-21T00:00:00.000"/>
+  <publisher value="Health Level Seven, Inc. - FHIR WG"/>
+  <description value="Defines common extensions used with or related to the AllergyIntolerance resource"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/allergyintolerance-resolutionAge"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/allergyintolerance-reasonRefuted"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/allergyintolerance-duration"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/allergyintolerance-substanceExposureRisk"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/allergyintolerance-certainty"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/allergyintolerance-assertedDate"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/allergyintolerance-abatement"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>
