@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="SubstancePolymer"/>
+  <meta>
+    <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Specialized.Medication Definition"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="anonymous"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status=entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/SubstancePolymer"/>
+  <version value="4.6.0"/>
+  <name value="SubstancePolymer"/>
+  <status value="draft"/>
+  <date value="2020-12-31T07:32:20+11:00"/>
+  <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Properties of a substance specific to it being a polymer."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="SubstancePolymer"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="SubstancePolymer">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="410,-10"/>
+      </extension>
+      <path value="SubstancePolymer"/>
+      <short value="Properties of a substance specific to it being a polymer"/>
+      <definition value="Properties of a substance specific to it being a polymer."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.medication"/>
+      </mapping>
+    </element>
+    <element id="SubstancePolymer.identifier">
+      <path value="SubstancePolymer.identifier"/>
+      <short value="A business idenfier for this polymer, but typically this is handled by a SubstanceDefinition identifier"/>
+      <definition value="A business idenfier for this polymer, but typically this is handled by a SubstanceDefinition identifier."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.class">
+      <path value="SubstancePolymer.class"/>
+      <short value="Overall type of the polymer"/>
+      <definition value="Overall type of the polymer."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.geometry">
+      <path value="SubstancePolymer.geometry"/>
+      <short value="Polymer geometry, e.g. linear, branched, cross-linked, network or dendritic"/>
+      <definition value="Polymer geometry, e.g. linear, branched, cross-linked, network or dendritic."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.copolymerConnectivity">
+      <path value="SubstancePolymer.copolymerConnectivity"/>
+      <short value="Descrtibes the copolymer sequence type (polymer connectivity)"/>
+      <definition value="Descrtibes the copolymer sequence type (polymer connectivity)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.modification">
+      <path value="SubstancePolymer.modification"/>
+      <short value="Todo - this is intended to connect to a repeating full modification structure, also used by Protein and Nucleic Acid . String is just a placeholder"/>
+      <definition value="Todo - this is intended to connect to a repeating full modification structure, also used by Protein and Nucleic Acid . String is just a placeholder."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.monomerSet">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="610,140"/>
+      </extension>
+      <path value="SubstancePolymer.monomerSet"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.monomerSet.ratioType">
+      <path value="SubstancePolymer.monomerSet.ratioType"/>
+      <short value="Captures the type of ratio to the entire polymer, e.g. Monomer/Polymer ratio, SRU/Polymer Ratio"/>
+      <definition value="Captures the type of ratio to the entire polymer, e.g. Monomer/Polymer ratio, SRU/Polymer Ratio."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.monomerSet.startingMaterial">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="615,260"/>
+      </extension>
+      <path value="SubstancePolymer.monomerSet.startingMaterial"/>
+      <short value="The starting materials - monomer(s) used in the synthesis of the polymer"/>
+      <definition value="The starting materials - monomer(s) used in the synthesis of the polymer."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.monomerSet.startingMaterial.code">
+      <path value="SubstancePolymer.monomerSet.startingMaterial.code"/>
+      <short value="The type of substance for this starting material"/>
+      <definition value="The type of substance for this starting material."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.monomerSet.startingMaterial.category">
+      <path value="SubstancePolymer.monomerSet.startingMaterial.category"/>
+      <short value="Substance high level category, e.g. chemical substance"/>
+      <definition value="Substance high level category, e.g. chemical substance."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.monomerSet.startingMaterial.isDefining">
+      <path value="SubstancePolymer.monomerSet.startingMaterial.isDefining"/>
+      <short value="Used to specify whether the attribute described is a defining element for the unique identification of the polymer"/>
+      <definition value="Used to specify whether the attribute described is a defining element for the unique identification of the polymer."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.monomerSet.startingMaterial.amount">
+      <path value="SubstancePolymer.monomerSet.startingMaterial.amount"/>
+      <short value="A percentage"/>
+      <definition value="A percentage."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.repeat">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="355,140"/>
+      </extension>
+      <path value="SubstancePolymer.repeat"/>
+      <short value="Specifies and quantifies the repeated units and their configuration"/>
+      <definition value="Specifies and quantifies the repeated units and their configuration."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.repeat.averageMolecularFormula">
+      <path value="SubstancePolymer.repeat.averageMolecularFormula"/>
+      <short value="A representation of an (average) molecular formula from a polymer"/>
+      <definition value="A representation of an (average) molecular formula from a polymer."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.repeat.repeatUnitAmountType">
+      <path value="SubstancePolymer.repeat.repeatUnitAmountType"/>
+      <short value="How the quantitative amount of Structural Repeat Units is captured (e.g. Exact, Numeric, Average)"/>
+      <definition value="How the quantitative amount of Structural Repeat Units is captured (e.g. Exact, Numeric, Average)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.repeat.repeatUnit">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="379,260"/>
+      </extension>
+      <path value="SubstancePolymer.repeat.repeatUnit"/>
+      <short value="An SRU - Structural Repeat Unit"/>
+      <definition value="An SRU - Structural Repeat Unit."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.repeat.repeatUnit.unit">
+      <path value="SubstancePolymer.repeat.repeatUnit.unit"/>
+      <short value="Structural repeat units are essential elements for defining polymers"/>
+      <definition value="Structural repeat units are essential elements for defining polymers."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.repeat.repeatUnit.orientation">
+      <path value="SubstancePolymer.repeat.repeatUnit.orientation"/>
+      <short value="The orientation of the polymerisation, e.g. head-tail, head-head, random"/>
+      <definition value="The orientation of the polymerisation, e.g. head-tail, head-head, random."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.repeat.repeatUnit.amount">
+      <path value="SubstancePolymer.repeat.repeatUnit.amount"/>
+      <short value="Number of repeats of this unit"/>
+      <definition value="Number of repeats of this unit."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="372,405"/>
+      </extension>
+      <path value="SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation"/>
+      <short value="Applies to homopolymer and block co-polymers where the degree of polymerisation within a block can be described"/>
+      <definition value="Applies to homopolymer and block co-polymers where the degree of polymerisation within a block can be described."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation.type">
+      <path value="SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation.type"/>
+      <short value="The type of the degree of polymerisation shall be described, e.g. SRU/Polymer Ratio"/>
+      <definition value="The type of the degree of polymerisation shall be described, e.g. SRU/Polymer Ratio."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation.average">
+      <path value="SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation.average"/>
+      <short value="An average amount of polymerisation"/>
+      <definition value="An average amount of polymerisation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation.low">
+      <path value="SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation.low"/>
+      <short value="A low expected limit of the amount"/>
+      <definition value="A low expected limit of the amount."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation.high">
+      <path value="SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation.high"/>
+      <short value="A high expected limit of the amount"/>
+      <definition value="A high expected limit of the amount."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.repeat.repeatUnit.structuralRepresentation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="110,140"/>
+      </extension>
+      <path value="SubstancePolymer.repeat.repeatUnit.structuralRepresentation"/>
+      <short value="A graphical structure for this SRU"/>
+      <definition value="A graphical structure for this SRU."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.repeat.repeatUnit.structuralRepresentation.type">
+      <path value="SubstancePolymer.repeat.repeatUnit.structuralRepresentation.type"/>
+      <short value="The type of structure (e.g. Full, Partial, Representative)"/>
+      <definition value="The type of structure (e.g. Full, Partial, Representative)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.repeat.repeatUnit.structuralRepresentation.representation">
+      <path value="SubstancePolymer.repeat.repeatUnit.structuralRepresentation.representation"/>
+      <short value="The structural representation as text string in a standard format e.g. InChI, SMILES, MOLFILE, CDX, SDF, PDB, mmCIF"/>
+      <definition value="The structural representation as text string in a standard format e.g. InChI, SMILES, MOLFILE, CDX, SDF, PDB, mmCIF."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.repeat.repeatUnit.structuralRepresentation.format">
+      <path value="SubstancePolymer.repeat.repeatUnit.structuralRepresentation.format"/>
+      <short value="The format of the representation e.g. InChI, SMILES, MOLFILE, CDX, SDF, PDB, mmCIF"/>
+      <definition value="The format of the representation e.g. InChI, SMILES, MOLFILE, CDX, SDF, PDB, mmCIF."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstancePolymer.repeat.repeatUnit.structuralRepresentation.attachment">
+      <path value="SubstancePolymer.repeat.repeatUnit.structuralRepresentation.attachment"/>
+      <short value="An attached file with the structural representation"/>
+      <definition value="An attached file with the structural representation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

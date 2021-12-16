@@ -31,6 +31,7 @@
     <system value="http://hl7.org/fhir/sid/us-ssn"/>
     <value value="444444444"/>
   </identifier>
+  <active value="true"/>
   <name>
     <use value="official"/>
     <family value="Hippocrates"/>
@@ -53,7 +54,6 @@
     <reference value="http://www.northfield-regional.com/Organization/2"/>
     <display value="Northfield Regional Physician Directory"/>
   </managingOrganization>
-  <active value="true"/>
   <link>
     <target>
       <reference value="http://www.goodhealth.com/Practitioner/98574"/>

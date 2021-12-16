@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="NutritionOrder-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Nutrition Order Pureed Diet and Energy/Protein Supplement Simple Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionorder-example-pureeddiet-simple"/>
+    </extension>
+    <item>
+      <reference value="NutritionOrder/pureeddiet-simple"/>
+      <display value="Pureed Diet Simple"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Nutrition Order Low Sodium and Fluid Restricted Diet Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionorder-example-cardiacdiet"/>
+    </extension>
+    <item>
+      <reference value="NutritionOrder/cardiacdiet"/>
+      <display value="Low Sodium and Fiber Restricted Diet"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Nutrition Order Diabetic Diet Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionorder-example-diabeticdiet"/>
+    </extension>
+    <item>
+      <reference value="NutritionOrder/diabeticdiet"/>
+      <display value="Diabetic Diet"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Nutrition Order Texture Modified Diet Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionorder-example-texture-modified"/>
+    </extension>
+    <item>
+      <reference value="NutritionOrder/texturemodified"/>
+      <display value="Texture Modified Diet"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Nutrition Order Pureed Diet  Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionorder-example-pureeddiet"/>
+    </extension>
+    <item>
+      <reference value="NutritionOrder/pureeddiet"/>
+      <display value="Pureed Diet"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Nutrition Order Renal Diet Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionorder-example-renaldiet"/>
+    </extension>
+    <item>
+      <reference value="NutritionOrder/renaldiet"/>
+      <display value="Renal Diet"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Nutrition Order Low Fat and Fiber Restricted Diet  Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionorder-example-fiberrestricteddiet"/>
+    </extension>
+    <item>
+      <reference value="NutritionOrder/fiberrestricteddiet"/>
+      <display value="Low Fat and Fiber Restricted Diet"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Nutrition Order Diabetic Supplement  Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionorder-example-diabeticsupplement"/>
+    </extension>
+    <item>
+      <reference value="NutritionOrder/diabeticsupplement"/>
+      <display value="Diabetic Supplement"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Nutrition Order Protein Supplement  Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionorder-example-proteinsupplement"/>
+    </extension>
+    <item>
+      <reference value="NutritionOrder/proteinsupplement"/>
+      <display value="Protein Supplement"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Nutrition Order Energy/Protein Supplement Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionorder-example-energysupplement"/>
+    </extension>
+    <item>
+      <reference value="NutritionOrder/energysupplement"/>
+      <display value="Energy Supplement"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Nutrition Order Enteral Bolus Feeding  Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionorder-example-enteralbolus"/>
+    </extension>
+    <item>
+      <reference value="NutritionOrder/enteralbolus"/>
+      <display value="Enteral Bolus"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Nutrition Order Enteral Continuous Feeding  Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionorder-example-enteralcontinuous"/>
+    </extension>
+    <item>
+      <reference value="NutritionOrder/enteralcontinuous"/>
+      <display value="Enteral Continuous Feeding"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Nutrition Order Infant Enteral Feeding  Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionorder-example-infantenteral"/>
+    </extension>
+    <item>
+      <reference value="NutritionOrder/infantenteral"/>
+      <display value="Infant Enteral"/>
+    </item>
+  </entry>
+</List>

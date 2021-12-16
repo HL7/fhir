@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Subscription-operations"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/Subscription-events"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/Subscription-status"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/Subscription-get-ws-binding-token"/>
+    </item>
+  </entry>
+</List>

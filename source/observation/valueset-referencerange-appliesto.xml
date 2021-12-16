@@ -1,9 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="referencerange-appliesto"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/referencerange-appliesto"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.407"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="ObservationReferenceRangeAppliesToCodes"/>
   <title value="Observation Reference Range Applies To Codes"/>
   <status value="draft"/>
@@ -15,7 +25,7 @@
     </telecom>
   </contact>
   <description value="This value set defines a set of codes that can be used to indicate the particular target population the reference range applies to."/>
-  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms&#xAE; (SNOMED CT&#xAE;) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
       <valueSet value="http://terminology.hl7.org/ValueSet/v3-Race"/>
@@ -25,15 +35,12 @@
       <concept>
         <code value="248153007"/>
       </concept>
-    <!--    Male (finding)    -->
       <concept>
         <code value="248152002"/>
       </concept>
-    <!--    Female (finding)    -->
       <concept>
         <code value="77386006"/>
       </concept>
     </include>
-
   </compose>
 </ValueSet>

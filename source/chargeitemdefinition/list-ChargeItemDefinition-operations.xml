@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="ChargeItemDefinition-operations"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/ChargeItemDefinition-apply"/>
+    </item>
+  </entry>
+</List>

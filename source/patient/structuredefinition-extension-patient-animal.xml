@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="patient-animal"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/patient-animal"/>
+  <version value="4.6.0"/>
+  <name value="animal"/>
+  <title value="animal"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="HL7"/>
+  <description value="This patient is known to be an animal."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="Patient"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="This patient is known to be an animal (non-human)"/>
+      <definition value="This patient is known to be an animal."/>
+      <comment value="The absence of the animal extension does not imply that the patient is a human. If a system requires such a positive assertion that the patient is human, an extension will be required.  (Do not use a species of homo-sapiens in animal species, as this would incorrectly infer that the patient is an animal)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="player[classCode=ANM]"/>
+      </mapping>
+    </element>
+    <element id="Extension.extension:species">
+      <path value="Extension.extension"/>
+      <sliceName value="species"/>
+      <short value="The animal species.  E.g. Dog, Cow."/>
+      <definition value="Identifies the high level taxonomic categorization of the kind of animal."/>
+      <comment value="If the patient is non-human, at least a species SHALL be specified. Species SHALL be a widely recognized taxonomic classification.  It might or might not be Linnaean taxonomy and might or might not be at the level of species. If the level is finer than species--such as a breed code--the code system used SHALL allow inference of the species.  (The common example is that the word &quot;Hereford&quot; does not allow inference of the species Bos taurus, because there is a Hereford pig breed, but the SNOMED CT code for &quot;Hereford Cattle Breed&quot; does.)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-35"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="code"/>
+      </mapping>
+    </element>
+    <element id="Extension.extension:species.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:species.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="species"/>
+    </element>
+    <element id="Extension.extension:species.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AnimalSpecies"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The species of an animal."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/animal-species"/>
+      </binding>
+    </element>
+    <element id="Extension.extension:breed">
+      <path value="Extension.extension"/>
+      <sliceName value="breed"/>
+      <short value="The animal breed.  E.g. Poodle, Angus."/>
+      <definition value="Identifies the detailed categorization of the kind of animal."/>
+      <comment value="Breed MAY be used to provide further taxonomic or non-taxonomic classification.  It may involve local or proprietary designation--such as commercial strain--and/or additional information such as production type."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-35 (where more detailed value is present)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="playedRole[classCode=GEN]/scoper[classCode=ANM, determinerCode=KIND]/code"/>
+      </mapping>
+    </element>
+    <element id="Extension.extension:breed.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:breed.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="breed"/>
+    </element>
+    <element id="Extension.extension:breed.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AnimalBreed"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The breed of an animal."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/animal-breeds"/>
+      </binding>
+    </element>
+    <element id="Extension.extension:genderStatus">
+      <path value="Extension.extension"/>
+      <sliceName value="genderStatus"/>
+      <short value="The status of the animal&#39;s reproductive parts.  E.g. Neutered, Intact."/>
+      <definition value="Indicates the current state of the animal&#39;s reproductive organs."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="genderStatusCode"/>
+      </mapping>
+    </element>
+    <element id="Extension.extension:genderStatus.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:genderStatus.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="genderStatus"/>
+    </element>
+    <element id="Extension.extension:genderStatus.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AnimalGenderStatus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The state of the animal&#39;s reproductive organs."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/animal-genderstatus"/>
+      </binding>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/patient-animal"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+  </differential>
+</StructureDefinition>

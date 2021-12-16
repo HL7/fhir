@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="request-intent"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <url value="http://hl7.org/fhir/ValueSet/request-intent"/>
+  <version value="4.6.0"/>
+  <name value="RequestIntent"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/request-intent"/>
+    </include>
+  </compose>
+</ValueSet>

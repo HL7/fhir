@@ -1,36 +1,47 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
-	<url value="http://hl7.org/fhir/valueset/reason-medication-status-codes"/>
-<name value="SNOMEDCTDrugTherapyStatusCodes"/>
+  <id value="reason-medication-status-codes"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/reason-medication-status-codes"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.369"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="SNOMEDCTDrugTherapyStatusCodes"/>
   <title value="SNOMED CT Drug Therapy Status codes "/>
-<status value="draft"/>
-<publisher value="FHIR Project team"/>
-<contact>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
     <telecom>
       <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-<description value="This value set includes some taken and not taken reason codes from SNOMED CT - provided as an exemplar"/>
-<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
-<compose>
-	<include>
-		<system value="http://snomed.info/sct"/>
-		<filter>
-			<!--   SNOMED CT - Children of SCTID: 266710000 "Drugs not taken/completed (situation)" "   -->
-			<property value="concept"/>
-			<op value="is-a"/>
-			<value value="266710000"/>
-		</filter>
-	</include>
-	<include>
-		<system value="http://snomed.info/sct"/>
-		<filter>
-			<!--   SNOMED CT - Children of SCTID: 410684002 "Drugs not taken/completed (situation)" "   -->
-			<property value="concept"/>
-			<op value="is-a"/>
-			<value value="410684002"/>
-		</filter>
-	</include>
-</compose>
+  <description value="This value set includes some taken and not taken reason codes from SNOMED CT - provided as an exemplar"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright &#xA9; 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="266710000"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="410684002"/>
+      </filter>
+    </include>
+  </compose>
 </ValueSet>

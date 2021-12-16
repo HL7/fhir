@@ -30,9 +30,9 @@
      <display value="Roel"/>
  </subject>
  <participant>
-     <individual    >
+     <actor>
          <reference value="Practitioner/f201"/>
-    </individual>
+    </actor>
  </participant>
  <reason>
    <concept>

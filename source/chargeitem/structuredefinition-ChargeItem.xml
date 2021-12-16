@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ChargeItem"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Financial.General"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/ChargeItem"/>
+  <version value="4.6.0"/>
+  <name value="ChargeItem"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Patient Administration)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="ChargeItem"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="ChargeItem">
+      <path value="ChargeItem"/>
+      <short value="Item containing charge code(s) associated with the provision of healthcare provider products"/>
+      <definition value="The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="FT1"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act[moodCode=EVN]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="financial.support"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.identifier">
+      <path value="ChargeItem.identifier"/>
+      <short value="Business Identifier for item"/>
+      <definition value="Identifiers assigned to this event performer or other systems."/>
+      <requirements value="Allows identification of the charge Item as it is known by various participating systems and in a way that remains consistent across servers."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="FT1.2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".identifier"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.definitionUri">
+      <path value="ChargeItem.definitionUri"/>
+      <short value="Defining information about the code of this charge item"/>
+      <definition value="References the (external) source of pricing information, rules of application for the code this ChargeItem uses."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.instantiates"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Varies by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.definitionCanonical">
+      <path value="ChargeItem.definitionCanonical"/>
+      <short value="Resource defining the code of this ChargeItem"/>
+      <definition value="References the source of pricing information, rules of application for the code this ChargeItem uses."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.instantiates"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Varies by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.status">
+      <path value="ChargeItem.status"/>
+      <short value="planned | billable | not-billable | aborted | billed | entered-in-error | unknown"/>
+      <definition value="The current state of the ChargeItem."/>
+      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.&#xA;&#xA;This element is labeled as a modifier because the status contains the code entered-in-error that marks the charge item as not currently valid."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ChargeItemStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes identifying the lifecycle stage of a ChargeItem."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/chargeitem-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Varies by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".status"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.partOf">
+      <path value="ChargeItem.partOf"/>
+      <short value="Part of referenced ChargeItem"/>
+      <definition value="ChargeItems can be grouped to larger ChargeItems covering the whole set."/>
+      <requirements value="E.g. Drug administration as part of a procedure, procedure as part of observation, etc."/>
+      <alias value="container"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ChargeItem"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.partOf"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Varies by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.code">
+      <path value="ChargeItem.code"/>
+      <short value="A code that identifies the charge, like a billing code"/>
+      <definition value="A code that identifies the charge, like a billing code."/>
+      <alias value="type"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ChargeItemCode"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Example set of codes that can be used for billing purposes."/>
+        </extension>
+        <strength value="example"/>
+        <description value="Example codes for billing purposes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/chargeitem-billingcodes"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="FT1.7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.subject">
+      <path value="ChargeItem.subject"/>
+      <short value="Individual service was done for/to"/>
+      <definition value="The individual or set of individuals the action is being or was performed on."/>
+      <requirements value="Links the event to the Patient context."/>
+      <alias value="patient"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PAT in proximity to FT1 segment"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=SBJ].role"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.context">
+      <path value="ChargeItem.context"/>
+      <short value="Encounter / Episode associated with event"/>
+      <definition value="The encounter or episode of care that establishes the context for this event."/>
+      <requirements value="Links the request to the Encounter context."/>
+      <alias value="encounter"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.context"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1 in proximity to FT1 segment"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship(typeCode=COMP].source[classCode&lt;=PCPR, moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.occurrence[x]">
+      <path value="ChargeItem.occurrence[x]"/>
+      <short value="When the charged service was applied"/>
+      <definition value="Date/time(s) or duration when the charged service was applied."/>
+      <comment value="The list of types may be constrained as appropriate for the type of charge item."/>
+      <alias value="timing"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <type>
+        <code value="Timing"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Varies by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.performer">
+      <path value="ChargeItem.performer"/>
+      <short value="Who performed charged service"/>
+      <definition value="Indicates who or what performed or participated in the charged service."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="EVN.5 or by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.performer.function">
+      <path value="ChargeItem.performer.function"/>
+      <short value="What type of performance was done"/>
+      <definition value="Describes the type of performance or participation(e.g. primary surgeon, anesthesiologiest, etc.)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="false"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ChargeItemPerformerFunction"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes describing the types of functional roles performers can take on when performing events."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/performer-role"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.function"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Varies by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation.functionCode"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.performer.actor">
+      <path value="ChargeItem.performer.actor"/>
+      <short value="Individual who was performing"/>
+      <definition value="The device, practitioner, etc. who performed or participated in the service."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="EVN.5 or by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.performingOrganization">
+      <path value="ChargeItem.performingOrganization"/>
+      <short value="Organization providing the charged service"/>
+      <definition value="The organization requesting the service."/>
+      <comment value="Practitioners and Devices can be associated with multiple organizations. It has to be made clear, on behalf of which Organization the services have been rendered."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".scoper"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.requestingOrganization">
+      <path value="ChargeItem.requestingOrganization"/>
+      <short value="Organization requesting the charged service"/>
+      <definition value="The organization performing the service."/>
+      <comment value="The rendered Service might not be associated with a Request. This property indicates which Organization requested the services to be rendered. (In many cases, this may just be the Department associated with the Encounter.location)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".scoper"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.costCenter">
+      <path value="ChargeItem.costCenter"/>
+      <short value="Organization that has ownership of the (potential, future) revenue"/>
+      <definition value="The financial cost center permits the tracking of charge attribution."/>
+      <comment value="The costCenter could either be given as a reference to an Organization(Role) resource or as the identifier of the cost center determined by Reference.identifier.value and Reference.identifier.system, depending on use case requirements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="FT1.13"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.quantity">
+      <path value="ChargeItem.quantity"/>
+      <short value="Quantity of which the charge item has been serviced"/>
+      <definition value="Quantity of which the charge item has been serviced."/>
+      <comment value="In many cases this may just be a value, if the underlying units are implicit in the definition of the charge item code."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="FT1.10"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.bodysite">
+      <path value="ChargeItem.bodysite"/>
+      <short value="Anatomical location, if relevant"/>
+      <definition value="The anatomical location where the related service has been applied."/>
+      <comment value="Only used if not implicit in code found in Condition.code. If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [bodySite](extension-bodysite.html).  May be a summary code, or a reference to a very precise definition of the location, or both."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodySite"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes describing anatomical locations. May include laterality."/>
+        </extension>
+        <strength value="example"/>
+        <description value="SNOMED CT Body site concepts"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".targetBodySiteCode"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.factorOverride">
+      <path value="ChargeItem.factorOverride"/>
+      <short value="Factor overriding the associated rules"/>
+      <definition value="Factor overriding the factor determined by the rules associated with the code."/>
+      <comment value="There is no reason to carry the factor in the instance of a ChargeItem unless special circumstances require a manual override. The factors are usually defined by a set of rules in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overridden."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="FT1.26"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.priceOverride">
+      <path value="ChargeItem.priceOverride"/>
+      <short value="Price overriding the associated rules"/>
+      <definition value="Total price of the charge overriding the list price associated with the code."/>
+      <comment value="There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overridden."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="FT1.22"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.overrideReason">
+      <path value="ChargeItem.overrideReason"/>
+      <short value="Reason for overriding the list price/factor"/>
+      <definition value="If the list price or the rule-based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action."/>
+      <comment value="Derived Profiles may choose to add invariants requiring this field to be populated if either priceOverride or factorOverride have been filled."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="ChargeItem.enterer">
+      <path value="ChargeItem.enterer"/>
+      <short value="Individual who was entering"/>
+      <definition value="The device, practitioner, etc. who entered the charge item."/>
+      <comment value="The enterer is also the person considered responsible for factor/price overrides if applicable."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="EVN.5 or by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.enteredDate">
+      <path value="ChargeItem.enteredDate"/>
+      <short value="Date the charge item was entered"/>
+      <definition value="Date the charge item was entered."/>
+      <comment value="The actual date when the service associated with the charge has been rendered is captured in occurrence[x]."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ChargeItem.reason">
+      <path value="ChargeItem.reason"/>
+      <short value="Why was the charged  service rendered?"/>
+      <definition value="Describes why the event occurred in coded or textual form."/>
+      <comment value="If the application of the charge item requires a reason to be given, it can be captured here. Textual reasons can be captured using reasonCode.text."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="false"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ChargeItemReason"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Example binding for reason."/>
+        </extension>
+        <strength value="example"/>
+        <description value="ICD 10 diagnosis codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/icd-10"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.reasonCode"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="EVN.4 or by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".reasonCode"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.service">
+      <path value="ChargeItem.service"/>
+      <short value="Which rendered service is being charged?"/>
+      <definition value="Indicated the rendered service that caused this charge."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyDelivery"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.reasonReference"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="EVN.4 or by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=RSON].target"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.product">
+      <path value="ChargeItem.product"/>
+      <short value="Product charged"/>
+      <definition value="Identifies the device, food, drug or other product being charged either by type code or reference to an instance."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+      </type>
+      <isSummary value="false"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ChargeItemProduct"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Example binding for product type."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=CSM].role"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.account">
+      <path value="ChargeItem.account"/>
+      <short value="Account to place this charge"/>
+      <definition value="Account into which this ChargeItems belongs."/>
+      <comment value="Systems posting the ChargeItems might not always be able to determine, which accounts the Items need to be places into. It is up to the postprocessing Financial System to apply internal rules to decide based on the Encounter/EpisodeOfCare/Patient/Coverage context and the type of ChargeItem, which Account is appropriate."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Account"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ChargeItem.note">
+      <path value="ChargeItem.note"/>
+      <short value="Comments made about the ChargeItem"/>
+      <definition value="Comments made about the event by the performer, subject or other participants."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.note"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="NTE"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]"/>
+      </mapping>
+    </element>
+    <element id="ChargeItem.supportingInformation">
+      <path value="ChargeItem.supportingInformation"/>
+      <short value="Further information supporting this charge"/>
+      <definition value="Further information supporting this charge."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.supportingInfo"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

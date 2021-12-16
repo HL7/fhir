@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="observation-focusCode"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/observation-focusCode"/>
+  <version value="4.6.0"/>
+  <name value="focusCode"/>
+  <title value="Focal Subject Code"/>
+  <status value="draft"/>
+  <date value="2015-03-02"/>
+  <publisher value="Health Level Seven, Inc. - OO WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/special/committees/orders"/>
+    </telecom>
+  </contact>
+  <description value="A code representing the  focus of an observation when the focus is not the patient of record.  In other words, the focus of the observation is different from `Observation.subject`.   An example use case would be using the *Observation* resource to capture whether the mother is trained to change her child&#39;s tracheostomy tube.  In this example, the child is the patient of record and the mother is focal subject referenced using this extension.  Other example focal subjects include spouses, related persons, feti, or  donors."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="Observation"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="Focus Code"/>
+      <definition value="A code representing the  focus of an observation when the focus is not the patient of record.  In other words, the focus of the observation is different from `Observation.subject`.   An example use case would be using the *Observation* resource to capture whether the mother is trained to change her child&#39;s tracheostomy tube.  In this example, the child is the patient of record and the mother is focal subject referenced using this extension.  Other example focal subjects include spouses, related persons, feti, or  donors."/>
+      <comment value="Use Observation.specimen element to describe the specimen.  Only used if not implicit in code found in Observation.code."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/observation-focusCode"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes for observation targets.  Derived from both HL7 v3 and SNOMED CT code systems."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FocusCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Derived from both HL7 v3 and SNOMED CT code systems"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/focal-subject"/>
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>

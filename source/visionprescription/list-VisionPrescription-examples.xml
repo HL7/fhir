@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="VisionPrescription-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Glasses Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="visionprescription-example"/>
+    </extension>
+    <item>
+      <reference value="VisionPrescription/33123"/>
+      <display value="Glasses"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Contacts Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="visionprescription-example-1"/>
+    </extension>
+    <item>
+      <reference value="VisionPrescription/33124"/>
+      <display value="Contacts"/>
+    </item>
+  </entry>
+</List>

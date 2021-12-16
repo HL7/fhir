@@ -37,7 +37,7 @@
     <action id="medication-action-2">
       <title value="Administer Medication 2"/>
       <relatedAction>
-        <actionId value="medication-action-1"/>
+        <targetId value="medication-action-1"/>
         <relationship value="after-end"/>
         <offsetDuration>
           <value value="1"/>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="guide-parameter-code"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/guide-parameter-code"/>
+  <version value="4.6.0"/>
+  <name value="GuideParameterCode"/>
+  <concept>
+    <code value="apply"/>
+    <display value="Apply Metadata Value"/>
+    <definition value="If the value of this string 0..* parameter is one of the metadata fields then all conformance resources will have any specified [Resource].[field] overwritten with the ImplementationGuide.[field], where field is one of: version, date, status, publisher, contact, copyright, experimental, jurisdiction, useContext."/>
+  </concept>
+  <concept>
+    <code value="path-resource"/>
+    <display value="Resource Path"/>
+    <definition value="The value of this string 0..* parameter is a subfolder of the build context&#39;s location that is to be scanned to load resources. Scope is (if present) a particular resource type."/>
+  </concept>
+  <concept>
+    <code value="path-pages"/>
+    <display value="Pages Path"/>
+    <definition value="The value of this string 0..1 parameter is a subfolder of the build context&#39;s location that contains files that are part of the html content processed by the builder."/>
+  </concept>
+  <concept>
+    <code value="path-tx-cache"/>
+    <display value="Terminology Cache Path"/>
+    <definition value="The value of this string 0..1 parameter is a subfolder of the build context&#39;s location that is used as the terminology cache. If this is not present, the terminology cache is on the local system, not under version control."/>
+  </concept>
+  <concept>
+    <code value="expansion-parameter"/>
+    <display value="Expansion Profile"/>
+    <definition value="The value of this string 0..* parameter is a parameter (name=value) when expanding value sets for this implementation guide. This is particularly used to specify the versions of published terminologies such as SNOMED CT."/>
+  </concept>
+  <concept>
+    <code value="rule-broken-links"/>
+    <display value="Broken Links Rule"/>
+    <definition value="The value of this string 0..1 parameter is either &quot;warning&quot; or &quot;error&quot; (default = &quot;error&quot;). If the value is &quot;warning&quot; then IG build tools allow the IG to be considered successfully build even when there is no internal broken links."/>
+  </concept>
+  <concept>
+    <code value="generate-xml"/>
+    <display value="Generate XML"/>
+    <definition value="The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in XML format. If not present, the Publication Tool decides whether to generate XML."/>
+  </concept>
+  <concept>
+    <code value="generate-json"/>
+    <display value="Generate JSON"/>
+    <definition value="The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in JSON format. If not present, the Publication Tool decides whether to generate JSON."/>
+  </concept>
+  <concept>
+    <code value="generate-turtle"/>
+    <display value="Generate Turtle"/>
+    <definition value="The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in Turtle format. If not present, the Publication Tool decides whether to generate Turtle."/>
+  </concept>
+  <concept>
+    <code value="html-template"/>
+    <display value="HTML Template"/>
+    <definition value="The value of this string singleton parameter is the name of the file to use as the builder template for each generated page (see templating)."/>
+  </concept>
+</CodeSystem>

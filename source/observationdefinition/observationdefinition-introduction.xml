@@ -3,12 +3,6 @@
 <div>
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
-<blockquote class="stu-note">
-  <a name="dstu"/>
-<strong>Note that this content is preliminary has not undergone proper review by the appropriate Workgroups.</strong>
-</blockquote>
-
-
 <p>
 An instance of ObservationDefinition represents the definitional aspects of a kind of observation. This resource is used in a catalog of products or services for healthcare. It provides the definition of observations, which are used as input or produced as outcome of these products and services. The focus of the definitional aspects of ObservationDefinition is not on the action of performing observations of that kind. Rather, it is on the outcome of the observations. An instance of ObservationDefinition represents a set of constraints applicable to the value produced by observations of this kind. This set of constraints may have two utilities: 1) It guides the entry of the result of an observation of the kind defined. 2) It helps the consumer of the results of observations of that kind, to interpret properly these results.
 </p>
@@ -30,14 +24,20 @@ ObservationDefinition may be used to characterize observations from any discipli
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resource relates to these other resource:.
+An ObservationDefinition resource provides the definitional characteristics for a certain kind of observation. Each time that kind of observation is collected and recorded it is instantiated as an Observation resource, which conforms to these definitional characteristics. Thus, there is a relationship between ObservationDefinition and Observation: The latter may instantiate the former.
 </p>
+<p>
+When an Observation instantiates an ObservationDefinition, the elements of the Observation resource are expected to inherit their content from the corresponding definitional elements declared in the ObservationDefinition resource:</p>
  <ul>
-		<li>Resource ObservationDefinition is referenced by resource CatalogEntry. This enables items of catalogs, representing healthcare services or products, to declare the observations, which are consumed or produced by these items.</li>
-
-<li>Observation.basedOn references ObservationDefinition resource.</li>
-
-	</ul>
+<li>Category, code, datatype of the value, bodySite, method.</li>
+<li>Each referenceRange element present in Observation should come from a qualifiedInterval element of ObservationDefinition.</li>
+<li>If ObservationDefinition has declared a ValueSet of valid coded values, and if Observation has a valueCodeableConcept, the value is expected to be part of that ValueSet.</li>
+<li>The subject of the Observation should be conformant with one of the subjectCodeableConcept listed in ObservationDefinition.</li>
+<li>If the Observation has a device element, the referenced Device resource should conform to a DeviceDefinition or Device referenced by ObservationDefinition.device (if present).</li>
+<li>If the Observation has a specimen element, the referenced Specimen resource should conform to a SpecimenDefinition referenced by ObservationDefinition.specimen (if present).</li>
+</ul>
+<p>
+ObservationDefinition enables to express some Quantity results in two distinct units of measure: the primary or SI one, represented by element unit, and a converted one, provided for accommodation of some actors, represented by element customaryUnit. Observation may pick only the primary unit, or may express its result in both units, in two component results.</p>
 </div>
 
 

@@ -1,0 +1,21 @@
+# Gradle
+# Build your Java project and run tests with Gradle using a Gradle wrapper script.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+- none
+
+pr:
+- master
+
+jobs:
+- job: buildSpecification
+  steps:
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        TARGET_DIRECTORY=$(echo "$(System.PullRequest.SourceBranch)" | sed -r 's/\//_/g')
+        echo "1. source branch -> $(System.PullRequest.SourceBranch)"
+        echo "2. source branch -> $TARGET_DIRECTORY"

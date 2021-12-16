@@ -27,10 +27,10 @@ This table summarizes common event scenarios, and the codes that should be used 
 				<b>Scenario</b>
 			</td>
 			<td>
-				<b>type</b>
+				<b>category</b>
 			</td>
 			<td>
-				<b>subtype</b>
+				<b>code</b>
 			</td>
 			<td>
 				<b>action</b>
@@ -86,7 +86,7 @@ This table summarizes common event scenarios, and the codes that should be used 
 				<a href="codesystem-dicom-dcim.html#110122">110127</a> Emergency Override Started</td>
 			<td>
 				<a href="valueset-audit-event-action.html">E</a> Execute</td>
-			<td>Agent is the user who is authorized to break-glass and has declared an emergency override. Note there is an Emergency Override Stopped subtype that can be used to indicate the closing of the break-glass event, when it is known.</td>
+			<td>Agent is the user who is authorized to break-glass and has declared an emergency override. Note there is an Emergency Override Stopped code that can be used to indicate the closing of the break-glass event, when it is known.</td>
 		</tr>
 	</table>
 	<p>
@@ -122,7 +122,19 @@ Audit Event Actions for RESTful operations:
 			<td>E</td>
 		</tr>
 	</table>
-
+	<a name="recordingsearch"/>
+	<h4>Recording Search Events</h4>
+	<p>
+A search event is recorded as an Execute action as the server must execute the search parameters to get the results. The category is a <code>rest</code> operation. The code should be <code>search</code>. The Server is identified in an <code>.agent</code> as the role <code>Destination Role ID</code>, and the client is identified in an <code>.agent</code> as the role <code>Source Role ID</code>. Additional <code>.agent</code> elements may be used to identify user, application, organization, etc.
+</p><p>
+A Search Event records one <code>.entity</code> element that holds the search request, and should not record the contents of the search response so as to limit duplication of sensitive health information that is already present in the system, and discoverable by replaying the search request.
+</p><p>
+The <code>AuditEvent.entity.query</code> shall hold the whole WHOLE http header and body encoded as base64binary. This should preserve as much of the raw http header and body as possible to best capture any attempts by clients or intermediaries to misbehave. There should be no sanitization or normalization of this value. 
+</p><p>
+The FHIR specification defines a harmonized search parameter string, which is returned in the searchset bundle as the <code>.link.url</code> on the <code>.link</code> for self. This string could be recorded in the <code>AuditEvent.entry.description</code> as it is well behaved and represents what was actually processed as search parameters. See: <a href="http://hl7.org/fhir/search.html#conformance">conformance</a>
+</p><p>
+Where there are identifiable Patient subject(s) associated with the returned Resource(s), the <a href="auditevent.html#patient">Patient as subject reference in AuditEvent.entity</a> below should be also used to record the Patient as the subject. When multiple patient results are returned one AuditEvent is created for every Patient identified in the resulting search set. Note this is true when the search set bundle includes any number of resources that collectively reference multiple Patients. This includes one Resource with multiple subject values, or many Resources with single subject values that are different.
+</p>
 	<a name="operationoutcome"/>
 	<h3>Encoding a FHIR operation outcome</h3>
 	<p>FHIR interactions can result in a rich description of the outcome using 

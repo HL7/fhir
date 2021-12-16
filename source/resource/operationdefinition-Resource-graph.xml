@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
+  <id value="Resource-graph"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/build/OperationDefinition/Resource-graph"/>
+  <version value="4.6.0"/>
+  <name value="graph"/>
+  <title value="Return a graph of resources"/>
+  <status value="draft"/>
+  <kind value="operation"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Return an entire graph of resources based on a [GraphDefinition](graphdefinition.html). The operation is invoked on a specific instance of a resource, and the graph definition tells the server what other resources to return in the same packaage"/>
+  <affectsState value="false"/>
+  <code value="graph"/>
+  <resource value="Resource"/>
+  <system value="false"/>
+  <type value="false"/>
+  <instance value="true"/>
+  <parameter>
+    <name value="graph"/>
+    <use value="in"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="Servers MAY choose to allow any graph definition to be specified, but MAY require that the client choose a graph definition from a specific list of known supported definitions. The server is not required to support a formal definition of the graph on the end point"/>
+    <type value="uri"/>
+  </parameter>
+  <parameter>
+    <name value="result"/>
+    <use value="out"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="The set of resources that were in the graph based on the provided definition"/>
+    <type value="Bundle"/>
+  </parameter>
+</OperationDefinition>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="evidence-quality"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/evidence-quality"/>
+  <version value="4.6.0"/>
+  <name value="QualityOfEvidenceRating"/>
+  <concept>
+    <code value="high"/>
+    <display value="High quality"/>
+    <definition value="High quality evidence."/>
+  </concept>
+  <concept>
+    <code value="moderate"/>
+    <display value="Moderate quality"/>
+    <definition value="Moderate quality evidence."/>
+  </concept>
+  <concept>
+    <code value="low"/>
+    <display value="Low quality"/>
+    <definition value="Low quality evidence."/>
+  </concept>
+  <concept>
+    <code value="very-low"/>
+    <display value="Very low quality"/>
+    <definition value="Very low quality evidence."/>
+  </concept>
+</CodeSystem>

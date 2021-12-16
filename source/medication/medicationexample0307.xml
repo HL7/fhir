@@ -3,8 +3,8 @@
   <id value="med0307"/>
   <contained>
     <Organization>
-      <id value="org3"/>
-      <name value="Novo Nordisk" />
+      <id value="mmanu"/>
+      <name value="Medication Manufacturer" />
     </Organization>
   </contained>
   <code>
@@ -13,11 +13,10 @@
       <code value="0169-7501-11"/>
       <display value="Novolog 100u/ml"/>
     </coding>
-  </code>
-  
-  <manufacturer>
-    <reference value="#org3" />
-  </manufacturer>
+  </code> 
+  <marketingAuthorizationHolder>
+    <reference value="#mmanu" />
+  </marketingAuthorizationHolder>
     <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>

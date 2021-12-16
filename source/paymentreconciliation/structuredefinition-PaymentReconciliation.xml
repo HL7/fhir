@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="PaymentReconciliation"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Financial.Payment"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/PaymentReconciliation"/>
+  <version value="4.6.0"/>
+  <name value="PaymentReconciliation"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Financial Management)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fm/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="This resource provides the details including amount of a payment and allocates the payment items being paid."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="cdanetv4"/>
+    <uri value="http://www.cda-adc.ca/en/services/cdanet/"/>
+    <name value="Canadian Dental Association eclaims standard"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="PaymentReconciliation"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="PaymentReconciliation">
+      <path value="PaymentReconciliation"/>
+      <short value="PaymentReconciliation resource"/>
+      <definition value="This resource provides the details including amount of a payment and allocates the payment items being paid."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="financial.payment"/>
+      </mapping>
+    </element>
+    <element id="PaymentReconciliation.identifier">
+      <path value="PaymentReconciliation.identifier"/>
+      <short value="Business Identifier for a payment reconciliation"/>
+      <definition value="A unique identifier assigned to this payment reconciliation."/>
+      <requirements value="Allows payment reconciliations to be distinguished and referenced."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="PaymentReconciliation.status">
+      <path value="PaymentReconciliation.status"/>
+      <short value="active | cancelled | draft | entered-in-error"/>
+      <definition value="The status of the resource instance."/>
+      <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <requirements value="Need to track the status of the resource as &#39;draft&#39; resources may undergo further edits while &#39;active&#39; resources are immutable and may only have their status changed to &#39;cancelled&#39;."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PaymentReconciliationStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="A code specifying the state of the resource instance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/fm-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="PaymentReconciliation.period">
+      <path value="PaymentReconciliation.period"/>
+      <short value="Period covered"/>
+      <definition value="The period of time for which payments have been gathered into this bulk payment for settlement."/>
+      <requirements value="Needed to allow receivers to monitor and reconcile payment issuer schedules."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+    </element>
+    <element id="PaymentReconciliation.created">
+      <path value="PaymentReconciliation.created"/>
+      <short value="Creation date"/>
+      <definition value="The date when the resource was created."/>
+      <requirements value="Need to record a timestamp for use by both the recipient and the issuer."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="PaymentReconciliation.paymentIssuer">
+      <path value="PaymentReconciliation.paymentIssuer"/>
+      <short value="Party generating payment"/>
+      <definition value="The party who generated the payment."/>
+      <comment value="This party is also responsible for the reconciliation."/>
+      <requirements value="Need to identify the party resonsible for the payment and this resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.source"/>
+      </mapping>
+    </element>
+    <element id="PaymentReconciliation.request">
+      <path value="PaymentReconciliation.request"/>
+      <short value="Reference to requesting resource"/>
+      <definition value="Original request resource reference."/>
+      <requirements value="Needed to allow the response to be linked to the request."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="cdanetv4"/>
+        <map value="A02|G01"/>
+      </mapping>
+    </element>
+    <element id="PaymentReconciliation.requestor">
+      <path value="PaymentReconciliation.requestor"/>
+      <short value="Responsible practitioner"/>
+      <definition value="The practitioner who is responsible for the services rendered to the patient."/>
+      <requirements value="Need to identify the party responsible for the request."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="cdanetv4"/>
+        <map value="B01"/>
+      </mapping>
+    </element>
+    <element id="PaymentReconciliation.outcome">
+      <path value="PaymentReconciliation.outcome"/>
+      <short value="queued | complete | error | partial"/>
+      <definition value="The outcome of a request for a reconciliation."/>
+      <comment value="The resource may be used to indicate that: the request has been held (queued) for processing; that it has been processed and errors found (error); that no errors were found and that some of the adjudication has been undertaken (partial) or that all of the adjudication has been undertaken (complete)."/>
+      <requirements value="To advise the requestor of an overall processing outcome."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PaymentOutcome"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The outcome of the processing."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/payment-outcome|4.6.0"/>
+      </binding>
+    </element>
+    <element id="PaymentReconciliation.disposition">
+      <path value="PaymentReconciliation.disposition"/>
+      <short value="Disposition message"/>
+      <definition value="A human readable description of the status of the request for the reconciliation."/>
+      <requirements value="Provided for user display."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.note"/>
+      </mapping>
+    </element>
+    <element id="PaymentReconciliation.paymentDate">
+      <path value="PaymentReconciliation.paymentDate"/>
+      <short value="When payment issued"/>
+      <definition value="The date of payment as indicated on the financial instrument."/>
+      <requirements value="To advise the payee when payment can be expected."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="PaymentReconciliation.paymentAmount">
+      <path value="PaymentReconciliation.paymentAmount"/>
+      <short value="Total amount of Payment"/>
+      <definition value="Total payment amount as indicated on the financial instrument."/>
+      <requirements value="Needed to provide the actual payment amount."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="PaymentReconciliation.paymentIdentifier">
+      <path value="PaymentReconciliation.paymentIdentifier"/>
+      <short value="Business identifier for the payment"/>
+      <definition value="Issuer&#39;s unique identifier for the payment instrument."/>
+      <comment value="For example: EFT number or check number."/>
+      <requirements value="Enable the receiver to reconcile when payment is received."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="PaymentReconciliation.detail">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Details"/>
+      </extension>
+      <path value="PaymentReconciliation.detail"/>
+      <short value="Settlement particulars"/>
+      <definition value="Distribution of the payment amount for a previously acknowledged payable."/>
+      <requirements value="Needed to show how the payment amount is distributed across the payables."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="PaymentReconciliation.detail.identifier">
+      <path value="PaymentReconciliation.detail.identifier"/>
+      <short value="Business identifier of the payment detail"/>
+      <definition value="Unique identifier for the current payment item for the referenced payable."/>
+      <requirements value="Needed for reconciliation of payments."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="PaymentReconciliation.detail.predecessor">
+      <path value="PaymentReconciliation.detail.predecessor"/>
+      <short value="Business identifier of the prior payment detail"/>
+      <definition value="Unique identifier for the prior payment item for the referenced payable."/>
+      <requirements value="Needed for reconciliation of payments."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="PaymentReconciliation.detail.type">
+      <path value="PaymentReconciliation.detail.type"/>
+      <short value="Category of payment"/>
+      <definition value="Code to indicate the nature of the payment."/>
+      <comment value="For example: payment, adjustment, funds advance, etc."/>
+      <requirements value="Needed to provide context for the amount."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PaymentType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The reason for the amount: payment, adjustment, advance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/payment-type"/>
+      </binding>
+    </element>
+    <element id="PaymentReconciliation.detail.request">
+      <path value="PaymentReconciliation.detail.request"/>
+      <short value="Request giving rise to the payment"/>
+      <definition value="A resource, such as a Claim, the evaluation of which could lead to payment."/>
+      <requirements value="Needed to provide a linkage  to the original request."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+    </element>
+    <element id="PaymentReconciliation.detail.submitter">
+      <path value="PaymentReconciliation.detail.submitter"/>
+      <short value="Submitter of the request"/>
+      <definition value="The party which submitted the claim or financial transaction."/>
+      <requirements value="Needed for audit and validation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="PaymentReconciliation.detail.response">
+      <path value="PaymentReconciliation.detail.response"/>
+      <short value="Response committing to a payment"/>
+      <definition value="A resource, such as a ClaimResponse, which contains a commitment to payment."/>
+      <requirements value="Needed to provide a linkage to the payment commitment."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+    </element>
+    <element id="PaymentReconciliation.detail.date">
+      <path value="PaymentReconciliation.detail.date"/>
+      <short value="Date of commitment to pay"/>
+      <definition value="The date from the response resource containing a commitment to pay."/>
+      <requirements value="Needed for audit and validation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+    </element>
+    <element id="PaymentReconciliation.detail.responsible">
+      <path value="PaymentReconciliation.detail.responsible"/>
+      <short value="Contact for the response"/>
+      <definition value="A reference to the individual who is responsible for inquiries regarding the response and its payment."/>
+      <requirements value="To provide contact information."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+      </type>
+    </element>
+    <element id="PaymentReconciliation.detail.payee">
+      <path value="PaymentReconciliation.detail.payee"/>
+      <short value="Recipient of the payment"/>
+      <definition value="The party which is receiving the payment."/>
+      <requirements value="Needed for audit and validation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="PaymentReconciliation.detail.amount">
+      <path value="PaymentReconciliation.detail.amount"/>
+      <short value="Amount allocated to this payable"/>
+      <definition value="The monetary amount allocated from the total payment to the payable."/>
+      <requirements value="Needed to explain the distribution of the payment to the payables."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
+    <element id="PaymentReconciliation.formCode">
+      <path value="PaymentReconciliation.formCode"/>
+      <short value="Printed form identifier"/>
+      <definition value="A code for the form to be used for printing the content."/>
+      <comment value="May be needed to identify specific jurisdictional forms."/>
+      <requirements value="Needed to specify the specific form used for producing output for this response."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Forms"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The forms codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/forms"/>
+      </binding>
+    </element>
+    <element id="PaymentReconciliation.processNote">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Notes"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="left"/>
+      </extension>
+      <path value="PaymentReconciliation.processNote"/>
+      <short value="Note concerning processing"/>
+      <definition value="A note that describes or explains the processing in a human readable form."/>
+      <requirements value="Provides the specific textual explanations associated with the processing."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="PaymentReconciliation.processNote.type">
+      <path value="PaymentReconciliation.processNote.type"/>
+      <short value="display | print | printoper"/>
+      <definition value="The business purpose of the note text."/>
+      <requirements value="To convey the expectation for when the text is used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NoteType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The presentation types of notes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/note-type"/>
+      </binding>
+    </element>
+    <element id="PaymentReconciliation.processNote.text">
+      <path value="PaymentReconciliation.processNote.text"/>
+      <short value="Note explanatory text"/>
+      <definition value="The explanation or description associated with the processing."/>
+      <requirements value="Required to provide human readable explanation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="cdanetv4"/>
+        <map value="G32"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

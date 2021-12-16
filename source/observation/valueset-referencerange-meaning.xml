@@ -1,9 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="referencerange-meaning"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/referencerange-meaning"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.397"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="ObservationReferenceRangeMeaningCodes"/>
   <title value="Observation Reference Range Meaning Codes"/>
   <status value="draft"/>
@@ -16,7 +26,6 @@
   </contact>
   <description value="This value set defines a set of codes that can be used to indicate the meaning/use of a reference range for a particular target population."/>
   <compose>
-
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/referencerange-meaning"/>
     </include>

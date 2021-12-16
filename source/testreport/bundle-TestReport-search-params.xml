@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="TestReport-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestReport-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="TestReport.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestReport-identifier"/>
+        <description value="An external identifier for the test report"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="TestReport.identifier"/>
+        <xpath value="f:TestReport/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestReport-issued"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="TestReport.issued"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestReport-issued"/>
+        <description value="The test report generation date"/>
+        <code value="issued"/>
+        <type value="date"/>
+        <expression value="TestReport.issued"/>
+        <xpath value="f:TestReport/f:issued"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestReport-participant"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="TestReport.participant.uri"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestReport-participant"/>
+        <description value="The reference to a participant in the test execution"/>
+        <code value="participant"/>
+        <type value="uri"/>
+        <expression value="TestReport.participant.uri"/>
+        <xpath value="f:TestReport/f:participant/f:uri"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestReport-result"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="TestReport.result"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestReport-result"/>
+        <description value="The result disposition of the test execution"/>
+        <code value="result"/>
+        <type value="token"/>
+        <expression value="TestReport.result"/>
+        <xpath value="f:TestReport/f:result"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestReport-tester"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="TestReport.tester"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestReport-tester"/>
+        <description value="The name of the testing organization"/>
+        <code value="tester"/>
+        <type value="string"/>
+        <expression value="TestReport.tester"/>
+        <xpath value="f:TestReport/f:tester"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="TestReport-testscript"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="TestReport.testScript"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/TestReport-testscript"/>
+        <description value="The test script executed to produce this report"/>
+        <code value="testscript"/>
+        <type value="reference"/>
+        <expression value="TestReport.testScript"/>
+        <xpath value="f:TestReport/f:testScript"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

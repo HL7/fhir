@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="OrganizationAffiliation"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Base.Entities"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".active = false"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/OrganizationAffiliation"/>
+  <version value="4.6.0"/>
+  <name value="OrganizationAffiliation"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Patient Administration)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Defines an affiliation/assotiation/relationship between 2 distinct organizations, that is not a part-of relationship/sub-division relationship."/>
+  <purpose value="Need to define relationships between organizations that are not sub-divisions of the same organization (part-of relationships)."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="OrganizationAffiliation"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="OrganizationAffiliation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="OrganizationAffiliation"/>
+      <short value="Defines an affiliation/assotiation/relationship between 2 distinct organizations, that is not a part-of relationship/sub-division relationship"/>
+      <definition value="Defines an affiliation/assotiation/relationship between 2 distinct organizations, that is not a part-of relationship/sub-division relationship."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Role"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="administrative.individual"/>
+      </mapping>
+    </element>
+    <element id="OrganizationAffiliation.identifier">
+      <path value="OrganizationAffiliation.identifier"/>
+      <short value="Business identifiers that are specific to this role"/>
+      <definition value="Business identifiers that are specific to this role."/>
+      <requirements value="Often, specific identities are assigned for the agent."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
+    <element id="OrganizationAffiliation.active">
+      <path value="OrganizationAffiliation.active"/>
+      <short value="Whether this organization affiliation record is in active use"/>
+      <definition value="Whether this organization affiliation record is in active use."/>
+      <comment value="If this value is false, you may refer to the period to see when the role was in active use. If there is no period specified, no inference can be made about when it was active."/>
+      <requirements value="Need to be able to mark an organization affiliation record as not to be used because it was created in error, or otherwise no longer in active use."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="This resource is generally assumed to be active if no value is provided for the active element"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".statusCode"/>
+      </mapping>
+    </element>
+    <element id="OrganizationAffiliation.period">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Is this separate from the period of validity of the qualification?"/>
+      </extension>
+      <path value="OrganizationAffiliation.period"/>
+      <short value="The period during which the participatingOrganization is affiliated with the primary organization"/>
+      <definition value="The period during which the participatingOrganization is affiliated with the primary organization."/>
+      <requirements value="An affiliation may be created ahead of time and only be active for a defined period of time. Once the affiliation is complete, the fact that it existed may still be required."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".performance[@typeCode &lt;= &#39;PPRF&#39;].ActDefinitionOrEvent.effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="OrganizationAffiliation.organization">
+      <path value="OrganizationAffiliation.organization"/>
+      <short value="Organization where the role is available"/>
+      <definition value="Organization where the role is available (primary organization/has members)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".scoper"/>
+      </mapping>
+    </element>
+    <element id="OrganizationAffiliation.participatingOrganization">
+      <path value="OrganizationAffiliation.participatingOrganization"/>
+      <short value="Organization that provides/performs the role (e.g. providing services or is a member of)"/>
+      <definition value="The Participating Organization provides/performs the role(s) defined by the code to the Primary Organization (e.g. providing services or is a member of)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player"/>
+      </mapping>
+    </element>
+    <element id="OrganizationAffiliation.network">
+      <path value="OrganizationAffiliation.network"/>
+      <short value="Health insurance provider network in which the participatingOrganization provides the role&#39;s services (if defined) at the indicated locations (if defined)"/>
+      <definition value="Health insurance provider network in which the participatingOrganization provides the role&#39;s services (if defined) at the indicated locations (if defined)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="OrganizationAffiliation.code">
+      <path value="OrganizationAffiliation.code"/>
+      <short value="Definition of the role the participatingOrganization plays"/>
+      <definition value="Definition of the role the participatingOrganization plays in the association."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="OrganizationAffiliation"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The role the participating organization providing services to the primary organization."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/organization-role"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="OrganizationAffiliation.specialty">
+      <path value="OrganizationAffiliation.specialty"/>
+      <short value="Specific specialty of the participatingOrganization in the context of the role"/>
+      <definition value="Specific specialty of the participatingOrganization in the context of the role."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="OrganizationSpecialty"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Specific specialty associated with the participating organization."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/c80-practice-codes"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player.HealthCareProvider[@classCode = &#39;PROV&#39;].code"/>
+      </mapping>
+    </element>
+    <element id="OrganizationAffiliation.location">
+      <path value="OrganizationAffiliation.location"/>
+      <short value="The location(s) at which the role occurs"/>
+      <definition value="The location(s) at which the role occurs."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.where[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".performance.ActDefinitionOrEvent.ServiceDeliveryLocation[@classCode = &#39;SDLOC&#39;]"/>
+      </mapping>
+    </element>
+    <element id="OrganizationAffiliation.healthcareService">
+      <path value="OrganizationAffiliation.healthcareService"/>
+      <short value="Healthcare services provided through the role"/>
+      <definition value="Healthcare services provided through the role."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player.QualifiedEntity[@classCode = &#39;QUAL&#39;].code"/>
+      </mapping>
+    </element>
+    <element id="OrganizationAffiliation.telecom">
+      <path value="OrganizationAffiliation.telecom"/>
+      <short value="Contact details at the participatingOrganization relevant to this Affiliation"/>
+      <definition value="Contact details at the participatingOrganization relevant to this Affiliation."/>
+      <requirements value="Sometimes a participating organization provides dedicated contacts to handle enquiries specifically for the role provided to the affiliated organization."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactPoint"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".telecom"/>
+      </mapping>
+    </element>
+    <element id="OrganizationAffiliation.endpoint">
+      <path value="OrganizationAffiliation.endpoint"/>
+      <short value="Technical endpoints providing access to services operated for this role"/>
+      <definition value="Technical endpoints providing access to services operated for this role."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

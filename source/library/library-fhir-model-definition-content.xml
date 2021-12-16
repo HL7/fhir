@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns4:modelInfo name="FHIR" version="4.5.0" url="http://hl7.org/fhir" targetQualifier="fhir" patientClassName="FHIR.Patient" patientBirthDatePropertyName="birthDate.value" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns4="urn:hl7-org:elm-modelinfo:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ns4:modelInfo name="FHIR" version="4.6.0" url="http://hl7.org/fhir" targetQualifier="fhir" patientClassName="FHIR.Patient" patientBirthDatePropertyName="birthDate.value" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns4="urn:hl7-org:elm-modelinfo:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="uuid" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" elementType="System.String"/>
     </ns4:typeInfo>
@@ -299,14 +299,14 @@
         <ns4:element name="availableStartTime" elementType="FHIR.time"/>
         <ns4:element name="availableEndTime" elementType="FHIR.time"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="DeviceUseStatement" retrievable="true" baseType="FHIR.DomainResource">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="DeviceUsage" retrievable="true" baseType="FHIR.DomainResource">
         <ns4:element name="identifier">
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </ns4:element>
         <ns4:element name="basedOn">
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Reference"/>
         </ns4:element>
-        <ns4:element name="status" elementType="FHIR.DeviceUseStatementStatus"/>
+        <ns4:element name="status" elementType="FHIR.DeviceUsageStatus"/>
         <ns4:element name="subject" elementType="FHIR.Reference"/>
         <ns4:element name="derivedFrom">
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Reference"/>
@@ -3765,10 +3765,7 @@
         <ns4:element name="value" elementType="FHIR.string"/>
         <ns4:element name="display" elementType="FHIR.string"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="CatalogEntry.RelatedEntry" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="relationtype" elementType="FHIR.CatalogEntryRelationType"/>
-        <ns4:element name="item" elementType="FHIR.Reference"/>
-    </ns4:typeInfo>
+    
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="CompartmentDefinition" retrievable="true" baseType="FHIR.DomainResource">
         <ns4:element name="url" elementType="FHIR.uri"/>
         <ns4:element name="version" elementType="FHIR.string"/>
@@ -5730,33 +5727,7 @@
         <ns4:element name="date" elementType="FHIR.dateTime"/>
         <ns4:element name="species" elementType="FHIR.CodeableConcept"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="CatalogEntry" retrievable="true" baseType="FHIR.DomainResource">
-        <ns4:element name="identifier">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Identifier"/>
-        </ns4:element>
-        <ns4:element name="type" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="orderable" elementType="FHIR.boolean"/>
-        <ns4:element name="referencedItem" elementType="FHIR.Reference"/>
-        <ns4:element name="additionalIdentifier">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Identifier"/>
-        </ns4:element>
-        <ns4:element name="classification">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
-        </ns4:element>
-        <ns4:element name="status" elementType="FHIR.PublicationStatus"/>
-        <ns4:element name="validityPeriod" elementType="FHIR.Period"/>
-        <ns4:element name="validTo" elementType="FHIR.dateTime"/>
-        <ns4:element name="lastUpdated" elementType="FHIR.dateTime"/>
-        <ns4:element name="additionalCharacteristic">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
-        </ns4:element>
-        <ns4:element name="additionalClassification">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
-        </ns4:element>
-        <ns4:element name="relatedEntry">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CatalogEntry.RelatedEntry"/>
-        </ns4:element>
-    </ns4:typeInfo>
+    
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="InsurancePlan.SpecificCost" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="category" elementType="FHIR.CodeableConcept"/>
         <ns4:element name="benefit">
@@ -9213,9 +9184,7 @@
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="GuideParameterCode" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" elementType="System.String"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="CatalogEntryRelationType" retrievable="false" baseType="FHIR.Element">
-        <ns4:element name="value" elementType="System.String"/>
-    </ns4:typeInfo>
+    
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="Coverage.CostToBeneficiary" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="type" elementType="FHIR.CodeableConcept"/>
         <ns4:element name="value">
@@ -9605,7 +9574,7 @@
         <ns4:element name="CapabilityStatement" elementType="FHIR.CapabilityStatement"/>
         <ns4:element name="CarePlan" elementType="FHIR.CarePlan"/>
         <ns4:element name="CareTeam" elementType="FHIR.CareTeam"/>
-        <ns4:element name="CatalogEntry" elementType="FHIR.CatalogEntry"/>
+        
         <ns4:element name="ChargeItem" elementType="FHIR.ChargeItem"/>
         <ns4:element name="ChargeItemDefinition" elementType="FHIR.ChargeItemDefinition"/>
         <ns4:element name="Claim" elementType="FHIR.Claim"/>
@@ -9628,7 +9597,7 @@
         <ns4:element name="DeviceDefinition" elementType="FHIR.DeviceDefinition"/>
         <ns4:element name="DeviceMetric" elementType="FHIR.DeviceMetric"/>
         <ns4:element name="DeviceRequest" elementType="FHIR.DeviceRequest"/>
-        <ns4:element name="DeviceUseStatement" elementType="FHIR.DeviceUseStatement"/>
+        <ns4:element name="DeviceUsage" elementType="FHIR.DeviceUsage"/>
         <ns4:element name="DiagnosticReport" elementType="FHIR.DiagnosticReport"/>
         <ns4:element name="DocumentManifest" elementType="FHIR.DocumentManifest"/>
         <ns4:element name="DocumentReference" elementType="FHIR.DocumentReference"/>
@@ -10076,7 +10045,7 @@
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Reference"/>
         </ns4:element>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="DeviceUseStatementStatus" retrievable="false" baseType="FHIR.Element">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="DeviceUsageStatus" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" elementType="System.String"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="CommunicationRequest" retrievable="true" primaryCodePath="category" baseType="FHIR.DomainResource">
@@ -11587,7 +11556,6 @@
     <ns4:conversionInfo fromType="FHIR.SlicingRules" toType="System.String" functionName="FHIRHelpers.ToString"/>
     <ns4:conversionInfo fromType="FHIR.ExplanationOfBenefitStatus" toType="System.String" functionName="FHIRHelpers.ToString"/>
     <ns4:conversionInfo fromType="FHIR.GuideParameterCode" toType="System.String" functionName="FHIRHelpers.ToString"/>
-    <ns4:conversionInfo fromType="FHIR.CatalogEntryRelationType" toType="System.String" functionName="FHIRHelpers.ToString"/>
     <ns4:conversionInfo fromType="FHIR.LinkType" toType="System.String" functionName="FHIRHelpers.ToString"/>
     <ns4:conversionInfo fromType="FHIR.ConceptMapEquivalence" toType="System.String" functionName="FHIRHelpers.ToString"/>
     <ns4:conversionInfo fromType="FHIR.AuditEventAction" toType="System.String" functionName="FHIRHelpers.ToString"/>
@@ -11609,7 +11577,7 @@
     <ns4:conversionInfo fromType="FHIR.SPDXLicense" toType="System.String" functionName="FHIRHelpers.ToString"/>
     <ns4:conversionInfo fromType="FHIR.ListStatus" toType="System.String" functionName="FHIRHelpers.ToString"/>
     <ns4:conversionInfo fromType="FHIR.base64Binary" toType="System.String" functionName="FHIRHelpers.ToString"/>
-    <ns4:conversionInfo fromType="FHIR.DeviceUseStatementStatus" toType="System.String" functionName="FHIRHelpers.ToString"/>
+    <ns4:conversionInfo fromType="FHIR.DeviceUsageStatus" toType="System.String" functionName="FHIRHelpers.ToString"/>
     <ns4:conversionInfo fromType="FHIR.AuditEventAgentNetworkType" toType="System.String" functionName="FHIRHelpers.ToString"/>
     <ns4:conversionInfo fromType="FHIR.ExpressionLanguage" toType="System.String" functionName="FHIRHelpers.ToString"/>
     <ns4:conversionInfo fromType="FHIR.AddressUse" toType="System.String" functionName="FHIRHelpers.ToString"/>

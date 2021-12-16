@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="ClaimResponse-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Person Primary Coverage Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claimresponse-example"/>
+    </extension>
+    <item>
+      <reference value="ClaimResponse/R3500"/>
+      <display value="General-Primary"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A ClaimResponse for a Claim that contains processing errors"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claimresponse-example-2"/>
+    </extension>
+    <item>
+      <reference value="ClaimResponse/R3501"/>
+      <display value="Errored"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Primary insurance response to a 3Tier Vision Claim"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claimresponse-example-vision-3tier"/>
+    </extension>
+    <item>
+      <reference value="ClaimResponse/R3502"/>
+      <display value="Vision-3Tier"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A ClaimResponse demonstrating Payor service code substitutions"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claimresponse-example-additem"/>
+    </extension>
+    <item>
+      <reference value="ClaimResponse/R3503"/>
+      <display value="AddItem"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Unsolicited Pre-Authorization for social Dental Services"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="claimresponse-example-unsolicited-preauth"/>
+    </extension>
+    <item>
+      <reference value="ClaimResponse/UR3503"/>
+      <display value="UPreAuth"/>
+    </item>
+  </entry>
+</List>

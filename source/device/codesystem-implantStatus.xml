@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="implantStatus"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/implantStatus"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="Implant Status"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="functional"/>
+    <display value="Functional"/>
+    <definition value="The implanted device is working normally."/>
+  </concept>
+  <concept>
+    <code value="non-functional"/>
+    <display value="Non-Functional"/>
+    <definition value="The implanted device is not working."/>
+  </concept>
+  <concept>
+    <code value="disabled"/>
+    <display value="Disabled"/>
+    <definition value="The implanted device has been turned off."/>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="the functional status of the implant has not been determined."/>
+  </concept>
+</CodeSystem>

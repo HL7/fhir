@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="observation-range-category"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/observation-range-category defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">reference
+            
+            <a name="observation-range-category-reference"> </a>
+          
+          </td>
+          
+          <td>reference range</td>
+          
+          <td>Reference (Normal) Range for Ordinal and Continuous Observations.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">critical
+            
+            <a name="observation-range-category-critical"> </a>
+          
+          </td>
+          
+          <td>critical range</td>
+          
+          <td>Critical Range for Ordinal and Continuous Observations. Results outside this range are critical.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">absolute
+            
+            <a name="observation-range-category-absolute"> </a>
+          
+          </td>
+          
+          <td>absolute range</td>
+          
+          <td>Absolute Range for Ordinal and Continuous Observations. Results outside this range are not possible.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/observation-range-category"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1334"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ObservationRangeCategory"/>
+  <title value="ObservationRangeCategory"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Codes identifying the category of observation range."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/observation-range-category"/>
+  <content value="complete"/>
+  <concept>
+    <code value="reference"/>
+    <display value="reference range"/>
+    <definition value="Reference (Normal) Range for Ordinal and Continuous Observations."/>
+  </concept>
+  <concept>
+    <code value="critical"/>
+    <display value="critical range"/>
+    <definition value="Critical Range for Ordinal and Continuous Observations. Results outside this range are critical."/>
+  </concept>
+  <concept>
+    <code value="absolute"/>
+    <display value="absolute range"/>
+    <definition value="Absolute Range for Ordinal and Continuous Observations. Results outside this range are not possible."/>
+  </concept>
+</CodeSystem>

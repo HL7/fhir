@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="Library-cqf"/>
+  <version value="0.01"/>
+  <name value="CQL Library"/>
+  <title value="CQL Library"/>
+  <status value="draft"/>
+  <date value="1970-01-01T10:00:00+10:00"/>
+  <publisher value="HL7"/>
+  <description value="Provides profiles for the representation, authoring, publication, distribution, and evaluation of shareable logic libraries as FHIR artifacts"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/logiclibrary"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/publishablelibrary"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cqllibrary"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/elmlibrary"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/fhirpathlibrary"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/modelinfolibrary"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/moduledefinitionlibrary"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

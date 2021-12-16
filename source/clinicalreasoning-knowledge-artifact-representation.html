@@ -8,7 +8,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <table class="cols"><tbody><tr><td id="wg">Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a></td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></tbody></table>
 
@@ -88,7 +88,10 @@
 		<tr><td><a href="library-definitions.html#Library.effectivePeriod">effectivePeriod</a></td><td>The effective date range for the artifact <a href="plandefinition-example.xml.html">example</a></td></tr>
 		<tr><td><a href="library-definitions.html#Library.useContext">useContext</a></td><td>Describes the context of use for this artifact <a href="plandefinition-example.xml.html">example</a></td></tr>
 		<tr><td><a href="library-definitions.html#Library.topic">topic</a></td><td>Descriptional topics for the artifact <a href="plandefinition-example.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.contributor">contributor</a></td><td>A content contributor <a href="plandefinition-example.xml.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.author">author</a></td><td>A content author <a href="plandefinition-example.xml.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.editor">editor</a></td><td>A content editor <a href="plandefinition-example.xml.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.reviewer">reviewer</a></td><td>A content reviewer <a href="plandefinition-example.xml.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.endorser">endorser</a></td><td>A content endorser <a href="plandefinition-example.xml.html">example</a></td></tr>
 		<tr><td><a href="library-definitions.html#Library.publisher">publisher</a></td><td>The name of the publisher (either an organization or an individual) <a href="plandefinition-example.xml.html">example</a></td></tr>
 		<tr><td><a href="library-definitions.html#Library.contact">contact</a></td><td>Contact details for the publisher <a href="plandefinition-example.xml.html">example</a></td></tr>
 		<tr><td><a href="library-definitions.html#Library.copyright">copyright</a></td><td>Legal copyright description for the artifact <a href="plandefinition-example-kdn5-simplified.xml.html">example</a></td></tr>
@@ -627,29 +630,7 @@
 
 <p>The <a href="questionnaire.html">Questionnaire</a> resource provides a basis for representing the structure of a documentation template. Using the expression extensions, the resource can be extended to provide dynamic behavior such as calculating values, showing/hiding content based on answers to questions, and other interactive functionality.</p>
 
-<p>Documentation Templates often include not only a description of the data to be collected, but the behavior of the template during evaluation. For example, whether or not to display a particular question or group of questions based on answers to previously asked questions, or calculating the value of an answer based on other answers. The Questionnaire resource by itself does not provide this functionality, so this module introduces a <a href="cqf-questionnaire.html">CQF-Questionnaire</a> profile of the <a href="questionnaire.html">Questionnaire</a> resource to allow this behavior to be modeled.</p>
-
-<p>As an example, the PHQ-9 Health Questionnaire contains a question that is answered by totaling the weights from the answers of each of the previous questions. The <a href="questionnaire-cqf-example.html">CQF Questionnaire</a> example illustrates the representation of this questionnaire with the required logic for computation.</p>
-
-<p>The following fragment taken from that example illustrates the use of the expression extension to calculate the TotalScore answer for a PHQ-9 Depression Assessment instrument:</p>
-
-<pre><code>&lt;item&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqf-expression&quot;&gt;
-    &lt;valueExpression&gt;
-      &lt;language value=&quot;text/cql&quot;/&gt;
-      &lt;expression value=&quot;CalculateTotalScore&quot;/&gt;
-    &lt;/valueExpression&gt;
-  &lt;/extension&gt;
-  &lt;linkId value=&quot;TotalScore&quot;/&gt;
-  &lt;code&gt;
-    &lt;system value=&quot;http://loinc.org&quot;/&gt;
-    &lt;code value=&quot;44261-6&quot;/&gt;
-  &lt;/code&gt;
-  &lt;text value=&quot;Total score&quot;/&gt;
-  &lt;type value=&quot;integer&quot;/&gt;
-  &lt;required value=&quot;true&quot;/&gt;
-&lt;/item&gt;
-</code></pre>
+<p>Documentation Templates often include not only a description of the data to be collected, but the behavior of the template during evaluation. For example, whether or not to display a particular question or group of questions based on answers to previously asked questions, or calculating the value of an answer based on other answers. The <a href="http://hl7.org/uv/sdc">Structured Data Capture</a> Implementation Guide provides profiles and guidance for this and many other data capture use cases.</p>
 
 <a name="measure"> </a>
 <h4>Measure</h4>
@@ -690,8 +671,6 @@
   &lt;/group&gt;
 &lt;/Measure&gt;
 </code></pre>
-
-</div>
 [%file newfooter%]
 </body>
 </html>

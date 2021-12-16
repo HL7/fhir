@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="subscription-channel-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-	<name value="SubscriptionChannelType"/>
-	<url value="http://hl7.org/fhir/ValueSet/subscription-channel-type"/>
-	<title value="Subscription Channel Type"/>
-	<status value="active"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/subscription-channel-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.500"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="SubscriptionChannelType"/>
+  <title value="Subscription Channel Type"/>
+  <status value="active"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -14,10 +24,10 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-	<description value="Core-defined FHIR channel types allowed for use in Subscriptions."/>
-	<compose>
-		<include>
-			<system value="http://terminology.hl7.org/CodeSystem/subscription-channel-type"/>
+  <description value="Core-defined FHIR channel types allowed for use in Subscriptions."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/subscription-channel-type"/>
     </include>
-	</compose>
+  </compose>
 </ValueSet>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="DeviceDefinition-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceDefinition.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-identifier"/>
+        <description value="The identifier of the component"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="DeviceDefinition.identifier"/>
+        <xpath value="f:DeviceDefinition/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-parent"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceDefinition.parentDevice"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-parent"/>
+        <description value="The parent DeviceDefinition resource"/>
+        <code value="parent"/>
+        <type value="reference"/>
+        <expression value="DeviceDefinition.parentDevice"/>
+        <xpath value="f:DeviceDefinition/f:parentDevice"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceDefinition.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-type"/>
+        <description value="The device component type"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="DeviceDefinition.classification.type"/>
+        <xpath value="f:DeviceDefinition/f:classification/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

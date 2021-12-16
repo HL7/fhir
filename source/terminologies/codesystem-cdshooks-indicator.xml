@@ -3,21 +3,25 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://cds-hooks.hl7.org/CodeSystem/indicator"/>
   <name value="Indicator"/>
+  <title value="CDS Hooks Indicator"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This codesystem captures the indicator codes defined by the CDS Hooks specification."/>
+  <description value="This codesystem captures the indicator codes defined by the CDS Hooks specification. The indicator is included as an element of the cards in a CDS Hooks response and conveys the urgency and/or importance of the information in each card. See [Card Attributes](https://cds-hooks.hl7.org/1.0/#card-attributes) in the CDS Hooks specification for more information."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
     <code value="info"/>
-    <display value="The response is informational"/>
+    <display value="Information"/>
+    <definition value="The response is informational and indicates that it contains additional information or relevant guidance that may be of interest"/>
   </concept>
   <concept>
     <code value="warning"/>
-    <display value="The response is a warning"/>
+    <display value="Warning"/>
+    <definition value="The response is a warning and indicates that it contains urgent or highly relevant information that should be considered"/>
   </concept>
   <concept>
     <code value="critical"/>
-    <display value="The response is critical and indicates the workflow should not be allowed to proceed"/>
+    <display value="Critical"/>
+    <definition value="The response is critical and indicates that it contains information or activities that have high urgency and importance that should be immediately addressed"/>
   </concept>
 </CodeSystem>

@@ -1,7 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="procedure-category"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/procedure-category"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.430"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="ProcedureCategoryCodes(SNOMEDCT)"/>
   <title value="Procedure Category Codes (SNOMED CT)"/>
   <status value="draft"/>
@@ -13,34 +25,28 @@
     </telecom>
   </contact>
   <description value="Procedure Category code: A selection of relevant SNOMED CT codes."/>
-  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms&#xAE; (SNOMED CT&#xAE;) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>
         <code value="24642003"/>
       </concept>
-    <!--   Psychiatry procedure or service (procedure)   -->
       <concept>
         <code value="409063005"/>
       </concept>
-    <!--   Counseling (procedure)   -->
       <concept>
         <code value="409073007"/>
       </concept>
-    <!--   Education (procedure)   -->
       <concept>
         <code value="387713003"/>
       </concept>
-    <!--   Surgical procedure (procedure)   -->
       <concept>
         <code value="103693007"/>
       </concept>
-    <!--   Diagnostic procedure (procedure)   -->
       <concept>
         <code value="46947000"/>
       </concept>
-	<!--   Social service procedure (procedure)   -->
       <concept>
         <code value="410606002"/>
       </concept>

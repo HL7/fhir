@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="user-level"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/user-level"/>
+  <version value="4.6.0"/>
+  <name value="UserLevel"/>
+  <concept>
+    <code value="patient"/>
+    <display value="Patient"/>
+    <definition value="patient."/>
+  </concept>
+  <concept>
+    <code value="provider"/>
+    <display value="Provider"/>
+    <definition value="provider."/>
+  </concept>
+  <concept>
+    <code value="privileged"/>
+    <display value="Privileged"/>
+    <definition value="privileged. A privileged healthcare provider may be a staff provider, or a STD care provider - the exact use of this is up to the implementer."/>
+  </concept>
+  <concept>
+    <code value="administrator"/>
+    <display value="Administrator"/>
+    <definition value="administrator."/>
+  </concept>
+</CodeSystem>

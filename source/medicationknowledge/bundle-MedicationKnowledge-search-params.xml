@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="MedicationKnowledge-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationKnowledge-classification"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationKnowledge.medicineClassification.classification"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-classification"/>
+        <description value="Specific category assigned to the medication"/>
+        <code value="classification"/>
+        <type value="token"/>
+        <expression value="MedicationKnowledge.medicineClassification.classification"/>
+        <xpath value="f:MedicationKnowledge/f:medicineClassification/f:classification"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationKnowledge-classification-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationKnowledge.medicineClassification.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-classification-type"/>
+        <description value="The type of category for the medication (for example, therapeutic classification, therapeutic sub-classification)"/>
+        <code value="classification-type"/>
+        <type value="token"/>
+        <expression value="MedicationKnowledge.medicineClassification.type"/>
+        <xpath value="f:MedicationKnowledge/f:medicineClassification/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationKnowledge-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationKnowledge.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-code"/>
+        <description value="Code that identifies this medication"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="MedicationKnowledge.code"/>
+        <xpath value="f:MedicationKnowledge/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationKnowledge-doseform"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationKnowledge.definitional.doseForm"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-doseform"/>
+        <description value="powder | tablets | capsule +"/>
+        <code value="doseform"/>
+        <type value="token"/>
+        <expression value="MedicationKnowledge.definitional.doseForm"/>
+        <xpath value="f:MedicationKnowledge/f:definitional/f:doseForm"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationKnowledge-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationKnowledge.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-identifier"/>
+        <description value="Business identifier for this medication"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="MedicationKnowledge.identifier"/>
+        <xpath value="f:MedicationKnowledge/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationKnowledge-ingredient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationKnowledge.definitional.ingredient.item.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-ingredient"/>
+        <description value="Reference to a resource (by instance)"/>
+        <code value="ingredient"/>
+        <type value="reference"/>
+        <expression value="MedicationKnowledge.definitional.ingredient.item.reference"/>
+        <xpath value="f:MedicationKnowledge/f:definitional/f:ingredient/f:item/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationKnowledge-ingredient-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationKnowledge.definitional.ingredient.item.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-ingredient-code"/>
+        <description value="Reference to a concept (by class)"/>
+        <code value="ingredient-code"/>
+        <type value="token"/>
+        <expression value="MedicationKnowledge.definitional.ingredient.item.concept"/>
+        <xpath value="f:MedicationKnowledge/f:definitional/f:ingredient/f:item/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationKnowledge-monitoring-program-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationKnowledge.monitoringProgram.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-monitoring-program-name"/>
+        <description value="Name of the reviewing program"/>
+        <code value="monitoring-program-name"/>
+        <type value="token"/>
+        <expression value="MedicationKnowledge.monitoringProgram.name"/>
+        <xpath value="f:MedicationKnowledge/f:monitoringProgram/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationKnowledge-monitoring-program-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationKnowledge.monitoringProgram.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-monitoring-program-type"/>
+        <description value="Type of program under which the medication is monitored"/>
+        <code value="monitoring-program-type"/>
+        <type value="token"/>
+        <expression value="MedicationKnowledge.monitoringProgram.type"/>
+        <xpath value="f:MedicationKnowledge/f:monitoringProgram/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationKnowledge-monograph"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationKnowledge.monograph.source"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-monograph"/>
+        <description value="Associated documentation about the medication"/>
+        <code value="monograph"/>
+        <type value="reference"/>
+        <expression value="MedicationKnowledge.monograph.source"/>
+        <xpath value="f:MedicationKnowledge/f:monograph/f:source"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationKnowledge-monograph-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationKnowledge.monograph.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-monograph-type"/>
+        <description value="The category of medication document"/>
+        <code value="monograph-type"/>
+        <type value="token"/>
+        <expression value="MedicationKnowledge.monograph.type"/>
+        <xpath value="f:MedicationKnowledge/f:monograph/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationKnowledge-packaging-cost"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-packaging-cost"/>
+        <description value="The cost of the packaged medication, if the cost is Money"/>
+        <code value="packaging-cost"/>
+        <type value="quantity"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationKnowledge-packaging-cost-concept"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-packaging-cost-concept"/>
+        <description value="The cost of the packaged medication, if the cost is a CodeableConcept"/>
+        <code value="packaging-cost-concept"/>
+        <type value="token"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationKnowledge-product-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationKnowledge.productType"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-product-type"/>
+        <description value="Category of the medication or product"/>
+        <code value="product-type"/>
+        <type value="token"/>
+        <expression value="MedicationKnowledge.productType"/>
+        <xpath value="f:MedicationKnowledge/f:productType"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationKnowledge-source-cost"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationKnowledge.cost.source"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-source-cost"/>
+        <description value="The source or owner for the price information"/>
+        <code value="source-cost"/>
+        <type value="token"/>
+        <expression value="MedicationKnowledge.cost.source"/>
+        <xpath value="f:MedicationKnowledge/f:cost/f:source"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationKnowledge-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationKnowledge.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-status"/>
+        <description value="active | inactive | entered-in-error"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="MedicationKnowledge.status"/>
+        <xpath value="f:MedicationKnowledge/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

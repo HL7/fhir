@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="contract-data-meaning"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/contract-data-meaning"/>
+  <version value="4.6.0"/>
+  <name value="ContractDataMeaning"/>
+  <concept>
+    <code value="instance"/>
+    <display value="Instance"/>
+    <definition value="The consent applies directly to the instance of the resource."/>
+  </concept>
+  <concept>
+    <code value="related"/>
+    <display value="Related"/>
+    <definition value="The consent applies directly to the instance of the resource and instances it refers to."/>
+  </concept>
+  <concept>
+    <code value="dependents"/>
+    <display value="Dependents"/>
+    <definition value="The consent applies directly to the instance of the resource and instances that refer to it."/>
+  </concept>
+  <concept>
+    <code value="authoredby"/>
+    <display value="AuthoredBy"/>
+    <definition value="The consent applies to instances of resources that are authored by."/>
+  </concept>
+</CodeSystem>

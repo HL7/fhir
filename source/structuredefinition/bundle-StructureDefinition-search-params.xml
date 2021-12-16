@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="StructureDefinition-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-abstract"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="StructureDefinition.abstract"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-abstract"/>
+        <description value="Whether the structure is abstract"/>
+        <code value="abstract"/>
+        <type value="token"/>
+        <expression value="StructureDefinition.abstract"/>
+        <xpath value="f:StructureDefinition/f:abstract"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-base"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="StructureDefinition.baseDefinition"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-base"/>
+        <description value="Definition that this type is constrained/specialized from"/>
+        <code value="base"/>
+        <type value="reference"/>
+        <expression value="StructureDefinition.baseDefinition"/>
+        <xpath value="f:StructureDefinition/f:baseDefinition"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-base-path"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="StructureDefinition.snapshot.element.base.path,StructureDefinition.differential.element.base.path"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-base-path"/>
+        <description value="Path that identifies the base element"/>
+        <code value="base-path"/>
+        <type value="token"/>
+        <expression value="StructureDefinition.snapshot.element.base.path | StructureDefinition.differential.element.base.path"/>
+        <xpath value="f:StructureDefinition/f:snapshot/f:element/f:base/f:path | f:StructureDefinition/f:differential/f:element/f:base/f:path"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-context"/>
+        <description value="A use context assigned to the structure definition"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="(StructureDefinition.useContext.value as CodeableConcept)"/>
+        <xpath value="f:StructureDefinition/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the structure definition"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="(StructureDefinition.useContext.value as Quantity) | (StructureDefinition.useContext.value as Range)"/>
+        <xpath value="f:StructureDefinition/f:useContext/f:valueQuantity | f:StructureDefinition/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-context-type"/>
+        <description value="A type of use context assigned to the structure definition"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="StructureDefinition.useContext.code"/>
+        <xpath value="f:StructureDefinition/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the structure definition"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="StructureDefinition.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.as(Quantity) | value.as(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-context-type-value"/>
+        <description value="A use context type and value assigned to the structure definition"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="StructureDefinition.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-date"/>
+        <description value="The structure definition publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="StructureDefinition.date"/>
+        <xpath value="f:StructureDefinition/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-derivation"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="StructureDefinition.derivation"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-derivation"/>
+        <description value="specialization | constraint - How relates to base definition"/>
+        <code value="derivation"/>
+        <type value="token"/>
+        <expression value="StructureDefinition.derivation"/>
+        <xpath value="f:StructureDefinition/f:derivation"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-description"/>
+        <description value="The description of the structure definition"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="StructureDefinition.description"/>
+        <xpath value="f:StructureDefinition/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-experimental"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="StructureDefinition.experimental"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-experimental"/>
+        <description value="For testing purposes, not real usage"/>
+        <code value="experimental"/>
+        <type value="token"/>
+        <expression value="StructureDefinition.experimental"/>
+        <xpath value="f:StructureDefinition/f:experimental"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-ext-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="StructureDefinition.context"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-ext-context"/>
+        <description value="The system is the URL for the context-type: e.g. http://hl7.org/fhir/extension-context-type#element|CodeableConcept.text"/>
+        <code value="ext-context"/>
+        <type value="token"/>
+        <expression value="StructureDefinition.context"/>
+        <xpath value="f:StructureDefinition/f:context"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-identifier"/>
+        <description value="External identifier for the structure definition"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="StructureDefinition.identifier"/>
+        <xpath value="f:StructureDefinition/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-jurisdiction"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.jurisdiction"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-jurisdiction"/>
+        <description value="Intended jurisdiction for the structure definition"/>
+        <code value="jurisdiction"/>
+        <type value="token"/>
+        <expression value="StructureDefinition.jurisdiction"/>
+        <xpath value="f:StructureDefinition/f:jurisdiction"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-keyword"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="StructureDefinition.keyword"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-keyword"/>
+        <description value="A code for the StructureDefinition"/>
+        <code value="keyword"/>
+        <type value="token"/>
+        <expression value="StructureDefinition.keyword"/>
+        <xpath value="f:StructureDefinition/f:keyword"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-kind"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="StructureDefinition.kind"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-kind"/>
+        <description value="primitive-type | complex-type | resource | logical"/>
+        <code value="kind"/>
+        <type value="token"/>
+        <expression value="StructureDefinition.kind"/>
+        <xpath value="f:StructureDefinition/f:kind"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-name"/>
+        <description value="Computationally friendly name of the structure definition"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="StructureDefinition.name"/>
+        <xpath value="f:StructureDefinition/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-path"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="StructureDefinition.snapshot.element.path,StructureDefinition.differential.element.path"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-path"/>
+        <description value="A path that is constrained in the StructureDefinition"/>
+        <code value="path"/>
+        <type value="token"/>
+        <expression value="StructureDefinition.snapshot.element.path | StructureDefinition.differential.element.path"/>
+        <xpath value="f:StructureDefinition/f:snapshot/f:element/f:path | f:StructureDefinition/f:differential/f:element/f:path"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-publisher"/>
+        <description value="Name of the publisher of the structure definition"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="StructureDefinition.publisher"/>
+        <xpath value="f:StructureDefinition/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-status"/>
+        <description value="The current status of the structure definition"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="StructureDefinition.status"/>
+        <xpath value="f:StructureDefinition/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-title"/>
+        <description value="The human-friendly name of the structure definition"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="StructureDefinition.title"/>
+        <xpath value="f:StructureDefinition/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="StructureDefinition.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-type"/>
+        <description value="Type defined or constrained by this structure"/>
+        <code value="type"/>
+        <type value="uri"/>
+        <expression value="StructureDefinition.type"/>
+        <xpath value="f:StructureDefinition/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-url"/>
+        <description value="The uri that identifies the structure definition"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="StructureDefinition.url"/>
+        <xpath value="f:StructureDefinition/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-valueset"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="StructureDefinition.snapshot.element.binding.valueSet"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-valueset"/>
+        <description value="A vocabulary binding reference"/>
+        <code value="valueset"/>
+        <type value="reference"/>
+        <expression value="StructureDefinition.snapshot.element.binding.valueSet"/>
+        <xpath value="f:StructureDefinition/f:snapshot/f:element/f:binding/f:valueSet"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-version"/>
+        <description value="The business version of the structure definition"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="StructureDefinition.version"/>
+        <xpath value="f:StructureDefinition/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

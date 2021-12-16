@@ -1,9 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="consent-category"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cbcc"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/consent-category"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.751"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="ConsentCategoryCodes"/>
   <title value="Consent Category Codes"/>
   <status value="draft"/>
@@ -15,8 +25,11 @@
     </telecom>
   </contact>
   <description value="This value set includes sample Consent Directive Type codes, including several consent directive related LOINC codes; HL7 VALUE SET: ActConsentType(2.16.840.1.113883.1.11.19897); examples of US realm consent directive legal descriptions and references to online and/or downloadable forms such as the SSA-827 Authorization to Disclose Information to the Social Security Administration; and other anticipated consent directives related to participation in a clinical trial, medical procedures, reproductive procedures; health care directive (Living Will); advance directive, do not resuscitate (DNR); Physician Orders for Life-Sustaining Treatment (POLST)"/>
-  <copyright value="This value set includes content from LOINC® which is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>  
+  <copyright value="This value set includes content from LOINC&#xAE; which is copyright &#xA9; 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
   <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
+    </include>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/consentcategorycodes"/>
     </include>

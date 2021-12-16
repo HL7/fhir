@@ -10,7 +10,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 [%normative page infrastructure%]
 <h2>Version Management Policy</h2>
@@ -525,6 +525,12 @@ The following rules apply once an artifact in the FHIR core specification or in 
       Where one conformance resource points to another (e.g. CapabilityStatement to profile, profile to profiles, profile to value set, etc.), the reference may change to point to a newer version of the conformance resource or to a distinct conformance resource so long as the content of the newly referenced resource adheres to the compatibility rules with respect to the previously referenced version.
       </td>
     </tr>
+	<tr>
+      <td>Conformance Language</td>
+      <td>
+      SHALL statements cannot be broken (though they can be clarified) and new SHALL statements cannot be introduced unless they are conditional based on version. E.g. "Instances in version x and higher of FHIR SHALL..." Changes of SHOULD to MAY and vice versa as well as introducing new MAY and SHOULD statements are permitted.
+      </td>
+    </tr>
   </tbody>
 </table>
 <p>
@@ -761,8 +767,6 @@ content to normative status.  As well, HL7 will continue to focus to providing a
 consensus can be found at the international level.
 </p>
 
-
-</div>
 
 [%file newfooter%]
 

@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Practitioner-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-active"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.active"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-active"/>
+        <description value="Whether the practitioner record is active"/>
+        <code value="active"/>
+        <type value="token"/>
+        <expression value="Practitioner.active"/>
+        <xpath value="f:Practitioner/f:active"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-address"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.address"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-address"/>
+        <description value="A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"/>
+        <code value="address"/>
+        <type value="string"/>
+        <expression value="Practitioner.address"/>
+        <xpath value="f:Practitioner/f:address"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-address-city"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.address.city"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-address-city"/>
+        <description value="A city specified in an address"/>
+        <code value="address-city"/>
+        <type value="string"/>
+        <expression value="Practitioner.address.city"/>
+        <xpath value="f:Practitioner/f:address/f:city"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-address-country"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.address.country"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-address-country"/>
+        <description value="A country specified in an address"/>
+        <code value="address-country"/>
+        <type value="string"/>
+        <expression value="Practitioner.address.country"/>
+        <xpath value="f:Practitioner/f:address/f:country"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-address-postalcode"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.address.postalCode"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-address-postalcode"/>
+        <description value="A postalCode specified in an address"/>
+        <code value="address-postalcode"/>
+        <type value="string"/>
+        <expression value="Practitioner.address.postalCode"/>
+        <xpath value="f:Practitioner/f:address/f:postalCode"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-address-state"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.address.state"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-address-state"/>
+        <description value="A state specified in an address"/>
+        <code value="address-state"/>
+        <type value="string"/>
+        <expression value="Practitioner.address.state"/>
+        <xpath value="f:Practitioner/f:address/f:state"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-address-use"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.address.use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-address-use"/>
+        <description value="A use code specified in an address"/>
+        <code value="address-use"/>
+        <type value="token"/>
+        <expression value="Practitioner.address.use"/>
+        <xpath value="f:Practitioner/f:address/f:use"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-communication"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.communication"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-communication"/>
+        <description value="One of the languages that the practitioner can communicate with"/>
+        <code value="communication"/>
+        <type value="token"/>
+        <expression value="Practitioner.communication"/>
+        <xpath value="f:Practitioner/f:communication"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-email"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.telecom(system=email)"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-email"/>
+        <description value="A value in an email contact"/>
+        <code value="email"/>
+        <type value="token"/>
+        <expression value="Practitioner.telecom.where(system=&#39;email&#39;)"/>
+        <xpath value="f:Practitioner/f:telecom[system/@value=&#39;email&#39;]"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-family"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.name.family"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-family"/>
+        <description value="A portion of the family name"/>
+        <code value="family"/>
+        <type value="string"/>
+        <expression value="Practitioner.name.family"/>
+        <xpath value="f:Practitioner/f:name/f:family"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-gender"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.gender"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-gender"/>
+        <description value="Gender of the practitioner"/>
+        <code value="gender"/>
+        <type value="token"/>
+        <expression value="Practitioner.gender"/>
+        <xpath value="f:Practitioner/f:gender"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-given"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.name.given"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-given"/>
+        <description value="A portion of the given name"/>
+        <code value="given"/>
+        <type value="string"/>
+        <expression value="Practitioner.name.given"/>
+        <xpath value="f:Practitioner/f:name/f:given"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-identifier"/>
+        <description value="A practitioner&#39;s Identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Practitioner.identifier"/>
+        <xpath value="f:Practitioner/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-name"/>
+        <description value="A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="Practitioner.name"/>
+        <xpath value="f:Practitioner/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-phone"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.telecom(system=phone)"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-phone"/>
+        <description value="A value in a phone contact"/>
+        <code value="phone"/>
+        <type value="token"/>
+        <expression value="Practitioner.telecom.where(system=&#39;phone&#39;)"/>
+        <xpath value="f:Practitioner/f:telecom[system/@value=&#39;phone&#39;]"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-phonetic"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-phonetic"/>
+        <description value="A portion of either family or given name using some kind of phonetic matching algorithm"/>
+        <code value="phonetic"/>
+        <type value="string"/>
+        <expression value="Practitioner.name"/>
+        <xpath value="f:Practitioner/f:name"/>
+        <xpathUsage value="phonetic"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-telecom"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.telecom"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-telecom"/>
+        <description value="The value in any kind of contact"/>
+        <code value="telecom"/>
+        <type value="token"/>
+        <expression value="Practitioner.telecom"/>
+        <xpath value="f:Practitioner/f:telecom"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-death-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.deceasedDateTime"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-death-date"/>
+        <description value="The date of death has been provided and satisfies this search value"/>
+        <code value="death-date"/>
+        <type value="date"/>
+        <expression value="(Practitioner.deceased as dateTime)"/>
+        <xpath value="f:Practitioner/f:deceasedDateTime"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-deceased"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.deceased[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-deceased"/>
+        <description value="This Practitioner has been marked as deceased, or has a death date entered"/>
+        <code value="deceased"/>
+        <type value="token"/>
+        <expression value="Practitioner.deceased.exists() and Practitioner.deceased != false"/>
+        <xpath value="f:Practitioner/f:deceasedBoolean | f:Practitioner/f:deceasedDateTime"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

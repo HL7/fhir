@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="PractitionerRole-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dr Adam Careful&#39;s role at the Acme Hospital"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitionerrole-example"/>
+    </extension>
+    <item>
+      <reference value="PractitionerRole/example"/>
+      <display value="AdamCareFullAtAcme"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="HL7 Defined Practitioner Role examples"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitionerrole-examples-general"/>
+    </extension>
+    <item>
+      <reference value="PractitionerRole/3ad0687e-f477-468c-afd5-fcc2bf897808"/>
+      <display value="HL7"/>
+    </item>
+  </entry>
+</List>

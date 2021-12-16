@@ -1,26 +1,29 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?> 
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
 	<id value="example-rest"/>
-	<type>
-		<system value="http://terminology.hl7.org/CodeSystem/audit-event-type"/>
-		<code value="rest"/>
-		<display value="Restful Operation"/>
-	</type>
-	<subtype>
-		<system value="http://hl7.org/fhir/restful-interaction"/>
-		<code value="vread"/>
-		<display value="vread"/>
-	</subtype>
+	<category>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/audit-event-type"/>
+			<code value="rest"/>
+			<display value="Restful Operation"/>
+		</coding>
+	</category>
+	<code>
+		<coding>
+			<system value="http://hl7.org/fhir/restful-interaction"/>
+			<code value="vread"/>
+			<display value="vread"/>
+		</coding>
+	</code>
 	<action value="R"/>
 	<recorded value="2013-06-20T23:42:24Z"/>
 	<outcome>
-		<coding>
+		<code>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
-			<code value="0"/>
+			<code value="success"/>
 			<display value="Success"/>
-		</coding>
-	</outcome> 
-
+		</code>
+	</outcome>
 	<agent>
 		<type>
 			<coding>
@@ -28,70 +31,66 @@
 				<code value="humanuser"/>
 				<display value="human user"/>
 			</coding>
-		</type> 
-
+		</type>
 		<who>
 			<identifier>
 				<value value="95"/>
 			</identifier>
 		</who>
-		<altId value="601847123"/>
-		<name value="Grahame Grieve"/>
 		<requestor value="true"/>
 	</agent>
 	<agent>
-		<!-- Source active participant, the software making the . AlternativeUserId - Process ID --> 
+		<!-- Source active participant, the software making the . AlternativeUserId - Process ID -->
+		<extension url="http://hl7.org/fhir/StructureDefinition/auditevent-AlternativeUserID">
+			<valueIdentifier>
+				<type>
+					<text value="process ID"/>
+				</type>
+				<value value="6580"/>
+			</valueIdentifier>
+		</extension>
 		<type>
 			<coding>
 				<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 				<code value="110153"/>
 				<display value="Source Role ID"/>
 			</coding>
-		</type> 
+		</type>
 		<who>
 			<identifier>
-				<system value="urn:oid:2.16.840.1.113883.4.2"/> 
-				<value value="2.16.840.1.113883.4.2"/> 
+				<system value="urn:oid:2.16.840.1.113883.4.2"/>
+				<value value="2.16.840.1.113883.4.2"/>
 			</identifier>
 		</who>
-		<altId value="6580"/> 
-		<requestor value="false"/> 
-		<network>
-			<address value="Workstation1.ehr.familyclinic.com"/>
-			<type value="1"/>
-		</network> 
+		<requestor value="false"/>
+		<networkString value="Workstation1.ehr.familyclinic.com"/>
+
 	</agent>
 	<source>
-		<site value="Cloud"/>
 		<observer>
-		<identifier>
-			<value value="hl7connect.healthintersections.com.au"/>
+			<identifier>
+				<value value="hl7connect.healthintersections.com.au"/>
 			</identifier>
 		</observer>
 		<type>
-			<system value="http://terminology.hl7.org/CodeSystem/security-source-type"/>
-			<code value="3"/>
-			<display value="Web Server"/>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/security-source-type"/>
+				<code value="3"/>
+				<display value="Web Server"/>
+			</coding>
 		</type>
 	</source>
 	<entity>
 		<what>
 			<reference value="Patient/example/_history/1"/>
 		</what>
-		<type>
-			<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
-			<code value="1"/>
-			<display value="Person"/>
-		</type>
+
 		<role>
-			<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
-			<code value="1"/>
-			<display value="Patient"/>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
+				<code value="1"/>
+				<display value="Patient"/>
+			</coding>
 		</role>
-		<lifecycle>
-			<system value="http://terminology.hl7.org/CodeSystem/dicom-audit-lifecycle"/>
-			<code value="6"/>
-			<display value="Access / Use"/>
-		</lifecycle>
 	</entity>
 </AuditEvent>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="participationstatus"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/participationstatus defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">accepted
+            
+            <a name="participationstatus-accepted"> </a>
+          
+          </td>
+          
+          <td>Accepted</td>
+          
+          <td>The participant has accepted the appointment.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">declined
+            
+            <a name="participationstatus-declined"> </a>
+          
+          </td>
+          
+          <td>Declined</td>
+          
+          <td>The participant has declined the appointment and will not participate in the appointment.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">tentative
+            
+            <a name="participationstatus-tentative"> </a>
+          
+          </td>
+          
+          <td>Tentative</td>
+          
+          <td>The participant has  tentatively accepted the appointment. This could be automatically created by a system and requires further processing before it can be accepted. There is no commitment that attendance will occur.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">needs-action
+            
+            <a name="participationstatus-needs-action"> </a>
+          
+          </td>
+          
+          <td>Needs Action</td>
+          
+          <td>The participant needs to indicate if they accept the appointment by changing this status to one of the other statuses.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/participationstatus"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.487"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ParticipationStatus"/>
+  <title value="ParticipationStatus"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The Participation status of an appointment."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/participationstatus"/>
+  <content value="complete"/>
+  <concept>
+    <code value="accepted"/>
+    <display value="Accepted"/>
+    <definition value="The participant has accepted the appointment."/>
+  </concept>
+  <concept>
+    <code value="declined"/>
+    <display value="Declined"/>
+    <definition value="The participant has declined the appointment and will not participate in the appointment."/>
+  </concept>
+  <concept>
+    <code value="tentative"/>
+    <display value="Tentative"/>
+    <definition value="The participant has  tentatively accepted the appointment. This could be automatically created by a system and requires further processing before it can be accepted. There is no commitment that attendance will occur."/>
+  </concept>
+  <concept>
+    <code value="needs-action"/>
+    <display value="Needs Action"/>
+    <definition value="The participant needs to indicate if they accept the appointment by changing this status to one of the other statuses."/>
+  </concept>
+</CodeSystem>

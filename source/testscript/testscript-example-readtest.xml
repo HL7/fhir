@@ -44,6 +44,21 @@
       <capabilities value="http://hl7.org/fhir/CapabilityStatement/example"/>
     </capability>
   </metadata>
+  <scope>
+    <artifact value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+    <conformance>
+      <coding>
+        <system value="http://hl7.org/fhir/testscript-scope-conformance-codes"/>
+        <code value="optional"/>
+      </coding>
+    </conformance>
+    <phase>
+      <coding>
+        <system value="http://hl7.org/fhir/testscript-scope-phase-codes"/>
+        <code value="unit"/>
+      </coding>
+    </phase>
+  </scope>
   <profile id="patient-profile">
     <reference value="http://hl7.org/fhir/StructureDefinition/Patient"/>
   </profile>
@@ -61,7 +76,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="read"/>
         </type>
         <resource value="Patient"/>
@@ -119,7 +134,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="read"/>
         </type>
         <resource value="Patient"/>
@@ -144,7 +159,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="read"/>
         </type>
         <resource value="Patient"/>
@@ -169,7 +184,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="read"/>
         </type>
         <resource value="Patient"/>

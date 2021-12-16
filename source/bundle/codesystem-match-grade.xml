@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="match-grade"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/match-grade"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.971"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="MatchGrade"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="certain"/>
+    <display value="Certain Match"/>
+    <definition value="This record meets the matching criteria to be automatically considered as a full match."/>
+  </concept>
+  <concept>
+    <code value="probable"/>
+    <display value="Probable Match"/>
+    <definition value="This record is a close match, but not a certain match. Additional review (e.g. by a human) may be required before using this as a match."/>
+  </concept>
+  <concept>
+    <code value="possible"/>
+    <display value="Possible Match"/>
+    <definition value="This record may be a matching one. Additional review (e.g. by a human) SHOULD be performed before using this as a match."/>
+  </concept>
+  <concept>
+    <code value="certainly-not"/>
+    <display value="Certainly Not a Match"/>
+    <definition value="This record is known not to be a match. Note that usually non-matching records are not returned, but in some cases records previously or likely considered as a match may specifically be negated by the matching engine."/>
+  </concept>
+</CodeSystem>

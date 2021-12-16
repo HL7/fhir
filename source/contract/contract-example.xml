@@ -21,7 +21,8 @@
          <type>
            <coding>
             <system value="urn:ietf:rfc:3986"/>
-            <code value="RicardianContract"/>
+            <code value="urn:uuid:3a48c68c-318d-4c68-8471-4a3c10fcb41b"/>
+            <display value="RicardianContract"/>
           </coding>
          </type>
          <subtype>

@@ -20,6 +20,7 @@ The DiagnosticReport resource is suitable for the following kinds of diagnostic 
  <li>Pathology / Histopathology / related disciplines</li>
  <li>Imaging Investigations (x-ray, CT, MRI, etc.)</li>
  <li>Other diagnostics such as Cardiology, Gastroenterology, etc.</li>
+ <li>Product quality tests such as pH, Assay, Microbial limits, etc. on product and substance</li>
 </ul>
 <p>
 The DiagnosticReport resource is not intended to support cumulative result presentation (tabular presentation of past and present results in the resource).
@@ -77,7 +78,7 @@ If you have a highly structured report, then use DiagnosticReport - it has data 
 </p>
 
 <p>
-Image and media representations of the report and supporting images are referenced in the DiagnosticReport resource.  The details and actual image instances can be referenced directly in Diagnostic report using the "imaging" element or by indirect reference through the <a href="imagingstudy.html">ImagingStudy</a> resources which represent the content produced in a DICOM imaging study or set of DICOM Instances for a patient.
+Image and media representations of the report and supporting images and data are referenced in the DiagnosticReport resource.  The details and actual image instances can be referenced directly in Diagnostic report using the "imaging" element or by indirect reference through the <a href="imagingstudy.html">ImagingStudy</a> resources which represent the content produced in a DICOM imaging study or set of DICOM Instances for a patient.
 </p>
 
 </div>

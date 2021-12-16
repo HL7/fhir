@@ -8,7 +8,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <h2>RESTful API</h2>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
@@ -161,6 +161,12 @@ explicitly granted to the URL, on the grounds that some identifiable user is ass
 with the logical identity. It is not necessary to explicitly embed the patient id in the
 URL - implementations can associate a FHIR end-point with a particular patient or
 provider by using an OAuth login. See <a href="compartmentdefinition.html">Compartments</a> for the logical underpinning.
+</p>
+<p>
+Servers SHALL support both forms (with a trailing slash ex:<code>[base]/[type]/</code>, and without a trailing slash ex:<code>[base]/type]</code> ) if they support either, 
+and servers are discouraged from redirecting a client to achieve a canonical query URL. 
+It is up to a server to decide whether to "canonicalize" a query (e.g., when populating Bundle.link[self], 
+a server can add or remove a trailing slash to fit its own preferred convention).
 </p>
 <p><b>Identity</b></p>
 <p>
@@ -666,8 +672,6 @@ update SHOULD return an HTTP <code>400</code> error and MAY include an <a href="
 <p>
 The resource MAY contain an <code>id</code> element, but does not need to (this is 
 one of the few cases where a resource exists without an <code>id</code> element). 
-If an <code>id</code> is provided, the server SHALL ignore it - see documentation 
-for the <a href="#update">update</a> interaction.
 </p>
 </div>
 
@@ -1054,7 +1058,7 @@ issues with a <code>fatal</code> or <code>error</code> <a href="valueset-issue-s
 </p>
 <p>
 If the search fails (cannot be executed, not that there are no matches), the return value 
-return value SHALL be a status code 4xx or 5xx with an <a href="operationoutcome.html">OperationOutcome</a>.
+SHALL be a status code 4xx or 5xx with an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
 <p>
 Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
@@ -1798,9 +1802,6 @@ Note: this table lists the status codes described here, but other status codes a
 Additional codes that are likely are server errors and various codes associated with authentication protocols. The <a href="security.html">security page</a> 
 notes several security related issues that may impact which codes to return.
 </p>
-
-</div>
-
 
 [%file newfooter%]
 </body>

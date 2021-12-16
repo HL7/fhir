@@ -1,23 +1,28 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="medication-usage-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
   <url value="http://hl7.org/fhir/CodeSystem/medication-usage-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1423"/>
+  </identifier>
   <name value="MedicationUsage Status Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value=""/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medication-usage-status"/>
   <content value="complete"/>
   <concept>
-    <code value="active"/>
-    <display value="Active"/>
-    <definition value="The medication is still being taken."/>
-  </concept>
-  <concept>
-    <code value="completed"/>
-    <display value="Completed"/>
-    <definition value="The medication is no longer being taken."/>
+    <code value="recorded"/>
+    <display value="Recorded"/>
+    <definition value="The action of recording the medication statement is finished."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>
@@ -25,28 +30,8 @@
     <definition value="Some of the actions that are implied by the medication usage may have occurred.  For example, the patient may have taken some of the medication.  Clinical decision support systems should take this status into account."/>
   </concept>
   <concept>
-    <code value="intended"/>
-    <display value="Intended"/>
-    <definition value="The medication may be taken at some time in the future."/>
-  </concept>
-  <concept>
-    <code value="stopped"/>
-    <display value="Stopped"/>
-    <definition value="Actions implied by the usage have been permanently halted, before all of them occurred. This should not be used if the statement was entered in error."/>
-  </concept>
-  <concept>
-    <code value="on-hold"/>
-    <display value="On Hold"/>
-    <definition value="Actions implied by the usage have been temporarily halted, but are expected to continue later. May also be called 'suspended'."/>
-  </concept>
-  <concept>
-    <code value="unknown"/>
-    <display value="Unknown"/>
-    <definition value="The state of the medication use is not currently known."/>
-  </concept>
-  <concept>
-    <code value="not-taken"/>
-    <display value="Not Taken"/>
-    <definition value="The medication was not consumed by the patient"/>
+    <code value="draft"/>
+    <display value="Draft"/>
+    <definition value="The medication usage is draft or preliminary."/>
   </concept>
 </CodeSystem>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="protocol-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/protocol-type"/>
+  <version value="4.6.0"/>
+  <name value="ProtocolType"/>
+  <concept>
+    <code value="condition"/>
+    <display value="Condition"/>
+    <definition value="The protocol describes the steps to manage a particular health condition including monitoring, treatment, mitigation and/or follow-up."/>
+  </concept>
+  <concept>
+    <code value="device"/>
+    <display value="Device"/>
+    <definition value="The protocol describes the appropriate use of a particular device (medical device, software, etc.)."/>
+  </concept>
+  <concept>
+    <code value="drug"/>
+    <display value="Drug"/>
+    <definition value="The protocol describes the appropriate use of a particular medication including indications for use, dosages, treatment cycles, etc."/>
+  </concept>
+  <concept>
+    <code value="study"/>
+    <display value="Study"/>
+    <definition value="The protocol describes the set of steps to occur for study subjects enrolled in an interventional study."/>
+  </concept>
+</CodeSystem>
