@@ -16,6 +16,7 @@
   <version value="4.6.0"/>
   <name value="ConceptSubsumptionOutcome"/>
   <caseSensitive value="true"/>
+  <content value="complete"/>
   <concept>
     <code value="equivalent"/>
     <display value="Equivalent"/>

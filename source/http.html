@@ -8,7 +8,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <h2>RESTful API</h2>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
@@ -1058,7 +1058,7 @@ issues with a <code>fatal</code> or <code>error</code> <a href="valueset-issue-s
 </p>
 <p>
 If the search fails (cannot be executed, not that there are no matches), the return value 
-return value SHALL be a status code 4xx or 5xx with an <a href="operationoutcome.html">OperationOutcome</a>.
+SHALL be a status code 4xx or 5xx with an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
 <p>
 Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
@@ -1802,9 +1802,6 @@ Note: this table lists the status codes described here, but other status codes a
 Additional codes that are likely are server errors and various codes associated with authentication protocols. The <a href="security.html">security page</a> 
 notes several security related issues that may impact which codes to return.
 </p>
-
-</div>
-
 
 [%file newfooter%]
 </body>

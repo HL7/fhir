@@ -9,7 +9,5 @@
   <subscription>
     <reference value="http://example.org/FHIR/R5/Subscription/123"/>
   </subscription>
-  <topic value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
-  <!-- insert contents here -->
-  
+  <topic value="http://example.org/FHIR/R4/SubscriptionTopic/admission"/>
 </SubscriptionStatus>

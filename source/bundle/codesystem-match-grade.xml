@@ -16,6 +16,7 @@
   <version value="4.6.0"/>
   <name value="MatchGrade"/>
   <caseSensitive value="true"/>
+  <content value="complete"/>
   <concept>
     <code value="certain"/>
     <display value="Certain Match"/>

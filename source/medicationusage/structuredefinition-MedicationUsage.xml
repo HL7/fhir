@@ -115,9 +115,9 @@
     </element>
     <element id="MedicationUsage.status">
       <path value="MedicationUsage.status"/>
-      <short value="completed | entered-in-error | unknown"/>
+      <short value="recorded | entered-in-error | draft"/>
       <definition value="A code representing the status of recording the medication usage."/>
-      <comment value="This status concerns just the recording of the medication usage.  MedicationUsage.adherence should be used for indicating a patient&#39;s adherence to the information in this resource.&#xD;&#xD;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <comment value="This status concerns just the recording of the medication usage.  MedicationUsage.adherence should be used for indicating a patient&#39;s adherence to the information in this resource.  Note, the statuses are different than in previous releases for MedicationUsage or MedicationStatement.&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -150,33 +150,6 @@
         <map value=".statusCode"/>
       </mapping>
     </element>
-    <element id="MedicationUsage.statusReason">
-      <path value="MedicationUsage.statusReason"/>
-      <short value="Reason for current status"/>
-      <definition value="Captures the reason for the current state of the MedicationUsage."/>
-      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;entered-in-error&quot;. The reason for performing the event at all is captured in reasonCode, not here."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicationUsageStatusReason"/>
-        </extension>
-        <strength value="example"/>
-        <description value="A coded concept indicating the reason for the status of the statement."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/reason-medication-status-codes"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.statusReason"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN].reasonCOde"/>
-      </mapping>
-    </element>
     <element id="MedicationUsage.category">
       <path value="MedicationUsage.category"/>
       <short value="Type of medication usage"/>
@@ -193,7 +166,7 @@
         </extension>
         <strength value="example"/>
         <description value="A coded concept identifying where the medication included in the MedicationUsage is expected to be consumed or administered."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medication-usage-admin-location"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-admin-location"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -467,6 +440,21 @@
       <min value="0"/>
       <max value="1"/>
       <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=PERT].target[classCode=OBV,moodCode=EVN].value[xsi:type=BL]"/>
+      </mapping>
+    </element>
+    <element id="MedicationUsage.adherence.code">
+      <path value="MedicationUsage.adherence.code"/>
+      <short value="Type of adherence"/>
+      <definition value="Type of the adherence for the medication."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
@@ -475,12 +463,33 @@
           <valueString value="MedicationUsageAdherence"/>
         </extension>
         <strength value="example"/>
-        <description value="A coded concept identifying whether the medication is being consumed or administered as instructed"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-usage-adherence"/>
       </binding>
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=PERT].target[classCode=OBV,moodCode=EVN].value[xsi:type=BL]"/>
+      </mapping>
+    </element>
+    <element id="MedicationUsage.adherence.reason">
+      <path value="MedicationUsage.adherence.reason"/>
+      <short value="Details of the reason for the current use of the medication"/>
+      <definition value="Captures the reason for the current use or adherence of a medication."/>
+      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;entered-in-error&quot;. The reason for performing the event at all is captured in reasonCode, not here."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationUsageStatusReason"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/reason-medication-status-codes"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN].reasonCode"/>
       </mapping>
     </element>
   </differential>

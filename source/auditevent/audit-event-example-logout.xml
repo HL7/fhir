@@ -1,24 +1,28 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?> 
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
 	<id value="example-logout"/>
-	<type>
+	<category>
+		<coding>
 		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 		<code value="110114"/>
 		<display value="User Authentication"/>
-	</type>
-	<subtype>
+		</coding>
+	</category>
+	<code>
+		<coding>
 		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 		<code value="110123"/>
 		<display value="Logout"/>
-	</subtype>
+		</coding>
+	</code>
 	<action value="E"/>
 	<recorded value="2013-06-20T23:46:41Z"/>
 	<outcome>
-		<coding>
+		<code>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
-			<code value="0"/>
+			<code value="success"/>
 			<display value="Success"/>
-		</coding>
+		</code>
 	</outcome> 
 	<agent>
 		<type>
@@ -33,17 +37,22 @@
 			<identifier>
 				<value value="95"/>
 			</identifier>
+		<display value="Grahame Grieve"/>
 		</who>
-		<altId value="601847123"/>
-		<name value="Grahame Grieve"/>
 		<requestor value="true"/>
-		<network>
-			<address value="127.0.0.1"/>
-			<type value="2"/>
-		</network>
+		<networkString value="127.0.0.1"/>
+
 	</agent>
 	<agent>
 		<!-- Source active participant, the software making the . AlternativeUserId - Process ID --> 
+		<extension url="http://hl7.org/fhir/StructureDefinition/auditevent-AlternativeUserID">
+			<valueIdentifier>
+			  <type>
+				<text value="process ID"/>
+			  </type>
+			  <value value="6580"/>
+			</valueIdentifier>
+		</extension>
 		<type>
 			<coding>
 				<system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -57,24 +66,23 @@
 				<value value="2.16.840.1.113883.4.2"/> 
 			</identifier>
 		</who>
-		<altId value="6580"/> 
 		<requestor value="false"/> 
-		<network>
-			<address value="Workstation1.ehr.familyclinic.com"/>
-			<type value="1"/>
-		</network> 
+		<networkString value="Workstation1.ehr.familyclinic.com"/>
+
 	</agent>
 	<source>
-		<site value="Cloud"/>
 		<observer>
 			<identifier>
 				<value value="hl7connect.healthintersections.com.au"/>
 			</identifier>
+		<display value="Cloud"/>
 		</observer>
 		<type>
+		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/security-source-type"/>
 			<code value="3"/>
 			<display value="Web Server"/>
+		</coding>
 		</type>
 	</source>
 </AuditEvent>

@@ -76,38 +76,6 @@
       <comment value="Broadly, there are 3 key areas of consent for patients: Consent around sharing information (aka Privacy Consent Directive - Authorization to Collect, Use, or Disclose information), consent for specific treatment, or kinds of treatment and consent for research participation and data sharing."/>
       <min value="0"/>
       <max value="*"/>
-      <constraint>
-        <key value="ppc-4"/>
-        <severity value="error"/>
-        <human value="IF Scope=research, ResearchStudyContext allowed"/>
-        <expression value="Consent.provision.extension(&quot;http://hl7.org/fhir/StructureDefinition/consent-ResearchStudyContext&quot;).exists() or scope.coding.where(system=&#39;something&#39; and code=&#39;research&#39;).exists().not()"/>
-        <xpath value="exists(f:Consent.provision.extension(&#39;http://hl7.org/fhir/StructureDefinition/consent-ResearchStudyContext&#39;) or not(exists(f:scope/f:coding[f:system/@value=&#39;something&#39; and f:code/@value=&#39;research&#39;])))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Consent"/>
-      </constraint>
-      <constraint>
-        <key value="ppc-2"/>
-        <severity value="error"/>
-        <human value="IF Scope=research, Consent.subject must be a patient"/>
-        <expression value="(scope = &#39;research&#39; and subject.resolve().exists()) implies (subject.resolve() is Patient)"/>
-        <xpath value="(exists(f:subject) and (f:subject/f:Reference/@value=&#39;Patient&#39;])) or not(exists(f:scope/f:coding[f:system/@value=&#39;something&#39; and f:code/@value=&#39;research&#39;])))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Consent"/>
-      </constraint>
-      <constraint>
-        <key value="ppc-3"/>
-        <severity value="error"/>
-        <human value="IF Scope=treatment, Consent.subject must be a patient"/>
-        <expression value="(scope = &#39;treatment&#39; and subject.resolve().exists()) implies (subject.resolve() is Patient)"/>
-        <xpath value="(exists(f:subject) and (f:subject/f:Reference/@value=&#39;Patient&#39;])) or not(exists(f:scope/f:coding[f:system/@value=&#39;something&#39; and f:code/@value=&#39;treatment&#39;])))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Consent"/>
-      </constraint>
-      <constraint>
-        <key value="ppc-1"/>
-        <severity value="error"/>
-        <human value="IF Scope=privacy, Consent.subject must be a patient"/>
-        <expression value="(scope = &#39;privacy&#39; and subject.resolve().exists()) implies (subject.resolve() is Patient)"/>
-        <xpath value="(exists(f:subject) and (f:subject/f:Reference/@value=&#39;Patient&#39;])) or not(exists(f:scope/f:coding[f:system/@value=&#39;something&#39; and f:code/@value=&#39;patient-privacy&#39;])))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Consent"/>
-      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
@@ -179,36 +147,11 @@
         <map value="CON-11 (Consent Status &#x2013; CNE using table HL70498)"/>
       </mapping>
     </element>
-    <element id="Consent.scope">
-      <path value="Consent.scope"/>
-      <short value="Which of the three areas this resource covers (extensible)"/>
-      <definition value="A selector of the type of consent being presented with the base being Privacy, Treatment,  or Research."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="Allows changes to codes based on scope selection"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ConsentScope"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The four anticipated uses for the Consent Resource."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/consent-scope"/>
-      </binding>
-      <mapping>
-        <identity value="v2"/>
-        <map value="CON-2 (Consent Type - CWE using table HL70496)&#xA;Note: Scope can be derived from category if going from V2 to FHIR."/>
-      </mapping>
-    </element>
     <element id="Consent.category">
       <path value="Consent.category"/>
       <short value="Classification of the consent statement - for indexing/retrieval"/>
       <definition value="A classification of the type of consents found in the statement. This element supports indexing and retrieval of consent statements."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
@@ -218,7 +161,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConsentCategory"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="A classification of the type of consents found in a consent statement."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/consent-category"/>
       </binding>
@@ -449,7 +392,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConsentPolicyRule"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="Regulatory policy examples."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/consent-policy"/>
       </binding>
@@ -494,7 +437,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConsentVerificationType"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="Types of Verification/Validation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/consent-verification"/>
       </binding>
@@ -626,7 +569,7 @@
       <path value="Consent.provision.actor.reference"/>
       <short value="Resource for the actor (or group, by role)"/>
       <definition value="The resource that identifies the actor. To identify actors by type, use group to identify a set of actors by some property they share (e.g. &#39;admitting officers&#39;)."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>

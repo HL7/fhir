@@ -5,6 +5,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Ingredient-for"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Ingredient.for"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-for"/>
+        <description value="The product which this ingredient is a constituent part of"/>
+        <code value="for"/>
+        <type value="reference"/>
+        <expression value="Ingredient.for"/>
+        <xpath value="f:Ingredient/f:for"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Ingredient-function"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -78,66 +98,6 @@
         <type value="token"/>
         <expression value="Ingredient.role"/>
         <xpath value="f:Ingredient/f:role"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="Ingredient-specified-substance"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Ingredient.specifiedSubstance.code.reference"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-specified-substance"/>
-        <description value="Reference to a resource (by instance)"/>
-        <code value="specified-substance"/>
-        <type value="reference"/>
-        <expression value="Ingredient.specifiedSubstance.code.reference"/>
-        <xpath value="f:Ingredient/f:specifiedSubstance/f:code/f:reference"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="Ingredient-specified-substance-code"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Ingredient.specifiedSubstance.code.concept"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-specified-substance-code"/>
-        <description value="Reference to a concept (by class)"/>
-        <code value="specified-substance-code"/>
-        <type value="token"/>
-        <expression value="Ingredient.specifiedSubstance.code.concept"/>
-        <xpath value="f:Ingredient/f:specifiedSubstance/f:code/f:concept"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="Ingredient-specified-substance-definition"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Ingredient.specifiedSubstance.code.reference"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-specified-substance-definition"/>
-        <description value="Reference to a resource (by instance)"/>
-        <code value="specified-substance-definition"/>
-        <type value="reference"/>
-        <expression value="Ingredient.specifiedSubstance.code.reference"/>
-        <xpath value="f:Ingredient/f:specifiedSubstance/f:code/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

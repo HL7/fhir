@@ -8,6 +8,10 @@
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="12345689"/>
     </identifier>
+    <priorPrescription>
+        <reference value="MedicationRequest/medrx0318"/>
+        <display value="Vancomycin IV"/>
+    </priorPrescription>
     <status value="completed"/>
     <intent value="order"/>
     <medication>
@@ -37,6 +41,7 @@
         </coding>
       </concept>
     </reason>
+    <dose>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="500mg daily for 5 days" />
@@ -78,6 +83,7 @@
         </doseAndRate>
       
     </dosageInstruction> 
+    </dose>
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>
@@ -96,8 +102,5 @@
             <code value="d"/>
         </expectedSupplyDuration>
     </dispenseRequest>
-    <priorPrescription>
-        <reference value="MedicationRequest/medrx0318"/>
-            <display value="Vancomycin IV"/>
-    </priorPrescription>
+
 </MedicationRequest>

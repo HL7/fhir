@@ -176,6 +176,7 @@
   <description value="The verification status to support or decline the clinical status of the condition or diagnosis."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/condition-ver-status"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="unconfirmed"/>

@@ -36,31 +36,81 @@
         
         </tr>
         
-        <tr>
+                <tr>
           
-          <td style="white-space:nowrap">intersection
+          <td style="white-space:nowrap">all-of
             
-            <a name="characteristic-combination-intersection"> </a>
+            <a name="characteristic-combination-all-of"> </a>
           
           </td>
           
-          <td>intersection</td>
+          <td>All of</td>
           
           <td>Combine characteristics with AND.</td>
         
         </tr>
-        
+
+
+
         <tr>
           
-          <td style="white-space:nowrap">union
+          <td style="white-space:nowrap">any-of
             
-            <a name="characteristic-combination-union"> </a>
+            <a name="characteristic-combination-any-of"> </a>
           
           </td>
           
-          <td>union</td>
+          <td>Any of</td>
           
           <td>Combine characteristics with OR.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">at-least
+            
+            <a name="characteristic-combination-at-least"> </a>
+          
+          </td>
+          
+          <td>At least</td>
+          
+          <td>Meet at least the threshold number of characteristics for definition.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">at-most
+            
+            <a name="characteristic-combination-at-most"> </a>
+          
+          </td>
+          
+          <td>At most</td>
+          
+          <td>Meet at most the threshold number of characteristics for definition.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">net-effect
+            
+            <a name="characteristic-combination-net-effect"> </a>
+          
+          </td>
+          
+          <td>Net effect</td>
+          
+          <td> Combine characteristics statistically.</td>
         
         </tr>
       
@@ -104,13 +154,28 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/characteristic-combination"/>
   <content value="complete"/>
   <concept>
-    <code value="intersection"/>
-    <display value="intersection"/>
+    <code value="all-of"/>
+    <display value="All of"/>
     <definition value="Combine characteristics with AND."/>
   </concept>
   <concept>
-    <code value="union"/>
-    <display value="union"/>
+    <code value="any-of"/>
+    <display value="Any of"/>
     <definition value="Combine characteristics with OR."/>
+  </concept>
+  <concept>
+    <code value="at-least"/>
+    <display value="At least"/>
+    <definition value="Meet at least the threshold number of characteristics for definition."/>
+  </concept>
+  <concept>
+    <code value="at-most"/>
+    <display value="At most"/>
+    <definition value="Meet at most the threshold number of characteristics for definition."/>
+  </concept>
+  <concept>
+    <code value="net-effect"/>
+    <display value="Net effect"/>
+    <definition value=" Combine characteristics statistically."/>
   </concept>
 </CodeSystem>
