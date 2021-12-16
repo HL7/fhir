@@ -2,11 +2,17 @@
     <id value="product-with-contained-package-and-ingredient"/>
     <contained>
         <PackagedProductDefinition>
+            <packageFor>
+                <reference value="#"/>
+            </packageFor>
             <description value="A full text description with markup can go here"/>
         </PackagedProductDefinition>
     </contained>
     <contained>
         <Ingredient>
+            <for>
+                <reference value="#"/>
+            </for>
             <role>
                 <coding>
                     <code value="component"/>

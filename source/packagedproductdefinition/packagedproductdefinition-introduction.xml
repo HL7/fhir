@@ -42,17 +42,23 @@
 		<h2>Recursive relationships in this resource</h2>
 		<p>
 			This resource has two recursive relationships. 
-			One is meant to be "internal" to the package - for package layers and contents, and the other for aggregated packages (e.g. for wholesaling) that are 
+			One is primarily intended to be "internal" to the package - for package layers and contents, and the other for aggregated packages (e.g. for wholesaling) that are 
 			made up of other packages.
 		</p>
 		<ul>
 			<li>
 				PackagedProductDefinition.package.package<br/>
-				This recursive relationship is for the inner parts and containers within a package, which is normally indivisible and is marketed or prescribed as a whole entity. See also PackagedProductDefinition.package.containedItem.item(PackagedProductDefinition)
+				This recursive relationship is used for the inner parts and containers within a package - the package being indivisible and marketed or prescribed as a whole entity. 
+				However see also the "referenceable" packaging case in the next bullet.
 			</li>
 			<li>
 				PackagedProductDefinition.package.containedItem.item(PackagedProductDefinition)<br/> 
-				This recursive route, which is for cases where the whole (indivisible) package is then aggregated into another, divisible, package, for example a warehousing or transport pack. This represents a package of packages. It is not used for the internal parts of a single package. For which see PackagedProductDefinition.package.package.
+				This recursive route is primarily for cases where the whole (indivisible) package is then aggregated into another, divisible, package -  
+				for example a warehousing or transport pack. This represents a package of packages. 
+				It is not generally used for the internal parts of a single package (see previous bullet). 
+				However for cases where there is a need to represent the distinct regulation of specific inner parts of a package, 
+				and so a need for these to be directly referenceable as packaging layers by other resources, this relationship SHOULD 
+				also be used for packaging within the package.  
 			</li>
 		</ul>
 
