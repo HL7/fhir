@@ -5,9 +5,11 @@
     <Substance>
       <id value="sub03"/>
       <code>
+        <coding>
           <system value="http://snomed.info/sct"/>
           <code value="55452001"/>
           <display value="Oxycodone (substance)"/>
+        </coding>
       </code>
     </Substance>
   </contained>

@@ -19,7 +19,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/resprate"/>
-  <version value="4.1.0"/>
+  <version value="4.3.0-CIBUILD"/>
   <name value="observation-resprate"/>
   <title value="Observation Respiratory Rate Profile"/>
   <status value="draft"/>
@@ -33,7 +33,7 @@
     </telecom>
   </contact>
   <description value="FHIR Respiratory Rate Profile"/>
-  <fhirVersion value="4.1.0"/>
+  <fhirVersion value="4.3.0-CIBUILD"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

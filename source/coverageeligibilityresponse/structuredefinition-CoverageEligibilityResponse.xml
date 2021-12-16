@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse"/>
-  <version value="4.1.0"/>
+  <version value="4.3.0-CIBUILD"/>
   <name value="CoverageEligibilityResponse"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="This resource provides eligibility and plan details from the processing of an CoverageEligibilityRequest resource."/>
-  <fhirVersion value="4.1.0"/>
+  <fhirVersion value="4.3.0-CIBUILD"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -280,7 +280,7 @@
     </element>
     <element id="CoverageEligibilityResponse.outcome">
       <path value="CoverageEligibilityResponse.outcome"/>
-      <short value="complete | error | partial"/>
+      <short value="queued | complete | error | partial"/>
       <definition value="The outcome of the request processing."/>
       <comment value="The resource may be used to indicate that: the request has been held (queued) for processing; that it has been processed and errors found (error); that no errors were found and that some of the adjudication has been undertaken (partial) or that all of the adjudication has been undertaken (complete)."/>
       <requirements value="To advise the requestor of an overall processing outcome."/>

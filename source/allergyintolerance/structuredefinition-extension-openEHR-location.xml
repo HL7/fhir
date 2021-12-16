@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/openEHR-location"/>
-  <version value="4.1.0"/>
+  <version value="4.3.0-CIBUILD"/>
   <name value="location"/>
   <status value="draft"/>
   <date value="2014-10-09"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="The anatomical location / body site(s) where the symptoms manifested."/>
-  <fhirVersion value="4.1.0"/>
+  <fhirVersion value="4.3.0-CIBUILD"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
