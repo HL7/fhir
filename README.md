@@ -5,6 +5,17 @@ This library builds and publishes the FHIR specification, based on the contained
 | :---: | :---: |
 | [![Build Status][Badge-AzureMasterPipeline]][Link-AzureMasterPipeline] | [![Build Status][Badge-AzureR4BPipeline]][Link-AzureR4BPipeline] |
 
+### Important Links
+
+This is the source for the FHIR specification itself. Only the editors of 
+the specification (a small group) need to build this. If that's not you, 
+one of these links should get you going:
+
+* [Jira - Propose a change](https://jira.hl7.org/projects/FHIR/issues) - use this rather than making a PR directly, since all changes must be approved using the Jira workflow
+* [FHIR chat](https://chat.fhir.org)
+* [Stack Overflow questions](https://stackoverflow.com/tags/hl7-fhir)
+* [Published FHIR Specification](http://hl7.org/fhir) or [Current Build of the specficiation](http://build.fhir.org)
+
 ### Publishing Locally
 
 1. Run `./gradlew publish` from the command line
