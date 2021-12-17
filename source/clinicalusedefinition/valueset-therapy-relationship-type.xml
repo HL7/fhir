@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="therapy-relationship-type"/>
   <meta>
@@ -8,13 +9,29 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      
       <ul>
+        
+        
         <li>Include all codes defined in 
+          
+          
           <a href="codesystem-therapy-relationship-type.html">
+            
+            
             <code>http://hl7.org/fhir/therapy-relationship-type</code>
+          
+          
           </a>
+        
+        
         </li>
+      
+      
       </ul>
+    
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -29,7 +46,7 @@
   <url value="http://hl7.org/fhir/ValueSet/therapy-relationship-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1559"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1561"/>
   </identifier>
   <version value="4.6.0"/>
   <name value="TherapyRelationshipType"/>
