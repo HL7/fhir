@@ -233,9 +233,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ClinicalUseDefinition</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <!--Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ClinicalUseIssue</Data></Cell>
-   </Row>
+   </Row-->
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CodeSystem</Data></Cell>
    </Row>
