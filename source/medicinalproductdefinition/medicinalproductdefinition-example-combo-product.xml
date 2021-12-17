@@ -208,6 +208,8 @@
 						<amount>
 							<value value="20"/>
 							<unit value="g"/>
+							<system value="http://unitsofmeasure.org"/> 
+							<code value="g"/>
 						</amount>
 					</containedItem>
 					<package>
