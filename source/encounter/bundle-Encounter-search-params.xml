@@ -90,14 +90,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Encounter.period"/>
+          <valueString value="Encounter.actualPeriod"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-date"/>
-        <description value="A date within the period the Encounter lasted"/>
+        <description value="A date within the actualPeriod the Encounter lasted"/>
         <code value="date"/>
         <type value="date"/>
-        <expression value="Encounter.period"/>
-        <xpath value="f:Encounter/f:period"/>
+        <expression value="Encounter.actualPeriod"/>
+        <xpath value="f:Encounter/f:actualPeriod"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

@@ -303,10 +303,10 @@
         <subject>
           <reference value="Patient/d1"/>
         </subject>
-        <period>
+        <actualPeriod>
           <start value="2013-01-20T12:30:02Z"/>
           <end value="2013-02-01T12:30:02Z"/>
-        </period>
+        </actualPeriod>
         <hospitalization>
           <dischargeDisposition>
             <text value="Discharged to care of GP"/>
