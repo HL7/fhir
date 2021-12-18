@@ -1,0 +1,37 @@
+<MedicinalProductDefinition xmlns="http://hl7.org/fhir">
+    <id value="product-with-contained-package-and-ingredient"/>
+    <!-- Doesn't yet work in main build contained>
+        <PackagedProductDefinition>
+            <id value="containedPPD"/>
+            <packageFor>
+                <reference value="#"/>
+            </packageFor>
+            <description value="A full text description with markup can go here"/>
+        </PackagedProductDefinition>
+    </contained-->
+    <!-- Doesn't yet work in main build <contained>
+        <Ingredient>
+            <id value="containedIng"/>
+            <status value="active"/>
+            <for>
+                <reference value="#"/>
+            </for>
+            <role>
+                <coding>
+                    <code value="component"/>
+                </coding>
+            </role>
+            <substance>
+                <code>
+                    <reference>
+                        <reference value="SubstanceDefinition/componentSubstance"/>
+                    </reference>
+                </code>
+            </substance>
+        </Ingredient>
+    </contained-->
+    <!-- rest of the product goes here -->
+    <name>
+        <productName value="Exampleocillin"/>
+    </name>
+</MedicinalProductDefinition>
