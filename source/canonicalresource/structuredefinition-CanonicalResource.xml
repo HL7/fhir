@@ -24,7 +24,7 @@
     <valueCode value=".status = retired"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="CanonicalResource"/>
   <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Common Ancestor declaration for conformance and knowledge artifact resources."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0-cibuild"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

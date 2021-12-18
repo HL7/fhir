@@ -915,7 +915,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:Index="16" ss:StyleID="s77"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ObjectLifecycleEvents</Data></Cell>
     <Cell><Data ss:Type="String">Lifecycle events from multiple code systems</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
@@ -1104,7 +1104,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="FHIR-version">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="29" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="33" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:Width="63.0"/>
    <Column ss:Width="39.0"/>
    <Column ss:Width="223.0"/>
@@ -1268,22 +1268,46 @@
     <Cell ss:StyleID="s98"><Data ss:Type="String">R5 Preview #1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">27</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">4.3.0-snapshot1</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">4.3.0-snapshot1</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">R4B Snapshot #1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">28</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">4.3.0-cibuild</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">4.3.0-cibuild</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">R4B Rolling CI-Build</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">24</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">4.4.0</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">4.4.0</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">R5 Preview #2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">24</Data></Cell>
+    <Cell><Data ss:Type="Number">29</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">4.5.0</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">4.5.0</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">R5 Preview #3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">24</Data></Cell>
+    <Cell><Data ss:Type="Number">30</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">4.6.0</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">4.6.0</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">R5 Draft Ballot</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">31</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">5.0.0-snapshot1</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">5.0.0-snapshot1</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">R5 Snapshot #1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">32</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">5.0.0-cibuild</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">5.0.0-cibuild</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">R5 Rolling CI-Build</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
