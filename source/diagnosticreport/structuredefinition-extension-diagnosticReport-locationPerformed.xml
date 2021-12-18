@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/diagnosticReport-locationPerformed"/>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0-snapshot1"/>
   <name value="locationPerformed"/>
   <title value="locationPerformed"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="Facility location where this report was prepared."/>
-  <fhirVersion value="5.0.0-cibuild"/>
+  <fhirVersion value="5.0.0-snapshot1"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

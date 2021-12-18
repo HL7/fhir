@@ -8,13 +8,13 @@
     <valueInteger value="1" />
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-compose-include-minimumMultiplicity" />
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0-snapshot1"/>
   <name value="minimumMultiplicity" />
   <status value="draft" />
   <date value="2020-12-28T16:55:11+11:00" />
   <publisher value="HL7" />
   <description value="A number that indicates that concepts must have at least the specified number of relationships of the specified type meeting the constraints of the target concepts." />
-  <fhirVersion value="5.0.0-cibuild"/>
+  <fhirVersion value="5.0.0-snapshot1"/>
   <mapping>
     <identity value="rim" />
     <uri value="http://hl7.org/v3" />

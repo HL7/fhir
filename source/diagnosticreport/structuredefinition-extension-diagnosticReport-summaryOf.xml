@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/diagnosticReport-summaryOf"/>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0-snapshot1"/>
   <name value="summaryOf"/>
   <title value="Summary Of"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="A summary report that points to subordinate target reports."/>
-  <fhirVersion value="5.0.0-cibuild"/>
+  <fhirVersion value="5.0.0-snapshot1"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

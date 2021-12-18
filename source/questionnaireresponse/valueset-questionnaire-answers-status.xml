@@ -32,7 +32,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:required"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0-snapshot1"/>
   <name value="QuestionnaireResponseStatus"/>
   <title value="QuestionnaireResponseStatus"/>
   <status value="draft"/>

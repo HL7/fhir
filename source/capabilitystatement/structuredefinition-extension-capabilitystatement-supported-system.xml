@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/capabilitystatement-supported-system"/>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0-snapshot1"/>
   <name value="supported-system"/>
   <title value="Supported Code System"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="A code system that is supported by the system that is not defined in a value set resource."/>
-  <fhirVersion value="5.0.0-cibuild"/>
+  <fhirVersion value="5.0.0-snapshot1"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

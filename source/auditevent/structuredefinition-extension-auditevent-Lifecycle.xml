@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/auditevent-Lifecycle"/>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0-snapshot1"/>
   <name value="Lifecycle"/>
   <status value="draft"/>
   <date value="2021-10-02T16:55:11+11:00"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="An Lifecycle event associated with this participant object."/>
-  <fhirVersion value="5.0.0-cibuild"/>
+  <fhirVersion value="5.0.0-snapshot1"/>
   <mapping>
     <identity value="dicom"/>
     <uri value="http://nema.org/dicom"/>

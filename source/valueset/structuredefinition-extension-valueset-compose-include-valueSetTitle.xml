@@ -9,11 +9,11 @@
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-compose-include-valueSetTitle" />
   <name value="valueset-compose-include-valueSetTitle" />
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0-snapshot1"/>
   <status value="draft" />
   <publisher value="HL7"/>
   <description value="Human readable name for the included Value Set." />
-  <fhirVersion value="5.0.0-cibuild"/>
+  <fhirVersion value="5.0.0-snapshot1"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

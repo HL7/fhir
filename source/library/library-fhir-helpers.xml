@@ -34,7 +34,7 @@
                </td>
             </tr>
             <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">5.0.0-cibuild</td>
+               <td style="padding-left: 25px; padding-right: 25px;">5.0.0-snapshot1</td>
             </tr>
          </table>
          <p/>
@@ -162,7 +162,7 @@
     <use value="official"/>
     <value value="FHIRHelpers"/>
     </identifier>
-    <version value="5.0.0-cibuild"/>
+    <version value="5.0.0-snapshot1"/>
     <title value="FHIR Helpers"/>
     <status value="active"/>
     <experimental value="true"/>

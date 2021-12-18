@@ -7,7 +7,7 @@
     ]
   },
   "url": "http://hl7.org/fhir/ValueSet/artifact-comment-type",
-  "version": "5.0.0-cibuild",
+  "version": "5.0.0-snapshot1",
   "name": "ArtifactCommentType",
   "status": "active",
   "experimental": false,

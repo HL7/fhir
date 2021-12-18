@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/openEHR-test"/>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0-snapshot1"/>
   <name value="test"/>
   <status value="draft"/>
   <date value="2014-10-09"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="Observations that confirm or refute the risk and/or the substance."/>
-  <fhirVersion value="5.0.0-cibuild"/>
+  <fhirVersion value="5.0.0-snapshot1"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

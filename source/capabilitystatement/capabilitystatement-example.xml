@@ -69,7 +69,7 @@
 	</implementation>
 	<!--  while the FHIR infrastructure is turning over prior to development, a version is 
     required.   -->
-	<fhirVersion value="5.0.0-cibuild"/>
+	<fhirVersion value="5.0.0-snapshot1"/>
 	<!--  this system can do either xml or json. (Listing both implies full support for either, with interconversion)  -->
 	<format value="xml"/>
 	<format value="json"/>

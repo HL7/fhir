@@ -78,7 +78,7 @@
   </extension>
   <url value="http://hl7.org/fhir/imagingselection-regiontype"/>
 
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0-snapshot1"/>
   <name value="ImagingSelectionRegionType"/>
   <title value="ImagingSelectionRegionType"/>
   <status value="draft"/>

@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent"/>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0-snapshot1"/>
   <name value="parent"/>
   <status value="draft"/>
   <date value="2019-05-29"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="Identifies a parent of the relative."/>
-  <fhirVersion value="5.0.0-cibuild"/>
+  <fhirVersion value="5.0.0-snapshot1"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/medication-manufacturingBatch"/>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0-snapshot1"/>
   <name value="manufacturingBatch"/>
   <status value="draft"/>
   <date value="2015-02-19"/>
@@ -20,7 +20,7 @@
       <value value="HL7"/>
     </telecom>
   </contact>
-  <fhirVersion value="5.0.0-cibuild"/>
+  <fhirVersion value="5.0.0-snapshot1"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
