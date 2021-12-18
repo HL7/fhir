@@ -328,7 +328,6 @@
         <code value="RelatedArtifact"/>
       </type>
     </element>
-<!--
     <element id="DeviceDefinition.specialization">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="600,170"/>
@@ -339,21 +338,9 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
+        <code value="RelatedArtifact"/>
       </type>
     </element>
-    <element id="DeviceDefinition.specialization.systemType">
-      <path value="DeviceDefinition.specialization.systemType"/>
-      <short value="The standard that is used to operate and communicate"/>
-      <definition value="The standard that is used to operate and communicate."/>
-      <alias value="&#x3A3;"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
--->
     <element id="DeviceDefinition.hasPart">
       <path value="DeviceDefinition.hasPart"/>
       <short value="A device, part of the current one"/>
@@ -537,39 +524,6 @@
       <max value="*"/>
       <contentReference value="#DeviceDefinition.packaging"/>
     </element>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <element id="DeviceDefinition.specialization.version">
-      <path value="DeviceDefinition.specialization.version"/>
-      <short value="The version of the standard that is used to operate and communicate"/>
-      <definition value="The version of the standard that is used to operate and communicate."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-    </element>
     <element id="DeviceDefinition.version">
       <path value="DeviceDefinition.version"/>
       <short value="The version of the device or software"/>
@@ -616,10 +570,6 @@
         <code value="string"/>
       </type>
     </element>
-
-
-
-
     <element id="DeviceDefinition.safety">
       <path value="DeviceDefinition.safety"/>
       <short value="Safety characteristics of the device"/>
@@ -658,41 +608,6 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-<!--
-    <element id="DeviceDefinition.capability">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="600,90"/>
-      </extension>
-      <path value="DeviceDefinition.capability"/>
-      <short value="Additional capabilities of the device"/>
-      <definition value="Additional capabilities that the device is defined or required to have e.g. &quot;water resistant&quot;, &quot;long life&quot;."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="DeviceDefinition.capability.type">
-      <path value="DeviceDefinition.capability.type"/>
-      <short value="The type of capability - whether it is a physical attribute, a customization needed"/>
-      <definition value="The type of capability - whether it is a physical attribute, a customization needed. For exampl e &quot;water ingress protection&quot;."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-    </element>
-    <element id="DeviceDefinition.capability.description">
-      <path value="DeviceDefinition.capability.description"/>
-      <short value="The actual capability of the device"/>
-      <definition value="The actual capability of the device e.g. IP67."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-    </element>
--->
     <element id="DeviceDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="600,240"/>
@@ -1070,24 +985,6 @@
         <code value="Period"/>
       </type>
     </element>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <element id="DeviceDefinition.chargeItem">
       <path value="DeviceDefinition.chargeItem"/>
       <short value="Billing code or reference associated with the device"/>
@@ -1143,6 +1040,5 @@
           <code value="UsageContext"/>
       </type>
     </element>
-
   </differential>
 </StructureDefinition>
