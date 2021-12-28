@@ -176,9 +176,9 @@
 		<translation lang="it">ImpressioneClinica</translation>
 		<translation lang="zh">临床印象</translation>
 	</item>
-	<item id="ClinicalUseIssue">
+	<!--item id="ClinicalUseIssue">
 		<translation lang="en">ClinicalUseIssue</translation>
-	</item>
+	</item-->
 	<item id="ClinicalUseDefinition">
 		<translation lang="en">ClinicalUseDefinition</translation>
 	</item>
