@@ -413,7 +413,6 @@ signatures.html
       <page type="resource" resource="ManufacturedItemDefinition"/>
       <page type="resource" resource="AdministrableProductDefinition"/>
       <page type="resource" resource="RegulatedAuthorization"/>
-      <page type="resource" resource="ClinicalUseIssue"/><!-- ClinicalUseIssue must keep it in til it goes -->
       <page type="resource" resource="ClinicalUseDefinition"/>
       <page type="resource" resource="Ingredient"/>
       <page type="resource" resource="SubstanceDefinition"/>

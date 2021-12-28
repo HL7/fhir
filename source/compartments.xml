@@ -234,9 +234,6 @@
     <Cell><Data ss:Type="String">ClinicalUseDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ClinicalUseIssue</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CodeSystem</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
