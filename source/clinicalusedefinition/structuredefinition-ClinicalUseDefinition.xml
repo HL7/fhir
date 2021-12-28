@@ -120,8 +120,8 @@
           <valueString value="ClinicalUseDefinitionType"/>
         </extension>
         <strength value="required"/>
-        <description value="Overall defining type of this clinical use issue."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/clinical-use-issue-type"/>
+        <description value="Overall defining type of this clinical use definition."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/clinical-use-definition-type"/>
       </binding>
       <mapping>
         <identity value="idmp"/>
