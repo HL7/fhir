@@ -187,9 +187,6 @@
 	<!--item id="ClinicalParticulars">
 		<translation lang="en">ClinicalParticulars</translation>
 	</item-->
-	<item id="ClinicalUseIssue">
-		<translation lang="en">ClinicalUseIssue</translation>
-	</item>
 	<item id="ClinicalUseDefinition">
 		<translation lang="en">ClinicalUseDefinition</translation>
 	</item>
