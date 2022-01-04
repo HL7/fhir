@@ -25,48 +25,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="BodyStructure-location"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="BodyStructure.location"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-location"/>
-        <description value="Body site"/>
-        <code value="location"/>
-        <type value="token"/>
-        <expression value="BodyStructure.location"/>
-        <xpath value="f:BodyStructure/f:location"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-
- <!--  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="BodyStructure-location"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="BodyStructure.location"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-location"/>
-        <description value="Body site"/>
-        <code value="location"/>
-        <type value="token"/>
-        <expression value="BodyStructure.location"/>
-        <xpath value="f:BodyStructure/f:location"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry> -->
-
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="BodyStructure-includedStructure-structure"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
