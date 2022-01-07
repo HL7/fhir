@@ -144,7 +144,7 @@
     <element id="DeviceDefinition.udiDeviceIdentifier.marketDistribution">
       <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution"/>
       <short value="Indicates whether and when the device is available on the market"/>
-      <definition value="The organization that assigns the identifier algorithm."/>
+      <definition value="Indicates where and when the device is available on the market."/>
       <min value="0"/>
       <max value="*"/>
       <type>
