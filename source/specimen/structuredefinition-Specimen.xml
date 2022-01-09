@@ -318,7 +318,7 @@
           <valueString value="SpecimenFeatureType"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes describing anatomical locations. May include laterality."/>
+          <valueString value="Codes describing anatomical feature."/>
         </extension>
         <strength value="example"/>
         <description value="SNOMED CT Body site concepts"/>
@@ -332,7 +332,7 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="string"/>
       </type>
     </element>
     <element id="Specimen.collection">
