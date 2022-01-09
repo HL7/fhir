@@ -294,6 +294,47 @@
         <map value="outboundRelationship[typeCode=FLFS].target"/>
       </mapping>
     </element>
+    <element id="Specimen.feature">
+      <path value="Specimen.feature"/>
+      <short value="Specimen features"/>
+      <definition value="A physical feature or landmark on a specimen, highlighted for context by the collector of the specimen (e.g. surgeon), that identifies the type of feature as well as its meaning (e.g. the red ink indicating the resection margin of the right lobe of the excised prostate tissue or wire loop at radiologically suspected tumor location)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Specimen.feature.type">
+      <path value="Specimen.feature.type"/>
+      <short value="Highlighted feature"/>
+      <definition value="The landmark or feature being highlighted."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SpecimenFeatureType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes describing anatomical locations. May include laterality."/>
+        </extension>
+        <strength value="example"/>
+        <description value="SNOMED CT Body site concepts"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
+      </binding>
+    </element>
+    <element id="Specimen.feature.description">
+      <path value="Specimen.feature.description"/>
+      <short value="Feature description"/>
+      <definition value="Name of the feature."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
     <element id="Specimen.collection">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="up"/>
