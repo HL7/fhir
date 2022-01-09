@@ -303,6 +303,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player.scopingRole[classCode=FEAT].scoper"/>
+      </mapping>
     </element>
     <element id="Specimen.feature.type">
       <path value="Specimen.feature.type"/>
@@ -324,6 +328,14 @@
         <description value="SNOMED CT Body site concepts"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
       </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
     </element>
     <element id="Specimen.feature.description">
       <path value="Specimen.feature.description"/>
@@ -334,6 +346,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
     </element>
     <element id="Specimen.collection">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
