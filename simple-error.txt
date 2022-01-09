@@ -1,1 +1,0 @@
-﻿expected = after attribute name (position: TEXT seen ...es the type of feature as well as its meaning. For example. "the r... @300:224) 
