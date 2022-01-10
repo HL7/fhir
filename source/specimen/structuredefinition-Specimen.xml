@@ -339,7 +339,7 @@
     </element>
     <element id="Specimen.feature.description">
       <path value="Specimen.feature.description"/>
-      <short value="Feature description"/>
+      <short value="Information about the feature"/>
       <definition value="Description of the feature of the specimen."/>
       <min value="1"/>
       <max value="1"/>
