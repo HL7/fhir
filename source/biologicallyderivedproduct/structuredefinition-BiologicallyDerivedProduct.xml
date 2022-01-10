@@ -324,7 +324,7 @@
       <path value="BiologicallyDerivedProduct.property.value[x]"/>
       <short value="Property values"/>
       <definition value="Property values."/>
-      <comment value="The value should be provided as a boolean, integer, CodeableConcept, quantity, range, or attachment. The description can be a string only when these others are not available." />
+      <comment value="The value should be provided as a boolean, integer, CodeableConcept, period, quantity, range, ratio, or attachment. The description can be a string only when these others are not available." />
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -337,10 +337,16 @@
         <code value="CodeableConcept"/>
       </type>
       <type>
+        <code value="Period"/>
+      </type>
+      <type>
         <code value="Quantity"/>
       </type>
       <type>
         <code value="Range"/>
+      </type>
+      <type>
+        <code value="Ratio"/>
       </type>
       <type>
         <code value="string"/>
