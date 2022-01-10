@@ -58,6 +58,11 @@
     <uri value="http://hl7.org/v2"/>
     <name value="HL7 v2 Mapping"/>
   </mapping>
+  <mapping>
+    <identity value="udi"/>
+    <uri value="http://fda.gov/UDI"/>
+    <name value="UDI Mapping"/>
+  </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="BiologicallyDerivedProduct"/>
@@ -177,10 +182,6 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
       <mapping>
-        <identity value="rim"/>
-        <map value="Role.id.extension"/>
-      </mapping>
-      <mapping>
         <identity value="udi"/>
         <map value="The device identifier (DI), a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device."/>
       </mapping>
@@ -196,7 +197,7 @@
       <type>
         <code value="string"/>
       </type>
-      <mapping>
+    <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
       </mapping>
