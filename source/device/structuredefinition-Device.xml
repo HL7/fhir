@@ -659,8 +659,8 @@
     </element>
     <element id="Device.version.installDate">
       <path value="Device.version.installDate"/>
-      <short value="Version install date"/>
-      <definition value="The date that the version was installed on the device."/>
+      <short value="The date the version was installed on the device."/>
+      <definition value="The date the version was installed on the device."/>
       <min value="0"/>
       <max value="1"/>
       <type>
