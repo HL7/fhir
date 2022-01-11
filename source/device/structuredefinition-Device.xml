@@ -657,6 +657,20 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
+    <element id="Device.version.installDate">
+      <path value="Device.version.installDate"/>
+      <short value="Version install date"/>
+      <definition value="The date that the version was installed on the device."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+    </element>
     <element id="Device.version.value">
       <path value="Device.version.value"/>
       <short value="The version text"/>
