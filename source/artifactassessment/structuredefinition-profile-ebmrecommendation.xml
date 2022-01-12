@@ -56,6 +56,16 @@
       <min value="1"/>
       <max value="1"/>
     </element>
+    <element id="ArtifactAssessment.extension:recommender">
+      <path value="ArtifactAssessment.extension"/>
+      <sliceName value="recommender"/>
+      <short value="Who is making the recommendation"/>
+      <definition value="The group or organization making the recommendation."/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/ebm-recommender"/>
+      </type>
+    </element>
     <element id="ArtifactAssessment.citeAs">
       <path value="ArtifactAssessment.citeAs"/>
       <short value="How to cite the recommendation"/>

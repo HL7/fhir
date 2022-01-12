@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ebm-recommender"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/ebm-recommender"/>
+  <version value="5.0.0-snapshot1"/>
+  <name value="recommender"/>
+  <status value="draft"/>
+  <date value="2022-01-12"/>
+  <publisher value="Health Level Seven, Inc. - Clinical Decision Support WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The group or organization making the recommendation."/>
+  <fhirVersion value="5.0.0-snapshot1"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="ArtifactAssessment"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="Who is making the recommendation"/>
+      <definition value="The group or organization making the recommendation."/>
+      <min value="0"/>
+      <max value="*"/>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/ebm-recommender"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="Reference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

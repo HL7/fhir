@@ -16,5 +16,10 @@
       </reference>
       <description value="Represents justification for a recommendation"/>
     </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/ebm-recommender"/>
+      </reference>
+    </resource>
   </definition>
 </ImplementationGuide>
