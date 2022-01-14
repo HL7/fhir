@@ -308,14 +308,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
-      <!--binding>
+      <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicinalProductType"/>
+          <valueString value="AdditionalMonitoring"/>
         </extension>
         <strength value="example"/>
-        <description value="Overall defining type of this medicinal product."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
-      </binding-->
+        <description value="Extra measures defined for a Medicinal Product, such as heightened reporting requirements."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-additional-monitoring"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product.Additional Monitoring Indicator"/>
@@ -331,14 +331,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
-      <!--binding>
+      <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicinalProductType"/>
+          <valueString value="SpecialMeasures"/>
         </extension>
         <strength value="example"/>
-        <description value="Overall defining type of this medicinal product."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
-      </binding-->
+        <description value="Extra measures defined for a Medicinal Product, such as heightened reporting requirements."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-special-measures"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product.Special Measures"/>
@@ -438,6 +438,16 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTSubstanceCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The prescription supply types appropriate to a medicinal product"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-codes"/>
+      </binding>
+      
       <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product.Ingredient (see also FHIR Ingredient resource)"/>
@@ -734,6 +744,23 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/> 
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A human language."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
+          <valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Language"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="IETF language tag"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Country / Language.Language"/>
