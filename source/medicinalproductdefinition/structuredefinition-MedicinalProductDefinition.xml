@@ -816,6 +816,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProductCrossReferenceType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Extra measures defined for a Medicinal Product, such as heightened reporting requirements."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-cross-reference-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Product Cross-Reference"/>
