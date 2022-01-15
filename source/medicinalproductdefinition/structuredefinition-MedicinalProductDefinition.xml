@@ -66,7 +66,7 @@
   <differential>
     <element id="MedicinalProductDefinition">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="290,30"/>
+        <valueCode value="340,30"/> <!-- 290,30 -->
       </extension>
       <path value="MedicinalProductDefinition"/>
       <short value="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs)"/>
@@ -354,14 +354,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
-      <!--binding>
+      <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicinalProductType"/>
+          <valueString value="PediatricUse"/>
         </extension>
         <strength value="example"/>
-        <description value="Overall defining type of this medicinal product."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
-      </binding-->
+        <description value="Suitability for age groups, in particular children."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-pediatric-use"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product.Pediatric Use Indicator"/>
@@ -377,14 +377,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
-      <!--binding>
+      <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicinalProductType"/>
+          <valueString value="ProductClassification"/>
         </extension>
         <strength value="example"/>
-        <description value="Overall defining type of this medicinal product."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-type"/>
-      </binding-->
+        <description value="This value set includes codes from the Anatomical Therapeutic Chemical Classification System - provided as an exemplar value set."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/product-characteristic-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Product Classification.Value"/>
@@ -444,7 +444,7 @@
           <valueString value="SNOMEDCTSubstanceCodes"/>
         </extension>
         <strength value="example"/>
-        <description value="The prescription supply types appropriate to a medicinal product"/>
+        <description value="This value set includes all substance codes from SNOMED CT - provided as an exemplar value set."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-codes"/>
       </binding>
       
@@ -464,6 +464,14 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTSubstanceCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This value set includes all substance codes from SNOMED CT - provided as an exemplar value set."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -503,7 +511,7 @@
     </element>
     <element id="MedicinalProductDefinition.contact">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="750,250"/>
+        <valueCode value="800,250"/>
       </extension>
       <path value="MedicinalProductDefinition.contact"/>
       <short value="A product specific contact, person (in a role), or an organization"/>
@@ -529,6 +537,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProductContactType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Extra measures defined for a Medicinal Product, such as heightened reporting requirements."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-contact-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -592,7 +608,7 @@
     </element>
     <element id="MedicinalProductDefinition.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="80,177"/>
+        <valueCode value="60,201"/> <!-- 80, 177 -->
       </extension>
       <path value="MedicinalProductDefinition.name"/>
       <short value="The product&#39;s name, including full name and possibly coded parts"/>
@@ -633,6 +649,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProductNameType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Type of a name for a Medicinal Product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-name-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -640,7 +664,7 @@
     </element>
     <element id="MedicinalProductDefinition.name.namePart">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="50,292"/>
+        <valueCode value="50,315"/> <!-- 50,292 -->
       </extension>
       <path value="MedicinalProductDefinition.name.namePart"/>
       <short value="Coding words or phrases of the name"/>
@@ -681,6 +705,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProductNamePartType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Type of part of a name for a Medicinal Product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-name-part-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="(which of the name parts this is e.g. Formulation Part)"/>
@@ -688,7 +720,7 @@
     </element>
     <element id="MedicinalProductDefinition.name.countryLanguage">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="50,42"/>
+        <valueCode value="30,62"/> <!-- was 50,42 -->
       </extension>
       <path value="MedicinalProductDefinition.name.countryLanguage"/>
       <short value="Country where the name applies"/>
@@ -714,6 +746,15 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Country"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Jurisdiction codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/country"/>
+      </binding>
+      
       <mapping>
         <identity value="idmp"/>
         <map value="Country / Language.Country"/>
@@ -729,6 +770,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Jurisdiction codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Country / Language.Jurisdiction"/>
@@ -768,7 +817,7 @@
     </element>
     <element id="MedicinalProductDefinition.crossReference">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="750,10"/>
+        <valueCode value="800,10"/>
       </extension>
       <path value="MedicinalProductDefinition.crossReference"/>
       <short value="Reference to another product, e.g. for linking authorised to investigational product"/>
@@ -831,7 +880,7 @@
     </element>
     <element id="MedicinalProductDefinition.operation">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="750,110"/>
+        <valueCode value="800,110"/>
       </extension>
       <path value="MedicinalProductDefinition.operation"/>
       <short value="A manufacturing or administrative process or step associated with (or performed on) the medicinal product"/>
@@ -905,6 +954,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProductConfidentiality"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Confidentiality rating, e.g. commercial sensitivity for a Medicinal Product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-confidentiality"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Manufacturing / Business Operation.Confidentiality Indicator"/>
@@ -912,7 +969,7 @@
     </element>
     <element id="MedicinalProductDefinition.characteristic">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="750,350"/>
+        <valueCode value="800,350"/>
       </extension>
       <path value="MedicinalProductDefinition.characteristic"/>
       <short value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;"/>
@@ -938,6 +995,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTCharacteristicCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This value set includes all observable entity codes from SNOMED CT - provided as an exemplar value set."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/product-characteristic-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Physical Characteristics, all attributes"/>

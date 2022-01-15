@@ -652,8 +652,8 @@
     </element>
     <element id="SubstanceDefinition.structure.representation.type">
       <path value="SubstanceDefinition.structure.representation.type"/>
-      <short value="The kind of structural representation (e.g. full, partial) or the technique used to derive the analytical characterization of the substance (e.g. x-ray, HPLC, NMR, peptide mapping, ligand binding assay, etc.)"/>
-      <definition value="The kind of structural representation (e.g. full, partial) or the technique used to derive the analytical characterization of the substance (e.g. x-ray, HPLC, NMR, peptide mapping, ligand binding assay, etc.)."/>
+      <short value="The kind of structural representation (e.g. full, partial)"/>
+      <definition value="The kind of structural representation (e.g. full, partial)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
