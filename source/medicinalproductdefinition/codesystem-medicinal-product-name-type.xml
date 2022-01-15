@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="medicinal-product-confidentiality"/>
+  <id value="medicinal-product-name-type"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -15,14 +15,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/medicinal-product-confidentiality"/>
+  <url value="http://hl7.org/fhir/medicinal-product-name-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1571"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1581"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="ProductConfidentiality"/>
-  <title value="ProductConfidentiality"/>
+  <name value="ProductNameType"/>
+  <title value="ProductNameType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -37,18 +37,13 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Confidentiality rating, e.g. commercial sensitivity for a Medicinal Product."/>
+  <description value="Type of a name for a Medicinal Product."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-confidentiality"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-name-type"/>
   <content value="complete"/>
-  <concept>
-    <code value="CommerciallySensitive"/>
-    <display value="Commercially Sensitive"/>
-    <definition value="Commercially Sensitive"/>
-  </concept>
-  <concept>
-    <code value="NotCommerciallySensitive"/>
-    <display value="Not Commercially Sensitive"/>
-    <definition value="Not Commercially Sensitive"/>
-  </concept>
+  <concept><code value="BAN"/><display value="British Approved Name"/></concept>
+  <concept><code value="INN"/><display value="International Non-Proprietary Name"/></concept>
+  <concept><code value="INNM"/><display value="Modified International Non-Proprietary Name"/></concept>
+  <concept><code value="pINN"/><display value="Proposed International Non-Proprietary Name"/></concept>
+  <concept><code value="rINN"/><display value="Recommended International Non-Proprietary Name"/></concept>
 </CodeSystem>

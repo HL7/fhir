@@ -21,8 +21,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1573"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="ProductConfidentiality"/>
-  <title value="ProductConfidentiality"/>
+  <name value="ProductContactType"/>
+  <title value="ProductContactType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -37,18 +37,33 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Confidentiality rating, e.g. commercial sensitivity for a Medicinal Product."/>
+  <description value="Contact type for a Medicinal Product."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-contact-type"/>
   <content value="complete"/>
   <concept>
-    <code value="InvestigationalProduct"/>
-    <display value="Link to Investigational Product"/>
-    <definition value="Link to Investigational Product"/>
+    <code value="ProposedMAH"/>
+    <display value="Proposed Marketing Authorisation Holder/Person"/>
+    <definition value="Proposed Marketing Authorisation Holder/Person"/>
   </concept>
   <concept>
-    <code value="VirtualProduct"/>
-    <display value="Link to Virtual Product"/>
-    <definition value="Link to Virtual Product"/>
+    <code value="ProcedureContactDuring"/>
+    <display value="Person/Company authorised for Communication during procedure"/>
+    <definition value="Person/Company authorised for Communication on behalf of the Applicant during the Procedure"/>
+  </concept>
+  <concept>
+    <code value="ProcedureContactAfter"/>
+    <display value="Person/Company authorised for Communication after procedure"/>
+    <definition value="Person/Company authorised for Communication between MAH and Authorities after Authorisation"/>
+  </concept>
+  <concept>
+    <code value="QPPV"/>
+    <display value="Qualified Person Responsible for Pharmacovigilance"/>
+    <definition value="Qualified Person Responsible for Pharmacovigilance"/>
+  </concept>
+  <concept>
+    <code value="PVEnquiries"/>
+    <display value="Pharmacovigilance Enquiry Information"/>
+    <definition value="Pharmacovigilance Enquiry Information"/>
   </concept>
 </CodeSystem>
