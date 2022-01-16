@@ -150,6 +150,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdministrableDoseForm"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Dose form for a medication, in the form suitable for administering to the patient, after mixing, where necessary."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/administrable-dose-form"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Pharmaceutical Product.Administrable Dose Form"/>
@@ -165,6 +173,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="UnitOfPresentation"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The presentation type in which an administrable medicinal product is given to a patient."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/unit-of-presentation"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Pharmaceutical Product.Unit of Presentation"/>
@@ -196,6 +212,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTSubstanceCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This value set includes all substance codes from SNOMED CT - provided as an exemplar value set."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Pharmaceutical Product.Ingredient (see also FHIR Ingredient resource)"/>
@@ -219,7 +243,7 @@
     </element>
     <element id="AdministrableProductDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="500,17"/>
+        <valueCode value="500,25"/> <!-- was 500, 17 -->
       </extension>
       <path value="AdministrableProductDefinition.property"/>
       <short value="Characteristics e.g. a products onset of action"/>
@@ -245,6 +269,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTCharacteristicCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This value set includes all observable entity codes from SNOMED CT - provided as an exemplar value set."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/product-characteristic-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Pharmaceutical Product Characteristics.Code System (not a one to one map, the resource is more capable)"/>
@@ -287,6 +319,17 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Pharmaceutical Product Characteristics.Status"/>
@@ -294,7 +337,7 @@
     </element>
     <element id="AdministrableProductDefinition.routeOfAdministration">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="57,185"/>
+        <valueCode value="57,205"/> <!-- was 57,185 -->
       </extension>
       <path value="AdministrableProductDefinition.routeOfAdministration"/>
       <short value="The path by which the product is taken into or makes contact with the body. In some regions this is referred to as the licenced or approved route"/>
@@ -320,6 +363,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTRouteCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient's body."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/route-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Route of Administration.Route of Administration"/>
@@ -402,7 +453,7 @@
     </element>
     <element id="AdministrableProductDefinition.routeOfAdministration.targetSpecies">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="360,219"/>
+        <valueCode value="360,239"/>
       </extension>
       <path value="AdministrableProductDefinition.routeOfAdministration.targetSpecies"/>
       <short value="A species for which this route applies"/>
@@ -428,6 +479,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TargetSpecies"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A tissue type of an animal."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/target-species"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -435,7 +494,7 @@
     </element>
     <element id="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="620,209"/>
+        <valueCode value="620,229"/>
       </extension>
       <path value="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod"/>
       <short value="A species specific time during which consumption of animal product is not appropriate"/>
@@ -461,6 +520,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AnimalTissueType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A tissue type of an animal."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/animal-tissue-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>

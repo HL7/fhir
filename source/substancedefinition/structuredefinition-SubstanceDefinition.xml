@@ -122,9 +122,17 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Substance_Classification.Domain"/>
+        <map value="n/a"/>
       </mapping>
     </element>
     <element id="SubstanceDefinition.classification">
@@ -152,6 +160,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicinalProductType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Applicable domain for this product (e.g. human, veterinary)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-domain"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Substance_Classification.Substance_Classification (and Code and Type) and Substance_Classification.Substance_Classification_Subtype"/>
@@ -419,6 +435,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTCharacteristicCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This value set includes all observable entity codes from SNOMED CT - provided as an exemplar value set."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/product-characteristic-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Property.Property_Type"/>
@@ -893,6 +917,23 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A human language."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
+          <valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Language"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="IETF language tag"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Substance_Name.Language"/>
@@ -923,6 +964,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Jurisdiction codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Substance_Name.Jurisdiction"/>
@@ -997,6 +1046,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Official_Name.Official_Name_Status"/>
@@ -1080,6 +1137,16 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      
+      <!--binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceRelationshipType"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="The relationship between two substance types."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-relationship-type"/>
+      </binding-->
+      
       <mapping>
         <identity value="idmp"/>
         <map value="Substance_Relationship.Relationship_Type"/>
@@ -1255,6 +1322,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Country"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Jurisdiction codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/country"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Source_Material.Country_Of_Origin"/>

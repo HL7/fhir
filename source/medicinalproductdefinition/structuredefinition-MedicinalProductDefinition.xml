@@ -383,7 +383,7 @@
         </extension>
         <strength value="example"/>
         <description value="This value set includes codes from the Anatomical Therapeutic Chemical Classification System - provided as an exemplar value set."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/product-characteristic-codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/product-classification-codes"/>
       </binding>
       <mapping>
         <identity value="idmp"/>
@@ -438,7 +438,6 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
-      
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SNOMEDCTSubstanceCodes"/>
@@ -447,7 +446,6 @@
         <description value="This value set includes all substance codes from SNOMED CT - provided as an exemplar value set."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-codes"/>
       </binding>
-      
       <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product.Ingredient (see also FHIR Ingredient resource)"/>
@@ -720,7 +718,7 @@
     </element>
     <element id="MedicinalProductDefinition.name.countryLanguage">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="30,62"/> <!-- was 50,42 -->
+        <valueCode value="30,70"/> <!-- was 50,42 -->
       </extension>
       <path value="MedicinalProductDefinition.name.countryLanguage"/>
       <short value="Country where the name applies"/>
@@ -754,7 +752,6 @@
         <description value="Jurisdiction codes"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/country"/>
       </binding>
-      
       <mapping>
         <identity value="idmp"/>
         <map value="Country / Language.Country"/>
