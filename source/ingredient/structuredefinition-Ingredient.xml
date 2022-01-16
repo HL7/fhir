@@ -65,7 +65,7 @@
   <differential>
     <element id="Ingredient">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,120"/>
+        <valueCode value="0,100"/> <!-- was 0,120 -->
       </extension>
       <path value="Ingredient"/>
       <short value="An ingredient of a manufactured item or pharmaceutical product"/>
@@ -161,6 +161,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="IngredientRole"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A classification of the ingredient identifying its purpose within the product, e.g. active, inactive."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ingredient-role"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Ingredient.Ingredient Role"/>
@@ -176,6 +184,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="IngredientFunction"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A classification of the ingredient identifying its precise purpose(s) in the drug product (beyond e.g. active/inactive)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ingredient-function"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -282,6 +298,14 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTSubstanceCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This value set includes all substance codes from SNOMED CT - provided as an exemplar value set."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Substance.Substance"/>
@@ -396,6 +420,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Country"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Jurisdiction codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/country"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Strength.Country"/>
@@ -430,6 +462,14 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTSubstanceCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This value set includes all substance codes from SNOMED CT - provided as an exemplar value set."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Reference Strength.Reference Specified Substance"/>
@@ -478,88 +518,18 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Country"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Jurisdiction codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/country"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Reference Strength.Country"/>
       </mapping>
     </element>
-    <!--element id="Ingredient.specifiedSubstance">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="140,320"/>
-      </extension>
-      <path value="Ingredient.specifiedSubstance"/>
-      <short value="A specified substance that comprises this ingredient"/>
-      <definition value="A specified substance that comprises this ingredient."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Ingredient.Specified Substance"/>
-      </mapping>
-    </element>
-    <element id="Ingredient.specifiedSubstance.code">
-      <path value="Ingredient.specifiedSubstance.code"/>
-      <short value="Substance as a &#39;specified substance&#39;, implying extra substance related characteristics"/>
-      <definition value="Substance as a &#39;specified substance&#39;, implying extra substance related characteristics."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Specified Substance.Specified Substance"/>
-      </mapping>
-    </element>
-    <element id="Ingredient.specifiedSubstance.group">
-      <path value="Ingredient.specifiedSubstance.group"/>
-      <short value="The group of specified substance, e.g. group 1 to 4, where the group categorises the level of &#xA;description of the substance according to standardised sets of properties"/>
-      <definition value="The group of specified substance, e.g. group 1 to 4, where the group categorises the level of &#xA;description of the substance according to standardised sets of properties."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Specified Substance.Specified Substance Group"/>
-      </mapping>
-    </element>
-    <element id="Ingredient.specifiedSubstance.confidentiality">
-      <path value="Ingredient.specifiedSubstance.confidentiality"/>
-      <short value="Confidentiality level of the specified substance as the ingredient"/>
-      <definition value="Confidentiality level of the specified substance as the ingredient."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Specified Substance.Confidentiality Indicator"/>
-      </mapping>
-    </element>
-    <element id="Ingredient.specifiedSubstance.strength">
-      <path value="Ingredient.specifiedSubstance.strength"/>
-      <short value="Quantity of the substance or specified substance present in the manufactured item or pharmaceutical product"/>
-      <definition value="Quantity of the substance or specified substance present in the manufactured item or pharmaceutical product."/>
-      <min value="0"/>
-      <max value="*"/>
-      <contentReference value="#Ingredient.substance.strength"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Substance.Strength"/>
-      </mapping>
-    </element-->
   </differential>
 </StructureDefinition>
