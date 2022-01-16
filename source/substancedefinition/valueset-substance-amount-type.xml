@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="substance-relationship-type"/>
+  <id value="substance-amount-type"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -10,11 +10,11 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <ul>
         <li>Include all codes defined in 
-          <a href="codesystem-substance-relationship-type.html">
-            <code>http://hl7.org/fhir/substance-relationship-type</code>
+          <a href="codesystem-substance-amount-type.html">
+            <code>http://hl7.org/fhir/substance-amount-type</code>
           </a>
         </li>
-      </ul>http://hl7.org/fhir/ValueSet/substance-relationship-type
+      </ul>http://hl7.org/fhir/ValueSet/substance-amount-type
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -26,14 +26,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/substance-relationship-type"/>
+  <url value="http://hl7.org/fhir/ValueSet/substance-amount-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1602"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1612s"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="SubstanceRelationshipType"/>
-  <title value="SubstanceRelationshipType"/>
+  <name value="SubstanceOpticalActivity"/>
+  <title value="SubstanceOpticalActivity"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -52,7 +52,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/substance-relationship-type"/>
+      <system value="http://hl7.org/fhir/substance-amount-type"/>
     </include>
   </compose>
 </ValueSet>
