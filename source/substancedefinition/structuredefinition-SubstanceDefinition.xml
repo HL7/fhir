@@ -441,7 +441,8 @@
     </element>
     <element id="SubstanceDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="580,900"/> <!-- was 442,852 --> 
+        <!--valueCode value="580,900"/--> <!-- was 442,852 --> 
+        <valueCode value="335,825"/>      
       </extension>
       <path value="SubstanceDefinition.property"/>
       <short value="General specifications for this substance"/>
@@ -730,7 +731,7 @@
     </element>
     <element id="SubstanceDefinition.structure.representation">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="710,630"/> <!-- was 691,580 -->
+        <valueCode value="730,630"/> <!-- was 691,580 -->
       </extension>
       <path value="SubstanceDefinition.structure.representation"/>
       <short value="A depiction of the structure or characterization of the substance"/>
@@ -758,11 +759,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubstanceWeightMethod"/>
+          <valueString value="SubstanceRepresentationType"/>
         </extension>
         <strength value="example"/>
-        <description value="The method by which the substance weight was measured."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/substance-weight-method"/>
+        <description value="A format of a substance representation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-representation-type"/>
       </binding>
       
       <mapping>
@@ -797,11 +798,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubstanceWeightMethod"/>
+          <valueString value="SubstanceRepresentationFormat"/>
         </extension>
         <strength value="example"/>
-        <description value="The method by which the substance weight was measured."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/substance-weight-method"/>
+        <description value="A format of a substance representation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-representation-format"/>
       </binding>
       
       <mapping>
@@ -827,7 +828,7 @@
     </element>
     <element id="SubstanceDefinition.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="315,900"/> <!-- was 221,880 -->
+        <valueCode value="295,920"/> <!-- was 221,880 -->
       </extension>
       <path value="SubstanceDefinition.code"/>
       <short value="Codes associated with the substance"/>
@@ -929,7 +930,7 @@
     </element>
     <element id="SubstanceDefinition.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="600,350"/> <!-- was 470,350 --> 
+        <valueCode value="580,350"/> <!-- was 470,350 --> 
       </extension>
       <path value="SubstanceDefinition.name"/>
       <short value="Names applicable to this substance"/>
@@ -972,11 +973,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubstanceWeightMethod"/>
+          <valueString value="SubstanceNameType"/>
         </extension>
         <strength value="example"/>
-        <description value="The method by which the substance weight was measured."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/substance-weight-method"/>
+        <description value="The type of a name given to a substance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-name-type"/>
       </binding>
       <mapping>
         <identity value="idmp"/>
@@ -1066,11 +1067,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubstanceWeightMethod"/>
+          <valueString value="SubstanceNameDomain"/>
         </extension>
         <strength value="example"/>
-        <description value="The method by which the substance weight was measured."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/substance-weight-method"/>
+        <description value="The use context of a substance name for example if there is a different name when used as a drug active ingredient as opposed to a food colour additive."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-name-domain"/>
       </binding>
       <mapping>
         <identity value="idmp"/>
@@ -1154,6 +1155,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceNameAuthority"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="An authority that officates substance names."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-name-authority"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Official_Name.Official_Name_Type"/>
@@ -1393,11 +1402,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubstanceWeightMethod"/>
+          <valueString value="SourceMaterialType"/>
         </extension>
         <strength value="example"/>
-        <description value="The method by which the substance weight was measured."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/substance-weight-method"/>
+        <description value="A classification that provides the origin of the substance raw material."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-source-material-type"/>
       </binding>
       <mapping>
         <identity value="idmp"/>
@@ -1416,7 +1425,7 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubstanceSourceMaterialGenus"/>
+          <valueString value="SourceMaterialGenus"/>
         </extension>
         <strength value="example"/>
         <description value="The genus of an organism, typically referring to the Latin epithet of the genus element of the plant/animal scientific name."/>
@@ -1439,7 +1448,7 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubstanceSourceMaterialSpecies"/>
+          <valueString value="SourceMaterialSpecies"/>
         </extension>
         <strength value="example"/>
         <description value="A species of origin a substance raw material."/>
@@ -1462,7 +1471,7 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubstanceSourceMaterialPart"/>
+          <valueString value="SourceMaterialPart"/>
         </extension>
         <strength value="example"/>
         <description value="An anatomical origin of the source material within an organism."/>
