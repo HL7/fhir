@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="ingredient-manufacturer-role"/>
+  <id value="substance-representation-format"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -14,14 +14,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ingredient-manufacturer-role"/>
+  <url value="http://hl7.org/fhir/substance-representation-format"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1558"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1621"/>
   </identifier>
   <version value="4.6.0"/>
-   <name value="IngredientManufacturerRole"/>
-  <title value="IngredientManufacturerRole"/>
+  <name value="SubstanceRepresentationFormat"/>
+  <title value="SubstanceRepresentationFormat"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -36,20 +36,36 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role"/>
+  <description value=""/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/ingredient-manufacturer-role"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/substance-representation-format"/>
   <content value="complete"/>
-   <concept>
-    <code value="allowed"/>
-    <display value="Manufacturer is specifically allowed for this ingredient"/>
+  <concept>
+    <code value="InChI"/>
+    <display value="InChI"/>
   </concept>
   <concept>
-    <code value="possible"/>
-    <display value="Manufacturer is known to make this ingredient in general"/>
-   </concept>
-   <concept>
-    <code value="actual"/>
-    <display value="Manufacturer actually makes this particular ingredient"/>
-   </concept>
+    <code value="SMILES"/>
+    <display value="SMILES"/>
+  </concept>
+  <concept>
+    <code value="MOLFILE"/>
+    <display value="MOLFILE"/>
+  </concept>
+  <concept>
+    <code value="CDX"/>
+    <display value="CDX"/>
+  </concept>
+  <concept>
+    <code value="SDF"/>
+    <display value="SDF"/>
+  </concept>
+  <concept>
+    <code value="PDB"/>
+    <display value="PDB"/>
+  </concept>
+  <concept>
+    <code value="mmCIF"/>
+    <display value="mmCIF"/>
+  </concept>
 </CodeSystem>
