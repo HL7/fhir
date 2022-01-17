@@ -14,7 +14,7 @@
             <code>http://hl7.org/fhir/ingredient-manufacturer-role</code>
           </a>
         </li>
-      </ul>
+      </ul> 
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">

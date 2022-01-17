@@ -32,8 +32,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.1594"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="AnimalTissueType"/>
-  <title value="AnimalTissueType"/>
+  <name value="IngredientRole"/>
+  <title value="IngredientRole"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -48,7 +48,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="A tissue type of an animal."/>
+  <description value="A classification of the ingredient identifying its purpose within the product."/>
   <immutable value="true"/>
   <compose>
     <include>
