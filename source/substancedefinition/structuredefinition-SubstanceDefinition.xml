@@ -442,7 +442,7 @@
     <element id="SubstanceDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <!--valueCode value="580,900"/--> <!-- was 442,852 --> 
-        <valueCode value="335,825"/>      
+        <valueCode value="350,825"/>      
       </extension>
       <path value="SubstanceDefinition.property"/>
       <short value="General specifications for this substance"/>
@@ -828,7 +828,7 @@
     </element>
     <element id="SubstanceDefinition.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="295,920"/> <!-- was 221,880 -->
+        <valueCode value="280,922"/> <!-- was 221,880 -->
       </extension>
       <path value="SubstanceDefinition.code"/>
       <short value="Codes associated with the substance"/>
@@ -930,7 +930,7 @@
     </element>
     <element id="SubstanceDefinition.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="580,350"/> <!-- was 470,350 --> 
+        <valueCode value="570,350"/> <!-- was 470,350 --> 
       </extension>
       <path value="SubstanceDefinition.name"/>
       <short value="Names applicable to this substance"/>

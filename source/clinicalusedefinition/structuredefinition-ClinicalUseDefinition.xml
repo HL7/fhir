@@ -138,6 +138,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ClinicalUseDefinitionCategory"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="A categorisation for a clinical use information item."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/clinical-use-definition-category"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -175,6 +183,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -290,6 +306,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TherapyRelationshipType"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Classification of relationship between a therapy and a contraindication or an indication."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/therapy-relationship-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Other Therapy Specifics.Therapy Relationship Type"/>
@@ -392,6 +416,14 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProductIntendedUse"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="The overall intended use of a product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/product-intended-use"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Therapeutic Indication.Intended Effect"/>
@@ -605,6 +637,14 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="UndesirableEffectSymptom"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A categorisation for an undesirable effect."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/undesirable-effect-classification"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Undesirable Effects.Undesirable Effect as &quot;Symptom / Condition / Effect&quot;"/>
@@ -620,6 +660,16 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="UndesirableEffectClassification"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A categorisation for an undesirable effect."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/undesirable-effect-classification"/>
+      </binding>
+      
       <mapping>
         <identity value="idmp"/>
         <map value="Undesirable Effects.Symptom / Condition / Effect Classification"/>
@@ -642,7 +692,7 @@
     </element>
     <element id="ClinicalUseDefinition.warning">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,470"/>
+        <valueCode value="420,500"/>
       </extension>
       <path value="ClinicalUseDefinition.warning"/>
       <short value="A critical piece of information about environmental, health or physical risks or hazards that serve as caution to the user. For example 'Do not operate heavy machinery', 'May cause drowsiness' or 'Get medical advice/attention if you feel unwell'"/>

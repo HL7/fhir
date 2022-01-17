@@ -135,6 +135,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RegulatedAuthorizationType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Overall type of this authorization."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/regulated-authorization-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -165,6 +173,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Jurisdiction codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Marketing Authorisation.Country"/>
@@ -180,6 +196,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Marketing Authorisation.Authorisation Status"/>
@@ -241,6 +265,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProductIntendedUse"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="The overall intended use of a product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/product-intended-use"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -256,6 +288,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RegulatedAuthorizationBasis"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A legal or regulatory framework against which an authorization is granted, or other reasons for it."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/regulated-authorization-basis"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Marketing Authorisation.Status Reasons.Legal Grounds"/>
@@ -387,6 +427,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RegulatedAuthorizationCaseType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type of a case involved in an application."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/regulated-authorization-case-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Marketing Authorisation Procedure.Procedure Type, Marketing Authorisation Application.Application Type"/>
@@ -402,6 +450,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>

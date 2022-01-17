@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="ingredient-function"/>
+  <id value="undesirable-effect-frequency"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -10,11 +10,11 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <ul>
         <li>Include all codes defined in 
-          <a href="codesystem-ingredient-function.html">
-            <code>http://hl7.org/fhir/ingredient-function</code>
+          <a href="codesystem-undesirable-effect-frequency.html">
+            <code>http://hl7.org/fhir/undesirable-effect-frequency</code>
           </a>
         </li>
-      </ul>
+      </ul>undesirable-effect-frequency
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -26,14 +26,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/ingredient-function"/>
+  <url value="http://hl7.org/fhir/ValueSet/undesirable-effect-frequency"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1596"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1652"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="IngredientFunction"/>
-  <title value="IngredientFunction"/>
+  <name value="UndesirablEffectFrequency"/>
+  <title value="UndesirablEffectFrequency"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -48,11 +48,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="A classification of the ingredient identifying its precise purpose(s) in the drug product (beyond e.g. active/inactive)."/>
+  <description value="A categorisation for a frequency of occurence of an undesirable effect."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/ingredient-function"/>
+      <system value="http://hl7.org/fhir/undesirable-effect-frequency"/>
     </include>
   </compose>
 </ValueSet>
