@@ -198,7 +198,7 @@
     </element>
     <element id="ClinicalUseDefinition.contraindication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,140"/>
+        <valueCode value="420,0"/> <!-- was 140 -->
       </extension>
       <path value="ClinicalUseDefinition.contraindication"/>
       <short value="Specifics for when this is a contraindication"/>
@@ -225,6 +225,14 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiseaseSymptomProcedure"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A symptom, disease or procedure."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/disease-symptom-procedure"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Contraindication.Contraindications as &quot;Disease / Symptom / Procedure&quot; and Contraindication.Contraindications Text"/>
@@ -241,6 +249,14 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiseaseStatus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The status of a disease or symptom."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/disease-status"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Contraindication.Disease Status"/>
@@ -257,6 +273,14 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiseaseSymptomProcedure"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A symptom, disease or procedure."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/disease-symptom-procedure"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Contraindication.Comorbidity"/>
@@ -334,6 +358,14 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Therapy"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A therapy."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/therapy"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Other Therapy Specifics.Medication"/>
@@ -341,7 +373,7 @@
     </element>
     <element id="ClinicalUseDefinition.indication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,0"/>
+        <valueCode value="420,140"/>
       </extension>
       <path value="ClinicalUseDefinition.indication"/>
       <short value="Specifics for when this is an indication"/>
@@ -368,6 +400,14 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiseaseSymptomProcedure"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A symptom, disease or procedure."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/disease-symptom-procedure"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Therapeutic Indication.Indication as &quot;Disease / Symptom / Procedure&quot;, and Therapeutic Indication.Indication Text"/>
@@ -384,6 +424,14 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiseaseStatus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The status of a disease or symptom."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/disease-status"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Therapeutic Indication.Disease Status"/>
@@ -400,6 +448,14 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiseaseSymptomProcedure"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A symptom, disease or procedure."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/disease-symptom-procedure"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Therapeutic Indication.Comorbidity"/>
@@ -475,7 +531,7 @@
     </element>
     <element id="ClinicalUseDefinition.interaction">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,253"/>
+        <valueCode value="420,323"/>
       </extension>
       <path value="ClinicalUseDefinition.interaction"/>
       <short value="Specifics for when this is an interaction"/>
@@ -493,7 +549,7 @@
     </element>
     <element id="ClinicalUseDefinition.interaction.interactant">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="720,266"/>
+        <valueCode value="820,266"/>
       </extension>
       <path value="ClinicalUseDefinition.interaction.interactant"/>
       <short value="The specific medication, food, substance or laboratory test that interacts"/>
@@ -526,6 +582,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Interactant"/>
+        </extension>
+        <strength value="example"/>
+        <description value="An interactant - a substance that may have an clinically significant effect on another."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/interactant"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Interactions.Interactant and Interactions.Interactions Text"/>
@@ -541,6 +605,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InteractionType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A categorisation for an interaction between two substances."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/interaction-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Interactions.Interactions Type"/>
@@ -557,6 +629,14 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InteractionEffect"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A interaction effect of clinical use of a medication or other substance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/interaction-effect"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Interactions.Interactions Effect"/>
@@ -572,6 +652,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="UndesirableEffectSymptom"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A categorisation for incidence of occurence of an interaction."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/interaction-incidence"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Interactions.Interactions Incidence"/>
@@ -587,6 +675,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InteractionManagement"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A type of management for an interaction of a medication or other substance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/interaction-management"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Interactions.Management Actions"/>
@@ -610,7 +706,7 @@
     </element>
     <element id="ClinicalUseDefinition.undesirableEffect">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,370"/>
+        <valueCode value="420,425"/> <!-- was 420,420 -->
       </extension>
       <path value="ClinicalUseDefinition.undesirableEffect"/>
       <short value="A possible negative outcome from the use of this treatment"/>
@@ -642,8 +738,8 @@
           <valueString value="UndesirableEffectSymptom"/>
         </extension>
         <strength value="example"/>
-        <description value="A categorisation for an undesirable effect."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/undesirable-effect-classification"/>
+        <description value="An undesirable effect of clinical use."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/undesirable-effect-symptom"/>
       </binding>
       <mapping>
         <identity value="idmp"/>
@@ -685,6 +781,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="UndesirablEffectFrequency"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A categorisation for a frequency of occurence of an undesirable effect."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/undesirable-effect-frequency"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Undesirable Effects.Frequency of Occurrence"/>
@@ -692,7 +796,7 @@
     </element>
     <element id="ClinicalUseDefinition.warning">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,500"/>
+        <valueCode value="420,555"/>
       </extension>
       <path value="ClinicalUseDefinition.warning"/>
       <short value="A critical piece of information about environmental, health or physical risks or hazards that serve as caution to the user. For example 'Do not operate heavy machinery', 'May cause drowsiness' or 'Get medical advice/attention if you feel unwell'"/>
