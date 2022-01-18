@@ -122,6 +122,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PackageType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A high level categorisation of a package."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/package-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -215,7 +223,7 @@
     </element>
     <element id="PackagedProductDefinition.legalStatusOfSupply">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="85,270"/> 
+        <valueCode value="0,250"/> 
       </extension>
       <path value="PackagedProductDefinition.legalStatusOfSupply"/>
       <short value="The legal status of supply of the packaged item as classified by the regulator"/>
@@ -240,7 +248,15 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <isSummary value="true"/>
+      <isSummary value="true"/>      
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="LegalStatusOfSupply"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The prescription supply types appropriate to a medicinal product"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/legal-status-of-supply"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Marketing Authorisation.Legal Status of Supply (for a package)"/>
@@ -256,6 +272,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Jurisdiction codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -287,6 +311,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PackageCharacteristic"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A characteristic of a package."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/package-characteristic"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -366,6 +398,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PackagingType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A high level categorisation of a package."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/packaging-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Package Item (Container).Package Item (Container) Type"/>
@@ -396,6 +436,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PackageMaterial"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A material used in the construction of packages and their components."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/package-material"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Package Item (Container).Material"/>
@@ -411,6 +459,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PackageMaterial"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A material used in the construction of packages and their components."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/package-material"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Package Item (Container).Alternate Material"/>
@@ -475,6 +531,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProductCharacteristic"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This value set includes all observable entity codes from SNOMED CT - provided as an exemplar value set."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/product-characteristic-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Physical Characteristics, all attributes"/>
