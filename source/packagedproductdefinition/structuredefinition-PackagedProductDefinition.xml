@@ -505,7 +505,7 @@
     </element>
     <element id="PackagedProductDefinition.package.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="250,250"/>
+        <valueCode value="300,250"/>
       </extension>
       <path value="PackagedProductDefinition.package.property"/>
       <short value="General characteristics of this item"/>
@@ -573,7 +573,7 @@
     </element>
     <element id="PackagedProductDefinition.package.containedItem">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="560,250"/>
+        <valueCode value="610,250"/>
       </extension>
       <path value="PackagedProductDefinition.package.containedItem"/>
       <short value="The item(s) within the packaging"/>
