@@ -2,24 +2,21 @@
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="derivation-reference"/>
-  <meta>
-    <lastUpdated value="2022-01-13T12:30:00.249+02:00"/>
-  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/derivation-reference"/>
-  <version value="0.1.0"/>
+  <version value="4.6.0"/>
   <name value="DerivationReference"/>
+  <title value="Derivation Reference"/>
   <status value="draft"/>
-  <date value="2022-01-14T11:49:32+02:00"/>
-  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
-  <contact>
-    <name value="Health Level Seven International (FHIR Infrastructure)"/>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/fiwg/"/>
-    </telecom>
-  </contact>
+  <date value="2020-01-18"/>
+  <publisher value="HL7"/>
   <description value="References a location within a set of source text from which the discrete information described by this Resource/Element was extracted."/>
-  <fhirVersion value="4.0.1"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -48,6 +45,7 @@
         <severity value="error"/>
         <human value="Cannot have length if offset is missing."/>
         <expression value="extension.where(url=&#39;length&#39;).exists() implies extension.where(url=&#39;offset&#39;).exists()"/>
+        <xpath value="todo-remove-this-line-when-build-process-allows-that"/>
         <source value="http://hl7.org/fhir/StructureDefinition/derivation-reference"/>
       </constraint>
     </element>
