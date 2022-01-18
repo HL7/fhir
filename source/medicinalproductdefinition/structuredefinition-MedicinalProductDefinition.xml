@@ -994,7 +994,7 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SNOMEDCTCharacteristicCodes"/>
+          <valueString value="ProductCharacteristic"/>
         </extension>
         <strength value="example"/>
         <description value="This value set includes all observable entity codes from SNOMED CT - provided as an exemplar value set."/>
