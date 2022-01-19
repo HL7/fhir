@@ -10,272 +10,406 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <h2>AdverseEventCategory</h2>
       
+      
       <div>
+        
         
         <p>Overall categorization of the event, e.g. product-related or situational.</p>
 
       
+      
       </div>
+      
       
       <p>This code system http://terminology.hl7.org/CodeSystem/adverse-event-category defines the following codes:</p>
       
+      
       <table class="codes">
+        
         
         <tr>
           
+          
           <td>
+            
             
             <b>Lvl</b>
           
+          
           </td>
+          
           
           <td style="white-space:nowrap">
             
+            
             <b>Code</b>
+          
           
           </td>
           
+          
           <td>
+            
             
             <b>Display</b>
           
+          
           </td>
+          
           
           <td>
             
+            
             <b>Definition</b>
+          
           
           </td>
         
+        
         </tr>
+        
         
         <tr>
           
+          
           <td>1</td>
+          
           
           <td style="white-space:nowrap">product-problem
             
+            
             <a name="adverse-event-category-product-problem"> </a>
           
+          
           </td>
+          
           
           <td>Product Problem</td>
           
+          
           <td>The adverse event pertains to a product problem.</td>
+        
         
         </tr>
         
+        
         <tr>
           
+          
           <td>1</td>
+          
           
           <td style="white-space:nowrap">product-quality
             
+            
             <a name="adverse-event-category-product-quality"> </a>
           
+          
           </td>
+          
           
           <td>Product Quality</td>
           
+          
           <td>The adverse event pertains to product quality.</td>
+        
         
         </tr>
         
+        
         <tr>
           
+          
           <td>1</td>
+          
           
           <td style="white-space:nowrap">product-use-error
             
+            
             <a name="adverse-event-category-product-use-error"> </a>
           
+          
           </td>
+          
           
           <td>Product Use Error</td>
           
+          
           <td>The adverse event pertains to a product use error.</td>
+        
         
         </tr>
         
+        
         <tr>
           
+          
           <td>2</td>
+          
           
           <td style="white-space:nowrap">  wrong-dose
             
+            
             <a name="adverse-event-category-wrong-dose"> </a>
           
+          
           </td>
+          
           
           <td>Wrong Dose</td>
           
+          
           <td>The adverse event pertains to a wrong dose.</td>
+        
         
         </tr>
         
+        
         <tr>
           
+          
           <td>2</td>
+          
           
           <td style="white-space:nowrap">  incorrect-prescribing-information
             
+            
             <a name="adverse-event-category-incorrect-prescribing-information"> </a>
           
+          
           </td>
+          
           
           <td>Incorrect Prescribing Information</td>
           
+          
           <td>The adverse event pertains to incorrect perscribing information.</td>
+        
         
         </tr>
         
+        
         <tr>
           
+          
           <td>2</td>
+          
           
           <td style="white-space:nowrap">  wrong-technique
             
+            
             <a name="adverse-event-category-wrong-technique"> </a>
           
+          
           </td>
+          
           
           <td>Wrong Technique</td>
           
+          
           <td>The adverse event pertains to a wrong technique.</td>
+        
         
         </tr>
         
+        
         <tr>
           
+          
           <td>2</td>
+          
           
           <td style="white-space:nowrap">  wrong-route-of-administration
             
+            
             <a name="adverse-event-category-wrong-route-of-administration"> </a>
           
+          
           </td>
+          
           
           <td>Wrong Route of Administration</td>
           
+          
           <td>The adverse event pertains to a wrong route of administration.</td>
+        
         
         </tr>
         
+        
         <tr>
           
+          
           <td>2</td>
+          
           
           <td style="white-space:nowrap">  wrong-rate
             
+            
             <a name="adverse-event-category-wrong-rate"> </a>
           
+          
           </td>
+          
           
           <td>Wrong Rate</td>
           
+          
           <td>The adverse event pertains to a wrong rate.</td>
+        
         
         </tr>
         
+        
         <tr>
           
+          
           <td>2</td>
+          
           
           <td style="white-space:nowrap">  wrong-duration
             
+            
             <a name="adverse-event-category-wrong-duration"> </a>
           
+          
           </td>
+          
           
           <td>Wrong Duration</td>
           
+          
           <td>The adverse event pertains to a wrong duration.</td>
+        
         
         </tr>
         
+        
         <tr>
           
+          
           <td>2</td>
+          
           
           <td style="white-space:nowrap">  wrong-time
             
+            
             <a name="adverse-event-category-wrong-time"> </a>
           
+          
           </td>
+          
           
           <td>Wrong Time</td>
           
+          
           <td>The adverse event pertains to a wrong time.</td>
+        
         
         </tr>
         
+        
         <tr>
+          
           
           <td>2</td>
           
+          
           <td style="white-space:nowrap">  expired-drug
+            
             
             <a name="adverse-event-category-expired-drug"> </a>
           
+          
           </td>
+          
           
           <td>Expired Drug</td>
           
+          
           <td>The adverse event pertains to an expired drug.</td>
+        
         
         </tr>
         
+        
         <tr>
           
+          
           <td>1</td>
+          
           
           <td style="white-space:nowrap">medical-device-use-error
             
+            
             <a name="adverse-event-category-medical-device-use-error"> </a>
           
+          
           </td>
+          
           
           <td>Medical Device Use Error</td>
           
+          
           <td>The adverse event pertains to a medical device use error.</td>
+        
         
         </tr>
         
+        
         <tr>
           
+          
           <td>1</td>
+          
           
           <td style="white-space:nowrap">problem-different-manufacturer
             
+            
             <a name="adverse-event-category-problem-different-manufacturer"> </a>
           
+          
           </td>
+          
           
           <td>Problem with Different Manufacturer of Same Medicine</td>
           
+          
           <td>The adverse event pertains to a problem with a different manufacturer of the same medication.</td>
         
+        
         </tr>
+        
         
         <tr>
           
+          
           <td>1</td>
+          
           
           <td style="white-space:nowrap">unsafe-physical-environment
             
+            
             <a name="adverse-event-category-unsafe-physical-environment"> </a>
+          
           
           </td>
           
+          
           <td>Unsafe Physical Environment</td>
+          
           
           <td>The adverse event pertains to an unsafe physical environment.</td>
         
+        
         </tr>
       
+      
       </table>
+    
     
     </div>
   </text>
@@ -293,7 +427,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1251"/>
   </identifier>
-  <version value="4.1.0"/>
+  <version value="4.3.0-CIBUILD"/>
   <name value="AdverseEventCategory"/>
   <title value="AdverseEventCategory"/>
   <status value="draft"/>
@@ -313,6 +447,7 @@
   <description value="Overall categorization of the event, e.g. product-related or situational."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-category"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="product-problem"/>

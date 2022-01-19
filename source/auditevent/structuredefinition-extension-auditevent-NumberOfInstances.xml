@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/auditevent-NumberOfInstances"/>
-  <version value="4.1.0"/>
+  <version value="4.3.0-CIBUILD"/>
   <name value="NumberOfInstances"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="The Number of SOP Instances referred to by this entity."/>
-  <fhirVersion value="4.1.0"/>
+  <fhirVersion value="4.3.0-CIBUILD"/>
   <mapping>
     <identity value="dicom"/>
     <uri value="http://nema.org/dicom"/>

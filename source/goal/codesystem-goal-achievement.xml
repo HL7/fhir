@@ -13,13 +13,14 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1375"/>
   </identifier>
-  <version value="4.1.0"/>
+  <version value="4.3.0-CIBUILD"/>
   <name value="GoalAchievementStatus"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="Describes the progression, or lack thereof, towards the goal against the target."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/goal-achievement"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="in-progress"/>

@@ -3,252 +3,297 @@
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "0409-6531-02",
   "display" : "Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "10 VIAL in 1 TRAY (0409-6531-02)  > 1 INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION in 1 VIAL",
+  "display" : "Vancomycin Hydrochloride, 10 VIAL in 1 TRAY (0409-6531-02)  > 1 INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION in 1 VIAL (0409-6531-12)  (package)",
+  "code" : "0409-6531-02",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0409-6531-02 - should be one of [\"10 VIAL in 1 TRAY (0409-6531-02)  > 1 INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION in 1 VIAL\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0409-6531-02 - should be one of ['Vancomycin Hydrochloride, 10 VIAL in 1 TRAY (0409-6531-02)  > 1 INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION in 1 VIAL (0409-6531-12)  (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "0206-8862-02",
   "display" : "Zosyn (piperacillin/tazobactam) 4.5gm injection"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "12 BAG in 1 BOX (0206-8862-02)  > 100 mL in 1 BAG (0206-8862-01)",
+  "display" : "Zosyn in Galaxy Containers, 12 BAG in 1 BOX (0206-8862-02)  > 100 mL in 1 BAG (0206-8862-01)  (package)",
+  "code" : "0206-8862-02",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Zosyn (piperacillin/tazobactam) 4.5gm injection\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0206-8862-02 - should be one of [\"12 BAG in 1 BOX (0206-8862-02)  > 100 mL in 1 BAG (0206-8862-01)\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Zosyn (piperacillin/tazobactam) 4.5gm injection\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0206-8862-02 - should be one of ['Zosyn in Galaxy Containers, 12 BAG in 1 BOX (0206-8862-02)  > 100 mL in 1 BAG (0206-8862-01)  (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "76388-713-25",
   "display" : "Myleran 2mg tablet, film coated"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "25 TABLET, FILM COATED in 1 BOTTLE (76388-713-25)",
+  "display" : "MYLERAN, 25 TABLET, FILM COATED in 1 BOTTLE (76388-713-25)  (package)",
+  "code" : "76388-713-25",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Myleran 2mg tablet, film coated\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}76388-713-25 - should be one of [\"25 TABLET, FILM COATED in 1 BOTTLE (76388-713-25)\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Myleran 2mg tablet, film coated\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}76388-713-25 - should be one of ['MYLERAN, 25 TABLET, FILM COATED in 1 BOTTLE (76388-713-25)  (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "24208-813-10",
   "display" : "Timoptic 5mg/ml solution"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "1 BOTTLE, DISPENSING in 1 CARTON (24208-813-10)  > 10 mL in 1 BOTTLE, DISPENSING",
+  "display" : "Timoptic, 1 BOTTLE, DISPENSING in 1 CARTON (24208-813-10)  > 10 mL in 1 BOTTLE, DISPENSING (package)",
+  "code" : "24208-813-10",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Timoptic 5mg/ml solution\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}24208-813-10 - should be one of [\"1 BOTTLE, DISPENSING in 1 CARTON (24208-813-10)  > 10 mL in 1 BOTTLE, DISPENSING\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Timoptic 5mg/ml solution\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}24208-813-10 - should be one of ['Timoptic, 1 BOTTLE, DISPENSING in 1 CARTON (24208-813-10)  > 10 mL in 1 BOTTLE, DISPENSING (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "51144-050-01",
   "display" : "Adcetris"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "1 VIAL, SINGLE-DOSE in 1 BOX (51144-050-01)  > 10.5 mL in 1 VIAL, SINGLE-DOSE",
+  "display" : "ADCETRIS, 1 VIAL, SINGLE-DOSE in 1 BOX (51144-050-01)  > 10.5 mL in 1 VIAL, SINGLE-DOSE (package)",
+  "code" : "51144-050-01",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Adcetris\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}51144-050-01 - should be one of [\"1 VIAL, SINGLE-DOSE in 1 BOX (51144-050-01)  > 10.5 mL in 1 VIAL, SINGLE-DOSE\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Adcetris\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}51144-050-01 - should be one of ['ADCETRIS, 1 VIAL, SINGLE-DOSE in 1 BOX (51144-050-01)  > 10.5 mL in 1 VIAL, SINGLE-DOSE (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "0169-7501-11",
   "display" : "Novolog 100u/ml"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "1 VIAL, GLASS in 1 CARTON (0169-7501-11)  > 10 mL in 1 VIAL, GLASS",
+  "display" : "NOVOLOG, 1 VIAL, GLASS in 1 CARTON (0169-7501-11)  > 10 mL in 1 VIAL, GLASS (package)",
+  "code" : "0169-7501-11",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Novolog 100u/ml\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0169-7501-11 - should be one of [\"1 VIAL, GLASS in 1 CARTON (0169-7501-11)  > 10 mL in 1 VIAL, GLASS\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Novolog 100u/ml\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0169-7501-11 - should be one of ['NOVOLOG, 1 VIAL, GLASS in 1 CARTON (0169-7501-11)  > 10 mL in 1 VIAL, GLASS (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "63481-623-70",
   "display" : "Percocet tablet"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "100 TABLET in 1 BOTTLE (63481-623-70)",
+  "display" : "PERCOCET, 100 TABLET in 1 BOTTLE (63481-623-70)  (package)",
+  "code" : "63481-623-70",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Percocet tablet\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}63481-623-70 - should be one of [\"100 TABLET in 1 BOTTLE (63481-623-70)\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Percocet tablet\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}63481-623-70 - should be one of ['PERCOCET, 100 TABLET in 1 BOTTLE (63481-623-70)  (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "50580-608-02",
   "display" : "Tylenol PM"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "1 BOTTLE in 1 CARTON (50580-608-02)  > 100 TABLET, FILM COATED in 1 BOTTLE",
+  "display" : "Tylenol PM Extra Strength, 1 BOTTLE in 1 CARTON (50580-608-02)  > 100 TABLET, FILM COATED in 1 BOTTLE (package)",
+  "code" : "50580-608-02",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Tylenol PM\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}50580-608-02 - should be one of [\"1 BOTTLE in 1 CARTON (50580-608-02)  > 100 TABLET, FILM COATED in 1 BOTTLE\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Tylenol PM\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}50580-608-02 - should be one of ['Tylenol PM Extra Strength, 1 BOTTLE in 1 CARTON (50580-608-02)  > 100 TABLET, FILM COATED in 1 BOTTLE (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "0338-1134-03",
   "display" : "Clinimix 4.25/10 sulfite-free (4.25% Amino Acid in 10% Dextrose) Injection, 1000ml"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "1000 mL in 1 BAG (0338-1134-03)",
+  "display" : "CLINIMIX, 1000 mL in 1 BAG (0338-1134-03)  (package)",
+  "code" : "0338-1134-03",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Clinimix 4.25/10 sulfite-free (4.25% Amino Acid in 10% Dextrose) Injection, 1000ml\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0338-1134-03 - should be one of [\"1000 mL in 1 BAG (0338-1134-03)\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Clinimix 4.25/10 sulfite-free (4.25% Amino Acid in 10% Dextrose) Injection, 1000ml\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0338-1134-03 - should be one of ['CLINIMIX, 1000 mL in 1 BAG (0338-1134-03)  (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "0409-5779-01",
   "display" : "TPN Electrolytes SODIUM CHLORIDE, CALCIUM CHLORIDE, POTASSIUM CHLORIDE, MAGNESIUM CHLORIDE, and SODIUM ACETATE ANHYDROUS | INJECTION, SOLUTION, CONCENTRATE | 321 mg/20mL, 331 mg/20mL, 1491 mg/20mL, 508 mg/20mL, 2420 mg/20mL"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "25 VIAL, SINGLE-DOSE in 1 CARTON (0409-5779-01)  > 20 mL in 1 VIAL, SINGLE-DOSE (0409-5779-11)",
+  "display" : "TPN Electrolytes, 25 VIAL, SINGLE-DOSE in 1 CARTON (0409-5779-01)  > 20 mL in 1 VIAL, SINGLE-DOSE (0409-5779-11)  (package)",
+  "code" : "0409-5779-01",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"TPN Electrolytes SODIUM CHLORIDE, CALCIUM CHLORIDE, POTASSIUM CHLORIDE, MAGNESIUM CHLORIDE, and SODIUM ACETATE ANHYDROUS | INJECTION, SOLUTION, CONCENTRATE | 321 mg/20mL, 331 mg/20mL, 1491 mg/20mL, 508 mg/20mL, 2420 mg/20mL\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0409-5779-01 - should be one of [\"25 VIAL, SINGLE-DOSE in 1 CARTON (0409-5779-01)  > 20 mL in 1 VIAL, SINGLE-DOSE (0409-5779-11)\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"TPN Electrolytes SODIUM CHLORIDE, CALCIUM CHLORIDE, POTASSIUM CHLORIDE, MAGNESIUM CHLORIDE, and SODIUM ACETATE ANHYDROUS | INJECTION, SOLUTION, CONCENTRATE | 321 mg/20mL, 331 mg/20mL, 1491 mg/20mL, 508 mg/20mL, 2420 mg/20mL\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0409-5779-01 - should be one of ['TPN Electrolytes, 25 VIAL, SINGLE-DOSE in 1 CARTON (0409-5779-01)  > 20 mL in 1 VIAL, SINGLE-DOSE (0409-5779-11)  (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "0338-0519-02",
   "display" : "Intralipid 20% IV Fat Emulsion"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "250 mL in 1 BAG (0338-0519-02)",
+  "display" : "Intralipid, 250 mL in 1 BAG (0338-0519-02)  (package)",
+  "code" : "0338-0519-02",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Intralipid 20% IV Fat Emulsion\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0338-0519-02 - should be one of [\"250 mL in 1 BAG (0338-0519-02)\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Intralipid 20% IV Fat Emulsion\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0338-0519-02 - should be one of ['Intralipid, 250 mL in 1 BAG (0338-0519-02)  (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "0713-0118",
   "display" : "Acetaminophen 120mg Suppository"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "ACEPHEN",
+  "display" : "ACEPHEN  (product)",
+  "code" : "0713-0118",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Acetaminophen 120mg Suppository\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0713-0118 - should be one of [ACEPHEN] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Acetaminophen 120mg Suppository\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0713-0118 - should be one of ['ACEPHEN  (product)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "51144-050-01",
   "display" : "Adcetris (Brentuximab Vedotin 50mg/10.5ml)"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "1 VIAL, SINGLE-DOSE in 1 BOX (51144-050-01)  > 10.5 mL in 1 VIAL, SINGLE-DOSE",
+  "display" : "ADCETRIS, 1 VIAL, SINGLE-DOSE in 1 BOX (51144-050-01)  > 10.5 mL in 1 VIAL, SINGLE-DOSE (package)",
+  "code" : "51144-050-01",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Adcetris (Brentuximab Vedotin 50mg/10.5ml)\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}51144-050-01 - should be one of [\"1 VIAL, SINGLE-DOSE in 1 BOX (51144-050-01)  > 10.5 mL in 1 VIAL, SINGLE-DOSE\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Adcetris (Brentuximab Vedotin 50mg/10.5ml)\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}51144-050-01 - should be one of ['ADCETRIS, 1 VIAL, SINGLE-DOSE in 1 BOX (51144-050-01)  > 10.5 mL in 1 VIAL, SINGLE-DOSE (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "0378-1800-10",
   "display" : "Levothyroxine Sodium Tablets, USP (75mcg)"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "1000 TABLET in 1 BOTTLE, PLASTIC (0378-1800-10)",
+  "display" : "Levothyroxine Sodium, 1000 TABLET in 1 BOTTLE, PLASTIC (0378-1800-10)  (package)",
+  "code" : "0378-1800-10",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Levothyroxine Sodium Tablets, USP (75mcg)\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0378-1800-10 - should be one of [\"1000 TABLET in 1 BOTTLE, PLASTIC (0378-1800-10)\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Levothyroxine Sodium Tablets, USP (75mcg)\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0378-1800-10 - should be one of ['Levothyroxine Sodium, 1000 TABLET in 1 BOTTLE, PLASTIC (0378-1800-10)  (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "33261-141-20",
   "display" : "Azithromycin 250mg tablet, film coated (Aidarex Pharmaceuticals LLC)"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "20 TABLET in 1 BOTTLE, PLASTIC (33261-141-20)",
+  "display" : "PROCHLORPERAZINE MALEATE, 20 TABLET in 1 BOTTLE, PLASTIC (33261-141-20)  (package)",
+  "code" : "33261-141-20",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Azithromycin 250mg tablet, film coated (Aidarex Pharmaceuticals LLC)\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}33261-141-20 - should be one of [\"20 TABLET in 1 BOTTLE, PLASTIC (33261-141-20)\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Azithromycin 250mg tablet, film coated (Aidarex Pharmaceuticals LLC)\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}33261-141-20 - should be one of ['PROCHLORPERAZINE MALEATE, 20 TABLET in 1 BOTTLE, PLASTIC (33261-141-20)  (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "0074-3043-13",
   "display" : "Vicodin 5mg Hydrocodone, 500mg Acetaminophen tablet "
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "100 TABLET in 1 BOTTLE (0074-3043-13)",
+  "display" : "Vicodin ES, 100 TABLET in 1 BOTTLE (0074-3043-13)  (package)",
+  "code" : "0074-3043-13",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Vicodin 5mg Hydrocodone, 500mg Acetaminophen tablet\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0074-3043-13 - should be one of [\"100 TABLET in 1 BOTTLE (0074-3043-13)\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Vicodin 5mg Hydrocodone, 500mg Acetaminophen tablet\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0074-3043-13 - should be one of ['Vicodin ES, 100 TABLET in 1 BOTTLE (0074-3043-13)  (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "0071-2214-20",
   "display" : "Dilantin 125mg/5ml Oral Suspension"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "237 mL in 1 BOTTLE (0071-2214-20)",
+  "display" : "Dilantin-125, 237 mL in 1 BOTTLE, GLASS (0071-2214-20)  (package)",
+  "code" : "0071-2214-20",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Dilantin 125mg/5ml Oral Suspension\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0071-2214-20 - should be one of [\"237 mL in 1 BOTTLE (0071-2214-20)\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Dilantin 125mg/5ml Oral Suspension\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0071-2214-20 - should be one of ['Dilantin-125, 237 mL in 1 BOTTLE, GLASS (0071-2214-20)  (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "0406-9025-76",
   "display" : "fentanyl 25mcg/hour Patch, Extended Release (Apotex)"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "5 POUCH in 1 CARTON (0406-9025-76)  > 1 PATCH in 1 POUCH > 72 h in 1 PATCH",
+  "display" : "FENTANYL TRANSDERMAL, 5 POUCH in 1 CARTON (0406-9025-76)  > 1 PATCH in 1 POUCH > 72 h in 1 PATCH (package)",
+  "code" : "0406-9025-76",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"fentanyl 25mcg/hour Patch, Extended Release (Apotex)\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0406-9025-76 - should be one of [\"5 POUCH in 1 CARTON (0406-9025-76)  > 1 PATCH in 1 POUCH > 72 h in 1 PATCH\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"fentanyl 25mcg/hour Patch, Extended Release (Apotex)\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0406-9025-76 - should be one of ['FENTANYL TRANSDERMAL, 5 POUCH in 1 CARTON (0406-9025-76)  > 1 PATCH in 1 POUCH > 72 h in 1 PATCH (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "0056-0172-70",
   "display" : "Coumadin 5mg tablet"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "1 BOTTLE in 1 CARTON (0056-0172-70)  > 100 TABLET in 1 BOTTLE",
+  "display" : "COUMADIN, 1 BOTTLE in 1 CARTON (0056-0172-70)  > 100 TABLET in 1 BOTTLE (package)",
+  "code" : "0056-0172-70",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Coumadin 5mg tablet\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0056-0172-70 - should be one of [\"1 BOTTLE in 1 CARTON (0056-0172-70)  > 100 TABLET in 1 BOTTLE\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Coumadin 5mg tablet\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0056-0172-70 - should be one of ['COUMADIN, 1 BOTTLE in 1 CARTON (0056-0172-70)  > 100 TABLET in 1 BOTTLE (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "0056-0170-70",
   "display" : "Coumadin 2mg tablet"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "1 BOTTLE in 1 CARTON (0056-0170-70)  > 100 TABLET in 1 BOTTLE",
+  "display" : "COUMADIN, 1 BOTTLE in 1 CARTON (0056-0170-70)  > 100 TABLET in 1 BOTTLE (package)",
+  "code" : "0056-0170-70",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Coumadin 2mg tablet\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0056-0170-70 - should be one of [\"1 BOTTLE in 1 CARTON (0056-0170-70)  > 100 TABLET in 1 BOTTLE\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Coumadin 2mg tablet\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0056-0170-70 - should be one of ['COUMADIN, 1 BOTTLE in 1 CARTON (0056-0170-70)  > 100 TABLET in 1 BOTTLE (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "0264751010",
   "display" : "Dextrose 5% injection USP"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "",
+  "code" : "0264751010",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Dextrose 5% injection USP\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0264751010 - should be one of [\"\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Dextrose 5% injection USP\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0264751010 - should be one of [''] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "0067-2091-03",
   "display" : "Vagistat-3"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "1 KIT in 1 CARTON (0067-2091-03)  *  3 SUPPOSITORY in 1 BLISTER PACK *  1 TUBE in 1 CARTON > 9 g in 1 TUBE",
+  "display" : "Vagistat-3, 1 KIT in 1 CARTON (0067-2091-03)  *  3 SUPPOSITORY in 1 BLISTER PACK *  1 TUBE in 1 CARTON > 9 g in 1 TUBE (package)",
+  "code" : "0067-2091-03",
+  "system" : "http://hl7.org/fhir/sid/ndc",
   "severity" : "warning",
-  "error" : "The display \"Vagistat-3\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0067-2091-03 - should be one of [\"1 KIT in 1 CARTON (0067-2091-03)  *  3 SUPPOSITORY in 1 BLISTER PACK *  1 TUBE in 1 CARTON > 9 g in 1 TUBE\"] (from http://tx.fhir.org/r4)"
+  "error" : "The display \"Vagistat-3\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}0067-2091-03 - should be one of ['Vagistat-3, 1 KIT in 1 CARTON (0067-2091-03)  *  3 SUPPOSITORY in 1 BLISTER PACK *  1 TUBE in 1 CARTON > 9 g in 1 TUBE (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/ndc",
   "code" : "50580-506-02",
   "display" : "Tylenol PM"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "The code \"50580-506-02\" is not valid in the system http://hl7.org/fhir/sid/ndc; The code provided (http://hl7.org/fhir/sid/ndc#50580-506-02) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
+  "display" : "Tylenol PM Extra Strength, 2 TABLET, FILM COATED in 1 POUCH (50580-506-02)  (package)",
+  "code" : "50580-506-02",
+  "system" : "http://hl7.org/fhir/sid/ndc",
+  "severity" : "warning",
+  "error" : "The display \"Tylenol PM\" is not a valid display for the code {http://hl7.org/fhir/sid/ndc}50580-506-02 - should be one of ['Tylenol PM Extra Strength, 2 TABLET, FILM COATED in 1 POUCH (50580-506-02)  (package)'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------

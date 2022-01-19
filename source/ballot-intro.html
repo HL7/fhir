@@ -70,7 +70,7 @@ This ballot will be the first HL7 ballot to trial HL7's new <a href="https://con
 Because this is a limited-scope ballot, votes can only be submitted on those resources and pages that fall within the scope of the ballot.  Specifically:
 </p>
 <ul>
-  <li><b>Resources:</b> AdministrableProductDefinition, Citation, ClinicalUseIssue, Evidence, EvidenceReport, EvidenceVariable, Ingredient, ManufacturedItemDefinition, MedicinalProductDefinition, PackagedProductDefinition, RegulatedAuthorization, Substance, SubstanceDefinition</li>
+  <li><b>Resources:</b> AdministrableProductDefinition, Citation, ClinicalUseDefinition, Evidence, EvidenceReport, EvidenceVariable, Ingredient, ManufacturedItemDefinition, MedicinalProductDefinition, PackagedProductDefinition, RegulatedAuthorization, Substance, SubstanceDefinition</li>
   <li><b>Pages:</b> (NA), (many), Ballot Intro, Clinical Reasoning Module, Datatypes, Downloads, Home (index), Medication Definition Module, Table of Contents (toc)</li>
 </ul>
 <p>
@@ -98,7 +98,6 @@ The resources in this space were extremely draft when R4 was first published.  T
   <li>Significantly revamped the design of the <a href="evidence.html">Evidence</a> and <a href="evidencevariable.html">EvidenceVariable</a> resources</li>
   <li>Added the <a href="citation.html">Citation</a> and <a href="evidencereport.html">EvidenceReport</a> resources</li>
   <li>Removed the EffectEvidenceSynthesis and RiskEvidenceSynthesis resources</li>
-  <li>Added the <a href="ordereddistribution.html">OrderedDistribution</a> and <a href="statistic.html">Statistic</a> 'special' data types </li>
 </ul>
 
 <a name="meddef"></a>
@@ -111,7 +110,7 @@ These resources have been significantly refactored based on feedback from the U.
     <ul>
       <li>MedicinalProduct -> <a href="medicinalproductdefinition.html">MedicinalProductDefinition</a></li>
       <li>MedicinalProductAuthorization -> <a href="regulatedauthorization.html">RegulatedAuthorization</a></li>
-      <li>MedicinalProductContraindication, MedicinalProductIndication, MedicinalProductInteraction, MedicinalProductUndesireableEffect -> <a href="clinicaluseissue.html">ClinicalUseIssue</a></li>
+      <li>MedicinalProductContraindication, MedicinalProductIndication, MedicinalProductInteraction, MedicinalProductUndesireableEffect -> ClinicalUseDefinition</li>
       <li>MedicinalProductIngredient -> <a href="ingredient.html">Ingredient</a></li>
       <li>MedicinalProductManufactured -> <a href="manufactureditemdefinition.html">ManufacturedItemDefinition</a></li>
       <li>MedicinalProductPackaged -> <a href="packagedproductdefinition.html">PackagedProductDefinition</a></li>

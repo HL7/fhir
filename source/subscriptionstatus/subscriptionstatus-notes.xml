@@ -1,0 +1,182 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+  <a name="timing-currency"/>
+  <h2>Timing and Currency</h2>
+  <p>
+    This resource is used to communicate information about a <a href="subscription.html">Subscription</a> and the events represented by a notification bundle. The process of sending a notification (e.g., a notification this status is included with) can change the status of that subscription. Servers SHALL populate elements with the most recent information at the time of generation (e.g., when a notification is created) and receivers SHOULD be aware that this information may not be current at the time a notification is processed (e.g., a subscription was <code>active</code> but has subsequently moved to an <code>error</code> state).
+  </p>
+
+  <a name="content-phi"/>
+  <h2>Content and PHI</h2>
+  <p>
+    Subscription notifications MAY contain PHI. Applications are responsible for following <a href="security.html">FHIR security guidance</a> and compliance with relevant security requirements (e.g., corporate policy, government regulation, etc.). Hinting for the allowed amount of PHI is available in the relevant <code>Subscription</code> resource, via the channel and payload information.
+  </p>
+  <p>
+    Since Subscription Topic definitions contain human-readable descriptions and definitions, the purpose of a topic may be understood by viewing the resource.  Given that canonical links to topics are intended to be resolvable and/or searchable (e.g., indexed in a registry), it is assumed that anyone with a link to a topic also knows what that topic is about. Thus, topics MAY be considered PHI and SHOULD be reviewed before inclusion in a notification.
+  </p>
+  <p>
+    Hinting about when a canonical topic URL may be included with a notification can be derived from a subscription's payload level.  E.g.:
+  </p>
+  <ul>
+    <li><code>empty</code>: SHOULD NOT be present</li>
+    <li><code>id-only</code>: MAY be present</li>
+    <li><code>full-resource</code>: SHOULD be present</li>
+  </ul>
+
+	<a name="notification-types"/>
+	<h2>Notification Types</h2>
+	<p>
+		This specification describes five distinct outbound notification types: <em>Event</em>, <em>Handshake</em>, <em>Heartbeat</em>, <em>Query Status</em>, and <em>Query Event</em>. For each, the notification body is a <a href="bundle.html">subscription-notification Bundle</a> with a <a href="subscriptionstatus.html">SubscriptionStatus</a> resource used to convey Subscription and notification details.
+	</p>
+
+		<a name="event-notification"/>
+		<h3>Event Notification</h3>
+    <p>The primary notification bundle type is a notification about an event.</p>
+
+    <table class="grid">
+      <tr><th>Element</th><th>Optionality</th><th>Notes</th></tr>
+      <tr><td>SubscriptionStatus.status</td><td>Recommended</td><td>Current status of the relevant subscription (e.g., <code>active</code>).</td></tr>
+      <tr><td>SubscriptionStatus.type</td><td>Required</td><td>SHALL be <code>event-notification</code></td></tr>
+      <tr><td>SubscriptionStatus.eventsSinceSubscriptionStart</td><td>Recommended</td><td>Servers SHOULD include this value when sending event notifications in order to allow clients to detect missing events.<br/>This value is inclusive of this notification (e.g., the first event notification sent would include one (1) in this element).</td></tr>
+      <tr><td>SubscriptionStatus.eventsInNotification</td><td>Recommended</td><td>Servers SHOULD include this value when sending event notifications to ease client processing.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent</td><td>Special</td><td>In general, filling out the <code>eventNumber</code> and <code>timestamp</code> is recommended. Links contained in the <code>focus</code> and <code>additionalContext</code> elements contain resource IDs and should mirror the payload level used in the subscription:<ul><li><code>empty</code>: SHOULD NOT be present</li><li><code>id-only</code>: SHOULD be present</li><li><code>full-resource</code>: SHOULD be present</li></ul></td></tr>
+      <tr><td>SubscriptionStatus.topic</td><td>Optional</td><td>See <a href="#content-phi">Content and PHI</a>.</td></tr>
+    </table>
+
+    <ul>
+			<li>
+				<a href="notification-id-only.html">Example event notification</a>
+			</li>
+		</ul>
+
+    <a name="handshake-notification"/>
+		<h3>Handshake Notification</h3>
+		<p>
+			When a connection to an Endpoint is established or re-established, a server MAY send a Handshake notification to the endpoint.
+		</p>
+		<p>
+			The client expectations upon receipt of a Handshake notification differ for each channel type (e.g., for the <code>rest-hook</code> channel type, a client endpoint responds to event notifications with standard HTTP response codes).
+		</p>
+    <table class="grid">
+      <tr><th>Element</th><th>Optionality</th><th>Notes</th></tr>
+      <tr><td>SubscriptionStatus.status</td><td>Recommended</td><td>Current status of the relevant subscription (e.g., <code>active</code>).</td></tr>
+      <tr><td>SubscriptionStatus.type</td><td>Required</td><td>SHALL be <code>handshake</code></td></tr>
+      <tr><td>SubscriptionStatus.eventsSinceSubscriptionStart</td><td>Optional</td><td>For a new Subscription, if this value is present it SHALL be zero (0).<br/>A sender MAY send a handshake with a non-zero number of events, for example as process for re-establishing communication after an error state.<br/>Note: this value SHALL NOT be incremented by sending a <code>handshake</code> notification.</td></tr>
+      <tr><td>SubscriptionStatus.eventsInNotification</td><td>Optional</td><td>If present, this value SHALL be zero (0).</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent</td><td>Prohibited</td><td>A <code>handshake</code> notification SHALL NOT contain any event information.</td></tr>
+      <tr><td>SubscriptionStatus.topic</td><td>Optional</td><td>See <a href="#content-phi">Content and PHI</a>.</td></tr>
+    </table>
+		<ul>
+			<li>
+				<a href="notification-handshake.html">Example handshake notification</a>
+			</li>
+		</ul>
+		<p>
+			The client is not expected to take any special action in receipt of a Handshake notification beyond the channel-specific requirement for receiving an event notification.
+		</p>
+
+		<a name="heartbeat-notification"/>
+		<h3>Heartbeat Notification</h3>
+		<p>
+			Servers MAY periodically send notifications across a channel to ensure that the connection is still alive and valid (e.g., in accordance with a client's requested heartbeat interval). A heartbeat notification is an empty subscription-notification Bundle sent without incrementing the subscription event count.
+		</p>
+		<p>
+			A client SHOULD use a hearbeat notification to verify that no events have been missed (if possible). However, a client is not required to take any action in receipt of a heartbeat beyond the channel-specific requirement for receiving an event notification (e.g., accepting the notification bundle with an HTTP 200).
+		</p>
+    <table class="grid">
+      <tr><th>Element</th><th>Optionality</th><th>Notes</th></tr>
+      <tr><td>SubscriptionStatus.status</td><td>Recommended</td><td>Current status of the relevant subscription (e.g., <code>active</code>).</td></tr>
+      <tr><td>SubscriptionStatus.type</td><td>Required</td><td>SHALL be <code>heartbeat</code></td></tr>
+      <tr><td>SubscriptionStatus.eventsSinceSubscriptionStart</td><td>Recommended</td><td>The presence of this value allows clients to detect missing notifications.<br/>Note: this value SHALL NOT be incremented by sending a <code>heartbeat</code> notification.</td></tr>
+      <tr><td>SubscriptionStatus.eventsInNotification</td><td>Optional</td><td>If present, this value SHALL be zero (0).</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent</td><td>Prohibited</td><td>A <code>heartbeat</code> notification SHALL NOT contain any event information.</td></tr>
+      <tr><td>SubscriptionStatus.topic</td><td>Optional</td><td>See <a href="#content-phi">Content and PHI</a>.</td></tr>
+    </table>
+    <ul>
+			<li>
+				<a href="notification-heartbeat.html">Example heartbeat notification</a>
+			</li>
+		</ul>
+
+    <a name="query-status"/>
+    <h3>Query Status</h3>
+    <p>
+      Clients can ask a server at any time for the current status of a Subscription via the <a href="subscription-operation-status.html">$status operation</a>.
+    </p>
+    <p>
+      Since the <code>$status</code> operation is part of the FHIR REST API, the guidance below assumes that a user has been authenticated and is allowed access to all relevant resources.
+    </p>
+    <table class="grid">
+      <tr><th>Element</th><th>Optionality</th><th>Notes</th></tr>
+      <tr><td>SubscriptionStatus.status</td><td>Required</td><td>Current status of the relevant subscription (e.g., <code>active</code>).</td></tr>
+      <tr><td>SubscriptionStatus.type</td><td>Required</td><td>SHALL be <code>query-status</code></td></tr>
+      <tr><td>SubscriptionStatus.eventsSinceSubscriptionStart</td><td>Required</td><td>This value is required for clients to know if there are missing notifications.<br/>Note: this value SHALL NOT be incremented by sending a <code>query-status</code> notification.</td></tr>
+      <tr><td>SubscriptionStatus.eventsInNotification</td><td>Optional</td><td>If present, this value SHALL be zero (0).</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent</td><td>Prohibited</td><td>A <code>query-status</code> notification SHALL NOT contain any event information.</td></tr>
+      <tr><td>SubscriptionStatus.topic</td><td>Recommended</td><td>See <a href="#content-phi">Content and PHI</a>, but note that guidance will vary since there is an active user session.</td></tr>
+    </table>
+		<ul>
+			<li>
+				<a href="notification-query-status.html">Example query-status notification</a>
+			</li>
+		</ul>
+
+    <a name="query-event"/>
+    <h3>Query Event</h3>
+    <p>
+      Some servers may allow clients to ask for events which have already occurred.  Notification bundles returned by such operations or queries should use the <code>query-event</code> type.
+    </p>
+    <table class="grid">
+      <tr><th>Element</th><th>Optionality</th><th>Notes</th></tr>
+      <tr><td>SubscriptionStatus.status</td><td>Recommended</td><td>Current status of the relevant subscription (e.g., <code>active</code>).</td></tr>
+      <tr><td>SubscriptionStatus.type</td><td>Required</td><td>SHALL be <code>query-event</code></td></tr>
+      <tr><td>SubscriptionStatus.eventsSinceSubscriptionStart</td><td>Recommended</td><td>This value is allows clients to know if they are missing notifications.<br/>Note: this value SHALL NOT be incremented by sending a <code>query-event</code> bundle.</td></tr>
+      <tr><td>SubscriptionStatus.eventsInNotification</td><td>Required</td><td>The number of events actually returned by this operation request.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent</td><td>Recommended</td><td>A <code>query-event</code> notification SHOULD contain as much event information as possible, to simplify client processing.</td></tr>
+      <tr><td>SubscriptionStatus.topic</td><td>Recommended</td><td>See <a href="#content-phi">Content and PHI</a>, but note that guidance will vary since there is an active user session.</td></tr>
+    </table>
+		<ul>
+			<li>
+				<a href="notification-query-event.html">Example query-event notification</a>
+			</li>
+		</ul>
+
+  <a name="errors"/>
+  <h2>Notifications and Errors</h2>
+  <p>
+    If a server encounters errors while sending a notification, the server may retry the notification a fixed number of times and/or refer errors to its own alert logs. If the notification fails, the server SHOULD set the status of the subscription to <code>error</code>. If the error would be useful to a client (e.g., notification failed because the destination SSL certificate expired), servers SHOULD track errors and provide details to the client.  If a notification retry attempt succeeds, the server SHOULD update the status to <code>active</code> and MAY remove any error codes. If a subscription fails consistently a server may choose set the subscription status to <code>off</code> and stop trying to send notifications.
+  </p>
+  <p>
+    Errors a server wishes to make accessible to clients are stored in <code>Subscription.error</code>. Servers should provide a mechanism for clearing errors (e.g., when resetting a <code>Subscription.status</code> back to <code>requested</code> after an error). Since <code>Subscription.error</code> represents server errors, a server SHOULD NOT allow clients to add errors.
+  </p>
+
+  <a name="errors-delivery"/>
+  <h3>Detecting Delivery Errors</h3>
+  <p>
+    One role of the <code>SubscriptionStatus</code> resource is to aid clients (subscribers) in error detection. Included are two classes of errors and how they can be found. Please note that this is not intended to serve as a comprehensive list of errors and their resolutions.
+  </p>
+  <p>
+    There are several mechanisms available to subscribers in order to understand the current state of notification delivery.  Below are some example error scenarios with details about how a subscriber can detect the problem state.
+  </p>
+
+  <a name="errors-delivery-skipped"/>
+  <h4>Skipped Event</h4>
+  <p>
+    The diagram below shows how a subscriber can use the <code>SubscriptionStatus.eventsSinceSubscriptionStart</code> element on received notifications to determine that an event has been missed.
+  </p>
+  <img src="notification-skipped-event.svg" alt="Diagram of missing event workflow"/>
+  <p>
+    In the above sequence, the subscriber tracks the <code>eventsSinceSubscriptionStart</code> of each received notification (per Subscription).  When the subscriber received event 23, the subscriber was aware that the last notification it received was a single notification for event 21.  The subscriber then waited an amount of time to ensure that event 22 was indeed missing (and not, for example, still being processed) and started a recovery process.  The recovery process itself will vary by subscriber, but should be a well-understood method for recovering in the event of errors.
+  </p>
+
+  <a name="errors-delivery-heartbeat"/>
+  <h4>Broken Communication</h4>
+  <p>
+    The diagram below show how a subscriber can use the <code>Subscription.heartbeatPeriod</code> to determine errors which prevent notifications from reaching the endpoint.
+  </p>
+  <img src="notification-no-event.svg" alt="Diagram of heartbeat-detection workflow"/>
+  <p>
+    In the above sequence, the subscriber is aware that the <code>heartbeatPeriod</code> has elapsed for a subscription without receiving any notifications.  The subscriber then asks the server for the <code>$status</code> of the subscription, and seeing an error, begins a recovery process.  As in the previous scenario, the recovery process itself will vary by subscriber, but should be a well-understood method for recovering in the event of errors.
+  </p>
+
+</div>

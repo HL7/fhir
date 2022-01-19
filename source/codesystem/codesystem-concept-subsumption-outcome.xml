@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="concept-subsumption-outcome"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <url value="http://hl7.org/fhir/concept-subsumption-outcome"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1239"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ConceptSubsumptionOutcome"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="equivalent"/>
+    <display value="Equivalent"/>
+    <definition value="The two concepts are equivalent (have the same properties)."/>
+  </concept>
+  <concept>
+    <code value="subsumes"/>
+    <display value="Subsumes"/>
+    <definition value="Coding/code &quot;A&quot; subsumes Coding/code &quot;B&quot; (e.g. B has all the properties A has, and some of it&#39;s own)."/>
+  </concept>
+  <concept>
+    <code value="subsumed-by"/>
+    <display value="Subsumed-By"/>
+    <definition value="Coding/code &quot;A&quot; is subsumed by Coding/code &quot;B&quot; (e.g. A has all the properties B has, and some of it&#39;s own)."/>
+  </concept>
+  <concept>
+    <code value="not-subsumed"/>
+    <display value="Not-Subsumed"/>
+    <definition value="Coding/code &quot;A&quot; and Coding/code &quot;B&quot; are disjoint (e.g. each has propeties that the other doesn&#39;t have)."/>
+  </concept>
+</CodeSystem>

@@ -411,12 +411,13 @@ e: {
   "resourceType" : "ValueSet",
   "id" : "dataelement-sdcobjectclass",
   "meta" : {
-    "lastUpdated" : "2021-03-10T12:16:54.458+11:00",
+    "lastUpdated" : "2021-11-03T09:16:18.941+11:00",
     "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
   },
+  "language" : "en",
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"border: maroon 1px solid; background-color: #FFCCCC; font-weight: bold; padding: 8px\">This value set cannot be expanded because of the way it is defined - it has an infinite number of members</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display</b></td></tr></table></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\"><p style=\"border: maroon 1px solid; background-color: #FFCCCC; font-weight: bold; padding: 8px\">This value set cannot be expanded because of the way it is defined - it has an infinite number of members</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display</b> - English (English, en)</td></tr></table></div>"
   },
   "url" : "http://hl7.org/fhir/ValueSet/dataelement-sdcobjectclass",
   "identifier" : [{
@@ -428,15 +429,15 @@ e: {
   "title" : "DataElement SDC Object Class",
   "status" : "draft",
   "experimental" : false,
-  "date" : "2021-03-10T12:16:54+11:00",
-  "description" : "Value Set Contents (Expansion) for DataElement SDC Object Class at Wed, Mar 10, 2021 12:45+1100",
+  "date" : "2021-11-03T09:16:18+11:00",
+  "description" : "Value Set Contents (Expansion) for DataElement SDC Object Class at Wed, Nov 3, 2021 09:21+1100",
   "expansion" : {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:b21a8af1-15cd-4c29-8fed-58164203bd9e",
-    "timestamp" : "2021-03-10T01:43:41.761Z",
+    "identifier" : "urn:uuid:1cec0c2d-02a1-4e8e-a37a-b26d797aab43",
+    "timestamp" : "2021-11-02T22:20:17.354Z",
     "parameter" : [{
       "name" : "expansion-source",
       "valueString" : "ValueSet/dataelement-sdcobjectclass"
@@ -940,11 +941,11 @@ e: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "day",
-  "severity" : null,
-  "error" : ""
+  "display" : "天",
+  "code" : "d",
+  "system" : "http://unitsofmeasure.org"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -956,11 +957,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/pdf",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/pdf",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -972,11 +973,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "image/jpeg",
-  "severity" : null,
-  "error" : ""
+  "code" : "image/jpeg",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -988,11 +989,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/dicom",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/dicom",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1004,11 +1005,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "xml",
-  "severity" : null,
-  "error" : ""
+  "code" : "xml",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1020,11 +1021,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "json",
-  "severity" : null,
-  "error" : ""
+  "code" : "json",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1036,11 +1037,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/xml-patch+xml",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/xml-patch+xml",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1052,11 +1053,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/json-patch+json",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/json-patch+json",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1068,11 +1069,11 @@ v: {
       "system" : "urn:iso:std:iso:4217"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Euro",
-  "severity" : null,
-  "error" : ""
+  "code" : "EUR",
+  "system" : "urn:iso:std:iso:4217"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1084,11 +1085,11 @@ v: {
       "system" : "urn:iso:std:iso:4217"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "United States dollar",
-  "severity" : null,
-  "error" : ""
+  "code" : "USD",
+  "system" : "urn:iso:std:iso:4217"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1100,11 +1101,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "image/jpg",
-  "severity" : null,
-  "error" : ""
+  "code" : "image/jpg",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1116,11 +1117,11 @@ v: {
       "system" : "urn:iso:std:iso:4217"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Canadian dollar",
-  "severity" : null,
-  "error" : ""
+  "code" : "CAD",
+  "system" : "urn:iso:std:iso:4217"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -1132,11 +1133,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/txt",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/txt",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -3948,11 +3949,11 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "English (Region=United States)",
-  "severity" : null,
-  "error" : ""
+  "display" : "English (United States)",
+  "code" : "en-US",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -3964,11 +3965,11 @@ v: {
       "system" : "urn:iso:std:iso:4217"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "Saudi riyal",
-  "severity" : null,
-  "error" : ""
+  "code" : "SAR",
+  "system" : "urn:iso:std:iso:4217"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -4064,11 +4065,11 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "second",
-  "severity" : null,
-  "error" : ""
+  "display" : "秒",
+  "code" : "s",
+  "system" : "http://unitsofmeasure.org"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -6880,11 +6881,11 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "English (Region=Australia)",
-  "severity" : null,
-  "error" : ""
+  "display" : "English (Australia)",
+  "code" : "en-AU",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9696,11 +9697,11 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "English",
-  "severity" : null,
-  "error" : ""
+  "code" : "en",
+  "system" : "urn:ietf:bcp:47"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9712,11 +9713,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "text/plain",
-  "severity" : null,
-  "error" : ""
+  "code" : "text/plain",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9728,11 +9729,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/hl7-v3+xml",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/hl7-v3+xml",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9744,11 +9745,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/fhir+xml",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/fhir+xml",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9760,11 +9761,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/fhir+json",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/fhir+json",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9776,11 +9777,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/hl7-v2",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/hl7-v2",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9792,11 +9793,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/hl7-sda+xml; variant=XDA/XDS",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/hl7-sda+xml; variant=XDA/XDS",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9808,11 +9809,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/dicom; variant=DICOM WADO-RS",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/dicom; variant=DICOM WADO-RS",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9824,11 +9825,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/dicom; variant=DICOM QIDO-RS",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/dicom; variant=DICOM QIDO-RS",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9840,11 +9841,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/dicom; variant=DICOM STOW-RS",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/dicom; variant=DICOM STOW-RS",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9856,11 +9857,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/dicom; variant=DICOM WADO-URI",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/dicom; variant=DICOM WADO-URI",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9872,11 +9873,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/dicom; variant=IHE IID",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/dicom; variant=IHE IID",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9888,11 +9889,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "text/cql",
-  "severity" : null,
-  "error" : ""
+  "code" : "text/cql",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9904,11 +9905,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/elm+xml",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/elm+xml",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9920,11 +9921,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/xml",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/xml",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9936,11 +9937,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/elm+json",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/elm+json",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9952,11 +9953,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "image/png",
-  "severity" : null,
-  "error" : ""
+  "code" : "image/png",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9968,11 +9969,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "image/gif",
-  "severity" : null,
-  "error" : ""
+  "code" : "image/gif",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -9984,11 +9985,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "audio/mpeg",
-  "severity" : null,
-  "error" : ""
+  "code" : "audio/mpeg",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -10000,11 +10001,11 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/signature+xml",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/signature+xml",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -10100,11 +10101,11 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "hour",
-  "severity" : null,
-  "error" : ""
+  "display" : "小时",
+  "code" : "h",
+  "system" : "http://unitsofmeasure.org"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -10200,11 +10201,11 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "week",
-  "severity" : null,
-  "error" : ""
+  "display" : "星期",
+  "code" : "wk",
+  "system" : "http://unitsofmeasure.org"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -10300,80 +10301,11 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "minute",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "coding" : [{
-    "system" : "http://loinc.org",
-    "code" : "2708-6",
-    "display" : "Oxygen saturation in Arterial blood"
-  },
-  {
-    "system" : "http://loinc.org",
-    "code" : "59408-5",
-    "display" : "Oxygen saturation in Arterial blood by Pulse oximetry"
-  },
-  {
-    "system" : "urn:iso:std:iso:11073:10101",
-    "code" : "150456",
-    "display" : "MDC_PULS_OXIM_SAT_O2"
-  }]
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
-        "code" : "85353-1"
-      },
-      {
-        "code" : "9279-1"
-      },
-      {
-        "code" : "8867-4"
-      },
-      {
-        "code" : "2708-6"
-      },
-      {
-        "code" : "8310-5"
-      },
-      {
-        "code" : "8302-2"
-      },
-      {
-        "code" : "9843-4"
-      },
-      {
-        "code" : "29463-7"
-      },
-      {
-        "code" : "39156-5"
-      },
-      {
-        "code" : "85354-9"
-      },
-      {
-        "code" : "8480-6"
-      },
-      {
-        "code" : "8462-4"
-      },
-      {
-        "code" : "8478-0"
-      }]
-    }]
-  }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY"}####
-v: {
-  "display" : "Oxygen saturation in Arterial blood",
-  "severity" : "warning",
-  "error" : "The code system \"urn:iso:std:iso:11073:10101\" is not known (encountered paired with code = \"150456\") (from http://tx.fhir.org/r4)"
+  "display" : "分钟",
+  "code" : "min",
+  "system" : "http://unitsofmeasure.org"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -10385,10 +10317,10 @@ v: {
       "system" : "urn:ietf:bcp:13"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "text/html",
-  "severity" : null,
-  "error" : ""
+  "code" : "text/html",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------

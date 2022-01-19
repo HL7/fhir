@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:6840b285-623a-4f88-baac-6f197464b7f9",
-    "timestamp" : "2021-03-10T02:03:43.445Z",
+    "identifier" : "urn:uuid:39cbdc7a-0c20-423d-9faa-b141f54bb62d",
+    "timestamp" : "2021-11-02T22:31:57.261Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -37,9 +38,8 @@ e: {
       "system" : "http://www.genenames.org"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "",
   "severity" : "error",
   "error" : "The code \"HGNC:4931\" is not valid in the system http://www.genenames.org; The code provided (http://www.genenames.org#HGNC:4931) is not valid (from http://tx.fhir.org/r4)"
 }
@@ -54,9 +54,8 @@ v: {
       "system" : "http://www.genenames.org"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "",
   "severity" : "error",
   "error" : "The code \"HGNC:4932\" is not valid in the system http://www.genenames.org; The code provided (http://www.genenames.org#HGNC:4932) is not valid (from http://tx.fhir.org/r4)"
 }
@@ -71,9 +70,8 @@ v: {
       "system" : "http://www.genenames.org"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "",
   "severity" : "error",
   "error" : "The code \"HGNC:4933\" is not valid in the system http://www.genenames.org; The code provided (http://www.genenames.org#HGNC:4933) is not valid (from http://tx.fhir.org/r4)"
 }
@@ -88,9 +86,8 @@ v: {
       "system" : "http://www.genenames.org"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "",
   "severity" : "error",
   "error" : "The code \"3236\" is not valid in the system http://www.genenames.org; The code provided (http://www.genenames.org#3236) is not valid (from http://tx.fhir.org/r4)"
 }
@@ -105,9 +102,8 @@ v: {
       "system" : "http://www.genenames.org"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "",
   "severity" : "error",
   "error" : "The code \"2623\" is not valid in the system http://www.genenames.org; The code provided (http://www.genenames.org#2623) is not valid (from http://tx.fhir.org/r4)"
 }
@@ -122,9 +118,8 @@ v: {
       "system" : "http://www.genenames.org"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "",
   "severity" : "error",
   "error" : "The code \"2625\" is not valid in the system http://www.genenames.org; The code provided (http://www.genenames.org#2625) is not valid (from http://tx.fhir.org/r4)"
 }
@@ -139,9 +134,8 @@ v: {
       "system" : "http://www.genenames.org"
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
-  "display" : "",
   "severity" : "error",
   "error" : "The code \"12014\" is not valid in the system http://www.genenames.org; The code provided (http://www.genenames.org#12014) is not valid (from http://tx.fhir.org/r4)"
 }

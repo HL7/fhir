@@ -8,100 +8,194 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <h2>RequestIntent</h2>
+      
       <div>
+        
         <p>Codes indicating the degree of authority/intentionality associated with a request.</p>
 
+      
       </div>
+      
       <p>This code system http://hl7.org/fhir/request-intent defines the following codes:</p>
+      
       <table class="codes">
+        
         <tr>
+          
           <td>
+            
             <b>Lvl</b>
+          
           </td>
+          
           <td style="white-space:nowrap">
+            
             <b>Code</b>
+          
           </td>
+          
           <td>
+            
             <b>Display</b>
+          
           </td>
+          
           <td>
+            
             <b>Definition</b>
+          
           </td>
+        
         </tr>
+        
         <tr>
+          
           <td>1</td>
+          
           <td style="white-space:nowrap">proposal
+            
             <a name="request-intent-proposal"> </a>
+          
           </td>
+          
           <td>Proposal</td>
+          
           <td>The request is a suggestion made by someone/something that does not have an intention to ensure it occurs and without providing an authorization to act.</td>
+        
         </tr>
+        
         <tr>
+          
           <td>1</td>
+          
           <td style="white-space:nowrap">plan
+            
             <a name="request-intent-plan"> </a>
+          
           </td>
+          
           <td>Plan</td>
+          
           <td>The request represents an intention to ensure something occurs without providing an authorization for others to act.</td>
+        
         </tr>
+        
         <tr>
+          
           <td>1</td>
+          
           <td style="white-space:nowrap">directive
+            
             <a name="request-intent-directive"> </a>
+          
           </td>
+          
           <td>Directive</td>
+          
           <td>The request represents a legally binding instruction authored by a Patient or RelatedPerson.</td>
+        
         </tr>
+        
         <tr>
+          
           <td>1</td>
+          
           <td style="white-space:nowrap">order
+            
             <a name="request-intent-order"> </a>
+          
           </td>
+          
           <td>Order</td>
+          
           <td>The request represents a request/demand and authorization for action by a Practitioner.</td>
+        
         </tr>
+        
         <tr>
+          
           <td>2</td>
-          <td style="white-space:nowrap">&#xA0;&#xA0;original-order
+          
+          <td style="white-space:nowrap">  original-order
+            
             <a name="request-intent-original-order"> </a>
+          
           </td>
+          
           <td>Original Order</td>
+          
           <td>The request represents an original authorization for action.</td>
+        
         </tr>
+        
         <tr>
+          
           <td>2</td>
-          <td style="white-space:nowrap">&#xA0;&#xA0;reflex-order
+          
+          <td style="white-space:nowrap">  reflex-order
+            
             <a name="request-intent-reflex-order"> </a>
+          
           </td>
+          
           <td>Reflex Order</td>
+          
           <td>The request represents an automatically generated supplemental authorization for action based on a parent authorization together with initial results of the action taken against that parent authorization.</td>
+        
         </tr>
+        
         <tr>
+          
           <td>2</td>
-          <td style="white-space:nowrap">&#xA0;&#xA0;filler-order
+          
+          <td style="white-space:nowrap">  filler-order
+            
             <a name="request-intent-filler-order"> </a>
+          
           </td>
+          
           <td>Filler Order</td>
+          
           <td>The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller&#39;s intention to act upon a submitted order.</td>
+        
         </tr>
+        
         <tr>
+          
           <td>3</td>
-          <td style="white-space:nowrap">&#xA0;&#xA0;&#xA0;&#xA0;instance-order
+          
+          <td style="white-space:nowrap">    instance-order
+            
             <a name="request-intent-instance-order"> </a>
+          
           </td>
+          
           <td>Instance Order</td>
+          
           <td>An order created in fulfillment of a broader order that represents the authorization for a single activity occurrence.  E.g. The administration of a single dose of a drug.</td>
+        
         </tr>
+        
         <tr>
+          
           <td>1</td>
+          
           <td style="white-space:nowrap">option
+            
             <a name="request-intent-option"> </a>
+          
           </td>
+          
           <td>Option</td>
+          
           <td>The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or other constraints among a set of requests.  Refer to [[[RequestGroup]]] for additional information on how this status is used.</td>
+        
         </tr>
+      
       </table>
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -118,7 +212,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.114"/>
   </identifier>
-  <version value="4.1.0"/>
+  <version value="4.3.0-CIBUILD"/>
   <name value="RequestIntent"/>
   <title value="RequestIntent"/>
   <status value="draft"/>
@@ -138,6 +232,7 @@
   <description value="Codes indicating the degree of authority/intentionality associated with a request."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/request-intent"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="proposal"/>

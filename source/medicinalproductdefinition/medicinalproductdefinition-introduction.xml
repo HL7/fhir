@@ -2,7 +2,7 @@
 	<div>
 		<a name="scope"> </a>
 		<h2>Scope and Usage</h2>
-		<p><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></p>
+		<p style="border:2px; border-style:solid; border-color:#999999; padding: 1em; border-radius: 4px 4px 4px 4px;"><b><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></b></p>
 		<p>
 			The MedicinalProductDefinition resource covers the detailed defining data of medicinal products, 
 			to a level beyond what is typically needed for day to day prescribing, but that is commonly required by manufacturers and regulators, 
@@ -25,7 +25,7 @@
 		</p>
 		<p>
 			Each part can be used individually to represent some aspects of the full product. But the product as a whole, should be a MedicinalProductDefinition.
-			(As an example, if just a representation of the individual tablet of a product is needed, just the ManufacturedItemDefintion resource can be used. 
+			(As an example, if just a representation of the individual tablet of a product is needed, just the ManufacturedItemDefinition resource can be used. 
 			But that doesn't make the tablet into a "product" - it is still just the physical manifestation of an overall drug product. 
 			There is logically a MedicinalProductDefinition there too, even if it is not being used or transmitted at this time.) 
 		</p>
@@ -52,10 +52,27 @@
 			These defining characteristics are some of the key features that marketing approvals and approved usage indications are based on. 
 			A change of any of these would usually mean a different product - a different MedicinalProductDefinition instance - and a different approval being needed.
 		</p>
+
+		<a name="authorisations"></a>
+		<h2>Authorisations</h2>
 		<p id="auth">
-			<b>A key aspect of a regulated medicinal product is the authorisation (marketing authorisation). 
-			This is not directly carried on the product resource, but instead a <a href="regulatedauthorization.html">RegulatedAuthorization</a> resource is 
-				created which points back to this resource.</b>
+			A key aspect of a regulated medicinal product is the authorisation (marketing authorisation). 
+				This is not directly carried on the product resource, but instead a <a href="regulatedauthorization.html">RegulatedAuthorization</a> resource is 
+				created which points back to this resource.
 		</p>
+
+		<a name="contained"></a>
+		<h2>Contained Resources</h2>
+		<p>Due to the amount of information, cardinalities, and update granularity necessary for some applications, the full product model
+			is split over several resources.</p>
+		<p>If you need just a coded "package type" list for your product you can use MedicinalProductDefinition.packagedMedicinalProduct. 
+			But full package information goes in an instance of PackagedProductDefinition resource (linked back to the MedicinalProductDefinition using 
+			PackagedProductDefinition.productFor).</p>
+		<p>There are occasions where an identified package is not necessary, and yet one or more parts of the PackagedProductDefinition resource are needed. 
+			In this case it may be appropriate to use a contained PackagedProductDefinition resource. 
+			Similarly if the Ingredient resource is too much, but a link to a substance as component part of a product is needed, 
+			consider a contained Ingredient, that links straight to a SubstanceDefinition.</p>
+		<p>This <a href="medicinalproductdefinition-with-contained-package-and-ingredient.html">example</a> demonstrates both of these cases.</p>
+		
 	</div>
 </div>

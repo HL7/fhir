@@ -10,10 +10,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:dfeba1c4-7ef0-4f38-8265-da0d2f063801",
-    "timestamp" : "2021-03-10T01:26:32.024Z",
+    "identifier" : "urn:uuid:28ade572-2410-4b30-94d8-81a13a215b6c",
+    "timestamp" : "2021-11-02T22:18:31.667Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -33,227 +34,362 @@ e: {
     "contains" : [{
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "1",
-      "display" : "Acquired Brain Injury (ABI) Program "
+      "display" : "Acquired Brain Injury (ABI) Program ",
+      "designation" : [{
+        "value" : "Acquired Brain Injury (ABI) Program "
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "2",
-      "display" : "ABI Slow To Recover (ABI STR) Program"
+      "display" : "ABI Slow To Recover (ABI STR) Program",
+      "designation" : [{
+        "value" : "ABI Slow To Recover (ABI STR) Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "3",
-      "display" : "Access Programs"
+      "display" : "Access Programs",
+      "designation" : [{
+        "value" : "Access Programs"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "4",
-      "display" : "Adult and Further Education (ACFE) Program"
+      "display" : "Adult and Further Education (ACFE) Program",
+      "designation" : [{
+        "value" : "Adult and Further Education (ACFE) Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "5",
-      "display" : "Adult Day Activity and Support Services (ADASS) Program"
+      "display" : "Adult Day Activity and Support Services (ADASS) Program",
+      "designation" : [{
+        "value" : "Adult Day Activity and Support Services (ADASS) Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "6",
-      "display" : "Adult Day Care Program"
+      "display" : "Adult Day Care Program",
+      "designation" : [{
+        "value" : "Adult Day Care Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "7",
-      "display" : "ATSS (Adult Training Support Service)"
+      "display" : "ATSS (Adult Training Support Service)",
+      "designation" : [{
+        "value" : "ATSS (Adult Training Support Service)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "8",
-      "display" : "Community Aged Care Packages (CACP)"
+      "display" : "Community Aged Care Packages (CACP)",
+      "designation" : [{
+        "value" : "Community Aged Care Packages (CACP)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "9",
-      "display" : "Care Coordination & Supplementary Services (CCSS)"
+      "display" : "Care Coordination & Supplementary Services (CCSS)",
+      "designation" : [{
+        "value" : "Care Coordination & Supplementary Services (CCSS)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "10",
-      "display" : "Cognitive Dementia Memory Service (CDAMS)"
+      "display" : "Cognitive Dementia Memory Service (CDAMS)",
+      "designation" : [{
+        "value" : "Cognitive Dementia Memory Service (CDAMS)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "11",
-      "display" : "ChildFIRST"
+      "display" : "ChildFIRST",
+      "designation" : [{
+        "value" : "ChildFIRST"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "12",
-      "display" : "Children's Contact Services"
+      "display" : "Children's Contact Services",
+      "designation" : [{
+        "value" : "Children's Contact Services"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "13",
-      "display" : "Community Visitors Scheme"
+      "display" : "Community Visitors Scheme",
+      "designation" : [{
+        "value" : "Community Visitors Scheme"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "14",
-      "display" : "CPP (Community Partners Program)"
+      "display" : "CPP (Community Partners Program)",
+      "designation" : [{
+        "value" : "CPP (Community Partners Program)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "15",
-      "display" : "Closing the Gap (CTG)"
+      "display" : "Closing the Gap (CTG)",
+      "designation" : [{
+        "value" : "Closing the Gap (CTG)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "16",
-      "display" : "Coordinated Veterans' Care (CVC) Program"
+      "display" : "Coordinated Veterans' Care (CVC) Program",
+      "designation" : [{
+        "value" : "Coordinated Veterans' Care (CVC) Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "17",
-      "display" : "Day Program"
+      "display" : "Day Program",
+      "designation" : [{
+        "value" : "Day Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "18",
-      "display" : "Drop In Program"
+      "display" : "Drop In Program",
+      "designation" : [{
+        "value" : "Drop In Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "19",
-      "display" : "Early Years Program"
+      "display" : "Early Years Program",
+      "designation" : [{
+        "value" : "Early Years Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "20",
-      "display" : "Employee Assistance Program"
+      "display" : "Employee Assistance Program",
+      "designation" : [{
+        "value" : "Employee Assistance Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "21",
-      "display" : "Home And Community Care (HACC)"
+      "display" : "Home And Community Care (HACC)",
+      "designation" : [{
+        "value" : "Home And Community Care (HACC)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "22",
-      "display" : "Hospital Admission Risk Program (HARP)"
+      "display" : "Hospital Admission Risk Program (HARP)",
+      "designation" : [{
+        "value" : "Hospital Admission Risk Program (HARP)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "23",
-      "display" : "Hospital in the Home (HITH) Program"
+      "display" : "Hospital in the Home (HITH) Program",
+      "designation" : [{
+        "value" : "Hospital in the Home (HITH) Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "24",
-      "display" : "ICTP (Intensive Community Treatment Program)"
+      "display" : "ICTP (Intensive Community Treatment Program)",
+      "designation" : [{
+        "value" : "ICTP (Intensive Community Treatment Program)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "25",
-      "display" : "IFSS (Intensive Family Support Program)"
+      "display" : "IFSS (Intensive Family Support Program)",
+      "designation" : [{
+        "value" : "IFSS (Intensive Family Support Program)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "26",
-      "display" : "JPET (Job Placement, Education and Training)"
+      "display" : "JPET (Job Placement, Education and Training)",
+      "designation" : [{
+        "value" : "JPET (Job Placement, Education and Training)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "27",
-      "display" : "Koori Juvenile Justice Program"
+      "display" : "Koori Juvenile Justice Program",
+      "designation" : [{
+        "value" : "Koori Juvenile Justice Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "28",
-      "display" : "Language Literacy and Numeracy Program"
+      "display" : "Language Literacy and Numeracy Program",
+      "designation" : [{
+        "value" : "Language Literacy and Numeracy Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "29",
-      "display" : "Life Skills Program"
+      "display" : "Life Skills Program",
+      "designation" : [{
+        "value" : "Life Skills Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "30",
-      "display" : "LMP (Lifestyle Modification Program)"
+      "display" : "LMP (Lifestyle Modification Program)",
+      "designation" : [{
+        "value" : "LMP (Lifestyle Modification Program)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "31",
-      "display" : "MedsCheck Program"
+      "display" : "MedsCheck Program",
+      "designation" : [{
+        "value" : "MedsCheck Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "32",
-      "display" : "Methadone/Buprenorphine Program"
+      "display" : "Methadone/Buprenorphine Program",
+      "designation" : [{
+        "value" : "Methadone/Buprenorphine Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "33",
-      "display" : "National Disabilities Insurance Scheme (NDIS)"
+      "display" : "National Disabilities Insurance Scheme (NDIS)",
+      "designation" : [{
+        "value" : "National Disabilities Insurance Scheme (NDIS)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "34",
-      "display" : "National Diabetes Services Scheme (NDSS)"
+      "display" : "National Diabetes Services Scheme (NDSS)",
+      "designation" : [{
+        "value" : "National Diabetes Services Scheme (NDSS)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "35",
-      "display" : "Needle/Syringe Program"
+      "display" : "Needle/Syringe Program",
+      "designation" : [{
+        "value" : "Needle/Syringe Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "36",
-      "display" : "nPEP Program"
+      "display" : "nPEP Program",
+      "designation" : [{
+        "value" : "nPEP Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "37",
-      "display" : "Personal Support Program"
+      "display" : "Personal Support Program",
+      "designation" : [{
+        "value" : "Personal Support Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "38",
-      "display" : "Partners in Recovery (PIR) Program"
+      "display" : "Partners in Recovery (PIR) Program",
+      "designation" : [{
+        "value" : "Partners in Recovery (PIR) Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "39",
-      "display" : "Pre-employment Program"
+      "display" : "Pre-employment Program",
+      "designation" : [{
+        "value" : "Pre-employment Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "40",
-      "display" : "Reconnect Program"
+      "display" : "Reconnect Program",
+      "designation" : [{
+        "value" : "Reconnect Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "41",
-      "display" : "Sexual Abuse Counselling and Prevention Program (SACPP)"
+      "display" : "Sexual Abuse Counselling and Prevention Program (SACPP)",
+      "designation" : [{
+        "value" : "Sexual Abuse Counselling and Prevention Program (SACPP)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "42",
-      "display" : "Social Support Programs"
+      "display" : "Social Support Programs",
+      "designation" : [{
+        "value" : "Social Support Programs"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "43",
-      "display" : "Supported Residential Service (SRS)"
+      "display" : "Supported Residential Service (SRS)",
+      "designation" : [{
+        "value" : "Supported Residential Service (SRS)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "44",
-      "display" : "Tasmanian Aboriginal Centre (TAC)"
+      "display" : "Tasmanian Aboriginal Centre (TAC)",
+      "designation" : [{
+        "value" : "Tasmanian Aboriginal Centre (TAC)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "45",
-      "display" : "Victim's Assistance Program"
+      "display" : "Victim's Assistance Program",
+      "designation" : [{
+        "value" : "Victim's Assistance Program"
+      }]
     }]
   }
 },
@@ -271,10 +407,11 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:f295805e-4383-4614-8b65-44b67fb0fcf1",
-    "timestamp" : "2021-03-10T01:46:03.058Z",
+    "identifier" : "urn:uuid:8909f578-8355-49c1-83f9-67e61fe2b4c5",
+    "timestamp" : "2021-11-02T22:21:43.026Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -290,227 +427,362 @@ e: {
     "contains" : [{
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "1",
-      "display" : "Acquired Brain Injury (ABI) Program "
+      "display" : "Acquired Brain Injury (ABI) Program ",
+      "designation" : [{
+        "value" : "Acquired Brain Injury (ABI) Program "
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "2",
-      "display" : "ABI Slow To Recover (ABI STR) Program"
+      "display" : "ABI Slow To Recover (ABI STR) Program",
+      "designation" : [{
+        "value" : "ABI Slow To Recover (ABI STR) Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "3",
-      "display" : "Access Programs"
+      "display" : "Access Programs",
+      "designation" : [{
+        "value" : "Access Programs"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "4",
-      "display" : "Adult and Further Education (ACFE) Program"
+      "display" : "Adult and Further Education (ACFE) Program",
+      "designation" : [{
+        "value" : "Adult and Further Education (ACFE) Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "5",
-      "display" : "Adult Day Activity and Support Services (ADASS) Program"
+      "display" : "Adult Day Activity and Support Services (ADASS) Program",
+      "designation" : [{
+        "value" : "Adult Day Activity and Support Services (ADASS) Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "6",
-      "display" : "Adult Day Care Program"
+      "display" : "Adult Day Care Program",
+      "designation" : [{
+        "value" : "Adult Day Care Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "7",
-      "display" : "ATSS (Adult Training Support Service)"
+      "display" : "ATSS (Adult Training Support Service)",
+      "designation" : [{
+        "value" : "ATSS (Adult Training Support Service)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "8",
-      "display" : "Community Aged Care Packages (CACP)"
+      "display" : "Community Aged Care Packages (CACP)",
+      "designation" : [{
+        "value" : "Community Aged Care Packages (CACP)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "9",
-      "display" : "Care Coordination & Supplementary Services (CCSS)"
+      "display" : "Care Coordination & Supplementary Services (CCSS)",
+      "designation" : [{
+        "value" : "Care Coordination & Supplementary Services (CCSS)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "10",
-      "display" : "Cognitive Dementia Memory Service (CDAMS)"
+      "display" : "Cognitive Dementia Memory Service (CDAMS)",
+      "designation" : [{
+        "value" : "Cognitive Dementia Memory Service (CDAMS)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "11",
-      "display" : "ChildFIRST"
+      "display" : "ChildFIRST",
+      "designation" : [{
+        "value" : "ChildFIRST"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "12",
-      "display" : "Children's Contact Services"
+      "display" : "Children's Contact Services",
+      "designation" : [{
+        "value" : "Children's Contact Services"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "13",
-      "display" : "Community Visitors Scheme"
+      "display" : "Community Visitors Scheme",
+      "designation" : [{
+        "value" : "Community Visitors Scheme"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "14",
-      "display" : "CPP (Community Partners Program)"
+      "display" : "CPP (Community Partners Program)",
+      "designation" : [{
+        "value" : "CPP (Community Partners Program)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "15",
-      "display" : "Closing the Gap (CTG)"
+      "display" : "Closing the Gap (CTG)",
+      "designation" : [{
+        "value" : "Closing the Gap (CTG)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "16",
-      "display" : "Coordinated Veterans' Care (CVC) Program"
+      "display" : "Coordinated Veterans' Care (CVC) Program",
+      "designation" : [{
+        "value" : "Coordinated Veterans' Care (CVC) Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "17",
-      "display" : "Day Program"
+      "display" : "Day Program",
+      "designation" : [{
+        "value" : "Day Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "18",
-      "display" : "Drop In Program"
+      "display" : "Drop In Program",
+      "designation" : [{
+        "value" : "Drop In Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "19",
-      "display" : "Early Years Program"
+      "display" : "Early Years Program",
+      "designation" : [{
+        "value" : "Early Years Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "20",
-      "display" : "Employee Assistance Program"
+      "display" : "Employee Assistance Program",
+      "designation" : [{
+        "value" : "Employee Assistance Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "21",
-      "display" : "Home And Community Care (HACC)"
+      "display" : "Home And Community Care (HACC)",
+      "designation" : [{
+        "value" : "Home And Community Care (HACC)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "22",
-      "display" : "Hospital Admission Risk Program (HARP)"
+      "display" : "Hospital Admission Risk Program (HARP)",
+      "designation" : [{
+        "value" : "Hospital Admission Risk Program (HARP)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "23",
-      "display" : "Hospital in the Home (HITH) Program"
+      "display" : "Hospital in the Home (HITH) Program",
+      "designation" : [{
+        "value" : "Hospital in the Home (HITH) Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "24",
-      "display" : "ICTP (Intensive Community Treatment Program)"
+      "display" : "ICTP (Intensive Community Treatment Program)",
+      "designation" : [{
+        "value" : "ICTP (Intensive Community Treatment Program)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "25",
-      "display" : "IFSS (Intensive Family Support Program)"
+      "display" : "IFSS (Intensive Family Support Program)",
+      "designation" : [{
+        "value" : "IFSS (Intensive Family Support Program)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "26",
-      "display" : "JPET (Job Placement, Education and Training)"
+      "display" : "JPET (Job Placement, Education and Training)",
+      "designation" : [{
+        "value" : "JPET (Job Placement, Education and Training)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "27",
-      "display" : "Koori Juvenile Justice Program"
+      "display" : "Koori Juvenile Justice Program",
+      "designation" : [{
+        "value" : "Koori Juvenile Justice Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "28",
-      "display" : "Language Literacy and Numeracy Program"
+      "display" : "Language Literacy and Numeracy Program",
+      "designation" : [{
+        "value" : "Language Literacy and Numeracy Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "29",
-      "display" : "Life Skills Program"
+      "display" : "Life Skills Program",
+      "designation" : [{
+        "value" : "Life Skills Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "30",
-      "display" : "LMP (Lifestyle Modification Program)"
+      "display" : "LMP (Lifestyle Modification Program)",
+      "designation" : [{
+        "value" : "LMP (Lifestyle Modification Program)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "31",
-      "display" : "MedsCheck Program"
+      "display" : "MedsCheck Program",
+      "designation" : [{
+        "value" : "MedsCheck Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "32",
-      "display" : "Methadone/Buprenorphine Program"
+      "display" : "Methadone/Buprenorphine Program",
+      "designation" : [{
+        "value" : "Methadone/Buprenorphine Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "33",
-      "display" : "National Disabilities Insurance Scheme (NDIS)"
+      "display" : "National Disabilities Insurance Scheme (NDIS)",
+      "designation" : [{
+        "value" : "National Disabilities Insurance Scheme (NDIS)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "34",
-      "display" : "National Diabetes Services Scheme (NDSS)"
+      "display" : "National Diabetes Services Scheme (NDSS)",
+      "designation" : [{
+        "value" : "National Diabetes Services Scheme (NDSS)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "35",
-      "display" : "Needle/Syringe Program"
+      "display" : "Needle/Syringe Program",
+      "designation" : [{
+        "value" : "Needle/Syringe Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "36",
-      "display" : "nPEP Program"
+      "display" : "nPEP Program",
+      "designation" : [{
+        "value" : "nPEP Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "37",
-      "display" : "Personal Support Program"
+      "display" : "Personal Support Program",
+      "designation" : [{
+        "value" : "Personal Support Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "38",
-      "display" : "Partners in Recovery (PIR) Program"
+      "display" : "Partners in Recovery (PIR) Program",
+      "designation" : [{
+        "value" : "Partners in Recovery (PIR) Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "39",
-      "display" : "Pre-employment Program"
+      "display" : "Pre-employment Program",
+      "designation" : [{
+        "value" : "Pre-employment Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "40",
-      "display" : "Reconnect Program"
+      "display" : "Reconnect Program",
+      "designation" : [{
+        "value" : "Reconnect Program"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "41",
-      "display" : "Sexual Abuse Counselling and Prevention Program (SACPP)"
+      "display" : "Sexual Abuse Counselling and Prevention Program (SACPP)",
+      "designation" : [{
+        "value" : "Sexual Abuse Counselling and Prevention Program (SACPP)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "42",
-      "display" : "Social Support Programs"
+      "display" : "Social Support Programs",
+      "designation" : [{
+        "value" : "Social Support Programs"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "43",
-      "display" : "Supported Residential Service (SRS)"
+      "display" : "Supported Residential Service (SRS)",
+      "designation" : [{
+        "value" : "Supported Residential Service (SRS)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "44",
-      "display" : "Tasmanian Aboriginal Centre (TAC)"
+      "display" : "Tasmanian Aboriginal Centre (TAC)",
+      "designation" : [{
+        "value" : "Tasmanian Aboriginal Centre (TAC)"
+      }]
     },
     {
       "system" : "http://terminology.hl7.org/CodeSystem/program",
       "code" : "45",
-      "display" : "Victim's Assistance Program"
+      "display" : "Victim's Assistance Program",
+      "designation" : [{
+        "value" : "Victim's Assistance Program"
+      }]
     }]
   }
 },

@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Substance"/>
-  <version value="4.1.0"/>
+  <version value="4.3.0-CIBUILD"/>
   <name value="Substance"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A homogeneous material with a definite composition."/>
-  <fhirVersion value="4.1.0"/>
+  <fhirVersion value="4.3.0-CIBUILD"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -66,7 +66,7 @@
   <differential>
     <element id="Substance">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,0"/>
+        <valueCode value="200,0"/>
       </extension>
       <path value="Substance"/>
       <short value="A homogeneous material with a definite composition"/>
@@ -92,8 +92,8 @@
       </extension>
       <path value="Substance.identifier"/>
       <short value="Unique identifier"/>
-      <definition value="Unique identifier for the substance. For an instance, an identifier associated with the package/container (usually a label affixed directly)."/>
-      <comment value="This identifier is associated with the kind of substance in contrast to the  Substance.instance.identifier which is associated with the package/container."/>
+      <definition value="Unique identifier for the substance."/>
+      <comment value="This identifier is associated with the kind of substance in contrast to the Substance.instance.identifier which is associated with the package/container."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -109,7 +109,7 @@
         <map value=".id"/>
       </mapping>
     </element>
-    <element id="Substance.instance">
+    <!--element id="Substance.instance">
       <path value="Substance.instance"/>
       <short value="Is this an instance of a substance or a kind of one"/>
       <definition value="A boolean to indicate if this an instance of a substance or a kind of one (a definition)."/>
@@ -121,7 +121,7 @@
       <isModifier value="true"/>
       <isModifierReason value="Not known why this is labelled a modifier"/>
       <isSummary value="true"/>
-    </element>
+    </element-->
     <element id="Substance.status">
       <path value="Substance.status"/>
       <short value="active | inactive | entered-in-error"/>
@@ -193,8 +193,7 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -233,8 +232,45 @@
         <map value=".player.desc"/>
       </mapping>
     </element>
-    <element id="Substance.expiry">
-      <path value="Substance.expiry"/>
+    <element id="Substance.instance">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#5666."/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,160"/>
+      </extension>
+      <path value="Substance.instance"/>
+      <short value="If this describes a specific package/container of the substance"/>
+      <definition value="Substance may be used to describe a kind of substance, or a specific package/container of the substance: an instance."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <meaningWhenMissing value="If this element is not present, then the substance resource describes a kind of substance"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player.determinerCode"/>
+      </mapping>
+    </element>
+    <element id="Substance.instance.identifier">
+      <path value="Substance.instance.identifier"/>
+      <short value="Identifier of the package/container"/>
+      <definition value="Identifier associated with the package/container (usually a label affixed directly)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
+    <element id="Substance.instance.expiry">
+      <path value="Substance.instance.expiry"/>
       <short value="When no longer valid to use"/>
       <definition value="When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry."/>
       <min value="0"/>
@@ -248,8 +284,8 @@
         <map value=".expiryTime"/>
       </mapping>
     </element>
-    <element id="Substance.quantity">
-      <path value="Substance.quantity"/>
+    <element id="Substance.instance.quantity">
+      <path value="Substance.instance.quantity"/>
       <short value="Amount of substance in the package"/>
       <definition value="The amount of the substance."/>
       <min value="0"/>
@@ -266,7 +302,7 @@
     </element>
     <element id="Substance.ingredient">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="400,36"/>
+        <valueCode value="400,160"/>
       </extension>
       <path value="Substance.ingredient"/>
       <short value="Composition information about the substance"/>

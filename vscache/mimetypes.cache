@@ -2,11 +2,11 @@
 {"code" : {
   "system" : "urn:ietf:bcp:13",
   "code" : "application/hl7-cda+xml"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/hl7-cda+xml",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/hl7-cda+xml",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
@@ -20,14 +20,15 @@ v: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:1c5b69c8-685a-4d96-a10f-5f515300afb4",
-    "timestamp" : "2021-03-10T01:18:09.867Z",
+    "identifier" : "urn:uuid:8b56cd7c-34ed-4aca-8c8f-79e5a7ada248",
+    "timestamp" : "2021-11-02T22:17:42.558Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -60,10 +61,11 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:0feb0dd4-6157-4952-a2bf-7900b0fad288",
-    "timestamp" : "2021-03-10T01:28:51.493Z",
+    "identifier" : "urn:uuid:649b7704-5549-4edd-ba7a-59851104e762",
+    "timestamp" : "2021-11-02T22:18:44.511Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -79,7 +81,10 @@ e: {
     "contains" : [{
       "system" : "urn:ietf:bcp:13",
       "code" : "application/hl7-cda+xml",
-      "display" : "CDA Documents"
+      "display" : "application/hl7-cda+xml",
+      "designation" : [{
+        "value" : "application/hl7-cda+xml"
+      }]
     }]
   }
 },
@@ -97,14 +102,15 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
+  "language" : "en",
   "status" : "active",
   "expansion" : {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:090bb3da-7b58-4332-a9ae-903900a0bada",
-    "timestamp" : "2021-03-10T02:03:45.805Z",
+    "identifier" : "urn:uuid:3babadfa-9cd8-45d5-a778-3741c51aa3d2",
+    "timestamp" : "2021-11-02T22:31:58.261Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -121,11 +127,11 @@ e: {
 {"code" : {
   "system" : "urn:ietf:bcp:13",
   "code" : "application/hl7-cda+xml"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/hl7-cda+xml",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/hl7-cda+xml",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -135,19 +141,6 @@ v: {
   "resourceType" : "ValueSet",
   "compose" : {
     "include" : [{
-      "valueSet" : ["http://hl7.org/fhir/ValueSet/formatcodes"]
-    },
-    {
-      "system" : "http://hl7.org/fhir/resource-types"
-    },
-    {
-      "system" : "urn:ietf:rfc:3986",
-      "concept" : [{
-        "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile",
-        "display" : "Lipid Lab Report"
-      }]
-    },
-    {
       "system" : "urn:ietf:bcp:13",
       "concept" : [{
         "code" : "application/hl7-cda+xml",
@@ -155,10 +148,21 @@ v: {
       }]
     }]
   }
-}, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "application/hl7-cda+xml",
-  "severity" : null,
-  "error" : ""
+  "code" : "application/hl7-cda+xml",
+  "system" : "urn:ietf:bcp:13"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:ietf:bcp:13",
+  "version" : "4.1.0",
+  "code" : "application/hl7-cda+xml"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "application/hl7-cda+xml",
+  "code" : "application/hl7-cda+xml",
+  "system" : "urn:ietf:bcp:13"
 }
 -------------------------------------------------------------------------------------

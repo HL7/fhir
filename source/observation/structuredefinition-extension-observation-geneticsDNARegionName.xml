@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNARegionName"/>
-  <version value="4.1.0"/>
+  <version value="4.3.0-CIBUILD"/>
   <name value="DNARegionName"/>
   <status value="draft"/>
   <date value="2016-03-14"/>
@@ -20,8 +20,10 @@
       <value value="http://www.hl7.org/Special/committees/clingenomics"/>
     </telecom>
   </contact>
-  <description value="A human readable name for the region of interest. Typically Exon #, Intron # or other. NOTE: This is not standardized and is mainly for convenience and display purposes.  LOINC Code: ([47999-8](http://loinc.org/47999-8))."/>
-  <fhirVersion value="4.1.0"/>
+  <description value="The material on this page will be removed in a future release. This content is deprecated and SHOULD NOT be used. Implementers are instead directed to the ([Genomics Reporting Implementation Guide](http://hl7.org/fhir/uv/genomics-reporting/index.html)) for guidance. A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene may include regulatory regions, transcribed regions and/or other functional sequence regions ([SO:0000704](http://www.sequenceontology.org/browser/current_svn/term/SO:0000704)). This element is the official gene symbol approved by the HGNC, which is a short abbreviated form of the gene name ([HGNC](http://www.genenames.org)). LOINC Code: ([48018-6](http://loinc.org/48018-6))."/>
+  
+    
+  <fhirVersion value="4.3.0-CIBUILD"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>

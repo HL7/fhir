@@ -176,8 +176,11 @@
 		<translation lang="it">ImpressioneClinica</translation>
 		<translation lang="zh">临床印象</translation>
 	</item>
-	<item id="ClinicalUseIssue">
+	<!--item id="ClinicalUseIssue">
 		<translation lang="en">ClinicalUseIssue</translation>
+	</item-->
+	<item id="ClinicalUseDefinition">
+		<translation lang="en">ClinicalUseDefinition</translation>
 	</item>
 	<item id="CodeSystem">
 		<translation lang="en">CodeSystem</translation>
@@ -933,6 +936,12 @@
 		<translation lang="fr">Souscription</translation>
 		<translation lang="it">Sottoscrizione</translation>
 		<translation lang="es">Suscripción</translation>
+	</item>
+	<item id="SubscriptionStatus">
+		<translation lang="en">SubscriptionStatus</translation>
+	</item>
+	<item id="SubscriptionTopic">
+		<translation lang="en">SubscriptionTopic</translation>
 	</item>
 	<item id="Substance">
 		<translation lang="en">Substance</translation>

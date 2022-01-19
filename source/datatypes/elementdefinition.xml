@@ -16,6 +16,7 @@
   
   <TabRatio>694</TabRatio>
   <ActiveSheet>2</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4450,7 +4451,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition.type</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">targetProfile is only allowed if the type is Reference or canonical</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">(code='Reference' or code = 'canonical') or targetProfile.empty()</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">(code='Reference' or code = 'canonical' or code = 'CodeableReference') or targetProfile.empty()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:targetProfile)) or (f:code/@value = 'Reference')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">

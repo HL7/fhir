@@ -102,7 +102,6 @@
           <target>
             <code value="HLEGAL"/>
             <equivalence value="wider"/>
-            <equivalence value="equivalent"/>
           </target>
         </element>
         <element>
@@ -110,7 +109,6 @@
           <target>
             <code value="HLEGAL"/>
             <equivalence value="wider"/>
-            <equivalence value="equivalent"/>
           </target>
         </element>
         <element>

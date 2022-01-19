@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicinalProductDefinition xmlns="http://hl7.org/fhir">
+<MedicinalProductDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicinalproductdefinition.xsd">
 	<id value="equilidem-with-ing-and-auth"/>
 	<text>
 		<status value="generated"/>
@@ -244,6 +244,10 @@
 	<contained>
 		<Ingredient>
 			<id value="EquilidoniumPhosphate"/>
+			<status value="active"/>
+			<for>
+				<reference value="#"/>
+			</for>
 			<role>
 				<coding>
 					<system value="http://example.org.uk/fhir/ingredientType"/>
@@ -261,16 +265,18 @@
 					</concept>
 				</code>
 				<strength>
-					<presentation>
+					<presentationRatio>
 						<numerator>
 							<value value="22"/>
 							<unit value="ml"/>
+							<system value="http://unitsofmeasure.org"/> 
+							<code value="mL"/>
 						</numerator>
 						<denominator>
 							<value value="1"/>
 							<unit value="tablet"/>
 						</denominator>
-					</presentation>
+					</presentationRatio>
 				</strength>
 			</substance>
 		</Ingredient>
@@ -278,6 +284,10 @@
 	<contained>
 		<Ingredient>
 			<id value="CalciumCarbonate"/>
+			<status value="active"/> 
+			<for>
+				<reference value="#"/>
+			</for>
 			<role>
 				<coding>
 					<system value="http://example.org.uk/fhir/ingredientType"/>
@@ -295,16 +305,18 @@
 					</concept>
 				</code>
 				<strength>
-					<presentation>
+					<presentationRatio>
 						<numerator>
 							<value value="3"/>
 							<unit value="ml"/>
+							<system value="http://unitsofmeasure.org"/> 
+							<code value="mL"/>
 						</numerator>
 						<denominator>
 							<value value="1"/>
 							<unit value="tablet"/>
 						</denominator>
-					</presentation>
+					</presentationRatio>
 				</strength>
 			</substance>
 		</Ingredient>
@@ -333,16 +345,6 @@
 			<code value="B01A"/>
 		</coding>
 	</classification>
-	<ingredient>
-		<reference>
-		<reference value="#EquilidoniumPhosphate"/>
-		</reference>
-	</ingredient>
-	<ingredient>
-		<reference>
-		<reference value="#CalciumCarbonate"/>
-		</reference>
-	</ingredient>
 	<name>
 		<productName value="Equilidem 2.5 mg film-coated tablets"/>
 	</name>

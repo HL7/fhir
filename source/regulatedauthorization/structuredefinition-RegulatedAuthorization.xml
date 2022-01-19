@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/RegulatedAuthorization"/>
-  <version value="4.1.0"/>
+  <version value="4.3.0-CIBUILD"/>
   <name value="RegulatedAuthorization"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Regulatory approval, clearance or licencing related to a regulated product, treatment, facility or activity that is cited in a guidance, regulation, rule or legislative act. An example is Market Authorization relating to a Medicinal Product."/>
-  <fhirVersion value="4.1.0"/>
+  <fhirVersion value="4.3.0-CIBUILD"/>
   <mapping>
     <identity value="idmp"/>
     <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
@@ -99,10 +99,10 @@
     </element>
     <element id="RegulatedAuthorization.subject">
       <path value="RegulatedAuthorization.subject"/>
-      <short value="The type of regulated product, treatment, facility or activity that is being authorized"/>
-      <definition value="The type of regulated product, treatment, facility or activity that is being authorized."/>
+      <short value="The product type, treatment, facility or activity that is being authorized"/>
+      <definition value="The product type, treatment, facility or activity that is being authorized."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
@@ -135,6 +135,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RegulatedAuthorizationType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Overall type of this authorization."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/regulated-authorization-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -165,6 +173,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Jurisdiction codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Marketing Authorisation.Country"/>
@@ -180,6 +196,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Marketing Authorisation.Authorisation Status"/>
@@ -223,7 +247,7 @@
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseIssue"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -241,6 +265,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProductIntendedUse"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="The overall intended use of a product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/product-intended-use"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -256,12 +288,20 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RegulatedAuthorizationBasis"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A legal or regulatory framework against which an authorization is granted, or other reasons for it."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/regulated-authorization-basis"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Marketing Authorisation.Status Reasons.Legal Grounds"/>
       </mapping>
     </element>
-    <element id="RegulatedAuthorization.relatedDate">
+    <!--element id="RegulatedAuthorization.relatedDate">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="650,160"/>
       </extension>
@@ -311,23 +351,7 @@
         <identity value="idmp"/>
         <map value="(type of date from the ones above)"/>
       </mapping>
-    </element>
-    <element id="RegulatedAuthorization.jurisdictionalAuthorization">
-      <path value="RegulatedAuthorization.jurisdictionalAuthorization"/>
-      <short value="Authorization in areas within a country"/>
-      <definition value="Authorization in areas within a country."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RegulatedAuthorization"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Marketing Authorisation.Jurisdictional Marketing Authorisation"/>
-      </mapping>
-    </element>
+    </element-->
     <element id="RegulatedAuthorization.holder">
       <path value="RegulatedAuthorization.holder"/>
       <short value="The organization that holds the granted authorization"/>
@@ -403,6 +427,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RegulatedAuthorizationCaseType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type of a case involved in an application."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/regulated-authorization-case-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Marketing Authorisation Procedure.Procedure Type, Marketing Authorisation Application.Application Type"/>
@@ -418,6 +450,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>

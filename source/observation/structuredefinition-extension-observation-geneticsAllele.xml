@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/observation-geneticsAllele"/>
-  <version value="4.1.0"/>
+  <version value="4.3.0-CIBUILD"/>
   <name value="Allele"/>
   <status value="draft"/>
   <date value="2016-03-14"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="Allele information."/>
-  <fhirVersion value="4.1.0"/>
+  <fhirVersion value="4.3.0-CIBUILD"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -53,7 +53,7 @@
       <path value="Extension.extension"/>
       <sliceName value="Name"/>
       <short value="Name of allele"/>
-      <definition value="An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). This element is the common name for the allele. LOINC Code: ([48008-7](http://loinc.org/48008-7))."/>
+      <definition value="The material on this page will be removed in a future release. This content is deprecated and SHOULD NOT be used. Implementers are instead directed to the ([Genomics Reporting Implementation Guide](http://hl7.org/fhir/uv/genomics-reporting/index.html)) for guidance. An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). This element is the common name for the allele. LOINC Code: ([48008-7](http://loinc.org/48008-7))."/>
       <min value="0"/>
       <max value="1"/>
       <type>
