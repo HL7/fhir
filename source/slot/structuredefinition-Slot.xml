@@ -76,7 +76,7 @@
       </mapping>
       <mapping>
         <identity value="ical"/>
-        <map value="(refer to the Availability resource for the header mapping details)"/>
+        <map value="(refer to the Schedule resource for the header mapping details)"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -122,8 +122,8 @@
     </element>
     <element id="Slot.serviceType">
       <path value="Slot.serviceType"/>
-      <short value="The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource"/>
-      <definition value="The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource."/>
+      <short value="The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the Schedule resource"/>
+      <definition value="The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the Schedule resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
