@@ -111,9 +111,7 @@
             </coding>
         </method>
     </dosageInstruction>
-    <detectedIssue>
-        <reference value="DetectedIssue/allergy"></reference>
-    </detectedIssue>
+    
 
 </MedicationDispense>
 
