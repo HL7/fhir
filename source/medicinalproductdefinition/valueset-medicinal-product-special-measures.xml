@@ -49,7 +49,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Extra measures defined for a Medicinal Product, such as heightened reporting requirements."/>
+  <description value="Extra measures defined for a Medicinal Product, such as a requirement to conduct post-authorisation studies."/>
   <immutable value="true"/>
   <compose>
     <include>
