@@ -95,7 +95,7 @@
                 <periodUnit value="min"/>
             </repeat>
         </timing>
-        <asNeededBoolean value="true"/>
+        <asNeeded value="true"/>
         <route>
             <coding>
                 <system value="http://snomed.info/sct"/>

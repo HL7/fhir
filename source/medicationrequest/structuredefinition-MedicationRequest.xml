@@ -646,6 +646,7 @@
       <path value="MedicationRequest.reported"/>
       <short value="Reported rather than primary record"/>
       <definition value="Indicates if this record was captured as a secondary &#39;reported&#39; record rather than as an original primary source-of-truth record.  It may also indicate the source of the report."/>
+      <comment value="If not populated, then assume that this is the original record and not reported"/>
       <min value="0"/>
       <max value="1"/>
       <type>
