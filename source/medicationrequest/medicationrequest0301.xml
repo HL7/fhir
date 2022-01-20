@@ -219,9 +219,7 @@
             </coding>
         </reason>
     </substitution>
-    <detectedIssue>
-        <reference value="DetectedIssue/allergy"></reference>
-    </detectedIssue>
+  
     <eventHistory>
         <reference value="#signature"/>
         <display value="Author's Signature"/>
