@@ -44,11 +44,31 @@
   <concept>
     <code value="InvestigationalProduct"/>
     <display value="Link to Investigational Product"/>
-    <definition value="Link to Investigational Product"/>
+    <definition value="Link to Investigational (Development) Product"/>
   </concept>
   <concept>
     <code value="VirtualProduct"/>
-    <display value="Link to Virtual Product"/>
-    <definition value="Link to Virtual Product"/>
+    <display value="Link Actual to Virtual Product"/>
+    <definition value="Link Actual to Virtual Product"/>
+  </concept>
+  <concept>
+    <code value="ActualProduct"/>
+    <display value="Link Virtual to Actual Product"/>
+    <definition value="Link Virtual to Actual Product"/>
+  </concept>
+  <concept>
+    <code value="BrandedProduct"/>
+    <display value="Link Generic to Branded Product"/>
+    <definition value="Link Generic to Branded Product"/>
+  </concept>
+  <concept>
+    <code value="GenericProduct"/>
+    <display value="Link Branded to Generic Product"/>
+    <definition value="Link Branded to Generic Product"/>
+  </concept>
+  <concept>
+    <code value="Parallel"/>
+    <display value="Link to Parallel Import Product"/>
+    <definition value="Link to Parallel Import Product"/>
   </concept>
 </CodeSystem>
