@@ -214,8 +214,8 @@
         <map value="CombinedMedicationDispense.SupplyEvent.statusCode"/>
       </mapping>
     </element>
-    <element id="MedicationDispense.statusReason">
-      <path value="MedicationDispense.statusReason"/>
+    <element id="MedicationDispense.notPerformedReason">
+      <path value="MedicationDispense.notPerformedReason"/>
       <short value="Why a dispense was not performed"/>
       <definition value="Indicates the reason why a dispense was not performed."/>
       <min value="0"/>
@@ -229,17 +229,8 @@
           <valueString value="MedicationDispenseStatusReason"/>
         </extension>
         <strength value="example"/>
-        <description value="A code describing why a dispense was not performed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-status-reason"/>
       </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.statusReason"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=&quot;not done reason&quot;].value"/>
-      </mapping>
     </element>
     <element id="MedicationDispense.statusChanged">
       <path value="MedicationDispense.statusChanged"/>
