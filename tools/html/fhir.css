@@ -945,3 +945,77 @@ ol.fmmlist li::before {
   position: relative;
   left:-25px
 }
+
+.http-verb-selector::before {
+  content: "\A    ";
+  white-space: pre;
+}
+
+.http-verb-display-get {
+  font-family: monospace;
+  white-space: pre;
+  line-height: 1.4em;
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333333;
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
+.http-verb-display-post {
+  font-family: monospace;
+  white-space: pre;
+  line-height: 1.4em;
+  display: block;
+  padding: 0px;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333333;
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
+.example-format-selector::before {
+  content: "\A    ";
+  white-space: pre;
+}
+
+.example-format-display-json {
+  font-family: monospace;
+  white-space: pre;
+  line-height: 1.4em;
+  display: block;
+  margin: 0 0 10px;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333333;
+  border-radius: 4px;
+  border: 1px solid #dcdcdc;
+  background: #EFFFEF ; 
+  padding: 5px;
+  width: 650px;
+}
+
+.example-format-display-xml {
+  font-family: monospace;
+  white-space: pre;
+  line-height: 1.4em;
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333333;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 5px;
+  background: #F0FFFF ; 
+  width: 650px;
+}
