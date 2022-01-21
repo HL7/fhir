@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="administration-subpotent-reason"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/administration-subpotent-reason"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="AdministrationSubPotentReason"/>
+  <title value="Administration SubPotent Reason"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication administration process."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="partialdose"/>
+    <display value="Partial Dose"/>
+    <definition value="The full amount of the dose was not administered to the patient."/>
+    <concept>
+      <code value="vomited"/>
+      <display value="Vomited"/>
+      <definition value="The patient vomited part of the dose."/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="coldchainbreak"/>
+    <display value="Cold Chain Break"/>
+    <definition value="The medication experienced a cold chain break."/>
+  </concept>
+  <concept>
+    <code value="recall"/>
+    <display value="Manufacturer Recall"/>
+    <definition value="The medication was recalled by the manufacturer."/>
+  </concept>
+  <concept>
+    <code value="adversestorage"/>
+    <display value="Adverse Storage"/>
+    <definition value="The medication experienced adverse storage conditions."/>
+  </concept>
+  <concept>
+    <code value="expired"/>
+    <display value="Expired Product"/>
+    <definition value="The medication was expired at the time of administration."/>
+  </concept>
+</CodeSystem>
