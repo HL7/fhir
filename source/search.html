@@ -3696,11 +3696,9 @@ $(function() {
   try {
     var httpVerbSelector = sessionStorage.getItem('fhir-http-verb-selector');
   }
-  catch(exception){
-  }
+  catch(exception){ }
 
-  if (!httpVerbSelector) { httpVerbSelector = '#post'; }
-
+  if (!httpVerbSelector) { httpVerbSelector = 'post'; }
   $(`.http-verb-display-${httpVerbSelector}`).show().siblings().hide();
 
   $('.http-verb-selector a').on('click', function(e) {
@@ -3710,18 +3708,15 @@ $(function() {
     try {
       sessionStorage.setItem('fhir-http-verb-selector', httpVerbSelector);
     }
-    catch(exception){
-    }
+    catch(exception){ }
   });
 
   try {
   var exampleFormatSelector = sessionStorage.getItem('fhir-example-format-selector');
   }
-  catch(exception){
-  }
+  catch(exception){ }
 
-  if (!exampleFormatSelector) { exampleFormatSelector = '#json'; }
-
+  if (!exampleFormatSelector) { exampleFormatSelector = 'json'; }
   $(`.example-format-display-${exampleFormatSelector}`).show().siblings().hide();
 
   $('.example-format-selector a').on('click', function(e) {
@@ -3731,10 +3726,8 @@ $(function() {
     try {
       sessionStorage.setItem('fhir-example-format-selector', exampleFormatSelector);
     }
-    catch(exception){
-    }
+    catch(exception){ }
   });
-
 })
 </script>
 
