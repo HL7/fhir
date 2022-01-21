@@ -31,6 +31,19 @@ complexity that they require for their implementations.
 	<ul>
 	  <li><a href="#overview">Search Overview</a></li>
 	  <li><a href="#searchcontexts">Search Contexts</a></li>
+    <li><a href="#return">Search Responses</a>
+      <ul>
+        <li><a href="#returnbundletype">Bundle Type</a></li>
+        <li><a href="#selflink">Understanding What Was Searched - The Self Link</a></li>
+        <li><a href="#paginglinks">Other Links - Paging</a></li>
+        <li><a href="#entries">Matches, Inclusions, and Outcomes - Bundle Entries</a></li>
+        <li><a href="#errors">Handling Errors</a>
+        <ul>
+          <li>Unknown and Unsupported Parameters</li>
+        </ul>
+        </li>
+      </ul>
+    </li>
 	</ul>
   </li>
   <li><a href="#searchrest">Searching via REST</a>
@@ -68,13 +81,7 @@ complexity that they require for their implementations.
       <li><a href="#type">Specifying the type of Resource</a></li>
     </ul>
   </li>
-  <li><a href="#return">Managing Returned Resources</a>
-    <ul>
-	  <li><a href="#errors">Handling Errors</a>
-		<ul>
-		  <li>Unknown and Unsupported Parameters</li>
-		</ul>
-	  </li>
+  <li><a href="#modifyingresults">Modifying Search Results</a>
     <li><a href="#sort">Sorting (_sort)</a></li>
 	  <li><a href="#total">Total number of matching resources (_total)</a></li>
     <li><a href="#count">Page Count (_count)</a></li>
@@ -87,8 +94,7 @@ complexity that they require for their implementations.
 			<li><a href="#contained">Contained Resources (_contained)</a></li>
 			<li><a href="#paging">Paging and Other Resources</a></li>
 		</ul>
-	  </li>
-    </ul>
+  </li>
   </li>
   <li><a href="#standard">Standard Parameters</a>
     <ul>
@@ -238,6 +244,265 @@ parameter(s)</span>
   </li>
 </ul>
 
+
+<a name="return"></a>
+<h3>Search Responses</h3>
+<p>
+  Search responses are always returned as a <a href="bundle.html">Bundle</a>.  Search result bundles convey a lot
+  of metadata in addition to any possible results, using the various elements available in the bundle resource.
+</p>
+
+<a name="returnbundletype"></a>
+<h4>Bundle Type</h4>
+<p>
+  Search result bundles will always have the <code>Bundle.type</code> of <a href="bundle.html#searchset">searchset</a>.
+  This element and value designate that the bundle is a search response and MAY be used in processing to indicate
+</p>
+
+<a name="selflink"></a>
+<h4>Understanding What Was Searched - The Self Link</h4>
+<p>
+  In order to allow the client to be confident about what search parameters
+  were used as criteria by the server, the server SHALL return the parameters
+  that were actually used to process the search. Applications processing search
+  results SHALL check these returned values where necessary. For example, if
+  the server did not support some of the filters specified in the search, a
+  client might manually apply those filters to the retrieved result set,
+  display a warning message to the user or take some other action.
+</p>
+<p>
+  These parameters are encoded in the self link of the returned bundle - a <a href="bundle-definitions.html#Bundle.link">bundle.link</a>
+  with the <code>relation</code> set to <code>self</code>:
+<span class="fhir-example">
+  <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
+  <span class="example-format-display">
+    <span class="example-format-display-json">
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  ...
+  "link": {
+    "relation": "self",
+    "url": "http://example.org/Patient?name=peter"
+  }
+  ...
+}
+    </span>
+    <span class="example-format-display-xml">
+&lt;Bundle&gt;
+  &lt;type value="searchset"/&gt;
+  ...
+  &lt;link&gt;
+    &lt;relation value="self"/&gt;
+    &lt;url value="http://example.org/Patient?name=peter"/&gt;
+  &lt;/link&gt;
+  ...
+&lt;/Bundle&gt;
+    </span>
+  </span>
+</span>
+</p>
+<p>
+  Self links SHALL be expressed as a GET-based search, with the relevant parameters included as query
+  parameters, because of the semantics around the link types.  This means that the above links are 
+  valid for either a GET-based search and the equivalent POST-based search.
+</p>
+<p>
+  Note that this makes the <code>self</code> link special in the context of bundle links - it does not 
+  need to be resolvable.  A server that does not support search via GET will return links in the same 
+  style as a server that does not support search via POST.
+</p>
+<p>
+  Clients SHOULD review the returned parameters in the self link to ensure proper processing of results.
+  Generally, ignored parameters will result in clients receiving more results than intended.  In those
+  situation, clients SHOULD filter received records to account for additional data.
+</p>
+
+<a name="paginglinks"></a>
+<h4>Other Links - Paging</h4>
+<p>
+  In addition to the self link, many bundles MAY contain links relevant to paging.  These are identified
+  via the <code>relation</code> value in the links.  Common links include: <code>first</code>, <code>last</code>,
+  <code>next</code>, and <code>prev</code>.
+</p>
+<p>
+  As with the self link, all relevant paging links SHALL be expressed as GET requests.  Servers SHOULD NOT
+  include content that is considered sensitive.
+</p>
+
+<a name="entries"></a>
+<h4>Matches, Inclusions, and Outcomes - Bundle Entries</h4>
+<p>
+  Within the results bundle, there are three types of <a href="bundle-definitions.html#Bundle.entry">entries</a>
+  that MAY be present, identified by the <a href="bundle-definitions.html#Bundle.entry.search.mode">searc mode</a>
+  of the entry: <code>match</code>, <code>include</code>, or <code>outcome</code>.
+</p>
+
+<h5>Matches</h5>
+<p>
+  Entries marked with <code>match</code> in search results indicate that a record is being returned because
+  it meets the parameters specified in the search request (e.g., a record the client requested).
+</p>
+
+<h5>Includes</h5>
+<p>
+  Entries marked with <code>include</code> in search results indicate that a record is being returned either
+  because it is referred to from a record in the result set or that the server believes is useful or necessary
+  for the client to process other results.
+</p>
+
+<h5>Outcomes</h5>
+<p>
+  Entries marked with <code>outcome</code> in search results are <a href="OperationOutcome.html">OperationOutcome</a>
+  resources with information related to the processing of a search.  For example, a server MAY use an outcome record
+  to report to a client that a search was unacceptable.
+</p>
+
+<a name="errors"></a>
+<h4>Handling Errors</h4>
+<p>
+If a server is unable to execute a search request, it may return an error. A HTTP status code of 
+<code>403</code> signifies that the server refused to perform the search,
+while other <code>4xx</code> and <code>5xx</code> codes signify that some sort of error has occurred. When
+the search fails, a server SHOULD return an <a href="operationoutcome.html">OperationOutcome</a>
+detailing the cause of the failure. Note: An empty search result is not a failure.
+</p>
+<p>
+In some cases, parameters may cause an error, or might not be able to match anything. For instance:
+</p>
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
+  <table>
+    <tr><td width="50%"><b>Issue</b></td><td><b>Search</b></td></tr>
+    <tr>
+      <td>A parameter may refer to a non-existent resource, such as if no observation with id "101" exists</td>
+      <td>
+        <span class="http-verb-display">
+          <span class="http-verb-display-get">GET [base]/Observation?subject=101</span>
+          <span class="http-verb-display-post">POST [base]/Observation/_search
+Content-Type: application/x-www-form-urlencoded
+subject=101</span>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>A parameter may reference a non-existent resource, such as if no patient with MRN "123456" exists</td>
+      <td>
+        <span class="http-verb-display">
+          <span class="http-verb-display-get">GET [base]/Observation?patient.identifier=http://example.com/fhir/identifier/mrn|123456</span>
+          <span class="http-verb-display-post">POST [base]/Observation/_search
+Content-Type: application/x-www-form-urlencoded
+patient.identifier=http://example.com/fhir/identifier/mrn|123456</span>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>A parameter may refer to an unknown code, such as if LOINC code "1234-1" is not known to the server</td>
+      <td>
+        <span class="http-verb-display">
+          <span class="http-verb-display-get">GET [base]/Observation?code=loinc|1234-1</span>
+          <span class="http-verb-display-post">POST [base]/Observation/_search
+Content-Type: application/x-www-form-urlencoded
+code=loinc|1234-1</span>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>A parameter may refer to a time that is out of scope, such as if the system only has data going back to 2001</td>
+      <td>
+        <span class="http-verb-display">
+          <span class="http-verb-display-get">GET [base]/Condition?onset=le1995</span>
+          <span class="http-verb-display-post">POST [base]/Condition/_search
+Content-Type: application/x-www-form-urlencoded
+onset=le1995</span>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>A parameter may use an illegal or unacceptable modifier, such as if the modifier cannot be processed by the server</td>
+      <td>
+        <span class="http-verb-display">
+          <span class="http-verb-display-get">GET [base]/Condition?onset:text=1995</span>
+          <span class="http-verb-display-post">POST [base]/Condition/_search
+Content-Type: application/x-www-form-urlencoded
+onset:text=1995</span>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>A data time parameter may have incorrect format, such as if the modifier cannot be processed by the server</td>
+      <td>
+        <span class="http-verb-display">
+          <span class="http-verb-display-get">GET [base]/Condition?onset=23%20May%202009</span>
+          <span class="http-verb-display-post">POST [base]/Condition/_search
+Content-Type: application/x-www-form-urlencoded
+onset=23%20May%202009</span>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>A parameter may be unknown or unsupported (more details below)</td>
+      <td>
+        <span class="http-verb-display">
+          <span class="http-verb-display-get">GET [base]/Condition?myInvalidParameter=true</span>
+          <span class="http-verb-display-post">POST [base]/Condition/_search
+Content-Type: application/x-www-form-urlencoded
+myInvalidParameter=true</span>
+        </span>
+      </td>
+    </tr>
+  </table>
+ </span>
+<p>
+Note: Empty parameters are not an error - they are just ignored by the server.
+</p>
+<p>
+Where the content of the parameter is syntactically incorrect, servers SHOULD return an error.
+However, where the issue is a logical condition (e.g. unknown subject or code), the server
+SHOULD process the search, including processing the parameter - with the result of returning
+an empty search set, since the parameter cannot be satisfied.
+</p>
+<p>
+In such cases, the search process MAY include an <a href="operationoutcome.html">OperationOutcome</a>
+in the search set that contains additional hints and warnings about the search process.
+This is included in the search results as an entry with <a href="bundle-definitions.html#Bundle.entry.search.mode">search mode</a> = <a href="valueset-search-entry-mode.html"><code>outcome</code></a>.
+Clients can use this information to improve future searches. If, for example, a client
+performed the following search:
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/Observation?patient.identifier=http://example.com/fhir/identifier/mrn|123456</span>
+    <span class="http-verb-display-post">POST [base]/Observation/_search
+Content-Type: application/x-www-form-urlencoded
+patient.identifier=http://example.com/fhir/identifier/mrn|123456</span>
+  </span>
+</span>
+and there is no patient for MRN 123456, the server would return <a href="bundle-search-warning.html">a bundle with a warning</a>.
+</p>
+
+<p><b>Unknown and unsupported parameters</b></p>
+<p>
+Servers may receive parameters from the client that they do not recognize, or may
+receive parameters they recognize but do not support (either in general, or for
+a specific search). In general, servers SHOULD ignore unknown or unsupported parameters
+for the following reasons:
+</p>
+<ul>
+ <li>Various HTTP stacks and proxies may add parameters that aren't under the control of the client</li>
+ <li>The client can determine what parameters the server used by examining the self link in the return (see <a href="#conformance">below</a>)</li>
+</ul>
+<p>
+Clients can specify how the server should behave, by using the prefer header
+</p>
+<ul>
+ <li><code>Prefer: handling=strict</code>: Client requests that the server return an error for any unknown or unsupported parameter</li>
+ <li><code>Prefer: handling=lenient</code>: Client requests that the server ignore any unknown or unsupported parameter</li>
+</ul>
+<p>
+Servers SHOULD honor the client's request, but are not required to do so.
+</p>
+
+
 <a name="searchrest"></a>
 <h3>Searching via REST</h3>
 <p>
@@ -260,7 +525,7 @@ param1=value&amp;...{&amp;_format=[mime-type]}
 </pre>
 <p>
   While servers SHALL support search parameters encoded in the POST body (as shown above), servers MAY also support
-  including some or all parameters as query parameters on a POST request):
+  including some or all parameters as query parameters on a POST request:
 </p>
 <pre>
 POST [base]/[type]/_search?param1=value&amp;...{&amp;_format=[mime-type]}
@@ -2049,158 +2314,8 @@ Technically, the <code>_type</code> parameter is a token parameter on the
 <a href="valueset-resource-types.html">Resource Types</a> Value Set.
 </p>
 
-
-<a name="return"></a>
-<h3>Managing Returned Resources</h3>
-<p>
-  ...
-</p>
-
-<a name="errors"></a>
-<h4>Handling Errors</h4>
-<p>
-If a server is unable to execute a search request, it may return an error.
-A HTTP status code of <code>403</code> signifies that the server refused to perform the search,
-while other <code>4xx</code> and <code>5xx</code> codes signify that some sort of error has occurred. When
-the search fails, a server SHOULD return an <a href="operationoutcome.html">OperationOutcome</a>
-detailing the cause of the failure. Note: An empty search result is not a failure.
-</p>
-<p>
-In some cases, parameters may cause an error, or might not be able to match anything. For instance:
-</p>
-
-<span class="http-search-example">
-  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
-  <table>
-    <tr><td width="50%"><b>Issue</b></td><td><b>Search</b></td></tr>
-    <tr>
-      <td>A parameter may refer to a non-existent resource, such as if no observation with id "101" exists</td>
-      <td>
-        <span class="http-verb-display">
-          <span class="http-verb-display-get">GET [base]/Observation?subject=101</span>
-          <span class="http-verb-display-post">POST [base]/Observation/_search
-Content-Type: application/x-www-form-urlencoded
-subject=101</span>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td>A parameter may reference a non-existent resource, such as if no patient with MRN "123456" exists</td>
-      <td>
-        <span class="http-verb-display">
-          <span class="http-verb-display-get">GET [base]/Observation?patient.identifier=http://example.com/fhir/identifier/mrn|123456</span>
-          <span class="http-verb-display-post">POST [base]/Observation/_search
-Content-Type: application/x-www-form-urlencoded
-patient.identifier=http://example.com/fhir/identifier/mrn|123456</span>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td>A parameter may refer to an unknown code, such as if LOINC code "1234-1" is not known to the server</td>
-      <td>
-        <span class="http-verb-display">
-          <span class="http-verb-display-get">GET [base]/Observation?code=loinc|1234-1</span>
-          <span class="http-verb-display-post">POST [base]/Observation/_search
-Content-Type: application/x-www-form-urlencoded
-code=loinc|1234-1</span>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td>A parameter may refer to a time that is out of scope, such as if the system only has data going back to 2001</td>
-      <td>
-        <span class="http-verb-display">
-          <span class="http-verb-display-get">GET [base]/Condition?onset=le1995</span>
-          <span class="http-verb-display-post">POST [base]/Condition/_search
-Content-Type: application/x-www-form-urlencoded
-onset=le1995</span>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td>A parameter may use an illegal or unacceptable modifier, such as if the modifier cannot be processed by the server</td>
-      <td>
-        <span class="http-verb-display">
-          <span class="http-verb-display-get">GET [base]/Condition?onset:text=1995</span>
-          <span class="http-verb-display-post">POST [base]/Condition/_search
-Content-Type: application/x-www-form-urlencoded
-onset:text=1995</span>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td>A data time parameter may have incorrect format, such as if the modifier cannot be processed by the server</td>
-      <td>
-        <span class="http-verb-display">
-          <span class="http-verb-display-get">GET [base]/Condition?onset=23%20May%202009</span>
-          <span class="http-verb-display-post">POST [base]/Condition/_search
-Content-Type: application/x-www-form-urlencoded
-onset=23%20May%202009</span>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td>A parameter may be unknown or unsupported (more details below)</td>
-      <td>
-        <span class="http-verb-display">
-          <span class="http-verb-display-get">GET [base]/Condition?myInvalidParameter=true</span>
-          <span class="http-verb-display-post">POST [base]/Condition/_search
-Content-Type: application/x-www-form-urlencoded
-myInvalidParameter=true</span>
-        </span>
-      </td>
-    </tr>
-  </table>
- </span>
-<p>
-Note: Empty parameters are not an error - they are just ignored by the server.
-</p>
-<p>
-Where the content of the parameter is syntactically incorrect, servers SHOULD return an error.
-However, where the issue is a logical condition (e.g. unknown subject or code), the server
-SHOULD process the search, including processing the parameter - with the result of returning
-an empty search set, since the parameter cannot be satisfied.
-</p>
-<p>
-In such cases, the search process MAY include an <a href="operationoutcome.html">OperationOutcome</a>
-in the search set that contains additional hints and warnings about the search process.
-This is included in the search results as an entry with <a href="bundle-definitions.html#Bundle.entry.search.mode">search mode</a> = <a href="valueset-search-entry-mode.html"><code>outcome</code></a>.
-Clients can use this information to improve future searches. If, for example, a client
-performed the following search:
-<span class="http-search-example">
-  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
-  <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/Observation?patient.identifier=http://example.com/fhir/identifier/mrn|123456</span>
-    <span class="http-verb-display-post">POST [base]/Observation/_search
-Content-Type: application/x-www-form-urlencoded
-patient.identifier=http://example.com/fhir/identifier/mrn|123456</span>
-  </span>
-</span>
-and there is no patient for MRN 123456, the server would return <a href="bundle-search-warning.html">a bundle with a warning</a>.
-</p>
-
-<p><b>Unknown and unsupported parameters</b></p>
-<p>
-Servers may receive parameters from the client that they do not recognize, or may
-receive parameters they recognize but do not support (either in general, or for
-a specific search). In general, servers SHOULD ignore unknown or unsupported parameters
-for the following reasons:
-</p>
-<ul>
- <li>Various HTTP stacks and proxies may add parameters that aren't under the control of the client</li>
- <li>The client can determine what parameters the server used by examining the self link in the return (see <a href="#conformance">below</a>)</li>
-</ul>
-<p>
-Clients can specify how the server should behave, by using the prefer header
-</p>
-<ul>
- <li><code>Prefer: handling=strict</code>: Client requests that the server return an error for any unknown or unsupported parameter</li>
- <li><code>Prefer: handling=lenient</code>: Client requests that the server ignore any unknown or unsupported parameter</li>
-</ul>
-<p>
-Servers SHOULD honor the client's request, but are not required to do so.
-</p>
-
+<a name="modifyingresults"></a>
+<h3>Modifying Search Results</h3>
 
 <a name="sort"></a>
 <a name="_sort"></a>
