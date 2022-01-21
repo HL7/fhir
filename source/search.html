@@ -1641,9 +1641,7 @@ Some references are <a href="references.html#circular">circular</a> - that is, t
 points to another resource of the same type. When the reference establishes a strict hierarchy,
 the modifiers :above and :below may be used to search transitively through the hierarchy:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Procedure?location:below=42</span>
     <span class="http-verb-display-post">POST [base]/Procedure/_search
@@ -3586,7 +3584,7 @@ $(function() {
   catch(exception){
   }
 
-  if (!httpVerbSelector) { httpVerbSelector = 'post'; }
+  if (!httpVerbSelector) { httpVerbSelector = '#post'; }
 
   $(`.http-verb-display-${httpVerbSelector}`).show().siblings().hide();
 
@@ -3607,7 +3605,7 @@ $(function() {
   catch(exception){
   }
 
-  if (!exampleFormatSelector) { exampleFormatSelector = 'json'; }
+  if (!exampleFormatSelector) { exampleFormatSelector = '#json'; }
 
   $(`.example-format-display-${exampleFormatSelector}`).show().siblings().hide();
 
