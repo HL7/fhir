@@ -199,9 +199,7 @@ set of resources are being searched:
 <ul>
   <li>A specified resource type:
     <span class='http-search-example'>
-      <span class='http-verb-selector'>
-        Show as: <a href='post'>HTTP POST</a> | <a href='get'>HTTP GET</a>
-      </span>
+      <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
       <span class='http-verb-display'>
         <span class='http-verb-display-get'>GET [base]/[type]?parameter(s)</span>
         <span class='http-verb-display-post'>
@@ -214,9 +212,7 @@ parameter(s)
   </li>
   <li>A specified <a href="compartmentdefinition.html">compartment</a>, perhaps with a specified resource type in that compartment:
     <span class='http-search-example'>
-      <span class='http-verb-selector'>
-        Show as: <a href='post'>HTTP POST</a> | <a href='get'>HTTP GET</a>
-      </span>
+      <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
       <span class='http-verb-display'>
         <span class='http-verb-display-get'>GET [base]/Patient/[id]/[type]?parameter(s)</span>
         <span class='http-verb-display-post'>POST [base]/Patient/[id]/[type]/_search
@@ -231,9 +227,7 @@ parameter(s)</span>
     common to all resource types.
 
     <span class='http-search-example'>
-      <span class='http-verb-selector'>
-        Show as: <a href='post'>HTTP POST</a> | <a href='get'>HTTP GET</a>
-      </span>
+      <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
       <span class='http-verb-display'>
         <span class='http-verb-display-get'>GET [base]?parameter(s)</span>
         <span class='http-verb-display-post'>POST [base]/_search
@@ -466,9 +460,7 @@ the parameter has the literal value <code>xx$xx</code>. The parameter value <cod
 and the parameter value <code>param=xx\\xx</code> indicates a literal value of <code>xx\xx</code>.
 This means that:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Observation?code=a,b</span>
     <span class="http-verb-display-post">POST [base]/Observation/_search
@@ -478,9 +470,7 @@ code=a,b</span>
 </span>
 is a request for any Observation that has a code of either <code>a</code> or <code>b</code>, whereas:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Observation?code=a\,b</span>
     <span class="http-verb-display-post">POST [base]/Observation/_search
@@ -495,9 +485,7 @@ This escaping is at a different level to the % encoding that applies to all
 URL parameters. Standard % escaping still applies, such that these URLs
 have the same meaning:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124,125</span>
     <span class="http-verb-display-post">POST [base]/ValueSet/_search
@@ -506,9 +494,7 @@ url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124,125</spa
   </span>
 </span>
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124%2CValueSet/125</span>
     <span class="http-verb-display-post">POST [base]/ValueSet/_search
@@ -520,9 +506,7 @@ url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124%2CValueS
 <p>
 As do these URLs:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124\,125</span>
     <span class="http-verb-display-post">POST [base]/ValueSet/_search
@@ -531,9 +515,7 @@ url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124\,125</sp
   </span>
 </span>
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/ValueSet?url=http%58%47%47acme%46org%47fhir%47ValueSet%47123%44http%58%47%47acme%46org%47fhir%47ValueSet%47124%92%46125</span>
     <span class="http-verb-display-post">POST [base]/ValueSet/_search
@@ -684,9 +666,7 @@ Other notes:
 <p>
 To search for all the procedures in a patient compartment that occurred over a 2-year period:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Patient/23/Procedure?date=ge2010-01-01&amp;date=le2011-12-31</span>
     <span class="http-verb-display-post">POST [base]/Patient/23/_search
@@ -746,9 +726,7 @@ Notes about searching on Numbers:
 Here are some example searches:
 </p>
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <table>
   <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
   <tr>
@@ -793,9 +771,7 @@ follow the same pattern as <a href="#token">token parameters</a> are also option
 </p>
 
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <table>
     <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
     <tr>
@@ -905,7 +881,7 @@ The interpretation of a <i>reference</i> parameter is either:
 Note: A relative reference resolving to the same value as a specified absolute URL, or vice versa, qualifies as a match.
 For example, if the search parameter value is Patient/123, then this will find references like this:
 <span class="fhir-example">
-  <span class="example-format-selector">Show as: <a href="json">FHIR+JSON</a> | <a href="xml">FHIR+XML</a></span>
+  <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
   <span class="example-format-display">
     <span class="example-format-display-json">
 "patient": {
@@ -925,7 +901,7 @@ If the server base address is http://example.org/fhir, then the full URL for tha
 http://example.org/fhir/Patient/123, which means that the search term also matches patient
 references like this:
 <span class="fhir-example">
-  <span class="example-format-selector">Show as: <a href="json">FHIR+JSON</a> | <a href="xml">FHIR+XML</a></span>
+  <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
   <span class="example-format-display">
     <span class="example-format-display-json">
 "patient": {
@@ -950,9 +926,7 @@ In these cases, multiple resources may have the same logical identifier. Servers
 the logical id refers to more than one matching resource across different types.
 In order to allow the client to perform a search in these situations the type is specified explicitly:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Observation?subject=Patient/23</span>
     <span class="http-verb-display-post">POST [base]/Observation/_search
@@ -966,9 +940,7 @@ This searches for any observations where the subject refers to the patient resou
 logical identifier "23". A modifier is also defined to allow the client to be explicit
 about the intended type:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Observation?subject:Patient/23</span>
     <span class="http-verb-display-post">POST [base]/Observation/_search
@@ -997,9 +969,7 @@ in the search value, as this must always be true.
 References are also allowed to have an <code>identifier</code>. The modifier :identifier
 allows for searching by the identifier rather than the literal reference:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Observation?subject:identifier=http://acme.org/fhir/identifier/mrn|123456</span>
     <span class="http-verb-display-post">POST [base]/Observation/_search
@@ -1042,9 +1012,7 @@ the entire supplied parameter, including casing and accents.
 Examples:
 </p>
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <table class="grid">
     <tr>
       <td>
@@ -1246,9 +1214,7 @@ Servers may elect to consider concept mappings when testing for subsumption rela
 Example searches:
 </p>
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <table>
     <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
     <tr>
@@ -1410,9 +1376,7 @@ A server defined search (link to search page) that may consider matching any of 
  The modifier <code>:above</code> or <code>:below</code> can be used to indicate
  that partial matching is used. For example:
  <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123</span>
     <span class="http-verb-display-post">POST [base]/ValueSet/_search
@@ -1529,9 +1493,7 @@ url=urn:oid:1.2.3.4.5</span>
  </p>
  
  <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <table>
     <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
     <tr>
@@ -1594,7 +1556,7 @@ context-type-value=focus$http://snomed.info/sct|408934002</span>
 <p>
 Elements of type <a href="references.html#Reference">Reference</a> may contain a <a href="references.html#versions">versioned</a> reference:
 <span class="fhir-example">
-  <span class="example-format-selector">Show as: <a href="json">FHIR+JSON</a> | <a href="xml">FHIR+XML</a></span>
+  <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
   <span class="example-format-display">
     <span class="example-format-display-json">
 "evidence": {
@@ -1622,7 +1584,7 @@ When searching on versioned references, the following rules apply:
 Elements of type <a href="references.html#canonical">canonical</a> may contain a <a href="references.html#versions">version specific</a> reference,
 but this version is different in both meaning and format to version specific references that might be found in a <a href="references.html#Reference">Reference</a>:
 <span class="fhir-example">
-  <span class="example-format-selector">Show as: <a href="json">FHIR+JSON</a> | <a href="xml">FHIR+XML</a></span>
+  <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
   <span class="example-format-display">
     <span class="example-format-display-json">
 "valueSet": "http://hl7.org/fhir/ValueSet/example|3.0"
@@ -1643,9 +1605,7 @@ interpreting that portion as a search on the business version of the target reso
 The modifier <code>:below</code> is used with canonical references, to control
 whether the version is considered in the search. The search:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Observation?definition:below=http:http://acme.com/some-profile</span>
     <span class="http-verb-display-post">POST [base]/Observation/_search
@@ -1663,9 +1623,7 @@ matches all of these element values:
 <p>
 The search:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Observation?definition:below=http:http://acme.com/some-profile|1</span>
     <span class="http-verb-display-post">POST [base]/Observation/_search
@@ -1700,9 +1658,7 @@ that occurred in locations that are part of location with id 42.
 </p>
 <p>
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/MedicationAdministration?encounter:above=21</span>
     <span class="http-verb-display-post">POST [base]/MedicationAdministration/_search
@@ -1728,9 +1684,7 @@ Search Parameter definition.
 The <code>:below</code> modifier is also very useful with searching mime types, such as for <a href="documentreference.html">DocumentReference.contenttype</a>
 which refers to <a href="datatypes.html#Attachment">Attachment.contentType</a>. A simple search such as:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/DocumentReference?contenttype=text/xml</span>
     <span class="http-verb-display-post">POST [base]/DocumentReference/_search
@@ -1741,9 +1695,7 @@ contenttype=text/xml</span>
 will miss documents with a mime type such as <code>text/xml; charset=UTF-8</code>. This
 search will find all text/xml documents:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/DocumentReference?contenttype:below=text/xml</span>
     <span class="http-verb-display-post">POST [base]/DocumentReference/_search
@@ -1774,9 +1726,7 @@ reference to a <a href="patient.html">Patient</a> resource, and
 the Patient resource includes a parameter <i>name</i> which
 searches on patient name, then the search:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/DiagnosticReport?subject.name=peter</span>
     <span class="http-verb-display-post">POST [base]/DiagnosticReport/_search
@@ -1788,9 +1738,7 @@ is a request to return all the lab reports that have a subject whose name includ
 the Diagnostic Report subject can be one of a set of different resources, it's necessary to limit
 the search to a particular type:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/DiagnosticReport?subject:Patient.name=peter</span>
     <span class="http-verb-display-post">POST [base]/DiagnosticReport/_search
@@ -1803,9 +1751,7 @@ This request returns all the lab reports that have a subject which is a patient,
 <p>
 Note that chained parameters are applied independently to the target resource. For example,
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Patient?general-practitioner.name=Joe&amp;general-practitioner.address-state=MN</span>
     <span class="http-verb-display-post">POST [base]/Patient/_search
@@ -1836,9 +1782,7 @@ resources based on the properties of resources that refer to them (instead of ch
 above, where resources can be selected based on the properties of resources that they
 refer to). Here is an example of the _has parameter:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Patient?_has:Observation:patient:code=1234-5</span>
     <span class="http-verb-display-post">POST [base]/Patient/_search
@@ -1860,9 +1804,7 @@ Note that each _has parameter is processed independently of other _has parameter
 <p>
 The _has parameter can be chained, like this:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:agent=MyUserId</span>
     <span class="http-verb-display-post">POST [base]/Patient/_search
@@ -1882,9 +1824,7 @@ This search will fetch all Patient records that have an Observation where the ob
 <p>
 Consider the case of searching for all AllergyIntolerance resources:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/AllergyIntolerance?clinical-status=http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical|active</span>
     <span class="http-verb-display-post">POST [base]/AllergyIntolerance/_search
@@ -1896,7 +1836,7 @@ clinical-status=http://terminology.hl7.org/CodeSystem/allergyintolerance-clinica
 <p>
 This search will only return resources that have a value for clinicalStatus:
 <span class="fhir-example">
-  <span class="example-format-selector">Show as: <a href="json">FHIR+JSON</a> | <a href="xml">FHIR+XML</a></span>
+  <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
   <span class="example-format-display">
     <span class="example-format-display-json">
 {
@@ -1930,9 +1870,7 @@ be appropriate to ignore AllergyIntolerance warnings with an unknown clinical st
 only return resources with an explicit clinicalStatus. Instead, it might be desired to return
 AllergyIntolerance resources with either an explicit value for clinicalStatus, or none:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/AllergyIntolerance?clinical-status=http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical|active</span>
     <span class="http-verb-display-post">POST [base]/AllergyIntolerance/_search
@@ -1951,9 +1889,7 @@ clinical-status:missing=true</span>
 Note that this is 2 separate queries. They can be <a href="http.html#transaction">combined in a batch</a>,
 but not in a single operation. This query will always return an empty list, as no resource can satisfy both criteria at once:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/AllergyIntolerance?clinical-status=http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical|active&amp;clinical-status:missing=true</span>
     <span class="http-verb-display-post">POST [base]/AllergyIntolerance/_search
@@ -1980,9 +1916,7 @@ resource.
 </p>
 <p>
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]?_list=42</span>
     <span class="http-verb-display-post">POST [base]/_search
@@ -2004,9 +1938,7 @@ While it is possible to retrieve the list, and then iterate the entries in the l
 patient, using a list as a search criterion allows for additional search criteria to be specified. For
 instance:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Patient?_list=42&amp;gender=female</span>
     <span class="http-verb-display-post">POST [base]/Patient/_search
@@ -2018,9 +1950,7 @@ This request will return all female patients in the list. The server can return 
 to in the search parameter as an included resource, but is not required to do so.
 In addition, a system can support searching by lists by their logical function. For example:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/AllergyIntolerance?patient=42&amp;_list=$current-allergies</span>
     <span class="http-verb-display-post">POST [base]/AllergyIntolerance/_search
@@ -2049,9 +1979,7 @@ parameter can be used.
 For example, "Find all the
 observations for patient with a name including <code>peter</code> that have a LOINC code <code>1234-5</code>":
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Observation?code=http://loinc.org|1234-5&amp;subject.name=peter</span>
     <span class="http-verb-display-post">POST [base]/Observation/_search
@@ -2063,9 +1991,7 @@ code=http://loinc.org|1234-5&amp;subject.name=peter</span>
 <p>
 Using the <code>_filter</code> parameter, the search would be expressed like this (note that the value is unescaped for readability):
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Observation?_filter=code eq http://loinc.org|1234-5 and subject.name co "peter"</span>
     <span class="http-verb-display-post">POST [base]/Observation/_search
@@ -2084,9 +2010,7 @@ The <code>_filter</code> parameter is described in detail on the <a href="search
 <p>
 Normally, a search is initiated against a known type of resource, e.g.:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Observation?params...</span>
     <span class="http-verb-display-post">POST [base]/Observation/_search
@@ -2107,9 +2031,7 @@ In these circumstances, the search criteria may need to specify one or more
 resource types that the search applies to. This can be done by using the
 <code>_type</code> parameter:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/_type=Observation,Condition&amp;other params...</span>
     <span class="http-verb-display-post">POST [base]/_search
@@ -2150,9 +2072,7 @@ In some cases, parameters may cause an error, or might not be able to match anyt
 </p>
 
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <table>
     <tr><td width="50%"><b>Issue</b></td><td><b>Search</b></td></tr>
     <tr>
@@ -2250,9 +2170,7 @@ This is included in the search results as an entry with <a href="bundle-definiti
 Clients can use this information to improve future searches. If, for example, a client
 performed the following search:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Observation?patient.identifier=http://example.com/fhir/identifier/mrn|123456</span>
     <span class="http-verb-display-post">POST [base]/Observation/_search
@@ -2294,9 +2212,7 @@ The client can indicate which order to return the results by
 using the parameter <code>_sort</code>, which can contain a
 comma-separated list of sort rules in priority order:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Observation?_sort=status,-date,category</span>
     <span class="http-verb-display-post">POST [base]/Observation/_search
@@ -2424,9 +2340,7 @@ number of matches, not how many are returned in a single Bundle response.
 The client can request the server to return only a portion of the resources
 by using the parameter <code>_summary</code>:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/ValueSet?_summary=true</span>
     <span class="http-verb-display-post">POST [base]/ValueSet/_search
@@ -2485,9 +2399,7 @@ If one of the summary views defined above is not appropriate, a client can
 request a specific set of elements be returned as part of a resource in the search results using
 the <code>_elements</code> parameter:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Patient?_elements=identifier,active,link</span>
     <span class="http-verb-display-post">POST [base]/Patient/_search
@@ -2520,7 +2432,7 @@ may generate a ranking score to indicate which resources meet
 the specified criteria better than others. The server can return this
 score in <a href="bundle-definitions.html#Bundle.entry.score">entry.score</a>:
 <span class="fhir-example">
-  <span class="example-format-selector">Show as: <a href="json">FHIR+JSON</a> | <a href="xml">FHIR+XML</a></span>
+  <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
   <span class="example-format-display">
     <span class="example-format-display-json">
 "entry": {
@@ -2571,9 +2483,7 @@ search parameter.
 <p>
 Each <code>_include</code> parameter specifies a search parameter to join on:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/MedicationRequest?_include=MedicationRequest:patient</span>
     <span class="http-verb-display-post">POST [base]/MedicationRequest/_search
@@ -2625,9 +2535,7 @@ Request</a> resources and their <a href="practitioner.html">prescribing Practiti
 for the matching <a href="medicationdispense.html">Medication Dispense</a> resources:
 
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/MedicationDispense?_include=MedicationDispense:prescription
       &amp;_include:iterate=MedicationRequest:performer&amp;criteria...</span>
@@ -2645,9 +2553,7 @@ asks for the <code>_include</code> based on <code>related</code> parameter to be
 iteratively, so it will retrieve observations that are directly related, and
 also any related observations to any other included observation.
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Observation?_include=Observation:has-member&amp;criteria...</span>
     <span class="http-verb-display-post">POST [base]/Observation/_search
@@ -2703,7 +2609,7 @@ an image attachment, the server may also elect to include this in the returned
 results as a <a href="binary.html">Binary</a> resource. For example, the include
 path may point to an attachment which is by reference, like this:
 <span class="fhir-example">
-  <span class="example-format-selector">Show as: <a href="json">FHIR+JSON</a> | <a href="xml">FHIR+XML</a></span>
+  <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
   <span class="example-format-display">
     <span class="example-format-display-json">
 "content": {
@@ -2735,9 +2641,7 @@ a MedicationRequest resource that has a contained Medication resource specifying
 a custom formulation that has ingredient with a <code>itemCodeableConcept</code> "abc" in "http://acme.com./medications".
 In this case, a search:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/MedicationRequest?medication.ingredient-code=abc</span>
     <span class="http-verb-display-post">POST [base]/MedicationRequest/_search
@@ -2749,9 +2653,7 @@ medication.ingredient-code=abc</span>
 <p>
   will include the MedicationRequest resource in the results. However, this search:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Medication?ingredient-code=abc</span>
     <span class="http-verb-display-post">POST [base]/Medication/_search
@@ -2786,7 +2688,7 @@ following values:
 When returning a container resource, the server simply puts this in the
 search results:
 <span class="fhir-example">
-  <span class="example-format-selector">Show as: <a href="json">FHIR+JSON</a> | <a href="xml">FHIR+XML</a></span>
+  <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
   <span class="example-format-display">
     <span class="example-format-display-json">
 {
@@ -2845,7 +2747,7 @@ by type might not work).
 If the return type is the contained resource, this must be done slightly
 differently:
 <span class="fhir-example">
-  <span class="example-format-selector">Show as: <a href="json">FHIR+JSON</a> | <a href="xml">FHIR+XML</a></span>
+  <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
   <span class="example-format-display">
     <span class="example-format-display-json">
 {
@@ -2923,9 +2825,7 @@ parameter <a href="#text"><code>_text</code></a> and <a href="#filter"><code>_fi
 <p>
 The search parameter <code>_id</code> refers to the logical id of the resource, and can be used when the search context specifies a resource type:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Patient?_id=23</span>
     <span class="http-verb-display-post">POST [base]/Patient/_search
@@ -2957,9 +2857,7 @@ are always case sensitive.
 The search parameter <code>_lastUpdated</code> can be used to select resources based
 on the last time they were changed:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Observation?_lastUpdated=gt2010-10-01</span>
     <span class="http-verb-display-post">POST [base]/Observation/_search
@@ -3007,9 +2905,7 @@ The search parameters <a href="resource.html#simple-tags">_tag</a>, <a href="res
 on the equivalent elements in the <a href="resource.html#meta"><code>meta</code> element</a>.
 For example:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Condition?_tag=http://acme.org/codes|needs-review</span>
     <span class="http-verb-display-post">POST [base]/Condition/_search
@@ -3019,7 +2915,7 @@ _tag=http://acme.org/codes|needs-review</span>
 </span>
 searches for all Condition resources with the tag:
 <span class="fhir-example">
-  <span class="example-format-selector">Show as: <a href="json">FHIR+JSON</a> | <a href="xml">FHIR+XML</a></span>
+  <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
   <span class="example-format-display">
     <span class="example-format-display-json">
 {
@@ -3039,9 +2935,7 @@ searches for all Condition resources with the tag:
 <p>
 In the same manner:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/DiagnosticReport?_profile=http://hl7.org/fhir/StructureDefinition/lipid</span>
     <span class="http-verb-display-post">POST [base]/DiagnosticReport/_search
@@ -3106,9 +3000,7 @@ The value of the parameter is a text-based search, which may involve searching
 multiple words with thesaurus and proximity considerations, and logical operations
 such as AND, OR etc. For example (note that the values are unescaped for clarity):
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Condition?_text=(bone OR liver) and metastases</span>
     <span class="http-verb-display-post">POST [base]/Condition/_search
@@ -3143,7 +3035,7 @@ display a warning message to the user or take some other action.
 In the case of a RESTful search, these parameters are encoded in the
 self link in the bundle that is returned:
 <span class="fhir-example">
-  <span class="example-format-selector">Show as: <a href="json">FHIR+JSON</a> | <a href="xml">FHIR+XML</a></span>
+  <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
   <span class="example-format-display">
     <span class="example-format-display-json">
 "link": {
@@ -3187,9 +3079,7 @@ direct queries that have human resolution.
 More advanced search operations are specified by the
 <code>_query</code> parameter:
 <span class="http-search-example">
-  <span class="http-verb-selector">
-    Show as: <a href="post">HTTP POST</a> | <a href="get">HTTP GET</a>
-  </span>
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/Patient?_query=name&amp;parameters...</span>
     <span class="http-verb-display-post">POST [base]/Patient/_search
@@ -3691,7 +3581,7 @@ Cross-map between search parameter types and Data types:
 <script>
 $(function() {
   try {
-  var httpVerbSelector = sessionStorage.getItem('fhir-http-verb-selector');
+    var httpVerbSelector = sessionStorage.getItem('fhir-http-verb-selector');
   }
   catch(exception){
   }
@@ -3702,7 +3592,7 @@ $(function() {
 
   $('.http-verb-selector a').on('click', function(e) {
     e.preventDefault();
-    httpVerbSelector = $(this).attr('href');
+    httpVerbSelector = $(this).attr('href').substr(1);
     $(`.http-verb-display-${httpVerbSelector}`).show().siblings().hide();
     try {
       sessionStorage.setItem('fhir-http-verb-selector', httpVerbSelector);
@@ -3723,10 +3613,10 @@ $(function() {
 
   $('.example-format-selector a').on('click', function(e) {
     e.preventDefault();
-    exampleFormatSelector = $(this).attr('href');
+    exampleFormatSelector = $(this).attr('href').substr(1);
     $(`.example-format-display-${exampleFormatSelector}`).show().siblings().hide();
     try {
-      sessionStorage.setItem('fhir-http-verb-selector', exampleFormatSelector);
+      sessionStorage.setItem('fhir-example-format-selector', exampleFormatSelector);
     }
     catch(exception){
     }
