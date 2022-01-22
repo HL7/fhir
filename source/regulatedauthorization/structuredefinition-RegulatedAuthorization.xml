@@ -69,7 +69,7 @@
         <valueCode value="280,0"/>
       </extension>
       <path value="RegulatedAuthorization"/>
-      <short value="Regulatory approval, clearance or licencing related to a regulated product, treatment, facility or activity that is cited in a guidance, regulation, rule or legislative act. An example is Market Authorization relating to a Medicinal Product"/>
+      <short value="Regulatory approval, clearance or licencing related to a regulated product, treatment, facility or activity e.g. Market Authorization for a Medicinal Product"/>
       <definition value="Regulatory approval, clearance or licencing related to a regulated product, treatment, facility or activity that is cited in a guidance, regulation, rule or legislative act. An example is Market Authorization relating to a Medicinal Product."/>
       <min value="0"/>
       <max value="*"/>
@@ -165,7 +165,7 @@
     </element>
     <element id="RegulatedAuthorization.region">
       <path value="RegulatedAuthorization.region"/>
-      <short value="The territory (e.g., country, jurisdiction etc.) in which the authorization has been granted"/>
+      <short value="The territory in which the authorization has been granted"/>
       <definition value="The territory (e.g., country, jurisdiction etc.) in which the authorization has been granted."/>
       <min value="0"/>
       <max value="*"/>
@@ -189,7 +189,7 @@
     <element id="RegulatedAuthorization.status">
       <path value="RegulatedAuthorization.status"/>
       <short value="The status that is authorised e.g. approved. Intermediate states can be tracked with cases and applications"/>
-      <definition value="The status that is authorised e.g. approved. Intermediate states can be tracked with cases and applications."/>
+      <definition value="The status that is authorised e.g. approved. Intermediate states and actions can be tracked with cases and applications."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -201,7 +201,7 @@
           <valueString value="PublicationStatus"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
@@ -226,7 +226,7 @@
     </element>
     <element id="RegulatedAuthorization.validityPeriod">
       <path value="RegulatedAuthorization.validityPeriod"/>
-      <short value="The time period in which the regulatory approval, clearance or licencing is in effect. As an example, a Marketing Authorization includes the date of authorization and/or an expiration date"/>
+      <short value="The time period in which the regulatory approval etc. is in effect, e.g. a Marketing Authorization includes the date of authorization and/or expiration date"/>
       <definition value="The time period in which the regulatory approval, clearance or licencing is in effect. As an example, a Marketing Authorization includes the date of authorization and/or an expiration date."/>
       <min value="0"/>
       <max value="1"/>
@@ -241,7 +241,7 @@
     </element>
     <element id="RegulatedAuthorization.indication">
       <path value="RegulatedAuthorization.indication"/>
-      <short value="Condition for which the use of the regulated product  applies"/>
+      <short value="Condition for which the use of the regulated product applies"/>
       <definition value="Condition for which the use of the regulated product applies."/>
       <min value="0"/>
       <max value="1"/>
@@ -258,7 +258,7 @@
     <element id="RegulatedAuthorization.intendedUse">
       <path value="RegulatedAuthorization.intendedUse"/>
       <short value="The intended use of the product, e.g. prevention, treatment"/>
-      <definition value="The intended use of the product, e.g. prevention, treatment."/>
+      <definition value="The intended use of the product, e.g. prevention, treatment, diagnosis."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -280,7 +280,7 @@
     </element>
     <element id="RegulatedAuthorization.basis">
       <path value="RegulatedAuthorization.basis"/>
-      <short value="The legal or regulatory framework against which this authorization is granted, or other reasons for it"/>
+      <short value="The legal/regulatory framework or reasons under which this authorization is granted"/>
       <definition value="The legal or regulatory framework against which this authorization is granted, or other reasons for it."/>
       <min value="0"/>
       <max value="*"/>
@@ -455,7 +455,7 @@
           <valueString value="PublicationStatus"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
@@ -465,8 +465,8 @@
     </element>
     <element id="RegulatedAuthorization.case.date[x]">
       <path value="RegulatedAuthorization.case.date[x]"/>
-      <short value="Relevant date for this of case"/>
-      <definition value="Relevant date for this of case."/>
+      <short value="Relevant date for this case"/>
+      <definition value="Relevant date for this case."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -484,7 +484,7 @@
     <element id="RegulatedAuthorization.case.application">
       <path value="RegulatedAuthorization.case.application"/>
       <short value="Applications submitted to obtain a marketing authorization. Steps within the longer running case or procedure"/>
-      <definition value="Applications submitted to obtain a marketing authorization. Steps within the longer running case or procedure."/>
+      <definition value="Applications submitted to obtain a marketing authorization, or similar. Steps within the longer running case or procedure."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#RegulatedAuthorization.case"/>
