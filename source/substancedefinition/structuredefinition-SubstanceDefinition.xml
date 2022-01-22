@@ -122,9 +122,17 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Substance_Classification.Domain"/>
+        <map value="n/a"/>
       </mapping>
     </element>
     <element id="SubstanceDefinition.classification">
@@ -152,6 +160,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicinalProductType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Applicable domain for this product (e.g. human, veterinary)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-domain"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Substance_Classification.Substance_Classification (and Code and Type) and Substance_Classification.Substance_Classification_Subtype"/>
@@ -167,6 +183,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceGrade"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The quality standard, established benchmark, to which a substance complies"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-grade"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Substance_Specified_Substance_Group_3.Grade"/>
@@ -323,6 +347,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceStereochemistry"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The optical rotation type of a substance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-stereochemistry"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Moiety.Stereochemistry"/>
@@ -338,6 +370,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceOpticalActivity"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The optical rotation type of a substance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-optical-activity"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Moiety.Optical_Activity"/>
@@ -386,6 +426,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceAmountType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The relationship between two substance types."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-amount-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Amount.Amount_Type"/>
@@ -393,7 +441,8 @@
     </element>
     <element id="SubstanceDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="442,852"/>
+        <!--valueCode value="580,900"/--> <!-- was 442,852 --> 
+        <valueCode value="350,825"/>      
       </extension>
       <path value="SubstanceDefinition.property"/>
       <short value="General specifications for this substance"/>
@@ -419,6 +468,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTCharacteristicCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This value set includes all observable entity codes from SNOMED CT - provided as an exemplar value set."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/product-characteristic-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Property.Property_Type"/>
@@ -469,7 +526,7 @@
     </element>
     <element id="SubstanceDefinition.molecularWeight">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="428,733"/>
+        <valueCode value="448,733"/>
       </extension>
       <path value="SubstanceDefinition.molecularWeight"/>
       <short value="The molecular weight or weight range (for proteins, polymers or nucleic acids)"/>
@@ -491,6 +548,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceWeightMethod"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The method by which the substance weight was measured."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-weight-method"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Molecular_Weight.Molecular_Weight_Method"/>
@@ -506,6 +571,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceWeightType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type of substance weight measurement."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-weight-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Molecular_Weight.Molecular_Weight_Type"/>
@@ -554,6 +627,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceStereochemistry"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The optical rotation type of a substance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-stereochemistry"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Structure.Stereochemistry"/>
@@ -569,6 +650,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceOpticalActivity"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The optical rotation type of a substance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-optical-activity"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Structure.Optical_Activity"/>
@@ -627,6 +716,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceStructureTechnique"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The method used to elucidate the structure or characterization of the drug substance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-structure-technique"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -650,7 +747,7 @@
     </element>
     <element id="SubstanceDefinition.structure.representation">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="691,580"/>
+        <valueCode value="730,630"/> <!-- was 691,580 -->
       </extension>
       <path value="SubstanceDefinition.structure.representation"/>
       <short value="A depiction of the structure or characterization of the substance"/>
@@ -676,6 +773,15 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceRepresentationType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A format of a substance representation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-representation-type"/>
+      </binding>
+      
       <mapping>
         <identity value="idmp"/>
         <map value="Structural_Representation.Structural_Representation_Type"/>
@@ -706,6 +812,15 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceRepresentationFormat"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A format of a substance representation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-representation-format"/>
+      </binding>
+      
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -729,7 +844,7 @@
     </element>
     <element id="SubstanceDefinition.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="221,880"/>
+        <valueCode value="280,922"/> <!-- was 221,880 -->
       </extension>
       <path value="SubstanceDefinition.code"/>
       <short value="Codes associated with the substance"/>
@@ -770,6 +885,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Substance_Code.Code_System_Status"/>
@@ -823,7 +946,7 @@
     </element>
     <element id="SubstanceDefinition.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="470,350"/>
+        <valueCode value="570,350"/> <!-- was 470,350 --> 
       </extension>
       <path value="SubstanceDefinition.name"/>
       <short value="Names applicable to this substance"/>
@@ -864,6 +987,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceNameType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type of a name given to a substance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-name-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Substance_Name.Substance_Name_Type"/>
@@ -879,6 +1010,15 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+      
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -909,6 +1049,23 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A human language."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
+          <valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Language"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="IETF language tag"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Substance_Name.Language"/>
@@ -924,6 +1081,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceNameDomain"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The use context of a substance name for example if there is a different name when used as a drug active ingredient as opposed to a food colour additive."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-name-domain"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Substance_Name.Substance_Name_Domain"/>
@@ -939,6 +1104,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Jurisdiction codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Substance_Name.Jurisdiction"/>
@@ -972,7 +1145,7 @@
     </element>
     <element id="SubstanceDefinition.name.official">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="757,472"/>
+        <valueCode value="730,530"/> <!-- 757,472 --> 
       </extension>
       <path value="SubstanceDefinition.name.official"/>
       <short value="Details of the official nature of this name"/>
@@ -998,6 +1171,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceNameAuthority"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="An authority that officates substance names."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-name-authority"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Official_Name.Official_Name_Type"/>
@@ -1013,6 +1194,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Official_Name.Official_Name_Status"/>
@@ -1096,6 +1285,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceRelationshipType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The relationship between two substance types."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-relationship-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Substance_Relationship.Relationship_Type"/>
@@ -1162,6 +1359,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceAmountType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The relationship between two substance types."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-amount-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Substance_Relationship.Amount_Type"/>
@@ -1259,6 +1464,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SourceMaterialType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A classification that provides the origin of the substance raw material."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-source-material-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Source_Material.Source_Material_Type"/>
@@ -1274,6 +1487,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SourceMaterialGenus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The genus of an organism, typically referring to the Latin epithet of the genus element of the plant/animal scientific name."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-source-material-genus"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Source_Material.Organism.Genus"/>
@@ -1289,6 +1510,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SourceMaterialSpecies"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A species of origin a substance raw material."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-source-material-species"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Source_Material.Organism.Species"/>
@@ -1304,6 +1533,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SourceMaterialPart"/>
+        </extension>
+        <strength value="example"/>
+        <description value="An anatomical origin of the source material within an organism."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-source-material-part"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Source_Material.Part_Description.Part"/>
@@ -1319,6 +1556,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Country"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Jurisdiction codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/country"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Source_Material.Country_Of_Origin"/>
