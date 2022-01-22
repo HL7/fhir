@@ -176,7 +176,7 @@
           <valueString value="PublicationStatus"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
