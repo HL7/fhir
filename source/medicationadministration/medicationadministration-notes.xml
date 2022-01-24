@@ -173,14 +173,19 @@
     
     </ul>
     
-    <p>Patient view Medication Administration list may include medications that come from: </p>
-    <ul>
-        <li>Identical list as above with the following caveats
-        might not include some medications
-        if the patient is one of the sources for the list and states they are not taking a specific medication, irrespective of whether it was prescribed 
-        patient does not know or has incomplete memory of the medications they have been prescribed </li>
-        <li>level of detail for each medication might not be as detailed as provider-based list  </li> 
-    </ul>
+    <p>Patient view Medication Administration list may include medications that come: </p>
+        <ul>
+            <li>from an identical list as above with the following caveats:
+                <ul>
+                    <li>The list might not include some medications if the patient is one of the sources for the list and states they are not taking a specific medication, irrespective of whether it was prescribed </li>
+                    
+                    <li>The patient does not know or has incomplete memory of the medications they have been prescribed </li>
+                    <li>The level of detail for each medication might not be as detailed as provider-based list  </li> 
+                    
+                </ul>
+            </li>
+        </ul>
+
    
     
 </div>
