@@ -82,6 +82,16 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/patient-sexForClinicalUse"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/patient-recordedSexAndGender"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/patient-preferenceType"/>
       </reference>
     </resource>

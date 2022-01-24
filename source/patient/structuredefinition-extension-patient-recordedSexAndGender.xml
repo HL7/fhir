@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="patient-genderIdentity"/>
+  <id value="patient-recordedSexAndGender"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/patient-genderIdentity"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/patient-recordedSexAndGender"/>
   <version value="4.6.0"/>
-  <name value="genderIdentity"/>
-  <title value="genderIdentity"/>
+  <name value="recordedSexAndGender"/>
+  <title value="recordedSexAndGender"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="An individual&#39;s personal sense of being a man, woman, boy, girl, nonbinary, or something else. This represents an individual’s identity, ascertained by asking them what
-that identity is."/>
+  <description value="The recorded sex and gender is to be used to differentiate existing sex or gender data. This element is used for existing 'sex' or 'gender' elements in a document or record when the intent and meaning is unclear. For example, the person's birth certificate information, passport information, and national identity document information may all be present. This is necessary because an individual's documents may be updated at different rates or for different reasons. Sex assigned at birth (SAAB), while very common and considered essential in some jurisdictions, is considered a recorded sex and gender entry. "/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
@@ -47,17 +46,16 @@ that identity is."/>
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="The individual&#39;s gender identity"/>
-      <definition value="An individual&#39;s personal sense of being a man, woman, boy, girl, nonbinary, or something else. This represents an individual’s identity, ascertained by asking them what
-that identity is."/>
+      <short value="The recorded sex and gender property for the person."/>
+      <definition value="A sex and gender property that is aquired from a document or other record.."/>
       <min value="0"/>
     </element>
     <element id="Extension.extension:value">
       <path value="Extension.extension"/>
       <sliceName value="value"/>
-      <short value="TODO: genderIdentity.value"/>
-      <definition value="TODO: genderIdentity.value"/>
-      <comment value="TODO: genderIdentity.value"/>
+      <short value="TODO: recordedSexAndGender.value"/>
+      <definition value="TODO: recordedSexAndGender.value"/>
+      <comment value="TODO: recordedSexAndGender.value"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -83,18 +81,31 @@ that identity is."/>
       </type>
 	  <binding>
 		  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-			<valueString value="GenderIdentity"/>
+			<valueString value="recordedSexAndGender"/>
 		  </extension>
 		  <strength value="example"/>
-		  <valueSet value="http://hl7.org/fhir/ValueSet/gender-identity"/>
+		  <valueSet value="http://hl7.org/fhir/ValueSet/recorded-sex-and-gender"/>
 	  </binding>
+    </element>
+    <element id="Extension.extension:sourceDocument">
+      <path value="Extension.extension.sourceDocument"/>
+      <type>
+        <code value="Reference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+      </type>
+    </element>
+	<element id="Extension.extension:jurisdiction">
+      <path value="Extension.extension.jurisdiction"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
     </element>
     <element id="Extension.extension:period">
       <path value="Extension.extension"/>
       <sliceName value="period"/>
-      <short value="TODO: genderIdentity.period"/>
-      <definition value="TODO: genderIdentity.period"/>
-      <comment value="TODO: genderIdentity.period"/>
+      <short value="TODO: recordedSexAndGender.period"/>
+      <definition value="TODO: recordedSexAndGender.period"/>
+      <comment value="TODO: recordedSexAndGender.period"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -122,8 +133,8 @@ that identity is."/>
     <element id="Extension.extension:comment">
       <path value="Extension.extension"/>
       <sliceName value="comment"/>
-      <short value="TODO: genderIdentity.comment"/>
-      <definition value="TODO: genderIdentity.comment"/>
+      <short value="TODO: recordedSexAndGender.comment"/>
+      <definition value="TODO: recordedSexAndGender.comment"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -150,14 +161,15 @@ that identity is."/>
     </element>
     <element id="Extension.url">
       <path value="Extension.url"/>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/patient-genderIdentity"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/patient-recordedSexAndGender"/>
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>
 	  <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
     </element>
   </differential>

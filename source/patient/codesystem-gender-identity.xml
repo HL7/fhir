@@ -21,37 +21,37 @@
   <content value="complete"/>
   <concept>
     <code value="transgender-female"/>
-    <display value="transgender female"/>
+    <display value="Transgender female"/>
     <definition value="the patient identifies as transgender male-to-female"/>
   </concept>
   <concept>
     <code value="transgender-male"/>
-    <display value="transgender male"/>
+    <display value="Transgender male"/>
     <definition value="the patient identifies as transgender female-to-male"/>
   </concept>
   <concept>
     <code value="non-binary"/>
-    <display value="non-binary"/>
+    <display value="Non-binary"/>
     <definition value="the patient identifies with neither/both female and male"/>
   </concept>
   <concept>
     <code value="male"/>
-    <display value="male"/>
+    <display value="Male"/>
     <definition value="the patient identifies as male"/>
   </concept>
   <concept>
     <code value="female"/>
-    <display value="female"/>
+    <display value="Female"/>
     <definition value="the patient identifies as female"/>
   </concept>
   <concept>
     <code value="other"/>
-    <display value="other"/>
+    <display value="Other"/>
     <definition value="other gender identity"/>
   </concept>
   <concept>
     <code value="non-disclose"/>
-    <display value="does not wish to disclose"/>
+    <display value="Does not wish to disclose"/>
     <definition value="the patient does not wish to disclose his gender identity"/>
   </concept>
 </CodeSystem>
