@@ -98,8 +98,8 @@
           <valueString value="SubscriptionStatus"/>
         </extension>
         <strength value="required"/>
-        <description value="The status of a subscription."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-status"/>
+        <description value="The state of a subscription."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-state"/>
       </binding>
       <mapping>
         <identity value="w5"/>

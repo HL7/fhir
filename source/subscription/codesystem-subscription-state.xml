@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="subscription-status"/>
+  <id value="subscription-state"/>
   <meta>
     <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -10,16 +10,16 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
-      <h2>SubscriptionStatus</h2>
+      <h2>SubscriptionState</h2>
       
       <div>
         
-        <p>The status of a subscription.</p>
+        <p>The state of a subscription.</p>
 
       
       </div>
       
-      <p>This code system http://hl7.org/fhir/subscription-status defines the following codes:</p>
+      <p>This code system http://hl7.org/fhir/subscription-state defines the following codes:</p>
       
       <table class="codes">
         
@@ -49,7 +49,7 @@
           
           <td style="white-space:nowrap">requested
             
-            <a name="subscription-status-requested"> </a>
+            <a name="subscription-state-requested"> </a>
           
           </td>
           
@@ -63,7 +63,7 @@
           
           <td style="white-space:nowrap">active
             
-            <a name="subscription-status-active"> </a>
+            <a name="subscription-state-active"> </a>
           
           </td>
           
@@ -77,7 +77,7 @@
           
           <td style="white-space:nowrap">error
             
-            <a name="subscription-status-error"> </a>
+            <a name="subscription-state-error"> </a>
           
           </td>
           
@@ -91,7 +91,7 @@
           
           <td style="white-space:nowrap">off
             
-            <a name="subscription-status-off"> </a>
+            <a name="subscription-state-off"> </a>
           
           </td>
           
@@ -114,14 +114,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/>
   </extension>
-  <url value="http://hl7.org/fhir/subscription-status"/>
+  <url value="http://hl7.org/fhir/subscription-state"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.503"/>
   </identifier>
   <version value="4.3.0-CIBUILD"/>
-  <name value="SubscriptionStatus"/>
-  <title value="SubscriptionStatus"/>
+  <name value="SubscriptionState"/>
+  <title value="SubscriptionState"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -136,9 +136,9 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The status of a subscription."/>
+  <description value="The state of a subscription."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/subscription-status"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/subscription-state"/>
   <content value="complete"/>
   <concept>
     <code value="requested"/>
