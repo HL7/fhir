@@ -4452,7 +4452,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">targetProfile is only allowed if the type is Reference or canonical</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">(code='Reference' or code = 'canonical' or code = 'CodeableReference') or targetProfile.empty()</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:targetProfile)) or (f:code/@value = 'Reference')</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:targetProfile)) or (f:code/@value = 'Reference') or (f:code/@value = 'canonical') or (f:code/@value = 'CodeableReference')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">18</Data><NamedCell ss:Name="Invariantids"/></Cell>
