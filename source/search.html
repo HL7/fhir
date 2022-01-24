@@ -56,7 +56,7 @@ complexity that they require for their implementations.
   </li>
   <li><a href="#ptypes">Search Parameters</a>
     <ul>
-      <li><a href="#multivalue">Searching Multiple Values</a></li>
+      <li><a href="#multivalue">Searching Multiple Values (joining with AND or OR)</a></li>
       <li><a href="#modifiers">Modifiers</a></li>
       <li><a href="#prefix">Prefixes</a></li>
       <li><a href="#escaping">Escaping Search Parameters</a></li>
@@ -143,7 +143,8 @@ complexity that they require for their implementations.
   Search operations can also be implemented in <a href="messaging.html#search">the messaging framework</a>.
 </p>
 <p>
-  There are <a href="safety.html#search">several safety issues</a> associated with the implementation of searching that implementers should always keep in mind.
+  There are <a href="safety.html#search">several safety issues</a> associated with the implementation of 
+  searching that implementers should always keep in mind.
 </p>
 <p>
   ...
@@ -598,12 +599,65 @@ of parameter being modified.
 </p>
 
 <a name="multivalue"></a>
-<h4>Searching Multiple Values</h4>
+<h4>Searching Multiple Values (joining with AND or OR)</h4>
 <p>
-  AND Joining...
+  Multiple search parameters passed to a single search are used to create an intersection of the results.  In other words,
+  multiple parameters are joined via "AND".  For example, a search for a patient that includes a given name and a
+  family name will only return records that match BOTH:
+</p>
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/Patient?given=valueGiven&amp;family=valueFamily</span>
+    <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+given=valueGiven&amp;family=valueFamily</span>
+  </span>
+</span>
+<p>
+  will return only Patient records with a family name of "valueFamily" and a given name of "valueGiven".
 </p>
 <p>
-  Or Joining...
+  In order to search for unions of results (values joined by "OR"), values can be separated by a comma (",") character.
+  For example, a search for a patient with EITHER of two given names:
+</p>
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/Patient?given=valueGivenA,valueGivenB</span>
+    <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+given=valueGivenA,valueGivenB</span>
+  </span>
+</span>
+<p>
+  will return Patient records with EITHER a given name of "valueGivenA" OR "valueGivenB".  This includes patient 
+  record that have BOTH "valueGivenA" and "valueGivenB" (e.g., inclusive or).
+</p>
+<p>
+  It is possible to combine both "AND" and "OR" type queries together in a single request.  For example, a 
+  search that includes a family name and either of two given names:
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/Patient?given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
+    <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
+  </span>
+</span>
+  will return records that match a family name of "valueFamily" AND a given name of either "valueGivenA" OR 
+  "valueGivenB".
+</p>
+<p>
+  Note that there is not a syntax for queries to perform unions (OR queries) on different elements.  For example,
+  either a given OR family name of 'valueName'.  However, it is possible to define search parameters that operate
+  on multiple elements.  For example, the use case of searching for a patient by any part of their name is common
+  enough that there is a search parameter for Patient called <code>name</code>, which matches any part of a name.
+</p>
+<p>
+  If there is not a combined search parameter defined or supported, clients MAY still issue multiple queries, 
+  either serially or in a batch.
 </p>
 
 <a name="modifiers"></a>
