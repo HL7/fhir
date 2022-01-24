@@ -30,6 +30,7 @@ complexity that they require for their implementations.
   <li><a href="#introduction">Introduction</a>
 	<ul>
 	  <li><a href="#overview">Search Overview</a></li>
+    <li><a href="#searchinputs">Search Inputs</a></li>
 	  <li><a href="#searchcontexts">Search Contexts</a></li>
     <li><a href="#return">Search Responses</a>
       <ul>
@@ -53,8 +54,9 @@ complexity that they require for their implementations.
       <li><a href="#getvspost">Choosing Between POST and GET</a></li>
     </ul>
   </li>
-  <li><a href="#ptypes">Search Parameter Types</a>
+  <li><a href="#ptypes">Search Parameters</a>
     <ul>
+      <li><a href="#multivalue">Searching Multiple Values</a></li>
       <li><a href="#modifiers">Modifiers</a></li>
       <li><a href="#prefix">Prefixes</a></li>
       <li><a href="#escaping">Escaping Search Parameters</a></li>
@@ -156,6 +158,8 @@ complexity that they require for their implementations.
   <a href="search.html#searchviarest">Searching via REST</a>.
 </p>
 
+<a name="searchinputs"></a>
+<h4>Search Inputs</h4>
 <p>
   Input to search operations are referred to as <code>Search Parameters</code>.  A search parameter can be:
 </p>
@@ -185,15 +189,10 @@ complexity that they require for their implementations.
   special search for the most relevant context in which the
   search set is indeterminate: <a href="patient.html#match">Patient MPI Search</a>.
 </p>
-
 <p>
   In the absence of any search filters, e.g. <code>GET [base]/Patient</code> or <code>POST [base]/Patient/_search</code> 
   with an empty body, a server SHOULD return all records. NOTE: Severs MAY impose expectations prohibiting queries without 
   or with insufficient parameters.
-</p>
-<p>
-  The response to any search operation is always a list of resources in a Bundle.
-  An alternative approach is to <a href="graphql.html">use GraphQL</a>.
 </p>
 
 <a name="searchcontexts"></a>
@@ -250,6 +249,10 @@ parameter(s)</span>
 <p>
   Search responses are always returned as a <a href="bundle.html">Bundle</a>.  Search result bundles convey a lot
   of metadata in addition to any possible results, using the various elements available in the bundle resource.
+</p>
+<p>
+  The response to any search operation is always a list of resources in a Bundle.
+  An alternative approach is to <a href="graphql.html">use GraphQL</a>.
 </p>
 
 <a name="returnbundletype"></a>
@@ -580,7 +583,10 @@ GET [base]/[type]?param1=value&amp;...{&amp;_format=[mime-type]}
 
 
 <a name="ptypes"></a>
-<h3>Search Parameter Types</h3>
+<h3>Search Parameters</h3>
+<p>
+
+</p>
 <p>Each search parameter is defined by a type that specifies how the search parameter
 behaves. These are the defined parameter types:
 </p>
@@ -589,6 +595,15 @@ behaves. These are the defined parameter types:
 The search parameters can also append "modifiers" that control
 their behavior. The kinds of modifiers that available is dependent on the type
 of parameter being modified.
+</p>
+
+<a name="multivalue"></a>
+<h4>Searching Multiple Values</h4>
+<p>
+  AND Joining...
+</p>
+<p>
+  Or Joining...
 </p>
 
 <a name="modifiers"></a>
