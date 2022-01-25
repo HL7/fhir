@@ -604,7 +604,6 @@ of parameter being modified.
   Multiple search parameters passed to a single search are used to create an intersection of the results.  In other words,
   multiple parameters are joined via "AND".  For example, a search for a patient that includes a given name and a
   family name will only return records that match BOTH:
-</p>
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
@@ -614,13 +613,11 @@ Content-Type: application/x-www-form-urlencoded
 given=valueGiven&amp;family=valueFamily</span>
   </span>
 </span>
-<p>
   will return only Patient records with a family name of "valueFamily" and a given name of "valueGiven".
 </p>
 <p>
   In order to search for unions of results (values joined by "OR"), values can be separated by a comma (",") character.
   For example, a search for a patient with EITHER of two given names:
-</p>
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
   <span class="http-verb-display">
@@ -630,7 +627,6 @@ Content-Type: application/x-www-form-urlencoded
 given=valueGivenA,valueGivenB</span>
   </span>
 </span>
-<p>
   will return Patient records with EITHER a given name of "valueGivenA" OR "valueGivenB".  This includes patient 
   record that have BOTH "valueGivenA" and "valueGivenB" (e.g., inclusive or).
 </p>
@@ -650,13 +646,15 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
   "valueGivenB".
 </p>
 <p>
-  Note that there is not a syntax for queries to perform unions (OR queries) on different elements.  For example,
-  either a given OR family name of 'valueName'.  However, it is possible to define search parameters that operate
-  on multiple elements.  For example, the use case of searching for a patient by any part of their name is common
-  enough that there is a search parameter for Patient called <code>name</code>, which matches any part of a name.
+  Note that there is not a syntax for queries to perform unions on different elements (OR joins).  For example,
+  a client that wants records with either a given OR family name of "valueName".  However, it is possible to 
+  define search parameters that operate on multiple elements.  For example, the described use case of searching 
+  for a patient by any part of their name has a search parameter on Patient called <code>name</code>, which 
+  matches any part of a name (e.g., <code>name=valueName</code>).
 </p>
 <p>
-  If there is not a combined search parameter defined or supported, clients MAY still issue multiple queries, 
+  If a client wants results based on OR-joins of unrelated elements, or if there is not a combined search 
+  parameter defined or supported on a server, the results can be retrieved by issuing multiple queries, 
   either serially or in a batch.
 </p>
 
