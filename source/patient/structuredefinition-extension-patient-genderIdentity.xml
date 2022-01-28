@@ -15,8 +15,7 @@
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="An individual&#39;s personal sense of being a man, woman, boy, girl, nonbinary, or something else. This represents an individual’s identity, ascertained by asking them what
-that identity is."/>
+  <description value="An individual&#39;s personal sense of being a man, woman, boy, girl, nonbinary, or something else. This represents an individual’s identity, ascertained by asking them what that identity is."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
@@ -48,8 +47,7 @@ that identity is."/>
     <element id="Extension">
       <path value="Extension"/>
       <short value="The individual&#39;s gender identity"/>
-      <definition value="An individual&#39;s personal sense of being a man, woman, boy, girl, nonbinary, or something else. This represents an individual’s identity, ascertained by asking them what
-that identity is."/>
+      <definition value="An individual&#39;s personal sense of being a man, woman, boy, girl, nonbinary, or something else. This represents an individual’s identity, ascertained by asking them what that identity is."/>
       <min value="0"/>
     </element>
     <element id="Extension.extension:value">
@@ -155,10 +153,7 @@ that identity is."/>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>
 	  <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
+      <max value="0"/>
     </element>
   </differential>
 </StructureDefinition>

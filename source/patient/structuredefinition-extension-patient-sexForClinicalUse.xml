@@ -146,18 +146,45 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Extension.url">
+    <element id="Extension.extension:supportingInfo">
+      <path value="Extension.extension"/>
+      <sliceName value="supportingInfo"/>
+      <short value="TODO: recordedSexAndGender.supportingInfo"/>
+      <definition value="TODO: recordedSexAndGender.supportingInfo"/>
+      <comment value="TODO: recordedSexAndGender.supportingInfo"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:supportingInfo.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:supportingInfo.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="supportingInfo"/>
+    </element>
+    <element id="Extension.extension:supportingInfo.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="Reference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+    </element>	
+	<element id="Extension.url">
       <path value="Extension.url"/>
       <fixedUri value="http://hl7.org/fhir/StructureDefinition/patient-sexForClinicalUse"/>
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>
 	  <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-      </type>
+      <max value="0"/>
     </element>
   </differential>
 </StructureDefinition>

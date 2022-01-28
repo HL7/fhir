@@ -13,9 +13,9 @@
   <name value="recordedSexAndGender"/>
   <title value="recordedSexAndGender"/>
   <status value="draft"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2022-01-28"/>
   <publisher value="HL7"/>
-  <description value="The recorded sex and gender is to be used to differentiate existing sex or gender data. This element is used for existing 'sex' or 'gender' elements in a document or record when the intent and meaning is unclear. For example, the person's birth certificate information, passport information, and national identity document information may all be present. This is necessary because an individual's documents may be updated at different rates or for different reasons. Sex assigned at birth (SAAB), while very common and considered essential in some jurisdictions, is considered a recorded sex and gender entry. "/>
+  <description value="The recorded sex and gender is to be used to differentiate existing sex or gender data. This element is used for existing 'sex' or 'gender' elements in a document or record when the intent and meaning is unclear. For example, the person's birth certificate information, passport information, and national identity document information may all be present. This is necessary because an individual's documents may be updated at different rates or for different reasons. Sex assigned at birth (SAAB), while very common and considered essential in some jurisdictions, is considered a recorded sex and gender entry."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
@@ -46,16 +46,15 @@
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="The recorded sex and gender property for the person."/>
-      <definition value="A sex and gender property that is aquired from a document or other record.."/>
+      <short value="A recorded sex or gender property for the person."/>
+      <definition value="A sex or gender property for the person from a document or other record."/>
       <min value="0"/>
     </element>
     <element id="Extension.extension:value">
       <path value="Extension.extension"/>
       <sliceName value="value"/>
-      <short value="TODO: recordedSexAndGender.value"/>
-      <definition value="TODO: recordedSexAndGender.value"/>
-      <comment value="TODO: recordedSexAndGender.value"/>
+      <short value="The recorded sex or gender property for the person."/>
+      <definition value="A sex or gender property for the person from a document or other record."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -84,23 +83,71 @@
 			<valueString value="recordedSexAndGender"/>
 		  </extension>
 		  <strength value="example"/>
-		  <valueSet value="http://hl7.org/fhir/ValueSet/recorded-sex-and-gender"/>
+		  <valueSet value="http://hl7.org/fhir/ValueSet/sex-for-clinical-use"/>
 	  </binding>
     </element>
-    <element id="Extension.extension:sourceDocument">
-      <path value="Extension.extension.sourceDocument"/>
+	<element id="Extension.extension:sourceDocument">
+      <path value="Extension.extension"/>
+      <sliceName value="sourceDocument"/>
+      <short value="TODO: recordedSexAndGender.sourceDocument"/>
+      <definition value="TODO: recordedSexAndGender.sourceDocument"/>
+      <comment value="TODO: recordedSexAndGender.sourceDocument"/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:sourceDocument.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:sourceDocument.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="sourceDocument"/>
+    </element>
+    <element id="Extension.extension:sourceDocument.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableReference"/>
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
     </element>
 	<element id="Extension.extension:jurisdiction">
-      <path value="Extension.extension.jurisdiction"/>
+      <path value="Extension.extension"/>
+      <sliceName value="jurisdiction"/>
+      <short value="TODO: recordedSexAndGender.jurisdiction"/>
+      <definition value="TODO: recordedSexAndGender.jurisdiction"/>
+      <comment value="TODO: recordedSexAndGender.jurisdiction"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:jurisdiction.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:jurisdiction.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="jurisdiction"/>
+    </element>
+    <element id="Extension.extension:jurisdiction.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="Extension.extension:period">
+	<element id="Extension.extension:period">
       <path value="Extension.extension"/>
       <sliceName value="period"/>
       <short value="TODO: recordedSexAndGender.period"/>
@@ -166,11 +213,7 @@
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>
 	  <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-      </type>
+      <max value="0"/>
     </element>
   </differential>
 </StructureDefinition>
