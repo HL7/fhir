@@ -51,10 +51,12 @@
   </contact>
   <description value="Indicates whether the event succeeded or failed."/>
   <immutable value="true"/>
-  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
     </include>
+	<include>
+	  <system value="http://hl7.org/fhir/issue-severity" />
+	</include>
   </compose>
 </ValueSet>

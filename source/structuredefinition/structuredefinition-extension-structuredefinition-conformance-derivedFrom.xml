@@ -29,12 +29,12 @@
 	<kind value="complex-type"/>
 	<abstract value="false"/>
 	<context>
-		<type value="extension"/>
-		<expression value="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm"/>
+		<type value="fhirpath"/>
+		<expression value="extension('http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm').value"/>
 	</context>
 	<context>
-		<type value="extension"/>
-		<expression value="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"/>
+		<type value="fhirpath"/>
+		<expression value="extension('http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status').value"/>
 	</context>
 	<type value="Extension"/>
 	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>

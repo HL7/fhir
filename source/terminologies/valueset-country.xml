@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="country"/>
+  <name value="Country ValueSet"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set defines a base set of codes for countries.
+  &#13;&#10;
+  &#13;&#10;
+  Note: The codes for countries are taken from 
+  [ISO 3166](https://www.iso.org/iso-3166-country-codes.html)."/>
+  <compose>
+    <include>
+      <!--   ISO Part 1 (2-letter, 3-letter and numerical) country codes   -->
+      <system value="urn:iso:std:iso:3166"/>
+    </include>
+  </compose>
+</ValueSet>

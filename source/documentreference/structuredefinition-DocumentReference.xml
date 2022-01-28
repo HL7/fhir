@@ -218,7 +218,7 @@
     </element>
     <element id="DocumentReference.docStatus">
       <path value="DocumentReference.docStatus"/>
-      <short value="preliminary | final | amended | entered-in-error"/>
+      <short value="preliminary | final | amended | entered-in-error | deprecated"/>
       <definition value="The status of the underlying document."/>
       <comment value="The document that is pointed to might be in various lifecycle states."/>
       <min value="0"/>

@@ -413,6 +413,7 @@ signatures.html
       <page title="Clinical Decision Support" filename="clinicalreasoning-cds-on-fhir.html"/>
       <page title="Quality Reporting" filename="clinicalreasoning-quality-reporting.html"/>
       <page title="Evidence and Statistics" filename="clinicalreasoning-evidence-and-statistics.html"/>
+      <page type="resource" resource="ArtifactAssessment"/>
       <page type="resource" resource="ConditionDefinition"/>
       <page type="resource" resource="EventDefinition"/>
 	  <page type="resource" resource="EvidenceReport"/>
@@ -433,7 +434,6 @@ signatures.html
       <page type="resource" resource="ManufacturedItemDefinition"/>
       <page type="resource" resource="AdministrableProductDefinition"/>
       <page type="resource" resource="RegulatedAuthorization"/>
-      <page type="resource" resource="ClinicalUseIssue"/>
       <page type="resource" resource="ClinicalUseDefinition"/>
       <page type="resource" resource="Ingredient"/>
       <page type="resource" resource="SubstanceDefinition"/>

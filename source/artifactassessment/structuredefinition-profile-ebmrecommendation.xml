@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ebmrecommendation"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/ebmrecommendation"/>
+  <version value="5.0.0-snapshot1"/>
+  <name value="EBMRecommendation"/>
+  <title value="EBM Recommendation"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-12-12"/>
+  <publisher value="HL7"/>
+  <description value="Represents justification for a recommendation"/>
+  <fhirVersion value="5.0.0-snapshot1"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="ArtifactAssessment"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ArtifactAssessment"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="ArtifactAssessment">
+      <path value="ArtifactAssessment"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="ArtifactAssessment.citeAs">
+      <path value="ArtifactAssessment.citeAs"/>
+      <short value="How to cite the recommendation"/>
+      <definition value="Display of or reference to the bibliographic citation of the recommendation."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="ArtifactAssessment.artifact">
+      <path value="ArtifactAssessment.artifact"/>
+      <definition value="A reference to a resource, canonical resource, or non-FHIR resource which is the recommendation this comment or assessment is about."/>
+      <min value="1"/>
+      <max value="1"/>
+	  <type>
+		<code value="Reference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+	  </type>
+	  <type>
+		<code value="canonical"/>
+	  </type>
+	  <type>
+		<code value="uri"/>
+	  </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ArtifactAssessment.workflowStatus">
+      <path value="ArtifactAssessment.workflowStatus"/>
+      <min value="0"/>
+      <max value="0"/>
+      <mustSupport value="false"/>
+    </element>
+    <element id="ArtifactAssessment.disposition">
+      <path value="ArtifactAssessment.disposition"/>
+      <min value="0"/>
+      <max value="0"/>
+      <mustSupport value="false"/>
+    </element>
+  </differential>
+</StructureDefinition>

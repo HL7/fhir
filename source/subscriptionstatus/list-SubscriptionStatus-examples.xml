@@ -4,9 +4,36 @@
   <id value="SubscriptionStatus-examples"/>
   <status value="current"/>
   <mode value="working"/>
+
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of a Subscription Handshake message (first message on channel)"/>
+      <valueString value="Bare SubscriptionStatus resource"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="subscriptionstatus-example"/>
+    </extension>
+    <item>
+      <reference value="SubscriptionStatus/example"/>
+      <display value="Basic"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Notification Bundle containing an error state"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="notification-error"/>
+    </extension>
+    <item>
+      <reference value="SubscriptionStatus/e2c9dc20-615e-4603-9005-74deb209cbb0"/>
+      <display value="Notification Error"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Handshake Bundle (establish channel)"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="notification-handshake"/>
@@ -18,7 +45,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of a Subscription Heartbeat message (message with no event)"/>
+      <valueString value="Heartbeat Bundle (ping channel with no event)"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="notification-heartbeat"/>
@@ -28,9 +55,10 @@
       <display value="Heartbeat"/>
     </item>
   </entry>
-  <entry>
+
+ <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of a Subscription notification with payload: empty"/>
+      <valueString value="Notification Bundle with payload: empty"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="notification-empty"/>
@@ -42,7 +70,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of a Subscription notification with payload: id-only"/>
+      <valueString value="Notification Bundle with payload: id-only"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="notification-id-only"/>
@@ -54,7 +82,19 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of a Subscription notification with payload: full-resource"/>
+      <valueString value="Notification Bundle with payload: id-only, including a referenced Patient"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="notification-id-only-with-patient"/>
+    </extension>
+    <item>
+      <reference value="SubscriptionStatus/920a46b7-045a-4773-82bd-8e90c3e15653"/>
+      <display value="Notification ID-Only with Patient"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Notification Bundle with payload: full-resource"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="notification-full-resource"/>
@@ -66,19 +106,20 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Basic example of a SubscriptionStatus resource"/>
+      <valueString value="Notification Bundle with payload: full-resource, including a referenced Patient"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="subscriptionstatus-example"/>
+      <valueString value="notification-full-resource-with-patient"/>
     </extension>
     <item>
-      <reference value="SubscriptionStatus/example"/>
-      <display value="Basic"/>
+      <reference value="SubscriptionStatus/fdd78223-f79f-43b4-8979-ad49d4ac248c"/>
+      <display value="Notification Full Resource with Patient"/>
     </item>
   </entry>
+
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of a Subscription Query-Status message (response to $status)"/>
+      <valueString value="Subscription Query-Status Bundle (response to $status)"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="notification-query-status"/>
@@ -88,16 +129,31 @@
       <display value="Notification Query Status"/>
     </item>
   </entry>
+
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of a notification wrapped in FHIR Messaging"/>
+      <valueString value="Subscription Query-Event Bundle (query for sent or missed events)"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="notification-message-id-only"/>
+      <valueString value="notification-query-event"/>
+    </extension>
+    <item>
+      <reference value="SubscriptionStatus/787e69f6-81a8-44e4-b404-257013dec332"/>
+      <display value="Notification Event Query"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="notification wrapped in FHIR Messaging"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="notification-message-full-resource"/>
     </extension>
     <item>
       <reference value="SubscriptionStatus/0f322dbe-4f8d-4cbd-9ecb-bc8dc6f65f6a"/>
       <display value="Message Notification"/>
     </item>
   </entry>
+
 </List>

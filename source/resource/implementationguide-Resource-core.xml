@@ -30,5 +30,10 @@
         <reference value="StructureDefinition/resource-pertainsToGoal"/>
       </reference>
     </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/derivation-reference"/>
+      </reference>
+    </resource>
   </definition>
 </ImplementationGuide>

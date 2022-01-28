@@ -74,6 +74,16 @@
         <map value="administrative.device"/>
       </mapping>
     </element>
+    <element id="DeviceDefinition.description">
+      <path value="DeviceDefinition.description"/>
+      <short value="Additional information to describe the device"/>
+      <definition value="Additional information to describe the device."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
     <element id="DeviceDefinition.identifier">
       <path value="DeviceDefinition.identifier"/>
       <short value="Instance identifier"/>
@@ -134,7 +144,7 @@
     <element id="DeviceDefinition.udiDeviceIdentifier.marketDistribution">
       <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution"/>
       <short value="Indicates whether and when the device is available on the market"/>
-      <definition value="The organization that assigns the identifier algorithm."/>
+      <definition value="Indicates where and when the device is available on the market."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -145,7 +155,7 @@
       <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution.marketPeriod"/>
       <short value="Begin and end dates for the commercial distribution of the device"/>
       <definition value="Begin and end dates for the commercial distribution of the device."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Period"/>
@@ -155,14 +165,34 @@
       <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution.subJurisdiction"/>
       <short value="National state or territory where the device is commercialized"/>
       <definition value="National state or territory to which the marketDistribution recers, typically where the device is commercialized."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="uri"/>
       </type>
     </element>
-
-
+    <element id="DeviceDefinition.partNumber">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="W5 note what = what.productidentification."/>
+      </extension>
+      <path value="DeviceDefinition.partNumber"/>
+      <short value="The part number or catalog number of the device"/>
+      <definition value="The part number or catalog number of the device."/>
+      <comment value="Alphanumeric Maximum 20."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playedRole[typeCode=MANU].id"/>
+      </mapping>
+    </element>
     <element id="DeviceDefinition.manufacturer[x]">
       <path value="DeviceDefinition.manufacturer[x]"/>
       <short value="Name of device manufacturer"/>
@@ -214,8 +244,8 @@
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
       <path value="DeviceDefinition.deviceName.type"/>
-      <short value="udi-label-name | user-friendly-name | patient-reported-name | manufacturer-name | model-name | other"/>
-      <definition value="The type of deviceName.&#xA;UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | ModelName."/>
+      <short value="registered-name | user-friendly-name | patient-reported-name"/>
+      <definition value="The type of deviceName.&#xA;RegisteredName | UserFriendlyName | PatientReportedName."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -298,7 +328,6 @@
         <code value="RelatedArtifact"/>
       </type>
     </element>
-<!--
     <element id="DeviceDefinition.specialization">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="600,170"/>
@@ -309,21 +338,9 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
+        <code value="RelatedArtifact"/>
       </type>
     </element>
-    <element id="DeviceDefinition.specialization.systemType">
-      <path value="DeviceDefinition.specialization.systemType"/>
-      <short value="The standard that is used to operate and communicate"/>
-      <definition value="The standard that is used to operate and communicate."/>
-      <alias value="&#x3A3;"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
--->
     <element id="DeviceDefinition.hasPart">
       <path value="DeviceDefinition.hasPart"/>
       <short value="A device, part of the current one"/>
@@ -507,39 +524,6 @@
       <max value="*"/>
       <contentReference value="#DeviceDefinition.packaging"/>
     </element>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <element id="DeviceDefinition.specialization.version">
-      <path value="DeviceDefinition.specialization.version"/>
-      <short value="The version of the standard that is used to operate and communicate"/>
-      <definition value="The version of the standard that is used to operate and communicate."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-    </element>
     <element id="DeviceDefinition.version">
       <path value="DeviceDefinition.version"/>
       <short value="The version of the device or software"/>
@@ -586,10 +570,6 @@
         <code value="string"/>
       </type>
     </element>
-
-
-
-
     <element id="DeviceDefinition.safety">
       <path value="DeviceDefinition.safety"/>
       <short value="Safety characteristics of the device"/>
@@ -628,41 +608,6 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-<!--
-    <element id="DeviceDefinition.capability">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="600,90"/>
-      </extension>
-      <path value="DeviceDefinition.capability"/>
-      <short value="Additional capabilities of the device"/>
-      <definition value="Additional capabilities that the device is defined or required to have e.g. &quot;water resistant&quot;, &quot;long life&quot;."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="DeviceDefinition.capability.type">
-      <path value="DeviceDefinition.capability.type"/>
-      <short value="The type of capability - whether it is a physical attribute, a customization needed"/>
-      <definition value="The type of capability - whether it is a physical attribute, a customization needed. For exampl e &quot;water ingress protection&quot;."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-    </element>
-    <element id="DeviceDefinition.capability.description">
-      <path value="DeviceDefinition.capability.description"/>
-      <short value="The actual capability of the device"/>
-      <definition value="The actual capability of the device e.g. IP67."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-    </element>
--->
     <element id="DeviceDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="600,240"/>
@@ -885,7 +830,24 @@
         <code value="boolean"/>
       </type>
     </element>
-
+    <element id="DeviceDefinition.productionIdentifierInUDI">
+      <path value="DeviceDefinition.productionIdentifierInUDI"/>
+      <short value="lot-number | manufactured-date | serial-number | expiration-date | biological-source | software-version"/>
+      <definition value="Indicates the production identifier(s) that are expected to appear in the UDI carrier on the device label."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceProductionIdentifierInUDI"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The production identifier(s) that are expected to appear in the UDI carrier."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-productidentifierinudi"/>
+      </binding>
+    </element>
     <element id="DeviceDefinition.guideline">
       <path value="DeviceDefinition.guideline"/>
       <short value="Information aimed at providing directions for the usage of this model of device"/>
@@ -1023,24 +985,6 @@
         <code value="Period"/>
       </type>
     </element>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <element id="DeviceDefinition.chargeItem">
       <path value="DeviceDefinition.chargeItem"/>
       <short value="Billing code or reference associated with the device"/>
@@ -1096,6 +1040,5 @@
           <code value="UsageContext"/>
       </type>
     </element>
-
   </differential>
 </StructureDefinition>

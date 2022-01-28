@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="audit-event-outcome"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    <lastUpdated value="2021-12-06T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <text>
@@ -38,7 +38,7 @@
         
         <tr>
           
-          <td style="white-space:nowrap">0
+          <td style="white-space:nowrap">success
             
             <a name="audit-event-outcome-0"> </a>
           
@@ -49,48 +49,7 @@
           <td>The operation completed successfully (whether with warnings or not).</td>
         
         </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">4
-            
-            <a name="audit-event-outcome-4"> </a>
-          
-          </td>
-          
-          <td>Minor failure</td>
-          
-          <td>The action was not successful due to some kind of minor failure (often equivalent to an HTTP 400 response).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">8
-            
-            <a name="audit-event-outcome-8"> </a>
-          
-          </td>
-          
-          <td>Serious failure</td>
-          
-          <td>The action was not successful due to some kind of unexpected error (often equivalent to an HTTP 500 response).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">12
-            
-            <a name="audit-event-outcome-12"> </a>
-          
-          </td>
-          
-          <td>Major failure</td>
-          
-          <td>An error of such magnitude occurred that the system is no longer available for use (i.e. the system died).</td>
-        
-        </tr>
+
       
       </table>
     
@@ -110,12 +69,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1520"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="4.7.0"/>
   <name value="AuditEventOutcome"/>
   <title value="AuditEventOutcome"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2021-12-06T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -132,23 +91,8 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/audit-event-outcome"/>
   <content value="complete"/>
   <concept>
-    <code value="0"/>
+    <code value="success"/>
     <display value="Success"/>
-    <definition value="The operation completed successfully (whether with warnings or not)."/>
-  </concept>
-  <concept>
-    <code value="4"/>
-    <display value="Minor failure"/>
-    <definition value="The action was not successful due to some kind of minor failure (often equivalent to an HTTP 400 response)."/>
-  </concept>
-  <concept>
-    <code value="8"/>
-    <display value="Serious failure"/>
-    <definition value="The action was not successful due to some kind of unexpected error (often equivalent to an HTTP 500 response)."/>
-  </concept>
-  <concept>
-    <code value="12"/>
-    <display value="Major failure"/>
-    <definition value="An error of such magnitude occurred that the system is no longer available for use (i.e. the system died)."/>
+    <definition value="The activity completed successfully."/>
   </concept>
 </CodeSystem>

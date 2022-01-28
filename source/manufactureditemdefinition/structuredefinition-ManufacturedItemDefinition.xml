@@ -136,6 +136,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ManufacturedDoseForm"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Dose form for a medication, in the form suitable for administering to the patient, after mixing, where necessary."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/manufactured-dose-form"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Manufactured Item.Manufactured Dose Form"/>
@@ -151,6 +159,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="UnitOfPresentation"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The presentation type in which an administrable medicinal product is given to a patient."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/unit-of-presentation"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Manufactured Item.Unit of Presentation"/>
@@ -182,6 +198,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTSubstanceCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This value set includes all substance codes from SNOMED CT - provided as an exemplar value set."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Manufactured Item.Ingredient (see also FHIR Ingredient resource)"/>
@@ -215,6 +239,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTCharacteristicCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This value set includes all observable entity codes from SNOMED CT - provided as an exemplar value set."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/product-characteristic-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Physical Characteristics, all attributes"/>
