@@ -86,6 +86,11 @@
 		<translation lang="it">RispostaAppuntamento</translation>
 		<translation lang="zh">预约响应</translation>
 	</item>
+	<item id="ArtifactAssessment">
+		<translation lang="en">ArtifactAssessment</translation>
+		<translation lang="es">ArtefactoEvaluacion</translation>
+		<translation lang="it">ArtefattoValutazione</translation>
+	</item>
 	<item id="AuditEvent">
 		<translation lang="en">AuditEvent</translation>
 		<translation lang="es">EventoSeguridad</translation>
@@ -150,11 +155,6 @@
 		<translation lang="en">Catalog</translation>
 		<translation lang="it">Catalogo</translation>
 	</item>
-	<item id="CatalogEntry">
-		<translation lang="en">CatalogEntry</translation>
-		<translation lang="es">EntradaDeCatalogo</translation>
-		<translation lang="zh">条目定义</translation>
-	</item>
 	<item id="ChargeItem">
 		<translation lang="en">ChargeItem</translation>
 		<translation lang="es">CargoDeItem</translation>
@@ -183,12 +183,6 @@
 		<translation lang="fr">ImpressionClinique</translation>
 		<translation lang="it">ImpressioneClinica</translation>
 		<translation lang="zh">临床印象</translation>
-	</item>
-	<!--item id="ClinicalParticulars">
-		<translation lang="en">ClinicalParticulars</translation>
-	</item-->
-	<item id="ClinicalUseIssue">
-		<translation lang="en">ClinicalUseIssue</translation>
 	</item>
 	<item id="ClinicalUseDefinition">
 		<translation lang="en">ClinicalUseDefinition</translation>
@@ -485,6 +479,9 @@
 		<translation lang="fr">ImagingManifest</translation>
 		<translation lang="zh">成像清单</translation>
 	</item>
+	<item id="ImagingSelection">
+		<translation lang="en">ImagingSelection</translation>
+	</item>
 	<item id="ImagingStudy">
 		<translation lang="en">ImagingStudy</translation>
 		<translation lang="es">EstudioImagen  / EstudioImagen</translation>
@@ -602,10 +599,6 @@
 	<item id="MedicationKnowledge">
 		<translation lang="en">MedicationKnowledge</translation>
 	</item>
-	<!--item id="MedicinalProduct">
-		<translation lang="en">MedicinalProduct</translation>
-		<translation lang="it">ProdottoMedicinale</translation>
-	</item-->
 	<item id="RegulatedMedicinalProduct">
 		<translation lang="en">RegulatedMedicinalProduct</translation>
 	</item>

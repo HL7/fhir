@@ -427,6 +427,17 @@
         <code value="dateTime"/>
       </type>
     </element>
+    <element id="NutritionProduct.instance.biologicalSource">
+      <path value="NutritionProduct.instance.biologicalSource"/>
+      <short value="An identifier that supports traceability to the biological entity that is the source of biological material in the product"/>
+      <definition value="An identifier that supports traceability to the biological entity that is the source of biological material in the product."/>
+      <comment value="Necessary to support requirements for traceability from source to recipient.  The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device." />
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
     <element id="NutritionProduct.note">
       <path value="NutritionProduct.note"/>
       <short value="Comments made about the product"/>

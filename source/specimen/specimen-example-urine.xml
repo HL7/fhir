@@ -42,12 +42,12 @@
 	</collection>
 	<processing>
 		<description value="Acidify to pH &lt; 3.0 with 6 N HCl."/>
-		<procedure>
+		<method>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/v2-0373"/>
 				<code value="ACID"/>
 			</coding>
-		</procedure>
+		</method>
 		<additive>
 			<display value="6 N HCl"/>
 		</additive>

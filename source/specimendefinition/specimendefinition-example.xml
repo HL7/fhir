@@ -1,11 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SpecimenDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SpecimenDefinition.xsd">
-	<id value="example"/>
-  <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
-  </text>
-
-  <!-- insert contents here -->
+	<id value="7"/>
+    <typeCollected>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="122555007"/>
+        </coding>
+        <text value="Venous blood specimen (specimen)"/>
+    </typeCollected>
+    <patientPreparation value="no strict fasting"/>
+    <specimenToLab>
+        <type>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="119364003"/>
+            </coding>
+            <text value="Serum specimen (specimen)"/>
+        </type>
+        <containerMaterial>
+              <text value="glass"/>
+        </containerMaterial>
+        <containerType>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="702281005"/>
+                <display value="Evacuated blood collection tube with thrombin and clot activator and gel separator"/>
+            </coding>
+        </containerType>
+        <containerCap>
+            <coding>
+                <system value="http://hl7.org/fhir/container-cap"/>
+                <code value="yellow"/>
+                <display value="yellow cap"/>
+            </coding>
+        </containerCap>
+        <containerMinimumVolume>
+            <value value="2"/>
+            <unit value="ml"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mL"/>
+        </containerMinimumVolume>
+        <handling>
+            <conditionSet>
+                <text value="room temperature"/>
+            </conditionSet>
+            <tempRange>
+                <low>
+                    <value value="15"/>
+                    <unit value="°C"/>
+                    <system value="http://unitsofmeasure.org"/>
+                    <code value="Cel"/>
+                 </low>
+                <high>
+                    <value value="25"/>
+                    <unit value="°C"/>            
+                    <system value="http://unitsofmeasure.org"/>
+                    <code value="Cel"/>
+                </high>
+            </tempRange>
+            <maxDuration>
+                <value value="12"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="h"/>
+            </maxDuration>
+        </handling>
+    </specimenToLab>
   
 </SpecimenDefinition>

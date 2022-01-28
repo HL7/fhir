@@ -79,7 +79,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="search"/>
         </type>
         <resource value="Patient"/>
@@ -131,7 +131,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="create"/>
         </type>
         <resource value="Patient"/>
@@ -164,7 +164,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="read"/>
         </type>
         <description value="Read the created Patient using the captured Location URL value."/>
@@ -196,7 +196,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
           <code value="search"/>
         </type>
         <resource value="Patient"/>

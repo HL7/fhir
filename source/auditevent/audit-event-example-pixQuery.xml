@@ -1,29 +1,29 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?> 
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
 	<id value="example-pixQuery"/>
 
-	<type>
+	<category>
 			<coding>
 		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 		<code value="110112"/>
 		<display value="Query"/>
 			</coding>
-	</type>
-	<subtype>
+	</category>
+	<code>
 			<coding>
 		<system value="urn:oid:1.3.6.1.4.1.19376.1.2"/>
 		<code value="ITI-9"/>
 		<display value="PIX Query"/>
 			</coding>
-	</subtype>
+	</code>
 	<action value="E"/>
 	<recorded value="2015-08-26T23:42:24Z"/>
 	<outcome>
-		<coding>
+		<code>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
-			<code value="0"/>
+			<code value="success"/>
 			<display value="Success"/>
-		</coding>
+		</code>
 	</outcome> 
 
 	<agent>
@@ -54,10 +54,8 @@
 			</identifier>
 		</who>
 		<requestor value="false"/>
-		<network>
-			<address value="Workstation1.ehr.familyclinic.com"/>
-			<type value="1"/>
-		</network>	
+		<networkString value="Workstation1.ehr.familyclinic.com"/>
+
 	</agent>
 	<agent>
 		<!--  The Human using the software, if known  -->

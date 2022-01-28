@@ -44,7 +44,7 @@
       <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
     </telecom>
   </contact>
-  <description value="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (eg population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence."/>
+  <description value="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (e.g., population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="w5"/>
@@ -78,7 +78,7 @@
       </extension>
       <path value="Evidence"/>
       <short value="Single evidence bit"/>
-      <definition value="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (eg population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence."/>
+      <definition value="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (e.g., population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -593,7 +593,7 @@
     </element>
     <element id="Evidence.statistic.statisticType">
       <path value="Evidence.statistic.statisticType"/>
-      <short value="Type of statistic, eg relative risk"/>
+      <short value="Type of statistic, e.g., relative risk"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -743,7 +743,7 @@
     </element>
     <element id="Evidence.statistic.attributeEstimate.type">
       <path value="Evidence.statistic.attributeEstimate.type"/>
-      <short value="The type of attribute estimate, eg confidence interval or p value"/>
+      <short value="The type of attribute estimate, e.g., confidence interval or p value"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -769,7 +769,7 @@
     </element>
     <element id="Evidence.statistic.attributeEstimate.level">
       <path value="Evidence.statistic.attributeEstimate.level"/>
-      <short value="Level of confidence interval, eg 0.95 for 95% confidence interval"/>
+      <short value="Level of confidence interval, e.g., 0.95 for 95% confidence interval"/>
       <definition value="Use 95 for a 95% confidence interval."/>
       <min value="0"/>
       <max value="1"/>

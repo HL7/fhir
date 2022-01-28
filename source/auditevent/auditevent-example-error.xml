@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?> 
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
 	<id value="example-error"/>
 	<text>
@@ -18,29 +18,31 @@
 			</issue>
 		</OperationOutcome>
 	</contained>
-	<type>
+	<category>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/audit-event-type"/>
 			<code value="rest"/>
 			<display value="Restful Operation"/>
 		</coding>
-	</type>
-	<subtype>
+	</category>
+	<code>
 		<coding>
 			<system value="http://hl7.org/fhir/restful-interaction"/>
 			<code value="create"/>
 			<display value="create"/>
 		</coding>
-	</subtype>
+	</code>
 	<action value="C"/>
 	<recorded value="2017-09-07T23:42:24Z"/>
 	<outcome>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
-			<code value="8"/>
-			<display value="Serious Failure"/>
-		</coding>
-		<text value="Invalid request to create an Operation resource on the Patient endpoint."/>
+		<code>
+			<system value="http://hl7.org/fhir/issue-severity"/>
+			<code value="error"/>
+			<display value="Error"/>
+		</code>
+		<detail>
+			<text value="Invalid request to create an Operation resource on the Patient endpoint."/>
+		</detail>
 	</outcome>
 	<agent>
 		<type>
@@ -82,10 +84,8 @@
 			</identifier>
 		</who>
 		<requestor value="false"/>
-		<network>
-			<address value="Workstation1.ehr.familyclinic.com"/>
-			<type value="1"/>
-		</network>
+		<networkString value="Workstation1.ehr.familyclinic.com"/>
+
 	</agent>
 	<source>
 		<observer>

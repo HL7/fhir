@@ -25,19 +25,39 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="BodyStructure-location"/>
+        <id value="BodyStructure-includedStructure-structure"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="BodyStructure.location"/>
+          <valueString value="BodyStructure.includedStrcture.structure"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-location"/>
-        <description value="Body site"/>
-        <code value="location"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-includedStructure-structure"/>
+        <description value="Body site includedStructure structure"/>
+        <code value="structure"/>
         <type value="token"/>
-        <expression value="BodyStructure.location"/>
-        <xpath value="f:BodyStructure/f:location"/>
+        <expression value="BodyStructure.includedStructure.structure"/>
+        <xpath value="f:BodyStructure/f:includedStructure/f:structure"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+<entry>
+    <resource>
+      <SearchParameter>
+        <id value="BodyStructure-excludedStructure-structure"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BodyStructure.excludedStrcture.structure"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-excludedStructure-structure"/>
+        <description value="Body site excludedStructure structure"/>
+        <code value="structure"/>
+        <type value="token"/>
+        <expression value="BodyStructure.excludedStructure.structure"/>
+        <xpath value="f:BodyStructure/f:excludedStructure/f:structure"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
