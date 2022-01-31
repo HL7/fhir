@@ -39,8 +39,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.502"/>
   </identifier>
   <version value="4.3.0-CIBUILD"/>
-  <name value="SubscriptionStatus"/>
-  <title value="SubscriptionStatus"/>
+  <name value="SubscriptionStatusCodes"/>
+  <title value="SubscriptionStatusCodes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-17T07:06:13+11:00"/>
