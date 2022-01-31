@@ -309,7 +309,7 @@
       </extension>
       <path value="Ingredient.substance.strength"/>
       <short value="The quantity of substance, per presentation, or per volume or mass, and type of quantity"/>
-      <definition value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item."/>
+      <definition value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item. The allowed repetitions do not represent different strengths, but are different representations - mathematically equivalent - of a single strength."/>
       <min value="0"/>
       <max value="*"/>
       <type>
