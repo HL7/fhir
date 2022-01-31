@@ -70,7 +70,7 @@
       </extension>
       <path value="MedicinalProductDefinition"/>
       <short value="Detailed definition of a medicinal product"/>
-      <definition value="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs)."/>
+      <definition value="A medicinal product, being a substance or combination of substances that is intended to treat, prevent or diagnose a disease, or to restore, correct or modify physiological functions by exerting a pharmacological, immunological or metabolic action. This resource is intended to define and detail such products and their properties, for uses other than direct patient care (e.g. regulatory use, or drug catalogs)."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -240,7 +240,7 @@
     <element id="MedicinalProductDefinition.route">
       <path value="MedicinalProductDefinition.route"/>
       <short value="The path by which the product is taken into or makes contact with the body"/>
-      <definition value="The path by which the product is taken into or makes contact with the body. In some regions this is referred to as the licenced or approved route. See also AdministrableProductDefinition resource."/>
+      <definition value="The path by which the product is taken into or makes contact with the body. In some regions this is referred to as the licenced or approved route. See also AdministrableProductDefinition resource. MedicinalProductDefinition.route is the same concept as AdministrableProductDefinition.routeOfAdministration, and it is not intended to use both."/>
       <min value="0"/>
       <max value="*"/>
       <type>
