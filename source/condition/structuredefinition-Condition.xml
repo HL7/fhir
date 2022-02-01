@@ -719,8 +719,11 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ManifestationOrSymptom"/>
         </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+          <valueMarkdown value="J#32755"/>
+        </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/manifestation-or-symptom"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
       </binding>
       <mapping>
         <identity value="rim"/>
