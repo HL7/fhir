@@ -409,11 +409,12 @@
     </element>
     <element id="AllergyIntolerance.recordedDate">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#11089, GF#14007, GF#17285, and GF#15781."/>
+        <valueString value="GF#11089, GF#14007, GF#17285, GF#15781, J#34396"/>
       </extension>
       <path value="AllergyIntolerance.recordedDate"/>
-      <short value="Date first version of the resource instance was recorded"/>
+      <short value="Date allergy or intolerance was first recorded"/>
       <definition value="The recordedDate represents when this particular AllergyIntolerance record was created in the system, which is often a system-generated date."/>
+      <comment value="When onset date is unknown, recordedDate can be used to establish if the allergy or intolerance was present on or before a given date.  If the recordedDate is known and provided by a sending system, it is preferred that the receiving system preserve that recordedDate value. If the recordedDate is not provided by the sending system, the receipt timestamp is sometimes used as the recordedDate.  By contrast, the recorder is the most recent author."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -434,11 +435,12 @@
     </element>
     <element id="AllergyIntolerance.recorder">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#32916"/>
+        <valueString value="J#32916,J#34396"/>
       </extension>
       <path value="AllergyIntolerance.recorder"/>
       <short value="Who recorded the sensitivity"/>
       <definition value="Individual who recorded the record and takes responsibility for its content."/>
+      <comment value="Because the recorder takes responsibility for accurately recording information in the record, the recorder is the most recent author.  The recorder may or may not be the asserter.  By contrast, the recordedDate is when the allergy or intolerance was first recorded."/>
       <alias value="Author"/>
       <min value="0"/>
       <max value="1"/>
