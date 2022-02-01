@@ -44,11 +44,6 @@
   <description value="A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
     <identity value="sct-concept"/>
     <uri value="http://snomed.info/conceptdomain"/>
     <name value="SNOMED CT Concept Domain Binding"/>
@@ -104,10 +99,6 @@
         <xpath value="not(exists(f:category/f:coding[f:system/@value=&#39;http://terminology.hl7.org/CodeSystem/condition-category&#39; and f:code/@value=&#39;problem-list-item&#39;])) or not(exists(f:clinicalStatus/f:coding[f:system/@value=&#39;http://terminology.hl7.org/CodeSystem/condition-clinical&#39; and f:code/@value=&#39;unknown&#39;]))"/>
       </constraint>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Event"/>
-      </mapping>
-      <mapping>
         <identity value="sct-concept"/>
         <map value="&lt; 243796009 |Situation with explicit context| : 246090004 |Associated finding| = ( ( &lt; 404684003 |Clinical finding| MINUS ( &lt;&lt; 420134006 |Propensity to adverse reactions| OR &lt;&lt; 473010000 |Hypersensitivity condition| OR &lt;&lt; 79899007 |Drug interaction| OR &lt;&lt; 69449002 |Drug action| OR &lt;&lt; 441742003 |Evaluation finding| OR &lt;&lt; 307824009 |Administrative status| OR &lt;&lt; 385356007 |Tumor stage finding|)) OR &lt; 272379006 |Event|)"/>
       </mapping>
@@ -136,10 +127,6 @@
         <code value="Identifier"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.identifier"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
@@ -175,10 +162,6 @@
         <description value="The clinical status of the condition or diagnosis."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-clinical"/>
       </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.status"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.status"/>
@@ -220,10 +203,6 @@
         <description value="The verification status to support or decline the clinical status of the condition or diagnosis."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-ver-status"/>
       </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.status"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.status"/>
@@ -341,10 +320,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
       </binding>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Event.code"/>
-      </mapping>
-      <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
       </mapping>
@@ -421,10 +396,6 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Event.subject"/>
-      </mapping>
-      <mapping>
         <identity value="w5"/>
         <map value="FiveWs.subject[x]"/>
       </mapping>
@@ -453,10 +424,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.context"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.context"/>
@@ -496,10 +463,6 @@
         <code value="string"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.occurrence[x]"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.init"/>
@@ -773,10 +736,6 @@
       <type>
         <code value="Annotation"/>
       </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.note"/>
-      </mapping>
       <mapping>
         <identity value="v2"/>
         <map value="NTE child of PRB"/>
