@@ -333,6 +333,7 @@
       <type>
         <code value="boolean"/>
       </type>
+      <meaningWhenMissing value="If this value is not present, there is no statement being made about whether this is co-packaged or not. No inference can be made"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
