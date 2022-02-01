@@ -245,7 +245,7 @@
     <element id="SubstanceDefinition.manufacturer">
       <path value="SubstanceDefinition.manufacturer"/>
       <short value="A company that makes this substance"/>
-      <definition value="A company that makes this substance."/>
+      <definition value="A company that makes this substance. This is a set of potential manufacturers but is not necessarily comprehensive."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -419,7 +419,7 @@
     <element id="SubstanceDefinition.moiety.amountType">
       <path value="SubstanceDefinition.moiety.amountType"/>
       <short value="The measurement type of the quantitative value"/>
-      <definition value="The measurement type of the quantitative value."/>
+      <definition value="The measurement type of the quantitative value. In capturing the actual relative amounts of substances or molecular fragments it may be necessary to indicate whether the amount refers to, for example, a mole ratio or weight ratio."/>
       <min value="0"/>
       <max value="1"/>
       <type>
