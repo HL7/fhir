@@ -70,9 +70,9 @@
   <recordedDate value="2012-12-01"/>
   <evidence>
     <!--Problem is confirmed in diagnostic report-->
-    <detail>
+    <reference>
       <reference value="DiagnosticReport/f201"/>
       <display value="Erasmus' diagnostic report of Roel's tumor"/>
-    </detail>
+    </reference>
   </evidence>
 </Condition>

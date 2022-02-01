@@ -72,12 +72,12 @@
     </type>
   </stage>
   <evidence>
-    <code>
+    <concept>
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="169069000"/>
         <display value="CT of thorax"/>
       </coding>
-    </code>
+    </concept>
   </evidence>
 </Condition>

@@ -57,12 +57,12 @@
     <display value="P. van de Heuvel"/>
   </asserter>
   <evidence>
-    <code>
+    <concept>
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="169068008"/>
         <display value="CT of neck"/>
       </coding>
-    </code>
+    </concept>
   </evidence>
 </Condition>
