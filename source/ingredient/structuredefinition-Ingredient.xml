@@ -72,6 +72,14 @@
       <definition value="An ingredient of a manufactured item or pharmaceutical product."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="ing-1"/>
+        <severity value="error"/>
+        <human value="If an ingredient is noted as an allergen (allergenicIndicator) then its substance should be a code. If the substance is a SubstanceDefinition, then the allegen information should be documented in that resource"/>
+        <expression value="(Ingredient.allergenicIndicator.where(value='true').count() + Ingredient.substance.code.reference.count())  &lt; 2"/>
+        <xpath value="count(f:Ingredient.f:allergenicIndicator[@value='true']|f:Ingredient.f:substance.f:code.f:reference) &lt; 2"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
+      </constraint>
       <mapping>
         <identity value="idmp"/>
         <map value="Ingredient"/>
@@ -192,12 +200,13 @@
     <element id="Ingredient.allergenicIndicator">
       <path value="Ingredient.allergenicIndicator"/>
       <short value="If the ingredient is a known or suspected allergen"/>
-      <definition value="If the ingredient is a known or suspected allergen."/>
+      <definition value="If the ingredient is a known or suspected allergen. Note that this is a property of the substance, so if a reference to a SubstanceDefinition is used to decribe that (rather than just a code), the allergen information should go there, not here."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
+      <meaningWhenMissing value="If this value is not present, there is no statement being made about whether this is an allergen or not. No inference can be made"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -211,13 +220,9 @@
       <path value="Ingredient.manufacturer"/>
       <short value="An organization that manufactures this ingredient"/>
       <definition value="The organization(s) that manufacture this ingredient. Can be used to indicate:
-        
         1) Organizations we are aware of that manufacture this ingredient
-        
         2) Specific Manufacturer(s) currently being used
-        
         3) Set of organisations allowed to manufacture this ingredient for this product
-        
         Users must be clear on the application of context relevant to their use case."/>
       <min value="0"/>
       <max value="*"/>
