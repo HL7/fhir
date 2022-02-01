@@ -347,7 +347,7 @@ Other parameters that servers may be required to use:
 </p>
 <table class="grid">
  <tr><td><code>[canonical]#CodeSystem.content</code></td><td>[content] : The content value for the <a href="codesystem.html">code system</a> for the canonical URL. 
-   Applications generating expansions SHALL use this parameter if the CodeSystem.content value is "fragment" or " </td></tr>
+   Applications generating expansions SHALL use this parameter if the CodeSystem.content value is "fragment"</td></tr>
  <tr><td><code>[canonical1]#supplement</code></td><td>[canonical2] : Indicates that the specified supplement (canonical2) contributed to the content
   of the expansion for the code system canonical1 (by influencing selection, or providing designations). Applications generating expansions SHALL use this parameter to record 
 	that a supplement was used during the expansion process</td></tr>
