@@ -241,7 +241,7 @@
     <element id="ClinicalUseDefinition.contraindication.diseaseStatus">
       <path value="ClinicalUseDefinition.contraindication.diseaseStatus"/>
       <short value="The status of the disease or symptom for the contraindication"/>
-      <definition value="The status of the disease or symptom for the contraindication."/>
+      <definition value="The status of the disease or symptom for the contraindication, for example &quot;chronic&quot; or &quot;metastatic&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -416,7 +416,7 @@
     <element id="ClinicalUseDefinition.indication.diseaseStatus">
       <path value="ClinicalUseDefinition.indication.diseaseStatus"/>
       <short value="The status of the disease or symptom for the indication"/>
-      <definition value="The status of the disease or symptom for the indication."/>
+      <definition value="The status of the disease or symptom for the indication, for example &quot;chronic&quot; or &quot;metastatic&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -505,8 +505,8 @@
     </element>
     <element id="ClinicalUseDefinition.indication.undesirableEffect">
       <path value="ClinicalUseDefinition.indication.undesirableEffect"/>
-      <short value="Specific undesirable effects of the medicinal product"/>
-      <definition value="The specific undesirable effects of the medicinal product."/>
+      <short value="An unwanted side effect or negative outcome of the subject of this resource when being used for this indication"/>
+      <definition value="An unwanted side effect or negative outcome that may happen if you use the drug (or other subject of this resource) for this indication."/>
       <min value="0"/>
       <max value="*"/>
       <type>
