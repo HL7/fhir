@@ -137,9 +137,13 @@
       </mapping>
     </element>
     <element id="AdverseEvent.actuality">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#32990"/>
+      </extension>
       <path value="AdverseEvent.actuality"/>
       <short value="actual | potential"/>
-      <definition value="Whether the event actually happened, or just had the potential to. Note that this is independent of whether anyone was affected or harmed or how severely."/>
+      <definition value="Whether the event actually happened or was a near miss. Note that this is independent of whether anyone was affected or harmed or how severely."/>
+      <comment value="AllergyIntolerance should be used for the initial capture or recording of the individual&#39;s propensity to an adverse reaction to a substance.  If an AllergyIntolerance does not exist, then an adverse reaction should be recorded as an AllergyIntolerance. If an AllergyIntolerance does exist and the substance was given, then an adverse reaction should be recorded as an AdverseEvent due to the aberrant workflow."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -543,7 +547,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
       </type>
       <isSummary value="true"/>
     </element>

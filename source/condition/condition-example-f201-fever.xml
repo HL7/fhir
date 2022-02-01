@@ -73,16 +73,16 @@
   </asserter>
   <evidence>
     <!--Problem is confirmed by 39 degrees Celsius-->
-    <code>
+    <concept>
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="258710007"/>
         <display value="degrees C"/>
       </coding>
-    </code>
-    <detail>
+    </concept>
+    <reference>
       <reference value="Observation/f202"/>
       <display value="Temperature"/>
-    </detail>
+    </reference>
   </evidence>
 </Condition>
