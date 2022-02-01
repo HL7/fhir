@@ -354,8 +354,8 @@
     </element-->
     <element id="RegulatedAuthorization.holder">
       <path value="RegulatedAuthorization.holder"/>
-      <short value="The organization that holds the granted authorization"/>
-      <definition value="The organization that holds the granted authorization."/>
+      <short value="The organization that has been granted this authorization, by the regulator"/>
+      <definition value="The organization that has been granted this authorization, by some authoritative body (the 'regulator')."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -389,8 +389,8 @@
         <valueCode value="650,0"/>
       </extension>
       <path value="RegulatedAuthorization.case"/>
-      <short value="The case or regulatory procedure for granting or amending a marketing authorization. Note: This area is subject to ongoing review and the workgroup is seeking implementer feedback on its use (see link at bottom of page)"/>
-      <definition value="The case or regulatory procedure for granting or amending a marketing authorization. Note: This area is subject to ongoing review and the workgroup is seeking implementer feedback on its use (see link at bottom of page)."/>
+      <short value="The case or regulatory procedure for granting or amending a regulated authorization. Note: This area is subject to ongoing review and the workgroup is seeking implementer feedback on its use (see link at bottom of page)"/>
+      <definition value="The case or regulatory procedure for granting or amending a regulated authorization. An authorization is granted in response to submissions/applications by those seeking authorization. A case is the administrative process that deals with the application(s) that relate to this and assesses them. Note: This area is subject to ongoing review and the workgroup is seeking implementer feedback on its use (see link at bottom of page)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -483,8 +483,8 @@
     </element>
     <element id="RegulatedAuthorization.case.application">
       <path value="RegulatedAuthorization.case.application"/>
-      <short value="Applications submitted to obtain a marketing authorization. Steps within the longer running case or procedure"/>
-      <definition value="Applications submitted to obtain a marketing authorization, or similar. Steps within the longer running case or procedure."/>
+      <short value="Applications submitted to obtain a regulated authorization. Steps within the longer running case or procedure"/>
+      <definition value="A regulatory submission from an organization to a regulator, as part of an assessing case. Multiple applications may occur over time, with more or different information to support or modify the submission or the authorization. The applications can be considered as steps within the longer running case or procedure for this authorization process."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#RegulatedAuthorization.case"/>
