@@ -210,7 +210,15 @@
       </extension>
       <path value="Ingredient.manufacturer"/>
       <short value="An organization that manufactures this ingredient"/>
-      <definition value="An organization that manufactures this ingredient."/>
+      <definition value="The organization(s) that manufacture this ingredient. Can be used to indicate:
+        
+        1) Organizations we are aware of that manufacture this ingredient
+        
+        2) Specific Manufacturer(s) currently being used
+        
+        3) Set of organisations allowed to manufacture this ingredient for this product
+        
+        Users must be clear on the application of context relevant to their use case."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -324,7 +332,7 @@
     <element id="Ingredient.substance.strength.presentation[x]">
       <path value="Ingredient.substance.strength.presentation[x]"/>
       <short value="The quantity of substance in the unit of presentation"/>
-      <definition value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item."/>
+      <definition value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item. Unit of presentation refers to the quantity that the item occurs in e.g. a strength per tablet size, perhaps 'per 20mg' (the size of the tablet). It is not generally normalized as a unitary unit, which would be 'per mg')."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -390,7 +398,7 @@
     <element id="Ingredient.substance.strength.measurementPoint">
       <path value="Ingredient.substance.strength.measurementPoint"/>
       <short value="When strength is measured at a particular point or distance"/>
-      <definition value="For when strength is measured at a particular point or distance."/>
+      <definition value="For when strength is measured at a particular point or distance. There are products where strength is measured at a particular point. For example, the strength of the ingredient in some inhalers is measured at a particular position relative to the point of aerosolization."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -431,7 +439,7 @@
       </extension>
       <path value="Ingredient.substance.strength.referenceStrength"/>
       <short value="Strength expressed in terms of a reference substance"/>
-      <definition value="Strength expressed in terms of a reference substance."/>
+      <definition value="Strength expressed in terms of a reference substance. For when the ingredient strength is additionally expressed as equivalent to the strength of some other closely related substance (e.g. salt vs. base). Reference strength represents the strength (quantitative composition) of the active moiety of the active substance. There are situations when the active substance and active moiety are different, therefore both a strength and a reference strength are needed."/>
       <min value="0"/>
       <max value="*"/>
       <type>
