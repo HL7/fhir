@@ -288,8 +288,8 @@
     
     <element id="PackagedProductDefinition.marketingStatus">
       <path value="PackagedProductDefinition.marketingStatus"/>
-      <short value="Marketing information"/>
-      <definition value="Marketing information."/>
+      <short value="Allows specifying that an item is on the market for sale, or that it is not available, and the dates and locations associated"/>
+      <definition value="Allows specifying that an item is on the market for sale, or that it is not available, and the dates and locations associated."/>
       <min value="0"/>
       <max value="*"/>
       <type>
