@@ -126,8 +126,8 @@
     </element>
     <element id="AdministrableProductDefinition.formOf">
       <path value="AdministrableProductDefinition.formOf"/>
-      <short value="The medicinal product that this is a prepared administrable form of"/>
-      <definition value="The medicinal product that this is a prepared administrable form of. This element is not a reference to the item(s) that make up this administrable form (for which see AdministrableProductDefinition.producedFrom). It is medicinal product as a whole, which may have several components (as well as packaging, devices etc.), that are given to the patient in this final administrable form. A single medicinal product may have several different administrable products (e.g. a tablet and a cream), and these could have different administrable forms (e.g. tablet as oral solid, or tablet crushed)."/>
+      <short value="References a product from which one or more of the constituent parts of that product can be prepared and used as described by this administrable product"/>
+      <definition value="References a product from which one or more of the constituent parts of that product can be prepared and used as described by this administrable product.  If this administrable product describes the administration of a crushed tablet, the 'formOf' would be the product representing a distribution containing tablets and possibly also a cream.  This is distinct from the 'producedFrom' which refers to the specific components of the product that are used in this preparation, rather than the product as a whole."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -188,8 +188,8 @@
     </element>
     <element id="AdministrableProductDefinition.producedFrom">
       <path value="AdministrableProductDefinition.producedFrom"/>
-      <short value="The constituent manufactured item(s) that this administrable product is produced from"/>
-      <definition value="The constituent manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g. a power item and a solvent item, to make a consumable solution). Note the items this is produced from are not raw ingredients (see AdministrableProductDefinition.ingredient), but manufactured medication items (ManufacturedItemDefinitions), which may be combined or prepared and transformed for patient use. The constituent items that this administrable form is produced from are all part of the product (for which see AdministrableProductDefinition.formOf)."/>
+      <short value="Indicates the specific manufactured items that are part of the 'formOf' product that are used in the preparation of this specific administrable form"/>
+      <definition value="Indicates the specific manufactured items that are part of the 'formOf' product that are used in the preparation of this specific administrable form.  In some cases, an administrable form might use all of the items from the overall product (or there might only be one item), while in other cases, an administrable form might use only a subset of the items available in the overall product.  For example, an administrable form might involve combining a liquid and a powder available as part of an overall product, but not involve applying the also supplied cream."/>
       <min value="0"/>
       <max value="*"/>
       <type>

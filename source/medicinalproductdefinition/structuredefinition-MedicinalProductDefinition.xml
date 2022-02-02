@@ -85,7 +85,7 @@
     <element id="MedicinalProductDefinition.identifier">
       <path value="MedicinalProductDefinition.identifier"/>
       <short value="Business identifier for this product. Could be an MPID"/>
-      <definition value="Business identifier for this product. Could be an MPID."/>
+      <definition value="Business identifier for this product. Could be an MPID. When in development or being regulated, products are typically referenced by official identifiers, assigned by a manufacturer or regulator, and unique to a product (which, when compared to a product instance being prescribed, is actually a product type). See also MedicinalProductDefinition.code."/>
       <alias value="MPID"/>
       <min value="0"/>
       <max value="*"/>
@@ -584,7 +584,7 @@
     <element id="MedicinalProductDefinition.code">
       <path value="MedicinalProductDefinition.code"/>
       <short value="A code that this product is known by, within some formal terminology"/>
-      <definition value="A code that this product is known by, usually within some formal terminology. Products (types of medications) tend to be known by identifiers during development and within regulatory process. However when they are prescribed they tend to be identified by codes. The same product may be have multiple codes, applied to it by multiple organizations."/>
+      <definition value="A code that this product is known by, usually within some formal terminology, perhaps assigned by a third party (i.e. not the manufacturer or regulator). Products (types of medications) tend to be known by identifiers during development and within regulatory process. However when they are prescribed they tend to be identified by codes. The same product may be have multiple codes, applied to it by multiple organizations."/>
       <min value="0"/>
       <max value="*"/>
       <type>
