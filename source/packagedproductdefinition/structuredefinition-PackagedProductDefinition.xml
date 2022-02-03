@@ -84,8 +84,8 @@
     </element>
     <element id="PackagedProductDefinition.identifier">
       <path value="PackagedProductDefinition.identifier"/>
-      <short value="Unique identifier"/>
-      <definition value="Unique identifier."/>
+      <short value="A unique identifier for this package as whole"/>
+      <definition value="A unique identifier for this package as whole. Unique instance identifiers assigned to a package by manufacturers, regulators, drug catalogue custodians or other organizations."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -193,8 +193,8 @@
     </element>
     <element id="PackagedProductDefinition.containedItemQuantity">
       <path value="PackagedProductDefinition.containedItemQuantity"/>
-      <short value="A total of the amount of items in the package, per item type. This can be considered as the pack size"/>
-      <definition value="A total of the amount of items in the package, per item type. This can be considered as the pack size. This attribute differs from containedItem.amount in that it can give a single aggregated count of all tablet types in a pack, even when these are different manufactured items. For example a pill pack of 21 tablets plus 7 sugar tablets, can be denoted here as '28 tablets'. This attribute is repeatable so that the different item types in one pack type can be counted (e.g. a count of vials and count of syringes). Each repeat must have different units, so that it is clear what the different sets of counted items are, and it is not intended to allow different counts of similar items (e.g. not '2 tubes and 3 tubes'). Repeats are not to be used to represent different pack sizes (e.g. 20 pack vs. 50 pack) - which would be different instances of this resource."/>
+      <short value="A total of the complete count of contained items of a particular type/form, independent of sub-packaging or organization. This can be considered as the pack size"/>
+      <definition value="A total of the complete count of contained items of a particular type/form, independent of sub-packaging or organization. This can be considered as the pack size. This attribute differs from containedItem.amount in that it can give a single aggregated count of all tablet types in a pack, even when these are different manufactured items. For example a pill pack of 21 tablets plus 7 sugar tablets, can be denoted here as '28 tablets'. This attribute is repeatable so that the different item types in one pack type can be counted (e.g. a count of vials and count of syringes). Each repeat must have different units, so that it is clear what the different sets of counted items are, and it is not intended to allow different counts of similar items (e.g. not '2 tubes and 3 tubes'). Repeats are not to be used to represent different pack sizes (e.g. 20 pack vs. 50 pack) - which would be different instances of this resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -288,8 +288,8 @@
     
     <element id="PackagedProductDefinition.marketingStatus">
       <path value="PackagedProductDefinition.marketingStatus"/>
-      <short value="Marketing information"/>
-      <definition value="Marketing information."/>
+      <short value="Allows specifying that an item is on the market for sale, or that it is not available, and the dates and locations associated"/>
+      <definition value="Allows specifying that an item is on the market for sale, or that it is not available, and the dates and locations associated."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -333,6 +333,7 @@
       <type>
         <code value="boolean"/>
       </type>
+      <meaningWhenMissing value="If this value is not present, there is no statement being made about whether this is co-packaged or not. No inference can be made"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -391,8 +392,8 @@
     </element>
     <element id="PackagedProductDefinition.package.identifier">
       <path value="PackagedProductDefinition.package.identifier"/>
-      <short value="Including possibly Data Carrier Identifier"/>
-      <definition value="Including possibly Data Carrier Identifier."/>
+      <short value="An identifier that is specific to this particular part of the packaging. Including possibly a Data Carrier Identifier"/>
+      <definition value="An identifier that is specific to this particular part of the packaging. Including possibly Data Carrier Identifier (a GS1 barcode)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -467,8 +468,8 @@
     </element>
     <element id="PackagedProductDefinition.package.alternateMaterial">
       <path value="PackagedProductDefinition.package.alternateMaterial"/>
-      <short value="A possible alternate material for the packaging"/>
-      <definition value="A possible alternate material for the packaging."/>
+      <short value="A possible alternate material for this part of the packaging, that is allowed to be used instead of the usual material"/>
+      <definition value="A possible alternate material for this part of the packaging, that is allowed to be used instead of the usual material (e.g. different types of plastic for a blister sleeve)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
