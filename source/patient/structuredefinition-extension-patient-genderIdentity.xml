@@ -46,16 +46,17 @@
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="The individual&#39;s gender identity"/>
-      <definition value="An individual&#39;s personal sense of being a man, woman, boy, girl, nonbinary, or something else. This represents an individual’s identity, ascertained by asking them what that identity is."/>
+      <short value="The individual's gender identity"/>
+      <definition value="An individual's personal sense of being a man, woman, boy, girl, nonbinary, or something else."/>
+	  <comment value="This represents an individual’s identity, ascertained by asking them what that identity is."/>
       <min value="0"/>
     </element>
     <element id="Extension.extension:value">
       <path value="Extension.extension"/>
       <sliceName value="value"/>
-      <short value="TODO: genderIdentity.value"/>
-      <definition value="TODO: genderIdentity.value"/>
-      <comment value="TODO: genderIdentity.value"/>
+      <short value="The individual's gender identity"/>
+      <definition value="An individual's personal sense of being a man, woman, boy, girl, nonbinary, or something else. "/>
+      <comment value="This represents an individual’s identity, ascertained by asking them what that identity is."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -90,9 +91,8 @@
     <element id="Extension.extension:period">
       <path value="Extension.extension"/>
       <sliceName value="period"/>
-      <short value="TODO: genderIdentity.period"/>
-      <definition value="TODO: genderIdentity.period"/>
-      <comment value="TODO: genderIdentity.period"/>
+      <short value="The time period during which the gender identity applies to the patient"/>
+      <definition value="The time period during which the gender identity applies to the patient"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -120,8 +120,8 @@
     <element id="Extension.extension:comment">
       <path value="Extension.extension"/>
       <sliceName value="comment"/>
-      <short value="TODO: genderIdentity.comment"/>
-      <definition value="TODO: genderIdentity.comment"/>
+      <short value="Text to further explain the use of the specified gender identity"/>
+      <definition value="Text to further explain the use of the specified gender identity"/>
       <min value="0"/>
       <max value="1"/>
       <type>

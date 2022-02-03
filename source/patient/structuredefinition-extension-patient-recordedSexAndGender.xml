@@ -46,15 +46,15 @@
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="A recorded sex or gender property for the person."/>
-      <definition value="A sex or gender property for the person from a document or other record."/>
+      <short value="A recorded sex or gender property for the person"/>
+      <definition value="A sex or gender property for the person from a document or other record"/>
       <min value="0"/>
     </element>
     <element id="Extension.extension:value">
       <path value="Extension.extension"/>
       <sliceName value="value"/>
-      <short value="The recorded sex or gender property for the person."/>
-      <definition value="A sex or gender property for the person from a document or other record."/>
+      <short value="The recorded sex or gender property for the person"/>
+      <definition value="A sex or gender property for the person from a document or other record"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -83,15 +83,15 @@
 			<valueString value="recordedSexAndGender"/>
 		  </extension>
 		  <strength value="example"/>
-		  <valueSet value="http://hl7.org/fhir/ValueSet/sex-for-clinical-use"/>
+		  <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|4.6.0"/>
 	  </binding>
     </element>
 	<element id="Extension.extension:sourceDocument">
       <path value="Extension.extension"/>
       <sliceName value="sourceDocument"/>
-      <short value="TODO: recordedSexAndGender.sourceDocument"/>
-      <definition value="TODO: recordedSexAndGender.sourceDocument"/>
-      <comment value="TODO: recordedSexAndGender.sourceDocument"/>
+      <short value="The source document where this sex or gender property is initially recorded."/>
+      <definition value="The source document where this sex or gender property is initially recorded."/>
+      <comment value="For example, if a driver's license is scanned, this property may reference that scanned document."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -120,9 +120,9 @@
 	<element id="Extension.extension:jurisdiction">
       <path value="Extension.extension"/>
       <sliceName value="jurisdiction"/>
-      <short value="TODO: recordedSexAndGender.jurisdiction"/>
-      <definition value="TODO: recordedSexAndGender.jurisdiction"/>
-      <comment value="TODO: recordedSexAndGender.jurisdiction"/>
+      <short value="The jurisdiction or organization that issued the document from which the sex or gender was aquired"/>
+      <definition value="The jurisdiction or organization that issued the document from which the sex or gender was aquired"/>
+      <comment value="For example, a patient's driver's license or passport would be issued by a specific state or country."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -150,9 +150,8 @@
 	<element id="Extension.extension:period">
       <path value="Extension.extension"/>
       <sliceName value="period"/>
-      <short value="TODO: recordedSexAndGender.period"/>
-      <definition value="TODO: recordedSexAndGender.period"/>
-      <comment value="TODO: recordedSexAndGender.period"/>
+      <short value="The time period during which the recorded sex or gender value applies to the patient"/>
+      <definition value="The time period during which the recorded sex or gender value applies to the patient"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -180,8 +179,8 @@
     <element id="Extension.extension:comment">
       <path value="Extension.extension"/>
       <sliceName value="comment"/>
-      <short value="TODO: recordedSexAndGender.comment"/>
-      <definition value="TODO: recordedSexAndGender.comment"/>
+      <short value="Further explaination about the context or source of the recorded sex or gender value"/>
+      <definition value="Further explaination about the context or source of the recorded sex or gender value"/>
       <min value="0"/>
       <max value="1"/>
       <type>
