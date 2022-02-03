@@ -260,7 +260,7 @@
     </element>
     <element id="SubstanceDefinition.supplier">
       <path value="SubstanceDefinition.supplier"/>
-      <short value="A company that makes this substance available (but may not manufacture it)"/>
+      <short value="A company that makes this substance available (but might not manufacture it)"/>
       <definition value="A company that makes this substance available. This involves, for example, supply chain and marketing, rather than necessarily making the substance, and so covers distributers and re-sellers."/>
       <min value="0"/>
       <max value="*"/>
