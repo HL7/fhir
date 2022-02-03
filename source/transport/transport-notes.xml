@@ -1,0 +1,24 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+  <a name="titles"></a>
+  <h2>Transport Titles</h2>
+  <p>
+     Transports often have titles (eg "My Transports", "Outstanding Transports for Patient X") which can be presented in a list.  The transport title should go into the Transport.code as a coded concept and/or text.
+  </p>
+  <a name="statemachine"></a>
+  <h2>Transport state machine</h2>
+  <p>
+    The following diagram reflects the "typical" state machine for Transport.  Note that not all states will be supported by all workflows
+    and that some workflows may support additional transitions, including transitions from terminal states (e.g. back to "in-progress"
+    from "failed" or "completed").
+  </p>
+  <img src="transport-state-machine.svg" alt="Diagram showing typical state machine for the Transport resource"/>
+
+  <a name="cancelled"></a>
+  <h2>The Cancelled state</h2>
+  <p>
+    While the intention of a "cancelled" transport is that all work authorized by the transport should cease, this
+    might not always be possible practice.  It is possible that the originally requested action could still
+    be completed and still attached to the Transport but this would not change the status of the transport.  If the
+    placer cancels a transport, it signals they no longer care about the outcome of the transport.
+  </p>
+</div>

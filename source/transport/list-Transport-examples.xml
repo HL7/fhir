@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Transport-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of in-progress/awaiting specimen transport for a lipid panel order"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="transport-example1"/>
+    </extension>
+    <item>
+      <reference value="Transport/example1"/>
+      <display value="In Progress Lipid Panel Transport 1"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an accepted, filler generated specimen collection subtransport"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="transport-example2"/>
+    </extension>
+    <item>
+      <reference value="Transport/example2"/>
+      <display value="Accepted Specimen Collection Transport"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a completed  filler generated specimen collection subtransport"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="transport-example4"/>
+    </extension>
+    <item>
+      <reference value="Transport/example4"/>
+      <display value="Completed Specimen Collection Transport"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of in-progress/test results pending transport for a lipid panel order"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="transport-example5"/>
+    </extension>
+    <item>
+      <reference value="Transport/example5"/>
+      <display value="in Progress Lipid Panel Transport 2"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of completed  transport for a lipid panel order"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="transport-example6"/>
+    </extension>
+    <item>
+      <reference value="Transport/example6"/>
+      <display value="Completed Lipid Panel Transport"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of simple prescription transport"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="transport-example3"/>
+    </extension>
+    <item>
+      <reference value="Transport/example3"/>
+      <display value="Prescription Transport"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of the cancellation of a preauthorization"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="transport-example-fm-cancel"/>
+    </extension>
+    <item>
+      <reference value="Transport/fm-example1"/>
+      <display value="Cancel a preauthorization"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of polling for queued resources"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="transport-example-fm-poll"/>
+    </extension>
+    <item>
+      <reference value="Transport/fm-example2"/>
+      <display value="Cancel a preauthorization"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of the release of the balance of reserved funds for a preauthorization"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="transport-example-fm-release"/>
+    </extension>
+    <item>
+      <reference value="Transport/fm-example3"/>
+      <display value="Cancel a preauthorization"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of the cancellation of a preauthorization"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="transport-example-fm-reprocess"/>
+    </extension>
+    <item>
+      <reference value="Transport/fm-example4"/>
+      <display value="Cancel a preauthorization"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of checking the processing status of a preauthorization"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="transport-example-fm-status"/>
+    </extension>
+    <item>
+      <reference value="Transport/fm-example5"/>
+      <display value="Cancel a preauthorization"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of the response to checking the processing status of a preauthorization"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="transport-example-fm-status-resp"/>
+    </extension>
+    <item>
+      <reference value="Transport/fm-example6"/>
+      <display value="Cancel a preauthorization"/>
+    </item>
+  </entry>
+</List>
