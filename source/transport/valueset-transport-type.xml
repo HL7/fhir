@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="transport-code"/>
+  <id value="transport-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/transport-code"/>
+  <url value="http://hl7.org/fhir/ValueSet/transport-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1396"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="TransportCode"/>
-  <title value="Transport Codes"/>
-  <status value="active"/>
+  <name value="SupplyItemType"/>
+  <title value="Supply Item Type"/>
+  <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -24,11 +24,10 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Codes indicating the type of action that is expected to be performed"/>
+  <description value="This value sets refers to a specific supply item."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/CodeSystem/transport-code"/>
-      <version value="3.6.0"/>
+      <system value="http://terminology.hl7.org/CodeSystem/supply-item-type"/>
     </include>
   </compose>
 </ValueSet>

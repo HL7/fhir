@@ -1,24 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This is the corresponding supply delivery from the supplye request example
+-->
 <Transport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/transport.xsd">
-  <id value='example3'/>
-
-  <status value="draft"/>
-  <intent value="order"/>
-  <code>
-    <text value="Refill Request"/>
-  </code>
-  <focus>
-    <reference value="MedicationRequest/medrx002"/>
-  </focus>
-  <for>
-    <reference value="Patient/f001"/>
-  </for>
-  <authoredOn value="2016-03-10T22:39:32-04:00"/>
-  <lastModified value="2016-03-10T22:39:32-04:00"/>
-  <requester>
-      <reference value="Patient/example"/>
-  </requester>
-  <owner>
-    <reference value="Practitioner/example"/>
-  </owner>
+	<id value="simpledelivery"/>
+	<!--
+business identifier - in this case the same as the request id
+-->
+	<identifier>
+		<value value="Order10284"/>
+	</identifier>
+	<basedOn>
+		<reference value="SupplyRequest/simpleorder"/>
+	</basedOn>
+	<partOf>
+		<display value="Central Supply Restock"/>
+	</partOf>
+	<status value="completed"/>
+	<type>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/supply-item-type"/>
+			<code value="device"/>
+		</coding>
+		<text value="Blood collect tubes blue cap"/>
+	</type>
+	<suppliedItem>
+		<quantity>
+			<value value="10"/>
+		</quantity>
+		<itemCodeableConcept>
+			<coding>
+				<code value="BlueTubes"/>
+				<display value="Blood collect tubes blue cap"/>
+			</coding>
+		</itemCodeableConcept>
+	</suppliedItem>
+	<occurrenceDateTime value="2016-12-31"/>
+	<supplier>
+		<display value="Vendor1"/>
+	</supplier>
+	<destination>
+		<display value="Location 1"/>
+	</destination>
 </Transport>

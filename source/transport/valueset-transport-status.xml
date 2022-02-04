@@ -9,13 +9,21 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <ul>
+        
         <li>Include all codes defined in 
+          
           <a href="codesystem-transport-status.html">
+            
             <code>http://hl7.org/fhir/transport-status</code>
+          
           </a>
+        
         </li>
+      
       </ul>
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -25,12 +33,12 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/transport-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.790"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
   </identifier>
   <version value="4.6.0"/>
   <name value="TransportStatus"/>
@@ -49,11 +57,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The current status of the transport."/>
+  <description value="Status of the supply delivery."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/transport-status"/>
+      <system value="http://hl7.org/fhir/supplydelivery-status"/>
     </include>
   </compose>
 </ValueSet>

@@ -10,201 +10,132 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <p>This code system http://hl7.org/fhir/transport-status defines the following codes:</p>
+      
       
       <table class="codes">
         
+        
         <tr>
+          
           
           <td style="white-space:nowrap">
             
+            
             <b>Code</b>
+          
           
           </td>
           
+          
           <td>
+            
             
             <b>Display</b>
           
+          
           </td>
+          
           
           <td>
             
+            
             <b>Definition</b>
           
+          
           </td>
+        
         
         </tr>
         
-        <tr>
-          
-          <td style="white-space:nowrap">draft
-            
-            <a name="transport-status-draft"> </a>
-          
-          </td>
-          
-          <td>Draft</td>
-          
-          <td>The transport is not yet ready to be acted upon.</td>
-        
-        </tr>
         
         <tr>
           
-          <td style="white-space:nowrap">requested
-            
-            <a name="transport-status-requested"> </a>
-          
-          </td>
-          
-          <td>Requested</td>
-          
-          <td>The transport is ready to be acted upon and action is sought.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">received
-            
-            <a name="transport-status-received"> </a>
-          
-          </td>
-          
-          <td>Received</td>
-          
-          <td>A potential performer has claimed ownership of the transport and is evaluating whether to perform it.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">accepted
-            
-            <a name="transport-status-accepted"> </a>
-          
-          </td>
-          
-          <td>Accepted</td>
-          
-          <td>The potential performer has agreed to execute the transport but has not yet started work.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">rejected
-            
-            <a name="transport-status-rejected"> </a>
-          
-          </td>
-          
-          <td>Rejected</td>
-          
-          <td>The potential performer who claimed ownership of the transport has decided not to execute it prior to performing any action.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">ready
-            
-            <a name="transport-status-ready"> </a>
-          
-          </td>
-          
-          <td>Ready</td>
-          
-          <td>The transport is ready to be performed, but no action has yet been taken.  Used in place of requested/received/accepted/rejected when request assignment and acceptance is a given.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">cancelled
-            
-            <a name="transport-status-cancelled"> </a>
-          
-          </td>
-          
-          <td>Cancelled</td>
-          
-          <td>The transport was not completed.</td>
-        
-        </tr>
-        
-        <tr>
           
           <td style="white-space:nowrap">in-progress
             
+            
             <a name="transport-status-in-progress"> </a>
           
+          
           </td>
+          
           
           <td>In Progress</td>
           
-          <td>The transport has been started but is not yet complete.</td>
+          
+          <td>Supply has been requested, but not delivered.</td>
+        
         
         </tr>
         
-        <tr>
-          
-          <td style="white-space:nowrap">on-hold
-            
-            <a name="transport-status-on-hold"> </a>
-          
-          </td>
-          
-          <td>On Hold</td>
-          
-          <td>The transport has been started but work has been paused.</td>
-        
-        </tr>
         
         <tr>
           
-          <td style="white-space:nowrap">failed
-            
-            <a name="transport-status-failed"> </a>
-          
-          </td>
-          
-          <td>Failed</td>
-          
-          <td>The transport was attempted but could not be completed due to some error.</td>
-        
-        </tr>
-        
-        <tr>
           
           <td style="white-space:nowrap">completed
             
+            
             <a name="transport-status-completed"> </a>
+          
           
           </td>
           
-          <td>Completed</td>
           
-          <td>The transport has been completed.</td>
+          <td>Delivered</td>
+          
+          
+          <td>Supply has been delivered (&quot;completed&quot;).</td>
+        
         
         </tr>
+        
         
         <tr>
           
-          <td style="white-space:nowrap">entered-in-error
+          
+          <td style="white-space:nowrap">abandoned
             
-            <a name="transport-status-entered-in-error"> </a>
+            
+            <a name="supplydelivery-status-abandoned"> </a>
+          
           
           </td>
           
-          <td>Entered in Error</td>
           
-          <td>The transport should never have existed and is retained only because of the possibility it may have used.</td>
+          <td>Abandoned</td>
+          
+          
+          <td>Delivery was not completed.</td>
+        
+        
+        </tr>
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            
+            <a name="supplydelivery-status-entered-in-error"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Entered In Error</td>
+          
+          
+          <td>This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;abandoned&quot; rather than &quot;entered-in-error&quot;.).</td>
+        
         
         </tr>
       
+      
       </table>
+    
     
     </div>
   </text>
@@ -215,12 +146,12 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/transport-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.791"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
   <version value="4.6.0"/>
   <name value="TransportStatus"/>
@@ -239,68 +170,28 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The current status of the transport."/>
+  <description value="Status of the supply delivery."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/transport-status"/>
   <content value="complete"/>
   <concept>
-    <code value="draft"/>
-    <display value="Draft"/>
-    <definition value="The transport is not yet ready to be acted upon."/>
-  </concept>
-  <concept>
-    <code value="requested"/>
-    <display value="Requested"/>
-    <definition value="The transport is ready to be acted upon and action is sought."/>
-  </concept>
-  <concept>
-    <code value="received"/>
-    <display value="Received"/>
-    <definition value="A potential performer has claimed ownership of the transport and is evaluating whether to perform it."/>
-  </concept>
-  <concept>
-    <code value="accepted"/>
-    <display value="Accepted"/>
-    <definition value="The potential performer has agreed to execute the transport but has not yet started work."/>
-  </concept>
-  <concept>
-    <code value="rejected"/>
-    <display value="Rejected"/>
-    <definition value="The potential performer who claimed ownership of the transport has decided not to execute it prior to performing any action."/>
-  </concept>
-  <concept>
-    <code value="ready"/>
-    <display value="Ready"/>
-    <definition value="The transport is ready to be performed, but no action has yet been taken.  Used in place of requested/received/accepted/rejected when request assignment and acceptance is a given."/>
-  </concept>
-  <concept>
-    <code value="cancelled"/>
-    <display value="Cancelled"/>
-    <definition value="The transport was not completed."/>
-  </concept>
-  <concept>
     <code value="in-progress"/>
     <display value="In Progress"/>
-    <definition value="The transport has been started but is not yet complete."/>
-  </concept>
-  <concept>
-    <code value="on-hold"/>
-    <display value="On Hold"/>
-    <definition value="The transport has been started but work has been paused."/>
-  </concept>
-  <concept>
-    <code value="failed"/>
-    <display value="Failed"/>
-    <definition value="The transport was attempted but could not be completed due to some error."/>
+    <definition value="Supply has been requested, but not delivered."/>
   </concept>
   <concept>
     <code value="completed"/>
-    <display value="Completed"/>
-    <definition value="The transport has been completed."/>
+    <display value="Delivered"/>
+    <definition value="Supply has been delivered (&quot;completed&quot;)."/>
+  </concept>
+  <concept>
+    <code value="abandoned"/>
+    <display value="Abandoned"/>
+    <definition value="Delivery was not completed."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>
-    <display value="Entered in Error"/>
-    <definition value="The transport should never have existed and is retained only because of the possibility it may have used."/>
+    <display value="Entered In Error"/>
+    <definition value="This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;abandoned&quot; rather than &quot;entered-in-error&quot;.)."/>
   </concept>
 </CodeSystem>
