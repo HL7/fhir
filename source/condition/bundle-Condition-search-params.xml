@@ -190,14 +190,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Condition.evidence.code"/>
+          <valueString value="Condition.evidence.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Condition-evidence"/>
         <description value="Manifestation/symptom"/>
         <code value="evidence"/>
         <type value="token"/>
-        <expression value="Condition.evidence.code"/>
-        <xpath value="f:Condition/f:evidence/f:code"/>
+        <expression value="Condition.evidence.concept"/>
+        <xpath value="f:Condition/f:evidence/f:concept"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -210,14 +210,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Condition.evidence.detail"/>
+          <valueString value="Condition.evidence.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Condition-evidence-detail"/>
         <description value="Supporting information found elsewhere"/>
         <code value="evidence-detail"/>
         <type value="reference"/>
-        <expression value="Condition.evidence.detail"/>
-        <xpath value="f:Condition/f:evidence/f:detail"/>
+        <expression value="Condition.evidence.reference"/>
+        <xpath value="f:Condition/f:evidence/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
