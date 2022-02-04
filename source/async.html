@@ -20,10 +20,9 @@ the FHIR Asynchronous API and the $export Operation are under active development
 </ul>
 [%end-note-np%]
 
-<h3 id="use-case">Use Case</h3>
-<p>All of the interactions defined in the <a href="http.html">RESTful API</a> are described as synchronous operations - that is, the client makes a query and waits for the server to respond with the outcome in the HTTP response. This pattern is not suitable once significant server side processing becomes necessary or when substantial amounts of data must be returned.</p>
+<p>All of the interactions defined in the <a href="http.html">RESTful API</a> can be described as synchronous operations - that is, the client makes a query and waits for the server to respond with the outcome in the HTTP response. This pattern is not suitable once significant server side processing becomes necessary or when substantial amounts of data must be returned.</p>
 <p>A good example of this is the <a href="https://github.com/smart-on-fhir/fhir-bulk-data-docs/blob/master/export.md">$export operation</a>, where simple searches may result in large amounts of data. </p>
-<p>The asynchronous request pattern, based on <a href="https://tools.ietf.org/html/rfc7240#section-4.1">rfc 7240</a>, caters to this use case and is applicable for all the <a href="http.html">Defined Interactions</a> and for <a href="operations.html">Operations</a>, although for many of these uses it brings no benefit. Servers may choose which interactions the pattern should be supported on (if at all), and servers may choose to only support some of the operations using the asynchronous pattern.</p>
+<p>The asynchronous request pattern, based on <a href="https://tools.ietf.org/html/rfc7240#section-4.1">rfc 7240</a>, caters to this use case and is applicable for all the <a href="http.html">defined Interactions</a> and for <a href="operations.html">operations</a>, although for many of these uses it brings no benefit. Servers may choose which interactions the pattern should be supported on (if at all), and servers may choose to only support some of the operations using the asynchronous pattern.</p>
 <hr/>
 <h3 id="kick-off-request">Kick Off Request</h3>
 <p>The request will have whatever URL and other parameters would normally apply, but must include the headers described below.</p>
@@ -38,7 +37,7 @@ the FHIR Asynchronous API and the $export Operation are under active development
 <h5 id="query-string-parameters">Query String Parameters</h5>
 <ul>
 <li><p><code>_outputFormat</code> (string, optional, defaults to <code>application/fhir+ndjson</code>)</p>
-<p>The format for the generated bulk data files. Currently, <a href="http://ndjson.org/">ndjson</a> must be supported, though servers may choose to also support other output formats. Servers should support the full content type of <code>application/fhir+ndjson</code> as well as abbreviated representations including <code>application/ndjson</code> and <code>ndjson</code>.</p></li>
+<p>The format for the generated files. Currently, <a href="http://ndjson.org/">ndjson</a> must be supported, though servers may choose to also support other output formats. Servers should support the full content type of <code>application/fhir+ndjson</code> as well as abbreviated representations including <code>application/ndjson</code> and <code>ndjson</code>.</p></li>
 </ul>
 <h5 id="response---success">Response - Success</h5>
 <ul>
@@ -52,8 +51,8 @@ the FHIR Asynchronous API and the $export Operation are under active development
 <li>Optionally a FHIR OperationOutcome in the body</li>
 </ul>
 <hr/>
-<h3 id="bulk-data-delete-request">Bulk Data Delete Request:</h3>
-<p>After a bulk data request has been kicked-off, clients can send a delete request to the url provided in the <code>Content-Location</code> header to cancel the request.</p>
+<h3 id="async-delete-request">Delete Request:</h3>
+<p>After an asynchronous request has been kicked-off, clients can send a delete request to the url provided in the <code>Content-Location</code> header to cancel the request.</p>
 <h5 id="endpoint">Endpoint</h5>
 <p><code>DELETE [polling content location]</code></p>
 <h5 id="response---success-1">Response - Success</h5>
@@ -67,10 +66,10 @@ the FHIR Asynchronous API and the $export Operation are under active development
 <li>Optionally a FHIR OperationOutcome in the body</li>
 </ul>
 <hr/>
-<h3 id="bulk-data-status-request">Bulk Data Status Request:</h3>
-<p>After a bulk data request has been kicked-off, clients can poll the url provided in the <code>Content-Location</code> header to obtain the status of the request. </p>
+<h3 id="async-status-request"> Status Request:</h3>
+<p>After a asynchronous request has been kicked-off, clients can poll the url provided in the <code>Content-Location</code> header to obtain the status of the request. </p>
 <p>Note: Clients should follow an <a href="https://en.wikipedia.org/wiki/Exponential_backoff">exponential backoff</a> approach when polling for status. Servers may supply a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After">Retry-After header</a> with a http date or a delay time in seconds. When provided, clients should use this information to inform the timing of future polling requests.</p>
-<p>Note: The <code>Accept</code> header for this request should be <code>application/json</code>. In the case that errors prevent the export from completing, the response will contain a JSON-encoded FHIR OperationOutcome resource. </p>
+<p>Note: The <code>Accept</code> header for this request should be <code>application/json</code>. In the case that errors prevent the request from completing, the response will contain a JSON-encoded FHIR OperationOutcome resource. </p>
 <h5 id="endpoint-1">Endpoint</h5>
 <p><code>GET [polling content location]</code></p>
 <h5 id="response---in-progress-status">Response - In-Progress Status</h5>
@@ -82,27 +81,31 @@ the FHIR Asynchronous API and the $export Operation are under active development
 <ul>
 <li>HTTP status code of <code>5XX</code></li>
 <li>Optionally a JSON FHIR OperationOutcome in the body</li>
-<li>Even if some resources cannot successfully be exported, the overall export operation may still succeed. In this case, the <code>Response.error</code> array of the completion Response must be populated (see below) with one or more files in ndjson format containing <code>OperationOutcome</code> resources to indicate what went wrong.</li>
+<li>Even if some resources cannot successfully be included, the overall request may still succeed. In this case, the <code>Response.error</code> array of the completion Response must be populated (see below) with one or more files in ndjson format containing <code>OperationOutcome</code> resources to indicate what went wrong.</li>
 </ul>
 <h5 id="response---complete-status">Response - Complete Status</h5>
 <ul>
-<li><p>HTTP status of <code>200 OK</code></p></li>
-<li><p><code>Content-Type header</code> of <code>application/json</code></p></li>
-<li><p>Optionally an <code>Expires</code> header indicating when the files listed will no longer be available.</p></li>
-<li><p>A body containing a json object providing metadata and links to the generated bulk data files.</p>
-<p>Required Fields:</p></li>
-<li><p><code>transactionTime</code> - a FHIR instant type that indicates the server's time when the query is run. No resources that have a modified data after this instant should be in the response.</p></li>
-<li><p><code>request</code> - the full url of the original bulk data kick-off request</p></li>
-<li><p><code>requiresAccessToken</code> - boolean value indicating whether downloading the generated files will require an authentication token. Note: This may be false in the case of signed S3 urls or an internal file server within an organization's firewall.</p></li>
-<li><p><code>output</code> - array of bulk data file items with one entry for each generated file. Note: If no data is returned from the kick-off request, the server should return an empty array. </p></li>
-<li><p><code>error</code> - array of error file items following the same structure as the <code>output</code> array. Note: If no errors occurred, the server should return an empty array.  Note: Only the <code>OperationOutcome</code> resource type is currently supported, so a server will generate ndjson files where each row is an <code>OperationOutcome</code> resource.</p>
-<p>Each file item should contain the following fields:</p></li>
-<li><p><code>type</code> - the FHIR resource type that is contained in the file. Note: Each file may only contain resources of one type, but a server may create more than one file for each resources type returned. The number of resources contained in a file is may vary between servers. If no data is found for a resource, the server should not return an output item for it in the response.</p></li>
-<li><p><code>url</code> - the path to the file. The format of the file should reflect that requested in the <code>_outputFormat</code> parameter of the initial kick-off request.</p>
-<p>Each file item may optionally contain the following field:</p></li>
-<li><p><code>count</code> - the number of resources in the file, represented as a JSON number.</p>
-<p>Example response body:</p>
-<pre><code class="json language-json">{
+  <li><p>HTTP status of <code>200 OK</code></p></li>
+  <li><p><code>Content-Type header</code> of <code>application/json</code></p></li>
+  <li><p>Optionally an <code>Expires</code> header indicating when the files listed will no longer be available.</p></li>
+  <li><p>A body containing a json object providing metadata and links to the generated files.</p>
+  <p>Required Fields:</p>
+  <ul>
+    <li><p><code>transactionTime</code> - a FHIR instant type that indicates the server's time when the query is run. No resources that have a modified data after this instant should be in the response.</p></li>
+    <li><p><code>request</code> - the full url of the original asynchronous kick-off request</p></li>
+    <li><p><code>requiresAccessToken</code> - boolean value indicating whether downloading the generated files will require an authentication token. Note: This may be false in the case of signed S3 urls or an internal file server within an organization's firewall.</p></li>
+    <li><p><code>output</code> - array of file items with one entry for each generated file. Note: If no data is returned from the kick-off request, the server should return an empty array. </p></li>
+    <li><p><code>error</code> - array of error file items following the same structure as the <code>output</code> array. Note: If no errors occurred, the server should return an empty array.  Note: Only the <code>OperationOutcome</code> resource type is currently supported, so a server will generate ndjson files where each row is an <code>OperationOutcome</code> resource.</p>
+    <p>Each file item should contain the following fields:</p><ul>
+      <li><p><code>type</code> - the FHIR resource type that is contained in the file. Note: Each file may only contain resources of one type, but a server may create more than one file for each resources type returned. The number of resources contained in a file is may vary between servers. If no data is found for a resource, the server should not return an output item for it in the response.</p></li>
+      <li><p><code>url</code> - the path to the file. The format of the file should reflect that requested in the <code>_outputFormat</code> parameter of the initial kick-off request.</p>
+    </ul></li>
+    <p>Each file item may optionally contain the following field:</p>
+    <ul><li><p><code>count</code> - the number of resources in the file, represented as a JSON number.</p></li></ul>
+  </ul>
+  </li>
+  <p>Example response body:</p>
+  <pre><code class="json language-json">{
   "transactionTime": "[instant]",
   "request" : "[base]/Patient/$export?_type=Patient,Observation", 
   "requiresAccessToken" : true,
@@ -124,7 +127,7 @@ the FHIR Asynchronous API and the $export Operation are under active development
 </ul>
 <hr/>
 <h3 id="file-requests">File Requests:</h3>
-<p>Using the urls supplied in the completed status request body, clients can download the generated bulk data files (one or more per resource type). Note: These files may be served by a file server rather than a FHIR specific server. Also, if the <code>requiresAccessToken</code> field in the status body is set to <code>true</code> the request must include a valid access token in the <code>Authorization</code> header in these requests (i.e., <code>Authorization: Bearer {{token}}</code>).</p>
+<p>Using the urls supplied in the completed status request body, clients can download the generated files (one or more per resource type). Note: These files may be served by a file server rather than a FHIR specific server. Also, if the <code>requiresAccessToken</code> field in the status body is set to <code>true</code> the request must include a valid access token in the <code>Authorization</code> header in these requests (i.e., <code>Authorization: Bearer {{token}}</code>).</p>
 <h5 id="endpoint-2">Endpoint</h5>
 <p><code>GET [url from status request output field]</code></p>
 <h5 id="headers-1">Headers</h5>
