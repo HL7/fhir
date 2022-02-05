@@ -162,4 +162,21 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+          <valueString value="J#35833"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Goal.addresses"/>
+        </extension>
+        <description value="Issues addressed by this goal"/>
+        <code value="addresses"/>
+        <type value="reference"/>
+        <expression value="Goal.addresses"/>
+        <xpath value="f:Goal/f:addresses"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
