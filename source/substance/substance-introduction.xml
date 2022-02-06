@@ -6,7 +6,7 @@
 
 <p>
 This resource allows for a material to be represented. The resource can be used to represent either a kind of a 
-substance - e.g. a formulation commonly used for treating patient (a "definitional" use of Substance), or it can be used to describe a particular package
+substance - e.g. a formulation commonly used for treating patients (a "definitional" use of Substance), or it can be used to describe a particular package
 of a known substance e.g. a bottle, jar or packet (an "instance" use of Substance).
 </p>  
 <p>
