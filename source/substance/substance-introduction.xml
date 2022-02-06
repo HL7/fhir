@@ -6,8 +6,8 @@
 
 <p>
 This resource allows for a material to be represented. The resource can be used to represent either a kind of a 
-substance - e.g. a formulation commonly used for treating patients, or it can be used to describe a particular package
-of a known substance (e.g. bottle, jar, packet). 
+substance - e.g. a formulation commonly used for treating patients (a "definitional" use of Substance), or it can be used to describe a particular package
+of a known substance e.g. a bottle, jar or packet (an "instance" use of Substance).
 </p>  
 <p>
 The composition of the material can be specified in terms of a mix of other materials, including with precise amounts if required.
@@ -19,8 +19,8 @@ The composition of the material can be specified in terms of a mix of other mate
 <h2>Boundaries and Relationships</h2> 
 <p>
 A medication is a substance that is packaged and used as an administered medication. 
-The <a href="medication.html">medication resource</a> uses the substance resource to represent 
-the actual ingredients of a medication.
+The <a href="medication.html">medication resource</a> uses the substance resource to represent the actual ingredients of a medication. 
+This resource can represent an instance of a substance or a definition (type, kind) of one. See also the <a href="substancedefinition.html">SubstanceDefinition</a> resource, which is purely definitional.
 </p>
 
 </div> 
