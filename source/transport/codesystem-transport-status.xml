@@ -98,7 +98,7 @@
           <td style="white-space:nowrap">abandoned
             
             
-            <a name="supplydelivery-status-abandoned"> </a>
+            <a name="transport-status-abandoned"> </a>
           
           
           </td>
@@ -119,7 +119,7 @@
           <td style="white-space:nowrap">entered-in-error
             
             
-            <a name="supplydelivery-status-entered-in-error"> </a>
+            <a name="transport-status-entered-in-error"> </a>
           
           
           </td>
@@ -129,6 +129,206 @@
           
           
           <td>This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;abandoned&quot; rather than &quot;entered-in-error&quot;.).</td>
+        
+        
+        </tr>
+
+        <tr>
+          
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            
+            <a name="transport-status-ready"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is ready.</td>
+        
+        
+        </tr>
+
+        <tr>
+          
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            
+            <a name="transport-status-cancelled"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is cancelled.</td>
+        
+        
+        </tr>
+
+         <tr>
+          
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            
+            <a name="transport-status-failed"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is failed.</td>
+        
+        
+        </tr>
+
+         <tr>
+          
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            
+            <a name="transport-status-on-hold"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is on-hold.</td>
+        
+        
+        </tr>
+
+         <tr>
+          
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            
+            <a name="transport-status-accepted"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is accepted.</td>
+        
+        
+        </tr>
+
+         <tr>
+          
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            
+            <a name="transport-status-rejected"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is rejected.</td>
+        
+        
+        </tr>
+
+         <tr>
+          
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            
+            <a name="transport-status-received"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is received.</td>
+        
+        
+        </tr>
+
+         <tr>
+          
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            
+            <a name="transport-status-requested"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is requested.</td>
+        
+        
+        </tr>
+
+         <tr>
+          
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            
+            <a name="transport-status-draft"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is draft.</td>
+        
+        
+        </tr>
+
+         <tr>
+          
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            
+            <a name="transport-status-abandoned"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is abandonded.</td>
         
         
         </tr>
