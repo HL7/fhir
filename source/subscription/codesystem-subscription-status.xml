@@ -9,100 +9,52 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
       <h2>SubscriptionStatus</h2>
-      
       <div>
-        
         <p>The status of a subscription.</p>
-
-      
       </div>
-      
       <p>This code system http://hl7.org/fhir/subscription-status defines the following codes:</p>
-      
       <table class="codes">
-        
         <tr>
-          
           <td style="white-space:nowrap">
-            
             <b>Code</b>
-          
           </td>
-          
           <td>
-            
             <b>Display</b>
-          
           </td>
-          
           <td>
-            
             <b>Definition</b>
-          
           </td>
-        
         </tr>
-        
         <tr>
-          
           <td style="white-space:nowrap">requested
-            
             <a name="subscription-status-requested"> </a>
-          
           </td>
-          
           <td>Requested</td>
-          
           <td>The client has requested the subscription, and the server has not yet set it up.</td>
-        
         </tr>
-        
         <tr>
-          
           <td style="white-space:nowrap">active
-            
             <a name="subscription-status-active"> </a>
-          
           </td>
-          
           <td>Active</td>
-          
           <td>The subscription is active.</td>
-        
         </tr>
-        
         <tr>
-          
           <td style="white-space:nowrap">error
-            
             <a name="subscription-status-error"> </a>
-          
           </td>
-          
           <td>Error</td>
-          
           <td>The server has an error executing the notification.</td>
-        
         </tr>
-        
         <tr>
-          
           <td style="white-space:nowrap">off
-            
             <a name="subscription-status-off"> </a>
-          
           </td>
-          
           <td>Off</td>
-          
           <td>Too many errors have occurred or the subscription has expired.</td>
-        
         </tr>
-      
       </table>
-    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
