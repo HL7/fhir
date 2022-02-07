@@ -86,10 +86,98 @@
 		  <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|4.6.0"/>
 	  </binding>
     </element>
+	<element id="Extension.extension:type">
+      <path value="Extension.extension"/>
+      <sliceName value="type"/>
+      <short value="The source document where this sex or gender property is initially recorded."/>
+      <definition value="The source document where this sex or gender property is initially recorded."/>
+      <comment value="For example, if a driver's license is scanned, this property may reference that scanned document."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:type.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:type.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="type"/>
+    </element>
+    <element id="Extension.extension:type.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableConcept"/>		
+      </type>
+    </element>
+	<element id="Extension.extension:acquisitionDate">
+      <path value="Extension.extension"/>
+      <sliceName value="acquisitionDate"/>
+      <short value="When the sex or gender value was recorded."/>
+      <definition value="The date/time when the sex or gender value was first recorded in the system."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:acquisitionDate.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:acquisitionDate.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="acquisitionDate"/>
+    </element>
+    <element id="Extension.extension:acquisitionDate.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+	<element id="Extension.extension:effectivePeriod">
+      <path value="Extension.extension"/>
+      <sliceName value="effectivePeriod"/>
+      <short value="When the recorded sex or gender value applies"/>
+      <definition value="The time period during which the recorded sex or gender value applies to the patient"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:effectivePeriod.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:effectivePeriod.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="effectivePeriod"/>
+    </element>
+    <element id="Extension.extension:effectivePeriod.value[x]">
+      <path value="Extension.extension.value[x]"/>
+	  <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
 	<element id="Extension.extension:sourceDocument">
       <path value="Extension.extension"/>
       <sliceName value="sourceDocument"/>
-      <short value="The source document where this sex or gender property is initially recorded."/>
+      <short value="The document the sex or gender property was aquired from."/>
       <definition value="The source document where this sex or gender property is initially recorded."/>
       <comment value="For example, if a driver's license is scanned, this property may reference that scanned document."/>
       <min value="0"/>
@@ -120,7 +208,7 @@
 	<element id="Extension.extension:jurisdiction">
       <path value="Extension.extension"/>
       <sliceName value="jurisdiction"/>
-      <short value="The jurisdiction or organization that issued the document from which the sex or gender was aquired"/>
+      <short value="Who issued the document where the sex or gender was aquired"/>
       <definition value="The jurisdiction or organization that issued the document from which the sex or gender was aquired"/>
       <comment value="For example, a patient's driver's license or passport would be issued by a specific state or country."/>
       <min value="0"/>
@@ -147,39 +235,10 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-	<element id="Extension.extension:period">
-      <path value="Extension.extension"/>
-      <sliceName value="period"/>
-      <short value="The time period during which the recorded sex or gender value applies to the patient"/>
-      <definition value="The time period during which the recorded sex or gender value applies to the patient"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Extension"/>
-      </type>
-    </element>
-    <element id="Extension.extension:period.extension">
-      <path value="Extension.extension.extension"/>
-      <max value="0"/>
-    </element>
-    <element id="Extension.extension:period.url">
-      <path value="Extension.extension.url"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <fixedUri value="period"/>
-    </element>
-    <element id="Extension.extension:period.value[x]">
-      <path value="Extension.extension.value[x]"/>
-      <min value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-    </element>
     <element id="Extension.extension:comment">
       <path value="Extension.extension"/>
       <sliceName value="comment"/>
-      <short value="Further explaination about the context or source of the recorded sex or gender value"/>
+      <short value="Context or source information about the recorded sex or gender"/>
       <definition value="Further explaination about the context or source of the recorded sex or gender value"/>
       <min value="0"/>
       <max value="1"/>

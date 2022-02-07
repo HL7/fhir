@@ -15,7 +15,7 @@
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="An individual&#39;s personal sense of being a man, woman, boy, girl, nonbinary, or something else. This represents an individual’s identity, ascertained by asking them what that identity is."/>
+  <description value="An individual's personal sense of being a man, woman, boy, girl, nonbinary, or something else. This represents an individual’s identity, ascertained by asking them what that identity is."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
