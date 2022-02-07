@@ -91,7 +91,7 @@
   request as a signal that a client is done retrieving files and that it is safe for the sever to remove those from
   storage. Following the delete request, when subsequent requests are made to the polling location, the server SHALL
   return a <code>404 Not Found</code> error and an associated <a href="OperationOutcome.html">OperationOutcome
-    Resource</a></p>.
+    Resource</a>.</p>
 
   <h5 id="delete-response---success">Response - Success</h5>
   <ul>
@@ -125,7 +125,7 @@
   </p>
 
   <p>When requesting status, the client SHOULD use an <code>Accept</code> header indicating a content type of
-    <code>application/json</code>. In the case that errors prevent the export from completing, the server SHOULD respond
+    <code>application/json</code>. In the case that errors prevent the asynchronous operation from completing, the server SHOULD respond
     with a <a href="OperationOutcome.html">OperationOutcome Resource</a> in JSON format.
   </p>
 
@@ -193,7 +193,7 @@
           <br />
           <br />
           Note: To properly meet these constraints, a FHIR server might need to wait for any pending transactions to
-          resolve in its database before starting the export process.
+          resolve in its database before starting the asynchronous operation process.
         </td>
       </tr>
       <tr>
@@ -263,7 +263,7 @@
           deleted subsequent to the timestamp. If no resources have been deleted, or the
           timestamp parameter was not supplied, or the server has other reasons to avoid exposing these data,
           the server MAY omit this key or MAY return an empty array. Resources that appear in the 'deleted' section of
-          an export manifest SHALL NOT appear in the 'output' section of the manifest.
+          a manifest SHALL NOT appear in the 'output' section of the manifest.
           <br />
           <br />
           Each line in the output file SHALL contain a FHIR Bundle with a type of <code>transaction</code> which SHALL
@@ -292,14 +292,14 @@
         <td>Array of message file items following the same structure as the <code>output</code> array.
           <br />
           <br />
-          Error, warning, and information messages related to the export SHOULD be included here (not in output). If
+          Error, warning, and information messages related to the asynchronous operation SHOULD be included here (not in output). If
           there are no relevant messages, the server SHOULD return an empty array. Only the FHIR
           <code>OperationOutcome</code> resource type is currently supported, so the server SHALL generate files in the
           same format as Bulk Data output files that contain FHIR <code>OperationOutcome</code> resources.<br /><br />
           If the request contained invalid or unsupported parameters along with a <code>Prefer: handling=lenient</code>
           header and the server processed the request, the server SHOULD include a FHIR <code>OperationOutcome</code>
           resource for each of these parameters.
-          <br /><br />Note: this field may be renamed in a future version of this IG to reflect the inclusion of FHIR
+          <br /><br />Note: this field may be renamed in a future version of this specification to reflect the inclusion of FHIR
           <code>OperationOutcome</code> resources with severity levels other than error.
         </td>
       </tr>
@@ -357,27 +357,27 @@
   <p>As long as servers are following relevant security guidance, they MAY choose to generate output manifests where
     <code>requiresAccessToken</code> is true or false; this applies even for servers available on the public internet.
     When <code>requiresAccessToken</code> is set to <code>false</code> and no additional authorization-related
-    extensions are present on a the completion manifest's output entry, then the output URLs SHALL be dereferenceable
+    extensions are present on the completion manifest's output entry, then the output URLs SHALL be dereferenceable
     directly, and SHALL be short lived following the expiration timing requirement that have been documented for bearer
     tokens in the <a href="https://hl7.org/fhir/uv/bulkdata/authorization/index.html">SMART Backend Services
       Authorization Guide</a>. In this case, a client MAY re-fetch the output manifest if output links have expired and
     MAY use the Expires header on the output response, when present, as a hint to know when capability URLs will expire.
   </p>
 
-  <p>The exported data SHALL include only the most recent version of any exported resources unless the client explicitly
+  <p>The output data SHALL include only the most recent version of any FHIR resources unless the client explicitly
     requests different behavior in a fashion supported by the server (e.g., via a new query parameter yet to be
     defined). Inclusion of the <code>Resource.meta</code> information in the resources is at the discretion of the
     server (as it is for all FHIR interactions).</p>
 
   <p>References in the resources returned MAY be relative URLs with the format
     <code>resourceType</code>/<code>id</code>, or MAY be absolute
-    URLs with the same structure rooted in the base URL for the server from which the export was performed.
+    URLs with the same structure rooted in the base URL for the server from which the asynchronous operation was performed.
   </p>
 
   <p>Example NDJSON output file:</p>
-  <pre><code class="json language-json">{"id":"5c41cecf-cf81-434f-9da7-e24e5a99dbc2","name":[{"given":["Brenda"],"family":["Jackson"]}],"gender":"female","birthDate":"1956-10-14T00:00:00.000Z","resourceType":"Patient"}
-{"id":"3fabcb98-0995-447d-a03f-314d202b32f4","name":[{"given":["Bram"],"family":["Sandeep"]}],"gender":"male","birthDate":"1994-11-01T00:00:00.000Z","resourceType":"Patient"}
-{"id":"945e5c7f-504b-43bd-9562-a2ef82c244b2","name":[{"given":["Sandy"],"family":["Hamlin"]}],"gender":"female","birthDate":"1988-01-24T00:00:00.000Z","resourceType":"Patient"}
+  <pre><code class="json language-json">{"resourceType":"Patient","id":"5c41cecf-cf81-434f-9da7-e24e5a99dbc2","name":[{"given":["Brenda"],"family":["Jackson"]}],"gender":"female","birthDate":"1956-10-14T00:00:00.000Z"}
+{"resourceType":"Patient","id":"3fabcb98-0995-447d-a03f-314d202b32f4","name":[{"given":["Bram"],"family":["Sandeep"]}],"gender":"male","birthDate":"1994-11-01T00:00:00.000Z"}
+{"resourceType":"Patient","id":"945e5c7f-504b-43bd-9562-a2ef82c244b2","name":[{"given":["Sandy"],"family":["Hamlin"]}],"gender":"female","birthDate":"1988-01-24T00:00:00.000Z"}
 </code></pre>
 
   <h5 id="output-file-headers">Headers</h5>
