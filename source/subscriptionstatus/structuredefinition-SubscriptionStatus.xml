@@ -90,7 +90,7 @@
         </extension>
         <strength value="required"/>
         <description value="The status of a subscription at the time this notification was generated."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-state"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-status"/>
       </binding>
       <mapping>
         <identity value="w5"/>
