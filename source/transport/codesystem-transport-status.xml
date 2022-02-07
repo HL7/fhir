@@ -377,21 +377,66 @@
   <concept>
     <code value="in-progress"/>
     <display value="In Progress"/>
-    <definition value="Supply has been requested, but not delivered."/>
+    <definition value="Transport has been requested, but not delivered."/>
   </concept>
   <concept>
     <code value="completed"/>
     <display value="Delivered"/>
-    <definition value="Supply has been delivered (&quot;completed&quot;)."/>
+    <definition value="Transport has been delivered (&quot;completed&quot;)."/>
   </concept>
   <concept>
     <code value="abandoned"/>
     <display value="Abandoned"/>
-    <definition value="Delivery was not completed."/>
+    <definition value="Transport was abandoned."/>
+  </concept>
+  <concept>
+    <code value="draft"/>
+    <display value="Draft"/>
+    <definition value="Transport is draft."/>
+  </concept>
+  <concept>
+    <code value="requested"/>
+    <display value="Requested"/>
+    <definition value="Transport is requested."/>
+  </concept>
+  <concept>
+    <code value="received"/>
+    <display value="Received"/>
+    <definition value="Transport was received."/>
+  </concept>
+  <concept>
+    <code value="rejected"/>
+    <display value="Rejected"/>
+    <definition value="Transport was rejected."/>
+  </concept>
+  <concept>
+    <code value="accepted"/>
+    <display value="Accepted"/>
+    <definition value="Transport was accepted."/>
+  </concept>
+  <concept>
+    <code value="on-hold"/>
+    <display value="On-hold"/>
+    <definition value="Transport is on-hold."/>
+  </concept>
+  <concept>
+    <code value="failed"/>
+    <display value="Failed"/>
+    <definition value="Transport has failed."/>
+  </concept>
+  <concept>
+    <code value="cancelled"/>
+    <display value="Cancelled"/>
+    <definition value="Transport was cancelled."/>
+  </concept>
+  <concept>
+    <code value="ready"/>
+    <display value="Ready"/>
+    <definition value="Transport is ready."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered In Error"/>
-    <definition value="This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;abandoned&quot; rather than &quot;entered-in-error&quot;.)."/>
+    <definition value="This transport record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;abandoned&quot; rather than &quot;entered-in-error&quot;.)."/>
   </concept>
 </CodeSystem>
