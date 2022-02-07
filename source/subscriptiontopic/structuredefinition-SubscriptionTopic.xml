@@ -790,13 +790,25 @@
     </element>
     <element id="SubscriptionTopic.canFilterBy.filterParameter">
       <path value="SubscriptionTopic.canFilterBy.filterParameter"/>
-      <short value="Resource Search Parameter or filter parameter defined in this topic that serves as filter key"/>
+      <short value="Human-readable and computation-friendly name for a filter parameter usable by subscriptions on this topic, via Subscription.filterBy.filterParameter"/>
       <definition value="Either the canonical URL to a search parameter (like &quot;http://hl7.org/fhir/SearchParameter/encounter-patient&quot;) or topic-defined parameter (like &quot;hub.event&quot;) which is a label for the filter."/>
+      <comment value="Chained parameters are allowed (like &quot;patient.gender&quot;) - but can not use colons or modifiers."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubscriptionTopic.canFilterBy.filterDefinition">
+      <path value="SubscriptionTopic.canFilterBy.filterDefinition"/>
+      <short value="Canonical URL for a filterParameter definition"/>
+      <definition value="Either the canonical URL to a search parameter (like &quot;http://hl7.org/fhir/SearchParameter/encounter-patient&quot;) or the officially-defined URI for a shared filter concept (like &quot;http://example.org/concepts/shared-common-event&quot;)."/>
       <comment value="Chained parameters are allowed (like &quot;patient.gender&quot;) - but can not use colons or modifiers."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="uri"/>
       </type>
       <isSummary value="true"/>
     </element>

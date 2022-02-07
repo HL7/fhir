@@ -225,10 +225,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
       </binding>
     </element>
-    <element id="Subscription.filterBy.searchParamName">
-      <path value="Subscription.filterBy.searchParamName"/>
+    <element id="Subscription.filterBy.filterParameter">
+      <path value="Subscription.filterBy.filterParameter"/>
       <short value="Filter label defined in SubscriptionTopic"/>
-      <definition value="The filter label (=key) as defined in the `SubscriptionTopic.canfilterBy.searchParamName`  element."/>
+      <definition value="The filter label (=key) as defined in the `SubscriptionTopic.canfilterBy.filterParameter`  element."/>
       <min value="1"/>
       <max value="1"/>
       <type>
