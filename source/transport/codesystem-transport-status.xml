@@ -370,7 +370,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Status of the supply delivery."/>
+  <description value="Status of transport."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/transport-status"/>
   <content value="complete"/>

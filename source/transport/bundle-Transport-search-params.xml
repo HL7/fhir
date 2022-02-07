@@ -73,7 +73,7 @@
           <valueString value="Transport.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Transport-status"/>
-        <description value="in-progress | completed | abandoned | entered-in-error"/>
+        <description value="in-progress | completed | abandoned | entered-in-error | draft | requested | received | rejected | accepted | on-hold | failed | cancelled | ready"/>
         <code value="status"/>
         <type value="token"/>
         <expression value="Transport.status"/>
