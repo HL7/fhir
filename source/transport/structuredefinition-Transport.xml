@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Record of delivery of what is supplied."/>
+  <description value="Record of transport."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -74,8 +74,8 @@
         <valueCode value="0,0"/>
       </extension>
       <path value="Transport"/>
-      <short value="Delivery of bulk Supplies"/>
-      <definition value="Record of delivery of what is supplied."/>
+      <short value="Delivery of item"/>
+      <definition value="Record of transport of item."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -164,7 +164,7 @@
     </element>
     <element id="Transport.status">
       <path value="Transport.status"/>
-      <short value="in-progress | completed | abandoned | entered-in-error | draft | requested | received | rejected | accepted | on-hold | failed | cancelled | ready "/>
+      <short value="in-progress | completed | abandoned | entered-in-error "/>
       <definition value="A code specifying the state of the dispense event."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <min value="0"/>
@@ -180,7 +180,7 @@
           <valueString value="TransportStatus"/>
         </extension>
         <strength value="required"/>
-        <description value="Status of the supply delivery."/>
+        <description value="Status of the transport."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/transport-status"/>
       </binding>
       <mapping>

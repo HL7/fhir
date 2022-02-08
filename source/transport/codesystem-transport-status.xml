@@ -293,25 +293,7 @@
         
         </tr>
 
-         <tr>
-          
-          
-          <td style="white-space:nowrap">draft
-            
-            
-            <a name="transport-status-draft"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Ready</td>
-          
-          
-          <td>The transport is draft.</td>
-        
-        
-        </tr>
+         
 
       </table>
     
@@ -360,58 +342,13 @@
   </concept>
   <concept>
     <code value="completed"/>
-    <display value="Delivered"/>
+    <display value="Completed"/>
     <definition value="Transport has been delivered (&quot;completed&quot;)."/>
   </concept>
   <concept>
     <code value="abandoned"/>
     <display value="Abandoned"/>
     <definition value="Transport was abandoned."/>
-  </concept>
-  <concept>
-    <code value="draft"/>
-    <display value="Draft"/>
-    <definition value="Transport is draft."/>
-  </concept>
-  <concept>
-    <code value="requested"/>
-    <display value="Requested"/>
-    <definition value="Transport is requested."/>
-  </concept>
-  <concept>
-    <code value="received"/>
-    <display value="Received"/>
-    <definition value="Transport was received."/>
-  </concept>
-  <concept>
-    <code value="rejected"/>
-    <display value="Rejected"/>
-    <definition value="Transport was rejected."/>
-  </concept>
-  <concept>
-    <code value="accepted"/>
-    <display value="Accepted"/>
-    <definition value="Transport was accepted."/>
-  </concept>
-  <concept>
-    <code value="on-hold"/>
-    <display value="On-hold"/>
-    <definition value="Transport is on-hold."/>
-  </concept>
-  <concept>
-    <code value="failed"/>
-    <display value="Failed"/>
-    <definition value="Transport has failed."/>
-  </concept>
-  <concept>
-    <code value="cancelled"/>
-    <display value="Cancelled"/>
-    <definition value="Transport was cancelled."/>
-  </concept>
-  <concept>
-    <code value="ready"/>
-    <display value="Ready"/>
-    <definition value="Transport is ready."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>
