@@ -666,8 +666,8 @@
     </element>
     <element id="TestScript.scope.conformance">
       <path value="TestScript.scope.conformance"/>
-      <short value="required | optional"/>
-      <definition value="The expectation of whether the test must pass for the system to be considered conformant with the artifact: required - all tests must pass, optional - all test are expected to pass but non-pass status may be allowed."/>
+      <short value="required | optional | strict"/>
+      <definition value="The expectation of whether the test must pass for the system to be considered conformant with the artifact: required - all tests are expected to pass, optional - all test are expected to pass but non-pass status may be allowed, strict - all tests are expected to pass and warnings are treated as a failure."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1233,8 +1233,8 @@
         <key value="tst-5"/>
         <severity value="error"/>
         <human value="Only a single assertion SHALL be present within setup action assert element."/>
-        <expression value="extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count()  + validateProfileId.count() &lt;=1)"/>
-        <xpath value="count(f:contentType) + count(f:expression) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:requestMethod) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId)  &lt;=1"/>
+        <expression value="extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() &lt;=1) or (((expression.count() + minimumId.count() &lt;=2) or (expression.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1)) or (((path.count() + minimumId.count() &lt;=2) or (path.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1))"/>
+        <xpath value="(count(f:contentType) + count(f:expression) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:requestMethod) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId) &lt;=1) or (((count(f:expression) + count(f:minimumId) &lt;=2) or (count(f:expression) + count(f:validateProfileId) &lt;=2)) and (count(f:expression) + count(f:path) &lt;=1) and (count(f:minimumId) + count(f:validateProfileId) &lt;=1)) or (((count(f:path) + count(f:minimumId) &lt;=2) or (count(f:path) + count(f:validateProfileId) &lt;=2)) and (count(f:expression) + count(f:path) &lt;=1) and (count(f:minimumId) + count(f:validateProfileId) &lt;=1))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
       </constraint>
       <constraint>
@@ -1670,8 +1670,8 @@
         <key value="tst-6"/>
         <severity value="error"/>
         <human value="Only a single assertion SHALL be present within test action assert element."/>
-        <expression value="extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() &lt;=1)"/>
-        <xpath value="count(f:contentType) + count(f:expression) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:requestMethod) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId)  &lt;=1"/>
+        <expression value="extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() &lt;=1) or (((expression.count() + minimumId.count() &lt;=2) or (expression.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1)) or (((path.count() + minimumId.count() &lt;=2) or (path.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1))"/>
+        <xpath value="(count(f:contentType) + count(f:expression) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:requestMethod) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId) &lt;=1) or (((count(f:expression) + count(f:minimumId) &lt;=2) or (count(f:expression) + count(f:validateProfileId) &lt;=2)) and (count(f:expression) + count(f:path) &lt;=1) and (count(f:minimumId) + count(f:validateProfileId) &lt;=1)) or (((count(f:path) + count(f:minimumId) &lt;=2) or (count(f:path) + count(f:validateProfileId) &lt;=2)) and (count(f:expression) + count(f:path) &lt;=1) and (count(f:minimumId) + count(f:validateProfileId) &lt;=1))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
       </constraint>
     </element>
