@@ -94,7 +94,7 @@
     <element id="Transport.identifier">
       <path value="Transport.identifier"/>
       <short value="External identifier"/>
-      <definition value="Identifier for the supply delivery event that is used to identify it across multiple disparate systems."/>
+      <definition value="Identifier for the transport event that is used to identify it across multiple disparate systems."/>
       <comment value="This identifier is typically assigned by the dispenser, and may be used to reference the delivery when exchanging information about it with other systems."/>
       <min value="0"/>
       <max value="*"/>
@@ -112,27 +112,22 @@
     </element>
     <element id="Transport.basedOn">
       <path value="Transport.basedOn"/>
-      <short value="Fulfills plan, proposal or order"/>
-      <definition value="A plan, proposal or order that is fulfilled in whole or in part by this event."/>
-      <requirements value="Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon."/>
+      <short value="Request fulfilled by this transport"/>
+      <definition value="BasedOn refers to a higher-level authorization that triggered the creation of the transport.  It references a &quot;request&quot; resource such as a ServiceRequest or Task, which is distinct from the &quot;request&quot; resource the Transport is seeking to fulfill.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a transport is created to fulfill a procedureRequest ( = FocusOn ) to transport a specimen to the lab."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.basedOn"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="ORC in proximity to EVN segment"/>
+        <map value="Request.basedOn, Event.basedOn"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=FLFS].target"/>
+        <map value=".outboundRelationship[typeCode=FLFS].target[moodCode=INT]"/>
       </mapping>
     </element>
     <element id="Transport.partOf">
@@ -225,7 +220,7 @@
           <valueString value="TransportType"/>
         </extension>
         <strength value="required"/>
-        <description value="The type of supply dispense."/>
+        <description value="The type of transport."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/transport-type"/>
       </binding>
       <mapping>
