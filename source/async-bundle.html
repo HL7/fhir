@@ -38,6 +38,9 @@
     re-indexes the data in a server to add a new search parameter. Servers may choose which interactions the pattern
     should be supported on (if at all).</p>
 
+  <h4 id="compare-with">Related Pattern: Asynchronous Bulk Data Request</h4>
+  <p>For use cases that may return a large amount of data, see <a href="async-bulk.html">Asynchronous Bulk Data Request</a>.</p>
+
   <h3 id="kick-off-request">Kick-off Request</h3>
   <p>The request will support the HTTP methods, URLs, headers and other parameters that normally apply, but servers
     SHALL also support the <code>Prefer</code> header described below. The <code>Accept</code> header in the request
@@ -142,7 +145,7 @@
     </li>
   </ul>
 
-  <p>In the case of a polling failure that does not indicate failure of the original request, a server SHOULD use a <a
+  <p>Servers SHOULD NOT use status request failures to indicate a problem processing the original request. Rather, status request failures SHOULD use a <a
       href="codesystem-issue-type.html#issue-type-transient">transient code</a> from the <a
       href="codesystem-issue-type.html">IssueType valueset</a> when populating the <a
       href="OperationOutcome.html">OperationOutcome Resource</a> <code>issue.code</code> element to indicate to the
@@ -152,8 +155,15 @@
   <ul>
     <li>HTTP status of <code>200 OK</code></li>
     <li>
-      A body containing a <a href="bundle.html">Bundle Resource</a> with a type of <code>batch-response</code>. The
-      outcome of the kick-off request SHALL be present as the first entry in the bundle.
+      A body containing a <a href="bundle.html">Bundle Resource</a> with a type of <code>batch-response</code>.
+    </li>
+    <li>The outcome of the kick-off request SHALL be present as the first entry in the bundle. A successful completion
+      of the status request SHOULD be used whenever processing has completed, regardless of whether the underlying
+      interaction has succeeded or failed. For example, if a client asynchronously invokes a hypothetical
+      <code>$example</code> operation but omits a required parameter, the server SHOULD respond with a
+      <code>200 OK</code> on the status request once processing is complete, and SHOULD communicate any
+      processing errors using the elements of <code>Bundle.entry[0].response</code> (e.g., conveying a failure
+      code in <code>status</code> and details in <code>outcome</code>).
     </li>
   </ul>
 
