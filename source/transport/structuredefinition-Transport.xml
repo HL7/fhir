@@ -159,7 +159,7 @@
     </element>
     <element id="Transport.status">
       <path value="Transport.status"/>
-      <short value="in-progress | completed | abandoned | entered-in-error "/>
+      <short value="in-progress | completed | entered-in-error "/>
       <definition value="A code specifying the state of the dispense event."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <min value="0"/>

@@ -91,27 +91,7 @@
         
         </tr>
         
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">abandoned
-            
-            
-            <a name="transport-status-abandoned"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Abandoned</td>
-          
-          
-          <td>Delivery was not completed.</td>
-        
-        
-        </tr>
-        
+   
         
         <tr>
           
@@ -344,11 +324,6 @@
     <code value="completed"/>
     <display value="Completed"/>
     <definition value="Transport has been delivered (&quot;completed&quot;)."/>
-  </concept>
-  <concept>
-    <code value="abandoned"/>
-    <display value="Abandoned"/>
-    <definition value="Transport was abandoned."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>
