@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-[%settitle Asynchronous pattern%]
+[%settitle Asynchronous interaction pattern%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
@@ -15,7 +15,7 @@
   <table class="colsd">
     <tr>
       <td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td>
-      <td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 0</td>
+      <td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 1</td>
       <td id="ballot"><a href="versions.html#std-process">Standards Status</a>:
         <!--!ns!--><a href="versions.html#std-process">Draft</a>
       </td>
@@ -44,11 +44,13 @@
     will dictate the format of the Bundle Resource returned when the request completes successfully or an
     OperationOutcome Resource when it fails, as well any the format for any OperationOutcome Resources returned to
     indicate a transient polling error while the request is being processed.</p>
-  <p>If an <code>_outputFormat</code> parameter is supplied as part of the request, the server SHALL respond using the <a
-      href="async-bulk.html">Asynchronous Bulk Data Request</a> pattern, or if this pattern is not supported by the server
-    for the current request type, SHALL return an error and <a href="OperationOutcome.html">OperationOutcome Resource</a>.
+  <p>If an <code>_outputFormat</code> parameter is supplied as part of the request, the server SHALL respond using the
+    <a href="async-bulk.html">Asynchronous Bulk Data Request</a> pattern, or if this pattern is not supported by the
+    server
+    for the current request type, SHALL return an error and <a href="OperationOutcome.html">OperationOutcome
+      Resource</a>.
   </p>
-  
+
   <h5 id="headers">Headers</h5>
   <ul>
     <li>
@@ -65,16 +67,75 @@
     </li>
   </ul>
 
+  <h5 id="kick-off-response---success">Response - Success</h5>
+  <ul>
+    <li>HTTP Status Code of <code>202 Accepted</code> </li>
+    <li><code>Content-Location</code> header with the absolute URL of an endpoint for subsequent status requests
+      (polling location)</li>
+    <li>Optionally, a <a href="OperationOutcome.html">OperationOutcome Resource</a> in the body</li>
+  </ul>
 
-  <h4>TODO: Insert content from <a
-    href="async-bulk.html">Asynchronous Bulk Data Request</a> "Kick-off Response - Success" through "Status Response - In-Progress"
-  </h4>
+  <h5 id="kick-off-response---error">Response - Error (e.g. unsupported search parameter)</h5>
+  <ul>
+    <li>HTTP Status Code of <code>4XX</code> or <code>5XX</code></li>
+    <li>The body SHALL be a <a href="OperationOutcome.html">OperationOutcome Resource</a></li>
+  </ul>
+  <hr />
 
+  <h3 id="delete-request">Delete Request</h3>
+
+  <p>After an asynchronous request has been started, a client MAY send a http DELETE request to the URL provided in the
+    <code>Content-Location</code> header to cancel the request. Following the delete request, when subsequent requests
+    are made to the polling location, the server SHALL
+    return a <code>404 Not Found</code> error and an associated <a href="OperationOutcome.html">OperationOutcome
+      Resource</a>.
+  </p>
+
+  <h5 id="delete-response---success">Response - Success</h5>
+  <ul>
+    <li>HTTP Status Code of <code>202 Accepted</code></li>
+    <li>Optionally a FHIR OperationOutcome in the body</li>
+  </ul>
+
+  <h5 id="delete-response---error">Response - Error</h5>
+  <ul>
+    <li>HTTP status code of <code>4XX</code> or <code>5XX</code></li>
+    <li>Optionally a <a href="OperationOutcome.html">OperationOutcome Resource</a> in the body</li>
+  </ul>
+
+  <h3 id="status-request">Status Request</h3>
+
+  <p>After an asynchronous request has been started, the client MAY poll the status URL provided in the
+    <code>Content-Location</code> header by issuing HTTP GET requests to the location.
+  </p>
+
+  <p>A client SHOULD follow an <a href="https://en.wikipedia.org/wiki/Exponential_backoff">exponential backoff</a>
+    approach when polling for status. A server SHOULD supply a <a
+      href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After"><code>Retry-After</code></a> header
+    with a with a delay time in seconds (e.g., <code>120</code> to represent two minutes) or a http-date (e.g.,
+    <code>Fri, 31 Dec 1999 23:59:59 GMT</code>). When provided, a client SHOULD use this information to inform the
+    timing of future polling requests. The server SHOULD keep an accounting of status queries received from a given
+    client, and if a client is polling too frequently, the server SHOULD respond with a
+    <code>429 Too Many Requests</code> status code in addition to a <code>Retry-After</code> header, and optionally a <a
+      href="OperationOutcome.html">OperationOutcome Resource</a> with further explanation. If excessively frequent
+    status queries persist, the server MAY return a <code>429 Too Many Requests</code> status code and terminate the
+    session. Other standard HTTP <code>4XX</code> as well as <code>5XX</code> status codes may be used to identify
+    errors as mentioned.
+  </p>
+
+  <h5 id="status-response---in-progress">Response - In-Progress</h5>
+  <ul>
+    <li>HTTP Status Code of <code>202 Accepted</code></li>
+    <li>Optionally an <code>X-Progress</code> header with a text description of the status of the request that is less
+      than 100 characters. The format of this description is at the server's discretion and MAY be a percentage complete
+      value, or MAY be a more general status such as "in progress". The client MAY parse the description, display it to
+      the user, or log it.</li>
+  </ul>
 
   <h5 id="status-response---error">Response - Error</h5>
   <ul>
     <li>HTTP status code of <code>4XX</code> or <code>5XX</code></li>
-    <li>The body of the response SHOULD be a <a href="OperationOutcome.html">OperationOutcome Resource</a> resource. 
+    <li>The body of the response SHOULD be a <a href="OperationOutcome.html">OperationOutcome Resource</a> resource.
       If this is not possible (for example, the infrastructure layer returning the error is not FHIR
       aware), the server MAY return an error message in another format and include a corresponding value for the
       <code>Content-Type</code> header.
@@ -92,9 +153,34 @@
     <li>HTTP status of <code>200 OK</code></li>
     <li>
       A body containing a <a href="bundle.html">Bundle Resource</a> with a type of <code>batch-response</code>. The
-      outcome of the kick-off request SHALL be presented as the first entry in the bundle.
+      outcome of the kick-off request SHALL be present as the first entry in the bundle.
     </li>
   </ul>
+
+  <p>Example output bundle:</p>
+  <pre><code class="json language-json">{
+  "resourceType": "Bundle",
+  "type": "batch-response",
+  "entry": [{
+    "response": {
+        "status": "200 OK", 
+        "location": "Observation/123"
+        // additional fields if needed
+        //  * etag
+        //  * lastModified
+        //  * outcome
+    },
+    "resource": {
+      // populated whenever a non-asynchronous
+      // interaction would have included a resource in the
+      // response body -- e.g. if client initially specified
+      // `Prefer: return=representation`
+      "resourceType": "Observation",
+      "id": "123", 
+      // ... snipped for brevity
+    }
+  }]
+}</code></pre>
 
   [%file newfooter%]
 </body>
