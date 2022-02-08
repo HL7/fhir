@@ -136,7 +136,7 @@
         <tr>
           
           
-          <td style="white-space:nowrap">entered-in-error
+          <td style="white-space:nowrap">ready
             
             
             <a name="transport-status-ready"> </a>
@@ -156,7 +156,7 @@
         <tr>
           
           
-          <td style="white-space:nowrap">entered-in-error
+          <td style="white-space:nowrap">cancelled
             
             
             <a name="transport-status-cancelled"> </a>
@@ -176,7 +176,7 @@
          <tr>
           
           
-          <td style="white-space:nowrap">entered-in-error
+          <td style="white-space:nowrap">failed
             
             
             <a name="transport-status-failed"> </a>
@@ -196,7 +196,7 @@
          <tr>
           
           
-          <td style="white-space:nowrap">entered-in-error
+          <td style="white-space:nowrap">on-hold
             
             
             <a name="transport-status-on-hold"> </a>
@@ -216,7 +216,7 @@
          <tr>
           
           
-          <td style="white-space:nowrap">entered-in-error
+          <td style="white-space:nowrap">accepted
             
             
             <a name="transport-status-accepted"> </a>
@@ -236,7 +236,7 @@
          <tr>
           
           
-          <td style="white-space:nowrap">entered-in-error
+          <td style="white-space:nowrap">rejected
             
             
             <a name="transport-status-rejected"> </a>
@@ -256,7 +256,7 @@
          <tr>
           
           
-          <td style="white-space:nowrap">entered-in-error
+          <td style="white-space:nowrap">received
             
             
             <a name="transport-status-received"> </a>
@@ -276,7 +276,7 @@
          <tr>
           
           
-          <td style="white-space:nowrap">entered-in-error
+          <td style="white-space:nowrap">requested
             
             
             <a name="transport-status-requested"> </a>
@@ -296,7 +296,7 @@
          <tr>
           
           
-          <td style="white-space:nowrap">entered-in-error
+          <td style="white-space:nowrap">draft
             
             
             <a name="transport-status-draft"> </a>
@@ -313,27 +313,6 @@
         
         </tr>
 
-         <tr>
-          
-          
-          <td style="white-space:nowrap">entered-in-error
-            
-            
-            <a name="transport-status-abandoned"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Ready</td>
-          
-          
-          <td>The transport is abandonded.</td>
-        
-        
-        </tr>
-      
-      
       </table>
     
     
