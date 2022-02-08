@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="transport-status"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      
+      <p>This code system http://hl7.org/fhir/transport-status defines the following codes:</p>
+      
+      
+      <table class="codes">
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">
+            
+            
+            <b>Code</b>
+          
+          
+          </td>
+          
+          
+          <td>
+            
+            
+            <b>Display</b>
+          
+          
+          </td>
+          
+          
+          <td>
+            
+            
+            <b>Definition</b>
+          
+          
+          </td>
+        
+        
+        </tr>
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">in-progress
+            
+            
+            <a name="transport-status-in-progress"> </a>
+          
+          
+          </td>
+          
+          
+          <td>In Progress</td>
+          
+          
+          <td>Supply has been requested, but not delivered.</td>
+        
+        
+        </tr>
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">completed
+            
+            
+            <a name="transport-status-completed"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Delivered</td>
+          
+          
+          <td>Supply has been delivered (&quot;completed&quot;).</td>
+        
+        
+        </tr>
+        
+   
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            
+            <a name="transport-status-entered-in-error"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Entered In Error</td>
+          
+          
+          <td>This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;abandoned&quot; rather than &quot;entered-in-error&quot;.).</td>
+        
+        
+        </tr>
+
+        <tr>
+          
+          
+          <td style="white-space:nowrap">ready
+            
+            
+            <a name="transport-status-ready"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is ready.</td>
+        
+        
+        </tr>
+
+        <tr>
+          
+          
+          <td style="white-space:nowrap">cancelled
+            
+            
+            <a name="transport-status-cancelled"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is cancelled.</td>
+        
+        
+        </tr>
+
+         <tr>
+          
+          
+          <td style="white-space:nowrap">failed
+            
+            
+            <a name="transport-status-failed"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is failed.</td>
+        
+        
+        </tr>
+
+         <tr>
+          
+          
+          <td style="white-space:nowrap">on-hold
+            
+            
+            <a name="transport-status-on-hold"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is on-hold.</td>
+        
+        
+        </tr>
+
+         <tr>
+          
+          
+          <td style="white-space:nowrap">accepted
+            
+            
+            <a name="transport-status-accepted"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is accepted.</td>
+        
+        
+        </tr>
+
+         <tr>
+          
+          
+          <td style="white-space:nowrap">rejected
+            
+            
+            <a name="transport-status-rejected"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is rejected.</td>
+        
+        
+        </tr>
+
+         <tr>
+          
+          
+          <td style="white-space:nowrap">received
+            
+            
+            <a name="transport-status-received"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is received.</td>
+        
+        
+        </tr>
+
+         <tr>
+          
+          
+          <td style="white-space:nowrap">requested
+            
+            
+            <a name="transport-status-requested"></a>
+          
+          
+          </td>
+          
+          
+          <td>Ready</td>
+          
+          
+          <td>The transport is requested.</td>
+        
+        
+        </tr>
+
+        <tr>
+          
+          
+          <td style="white-space:nowrap">abandoned
+            
+            
+            <a name="transport-status-abandoned"></a>
+          
+          
+          </td>
+          
+          
+          <td>Abandoned</td>
+          
+          
+          <td>The transport has been abandoned.</td>
+        
+        
+        </tr>
+
+         
+
+      </table>
+    
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/transport-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="TransportStatus"/>
+  <title value="TransportStatus"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Status of transport."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/transport-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="in-progress"/>
+    <display value="In Progress"/>
+    <definition value="Transport has been requested, but not delivered."/>
+  </concept>
+  <concept>
+    <code value="completed"/>
+    <display value="Completed"/>
+    <definition value="Transport has been delivered (&quot;completed&quot;)."/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered In Error"/>
+    <definition value="This transport record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;abandoned&quot; rather than &quot;entered-in-error&quot;.)."/>
+  </concept>
+  <concept>
+    <code value="abandoned"/>
+    <display value="Abandoned"/>
+    <definition value="This transport was abandoned."/>
+  </concept>
+</CodeSystem>
