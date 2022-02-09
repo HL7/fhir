@@ -90,6 +90,18 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Yes/No/Don&#39;t know, for capturing a common answer set in questionnaires"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="valueset-example-yesnodontknow"/>
+    </extension>
+    <item>
+      <reference value="ValueSet/yesnodontknow"/>
+      <display value="Yes/No/Don&#39;t know"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="NHIN Purpose of Use"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
