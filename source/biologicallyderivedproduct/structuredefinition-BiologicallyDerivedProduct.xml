@@ -166,26 +166,6 @@
         <map value="id"/>
       </mapping>
     </element>
-    <element id="BiologicallyDerivedProduct.udiDeviceIdentifier">
-      <path value="BiologicallyDerivedProduct.udiDeviceIdentifier"/>
-      <short value="Mandatory fixed portion of UDI"/>
-      <definition value="The device identifier (DI) is a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device."/>
-      <alias value="DI"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="udi"/>
-        <map value="The device identifier (DI), a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device."/>
-      </mapping>
-    </element>
     <element id="BiologicallyDerivedProduct.biologicalSource">
       <path value="BiologicallyDerivedProduct.biologicalSource"/>
       <short value="An identifier that supports traceability to the biological entity that is the source of biological material in the product"/>
