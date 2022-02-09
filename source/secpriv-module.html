@@ -122,8 +122,11 @@ Full audit trails can be constructed and used to detect anomalous access pattern
 For general security considerations and principles, see <a href="security.html">Security</a>.
 Please leverage mature Security Frameworks covering device security, cloud security, big-data security, service-to-service security, etc.
 See <a href="https://nccoe.nist.gov/projects/building_blocks/mobile_device_security"> NIST Mobile Device Security</a>
-and <a href="https://www.owasp.org/index.php/Mobile_Top_10_2016-Top_10">OWASP Mobile Security</a>. 
+and <a href="https://www.owasp.org">OWASP</a>. 
 These security frameworks include prioritized lists of most important concerns.
+</p>
+<p>
+Recent evidence indicates lack of implementer attention to addressing common security vulnerabilities emphasized by <a href="https://owasp.org/www-project-api-security/">OWASP top 10 API</a>.   Reviewing the <a href="https://owasp.org/www-project-top-ten/">OWASP Top Ten</a>and <a href="https://owasp.org/www-project-mobile-top-10/">OWASP mobile top 10</a> and ensuring those vulnerabilities are mitigated is important for good security.
 </p>
 <a name="privacy"></a>
 <h3>Privacy</h3>
@@ -175,6 +178,9 @@ see <a href="security.html#authentication">Security: Authentication</a> as an
 externally-reviewed authorization mechanism with a real-world deployment base -
 but we note that community efforts are underway to explore a variety of
 approaches to authorization. 
+</p><p>
+Resource Servers MUST enforce the authorization associated with the access token. This enforcement includes verification of the token, verification of the token expiration, and might include using introspection to verify the token has not been revoked. This enforcement includes constraining results returned to the scopes authorized by the access token. The Resource server might have further access controls beyond those in the token to enforce, such as Consent or business rules.
+</p><p>
 For further details, see <a href="security.html#binding">Security: Authorization and Access Control</a>.
 
 </p>
@@ -210,6 +216,10 @@ be conveyed using standard codes from <a href="valueset-security-role-type.html"
 </p><p>
 A purpose of use should be asserted for each requested action on a Resource.  Purpose of use 
 should be conveyed using standard codes from <a href="v3/PurposeOfUse/vs.html">Purpose of Use Vocabulary</a>.
+</p><p>
+The FHIR core specification does not include a "User" resource, as a User resource would be general IT and used well
+beyond healthcare workflows. A RESTful User resource is defined in 
+the <a href="https://en.wikipedia.org/wiki/System_for_Cross-domain_Identity_Management">System for Cross-domain Identity Management (SCIM) specification</a>.
 </p><p>
 When using OAuth, the requested action on a Resource for specified one or more purpose of use and 
 the role of the user are managed by the OAuth authorization service (AS) and may be communicated 
@@ -253,6 +263,8 @@ For details, see
 <em>Approach:</em> The AuditEvent resource can inform this report.
 </p><p>
 There are many motivations to provide a Patient with some report on how their data was used. There is a very restricted version of this in HIPAA as an "Accounting of Disclosures", there are others that would include more accesses. The result is a human readable report. The raw material used to create this report can be derived from a well recorded 'security audit log', specifically based on AuditEvent. The format of the report delivered to the Patient is not further discussed but might be: printed on paper, PDF, comma separated file, or FHIR Document made up of filtered and crafted AuditEvent Resources.  The report would indicate, to the best ability, Who accessed What data from Where at When for Why purpose. The 'best ability' recognizes that some events happen during emergent conditions where some knowledge is not knowable. The report usually does need to be careful not to abuse the Privacy rights of the individual that accessed the data (Who).  The report would describe the data that was accessed (What), not duplicate the data. 
+</p><p>
+In order to enable Privacy Accounting of Disclosures and Access Logs, and to enable privacy office and security office audit log analysis, <a href="auditevent.html#patient">all AuditEvent records should include a reference to the Patient/Subject</a> of the activity being recorded. Reasonable efforts should be taken to assure the Patient/Subject is recorded, but it is recognized that there are times when this is not reasonable. See deeper details on AuditEvent.
 </p><p>
 Some events are known to be subject to the Accounting of Disclosures report when the event happens, thus can be recorded as an Accounting of Disclosures  - See <a href="auditevent-example-disclosure.html">example Accounting of Disclosures</a>.  Other events must be pulled from the security audit log. A security audit log will record ALL actions upon data regardless of if they are reportable to the Patient. This is true because the security audit log is used for many other purposes. - See <a href="security.html#audit">Audit Logging</a>. These recorded AuditEvents may need to be manipulated to protect organization or employee (provider) privacy constraints. Given the large number of AuditEvents, there may be multiple records of the same actual access event, so the reporting will need to de-duplicate.
 
@@ -356,6 +368,16 @@ to the Requesting Client would be de-identified.
 <em>Consideration:</em> This assumes the system knows the type and intensity of the de-identification algorithm, where 
 de-identification is best viewed as a process, not an algorithm - a process that reduces Privacy risk while enabling a targeted and authorized use-case.
 </p><p>
+<ul>
+<li>
+<b>Direct-Identifier</b> - ISO/IEC 20889:2018 - attribute that alone enables unique identification of a data principal within a specific operational context. The operational context includes the information that the entity processing (e.g. de-identifying) the data processes, together with information that third parties and potential attackers can possess or that is in the public domain.
+</li><li>
+<b>Indirect-Identifier</b> - ISO/IEC 20889:2018 - attribute that, together with other attributes that can be in the dataset or external to it, enables unique identification of a data principal within a specific operational context.
+</li><li>
+<b>Quasi-Identifier</b> - ISO/IEC 20889:2018 - attribute in a dataset that, when considered in conjunction with other attributes in the dataset, singles out a data principal.
+</li></ul>
+Note that often Quasi-Identifier and Indirect-Identifier are often considered the same way.
+</p><p>
 <em>Modifying an element:</em> The de-identification process may determine that specific elements need to be modified to lower privacy 
 risk. Some methods of modifying are: eliminating the element, setting to a static value (e.g. "removed"), fuzzing (e.g. adjusting by 
 some random value), masking (e.g. encryption), pseudonym (e.g. replace with an alias), etc. <a href="narrative.html">Narrative</a> and <a href="datatypes.html#Attachment">Attachment</a> elements present particularly difficult challenges.
@@ -381,8 +403,8 @@ need to be consistent with each other.
 </p><p>
 Some identifiers in Observation Resource:
 <ul>
-<li>Direct Identifiers: .identifier, .subject, .performer, .encounter, .focus, .note, .specimen, .basedOn</li>
-<li>Indirect Identifiers: .category, .code, .issued, .effective[x], .method, .bodySite, .interpretation, .value[x], .component</li>
+<li><b>Direct-Identifiers</b>: .identifier, .subject, .performer, .encounter, .focus, .note, .specimen, .basedOn</li>
+<li><b>Indirect-Identifiers</b>: .category, .code, .issued, .effective[x], .method, .bodySite, .interpretation, .value[x], .component</li>
 </ul>
 </p>
 <p>
@@ -400,7 +422,9 @@ different risk than internal sharing of data within a tightly managed organizati
 <em>Security-label:</em> The resulting Resource should be marked with security-label to indicate that it has been de-identified. This would assure that downstream use doesn't mistake this Resource as representing full fidelity. These security-labels come from the Security Integrity Observation ValueSet. Some useful security-tag vocabulary: ANONYED, MASKED, PSEUDED, REDACTED
 </p><p>
 Further Standards: 
-<a href="http://www.iso.org/iso/catalogue_detail?csnumber=42807">Health: ISO Pseudonymization</a>, 
+<a href="https://www.iso.org/standard/45123.html">ISO/IEC 29100 Information technology - Security techniques - Privacy framework</a>, 
+<a href="https://www.iso.org/standard/69373.html">ISO/IEC 20889 Privacy enhancing data de-identification terminology and classification of techniques</a>, 
+<a href="https://www.iso.org/standard/63553.html">ISO/TS 25237 Health informatics - Pseudonymization</a>, 
 <a href="http://nvlpubs.nist.gov/nistpubs/ir/2015/NIST.IR.8053.pdf">NIST IR 8053 - De-Identification of Personal Information</a>, 
 <a href="http://wiki.ihe.net/index.php/Healthcare_De-Identification_Handbook">IHE De-Identification Handbook</a>, 
 <a href="http://dicom.nema.org/medical/dicom/current/output/html/part15.html#chapter_E">DICOM (Part 15, Chapter E)</a>
