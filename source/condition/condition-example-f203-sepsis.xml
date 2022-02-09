@@ -65,9 +65,9 @@
     <reference value="Practitioner/f201"/>
   </asserter>
   <evidence>
-    <detail>
+    <reference>
       <reference value="DiagnosticReport/f202"/>
       <display value="Diagnostic report for Roel's sepsis"/>
-    </detail>
+    </reference>
   </evidence>
 </Condition>
