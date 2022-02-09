@@ -61,7 +61,7 @@ The following rules apply to code system fragments:
 </ul>
 
 <a name="supplements"></a>
-<h2>Code System Supplements <a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #fff5e6" href="versions.html#std-process" title="Standards Status = Trial Use">Trial Use</a></h3></h2>
+<h2>Code System Supplements <a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #fff5e6" href="versions.html#std-process" title="Standards Status = Trial Use">Trial Use</a></h2>
 <p>
 If the <code>CodeSystem.content</code> value is <code>supplement</code>, then the resource 
 describes a code system supplement. The following rules apply to code system supplements:
