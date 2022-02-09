@@ -258,8 +258,8 @@
     <element id="ValueSet.date">
       <path value="ValueSet.date"/>
       <short value="Date last changed"/>
-      <definition value="The date (and optionally time) when the value set was created or revised (e.g. the &#39;content logical definition&#39;)."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the value set. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <definition value="The date (and optionally time) when the value set metadata or content logical definition (.compose) was created or revised."/>
+      <comment value="Note that this is not the same as the meta.lastUpdated which is specific to an instance of a value set resource on a server.  Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
       <alias value="Revision Date"/>
       <min value="0"/>
       <max value="1"/>

@@ -199,7 +199,7 @@ This specification also defines filters for various published code systems:
 </p>
 <ul>
  <li><a href="loinc.html#filters">LOINC Filters</a></li>
- <li><a href="snomedct.html#filters">Using CT Filters</a></li>
+ <li><a href="snomedct.html#filters">Using SNOMED CT Filters</a></li>
  <li><a href="rxnorm.html#filters">RxNorm Filters</a></li>
  <li><a href="ucum.html#filters">UCUM Filters</a></li>
  <li><a href="ncimeta.html#filters">Using Metathesaurus Filters</a></li>
