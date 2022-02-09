@@ -136,9 +136,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AllergyIntolerance</Data></Cell>
-    <Cell><Data ss:Type="String">patient | recorder | asserter</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">asserter</Data></Cell>
-    <Cell><Data ss:Type="String">recorder | asserter</Data></Cell>
+    <Cell><Data ss:Type="String">patient | participant</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">participant</Data></Cell>
+    <Cell><Data ss:Type="String">participant</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Account</Data></Cell>
@@ -284,10 +284,10 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Condition</Data></Cell>
-    <Cell><Data ss:Type="String">patient | asserter</Data></Cell>
+    <Cell><Data ss:Type="String">patient | participant</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
-    <Cell><Data ss:Type="String">asserter</Data></Cell>
-    <Cell><Data ss:Type="String">asserter</Data></Cell>
+    <Cell><Data ss:Type="String">participant</Data></Cell>
+    <Cell><Data ss:Type="String">participant</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CapabilityStatement</Data></Cell>
@@ -700,6 +700,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Task</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Transport</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ActivityDefinition</Data></Cell>
