@@ -5,20 +5,14 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="AllergyIntolerance-asserter"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AllergyIntolerance.asserter"/>
+          <valueString value="AllergyIntolerance.participant.actor"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-asserter"/>
-        <description value="Source of the information about the allergy"/>
-        <code value="asserter"/>
+        <description value="Who or what participated in the activities related to the allergy or intolerance"/>
+        <code value="participant"/>
         <type value="reference"/>
-        <expression value="AllergyIntolerance.asserter"/>
-        <xpath value="f:AllergyIntolerance/f:asserter"/>
-        <xpathUsage value="normal"/>
+        <expression value="AllergyIntolerance.participant.actor"/>
+        <xpath value="f:AllergyIntolerance/f:participant/f:actor"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -206,26 +200,6 @@
         <type value="reference"/>
         <expression value="AllergyIntolerance.patient"/>
         <xpath value="f:AllergyIntolerance/f:patient"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="AllergyIntolerance-recorder"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AllergyIntolerance.recorder"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-recorder"/>
-        <description value="Who recorded the sensitivity"/>
-        <code value="recorder"/>
-        <type value="reference"/>
-        <expression value="AllergyIntolerance.recorder"/>
-        <xpath value="f:AllergyIntolerance/f:recorder"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
