@@ -414,8 +414,8 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="ConceptMap2.source[x]">
-      <path value="ConceptMap2.source[x]"/>
+    <element id="ConceptMap2.inputScope[x]">
+      <path value="ConceptMap2.inputScope[x]"/>
       <short value="The source value set that contains the concepts that are being mapped"/>
       <definition value="Identifier for the source value set that contains the concepts that are being mapped and provides context for the mappings."/>
       <comment value="Should be a version specific reference. URIs SHOULD be absolute. If there is no source or target value set, there is no specified context for the map (not recommended).  The source value set may select codes from either an explicit (standard or local) or implicit code system."/>
@@ -430,8 +430,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="ConceptMap2.target[x]">
-      <path value="ConceptMap2.target[x]"/>
+    <element id="ConceptMap2.outputScope[x]">
+      <path value="ConceptMap2.outputScope[x]"/>
       <short value="The target value set which provides context for the mappings"/>
       <definition value="The target value set provides context for the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made."/>
       <comment value="Should be a version specific reference. URIs SHOULD be absolute. If there is no source or target value set, the is no specified context for the map."/>
@@ -586,6 +586,14 @@
         <human value="If the map is source-is-broader-than-target or not-related-to, there SHALL be some comments, unless the status is 'draft'"/>
         <expression value="comment.exists() or (status = draft) or relationship.empty() or ((relationship != &#39;source-is-broader-than-target&#39;) and (relationship != &#39;not-related-to&#39;))"/>
         <xpath value="exists(f:comment) or (f:status/@value = draft) or not(exists(f:relationship)) or ((f:relationship/@value != &#39;source-is-broader-than-target&#39;) and (f:v/@value != &#39;not-related-to&#39;))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
+      </constraint>
+	  <constraint>
+        <key value="cmd-6"/>
+        <severity value="error"/>
+        <human value="Either target.code or target.valueSet SHALL be present but not both."/>
+        <expression value="(code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists())"/>
+        <xpath value="(exists(f:code) and not(exists(f:valueSet))) or (not(exists(f:code)) and exists(f:valueSet))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
       </constraint>
     </element>
@@ -759,6 +767,30 @@
         <xpath value="(f:mode/@value != &#39;fixed&#39;) or exists(f:code) or exists(f:valueSet)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
       </constraint>
+	  <constraint>
+        <key value="cmd-7"/>
+        <severity value="error"/>
+        <human value="If a code is provided the mode must be &#39;fixed&#39;"/>
+        <expression value="(code.exists() implies (mode = &#39;fixed&#39;)"/>
+        <xpath value="exists(f:code) or (f:mode/@value != &#39;fixed&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
+      </constraint>
+	  <constraint>
+        <key value="cmd-8"/>
+        <severity value="error"/>
+        <human value="If a display is provided the mode must be &#39;fixed&#39;"/>
+        <expression value="(display.exists() or (mode != &#39;fixed&#39;)"/>
+        <xpath value="exists(f:display) or (f:mode/@value != &#39;fixed&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
+      </constraint>
+	  <constraint>
+        <key value="cmd-9"/>
+        <severity value="error"/>
+        <human value="unmapped.otherMap may only be valued when the mode is &#39;other-map&#39;"/>
+        <expression value="(otherMap.exists() or (mode != &#39;other-map&#39;)"/>
+        <xpath value="exists(f:otherMap) or (f:mode/@value != &#39;other-map&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
+      </constraint>
     </element>
     <element id="ConceptMap2.group.unmapped.mode">
       <path value="ConceptMap2.group.unmapped.mode"/>
@@ -813,8 +845,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </type>
     </element>
-    <element id="ConceptMap2.group.unmapped.url">
-      <path value="ConceptMap2.group.unmapped.url"/>
+    <element id="ConceptMap2.group.unmapped.otherMap">
+      <path value="ConceptMap2.group.unmapped.otherMap"/>
       <short value="canonical reference to an additional ConceptMap2 to use for mapping if the source concept is unmapped"/>
       <definition value="The canonical reference to an additional ConceptMap2 resource instance to use for mapping if this ConceptMap2 resource contains no matching mapping for the source concept."/>
       <min value="0"/>
