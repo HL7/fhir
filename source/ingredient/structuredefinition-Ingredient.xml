@@ -237,12 +237,12 @@
     </element>
     <element id="Ingredient.manufacturer.role">
       <path value="Ingredient.manufacturer.role"/>
-      <short value="The way in which this manufacturer is associated with the ingredient (one of several possible, or exclusive)"/>
+      <short value="allowed | possible | actual"/>
       <definition value="The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Coding"/> <!-- but needs to be code -->
+        <code value="code"/>
       </type>
       <isSummary value="true"/>
       <binding>
