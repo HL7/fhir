@@ -702,6 +702,9 @@
     <Cell><Data ss:Type="String">Task</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Transport</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ActivityDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

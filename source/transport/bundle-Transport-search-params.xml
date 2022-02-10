@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Transport-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Transport-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Transport.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Transport-identifier"/>
+        <description value="External identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Transport.identifier"/>
+        <xpath value="f:Transport/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Transport-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Transport.patient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Transport-patient"/>
+        <description value="Patient for whom the item is supplied"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Transport.patient"/>
+        <xpath value="f:Transport/f:patient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Transport-receiver"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Transport.receiver"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Transport-receiver"/>
+        <description value="Who collected the Supply"/>
+        <code value="receiver"/>
+        <type value="reference"/>
+        <expression value="Transport.receiver"/>
+        <xpath value="f:Transport/f:receiver"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="transport-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Transport.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Transport-status"/>
+        <description value="in-progress | completed | entered-in-error"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Transport.status"/>
+        <xpath value="f:Transport/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Transport-supplier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Transport.supplier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Transport-supplier"/>
+        <description value="Dispenser"/>
+        <code value="supplier"/>
+        <type value="reference"/>
+        <expression value="Transport.supplier"/>
+        <xpath value="f:Transport/f:supplier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>
