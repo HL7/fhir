@@ -59,9 +59,19 @@
   <onsetDateTime value="2013-03-11"/>
   <abatementDateTime value="2013-03-20"/>
   <recordedDate value="2013-03-11"/>
-  <asserter>
-    <reference value="Practitioner/f201"/>
-  </asserter>
+  <participant> 
+    <function> 
+      <coding> 
+        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/> 
+        <code value="author"/> 
+        <display value="Author"/> 
+      </coding> 
+    </function> 
+    <actor> 
+      <reference value="Practitioner/f201"/> 
+    </actor> 
+  </participant> 
+
   <stage>
     <!--The problem is temporary and will not become permanent renal insufficiency-->
     <summary>
