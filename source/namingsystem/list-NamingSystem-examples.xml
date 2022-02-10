@@ -40,15 +40,4 @@
       <display value="namingsystem-registry"/>
     </item>
   </entry>
-    <flag>
-      <coding>
-        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
-        <code value="tool"/>
-      </coding>
-    </flag>
-    <item>
-      <reference value="null/terminologies"/>
-      <display value="namingsystem-terminologies"/>
-    </item>
-  </entry>
 </List>
