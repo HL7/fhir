@@ -4,15 +4,24 @@
 <h2>Scope and Usage</h2>
 <p>
 This is <b>NOT</b> a resource.  It is not part of the FHIR schema and cannot appear directly in FHIR instances.  It is a logical model that defines a pattern adhered to by
-other resources.  This pattern serves two purposes:
+other resources (or profiles of those resources).  This pattern serves two purposes:
 </p>
 <ul>
   <li>It offers guidance to work groups designing resources and helps ensure consistency of content created by different work groups</li>
   <li>It provides a standard "view" that might be useful for implementers in processing and manipulating all resources that adhere to the same pattern.  (Tooling that supports
   this may become available in a future release.)</li>
 </ul>
-<p>For knowledge artifacts, a "publishable" artifact defines the expectations for publication and distribution of an artifact, typically as part of an artifact repository. All "publishable" artifacts are also "shareable".
+<p>
+For knowledge artifacts, a "publishable" artifact defines the expectations for publication and distribution of an artifact, typically as part of an artifact repository.
+The Publishable pattern is defined to ensure that artifacts have enough metadata to understand when, where, and why a particular artifact would be used, as well as who
+contributed to it, who reviewed or endorsed it, and what evidence supports its use. The pattern is about ensuring artifacts can establish trust and credibility, as well
+as carry enough metadata to be discoverable in a public repository or artifact catalog.
+All "publishable" artifacts are also "shareable". This pattern is intended to apply to <a href="canonicalresource.html">Canonical Resources</a> such as ValueSet, CodeSystem, StructureDefinition, Library, and so on.
+</p>
 
+<p>
+Note that this pattern is a profile pattern in that it is intended to serve as a model for defining Publishable profiles of knowledge artifact resources, and that all Publishable profiles
+should be derived from a Shareable profile of the same resource.
 </p>
 
 <!-- TODO: Add link to resources/profiles that implement this pattern -->
@@ -26,7 +35,7 @@ other resources.  This pattern serves two purposes:
 </p>
 
 <ul>
-  <li><b>Shareable</b>: Shareable profiles set the minimum expectations for exchanging an artifact, including the URL, version, name, and publisher.</li>
+  <li><b>Shareable</b>: Shareable profiles set the minimum expectations for reliably exchanging an artifact in public repositories, including the URL, version, name, and publisher.</li>
   <li><b>Computable</b>: Computable profiles deal with authoring and design-time considerations, describing the minimum expectations for exchanging a machine-readable representation of an artifact. At a minimum, a computable artifact is one that does not have only human-readable content.</li>
   <li><b>Publishable</b>: Publishable profiles describe the expectations for publication and distribution of an artifact, typically as part of an artifact repository.</li>
   <li><b>Executable</b>: Executable profiles deal with run-time behavior and implementation considerations. For example, an executable library may contain compiled content that can be directly executed by an engine. At a minimum, an executable artifact is guaranteed to have all the elements required to support at least one operation appropriate to the type of artifact.</li>

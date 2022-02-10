@@ -4,16 +4,20 @@
 <h2>Scope and Usage</h2>
 <p>
 This is <b>NOT</b> a resource.  It is not part of the FHIR schema and cannot appear directly in FHIR instances.  It is a logical model that defines a pattern adhered to by
-other resources.  This pattern serves two purposes:
+other resources (or profiles of those resources).  This pattern serves two purposes:
 </p>
 <ul>
-  <li>It offers guidance to work groups designing resources and helps ensure consistency of content created by different work groups</li>
+  <li>It offers guidance to work groups designing resources and profiles and helps ensure consistency of content created by different work groups</li>
   <li>It provides a standard "view" that might be useful for implementers in processing and manipulating all resources that adhere to the same pattern.  (Tooling that supports
   this may become available in a future release.)</li>
 </ul>
-<p>For knowledge artifacts, a "shareable" artifact defines the minimum expectations for knowledge artifact resources to be shared between authoring, publishing, and implementation systems.
-
+<p>
+For knowledge artifacts, a "shareable" artifact defines the minimum expectations for knowledge artifact resources to be shared between authoring, publishing, and implementation systems.
+This pattern is intended to apply to <a href="canonicalresource.html">Canonical Resources</a> such as ValueSet, CodeSystem, StructureDefinition, Library, and so on.
+The pattern is defined to ensure that an artifact has enough metadata to make sharing it through a public repository reliable.
 </p>
+
+<p>Note that this pattern is a profile pattern in that it is intended to serve as a model for defining Shareable profiles of knowledge artifact resources.</p>
 
 <!-- TODO: Add link to resources/profiles that implement this pattern -->
 </div>
@@ -22,11 +26,11 @@ other resources.  This pattern serves two purposes:
 <h2>Boundaries and Relationships</h2>
 
 <p>
-  The shareable pattern is one of four common content management patterns that introduce knowledge capabilities to support separation of concerns across the content management and consumption lifecycle:
+  The shareable pattern is one of four common content management patterns that describe knowledge capabilities to support separation of concerns across the content management and consumption lifecycle:
 </p>
 
 <ul>
-  <li><b>Shareable</b>: Shareable profiles set the minimum expectations for exchanging an artifact, including the URL, version, name, and publisher.</li>
+  <li><b>Shareable</b>: Shareable profiles set the minimum expectations for reliably exchanging an artifact in public repositories, including the URL, version, name, and publisher.</li>
   <li><b>Computable</b>: Computable profiles deal with authoring and design-time considerations, describing the minimum expectations for exchanging a machine-readable representation of an artifact. At a minimum, a computable artifact is one that does not have only human-readable content.</li>
   <li><b>Publishable</b>: Publishable profiles describe the expectations for publication and distribution of an artifact, typically as part of an artifact repository.</li>
   <li><b>Executable</b>: Executable profiles deal with run-time behavior and implementation considerations. For example, an executable library may contain compiled content that can be directly executed by an engine. At a minimum, an executable artifact is guaranteed to have all the elements required to support at least one operation appropriate to the type of artifact.</li>
