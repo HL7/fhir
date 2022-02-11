@@ -518,7 +518,7 @@
       </extension>
       <path value="Immunization.primarySource"/>
       <short value="Indicates context the data was recorded in"/>
-      <definition value="Indicates if this record was captured as a secondary &#39;reported&#39; record rather than as an original primary source-of-truth record."/>
+      <definition value="Indicates whether this record was captured as an original primary source-of-truth record rather than a secondary 'reported' record. A value &quote;true&quote; means this is a primary record of the immunization."/>
       <comment value="Reflects the &#x201C;reliability&#x201D; of the content."/>
       <min value="0"/>
       <max value="1"/>
