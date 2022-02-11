@@ -548,6 +548,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchStudy"/>
       </type>
       <isSummary value="true"/>
     </element>
