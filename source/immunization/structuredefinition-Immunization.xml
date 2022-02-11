@@ -1098,14 +1098,14 @@
         <map value=".effectiveTime"/>
       </mapping>
     </element>
-    <element id="Immunization.reaction.detail">
-      <path value="Immunization.reaction.detail"/>
+    <element id="Immunization.reaction.manifestation">
+      <path value="Immunization.reaction.manifestation"/>
       <short value="Additional information on reaction"/>
       <definition value="Details of the reaction."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
       <mapping>
