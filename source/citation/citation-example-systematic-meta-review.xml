@@ -2,6 +2,89 @@
 <Citation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/citation.xsd">
     <id value="citation-example-systematic-meta-review"/>
 	<contained>
+		<PractitionerRole>
+			<id value="pr1"/>
+			<practitioner>
+				<display value="Dr. Ethan Molitch"/>
+			</practitioner>
+			<organization>
+				<display value="University of Chicago"/>
+			</organization>
+		</PractitionerRole>
+	</contained>
+	<contained>
+		<PractitionerRole>
+			<id value="pr2"/>
+			<practitioner>
+				<display value="Erfan Shamsoddin"/>
+			</practitioner>
+			<organization>
+				<display value="COVID-19 Knowledge Accelerator"/>
+			</organization>
+		</PractitionerRole>
+	</contained>
+	<contained>
+		<Organization>
+	      <id value="o1"/>
+		  <name value="WHO Rapid Evidence Appraisal for COVID-19 Therapies (REACT) Working Group"/>
+		 </Organization>
+	</contained>
+	<contained>
+		<Organization>
+	      <id value="o2"/>
+	      <name value="Population Health Sciences, Bristol Medical School, University of Bristol, Bristol, England."/>
+	    </Organization>
+	</contained>
+	<contained>
+		<Organization>
+	      <id value="o3"/>
+	      <name value="NIHR Bristol Biomedical Research Centre, Bristol, England."/>
+	    </Organization>
+	</contained>
+	<contained>
+		<Organization>
+	      <id value="o4"/>
+	      <name value="Department of Pediatrics, University of British Columbia, Vancouver, Canada."/>
+	    </Organization>
+	</contained>
+	<contained>
+		<Organization>
+	      <id value="o5"/>
+	      <name value="Clinical Unit, Health Emergencies Programme, World Health Organization, Geneva, Switzerland."/>
+	    </Organization>
+	</contained>
+	<contained>
+		<Practitioner>
+			<id value="p1"/>
+			<name>
+				<family value="Sterne"/>
+				<given value="Jonathan A C"/>
+			</name>
+			<telecom>
+				<system value="email"/>
+				<value value="jonathan.sterne@bristol.ac.uk"/>
+			</telecom>
+	    </Practitioner>
+	</contained>
+	<contained>
+		<Practitioner>
+			<id value="p2"/>
+			<name>
+				<family value="Murthy"/>
+				<given value="Srinivas"/>
+			</name>
+	    </Practitioner>
+	</contained>
+	<contained>
+		<Practitioner>
+			<id value="p3"/>
+			<name>
+				<family value="Diaz"/>
+				<given value="Janet V"/>
+			</name>
+	    </Practitioner>
+	</contained>
+	<contained>
 		<ArtifactAssessment>
 			<id value="a1"/>
 			<artifactReference>
@@ -301,89 +384,6 @@
 				</component>
 			</content>
 		</ArtifactAssessment>
-	</contained>
-	<contained>
-		<PractitionerRole>
-			<id value="pr1"/>
-			<practitioner>
-				<display value="Dr. Ethan Molitch"/>
-			</practitioner>
-			<organization>
-				<display value="University of Chicago"/>
-			</organization>
-		</PractitionerRole>
-	</contained>
-	<contained>
-		<PractitionerRole>
-			<id value="pr2"/>
-			<practitioner>
-				<display value="Erfan Shamsoddin"/>
-			</practitioner>
-			<organization>
-				<display value="COVID-19 Knowledge Accelerator"/>
-			</organization>
-		</PractitionerRole>
-	</contained>
-	<contained>
-		<Organization>
-	      <id value="o1"/>
-		  <name value="WHO Rapid Evidence Appraisal for COVID-19 Therapies (REACT) Working Group"/>
-		 </Organization>
-	</contained>
-	<contained>
-		<Organization>
-	      <id value="o2"/>
-	      <name value="Population Health Sciences, Bristol Medical School, University of Bristol, Bristol, England."/>
-	    </Organization>
-	</contained>
-	<contained>
-		<Organization>
-	      <id value="o3"/>
-	      <name value="NIHR Bristol Biomedical Research Centre, Bristol, England."/>
-	    </Organization>
-	</contained>
-	<contained>
-		<Organization>
-	      <id value="o4"/>
-	      <name value="Department of Pediatrics, University of British Columbia, Vancouver, Canada."/>
-	    </Organization>
-	</contained>
-	<contained>
-		<Organization>
-	      <id value="o5"/>
-	      <name value="Clinical Unit, Health Emergencies Programme, World Health Organization, Geneva, Switzerland."/>
-	    </Organization>
-	</contained>
-	<contained>
-		<Practitioner>
-			<id value="p1"/>
-			<name>
-				<family value="Sterne"/>
-				<given value="Jonathan A C"/>
-			</name>
-			<telecom>
-				<system value="email"/>
-				<value value="jonathan.sterne@bristol.ac.uk"/>
-			</telecom>
-	    </Practitioner>
-	</contained>
-	<contained>
-		<Practitioner>
-			<id value="p2"/>
-			<name>
-				<family value="Murthy"/>
-				<given value="Srinivas"/>
-			</name>
-	    </Practitioner>
-	</contained>
-	<contained>
-		<Practitioner>
-			<id value="p3"/>
-			<name>
-				<family value="Diaz"/>
-				<given value="Janet V"/>
-			</name>
-	    </Practitioner>
 	</contained>
 	<url value="http://hl7.org/fhir/Citation/citation-example-systematic-meta-review"/>
 	<identifier>
