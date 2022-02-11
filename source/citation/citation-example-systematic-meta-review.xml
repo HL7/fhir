@@ -62,6 +62,329 @@
 			</name>
 	    </Practitioner>
 	</contained>
+	<contained>
+		<PractitionerRole>
+			<id value="pr1"/>
+			<practitioner>
+				<display value="Dr. Ethan Molitch"/>
+			</practitioner>
+			<organization>
+				<display value="University of Chicago"/>
+			</organization>
+		</PractitionerRole>
+	</contained>
+	<contained>
+		<PractitionerRole>
+			<id value="pr2"/>
+			<practitioner>
+				<display value="Erfan Shamsoddin"/>
+			</practitioner>
+			<organization>
+				<display value="COVID-19 Knowledge Accelerator"/>
+			</organization>
+		</PractitionerRole>
+	</contained>
+	<contained>
+		<ArtifactAssessment>
+			<id value="a1"/>
+			<artifactReference>
+				<reference value="Citation/citation-example-systematic-meta-review"/>
+			</artifactReference>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<text value="UC Description"/>
+				</type>
+				<classifier>
+					<text value="To assess systemic corticosteroids on 28-day mortality in critically ill patients with COVID-19"/>
+				</classifier>
+				<author>
+					<reference value="#pr1"/>
+				</author>
+				<freeToShare value="true"/>
+			</content>
+		</ArtifactAssessment>
+	</contained>
+	<contained>
+		<ArtifactAssessment>
+			<id value="a2"/>
+			<artifactReference>
+				<reference value="Citation/citation-example-systematic-meta-review"/>
+			</artifactReference>
+			<content>
+	      			<informationType value="classifier"/>
+				<classifier>
+					<text value="The World Health Organization (Conflict of interest statements included notes on several fundings for co-investigators as well, albeit not directly funding this meta-analysis)"/>
+				</classifier>
+				<author>
+					<reference value="#pr2"/>
+				</author>
+				<freeToShare value="true"/>
+			</content>
+		</ArtifactAssessment>
+	</contained>
+	<contained>
+		<ArtifactAssessment>
+			<id value="a3"/>
+			<artifactReference>
+				<reference value="Citation/citation-example-systematic-meta-review"/>
+			</artifactReference>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<code value="mesh-heading"/>
+						<display value="MeSH heading"/>
+					</coding>
+				</type>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D000073640"/>
+						<display value="Betacoronavirus"/>
+					</coding>
+				</classifier>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D000086382"/>
+						<display value="COVID-19"/>
+					</coding>
+				</classifier>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D002423"/>
+						<display value="Cause of Death"/>
+					</coding>
+				</classifier>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D016638"/>
+						<display value="Critical Illness"/>
+					</coding>
+				</classifier>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D006801"/>
+						<display value="Humans"/>
+					</coding>
+				</classifier>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D058873"/>
+						<display value="Pandemics"/>
+					</coding>
+				</classifier>
+				<author>
+					<display value="Computable Publishing: MEDLINE-to-FEvIR Converter"/>
+				</author>
+				<freeToShare value="true"/>
+			</content>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<code value="mesh-heading"/>
+						<display value="MeSH heading"/>
+					</coding>
+					<text value="components include qualifier codings"/>
+				</type>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D000305"/>
+						<display value="Adrenal Cortex Hormones"/>
+					</coding>
+				</classifier>
+				<author>
+					<display value="Computable Publishing: MEDLINE-to-FEvIR Converter"/>
+				</author>
+				<freeToShare value="true"/>
+				<component>
+					<type>
+						<text value="qualifier"/>
+					</type>
+					<classifier>
+						<coding>
+							<system value="https://meshb.nlm.nih.gov/"/>
+							<code value="Q000627"/>
+							<display value="therapeutic use"/>
+						</coding>
+					</classifier>
+					<component>
+						<type>
+							<text value="is Major topic"/>
+						</type>
+						<classifier>
+							<coding>
+								<code value="Y"/>
+							</coding>
+						</classifier>
+					</component>
+				</component>
+			</content>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<code value="mesh-heading"/>
+						<display value="MeSH heading"/>
+					</coding>
+					<text value="components include qualifier codings"/>
+				</type>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D018352"/>
+						<display value="Coronavirus Infections"/>
+					</coding>
+				</classifier>
+				<author>
+					<display value="Computable Publishing: MEDLINE-to-FEvIR Converter"/>
+				</author>
+				<freeToShare value="true"/>
+				<component>
+					<type>
+						<text value="qualifier"/>
+					</type>
+					<classifier>
+						<coding>
+							<system value="https://meshb.nlm.nih.gov/"/>
+							<code value="Q000188"/>
+							<display value="drug therapy"/>
+						</coding>
+					</classifier>
+					<component>
+						<type>
+							<text value="is Major topic"/>
+						</type>
+						<classifier>
+							<coding>
+								<code value="Y"/>
+							</coding>
+						</classifier>
+					</component>
+				</component>
+				<component>
+					<type>
+						<text value="qualifier"/>
+					</type>
+					<classifier>
+						<coding>
+							<system value="https://meshb.nlm.nih.gov/"/>
+							<code value="Q000401"/>
+							<display value="mortality"/>
+						</coding>
+					</classifier>
+					<component>
+						<type>
+							<text value="is Major topic"/>
+						</type>
+						<classifier>
+							<coding>
+								<code value="N"/>
+							</coding>
+						</classifier>
+					</component>
+				</component>
+			</content>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<code value="mesh-heading"/>
+						<display value="MeSH heading"/>
+					</coding>
+					<text value="components include qualifier codings"/>
+				</type>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D003907"/>
+						<display value="Dexamethasone"/>
+					</coding>
+				</classifier>
+				<author>
+					<display value="Computable Publishing: MEDLINE-to-FEvIR Converter"/>
+				</author>
+				<freeToShare value="true"/>
+				<component>
+					<type>
+						<text value="qualifier"/>
+					</type>
+					<classifier>
+						<coding>
+							<system value="https://meshb.nlm.nih.gov/"/>
+							<code value="Q000627"/>
+							<display value="therapeutic use"/>
+						</coding>
+					</classifier>
+					<component>
+						<type>
+							<text value="is Major topic"/>
+						</type>
+						<classifier>
+							<coding>
+								<code value="N"/>
+							</coding>
+						</classifier>
+					</component>
+				</component>
+			</content>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<code value="mesh-heading"/>
+						<display value="MeSH heading"/>
+					</coding>
+					<text value="components include qualifier codings"/>
+				</type>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D005938"/>
+						<display value="Glucocorticoids"/>
+					</coding>
+				</classifier>
+				<author>
+					<display value="Computable Publishing: MEDLINE-to-FEvIR Converter"/>
+				</author>
+				<freeToShare value="true"/>
+				<component>
+					<type>
+						<text value="qualifier"/>
+					</type>
+					<classifier>
+						<coding>
+							<system value="https://meshb.nlm.nih.gov/"/>
+							<code value="Q000627"/>
+							<display value="therapeutic use"/>
+						</coding>
+					</classifier>
+					<component>
+						<type>
+							<text value="is Major topic"/>
+						</type>
+						<classifier>
+							<coding>
+								<code value="N"/>
+							</coding>
+						</classifier>
+					</component>
+				</component>
+			</content>
+		</ArtifactAssessment>
+	</contained>
 	<url value="http://hl7.org/fhir/Citation/citation-example-systematic-meta-review"/>
 	<identifier>
 		<type>
@@ -913,29 +1236,19 @@
 			<classifier>
 				<text value="Unclear risk of bias"/>
 			</classifier>
-			<whoClassified>
-				<person>
-					<display value="Brian S. Alper"/>
-				</person>
-				<freeToShare value="false"/>
-			</whoClassified>
+		</classification>
+		<classification>
+			<artifactAssessment>
+				<reference value="#a1"/>
+			</artifactAssessment>
 		</classification>
 		<classification>
 			<type>
-				<text value="UC Description"/>
+				<text value="Funding"/>
 			</type>
-			<classifier>
-				<text value="To assess systemic corticosteroids on 28-day mortality in critically ill patients with COVID-19"/>
-			</classifier>
-			<whoClassified>
-				<person>
-					<display value="Dr. Ethan Molitch"/>
-				</person>
-				<organization>
-					<display value="University of Chicago"/>
-				</organization>
-				<freeToShare value="true"/>
-			</whoClassified>
+			<artifactAssessment>
+				<reference value="#a2"/>
+			</artifactAssessment>
 		</classification>
 		<classification>
 			<type>
@@ -952,13 +1265,6 @@
 					<display value="Journal Article"/>
 				</coding>
 			</classifier>
-			<whoClassified>
-				<publisher>
-					<display value="Computable Publishing LLC"/>
-				</publisher>
-				<classifierCopyright value="https://creativecommons.org/licenses/by-nc-sa/4.0"/>
-				<freeToShare value="true"/>
-			</whoClassified>
 		</classification>
 		<classification>
 			<type>
@@ -1041,190 +1347,9 @@
 			</classifier>
 		</classification>
 		<classification>
-			<type>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
-					<code value="mesh-heading"/>
-					<display value="MeSH heading"/>
-				</coding>
-			</type>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D000305"/>
-					<display value="Adrenal Cortex Hormones"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000627"/>
-					<display value="therapeutic use"/>
-				</coding>
-				<coding>
-					<code value="Y"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D000073640"/>
-					<display value="Betacoronavirus"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D000086382"/>
-					<display value="COVID-19"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D002423"/>
-					<display value="Cause of Death"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D018352"/>
-					<display value="Coronavirus Infections"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000188"/>
-					<display value="drug therapy"/>
-				</coding>
-				<coding>
-					<code value="Y"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000401"/>
-					<display value="mortality"/>
-				</coding>
-				<coding>
-					<code value="N"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D016638"/>
-					<display value="Critical Illness"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D003907"/>
-					<display value="Dexamethasone"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000627"/>
-					<display value="therapeutic use"/>
-				</coding>
-				<coding>
-					<code value="N"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D005938"/>
-					<display value="Glucocorticoids"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000627"/>
-					<display value="therapeutic use"/>
-				</coding>
-				<coding>
-					<code value="Y"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D006801"/>
-					<display value="Humans"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D006854"/>
-					<display value="Hydrocortisone"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000627"/>
-					<display value="therapeutic use"/>
-				</coding>
-				<coding>
-					<code value="N"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D008775"/>
-					<display value="Methylprednisolone"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000627"/>
-					<display value="therapeutic use"/>
-				</coding>
-				<coding>
-					<code value="N"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D058873"/>
-					<display value="Pandemics"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D011024"/>
-					<display value="Pneumonia, Viral"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000188"/>
-					<display value="drug therapy"/>
-				</coding>
-				<coding>
-					<code value="Y"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000401"/>
-					<display value="mortality"/>
-				</coding>
-				<coding>
-					<code value="N"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D016032"/>
-					<display value="Randomized Controlled Trials as Topic"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D000086402"/>
-					<display value="SARS-CoV-2"/>
-				</coding>
-			</classifier>
+			<artifactAssessment>
+				<reference value="#a3"/>
+			</artifactAssessment>
 		</classification>
 		<classification>
 			<type>
@@ -1294,23 +1419,6 @@
 					<display value="IM"/>
 				</coding>
 			</classifier>
-		</classification>
-		<classification>
-			<type>
-				<text value="Funding"/>
-			</type>
-			<classifier>
-				<text value="The World Health Organization (Conflict of interest statements included notes on several fundings for co-investigators as well, albeit not directly funding this meta-analysis)"/>
-			</classifier>
-			<whoClassified>
-				<person>
-					<display value="Erfan Shamsoddin"/>
-				</person>
-				<organization>
-					<display value="COVID-19 Knowledge Accelerator"/>
-				</organization>
-				<freeToShare value="true"/>
-			</whoClassified>
 		</classification>
 		<contributorship>
 			<complete value="false"/>
