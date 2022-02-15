@@ -13,7 +13,7 @@
 	<status value="inactive"/>
 	<lotNumber value="RZ12345678"/>
 	<manufacturer value="GlobalMed, Inc"/>
-	<patient>
-		<reference value="Patient/example"/>
-	</patient>
+	<associationStatus>
+	    <subject value="Patient/example"/>  
+	</associationStatus>
 </Device>

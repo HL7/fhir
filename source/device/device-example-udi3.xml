@@ -32,7 +32,7 @@
 	<expirationDate value="2020-02-02"/>
 	<!--20020216 = this is the expiration date expressed in YYMMDDHH-->
 	<model value="Ultra Implantable"/>
-	<patient>
-		<reference value="Patient/example"/>
-	</patient>
+	<associationStatus>
+	    <subject value="Patient/example"/>  
+	</associationStatus>
 </Device>

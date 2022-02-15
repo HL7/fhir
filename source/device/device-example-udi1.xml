@@ -46,9 +46,9 @@
 	<manufacturer value="Acme Devices, Inc"/>
 	<expirationDate value="2014-11-20"/>
 	<model value="PM/Octane 2014"/>
-	<patient>
-		<reference value="Patient/example"/>
-	</patient>
+	<associationStatus>
+	    <subject value="Patient/example"/>  
+	</associationStatus>
 		<safety>
 		<coding>
 			<system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
