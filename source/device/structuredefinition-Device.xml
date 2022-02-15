@@ -204,6 +204,7 @@
       <type>
         <code value="uri"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value="Role.id.root"/>
