@@ -106,7 +106,7 @@
     <Cell><Data ss:Type="String">There is an instance of the device compartment for each Device resource, and the identity of the compartment is the same as the Device</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The device compartment includes any resources where the resource is explicitly linked to a Device (mostly subject or performer)</Data></Cell>
    </Row>
-  </Table>
+  </Table> 
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
     <Header x:Margin="0.3"/>
