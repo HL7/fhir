@@ -58,6 +58,11 @@
     <uri value="http://hl7.org/v2"/>
     <name value="HL7 v2 Mapping"/>
   </mapping>
+  <mapping>
+    <identity value="udi"/>
+    <uri value="http://fda.gov/UDI"/>
+    <name value="UDI Mapping"/>
+  </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="BiologicallyDerivedProduct"/>
@@ -161,12 +166,13 @@
         <map value="id"/>
       </mapping>
     </element>
-    <element id="BiologicallyDerivedProduct.sourceIdentifier">
-      <path value="BiologicallyDerivedProduct.sourceIdentifier"/>
-      <short value="Source identifier(s) for this item"/>
-      <definition value="This records source identifiers associated with this biologically derived product instance that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)."/>
+    <element id="BiologicallyDerivedProduct.biologicalSource">
+      <path value="BiologicallyDerivedProduct.biologicalSource"/>
+      <short value="An identifier that supports traceability to the biological entity that is the source of biological material in the product"/>
+      <definition value="An identifier that supports traceability to the biological entity that is the source of biological material in the product."/>
+      <comment value="Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa.  The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device." />
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Identifier"/>
       </type>
@@ -323,7 +329,7 @@
       <path value="BiologicallyDerivedProduct.property.value[x]"/>
       <short value="Property values"/>
       <definition value="Property values."/>
-      <comment value="The value should be provided as a boolean, integer, CodeableConcept, quantity, range, or attachment. The description can be a string only when these others are not available." />
+      <comment value="The value should be provided as a boolean, integer, CodeableConcept, period, quantity, range, ratio, or attachment. The description can be a string only when these others are not available." />
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -336,10 +342,16 @@
         <code value="CodeableConcept"/>
       </type>
       <type>
+        <code value="Period"/>
+      </type>
+      <type>
         <code value="Quantity"/>
       </type>
       <type>
         <code value="Range"/>
+      </type>
+      <type>
+        <code value="Ratio"/>
       </type>
       <type>
         <code value="string"/>

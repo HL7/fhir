@@ -1,24 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SubscriptionTopic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionTopic.xsd">
 	<id value="admission"/>
-	<url value="http://argonautproject.org/subscription-ig/SubscriptionTopic/admission"/>
+	<url value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
 	<title value="admission"/>
 	<status value="active"/>
+  <description value="Example admission topic"/>
 	<resourceTrigger>
-		<description value="Beginning of a clinical encounter"/>
-		<resourceType value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+		<description value="Encounter resource moving to state 'in-progress'"/>
+		<resource value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+    <supportedInteraction value="create"/>
+    <supportedInteraction value="update"/>
 		<queryCriteria>
 			<previous value="status:not=in-progress"/>
+      <resultForCreate value="test-passes"/>
 			<current value="status=in-progress"/>
+      <resultForDelete value="test-fails"/>
 			<requireBoth value="true"/>
 		</queryCriteria>
 		<fhirPathCriteria value="%previous.status!='in-progress' and %current.status='in-progress'"/>
-		<canFilterBy>
-			<searchParamName value="patient"/>
-			<searchModifier value="=" />
-			<searchModifier value="in" />
-			<searchModifier value="not-in" />
-			<documentation value="Matching based on the Patient (subject) of an Encounter or based on the Patient's group membership (in/not-in)."/>
-		</canFilterBy>
 	</resourceTrigger>
+  <eventTrigger>
+    <description value="Patient admission is covered by HL7v2 ADT^A01"/>
+    <event>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0003"/>
+        <code value="A01"/>
+        <display value="ADT/ACK - Admit/visit notification"/>
+      </coding>
+    </event>
+		<resource value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+  </eventTrigger>
+  <canFilterBy>
+    <description value="Matching based on the Patient (subject) of an Encounter or based on the Patient's group membership (in/not-in)."/>
+    <resource value="Encounter"/>
+    <filterParameter value="patient"/>
+    <modifier value="=" />
+    <modifier value="in" />
+    <modifier value="not-in" />
+  </canFilterBy>
+  <notificationShape>
+    <resource value="Encounter"/>
+    <include value="Encounter:patient"/>
+    <include value="Encounter:practitioner"/>
+    <include value="Encounter:service-provider"/>
+    <include value="Encounter:account"/>
+    <include value="Encounter:diagnosis"/>
+    <include value="Encounter:observation"/>
+    <include value="Encounter:location"/>
+  </notificationShape>
 </SubscriptionTopic>

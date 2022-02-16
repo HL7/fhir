@@ -21,5 +21,171 @@
             <td>Authorship (and any other accountability) is assumed to be dealt with by the standard FHIR methods.</td>
         </tr>
     </table>
+    <a name="medicationlistguidance"></a>
+    <h2><b>Medication Administration Lists</b></h2>
+    <h3>Medication Administration Record (MAR) Use Case</h3>
+    <p>Medication administrations can be done by:</p>
+    <ul>
+        <li>clinician e.g. nurse, physician, other providers</li>
+        <li>patient via self-administration</li>
+        <li>family member e.g. mother for the baby</li>
+        <li>caregiver (non-clinician)</li>
+        <li>devices e.g. IV pumps, insulin pumps, patient-controlled analgesic (PCA) pumps</li>
+    </ul>
+    <p>In order to administer a medication, there is often a list of medications that includes the medication itself e.g code or name , dose, date/time the medication is to be administered and route and in some cases additional administration instructions. A common name for this type of list of medications to be administered and the corresponding record of medication administrations is Medication Administration Record (MAR).  </p>
+    <h3>Synonyms/Key Definitions</h3>
+    <p>Medication Administration Record (MAR) - a view of a patients medications that need to be administered.  Typically, an MAR is seen in settings where there is a requirement to document who, when, what  and where information, concerning medications administered to a patient, or if self-administered, taken by a patient. The same record often has two primary functions - first it lists what medications need to be administered and what date and time or time interval, the administration should be done; and second it lists what medications have been administered and the details associated with the administration.  </p>
+        <ul>
+            <li>Scheduled Medication Administration - this represents a specific medication, a dose, or IV rate, a route of administration, a date and time, dosage instructions, and optionally, it may include a time interval
+                Use the MedicationRequest resource to represent each individual medication administration</li>
+        </ul>
+    <table border="1" cellpadding="1" cellspacing="2" frame="box">
+        <tr>
+            <th>Resource Element</th>
+            <th>Clinical Description</th>
+        </tr>
+        <tr>
+            <td>MedicationRequest.intent=instance-order</td>
+            <td>Specific instance of a medication order, sometimes called a "child" order of the parent full medication order </td>
+        </tr>
+            <tr>
+            <td>MedicationRequest.medication.concept or reference to Medication resource </td>
+                
+                <td>Drug that has been ordered and is to be administered</td>
+            </tr>
+                <tr>
+                <td>MedicationRequest.dosage.dose[x] or rate[x] </td>
+                
+                <td>Dose of medication to be administered.  If the drug is intravenous, you may represent this administration as a rate. </td>
+                </tr>
+                <tr>
+                <td>MedicationRequest.dosageInstructions.dosage.timing.bounds</td>
+                
+                <td>Time the medication should be administered e.g. 10am on a specific date, or at time of sleep, or after breakfast, or over 60 minutes starting at 3pm on a specific date, etc. </td>
+                </tr>
+                <tr>
+                    <td>MedicationRequest.dose.dosageInstructions.dosage.route </td>
+                
+                <td>Route of administration e.g. oral, intravenous, topical, etc. </td>
+                </tr>
+                <tr>
+                    <td>MedicationRequest.dose.dosageInstructions.dosage.site </td>
+                
+                <td>Anatomical site where the drug enters the body e.g. subclavian vein</td>
+        </tr>
+    </table>
+   <p>Other attributes may be included, such as those for access sites, dosage instructions, reason, device used, etc.  The list of attributes above is meant to help the reader understand the definitions. It is not meant to define what  attributes an individual implementation may include in their design.  </p>
+  <ul>
+      <li>Recording a Medication Administration - this represents a specific medication administration that includes a dose, or IV rate, a route of administration, and optional administration method, a date and time, or in the case of some IV medications a start date/time and end date/time, administration site, name of person who administered the medication, optional details about the administration e.g., patient refused, patient only took a partial dose because they were ill, etc.  </li>
+  </ul>
+    <table border="1" cellpadding="1" cellspacing="2" frame="box">
+        <tr>
+            <th>Resource Element</th>
+            <th>Clinical Description</th>
+        </tr>
+        <tr>
+            <td>MedicationAdministration.medication.concept or reference to Medication resource</td>
+            <td>Drug that has been administered </td>
+        </tr>
+        <tr>
+            <td>MedicationAdministration.dosage.dose or rate[x]</td>
+            <td>Dose of medication that was administered.  If the drug is intravenous, you may represent this a rate e.g. 60 ml/30 minutes</td>
+        </tr>
+        <tr>
+            <td>MedicationAdministration.occurence.occurenceDateTime or OccurencePeriod</td>
+            
+            <td>Date and time or, date/time of the period over which the medication was administered</td>
+        </tr>
+        <tr>
+            <td>MedicationAdministration.dosage.route</td>
+            
+            <td>Route of administration used to administer medication to the patient</td>
+        </tr>
+            <tr>
+            <td>MedicationAdministration.dosage.site</td>
+            
+            <td>Anatomical site where the drug administered entered the body e.g. subclavian vein</td>
+        </tr>
+        <tr>
+            <td>MedicationAdministration.statusReason</td>
+            
+            <td>The reason for not giving the medication.  This is used when the status = not-done. </td>
+        </tr>
+            <tr>
+                <td>MedicationAdministration.supportingInformation.reference (resource)</td>
+                
+                <td>Used to capture data such as lab test values or heart rate, or blood pressure values, etc. This type of data is often expressed in the order and is used to determine if the medication should be administered or held. </td>
+            </tr>
+            <tr>
+                <td>MedicationAdministration.performer.function (=performer)
+                 MedicationAdministration.performer.actor.reference (resource) </td>
+                
+                <td>Identifies who administered the medication.  The specific referenced resource could be: Provider, Patient, Device, RelatedPerson </td>
+            </tr>
+            <tr>
+                <td>MedicationAdministration.performer.function (=verifier)
+                    
+                    MedicationAdministration.performer.actor.reference (resource) </td>
+                
+                <td>Identifies who verified the medication to be administered.  This is most often a clinician who is verifying the administration for another clinician where there is a requirement for verification prior to administration.  </td>
+            </tr>
+    </table>
+    <p>Other attributes may be included e.g. method, reason, etc. The list of attributes above is meant to help the reader understand the definitions. It is not meant to define what attributes an individual implementation may include in their design.  
+        </p>
+    
+    <h3>Rationale</h3>
+    <p>Scheduled Medication Administration information is used to inform the person who will administer the medication(s) the date/time, and medication specific information e.g., dose, route, method, special instructions for each medication a person is scheduled to take. </p>
+    
+    <p>Recording Medication Administration details provides a place to capture the data about the actual administration e.g., date/time or time interval of administration, dose, route, method, device, performer, etc. </p>
+    
+    <p>Depending on the type of application, this type of information may be presented to the user who is administering the medication in an EHR module for medication administration, in a mobile application for the patient or caregiver.   </p>
+    
+    <h3>Setting</h3>
+    
+    <p>Medication administrations occur in all types of settings e.g. hospitals, outpatient clinics, home, ambulance, ER, etc.  </p>
+    
+    <h3>Description</h3>
+    
+    <p>The list of medications to be administered, or that have been administered may be captured in an application on a patient's phone, tablet or computer workstation.</p>
+    
+    <p>The lists may be created by a variety of users or systems, for example:</p>
+    <ul>
+        <li>Patient - direct entry into a mobile app</li>
+        <li>Other e.g.  parent for a child, caregiver for a patient</li>
+        <li>Electronically e.g., health system auto generates the list from orders/prescriptions known to the system</li>
+        <li>Clinician e.g., user entry within an EHR Medication Administration module  </li>
+        <li>Output of a process e.g. medication reconciliation; new or updated medication orders (prescriptions, requests)</li>
+    </ul>
+    
+    
+   
+    
+    <p>Data sources for the medications that are listed on the Medication Administration list determine what will be displayed to a user.  Here are two common examples: </p>
+    <p> Provider view Medication Administration list may include medications that come from: </p>
+    <ul>
+        <li>Prescribed by clinicians who have the authority to write these types of medication orders</li>
+        <li>Over-the-counter (OTC) medications that the patient informs/adds to the list - this would include herbals and supplements</li>
+        <li>NOTE: Medication errors may lead to medications potentially showing up on a list of medications to be administered e.g., medication order was written for the wrong patient
+            In this case, the MAR indicates that a medication should be administered to a patient (later found to be in error e.g., wrong patient)</li>
+        <li>NOTE: Medication errors may also lead to medications showing up on a list of administered medications e.g., medication was mistakenly administered to the wrong patient, or the wrong dose was administered, or wrong route was used, etc.  </li>
+   
 
+    
+    </ul>
+    
+    <p>Patient view Medication Administration list may include medications that come: </p>
+        <ul>
+            <li>from an identical list as above with the following caveats:
+                <ul>
+                    <li>The list might not include some medications if the patient is one of the sources for the list and states they are not taking a specific medication, irrespective of whether it was prescribed </li>
+                    
+                    <li>The patient does not know or has incomplete memory of the medications they have been prescribed </li>
+                    <li>The level of detail for each medication might not be as detailed as provider-based list  </li> 
+                    
+                </ul>
+            </li>
+        </ul>
+
+   
+    
 </div>

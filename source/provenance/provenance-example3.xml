@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Provenance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/provenance.xsd">
+	<id value="example3"/>
+	<!-- 
+    Use path when the target resource doesn't have an id to point to
+    Note that the path is constrained to simple FHIRPath - see 
+    https://hl7.org/fhir/fhirpath.html#simple
+    
+    This asserts that the follow up note came from a different author than
+    the rest of the Procedure (see Provenance/example)
+  -->
+	<target>
+    <extension url="http://hl7.org/fhir/StructureDefinition/targetPath"> 
+      <valueString value="Procedure.followUp.text"/>
+    </extension>
+		<reference value="Procedure/example/_history/1"/>
+	</target>
+	<recorded value="2021-12-08T16:54:24+11:00"/>
+	<agent>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+				<code value="AUT"/>
+			</coding>
+		</type>
+		<who>
+			<reference value="Practitioner/f007"/>
+		</who>
+	</agent>
+</Provenance>

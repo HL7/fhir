@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="manufactured-dose-form"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/manufactured-dose-form"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+     <value value="urn:oid:2.16.840.1.113883.4.642.1.1593"/>
+  </identifier>
+  <version value="4.6.0"/>
+   <name value="ManufacturedDoseForm"/>
+   <title value="ManufacturedDoseForm"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+   <description value="Dose form for a medication, as manufactured (and before any mixing etc.), not necessarily ready for administration to the patient."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/manufactured-dose-form"/>
+  <content value="complete"/>
+   <concept>
+      <code value="100000073362"/>
+      <display value="Oral suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073363"/>
+      <display value="Oral gel"/>
+   </concept>
+   <concept>
+      <code value="100000073364"/>
+      <display value="Powder for oral solution"/>
+   </concept>
+   <concept>
+      <code value="100000073365"/>
+      <display value="Granules for oral solution"/>
+   </concept>
+   <concept>
+      <code value="100000073367"/>
+      <display value="Lyophilisate for suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073368"/>
+      <display value="Powder for syrup"/>
+   </concept>
+   <concept>
+      <code value="100000073369"/>
+      <display value="Soluble tablet"/>
+   </concept>
+   <concept>
+      <code value="100000073370"/>
+      <display value="Herbal tea"/>
+   </concept>
+   <concept>
+      <code value="100000073371"/>
+      <display value="Instant herbal tea"/>
+   </concept>
+   <concept>
+      <code value="100000073372"/>
+      <display value="Granules"/>
+   </concept>
+   <concept>
+      <code value="100000073373"/>
+      <display value="Gastro-resistant granules"/>
+   </concept>
+   <concept>
+      <code value="100000073374"/>
+      <display value="Modified-release granules"/>
+   </concept>
+   <concept>
+      <code value="100000073375"/>
+      <display value="Capsule, hard"/>
+   </concept>
+   <concept>
+      <code value="100000073376"/>
+      <display value="Gastro-resistant capsule, hard"/>
+   </concept>
+   <concept>
+      <code value="100000073377"/>
+      <display value="Chewable capsule, soft"/>
+   </concept>
+   <concept>
+      <code value="100000073378"/>
+      <display value="Prolonged-release capsule, soft"/>
+   </concept>
+   <concept>
+      <code value="100000073379"/>
+      <display value="Modified-release capsule, soft"/>
+   </concept>
+   <concept>
+      <code value="100000073380"/>
+      <display value="Coated tablet"/>
+   </concept>
+   <concept>
+      <code value="100000073642"/>
+      <display value="Oral drops, solution"/>
+   </concept>
+   <concept>
+      <code value="100000073643"/>
+      <display value="Oral drops, suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073644"/>
+      <display value="Oral drops, emulsion"/>
+   </concept>
+   <concept>
+      <code value="100000073645"/>
+      <display value="Oral liquid"/>
+   </concept>
+   <concept>
+      <code value="100000073646"/>
+      <display value="Oral solution"/>
+   </concept>
+   <concept>
+      <code value="100000073647"/>
+      <display value="Oral emulsion"/>
+   </concept>
+   <concept>
+      <code value="100000073648"/>
+      <display value="Oral paste"/>
+   </concept>
+   <concept>
+      <code value="100000073649"/>
+      <display value="Powder for oral suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073650"/>
+      <display value="Granules for oral suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073652"/>
+      <display value="Syrup"/>
+   </concept>
+   <concept>
+      <code value="100000073653"/>
+      <display value="Granules for syrup"/>
+   </concept>
+   <concept>
+      <code value="100000073654"/>
+      <display value="Dispersible tablet"/>
+   </concept>
+   <concept>
+      <code value="100000073655"/>
+      <display value="Oral powder"/>
+   </concept>
+   <concept>
+      <code value="100000073656"/>
+      <display value="Effervescent powder"/>
+   </concept>
+   <concept>
+      <code value="100000073657"/>
+      <display value="Effervescent granules"/>
+   </concept>
+   <concept>
+      <code value="100000073658"/>
+      <display value="Prolonged-release granules"/>
+   </concept>
+   <concept>
+      <code value="100000073659"/>
+      <display value="Cachet"/>
+   </concept>
+   <concept>
+      <code value="100000073660"/>
+      <display value="Capsule, soft"/>
+   </concept>
+   <concept>
+      <code value="100000073661"/>
+      <display value="Gastro-resistant capsule, soft"/>
+   </concept>
+   <concept>
+      <code value="100000073662"/>
+      <display value="Prolonged-release capsule, hard"/>
+   </concept>
+   <concept>
+      <code value="100000073663"/>
+      <display value="Modified-release capsule, hard"/>
+   </concept>
+   <concept>
+      <code value="100000073664"/>
+      <display value="Tablet"/>
+   </concept>
+   <concept>
+      <code value="100000073665"/>
+      <display value="Film-coated tablet"/>
+   </concept>
+   <concept>
+      <code value="100000073666"/>
+      <display value="Orodispersible tablet"/>
+   </concept>
+   <concept>
+      <code value="100000073667"/>
+      <display value="Gastro-resistant tablet"/>
+   </concept>
+   <concept>
+      <code value="100000073668"/>
+      <display value="Modified-release tablet"/>
+   </concept>
+   <concept>
+      <code value="100000073669"/>
+      <display value="Medicated chewing-gum"/>
+   </concept>
+   <concept>
+      <code value="100000073670"/>
+      <display value="Pillules"/>
+   </concept>
+   <concept>
+      <code value="100000073671"/>
+      <display value="Pulsatile-release intraruminal device"/>
+   </concept>
+   <concept>
+      <code value="100000073672"/>
+      <display value="Premix for medicated feeding stuff"/>
+   </concept>
+   <concept>
+      <code value="100000073673"/>
+      <display value="Gargle"/>
+   </concept>
+   <concept>
+      <code value="100000073674"/>
+      <display value="Gargle, powder for solution"/>
+   </concept>
+   <concept>
+      <code value="100000073675"/>
+      <display value="Oromucosal suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073676"/>
+      <display value="Oromucosal spray"/>
+   </concept>
+   <concept>
+      <code value="100000073677"/>
+      <display value="Mouthwash"/>
+   </concept>
+   <concept>
+      <code value="100000073678"/>
+      <display value="Gingival solution"/>
+   </concept>
+   <concept>
+      <code value="100000073679"/>
+      <display value="Oromucosal paste"/>
+   </concept>
+   <concept>
+      <code value="100000073680"/>
+      <display value="Gingival gel"/>
+   </concept>
+   <concept>
+      <code value="100000073681"/>
+      <display value="Effervescent tablet"/>
+   </concept>
+   <concept>
+      <code value="100000073682"/>
+      <display value="Oral lyophilisate"/>
+   </concept>
+   <concept>
+      <code value="100000073683"/>
+      <display value="Prolonged-release tablet"/>
+   </concept>
+   <concept>
+      <code value="100000073684"/>
+      <display value="Chewable tablet"/>
+   </concept>
+   <concept>
+      <code value="100000073685"/>
+      <display value="Oral gum"/>
+   </concept>
+   <concept>
+      <code value="100000073686"/>
+      <display value="Continuous-release intraruminal device"/>
+   </concept>
+   <concept>
+      <code value="100000073687"/>
+      <display value="Lick block"/>
+   </concept>
+   <concept>
+      <code value="100000073688"/>
+      <display value="Medicated pellets"/>
+   </concept>
+   <concept>
+      <code value="100000073689"/>
+      <display value="Concentrate for gargle"/>
+   </concept>
+   <concept>
+      <code value="100000073690"/>
+      <display value="Gargle, tablet for solution"/>
+   </concept>
+   <concept>
+      <code value="100000073691"/>
+      <display value="Oromucosal solution"/>
+   </concept>
+   <concept>
+      <code value="100000073692"/>
+      <display value="Oromucosal drops"/>
+   </concept>
+   <concept>
+      <code value="100000073693"/>
+      <display value="Sublingual spray"/>
+   </concept>
+   <concept>
+      <code value="100000073694"/>
+      <display value="Mouthwash, tablet for solution"/>
+   </concept>
+   <concept>
+      <code value="100000073695"/>
+      <display value="Oromucosal gel"/>
+   </concept>
+   <concept>
+      <code value="100000073696"/>
+      <display value="Oromucosal cream"/>
+   </concept>
+   <concept>
+      <code value="100000073697"/>
+      <display value="Gingival paste"/>
+   </concept>
+   <concept>
+      <code value="100000073698"/>
+      <display value="Sublingual tablet"/>
+   </concept>
+   <concept>
+      <code value="100000073699"/>
+      <display value="Buccal tablet"/>
+   </concept>
+   <concept>
+      <code value="100000073700"/>
+      <display value="Compressed lozenge"/>
+   </concept>
+   <concept>
+      <code value="100000073701"/>
+      <display value="Oromucosal capsule"/>
+   </concept>
+   <concept>
+      <code value="100000073702"/>
+      <display value="Muco-adhesive buccal tablet"/>
+   </concept>
+   <concept>
+      <code value="100000073703"/>
+      <display value="Lozenge"/>
+   </concept>
+   <concept>
+      <code value="100000073704"/>
+      <display value="Pastille"/>
+   </concept>
+   <concept>
+      <code value="100000073705"/>
+      <display value="Dental gel"/>
+   </concept>
+   <concept>
+      <code value="100000073706"/>
+      <display value="Dental insert"/>
+   </concept>
+   <concept>
+      <code value="100000073707"/>
+      <display value="Dental powder"/>
+   </concept>
+   <concept>
+      <code value="100000073708"/>
+      <display value="Dental suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073709"/>
+      <display value="Toothpaste"/>
+   </concept>
+   <concept>
+      <code value="100000073710"/>
+      <display value="Periodontal gel"/>
+   </concept>
+   <concept>
+      <code value="100000073711"/>
+      <display value="Bath additive"/>
+   </concept>
+   <concept>
+      <code value="100000073712"/>
+      <display value="Cream"/>
+   </concept>
+   <concept>
+      <code value="100000073713"/>
+      <display value="Ointment"/>
+   </concept>
+   <concept>
+      <code value="100000073714"/>
+      <display value="Medicated plaster"/>
+   </concept>
+   <concept>
+      <code value="100000073715"/>
+      <display value="Shampoo"/>
+   </concept>
+   <concept>
+      <code value="100000073716"/>
+      <display value="Cutaneous spray, suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073717"/>
+      <display value="Cutaneous liquid"/>
+   </concept>
+   <concept>
+      <code value="100000073718"/>
+      <display value="Concentrate for cutaneous solution"/>
+   </concept>
+   <concept>
+      <code value="100000073719"/>
+      <display value="Cutaneous emulsion"/>
+   </concept>
+   <concept>
+      <code value="100000073720"/>
+      <display value="Cutaneous patch"/>
+   </concept>
+   <concept>
+      <code value="100000073721"/>
+      <display value="Periodontal powder"/>
+   </concept>
+   <concept>
+      <code value="100000073722"/>
+      <display value="Dental stick"/>
+   </concept>
+   <concept>
+      <code value="100000073723"/>
+      <display value="Dental solution"/>
+   </concept>
+   <concept>
+      <code value="100000073724"/>
+      <display value="Dental emulsion"/>
+   </concept>
+   <concept>
+      <code value="100000073725"/>
+      <display value="Periodontal insert"/>
+   </concept>
+   <concept>
+      <code value="100000073726"/>
+      <display value="Gel"/>
+   </concept>
+   <concept>
+      <code value="100000073727"/>
+      <display value="Cutaneous paste"/>
+   </concept>
+   <concept>
+      <code value="100000073728"/>
+      <display value="Cutaneous foam"/>
+   </concept>
+   <concept>
+      <code value="100000073729"/>
+      <display value="Cutaneous spray, solution"/>
+   </concept>
+   <concept>
+      <code value="100000073730"/>
+      <display value="Cutaneous spray, powder"/>
+   </concept>
+   <concept>
+      <code value="100000073731"/>
+      <display value="Cutaneous solution"/>
+   </concept>
+   <concept>
+      <code value="100000073732"/>
+      <display value="Cutaneous suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073733"/>
+      <display value="Cutaneous powder"/>
+   </concept>
+   <concept>
+      <code value="100000073734"/>
+      <display value="Solution for iontophoresis"/>
+   </concept>
+   <concept>
+      <code value="100000073735"/>
+      <display value="Collodion"/>
+   </concept>
+   <concept>
+      <code value="100000073736"/>
+      <display value="Poultice"/>
+   </concept>
+   <concept>
+      <code value="100000073737"/>
+      <display value="Cutaneous sponge"/>
+   </concept>
+   <concept>
+      <code value="100000073738"/>
+      <display value="Collar"/>
+   </concept>
+   <concept>
+      <code value="100000073739"/>
+      <display value="Ear tag"/>
+   </concept>
+   <concept>
+      <code value="100000073740"/>
+      <display value="Dip suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073741"/>
+      <display value="Transdermal patch"/>
+   </concept>
+   <concept>
+      <code value="100000073742"/>
+      <display value="Medicated nail lacquer"/>
+   </concept>
+   <concept>
+      <code value="100000073743"/>
+      <display value="Cutaneous stick"/>
+   </concept>
+   <concept>
+      <code value="100000073744"/>
+      <display value="Impregnated dressing"/>
+   </concept>
+   <concept>
+      <code value="100000073745"/>
+      <display value="Medicated pendant"/>
+   </concept>
+   <concept>
+      <code value="100000073746"/>
+      <display value="Dip solution"/>
+   </concept>
+   <concept>
+      <code value="100000073747"/>
+      <display value="Dip emulsion"/>
+   </concept>
+   <concept>
+      <code value="100000073748"/>
+      <display value="Concentrate for dip suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073749"/>
+      <display value="Powder for dip solution"/>
+   </concept>
+   <concept>
+      <code value="100000073750"/>
+      <display value="Powder for suspension for fish treatment"/>
+   </concept>
+   <concept>
+      <code value="100000073751"/>
+      <display value="Pour-on suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073752"/>
+      <display value="Spot-on solution"/>
+   </concept>
+   <concept>
+      <code value="100000073753"/>
+      <display value="Spot-on emulsion"/>
+   </concept>
+   <concept>
+      <code value="100000073754"/>
+      <display value="Teat dip suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073755"/>
+      <display value="Teat spray solution"/>
+   </concept>
+   <concept>
+      <code value="100000073756"/>
+      <display value="Solution for skin-prick test"/>
+   </concept>
+   <concept>
+      <code value="100000073757"/>
+      <display value="Plaster for provocation test"/>
+   </concept>
+   <concept>
+      <code value="100000073758"/>
+      <display value="Eye gel"/>
+   </concept>
+   <concept>
+      <code value="100000073759"/>
+      <display value="Eye drops, solution"/>
+   </concept>
+   <concept>
+      <code value="100000073760"/>
+      <display value="Eye drops, suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073761"/>
+      <display value="Concentrate for dip solution"/>
+   </concept>
+   <concept>
+      <code value="100000073762"/>
+      <display value="Concentrate for dip emulsion"/>
+   </concept>
+   <concept>
+      <code value="100000073763"/>
+      <display value="Concentrate for solution for fish treatment"/>
+   </concept>
+   <concept>
+      <code value="100000073764"/>
+      <display value="Pour-on solution"/>
+   </concept>
+   <concept>
+      <code value="100000073765"/>
+      <display value="Pour-on emulsion"/>
+   </concept>
+   <concept>
+      <code value="100000073766"/>
+      <display value="Spot-on suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073767"/>
+      <display value="Teat dip solution"/>
+   </concept>
+   <concept>
+      <code value="100000073768"/>
+      <display value="Teat dip emulsion"/>
+   </concept>
+   <concept>
+      <code value="100000073769"/>
+      <display value="Transdermal system"/>
+   </concept>
+   <concept>
+      <code value="100000073770"/>
+      <display value="Solution for skin-scratch test"/>
+   </concept>
+   <concept>
+      <code value="100000073771"/>
+      <display value="Eye cream"/>
+   </concept>
+   <concept>
+      <code value="100000073772"/>
+      <display value="Eye ointment"/>
+   </concept>
+   <concept>
+      <code value="100000073773"/>
+      <display value="Eye drops, emulsion"/>
+   </concept>
+   <concept>
+      <code value="100000073775"/>
+      <display value="Eye drops, solvent for reconstitution"/>
+   </concept>
+   <concept>
+      <code value="100000073776"/>
+      <display value="Eye lotion"/>
+   </concept>
+   <concept>
+      <code value="100000073777"/>
+      <display value="Ophthalmic insert"/>
+   </concept>
+   <concept>
+      <code value="100000073778"/>
+      <display value="Ear cream"/>
+   </concept>
+   <concept>
+      <code value="100000073779"/>
+      <display value="Ear ointment"/>
+   </concept>
+   <concept>
+      <code value="100000073780"/>
+      <display value="Ear drops, suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073782"/>
+      <display value="Eye drops, prolonged-release"/>
+   </concept>
+   <concept>
+      <code value="100000073783"/>
+      <display value="Eye lotion, solvent for reconstitution"/>
+   </concept>
+   <concept>
+      <code value="100000073784"/>
+      <display value="Ophthalmic strip"/>
+   </concept>
+   <concept>
+      <code value="100000073785"/>
+      <display value="Ear gel"/>
+   </concept>
+   <concept>
+      <code value="100000073786"/>
+      <display value="Ear drops, solution"/>
+   </concept>
+   <concept>
+      <code value="100000073787"/>
+      <display value="Ear drops, emulsion"/>
+   </concept>
+   <concept>
+      <code value="100000073788"/>
+      <display value="Ear powder"/>
+   </concept>
+   <concept>
+      <code value="100000073789"/>
+      <display value="Ear spray, suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073790"/>
+      <display value="Ear wash, solution"/>
+   </concept>
+   <concept>
+      <code value="100000073791"/>
+      <display value="Ear tampon"/>
+   </concept>
+   <concept>
+      <code value="100000073792"/>
+      <display value="Nasal cream"/>
+   </concept>
+   <concept>
+      <code value="100000073793"/>
+      <display value="Nasal gel"/>
+   </concept>
+   <concept>
+      <code value="100000073794"/>
+      <display value="Nasal drops, solution"/>
+   </concept>
+   <concept>
+      <code value="100000073795"/>
+      <display value="Nasal drops, emulsion"/>
+   </concept>
+   <concept>
+      <code value="100000073796"/>
+      <display value="Nasal spray, solution"/>
+   </concept>
+   <concept>
+      <code value="100000073797"/>
+      <display value="Nasal spray, emulsion"/>
+   </concept>
+   <concept>
+      <code value="100000073798"/>
+      <display value="Nasal stick"/>
+   </concept>
+   <concept>
+      <code value="100000073799"/>
+      <display value="Vaginal gel"/>
+   </concept>
+   <concept>
+      <code value="100000073800"/>
+      <display value="Vaginal foam"/>
+   </concept>
+   <concept>
+      <code value="100000073802"/>
+      <display value="Ear spray, solution"/>
+   </concept>
+   <concept>
+      <code value="100000073803"/>
+      <display value="Ear spray, emulsion"/>
+   </concept>
+   <concept>
+      <code value="100000073804"/>
+      <display value="Ear wash, emulsion"/>
+   </concept>
+   <concept>
+      <code value="100000073805"/>
+      <display value="Ear stick"/>
+   </concept>
+   <concept>
+      <code value="100000073806"/>
+      <display value="Nasal ointment"/>
+   </concept>
+   <concept>
+      <code value="100000073807"/>
+      <display value="Nasal drops, suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073808"/>
+      <display value="Nasal powder"/>
+   </concept>
+   <concept>
+      <code value="100000073809"/>
+      <display value="Nasal spray, suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073810"/>
+      <display value="Nasal wash"/>
+   </concept>
+   <concept>
+      <code value="100000073811"/>
+      <display value="Vaginal cream"/>
+   </concept>
+   <concept>
+      <code value="100000073812"/>
+      <display value="Vaginal ointment"/>
+   </concept>
+   <concept>
+      <code value="100000073813"/>
+      <display value="Vaginal solution"/>
+   </concept>
+   <concept>
+      <code value="100000073814"/>
+      <display value="Vaginal emulsion"/>
+   </concept>
+   <concept>
+      <code value="100000073815"/>
+      <display value="Pessary"/>
+   </concept>
+   <concept>
+      <code value="100000073816"/>
+      <display value="Vaginal capsule, soft"/>
+   </concept>
+   <concept>
+      <code value="100000073817"/>
+      <display value="Effervescent vaginal tablet"/>
+   </concept>
+   <concept>
+      <code value="100000073818"/>
+      <display value="Vaginal delivery system"/>
+   </concept>
+   <concept>
+      <code value="100000073819"/>
+      <display value="Rectal cream"/>
+   </concept>
+   <concept>
+      <code value="100000073820"/>
+      <display value="Rectal foam"/>
+   </concept>
+   <concept>
+      <code value="100000073821"/>
+      <display value="Vaginal suspension"/>
+   </concept>
+   <concept>
+      <code value="100000073822"/>
+      <display value="Tablet for vaginal solution"/>
+   </concept>
+   <concept>
+      <code value="100000073823"/>
+      <display value="Vaginal capsule, hard"/>
+   </concept>
+   <concept>
+      <code value="100000073824"/>
+      <display value="Vaginal tablet"/>
+   </concept>
+   <concept>
+      <code value="100000073825"/>
+      <display value="Medicated vaginal tampon"/>
+   </concept>
+   <concept>
+      <code value="100000073826"/>
+      <display value="Vaginal sponge"/>
+   </concept>
+   <concept>
+      <code value="100000073827"/>
+      <display value="Rectal gel"/>
+   </concept>
+   <!-- there are more - this is only a subset. Added the next one because its an important one -->
+   <concept>
+      <code value="100000073863"/>
+      <display value="Solution for injection"/>
+   </concept>
+
+</CodeSystem>

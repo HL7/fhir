@@ -164,7 +164,7 @@
     <element id="ResearchStudy.title">
       <path value="ResearchStudy.title"/>
       <short value="Name for this study (for computers)"/>
-      <definition value="A short, descriptive label for the study particularly for compouter use."/>
+      <definition value="A short, descriptive label for the study particularly for computer use."/>
       <min value="0"/>
       <max value="1"/>
       <type>

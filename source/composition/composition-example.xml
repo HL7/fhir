@@ -60,24 +60,19 @@
 		<display value="Good Health Clinic"/>
 	</custodian>
 	<relatesTo>
-		<code value="replaces"/>
-		<!-- 
-      you can identify a composition or a document.
-      A document is a frozen version of a composition
-      that is wrapped in a bundle
-      - can refer to the composition or document by identifier
-      - or by reference. to refer to a document by reference, Bundle/xxxx
-    -->
-		<targetReference>
-			<reference value="Composition/old-example"/>
-		</targetReference>
+		<type value="replaces" />
+		<resourceReference>
+			<reference value="Composition/old-example" />
+		</resourceReference>
 	</relatesTo>
 	<relatesTo>
-		<code value="appends"/>
-		<targetIdentifier>
-      <system value="http://example.org/fhir/NamingSystem/document-ids"/>
-      <value value="ABC123"/>
-		</targetIdentifier>
+	    <type value="appends" />
+		<resourceReference>
+			<identifier>
+				<system value="http://example.org/fhir/NamingSystem/document-ids"/>
+				<value value="ABC123"/>
+			</identifier>
+		</resourceReference>
 	</relatesTo>
 	<event>
 		<code>

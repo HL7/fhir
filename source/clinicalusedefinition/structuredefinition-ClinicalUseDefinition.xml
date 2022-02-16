@@ -120,8 +120,8 @@
           <valueString value="ClinicalUseDefinitionType"/>
         </extension>
         <strength value="required"/>
-        <description value="Overall defining type of this clinical use issue."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/clinical-use-issue-type"/>
+        <description value="Overall defining type of this clinical use definition."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/clinical-use-definition-type"/>
       </binding>
       <mapping>
         <identity value="idmp"/>
@@ -290,6 +290,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TherapyRelationshipType"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Classification of relationship between a therapy and a contraindication or an indication."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/therapy-relationship-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Other Therapy Specifics.Therapy Relationship Type"/>

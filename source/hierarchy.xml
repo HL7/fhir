@@ -149,7 +149,10 @@ signatures.html
         <page title="_filter Parameter" filename="search_filter.html"/>
         <page title="Search Parameter Registry" filename="searchparameter-registry.html"/>
         <page title="FHIRPath Patch" filename="fhirpatch.html"/>
-        <page title="Asynchronous API" filename="async.html"/>
+        <page title="Asynchronous API" filename="async.html">
+          <page title="Asynchronous Bulk Data Request" filename="async-bulk.html"/>
+          <page title="Asynchronous Interaction Request" filename="async-bundle.html"/>
+        </page>
       </page>
       <page title="Operations" filename="operations.html">
         <page title="Example" filename="op-example-request.html"/>
@@ -353,6 +356,7 @@ signatures.html
 
     <page title="Workflow" filename="workflow-module.html" icon="workflow.png">
       <page type="resource" resource="Task"/>
+      <page type="resource" resource="Transport"/>
 <!--      <page type="resource" resource="Definition"/>
       <page type="resource" resource="Request"/>
       <page type="resource" resource="Event"/> -->
@@ -413,6 +417,7 @@ signatures.html
       <page title="Clinical Decision Support" filename="clinicalreasoning-cds-on-fhir.html"/>
       <page title="Quality Reporting" filename="clinicalreasoning-quality-reporting.html"/>
       <page title="Evidence and Statistics" filename="clinicalreasoning-evidence-and-statistics.html"/>
+      <page type="resource" resource="ArtifactAssessment"/>
       <page type="resource" resource="ConditionDefinition"/>
       <page type="resource" resource="EventDefinition"/>
 	  <page type="resource" resource="EvidenceReport"/>
@@ -433,7 +438,6 @@ signatures.html
       <page type="resource" resource="ManufacturedItemDefinition"/>
       <page type="resource" resource="AdministrableProductDefinition"/>
       <page type="resource" resource="RegulatedAuthorization"/>
-      <page type="resource" resource="ClinicalUseIssue"/>
       <page type="resource" resource="ClinicalUseDefinition"/>
       <page type="resource" resource="Ingredient"/>
       <page type="resource" resource="SubstanceDefinition"/>
