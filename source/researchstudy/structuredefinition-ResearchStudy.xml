@@ -208,7 +208,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="desc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-title-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-label-type"/>
       </binding>
     </element>
     <element id="ResearchStudy.label.value">
@@ -831,11 +831,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchStudyPartyType"/>
+          <valueString value="ResearchStudyPartyRole"/>
         </extension>        
         <strength value="extensible"/>
         <description value="desc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-role"/>
       </binding>
     </element>
     <element id="ResearchStudy.associatedParty.classifier">
