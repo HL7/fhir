@@ -222,7 +222,7 @@
         </extension>
         <strength value="example"/>
         <description value="The vaccine preventable disease the dose is being evaluated against."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-evaluation-target-disease"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-target-disease"/>
       </binding>
       <mapping>
         <identity value="v2"/>
