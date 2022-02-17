@@ -208,7 +208,7 @@
         <valueString value="#14371."/>
       </extension>
       <path value="ImmunizationEvaluation.targetDisease"/>
-      <short value="Evaluation target disease"/>
+      <short value="The vaccine preventable disease schedule being evaluated"/>
       <definition value="The vaccine preventable disease the dose is being evaluated against."/>
       <min value="1"/>
       <max value="1"/>
@@ -266,7 +266,7 @@
     </element>
     <element id="ImmunizationEvaluation.doseStatusReason">
       <path value="ImmunizationEvaluation.doseStatusReason"/>
-      <short value="Reason for the dose status"/>
+      <short value="Reason why the doese is considered valid, invalid or some other status"/>
       <definition value="Provides an explanation as to why the vaccine administration event is valid or not relative to the published recommendations."/>
       <min value="0"/>
       <max value="*"/>
