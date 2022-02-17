@@ -511,6 +511,16 @@
         <map value=".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"/>
       </mapping>
     </element>
+	<element id="AdverseEvent.expectedInResearchStudy">
+      <path value="AdverseEvent.expectedInResearchStudy"/>
+      <short value="Considered likely or probable or anticipated in the research study"/>
+      <definition value="Considered likely or probable or anticipated in the research study.  Whether the reported event matches any of the outcomes for the patient that are considered by the study as known or likely."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
     <element id="AdverseEvent.suspectEntity">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,0"/>
@@ -548,6 +558,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchStudy"/>
       </type>
       <isSummary value="true"/>
     </element>
