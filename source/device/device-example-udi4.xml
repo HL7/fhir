@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--The use case illustrates the use of Example of ICCBBA UDI for blood bags  -->
+<!--The use case illustrates the use of Example of ICCBBA UDI for blood bags-->  
 <Device xmlns="http://hl7.org/fhir">
 	<id value="example-udi4"/>
 	<udi>
