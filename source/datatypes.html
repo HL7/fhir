@@ -13,7 +13,7 @@
 <%dtheader base%>
 
 <h1>Data Types</h1>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Partially Normative</a></td></tr></table>
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg mnm%]">[%wgt mnm%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Partially Normative</a></td></tr></table>
 
 [%normative page infrastructure%]
 
@@ -127,7 +127,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td>decimal<a name="decimal"></a></td>
-   <td>Rational numbers that have a decimal representation. See below about the precision of the number</td>
+   <td>Rational numbers that have a decimal representation. Decimals in FHIR can not have more than 18 digits and a decimal point. See below about the precision of the number</td>
    <td>union of xs:decimal and xs:double (see below for limitations)</td>
    <td>A JSON number (see below for limitations)</td>
  </tr>
@@ -206,7 +206,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  <tr>
    <td>dateTime<a name="dateTime"></a><a name="datetime"></a></td>
    <td>A date, date-time or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+zz:zz, e.g. 2018, 1973-06, 1905-08-23, 2015-02-07T13:28:17-05:00 or 2017-01-01T00:00:00.000Z.
-    If hours and minutes are specified, a time zone SHALL be populated. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored at receiver discretion. Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b>. Leap Seconds are allowed - see below</td>
+    If hours and minutes are specified, a time zone SHALL be populated. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored at receiver discretion. Milliseconds are optionally allowed. Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b>. Leap Seconds are allowed - see below</td>
    <td>union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
    <td>A JSON string - a union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
   </tr>
@@ -1113,11 +1113,10 @@ The end value includes any matching date/time. For example, the period
 2011-05-23 to 2011-05-27 includes all the times from the start of the 23rd May through to
 the end of the 27th of May.
 </p>
-<!--<div class="use">
+<div class="use">
 <p><b>Constraints</b></p>
 [%dt.constraints Period%]
 </div>
--->
 
 <p>
 Period is used in the following places: [%dtusage Period%]
@@ -1141,7 +1140,7 @@ use for this is for the output of an ECG or EKG device. The data type includes a
 factor. These are interpreted such that
 </p>
 <pre>
-original measured value[i] = SampledData.data[i] * SampledData.scaleFactor + SampledData.origin.value
+original measured value[i] = SampledData.data[i] * SampledData.factor + SampledData.origin.value
 </pre>
 
 [%dt SampledData 8%]
@@ -1671,7 +1670,7 @@ The element name ends with "[x]", and this is replaced with the Title cased name
 </p>
 
 <p>
-Open references are used in the following places: [%dtusage *%]
+Open types are used in the following places: [%dtusage *%]
 </p>
 
 <a name="other"></a>
