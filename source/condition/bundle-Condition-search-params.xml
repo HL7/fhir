@@ -69,10 +69,24 @@
           <valueString value="Condition.participant.actor"/>
         </extension>
         <description value="Who or what participated in the activities related to the condition"/>
-        <code value="participant"/>
+        <code value="participant-actor"/>
         <type value="reference"/>
         <expression value="Condition.participant.actor"/>
         <xpath value="f:Condition/f:participant/f:actor"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.participant.function"/>
+        </extension>
+        <description value="Type of involvement of the actor in the activities related to the condition"/>
+        <code value="participant-function"/>
+        <type value="token"/>
+        <expression value="Condition.participant.function"/>
+        <xpath value="f:Condition/f:participant/f:function"/>
       </SearchParameter>
     </resource>
   </entry>
