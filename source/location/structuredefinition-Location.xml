@@ -278,7 +278,24 @@
         <map value=".code"/>
       </mapping>
     </element>
+    <element id="Location.contact">
+      <path value="Location.contact"/>
+      <short value="Contact details of the location"/>
+      <definition value="The contact details of communication devices available at the location. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ExtendedContactDetail"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".telecom and .addr"/>
+      </mapping>
+    </element>
     <element id="Location.telecom">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="deprecated"/>
+      </extension>
       <path value="Location.telecom"/>
       <short value="Contact details of the location"/>
       <definition value="The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
@@ -297,6 +314,9 @@
       </mapping>
     </element>
     <element id="Location.address">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="deprecated"/>
+      </extension>
       <path value="Location.address"/>
       <short value="Physical location"/>
       <definition value="Physical location."/>
