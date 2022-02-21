@@ -344,7 +344,20 @@
         <map value=".player.QualifiedEntity[@classCode = &#39;QUAL&#39;].code"/>
       </mapping>
     </element>
+    <element id="PractitionerRole.contact">
+      <path value="PractitionerRole.contact"/>
+      <short value="Official contact details of this PractitionerRole"/>
+      <requirements value="Human contacts for this PractitionerRole. These may be for the practitioner, or a representative of theirs (in which case the name property in the contact may be populated)"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ExtendedContactDetail"/>
+      </type>
+    </element>
     <element id="PractitionerRole.telecom">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="deprecated"/>
+      </extension>
       <path value="PractitionerRole.telecom"/>
       <short value="Contact details that are specific to the role/location/service"/>
       <definition value="Contact details that are specific to the role/location/service."/>

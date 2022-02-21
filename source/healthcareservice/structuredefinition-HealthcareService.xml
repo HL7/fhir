@@ -316,7 +316,21 @@
         <map value=".actrelationship[typeCode=SBJ].observation.value"/>
       </mapping>
     </element>
+    <element id="HealthcareService.contact">
+      <path value="HealthcareService.contact"/>
+      <short value="Official contact details of the HealthcareService"/>
+      <comment value="The use code &#39;home&#39; is not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the Healthcare itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries etc."/>
+      <requirements value="Human contact for the HealthcareService."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ExtendedContactDetail"/>
+      </type>
+    </element>
     <element id="HealthcareService.telecom">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="deprecated"/>
+      </extension>
       <path value="HealthcareService.telecom"/>
       <short value="Contacts related to the healthcare service"/>
       <definition value="List of contacts related to this specific healthcare service."/>
