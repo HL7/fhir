@@ -543,21 +543,18 @@
         <map value="immunization.uncertaintycode (if primary source=false, uncertainty=U)"/>
       </mapping>
     </element>
-    <element id="Immunization.informationSource[x]">
+    <element id="Immunization.informationSource">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="gForge #15696 and #20327."/>
       </extension>
-      <path value="Immunization.informationSource[x]"/>
+      <path value="Immunization.informationSource"/>
       <short value="Indicates the source of a  reported record"/>
       <definition value="Typically the source of the data when the report of the immunization event is not based on information from the person who administered the vaccine."/>
       <comment value="Typically will not be populated if primarySource = True, not required even if primarySource = False."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
