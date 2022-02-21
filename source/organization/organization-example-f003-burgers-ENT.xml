@@ -11,13 +11,6 @@
     </coding>
   </type>
   <name value="Burgers UMC Ear,Nose,Throat unit"/>
-  <telecom>
-    <system value="phone"/>
-    <value value="022-655 6780"/>
-  </telecom>
-  <address>
-    <line value="West Wing, floor 5"/>
-  </address>
   <partOf>
     <reference value="Organization/f001"/>
   </partOf>

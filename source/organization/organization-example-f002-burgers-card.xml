@@ -11,13 +11,6 @@
     </coding>
   </type>
   <name value="Burgers UMC Cardiology unit"/>
-  <telecom>
-    <system value="phone"/>
-    <value value="022-655 2320"/>
-  </telecom>
-  <address>
-    <line value="South Wing, floor 2"/>
-  </address>
   <partOf>
     <reference value="Organization/f001"/>
   </partOf>
