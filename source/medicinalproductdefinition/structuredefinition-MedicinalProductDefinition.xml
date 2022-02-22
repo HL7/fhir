@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs)."/>
+  <description value="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs, to support prescribing, adverse events management etc.)."/>
   <fhirVersion value="4.3.0-CIBUILD"/>
   <mapping>
     <identity value="idmp"/>
@@ -69,8 +69,8 @@
         <valueCode value="340,30"/> <!-- 290,30 -->
       </extension>
       <path value="MedicinalProductDefinition"/>
-      <short value="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs)"/>
-      <definition value="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs)."/>
+      <short value="Detailed definition of a medicinal product"/>
+      <definition value="A medicinal product, being a substance or combination of substances that is intended to treat, prevent or diagnose a disease, or to restore, correct or modify physiological functions by exerting a pharmacological, immunological or metabolic action. This resource is intended to define and detail such products and their properties, for uses other than direct patient care (e.g. regulatory use, or drug catalogs)."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -85,7 +85,7 @@
     <element id="MedicinalProductDefinition.identifier">
       <path value="MedicinalProductDefinition.identifier"/>
       <short value="Business identifier for this product. Could be an MPID"/>
-      <definition value="Business identifier for this product. Could be an MPID."/>
+      <definition value="Business identifier for this product. Could be an MPID. When in development or being regulated, products are typically referenced by official identifiers, assigned by a manufacturer or regulator, and unique to a product (which, when compared to a product instance being prescribed, is actually a product type). See also MedicinalProductDefinition.code."/>
       <alias value="MPID"/>
       <min value="0"/>
       <max value="*"/>
@@ -146,7 +146,7 @@
     </element>
     <element id="MedicinalProductDefinition.version">
       <path value="MedicinalProductDefinition.version"/>
-      <short value="A business identifier relating to a specific version of the product, this is commonly used to support revisions to an existing product"/>
+      <short value="A business identifier relating to a specific version of the product"/>
       <definition value="A business identifier relating to a specific version of the product, this is commonly used to support revisions to an existing product."/>
       <min value="0"/>
       <max value="1"/>
@@ -161,7 +161,7 @@
     </element>
     <element id="MedicinalProductDefinition.status">
       <path value="MedicinalProductDefinition.status"/>
-      <short value="The status within the lifecycle of this product record. A high-level status, this is not intended to duplicate details carried elsewhere such as legal status, or authorization status"/>
+      <short value="The status within the lifecycle of this product record"/>
       <definition value="The status within the lifecycle of this product record. A high-level status, this is not intended to duplicate details carried elsewhere such as legal status, or authorization status."/>
       <min value="0"/>
       <max value="1"/>
@@ -176,7 +176,7 @@
           <valueString value="PublicationStatus"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
@@ -217,7 +217,7 @@
     <element id="MedicinalProductDefinition.combinedPharmaceuticalDoseForm">
       <path value="MedicinalProductDefinition.combinedPharmaceuticalDoseForm"/>
       <short value="The dose form for a single part product, or combined form of a multiple part product"/>
-      <definition value="The dose form for a single part product, or combined form of a multiple part product."/>
+      <definition value="The dose form for a single part product, or combined form of a multiple part product. This is one concept that describes all the components. It does not represent the form with components physically mixed, if that might be necessary, for which see (AdministrableProductDefinition.administrableDoseForm)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -239,8 +239,8 @@
     </element>
     <element id="MedicinalProductDefinition.route">
       <path value="MedicinalProductDefinition.route"/>
-      <short value="The path by which the product is taken into or makes contact with the body. In some regions this is referred to as the licenced or approved route. See also AdministrableProductDefinition resource"/>
-      <definition value="The path by which the product is taken into or makes contact with the body. In some regions this is referred to as the licenced or approved route. See also AdministrableProductDefinition resource."/>
+      <short value="The path by which the product is taken into or makes contact with the body"/>
+      <definition value="The path by which the product is taken into or makes contact with the body. In some regions this is referred to as the licenced or approved route. See also AdministrableProductDefinition resource. MedicinalProductDefinition.route is the same concept as AdministrableProductDefinition.routeOfAdministration.code, and they cannot be used together."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -262,7 +262,7 @@
     </element>
     <element id="MedicinalProductDefinition.indication">
       <path value="MedicinalProductDefinition.indication"/>
-      <short value="Description of indication(s) for this product, used when structured indications are not required. In cases where structured indications are required, they are captured using the ClinicalUseDefinition resource. An indication is a medical situation for which using the product is appropriate"/>
+      <short value="Description of indication(s) for this product, used when structured indications are not required"/>
       <definition value="Description of indication(s) for this product, used when structured indications are not required. In cases where structured indications are required, they are captured using the ClinicalUseDefinition resource. An indication is a medical situation for which using the product is appropriate."/>
       <min value="0"/>
       <max value="1"/>
@@ -301,7 +301,7 @@
     <element id="MedicinalProductDefinition.additionalMonitoringIndicator">
       <path value="MedicinalProductDefinition.additionalMonitoringIndicator"/>
       <short value="Whether the Medicinal Product is subject to additional monitoring for regulatory reasons"/>
-      <definition value="Whether the Medicinal Product is subject to additional monitoring for regulatory reasons."/>
+      <definition value="Whether the Medicinal Product is subject to additional monitoring for regulatory reasons, such as heightened reporting requirements."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -313,7 +313,7 @@
           <valueString value="AdditionalMonitoring"/>
         </extension>
         <strength value="example"/>
-        <description value="Extra measures defined for a Medicinal Product, such as heightened reporting requirements."/>
+        <description value="Extra measures defined for a Medicinal Product, such as heightened reporting requirements (e.g. Black Triangle Monitoring)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-additional-monitoring"/>
       </binding>
       <mapping>
@@ -324,7 +324,7 @@
     <element id="MedicinalProductDefinition.specialMeasures">
       <path value="MedicinalProductDefinition.specialMeasures"/>
       <short value="Whether the Medicinal Product is subject to special measures for regulatory reasons"/>
-      <definition value="Whether the Medicinal Product is subject to special measures for regulatory reasons."/>
+      <definition value="Whether the Medicinal Product is subject to special measures for regulatory reasons, such as a requirement to conduct post-authorisation studies."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -336,7 +336,7 @@
           <valueString value="SpecialMeasures"/>
         </extension>
         <strength value="example"/>
-        <description value="Extra measures defined for a Medicinal Product, such as heightened reporting requirements."/>
+        <description value="Extra measures defined for a Medicinal Product, such as a requirement to conduct post-authorisation studies."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-special-measures"/>
       </binding>
       <mapping>
@@ -347,7 +347,7 @@
     <element id="MedicinalProductDefinition.pediatricUseIndicator">
       <path value="MedicinalProductDefinition.pediatricUseIndicator"/>
       <short value="If authorised for use in children"/>
-      <definition value="If authorised for use in children."/>
+      <definition value="If authorised for use in children, or infants, neonates etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -370,7 +370,7 @@
     <element id="MedicinalProductDefinition.classification">
       <path value="MedicinalProductDefinition.classification"/>
       <short value="Allows the product to be classified by various systems"/>
-      <definition value="Allows the product to be classified by various systems."/>
+      <definition value="Allows the product to be classified by various systems, commonly WHO ATC."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -393,7 +393,7 @@
     <element id="MedicinalProductDefinition.marketingStatus">
       <path value="MedicinalProductDefinition.marketingStatus"/>
       <short value="Marketing status of the medicinal product, in contrast to marketing authorization"/>
-      <definition value="Marketing status of the medicinal product, in contrast to marketing authorization."/>
+      <definition value="Marketing status of the medicinal product, in contrast to marketing authorization. This refers to the product being actually 'on the market' as opposed to being allowed to be on the market (which is an authorization)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -407,8 +407,8 @@
     </element>
     <element id="MedicinalProductDefinition.packagedMedicinalProduct">
       <path value="MedicinalProductDefinition.packagedMedicinalProduct"/>
-      <short value="Package representation for the product"/>
-      <definition value="Package representation for the product. See also the PackagedProductDefinition resource."/>
+      <short value="Package type for the product"/>
+      <definition value="Package type for the product. See also the PackagedProductDefinition resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -430,7 +430,7 @@
     </element>
     <element id="MedicinalProductDefinition.ingredient">
       <path value="MedicinalProductDefinition.ingredient"/>
-      <short value="The ingredients of this medicinal product - when not detailed in other resources. This is only needed if the ingredients are not specified by incoming references from the Ingredient resource, or indirectly via incoming AdministrableProductDefinition, PackagedProductDefinition or ManufacturedItemDefinition references. In cases where those levels of detail are not used, the ingredients may be specified directly here as codes"/>
+      <short value="The ingredients of this medicinal product - when not detailed in other resources"/>
       <definition value="The ingredients of this medicinal product - when not detailed in other resources. This is only needed if the ingredients are not specified by incoming references from the Ingredient resource, or indirectly via incoming AdministrableProductDefinition, PackagedProductDefinition or ManufacturedItemDefinition references. In cases where those levels of detail are not used, the ingredients may be specified directly here as codes."/>
       <min value="0"/>
       <max value="*"/>
@@ -453,8 +453,8 @@
     </element>
     <element id="MedicinalProductDefinition.impurity">
       <path value="MedicinalProductDefinition.impurity"/>
-      <short value="Any component of the drug product which is not the chemical entity defined as the drug substance or an excipient in the drug product. This includes process-related impurities and contaminants, product-related impurities including degradation products"/>
-      <definition value="Any component of the drug product which is not the chemical entity defined as the drug substance or an excipient in the drug product. This includes process-related impurities and contaminants, product-related impurities including degradation products."/>
+      <short value="Any component of the drug product which is not the chemical entity defined as the drug substance, or an excipient in the drug product"/>
+      <definition value="Any component of the drug product which is not the chemical entity defined as the drug substance, or an excipient in the drug product. This includes process-related impurities and contaminants, product-related impurities including degradation products."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -477,7 +477,7 @@
     </element>
     <element id="MedicinalProductDefinition.attachedDocument">
       <path value="MedicinalProductDefinition.attachedDocument"/>
-      <short value="Additional information or supporting documentation about the medicinal product"/>
+      <short value="Additional documentation about the medicinal product"/>
       <definition value="Additional information or supporting documentation about the medicinal product."/>
       <min value="0"/>
       <max value="*"/>
@@ -584,7 +584,7 @@
     <element id="MedicinalProductDefinition.code">
       <path value="MedicinalProductDefinition.code"/>
       <short value="A code that this product is known by, within some formal terminology"/>
-      <definition value="A code that this product is known by, usually within some formal terminology. Products (types of medications) tend to be known by identifiers during development and within regulatory process. However when they are prescribed they tend to be identified by codes. The same product may be have multiple codes, applied to it by multiple organizations."/>
+      <definition value="A code that this product is known by, usually within some formal terminology, perhaps assigned by a third party (i.e. not the manufacturer or regulator). Products (types of medications) tend to be known by identifiers during development and within regulatory process. However when they are prescribed they tend to be identified by codes. The same product may be have multiple codes, applied to it by multiple organizations."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -721,8 +721,8 @@
         <valueCode value="30,70"/> <!-- was 50,42 -->
       </extension>
       <path value="MedicinalProductDefinition.name.countryLanguage"/>
-      <short value="Country where the name applies"/>
-      <definition value="Country where the name applies."/>
+      <short value="Country and jurisdiction where the name applies"/>
+      <definition value="Country and jurisdiction where the name applies, and associated language."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -760,7 +760,7 @@
     <element id="MedicinalProductDefinition.name.countryLanguage.jurisdiction">
       <path value="MedicinalProductDefinition.name.countryLanguage.jurisdiction"/>
       <short value="Jurisdiction code for where this name applies"/>
-      <definition value="Jurisdiction code for where this name applies."/>
+      <definition value="Jurisdiction code for where this name applies. A jurisdiction may be a sub- or supra-national entity (e.g. a state or a geographic region)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -818,7 +818,7 @@
       </extension>
       <path value="MedicinalProductDefinition.crossReference"/>
       <short value="Reference to another product, e.g. for linking authorised to investigational product"/>
-      <definition value="Reference to another product, e.g. for linking authorised to investigational product."/>
+      <definition value="Reference to another product, e.g. for linking authorised to investigational product, or a virtual product."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -854,8 +854,8 @@
         <valueString value="Wanted to make this a choice of identifier or reference to MedicinalProductDefinition but that cannot be 0..*."/>
       </extension>
       <path value="MedicinalProductDefinition.crossReference.type"/>
-      <short value="The type of relationship, for instance branded to generic, product to development product (investigational), parallel import version"/>
-      <definition value="The type of relationship, for instance branded to generic, product to development product (investigational), parallel import version."/>
+      <short value="The type of relationship, for instance branded to generic or virtual to actual product"/>
+      <definition value="The type of relationship, for instance branded to generic, virtual to actual product, product to development product (investigational), parallel import version."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -880,7 +880,7 @@
         <valueCode value="800,110"/>
       </extension>
       <path value="MedicinalProductDefinition.operation"/>
-      <short value="A manufacturing or administrative process or step associated with (or performed on) the medicinal product"/>
+      <short value="A manufacturing or administrative process for the medicinal product"/>
       <definition value="A manufacturing or administrative process or step associated with (or performed on) the medicinal product."/>
       <min value="0"/>
       <max value="*"/>
@@ -895,7 +895,7 @@
     </element>
     <element id="MedicinalProductDefinition.operation.type">
       <path value="MedicinalProductDefinition.operation.type"/>
-      <short value="The type of manufacturing operation e.g. manufacturing itself, re-packaging. For the authorization of this, a RegulatedAuthorization would point to the same plan or activity referenced here"/>
+      <short value="The type of manufacturing operation e.g. manufacturing itself, re-packaging"/>
       <definition value="The type of manufacturing operation e.g. manufacturing itself, re-packaging. For the authorization of this, a RegulatedAuthorization would point to the same plan or activity referenced here."/>
       <min value="0"/>
       <max value="1"/>
@@ -927,7 +927,7 @@
     </element>
     <element id="MedicinalProductDefinition.operation.organization">
       <path value="MedicinalProductDefinition.operation.organization"/>
-      <short value="The organization or establishment responsible for (or associated with) the particular process or step, examples include the manufacturer, importer, agent"/>
+      <short value="The organization responsible for the particular process, e.g. the manufacturer or importer"/>
       <definition value="The organization or establishment responsible for (or associated with) the particular process or step, examples include the manufacturer, importer, agent."/>
       <min value="0"/>
       <max value="*"/>
@@ -943,7 +943,7 @@
     </element>
     <element id="MedicinalProductDefinition.operation.confidentialityIndicator">
       <path value="MedicinalProductDefinition.operation.confidentialityIndicator"/>
-      <short value="Specifies whether this particular business or manufacturing process is considered proprietary or confidential"/>
+      <short value="Specifies whether this process is considered proprietary or confidential"/>
       <definition value="Specifies whether this particular business or manufacturing process is considered proprietary or confidential."/>
       <min value="0"/>
       <max value="1"/>
@@ -969,7 +969,7 @@
         <valueCode value="800,350"/>
       </extension>
       <path value="MedicinalProductDefinition.characteristic"/>
-      <short value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;"/>
+      <short value="Key product features such as &quot;sugar free&quot;, &quot;modified release&quot;"/>
       <definition value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;."/>
       <min value="0"/>
       <max value="*"/>

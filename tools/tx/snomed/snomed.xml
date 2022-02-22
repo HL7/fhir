@@ -12064,6 +12064,11 @@
     <display value="Amoxicilline"/>
     <display value="Amoxicillin"/>
   </concept>
+  <concept id="277132007" display="Therapeutic procedure">
+    <display value="Therapeutic procedure"/>
+    <display value="Therapeutic procedure (procedure)"/>
+    <display value="Procedure - therapeutic"/>
+  </concept>
   <concept id="278020009" display="Spot urine sample">
     <display value="Spot urine sample"/>
     <display value="Spot urine sample (specimen)"/>
@@ -12173,6 +12178,10 @@
     <display value="Black Welsh cattle"/>
     <display value="Welsh black cattle"/>
     <display value="Black Welsh cattle breed"/>
+  </concept>
+  <concept id="288524001" display="Courses">
+    <display value="Courses"/>
+    <display value="Courses (qualifier value)"/>
   </concept>
   <concept id="28995006" display="Treated with">
     <display value="Treated with"/>
@@ -12829,6 +12838,10 @@
     <display value="Genotype determination"/>
     <display value="Genotype"/>
     <display value="Genotype determination (procedure)"/>
+  </concept>
+  <concept id="363788007" display="Clinical history/examination observable">
+    <display value="Clinical history/examination observable (observable entity)"/>
+    <display value="Clinical history/examination observable"/>
   </concept>
   <concept id="36570001" display="DK pig 31">
     <display value="DK pig 31"/>
@@ -15506,6 +15519,17 @@
   <concept id="6431001" display="Leicester sheep">
     <display value="Leicester sheep"/>
     <display value="Leicester sheep (organism)"/>
+  </concept>
+  <concept id="64572001" display="Disease">
+    <display value="Disease"/>
+    <display value="Clinical disease AND/OR syndrome"/>
+    <display value="Disorder"/>
+    <display value="Syndrome"/>
+    <display value="Disease AND/OR syndrome present"/>
+    <display value="Clinical disease AND/OR syndrome present"/>
+    <display value="Disorders"/>
+    <display value="Diseases"/>
+    <display value="Disease (disorder)"/>
   </concept>
   <concept id="64591001" display="Karakul sheep">
     <display value="Karakul sheep"/>
