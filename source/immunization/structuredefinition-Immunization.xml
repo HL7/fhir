@@ -518,7 +518,7 @@
       </extension>
       <path value="Immunization.primarySource"/>
       <short value="Indicates context the data was recorded in"/>
-      <definition value="Indicates if this record was captured as a secondary &#39;reported&#39; record rather than as an original primary source-of-truth record."/>
+      <definition value="Indicates whether this record was captured as an original primary source-of-truth record rather than a secondary 'reported' record. A value &quot;true&quot; means this is a primary record of the immunization."/>
       <comment value="Reflects the &#x201C;reliability&#x201D; of the content."/>
       <min value="0"/>
       <max value="1"/>
@@ -543,21 +543,18 @@
         <map value="immunization.uncertaintycode (if primary source=false, uncertainty=U)"/>
       </mapping>
     </element>
-    <element id="Immunization.informationSource[x]">
+    <element id="Immunization.informationSource">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="gForge #15696 and #20327."/>
       </extension>
-      <path value="Immunization.informationSource[x]"/>
+      <path value="Immunization.informationSource"/>
       <short value="Indicates the source of a  reported record"/>
       <definition value="Typically the source of the data when the report of the immunization event is not based on information from the person who administered the vaccine."/>
       <comment value="Typically will not be populated if primarySource = True, not required even if primarySource = False."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
@@ -1098,14 +1095,14 @@
         <map value=".effectiveTime"/>
       </mapping>
     </element>
-    <element id="Immunization.reaction.detail">
-      <path value="Immunization.reaction.detail"/>
+    <element id="Immunization.reaction.manifestation">
+      <path value="Immunization.reaction.manifestation"/>
       <short value="Additional information on reaction"/>
       <definition value="Details of the reaction."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
       <mapping>

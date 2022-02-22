@@ -99,8 +99,8 @@
     </element>
     <element id="SubstanceDefinition.version">
       <path value="SubstanceDefinition.version"/>
-      <short value="A business level identifier of the substance"/>
-      <definition value="A business level identifier of the substance."/>
+      <short value="A business level version identifier of the substance"/>
+      <definition value="A business level version identifier of the substance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -114,8 +114,8 @@
     </element>
     <element id="SubstanceDefinition.status">
       <path value="SubstanceDefinition.status"/>
-      <short value="Status of substance within the catalogue e.g. approved"/>
-      <definition value="Status of substance within the catalogue e.g. approved."/>
+      <short value="Status of substance within the catalogue e.g. active, retired"/>
+      <definition value="Status of substance within the catalogue e.g. active, retired."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -127,7 +127,7 @@
           <valueString value="PublicationStatus"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
@@ -137,7 +137,7 @@
     </element>
     <element id="SubstanceDefinition.classification">
       <path value="SubstanceDefinition.classification"/>
-      <short value="A high level categorization, e.g. polymer or nucleic acid, or food, chemical, biological, or a lower level such as the general types of polymer (linear or branch chain) or type of impurity (process related or contaminant)"/>
+      <short value="A categorization, high level e.g. polymer or nucleic acid, or food, chemical, biological, or lower e.g. polymer linear or branch chain, or type of impurity"/>
       <definition value="A high level categorization, e.g. polymer or nucleic acid, or food, chemical, biological, or a lower level such as the general types of polymer (linear or branch chain) or type of impurity (process related or contaminant)."/>
       <min value="0"/>
       <max value="*"/>
@@ -152,8 +152,8 @@
     </element>
     <element id="SubstanceDefinition.domain">
       <path value="SubstanceDefinition.domain"/>
-      <short value="If the substance applies to only human or veterinary use"/>
-      <definition value="If the substance applies to only human or veterinary use."/>
+      <short value="If the substance applies to human or veterinary use"/>
+      <definition value="If the substance applies to human or veterinary use."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -175,7 +175,7 @@
     </element>
     <element id="SubstanceDefinition.grade">
       <path value="SubstanceDefinition.grade"/>
-      <short value="The quality standard, established benchmark, to which substance complies (e.g. USP/NF, Ph. Eur, JP, BP, Company Standard)"/>
+      <short value="The quality standard, established benchmark, to which substance complies (e.g. USP/NF, BP)"/>
       <definition value="The quality standard, established benchmark, to which substance complies (e.g. USP/NF, Ph. Eur, JP, BP, Company Standard)."/>
       <min value="0"/>
       <max value="*"/>
@@ -244,8 +244,8 @@
     </element>
     <element id="SubstanceDefinition.manufacturer">
       <path value="SubstanceDefinition.manufacturer"/>
-      <short value="A company that makes this substance"/>
-      <definition value="A company that makes this substance."/>
+      <short value="The entity that creates, makes, produces or fabricates the substance"/>
+      <definition value="The entity that creates, makes, produces or fabricates the substance. This is a set of potential manufacturers but is not necessarily comprehensive."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -260,8 +260,8 @@
     </element>
     <element id="SubstanceDefinition.supplier">
       <path value="SubstanceDefinition.supplier"/>
-      <short value="A company that supplies this substance"/>
-      <definition value="A company that supplies this substance."/>
+      <short value="An entity that is the source for the substance. It may be different from the manufacturer"/>
+      <definition value="An entity that is the source for the substance. It may be different from the manufacturer. Supplier is synonymous to a distributor."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -385,7 +385,7 @@
     </element>
     <element id="SubstanceDefinition.moiety.molecularFormula">
       <path value="SubstanceDefinition.moiety.molecularFormula"/>
-      <short value="Molecular formula for this moiety of this substance, typically using the Hill system"/>
+      <short value="Molecular formula for this moiety (e.g. with the Hill system)"/>
       <definition value="Molecular formula for this moiety of this substance, typically using the Hill system."/>
       <min value="0"/>
       <max value="1"/>
@@ -419,7 +419,7 @@
     <element id="SubstanceDefinition.moiety.amountType">
       <path value="SubstanceDefinition.moiety.amountType"/>
       <short value="The measurement type of the quantitative value"/>
-      <definition value="The measurement type of the quantitative value."/>
+      <definition value="The measurement type of the quantitative value. In capturing the actual relative amounts of substances or molecular fragments it may be necessary to indicate whether the amount refers to, for example, a mole ratio or weight ratio."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -441,7 +441,6 @@
     </element>
     <element id="SubstanceDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <!--valueCode value="580,900"/--> <!-- was 442,852 --> 
         <valueCode value="350,825"/>      
       </extension>
       <path value="SubstanceDefinition.property"/>
@@ -460,8 +459,8 @@
     </element>
     <element id="SubstanceDefinition.property.type">
       <path value="SubstanceDefinition.property.type"/>
-      <short value="A code expressing the type of characteristic"/>
-      <definition value="A code expressing the type of characteristic."/>
+      <short value="A code expressing the type of property"/>
+      <definition value="A code expressing the type of property."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -483,8 +482,8 @@
     </element>
     <element id="SubstanceDefinition.property.value[x]">
       <path value="SubstanceDefinition.property.value[x]"/>
-      <short value="A value for the characteristic"/>
-      <definition value="A value for the characteristic."/>
+      <short value="A value for the property"/>
+      <definition value="A value for the property."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -529,7 +528,7 @@
         <valueCode value="448,733"/>
       </extension>
       <path value="SubstanceDefinition.molecularWeight"/>
-      <short value="The molecular weight or weight range (for proteins, polymers or nucleic acids)"/>
+      <short value="The molecular weight or weight range"/>
       <definition value="The molecular weight or weight range (for proteins, polymers or nucleic acids)."/>
       <min value="0"/>
       <max value="*"/>
@@ -540,7 +539,7 @@
     </element>
     <element id="SubstanceDefinition.molecularWeight.method">
       <path value="SubstanceDefinition.molecularWeight.method"/>
-      <short value="The method by which the molecular weight was determined"/>
+      <short value="The method by which the weight was determined"/>
       <definition value="The method by which the molecular weight was determined."/>
       <min value="0"/>
       <max value="1"/>
@@ -563,7 +562,7 @@
     </element>
     <element id="SubstanceDefinition.molecularWeight.type">
       <path value="SubstanceDefinition.molecularWeight.type"/>
-      <short value="Type of molecular weight such as exact, average (also known as. number average), weight average"/>
+      <short value="Type of molecular weight e.g. exact, average, weight average"/>
       <definition value="Type of molecular weight such as exact, average (also known as. number average), weight average."/>
       <min value="0"/>
       <max value="1"/>
@@ -586,7 +585,7 @@
     </element>
     <element id="SubstanceDefinition.molecularWeight.amount">
       <path value="SubstanceDefinition.molecularWeight.amount"/>
-      <short value="Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field"/>
+      <short value="Used to capture quantitative values for a variety of elements"/>
       <definition value="Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field."/>
       <min value="1"/>
       <max value="1"/>
@@ -665,7 +664,7 @@
     </element>
     <element id="SubstanceDefinition.structure.molecularFormula">
       <path value="SubstanceDefinition.structure.molecularFormula"/>
-      <short value="Molecular formula of this substance, typically using the Hill system"/>
+      <short value="Molecular formula (e.g. using the Hill system)"/>
       <definition value="Molecular formula of this substance, typically using the Hill system."/>
       <min value="0"/>
       <max value="1"/>
@@ -680,7 +679,7 @@
     </element>
     <element id="SubstanceDefinition.structure.molecularFormulaByMoiety">
       <path value="SubstanceDefinition.structure.molecularFormulaByMoiety"/>
-      <short value="Specified per moiety according to the Hill system, i.e. first C, then H, then alphabetical, each moiety separated by a dot"/>
+      <short value="Specified per moiety according to the Hill system"/>
       <definition value="Specified per moiety according to the Hill system, i.e. first C, then H, then alphabetical, each moiety separated by a dot."/>
       <min value="0"/>
       <max value="1"/>
@@ -695,7 +694,7 @@
     </element>
     <element id="SubstanceDefinition.structure.molecularWeight">
       <path value="SubstanceDefinition.structure.molecularWeight"/>
-      <short value="The molecular weight or weight range (for proteins, polymers or nucleic acids)"/>
+      <short value="The molecular weight or weight range"/>
       <definition value="The molecular weight or weight range (for proteins, polymers or nucleic acids)."/>
       <min value="0"/>
       <max value="1"/>
@@ -708,7 +707,7 @@
     </element>
     <element id="SubstanceDefinition.structure.technique">
       <path value="SubstanceDefinition.structure.technique"/>
-      <short value="The method used to elucidate the structure or characterization of the drug substance. Examples: X-ray, HPLC, NMR, Peptide mapping, Ligand binding assay"/>
+      <short value="The method used to find the structure e.g. X-ray, NMR"/>
       <definition value="The method used to elucidate the structure or characterization of the drug substance. Examples: X-ray, HPLC, NMR, Peptide mapping, Ligand binding assay."/>
       <min value="0"/>
       <max value="*"/>
@@ -731,8 +730,8 @@
     </element>
     <element id="SubstanceDefinition.structure.sourceDocument">
       <path value="SubstanceDefinition.structure.sourceDocument"/>
-      <short value="Supporting literature about the source of information"/>
-      <definition value="Supporting literature about the source of information."/>
+      <short value="Source of information for the structure"/>
+      <definition value="The source of information about the structure."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -804,7 +803,7 @@
     </element>
     <element id="SubstanceDefinition.structure.representation.format">
       <path value="SubstanceDefinition.structure.representation.format"/>
-      <short value="The format of the representation e.g. InChI, SMILES, MOLFILE, CDX, SDF, PDB, mmCIF. The logical content type rather than the physical file format of a document"/>
+      <short value="The format of the representation e.g. InChI, SMILES, MOLFILE (note: not the physical file format)"/>
       <definition value="The format of the representation e.g. InChI, SMILES, MOLFILE, CDX, SDF, PDB, mmCIF. The logical content type rather than the physical file format of a document."/>
       <min value="0"/>
       <max value="1"/>
@@ -828,7 +827,7 @@
     </element>
     <element id="SubstanceDefinition.structure.representation.document">
       <path value="SubstanceDefinition.structure.representation.document"/>
-      <short value="An attached file with the structural representation or characterization e.g. a molecular structure graphic of the substance, a JCAMP or AnIML file"/>
+      <short value="An attachment with the structural representation e.g. a structure graphic or AnIML file"/>
       <definition value="An attached file with the structural representation or characterization e.g. a molecular structure graphic of the substance, a JCAMP or AnIML file."/>
       <min value="0"/>
       <max value="1"/>
@@ -890,7 +889,7 @@
           <valueString value="PublicationStatus"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
@@ -900,8 +899,8 @@
     </element>
     <element id="SubstanceDefinition.code.statusDate">
       <path value="SubstanceDefinition.code.statusDate"/>
-      <short value="The date at which the code status is changed as part of the terminology maintenance"/>
-      <definition value="The date at which the code status is changed as part of the terminology maintenance."/>
+      <short value="The date at which the code status was changed"/>
+      <definition value="The date at which the code status was changed as part of the terminology maintenance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -915,7 +914,7 @@
     </element>
     <element id="SubstanceDefinition.code.note">
       <path value="SubstanceDefinition.code.note"/>
-      <short value="Any comment can be provided in this field, if necessary"/>
+      <short value="Any comment can be provided in this field"/>
       <definition value="Any comment can be provided in this field, if necessary."/>
       <min value="0"/>
       <max value="*"/>
@@ -979,7 +978,7 @@
     </element>
     <element id="SubstanceDefinition.name.type">
       <path value="SubstanceDefinition.name.type"/>
-      <short value="Name type, for example &#39;systematic&#39;,  &#39;scientific, &#39;brand&#39;"/>
+      <short value="Name type e.g. &#39;systematic&#39;,  &#39;scientific, &#39;brand&#39;"/>
       <definition value="Name type, for example &#39;systematic&#39;,  &#39;scientific, &#39;brand&#39;."/>
       <min value="0"/>
       <max value="1"/>
@@ -1002,7 +1001,7 @@
     </element>
     <element id="SubstanceDefinition.name.status">
       <path value="SubstanceDefinition.name.status"/>
-      <short value="The status of the name, for example &#39;current&#39;, &#39;proposed&#39;"/>
+      <short value="The status of the name e.g. &#39;current&#39;, &#39;proposed&#39;"/>
       <definition value="The status of the name, for example &#39;current&#39;, &#39;proposed&#39;."/>
       <min value="0"/>
       <max value="1"/>
@@ -1015,7 +1014,7 @@
           <valueString value="PublicationStatus"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       
@@ -1033,6 +1032,7 @@
       <type>
         <code value="boolean"/>
       </type>
+      <meaningWhenMissing value="If this value is not present, there is no statement being made about whether this is the preferred name or not. No inference can be made"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -1073,7 +1073,7 @@
     </element>
     <element id="SubstanceDefinition.name.domain">
       <path value="SubstanceDefinition.name.domain"/>
-      <short value="The use context of this name for example if there is a different name a drug active ingredient as opposed to a food colour additive"/>
+      <short value="The use context of this name e.g. as an active ingredient or as a food colour additive"/>
       <definition value="The use context of this name for example if there is a different name a drug active ingredient as opposed to a food colour additive."/>
       <min value="0"/>
       <max value="*"/>
@@ -1186,8 +1186,8 @@
     </element>
     <element id="SubstanceDefinition.name.official.status">
       <path value="SubstanceDefinition.name.official.status"/>
-      <short value="The status of the official name, for example &#39;provisional&#39;, &#39;approved&#39;"/>
-      <definition value="The status of the official name, for example &#39;provisional&#39;, &#39;approved&#39;."/>
+      <short value="The status of the official name, for example &#39;draft&#39;, &#39;active&#39;"/>
+      <definition value="The status of the official name, for example &#39;draft&#39;, &#39;active&#39;, &#39;retired&#39;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1199,7 +1199,7 @@
           <valueString value="PublicationStatus"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
@@ -1210,7 +1210,7 @@
     <element id="SubstanceDefinition.name.official.date">
       <path value="SubstanceDefinition.name.official.date"/>
       <short value="Date of official name change"/>
-      <definition value="Date of official name change."/>
+      <definition value="Date of the official name change."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1243,7 +1243,7 @@
         <valueCode value="0,350"/>
       </extension>
       <path value="SubstanceDefinition.relationship"/>
-      <short value="A link between this substance and another, with details of the relationship"/>
+      <short value="A link between this substance and another"/>
       <definition value="A link between this substance and another, with details of the relationship."/>
       <min value="0"/>
       <max value="*"/>
@@ -1258,7 +1258,7 @@
     </element>
     <element id="SubstanceDefinition.relationship.substanceDefinition[x]">
       <path value="SubstanceDefinition.relationship.substanceDefinition[x]"/>
-      <short value="A pointer to another substance, as a resource or just a representational code"/>
+      <short value="A pointer to another substance, as a resource or a representational code"/>
       <definition value="A pointer to another substance, as a resource or just a representational code."/>
       <min value="0"/>
       <max value="1"/>
@@ -1277,7 +1277,7 @@
     </element>
     <element id="SubstanceDefinition.relationship.type">
       <path value="SubstanceDefinition.relationship.type"/>
-      <short value="For example &quot;salt to parent&quot;, &quot;active moiety&quot;, &quot;starting material&quot;, &quot;polymorph&quot;, &quot;impurity of&quot;"/>
+      <short value="For example &quot;salt to parent&quot;, &quot;active moiety&quot;"/>
       <definition value="For example &quot;salt to parent&quot;, &quot;active moiety&quot;, &quot;starting material&quot;, &quot;polymorph&quot;, &quot;impurity of&quot;."/>
       <min value="1"/>
       <max value="1"/>
@@ -1300,13 +1300,14 @@
     </element>
     <element id="SubstanceDefinition.relationship.isDefining">
       <path value="SubstanceDefinition.relationship.isDefining"/>
-      <short value="For example where an enzyme strongly bonds with a particular substance, this is a defining relationship for that enzyme, out of several possible substance relationships"/>
+      <short value="For example where an enzyme strongly bonds with a particular substance, this is a defining relationship for that enzyme, out of several possible relationships"/>
       <definition value="For example where an enzyme strongly bonds with a particular substance, this is a defining relationship for that enzyme, out of several possible substance relationships."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
+      <meaningWhenMissing value="If this value is not present, there is no statement being made about whether this is a defining relationship or not. No inference can be made"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -1315,7 +1316,7 @@
     </element>
     <element id="SubstanceDefinition.relationship.amount[x]">
       <path value="SubstanceDefinition.relationship.amount[x]"/>
-      <short value="A numeric factor for the relationship, for instance to express that the salt of a substance has some percentage of the active substance in relation to some other"/>
+      <short value="A numeric factor for the relationship, e.g. that a substance salt has some percentage of active substance in relation to some other"/>
       <definition value="A numeric factor for the relationship, for instance to express that the salt of a substance has some percentage of the active substance in relation to some other."/>
       <min value="0"/>
       <max value="1"/>
@@ -1441,7 +1442,7 @@
         <valueCode value="285,350"/>
       </extension>
       <path value="SubstanceDefinition.sourceMaterial"/>
-      <short value="Material or taxonomic/anatomical source for the substance"/>
+      <short value="Material or taxonomic/anatomical source"/>
       <definition value="Material or taxonomic/anatomical source for the substance."/>
       <min value="0"/>
       <max value="1"/>
@@ -1456,7 +1457,7 @@
     </element>
     <element id="SubstanceDefinition.sourceMaterial.type">
       <path value="SubstanceDefinition.sourceMaterial.type"/>
-      <short value="A classification that provides the origin of the raw material. Example: cat hair would be an Animal source type"/>
+      <short value="Classification of the origin of the raw material. e.g. cat hair is an Animal source type"/>
       <definition value="A classification that provides the origin of the raw material. Example: cat hair would be an Animal source type."/>
       <min value="0"/>
       <max value="1"/>
@@ -1479,7 +1480,7 @@
     </element>
     <element id="SubstanceDefinition.sourceMaterial.genus">
       <path value="SubstanceDefinition.sourceMaterial.genus"/>
-      <short value="The genus of an organism, typically referring to the Latin epithet of the genus element of the plant/animal scientific name"/>
+      <short value="The genus of an organism e.g. the Latin epithet of the plant/animal scientific name"/>
       <definition value="The genus of an organism, typically referring to the Latin epithet of the genus element of the plant/animal scientific name."/>
       <min value="0"/>
       <max value="1"/>
@@ -1502,7 +1503,7 @@
     </element>
     <element id="SubstanceDefinition.sourceMaterial.species">
       <path value="SubstanceDefinition.sourceMaterial.species"/>
-      <short value="The species of an organism, typically referring to the Latin epithet of the species of the plant/animal"/>
+      <short value="The species of an organism e.g. the Latin epithet of the species of the plant/animal"/>
       <definition value="The species of an organism, typically referring to the Latin epithet of the species of the plant/animal."/>
       <min value="0"/>
       <max value="1"/>

@@ -199,11 +199,12 @@
       <short value="UDI Issuing Organization"/>
       <definition value="Organization that is charged with issuing UDIs for devices. For example, the US FDA issuers include: &#xA;1) GS1: http://hl7.org/fhir/NamingSystem/gs1-di, &#xA;2) HIBCC: http://hl7.org/fhir/NamingSystem/hibcc-diI, &#xA;3) ICCBBA for blood containers: http://hl7.org/fhir/NamingSystem/iccbba-blood-di, &#xA;4) ICCBA for other devices: http://hl7.org/fhir/NamingSystem/iccbba-other-di # Informationsstelle für Arzneispezialitäten (IFA GmbH) (EU only): http://hl7.org/fhir/NamingSystem/ifa-gmbh-di."/>
       <alias value="Barcode System"/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="uri"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value="Role.id.root"/>
@@ -1042,7 +1043,8 @@
     <element id="Device.parent">
       <path value="Device.parent"/>
       <short value="The device that this device is attached to or is part of"/>
-      <definition value="The device that this device is attached to or is part of."/>
+      <definition value="The higher level or encompassing device that this device is a logical part of."/>
+      <comment value="For example a vital signs monitor (parent) where three separate modules can be plugged into such as interchangeable blood pressure, oximeter, temperature modules.  These modules are represented as devices with the .parent valued to the vital signs monitor when plugged in." />
       <min value="0"/>
       <max value="1"/>
       <type>

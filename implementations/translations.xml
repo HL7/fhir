@@ -1049,6 +1049,9 @@
 		<translation lang="fr">ScriptTest</translation>
 		<translation lang="zh">测试脚本</translation>
 	</item>
+	<item id="Transport">
+		<translation lang="en">Transport</translation>
+	</item>
 	<item id="User">
 		<translation lang="en">User</translation>
 		<translation lang="zh">用户</translation>

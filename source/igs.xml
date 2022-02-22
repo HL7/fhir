@@ -12,7 +12,7 @@
 <!--  <ig code="sdc"      name="Structured Data Capture - Forms" brief="SDC" review="" source="\guides\sdc\sdc.xml" committee="oo" ballot="dstu1" fmm="0" section="B"/>
   <ig code="sdcde"    name="Structured Data Capture - Data Element Management" brief="SDC-DE" review="" source="\guides\sdcde\sdcde.xml" committee="oo" ballot="dstu1" fmm="0" section="C"/> -->
 <!--  <ig code="daf"      name="Data Access Framework" brief="DAF" review="" source="\guides\daf\daf.xml" committee="inm" ballot="dstu1" fmm="0" section="D"/> -->
-  <ig code="ehrsrle"  name="EHRS Functional model - Record Lifecycle Events" brief="EHRS-RLE" review="" source="\guides\ehrsrle\ehrsrle.xml" committee="ehr" ballot="dstu2" fmm="0" core="no" section="E"/>
+<!--  <ig code="ehrsrle"  name="EHRS Functional model - Record Lifecycle Events" brief="EHRS-RLE" review="" source="\guides\ehrsrle\ehrsrle.xml" committee="ehr" ballot="dstu2" fmm="0" core="no" section="E"/> -->
 <!--  <ig code="qicore"   name="Quality Improvement Core" brief="QICore" review="" source="\guides\qicore\qicore.xml" committee="cds" ballot="dstu1" fmm="0" section="F"/> -->
 <!--  <ig code="cqif"     name="Clinical Quality Improvement Framework" brief="CQIF" review="" source="\guides\cqif\cqif.xml" committee="cds" ballot="draft" fmm="0" section="G"/>-->
 <!--  <ig code="hspc"     name="Healthcare Services Platform Consortium" brief="HSPC" review="yes" source="\guides\hspc\hspc.xml" committee="fhir" ballot="draft" fmm="0" section="H"/> -->

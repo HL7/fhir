@@ -30,18 +30,6 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Canonical Definition for SNOMED CT"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="codesystem-snomedct"/>
-    </extension>
-    <item>
-      <reference value="CodeSystem/snomedct"/>
-      <display value="SNOMED CT"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Code system summary"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
