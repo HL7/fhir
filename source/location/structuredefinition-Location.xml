@@ -314,9 +314,6 @@
       </mapping>
     </element>
     <element id="Location.address">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="deprecated"/>
-      </extension>
       <path value="Location.address"/>
       <short value="Physical location"/>
       <definition value="Physical location."/>
