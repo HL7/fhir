@@ -40,7 +40,7 @@
       The endpoint is distinct from a capability statement in that the CapabilityStatement statement describes the entire capability
       of a system (and in the metadata case, just this system)<br/>
       Where the endpoint resource describes the technical details for how to connect, and for what purposes 
-      (which could be a small sub-set of the systems's capabilities, and might not be a FHIR endpoint).
+      (which could be a small sub-set of the system's capabilities, and might not be a FHIR endpoint).
     </p>
 	<h3>ContactPoint</h3>
 	<p>
