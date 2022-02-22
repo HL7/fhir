@@ -112,6 +112,7 @@
       <display value="MessageDefinition"/>
     </item>
   </entry>
+  <!--
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="System which records information about EHR events"/>
@@ -130,4 +131,5 @@
       <display value="EHRS FM Record Lifecycle Event"/>
     </item>
   </entry>
+  -->
 </List>
