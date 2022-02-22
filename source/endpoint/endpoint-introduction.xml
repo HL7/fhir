@@ -29,7 +29,7 @@
           (linked to the services directory resources - Organization/Location/Practitioner/HealthcareService)</li>
       <li>Patient/Person: Location of Master Patient/Person Indexes</li>
       <li>Service Provider Directories: Location of related directories (parent/child/federated) </li>
-	  <li>DICOM/imaging: Location of where to query for imaging content and metadata (QIDO-RS, WADO-RS, or WADO-URI)</li>
+	  <li>DICOM/imaging: Location of where to query, retrieve or store imaging content and metadata (QIDO-RS, WADO-RS, WADO-URI, STOW-RS)</li>
     </ul>
   </div>
   <div>
