@@ -65,24 +65,42 @@
   <onsetDateTime value="2013-04-02"/>
   <abatementString value="around April 9, 2013"/>
   <recordedDate value="2013-04-04"/>
-  <recorder>
-    <reference value="Practitioner/f201"/>
-  </recorder>
-  <asserter>
-    <reference value="Practitioner/f201"/>
-  </asserter>
+  <participant> 
+    <function> 
+      <coding> 
+        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/> 
+        <code value="enterer"/> 
+        <display value="Enterer"/> 
+      </coding> 
+    </function> 
+    <actor> 
+      <reference value="Practitioner/f201"/> 
+    </actor> 
+  </participant> 
+  <participant> 
+    <function> 
+      <coding> 
+        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/> 
+        <code value="verifier"/> 
+        <display value="Verifier"/> 
+      </coding> 
+    </function> 
+    <actor> 
+      <reference value="Practitioner/f201"/> 
+    </actor> 
+  </participant>
   <evidence>
     <!--Problem is confirmed by 39 degrees Celsius-->
-    <code>
+    <concept>
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="258710007"/>
         <display value="degrees C"/>
       </coding>
-    </code>
-    <detail>
+    </concept>
+    <reference>
       <reference value="Observation/f202"/>
       <display value="Temperature"/>
-    </detail>
+    </reference>
   </evidence>
 </Condition>

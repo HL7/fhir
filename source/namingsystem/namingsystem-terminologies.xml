@@ -1,4 +1,4 @@
-﻿<Bundle xmlns="http://hl7.org/fhir">
+<Bundle xmlns="http://hl7.org/fhir">
   <id value="terminologies"/>
   <type value="collection"/>
   <entry>
