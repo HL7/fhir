@@ -46,7 +46,7 @@
           
           <td>Provided Code</td>
           
-          <td>Use the code as provided in the $translate request.</td>
+          <td>Default value to use when there is no specified map for the source is the source code. </td>
         
         </tr>
         
@@ -60,7 +60,7 @@
           
           <td>Fixed Code</td>
           
-          <td>Use the code explicitly provided in the group.unmapped.</td>
+          <td>Default value to use when there is no specified map for the source is the code specified in ConceptMap.group.unmapped.code.</td>
         
         </tr>
         
@@ -74,7 +74,7 @@
           
           <td>Other Map</td>
           
-          <td>Use the map identified by the canonical URL in the url element.</td>
+          <td>Default value to use when there is no specified map for the source is identified by the canonical URL in the ConceptMap.group.unmapped.url element.</td>
         
         </tr>
       

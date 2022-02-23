@@ -636,10 +636,10 @@
         <map value=".outboundRelationship[typeCode=FLFS].target[classCode=ENC, moodCode=APT]"/>
       </mapping>
     </element>
-    <element id="Encounter.period">
-      <path value="Encounter.period"/>
-      <short value="The start and end time of the encounter"/>
-      <definition value="The start and end time of the encounter."/>
+    <element id="Encounter.actualPeriod">
+      <path value="Encounter.actualPeriod"/>
+      <short value="The actual start and end time of the encounter"/>
+      <definition value="The actual start and end time of the encounter."/>
       <comment value="If not (yet) known, the end of the Period may be omitted."/>
       <min value="0"/>
       <max value="1"/>
@@ -661,6 +661,34 @@
       <mapping>
         <identity value="rim"/>
         <map value=".effectiveTime (low &amp; high)"/>
+      </mapping>
+    </element>
+    <element id="Encounter.plannedStartDate">
+      <path value="Encounter.plannedStartDate"/>
+      <short value="The planned start date/time (or admission date) of the encounter"/>
+      <definition value="The planned start date/time (or admission date) of the encounter."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV2-8"/>
+      </mapping>
+    </element>
+    <element id="Encounter.plannedEndDate">
+      <path value="Encounter.plannedEndDate"/>
+      <short value="The planned end date/time (or discharge date) of the encounter"/>
+      <definition value="The planned end date/time (or discharge date) of the encounter."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV2-9"/>
       </mapping>
     </element>
     <element id="Encounter.length">

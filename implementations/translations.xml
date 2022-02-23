@@ -184,12 +184,6 @@
 		<translation lang="it">ImpressioneClinica</translation>
 		<translation lang="zh">临床印象</translation>
 	</item>
-	<!--item id="ClinicalParticulars">
-		<translation lang="en">ClinicalParticulars</translation>
-	</item-->
-	<item id="ClinicalUseIssue">
-		<translation lang="en">ClinicalUseIssue</translation>
-	</item>
 	<item id="ClinicalUseDefinition">
 		<translation lang="en">ClinicalUseDefinition</translation>
 	</item>
@@ -605,10 +599,6 @@
 	<item id="MedicationKnowledge">
 		<translation lang="en">MedicationKnowledge</translation>
 	</item>
-	<!--item id="MedicinalProduct">
-		<translation lang="en">MedicinalProduct</translation>
-		<translation lang="it">ProdottoMedicinale</translation>
-	</item-->
 	<item id="RegulatedMedicinalProduct">
 		<translation lang="en">RegulatedMedicinalProduct</translation>
 	</item>
@@ -1058,6 +1048,9 @@
 		<translation lang="es">ScriptDePrueba</translation>
 		<translation lang="fr">ScriptTest</translation>
 		<translation lang="zh">测试脚本</translation>
+	</item>
+	<item id="Transport">
+		<translation lang="en">Transport</translation>
 	</item>
 	<item id="User">
 		<translation lang="en">User</translation>

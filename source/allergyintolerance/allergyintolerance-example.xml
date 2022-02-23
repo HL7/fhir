@@ -61,15 +61,32 @@
   <!-- the date that this entry was recorded -->  
   <recordedDate value="2014-10-09T14:58:00+11:00"/>
   
-  <!-- who made the record / last updated it -->
-  <recorder>
-    <reference value="Practitioner/example"/>
-  </recorder>
-  
+  <participant> 
+    <function> 
+      <coding> 
+        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/> 
+        <code value="author"/> 
+        <display value="Author"/> 
+      </coding> 
+    </function> 
+    <actor> 
+      <reference value="Practitioner/example"/> 
+    </actor> 
+  </participant> 
+
   <!-- the patient is the reporter in this case -->
-  <asserter>
-    <reference value="Patient/example"/>
-  </asserter>
+  <participant> 
+    <function> 
+      <coding> 
+        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/> 
+        <code value="informant"/> 
+        <display value="Informant"/> 
+      </coding> 
+    </function> 
+    <actor> 
+      <reference value="Patient/example"/> 
+    </actor> 
+  </participant>
 
   <!-- last happened June 2012. Typically, systems either track lastOccurrence,
      or a list of events. -->

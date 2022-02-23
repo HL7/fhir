@@ -11,6 +11,7 @@ holder.txt
 /schema/codegen
 /schema/datatypes
 /implementations/javascript/app
+.gitignore
 
 # Compiled class file
 *.class
@@ -353,6 +354,7 @@ $RECYCLE.BIN/
 ### Gradle ###
 .gradle
 build/
+gradle.properties
 
 # Ignore Gradle GUI config
 gradle-app.setting

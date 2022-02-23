@@ -37,10 +37,6 @@
         <display value="Injection, intramuscular"/>
       </concept>
       <concept>
-        <code value="NASINHLC"/>
-        <display value="Inhalation, nasal"/>
-      </concept>
-      <concept>
         <code value="IVINJ"/>
         <display value="Injection, intravenous"/>
       </concept>
