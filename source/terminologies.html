@@ -473,18 +473,13 @@ will work together to choose actual working value sets.
 <i>To be conformant, codes in this element SHALL be from the specified value set.</i>
 </p>
 <p>
-In the standard, this is generally used for elements where the value needs to be strictly controlled so that everyone
-can interpret it with confidence. Generally, this is used for elements with type <a href="datatypes.html#code">code</a>:
+If the binding strength is required, the data element SHALL contain one of the values in the bound value set.
 </p>
-<ul>
- <li>the element is bound to a value set that contains a list of distinct codes with a specified system (and version, where required)</li>
- <li>the element is bound to some external standard that defines the set of valid codes that can be used (typical examples are <a href="http://www.rfc-editor.org/bcp/bcp13.txt">Mime Types</a>,
-<a href="http://tools.ietf.org/html/bcp47">Language Codes</a>, <a href="http://unitsofmeasure.org">UCUM</a>, etc.)</li>
-</ul>
 <p>
-The other place where this is used is when <a href="profiling.html">profiling resources</a>, and there is agreement within a context of use
-that a specified set of codes are the only ones that can be used. In these cases, the data type SHALL contain one of the
-values in the value set.
+Required binding strength is used for elements where the value needs to be strictly controlled so the element can be interpreted with confidence. Required binding strength SHALL be used for elements with type code.
+</p>
+<p>
+In the base FHIR specification, required binding strength is typically only used with the 'code' data type. In profiles, it may be used more broadly when there is agreement within a context of use that a specified set of codes are the only ones that can be used.
 </p>
 <p>
 The following rules apply when required bindings are used with the <a href="datatypes.html#CodeableConcept">CodeableConcept</a> data type:
@@ -505,13 +500,22 @@ Note: when a binding is applied to a <a href="references.html#CodeableReference"
 The following  rules apply when required bindings are used with the <a href="datatypes.html#code">code</a> data type:
 </p>
 <ul>
- <li>Where the value set is defined by FHIR, the list of allowed codes will be fixed in the XML schema</li>
- <li>Comparison between codes is always case sensitive unless the codes are selected by reference (e.g. ValueSet.compose), and the referenced specification clearly states otherwise</li>
+ <li>The codes in the value set expansion must be distinct independent of the code system. </li>
+ <li>If the value set draws from multiple code systems or an HL7 defined code system, the value set must specify a version of each code system.
+  <ul>
+   <li>i.e. If the code system evolves after publication of a specification with the binding, those changes do not have any impact on specification use. </li>
+   <li>Where the value set is defined in the FHIR core specification, the list of allowed codes will be fixed in the core specification XML schema</li>
+  </ul>
+ </li>
+ <li>the element is bound to some external standard that defines the set of valid codes that can be used (typical examples are <a href="http://www.rfc-editor.org/bcp/bcp13.txt">Mime Types</a>,
+<a href="http://tools.ietf.org/html/bcp47">Language Codes</a>, <a href="http://unitsofmeasure.org">UCUM</a>, etc.)</li>
  <li>The list of codes that can be used can only be extended in subsequent releases of the FHIR specification</li>
+ <li>Comparison between codes is always case sensitive unless the codes are selected by reference (e.g. ValueSet.compose), and the referenced specification clearly states otherwise.</li>
+ <li>If the bound value set is defined external to the specification, the binding must specify a value set version.</li>
 </ul>
 <p>
 When an element is bound to a required value set, <a href="profiling.html">derived profiles</a>
-may state rules on which codes can be used, including removing codes from allowed use, but cannot specify new or additional codes for these elements.
+may state rules on which codes can be used, including removing codes from allowed use, but cannot specify additional codes for these elements.
 </p>
 
 <a name="extensible"></a>
@@ -637,6 +641,16 @@ ValueSets may also be used as example bindings in the base specification.
 When an element is bound to an example value set, <a href="profiling.html">derived profiles</a>
 may bind the element to any value set they choose.
 </p>
+
+<a name="expectations"></a>
+<h4>Binding Strengths and Conformance Expectations</h4>
+<p>
+A binding strength of 'required' or 'extensible' does not indicate that ALL of the codes in the bound value set will be supported. It constrains the set of codes that are allowed to be shared. If systems flag an element as <a href="conformance-rules.html#mustSupport">mustSupport</a>, the <a href="extension-elementdefinition-minvalueset.html">minimumValueSet extension</a> SHOULD be used to identify a specific subset (possibly the full set) of the bound codes that must be supported by implementers.
+</p>
+<p>
+If no MIN value set is specified, then there is no guidance for implementers regarding which code(s) must be supported. However, at least one of the codes MUST be supported.
+</p>
+
 
 <a name="max"></a>
 <h3>Max Value Set</h3>

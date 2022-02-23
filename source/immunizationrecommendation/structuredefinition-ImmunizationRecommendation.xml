@@ -335,7 +335,7 @@
         </extension>
         <strength value="example"/>
         <description value="The disease that the recommended vaccination targets."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-recommendation-target-disease"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-target-disease"/>
       </binding>
       <mapping>
         <identity value="v2"/>

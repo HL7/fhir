@@ -40,22 +40,4 @@
       <display value="namingsystem-registry"/>
     </item>
   </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Defined Code systems"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="namingsystem-terminologies"/>
-    </extension>
-    <flag>
-      <coding>
-        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
-        <code value="tool"/>
-      </coding>
-    </flag>
-    <item>
-      <reference value="null/terminologies"/>
-      <display value="namingsystem-terminologies"/>
-    </item>
-  </entry>
 </List>
