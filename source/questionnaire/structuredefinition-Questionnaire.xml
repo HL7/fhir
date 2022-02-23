@@ -709,14 +709,27 @@
 				<xpath value="f:type/@value=(&#39;boolean&#39;, &#39;decimal&#39;, &#39;integer&#39;, &#39;string&#39;, &#39;text&#39;, &#39;url&#39;) or f:answerConstraint/@value='openOrString' or not(f:maxLength)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
-			<constraint>
-				<key value="que-1"/>
-				<severity value="error"/>
-				<human value="Group items must have nested items, display items cannot have nested items"/>
-				<expression value="(type=&#39;group&#39; implies item.empty().not()) and (type.trace(&#39;type&#39;)=&#39;display&#39; implies item.trace(&#39;item&#39;).empty())"/>
-				<xpath value="not((f:type/@value=&#39;group&#39; and not(f:item)) or (f:type/@value=&#39;display&#39; and f:item))"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
+      <constraint>
+        <key value="que-1a"/>
+        <severity value="error"/>
+        <human value="Group items must have nested items when Questionanire is complete"/>
+        <expression value="(type='group' and %resource.status='complete') implies item.empty().not()"/>
+        <xpath value="not(f:type/@value='group' and ancestor::f:Questionnaire/f:status/@value='complete' and not(exists(f:item)))"/>
+      </constraint>
+      <constraint>
+        <key value="que-1b"/>
+        <severity value="warning"/>
+        <human value="Groups should have items"/>
+        <expression value="type='group' implies item.empty().not()"/>
+        <xpath value="not(f:type/@value='group' and not(exists(f:item)))"/>
+      </constraint>
+      <constraint>
+        <key value="que-1c"/>
+        <severity value="error"/>
+        <human value="Display items cannot have child items"/>
+        <expression value="type='display' implies item.empty()"/>
+        <xpath value="not(f:type/@value='display' and exists(f:item))"/>
+      </constraint>
 			<constraint>
 				<key value="que-13"/>
 				<severity value="error"/>
@@ -1315,7 +1328,9 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 			<min value="0"/>
 			<max value="*"/>
 			<contentReference value="#Questionnaire.item"/>
-			<condition value="que-1"/>
+			<condition value="que-1a"/>
+			<condition value="que-1b"/>
+			<condition value="que-1c"/>
 			<mapping>
 				<identity value="rim"/>
 				<map value=".outboundRelationship[typeCode=COMP].target"/>
