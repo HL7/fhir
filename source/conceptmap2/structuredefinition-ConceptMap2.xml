@@ -583,9 +583,9 @@
       <constraint>
         <key value="cmd-1"/>
         <severity value="error"/>
-        <human value="If the map is source-is-broader-than-target or not-related-to, there SHALL be some comments"/>
-        <expression value="comment.exists() or relationship.empty() or ((relationship != &#39;source-is-broader-than-target&#39;) and (relationship != &#39;not-related-to&#39;))"/>
-        <xpath value="exists(f:comment) or not(exists(f:relationship)) or ((f:relationship/@value != &#39;source-is-broader-than-target&#39;) and (f:v/@value != &#39;not-related-to&#39;))"/>
+        <human value="If the map is source-is-broader-than-target or not-related-to, there SHALL be some comments, unless the status is 'draft'"/>
+        <expression value="comment.exists() or (status = draft) or relationship.empty() or ((relationship != &#39;source-is-broader-than-target&#39;) and (relationship != &#39;not-related-to&#39;))"/>
+        <xpath value="exists(f:comment) or (f:status/@value = draft) or not(exists(f:relationship)) or ((f:relationship/@value != &#39;source-is-broader-than-target&#39;) and (f:v/@value != &#39;not-related-to&#39;))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
       </constraint>
     </element>
