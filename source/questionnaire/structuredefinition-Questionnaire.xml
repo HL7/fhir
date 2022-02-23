@@ -691,7 +691,7 @@
         <severity value="error"/>
         <human value="Only 'choice' and 'open-choice' items can have answerValueSet"/>
         <expression value="(type ='choice' or type = 'open-choice' or type = 'decimal' or type = 'integer' or type = 'date' or type = 'dateTime' or type = 'time' or type = 'string' or type = 'quantity') or (answerValueSet.empty() and answerOption.empty())"/>
-        <xpath value="f:type/@value=('choice','open-choice','decimal','integer','date','dateTime','time','string','quantity',') or not(f:answerOption or f:answerValueSet)"/>
+        <xpath value="f:type/@value=('choice','open-choice','decimal','integer','date','dateTime','time','string','quantity') or not(f:answerOption or f:answerValueSet)"/>
       </constraint>
       <constraint>
         <key value="que-4"/>
