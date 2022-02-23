@@ -69,7 +69,7 @@
   <concept>
     <code value="completed"/>
     <display value="Completed"/>
-    <definition value="Study is closed, all study subjects have completed treatment or intervention but may still be followed according to the primary objective of the study."/>
+    <definition value="The study closed according to the study plan.  There will be no further treatments, interventions  or data collection."/>
   </concept>
   <concept>
     <code value="disapproved"/>
