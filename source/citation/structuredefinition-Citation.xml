@@ -1283,62 +1283,14 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
       </binding>
     </element>
-    <element id="Citation.citedArtifact.classification.whoClassified">
-      <path value="Citation.citedArtifact.classification.whoClassified"/>
-      <short value="Provenance and copyright of classification"/>
+    <element id="Citation.citedArtifact.classification.artifactAssessment">
+      <path value="Citation.citedArtifact.classification.artifactAssessment"/>
+      <short value="Complex or externally created classification&#xA;"/>
       <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.classification.whoClassified.person">
-      <path value="Citation.citedArtifact.classification.whoClassified.person"/>
-      <short value="Person who created the classification"/>
-      <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Person"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.classification.whoClassified.organization">
-      <path value="Citation.citedArtifact.classification.whoClassified.organization"/>
-      <short value="Organization who created the classification"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.classification.whoClassified.publisher">
-      <path value="Citation.citedArtifact.classification.whoClassified.publisher"/>
-      <short value="The publisher of the classification, not the publisher of the article or artifact being cited"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.classification.whoClassified.classifierCopyright">
-      <path value="Citation.citedArtifact.classification.whoClassified.classifierCopyright"/>
-      <short value="Rights management statement for the classification"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.classification.whoClassified.freeToShare">
-      <path value="Citation.citedArtifact.classification.whoClassified.freeToShare"/>
-      <short value="Acceptable to re-use the classification"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ArtifactAssessment"/>
       </type>
     </element>
     <element id="Citation.citedArtifact.contributorship">
@@ -1373,19 +1325,19 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.contributorship.entry.name">
-      <path value="Citation.citedArtifact.contributorship.entry.name"/>
-      <short value="A name associated with the person"/>
-      <definition value="A name associated with the individual."/>
-      <comment value="humanName.family can match MEDLINE-based lastName (used for surname or single name), humanName.given can match MEDLINE-based forename (used for remainder of name except for suffix), humanName.suffix can match MEDLINE-based suffix (e.g., 2nd, 3rd, Jr, Sr)."/>
-      <min value="0"/>
+    <element id="Citation.citedArtifact.contributorship.entry.contributor">
+      <path value="Citation.citedArtifact.contributorship.entry.contributor"/>
+      <short value="The identity of the individual entity"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="HumanName"/>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.contributorship.entry.initials">
-      <path value="Citation.citedArtifact.contributorship.entry.initials"/>
+    <element id="Citation.citedArtifact.contributorship.entry.forenameInitials">
+      <path value="Citation.citedArtifact.contributorship.entry.forenameInitials"/>
       <short value="Initials for forename"/>
       <comment value="This element is used in Medline based citations, but not supported fully by FHIR HumanName datatype."/>
       <min value="0"/>
@@ -1394,88 +1346,22 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.contributorship.entry.collectiveName">
-      <path value="Citation.citedArtifact.contributorship.entry.collectiveName"/>
-      <short value="Used for collective or corporate name as an author"/>
-      <comment value="This element is used in Medline based citations, but not supported fully by FHIR HumanName datatype."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.contributorship.entry.identifier">
-      <path value="Citation.citedArtifact.contributorship.entry.identifier"/>
-      <short value="Author identifier, e.g., ORCID"/>
-      <definition value="Unique person identifier."/>
-      <comment value="Avoids needing to disambiguate common last names or changes of name. ORCID is commonly used as author identifier."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.contributorship.entry.affiliationInfo">
-      <path value="Citation.citedArtifact.contributorship.entry.affiliationInfo"/>
+    <element id="Citation.citedArtifact.contributorship.entry.affiliation">
+      <path value="Citation.citedArtifact.contributorship.entry.affiliation"/>
       <short value="Organizational affiliation"/>
       <definition value="Organization affiliated with the entity."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.contributorship.entry.affiliationInfo.affiliation">
-      <path value="Citation.citedArtifact.contributorship.entry.affiliationInfo.affiliation"/>
-      <short value="Display for the organization"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.contributorship.entry.affiliationInfo.role">
-      <path value="Citation.citedArtifact.contributorship.entry.affiliationInfo.role"/>
-      <short value="Role within the organization, such as professional title"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.contributorship.entry.affiliationInfo.identifier">
-      <path value="Citation.citedArtifact.contributorship.entry.affiliationInfo.identifier"/>
-      <short value="Identifier for the organization"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.contributorship.entry.address">
-      <path value="Citation.citedArtifact.contributorship.entry.address"/>
-      <short value="Physical mailing address"/>
-      <definition value="Physical mailing address for the author or contributor."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Address"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.contributorship.entry.telecom">
-      <path value="Citation.citedArtifact.contributorship.entry.telecom"/>
-      <short value="Email or telephone contact methods for the author or contributor"/>
-      <definition value="Email or telephone contact methods for the author or contributor."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactPoint"/>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
       </type>
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.contributionType">
       <path value="Citation.citedArtifact.contributorship.entry.contributionType"/>
       <short value="The specific contribution"/>
-      <definition value="This element identifies the specific nature of an individual&#x2019;s contribution with respect to the cited work."/>
+      <definition value="This element identifies the specific nature of an individual’s contribution with respect to the cited work."/>
       <comment value="The CreDiT taxonomy provides a way to encode contribution information inside article XML files. The purpose of CRediT is to provide transparency in contributions to scholarly published work, to enable improved systems of attribution, credit, and accountability."/>
       <min value="0"/>
       <max value="*"/>

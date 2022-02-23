@@ -164,7 +164,7 @@
     <element id="ResearchStudy.title">
       <path value="ResearchStudy.title"/>
       <short value="Name for this study (for computers)"/>
-      <definition value="A short, descriptive label for the study particularly for compouter use."/>
+      <definition value="A short, descriptive label for the study particularly for computer use."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -208,7 +208,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="desc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-title-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-label-type"/>
       </binding>
     </element>
     <element id="ResearchStudy.label.value">
@@ -831,11 +831,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchStudyPartyType"/>
+          <valueString value="ResearchStudyPartyRole"/>
         </extension>        
         <strength value="extensible"/>
         <description value="desc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-role"/>
       </binding>
     </element>
     <element id="ResearchStudy.associatedParty.classifier">
@@ -885,7 +885,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchStudyStudyStatus"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="defn."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-status"/>
       </binding>
@@ -1356,8 +1356,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="ResearchStudy.webLocation.type">
-      <path value="ResearchStudy.webLocation.type"/>
+    <element id="ResearchStudy.webLocation.classifier">
+      <path value="ResearchStudy.webLocation.classifier"/>
       <short value="registry-page|recruitment-page|contact-page"/>
       <definition value="Describes the nature of the location being specified."/>
       <min value="0"/>
@@ -1367,11 +1367,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchStudyUrlType"/>
+          <valueString value="	ArtifactUrlClassifier"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="defn."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-url-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-url-classifier"/>
       </binding>
     </element>
     <element id="ResearchStudy.webLocation.url">

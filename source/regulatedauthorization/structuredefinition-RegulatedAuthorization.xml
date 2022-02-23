@@ -69,7 +69,7 @@
         <valueCode value="280,0"/>
       </extension>
       <path value="RegulatedAuthorization"/>
-      <short value="Regulatory approval, clearance or licencing related to a regulated product, treatment, facility or activity that is cited in a guidance, regulation, rule or legislative act. An example is Market Authorization relating to a Medicinal Product"/>
+      <short value="Regulatory approval, clearance or licencing related to a regulated product, treatment, facility or activity e.g. Market Authorization for a Medicinal Product"/>
       <definition value="Regulatory approval, clearance or licencing related to a regulated product, treatment, facility or activity that is cited in a guidance, regulation, rule or legislative act. An example is Market Authorization relating to a Medicinal Product."/>
       <min value="0"/>
       <max value="*"/>
@@ -135,6 +135,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RegulatedAuthorizationType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Overall type of this authorization."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/regulated-authorization-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -157,7 +165,7 @@
     </element>
     <element id="RegulatedAuthorization.region">
       <path value="RegulatedAuthorization.region"/>
-      <short value="The territory (e.g., country, jurisdiction etc.) in which the authorization has been granted"/>
+      <short value="The territory in which the authorization has been granted"/>
       <definition value="The territory (e.g., country, jurisdiction etc.) in which the authorization has been granted."/>
       <min value="0"/>
       <max value="*"/>
@@ -165,6 +173,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Jurisdiction codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Marketing Authorisation.Country"/>
@@ -173,13 +189,21 @@
     <element id="RegulatedAuthorization.status">
       <path value="RegulatedAuthorization.status"/>
       <short value="The status that is authorised e.g. approved. Intermediate states can be tracked with cases and applications"/>
-      <definition value="The status that is authorised e.g. approved. Intermediate states can be tracked with cases and applications."/>
+      <definition value="The status that is authorised e.g. approved. Intermediate states and actions can be tracked with cases and applications."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Marketing Authorisation.Authorisation Status"/>
@@ -202,7 +226,7 @@
     </element>
     <element id="RegulatedAuthorization.validityPeriod">
       <path value="RegulatedAuthorization.validityPeriod"/>
-      <short value="The time period in which the regulatory approval, clearance or licencing is in effect. As an example, a Marketing Authorization includes the date of authorization and/or an expiration date"/>
+      <short value="The time period in which the regulatory approval etc. is in effect, e.g. a Marketing Authorization includes the date of authorization and/or expiration date"/>
       <definition value="The time period in which the regulatory approval, clearance or licencing is in effect. As an example, a Marketing Authorization includes the date of authorization and/or an expiration date."/>
       <min value="0"/>
       <max value="1"/>
@@ -217,7 +241,7 @@
     </element>
     <element id="RegulatedAuthorization.indication">
       <path value="RegulatedAuthorization.indication"/>
-      <short value="Condition for which the use of the regulated product  applies"/>
+      <short value="Condition for which the use of the regulated product applies"/>
       <definition value="Condition for which the use of the regulated product applies."/>
       <min value="0"/>
       <max value="1"/>
@@ -234,13 +258,21 @@
     <element id="RegulatedAuthorization.intendedUse">
       <path value="RegulatedAuthorization.intendedUse"/>
       <short value="The intended use of the product, e.g. prevention, treatment"/>
-      <definition value="The intended use of the product, e.g. prevention, treatment."/>
+      <definition value="The intended use of the product, e.g. prevention, treatment, diagnosis."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProductIntendedUse"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="The overall intended use of a product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/product-intended-use"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -248,7 +280,7 @@
     </element>
     <element id="RegulatedAuthorization.basis">
       <path value="RegulatedAuthorization.basis"/>
-      <short value="The legal or regulatory framework against which this authorization is granted, or other reasons for it"/>
+      <short value="The legal/regulatory framework or reasons under which this authorization is granted"/>
       <definition value="The legal or regulatory framework against which this authorization is granted, or other reasons for it."/>
       <min value="0"/>
       <max value="*"/>
@@ -256,6 +288,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RegulatedAuthorizationBasis"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A legal or regulatory framework against which an authorization is granted, or other reasons for it."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/regulated-authorization-basis"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Marketing Authorisation.Status Reasons.Legal Grounds"/>
@@ -314,8 +354,8 @@
     </element-->
     <element id="RegulatedAuthorization.holder">
       <path value="RegulatedAuthorization.holder"/>
-      <short value="The organization that holds the granted authorization"/>
-      <definition value="The organization that holds the granted authorization."/>
+      <short value="The organization that has been granted this authorization, by the regulator"/>
+      <definition value="The organization that has been granted this authorization, by some authoritative body (the 'regulator')."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -365,8 +405,8 @@
         <valueCode value="650,0"/>
       </extension>
       <path value="RegulatedAuthorization.case"/>
-      <short value="The case or regulatory procedure for granting or amending a marketing authorization. Note: This area is subject to ongoing review and the workgroup is seeking implementer feedback on its use (see link at bottom of page)"/>
-      <definition value="The case or regulatory procedure for granting or amending a marketing authorization. Note: This area is subject to ongoing review and the workgroup is seeking implementer feedback on its use (see link at bottom of page)."/>
+      <short value="The case or regulatory procedure for granting or amending a regulated authorization. Note: This area is subject to ongoing review and the workgroup is seeking implementer feedback on its use (see link at bottom of page)"/>
+      <definition value="The case or regulatory procedure for granting or amending a regulated authorization. An authorization is granted in response to submissions/applications by those seeking authorization. A case is the administrative process that deals with the application(s) that relate to this and assesses them. Note: This area is subject to ongoing review and the workgroup is seeking implementer feedback on its use (see link at bottom of page)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -403,6 +443,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RegulatedAuthorizationCaseType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type of a case involved in an application."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/regulated-authorization-case-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Marketing Authorisation Procedure.Procedure Type, Marketing Authorisation Application.Application Type"/>
@@ -418,6 +466,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -425,8 +481,8 @@
     </element>
     <element id="RegulatedAuthorization.case.date[x]">
       <path value="RegulatedAuthorization.case.date[x]"/>
-      <short value="Relevant date for this of case"/>
-      <definition value="Relevant date for this of case."/>
+      <short value="Relevant date for this case"/>
+      <definition value="Relevant date for this case."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -443,8 +499,8 @@
     </element>
     <element id="RegulatedAuthorization.case.application">
       <path value="RegulatedAuthorization.case.application"/>
-      <short value="Applications submitted to obtain a marketing authorization. Steps within the longer running case or procedure"/>
-      <definition value="Applications submitted to obtain a marketing authorization. Steps within the longer running case or procedure."/>
+      <short value="Applications submitted to obtain a regulated authorization. Steps within the longer running case or procedure"/>
+      <definition value="A regulatory submission from an organization to a regulator, as part of an assessing case. Multiple applications may occur over time, with more or different information to support or modify the submission or the authorization. The applications can be considered as steps within the longer running case or procedure for this authorization process."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#RegulatedAuthorization.case"/>
