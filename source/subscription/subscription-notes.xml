@@ -210,10 +210,10 @@
 				Server sends a notification of type <code>event-notification</code> when triggered.
 			</li>
       <li>
-        If the token is expiring soon and the Client wishes to continue receiving notifications, it should invoke the `$get-ws-binding-token` operation via REST.
+        If the token is expiring soon and the Client wishes to continue receiving notifications, it should invoke the <code>$get-ws-binding-token</code> operation via REST.
       </li>
       <li>
-				Server returns <a href="parameters.html">Parameters</a> with a new <code>token</code>, <code>expiration</code>, and <code>websocket-url</code>.
+				Server responds with a <code>token</code>, <code>expiration</code>, and <code>websocket-url</code>.  Note that the <code>token</code> and <code>websocket-url</code> MAY be the same or new values, as determined by the server.
       </li>
       <li>
         If the <code>websocket-url</code> is different from the existing connection, the Client establishes a new connection to the Client Endpoint.
