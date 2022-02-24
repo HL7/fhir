@@ -377,6 +377,7 @@ $( '#tabs-RelatedArtifact' ).tabs({ active: currentTabIndex, activate: function(
 $( '#tabs-TriggerDefinition' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Expression' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-UsageContext' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-ExtendedContactDetail' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 
 
 function store(currentTab) {
@@ -391,6 +392,7 @@ function store(currentTab) {
   $( '#tabs-TriggerDefinition' ).tabs('option', 'active', currentTab);
   $( '#tabs-Expression' ).tabs('option', 'active', currentTab);
   $( '#tabs-UsageContext' ).tabs('option', 'active', currentTab);
+  $( '#tabs-ExtendedContactDetail' ).tabs('option', 'active', currentTab);
   document.activeElement.blur();
 }
 </script>
