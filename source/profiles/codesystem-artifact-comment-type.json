@@ -2,7 +2,7 @@
   "resourceType": "CodeSystem",
   "id": "artifact-comment-type",
   "url": "http://hl7.org/fhir/CodeSystem/artifact-comment-type",
-  "version": "4.6.0",
+  "version": "5.0.0-cibuild",
   "name": "ArtifactCommentType",
   "status": "active",
   "experimental": false,

@@ -34,7 +34,7 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CapabilityStatement2-subset"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="subset"/>
   <title value="Fetch a subset of the CapabilityStatement2 resource"/>
   <status value="draft"/>
