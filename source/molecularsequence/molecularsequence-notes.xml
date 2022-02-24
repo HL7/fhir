@@ -13,7 +13,10 @@
 
 </p>
 <p>
-	For example, ACGTGCAT will be numbered from 1 to 8 in 1-based system and will be numbered from 0 to 8 in 0-based system to mark flanks (i.e. place between two Nucleotide). So the interval [3,5] in 1-based system is GTG while interval [2,5) in 0-based system is same segment GTG.
+	For example, ACGTGCAT will be numbered from 1 to 8 in 1-based system and will 
+  be numbered from 0 to 8 in 0-based system to mark flanks (i.e. place between 
+  two Nucleotide). So the interval [3,5] in 1-based system is GTG while 
+  interval [2,5) in 0-based system is same segment GTG.
 </p>
 
 <h3>Choice of Strand </h3>
