@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="pronouns"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/pronouns"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.972"/>
+  </identifier>
+  <name value="Pronouns"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This example value set defines a set of codes that can be used to indicate the pronouns used to communicate about an individual."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/pronouns"/>
+	  <concept>
+		<code value="he/him"/>
+		<display value="He, Him, His, Himself"/>
+		<definition value="English pronouns typically associated with masculinity."/>
+	  </concept>
+	  <concept>
+		<code value="she/her"/>
+		<display value="She, Her, Hers, Herself"/>
+		<definition value="English pronouns typically associated with femininity."/>
+	  </concept>
+	  <concept>
+		<code value="they/them"/>
+		<display value="They, Them, Their, Theirs, Themself"/>
+		<definition value="English personal pronouns typically not associated with masculinity or femininity"/>
+	  </concept>
+	  <concept>
+		<code value="other"/>
+		<display value="Other"/>
+		<definition value="The individual uses pronouns other than he/him, she/her, or they/them."/>
+	  </concept>
+	  <concept>
+		<code value="unknown"/>
+		<display value="Unknown"/>
+		<definition value="No pronouns are known."/>
+	  </concept>
+    </include>
+  </compose>
+</ValueSet>
