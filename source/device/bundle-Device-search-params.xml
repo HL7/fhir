@@ -297,8 +297,8 @@
         <description value="The serial number of the device"/>
         <code value="serial-number"/>
         <type value="string"/>
-        <expression value="Device.serialNumber"/>
-        <xpath value="f:Device/f:serialNumber"/>
+        <expression value="Device.serialNumber | Device.identifier.where(type='SNO')"/>
+        <xpath value="f:Device/f:serialNumber"/>       
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

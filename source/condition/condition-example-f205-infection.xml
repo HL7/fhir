@@ -27,7 +27,17 @@
     <display value="Roel"/>
   </subject>
   <recordedDate value="2013-04-04"/>
-  <asserter>
-    <reference value="Practitioner/f201"/>
-  </asserter>
+  <participant> 
+    <function> 
+      <coding> 
+        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/> 
+        <code value="author"/> 
+        <display value="Author"/> 
+      </coding> 
+    </function> 
+    <actor> 
+      <reference value="Practitioner/f201"/> 
+    </actor> 
+  </participant> 
+
 </Condition>

@@ -128,7 +128,7 @@
     </element>
     <element id="ManufacturedItemDefinition.manufacturedDoseForm">
       <path value="ManufacturedItemDefinition.manufacturedDoseForm"/>
-      <short value="Dose form as manufactured and before any transformation into the pharmaceutical product"/>
+      <short value="Dose form as manufactured (before any necessary transformation)"/>
       <definition value="Dose form as manufactured and before any transformation into the pharmaceutical product."/>
       <min value="1"/>
       <max value="1"/>
@@ -151,7 +151,7 @@
     </element>
     <element id="ManufacturedItemDefinition.unitOfPresentation">
       <path value="ManufacturedItemDefinition.unitOfPresentation"/>
-      <short value="The &#x201C;real world&#x201D; units in which the quantity of the manufactured item is described"/>
+      <short value="The &#x201C;real world&#x201D; units in which the quantity of the item is described"/>
       <definition value="The &#x201C;real world&#x201D; units in which the quantity of the manufactured item is described."/>
       <min value="0"/>
       <max value="1"/>
@@ -190,7 +190,7 @@
     </element>
     <element id="ManufacturedItemDefinition.ingredient">
       <path value="ManufacturedItemDefinition.ingredient"/>
-      <short value="The ingredients of this manufactured item. This is only needed if the ingredients are not specified by incoming references from the Ingredient resource"/>
+      <short value="The ingredients of this manufactured item. Only needed if these are not specified by incoming references from the Ingredient resource"/>
       <definition value="The ingredients of this manufactured item. This is only needed if the ingredients are not specified by incoming references from the Ingredient resource."/>
       <min value="0"/>
       <max value="*"/>

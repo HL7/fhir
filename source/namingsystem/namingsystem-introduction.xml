@@ -11,14 +11,13 @@ Defines a specific code system or identifier system, so that it can be noted in 
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-The <code>CodeSystem</code> resource defines the content of a code system, and also its preferred identifier.
-The <code>NamingSystem</code> resource identifies the existence of a code or identifier system, and its possible and preferred identifiers. 
-The key difference between the resources is who creates and manages them - <code>CodeSystem</code> resources are managed
-by the owner of the code system resource, who can properly define the features and content of the code system.
-<code>NamingSystem</code> resources, on the other hand, are frequently defined by 3rd parties that encounter the
-code system in use, and need to describe the use, but do not have the authority to define the features and content. 
-Additionally, there may be multiple authoritative <code>NamingSystem</code> resources for a code system, but there
-should only be one <code>CodeSystem</code> resource.
+A <code>NamingSystem</code> resource manages identifiers of a code system or identifier system, identifier metadata (e.g. type), and limited code system or identifier system specific metadata (e.g. publisher and description).
+A <code>CodeSystem</code> resource represents a code system, its key properties, and may include the content, identifiers, and other metadata.   
+There is known overlap between the <code>CodeSystem</code> and <code>NamingSystem</code> resource elements. However, the key differences between the resources are as follows:
+<ul>
+  <li><code>CodeSystem</code> resources may include the concept and property content of the code system, whereas <code>NamingSystem</code> resources do not. <code>CodeSystem</code> resources also allow identifiers to be supplemented by specific metadata. The metadata are supported with extensions.</li>
+  <li><code>NamingSystem</code> resources allow the identifiers for code systems or identifier systems to be supplemented by metadata specific to the identifiers. For example: preferred, authoritative, and validity period.</li>
+</ul>
 </p>
 </div>
 
