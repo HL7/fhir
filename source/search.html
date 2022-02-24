@@ -35,7 +35,7 @@ complexity that they require for their implementations.
     <li><a href="#return">Search Responses</a>
       <ul>
         <li><a href="#returnbundletype">Bundle Type</a></li>
-        <li><a href="#selflink">Understanding What Was Searched - The Self Link</a></li>
+        <li><a href="#selflink">Self Link - Understanding a Performed Search</a></li>
         <li><a href="#paginglinks">Other Links - Paging</a></li>
         <li><a href="#entries">Matches, Inclusions, and Outcomes - Bundle Entries</a></li>
         <li><a href="#errors">Handling Errors</a>
@@ -47,11 +47,13 @@ complexity that they require for their implementations.
     </li>
 	</ul>
   </li>
-  <li><a href="#searchrest">Searching via REST</a>
+  <li><a href="#transportprotocols">Transport Protocols</a>
     <ul>
-      <li><a href="#basicspost">Basics for POST</a></li>
-      <li><a href="#basicsget">Basics for GET</a></li>
-      <li><a href="#getvspost">Choosing Between POST and GET</a></li>
+      <li><a href="#basicspost">HTTP POST</a></li>
+      <li><a href="#basicsget">HTTP GET</a></li>
+      <li><a href="#getvspost">Choosing an HTTP Method</a></li>
+      <li><a href="#batching">Batching Searches</a></li>
+      <li><a href="#messaging">Search in Messaging</a></li>
     </ul>
   </li>
   <li><a href="#ptypes">Search Parameters</a>
@@ -125,12 +127,13 @@ complexity that they require for their implementations.
 <a name="introduction"></a>
 <h3>Introduction</h3>
 <p>
-  FHIR Search is the primary mechanism used to find and list resource instances. ...
+  FHIR Search is the primary mechanism used to find and list resource instances.  The search mechanism is designed to be flexible 
+  enough to meet the needs of a wide variety of use cases, and yet be simple enough to be commonly useful.
 </p>
 <p>
-  In a typical RESTful interface, collections of instances are returned as arrays of the desired type.  In 
+  In a typical RESTful interface, collections of instances are returned as arrays of a type.  In 
   order to include related information (e.g., number of total results), support extended functionality
-  (e.g., paging), and allow additional resource types (e.g., returning Patient and Encounter resources), 
+  (e.g., paging), and allow multiple resource types in results (e.g., returning Patient and Encounter resources), 
   FHIR Search instead returns a <a href="bundle.html">Bundle</a> resource, with a type of
   <a href="bundle.html#searchset">searchset</a>.  Resources included in the results appear as individual 
   entries in such a bundle. Note that the <code>_format</code>
@@ -139,23 +142,15 @@ complexity that they require for their implementations.
   <a href="search.html#return">Managing Returned Resources</a>
 </p>
 <p>
-  Search operations can also be implemented in <a href="messaging.html#search">the messaging framework</a>.
-</p>
-<p>
-  There are <a href="safety.html#search">several safety issues</a> associated with the implementation of 
-  searching that implementers should always keep in mind.
-</p>
-<p>
-  ...
+  There are safety issues associated with the implementation of searching that implementers should always keep in mind. Implementers SHOULD review the <a href="safety.html#search">safety checklist</a>.
 </p>
 
 <a name="overview"></a>
 <h4>Search Overview</h4>
 <p>
-  As described above, search operations are typically performed via a RESTful request.  FHIR Search is defined
-  via two different HTTP verbs, <code>GET</code> and <code>POST</code>.  The two are functionally equivalent,
-  though there are differences that implementers should be aware of.  More details can be found in 
-  <a href="search.html#searchviarest">Searching via REST</a>.
+  Though search operations are typically performed via REST, search is defined to be useful independently of HTTP.  
+  Note that while different formats of search requests are functionally equivalent, there MAY be differences inherent 
+  to searching via a particular protocol. Details can be found in <a href="#transportprotocols">Search Protocols</a>.
 </p>
 
 <a name="searchinputs"></a>
@@ -202,6 +197,21 @@ complexity that they require for their implementations.
 set of resources are being searched:
 </p>
 <ul>
+  <li>All resource types:
+    Note that if the <code>_type</code> parameter is included, all other search parameters SHALL be 
+    common to all provided types, and if <code>_type</code> is not included, all parameters SHALL be 
+    common to all resource types.
+
+    <span class='http-search-example'>
+      <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
+      <span class='http-verb-display'>
+        <span class='http-verb-display-get'>GET [base]?parameter(s)</span>
+        <span class='http-verb-display-post'>POST [base]/_search
+Content-Type: application/x-www-form-urlencoded
+parameter(s)</span>
+      </span>
+    </span>
+  </li>
   <li>A specified resource type:
     <span class='http-search-example'>
       <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
@@ -221,21 +231,6 @@ parameter(s)
       <span class='http-verb-display'>
         <span class='http-verb-display-get'>GET [base]/Patient/[id]/[type]?parameter(s)</span>
         <span class='http-verb-display-post'>POST [base]/Patient/[id]/[type]/_search
-Content-Type: application/x-www-form-urlencoded
-parameter(s)</span>
-      </span>
-    </span>
-  </li>
-  <li>All resource types:
-    Note that if the <code>_type</code> parameter is included, all other search parameters SHALL be 
-    common to all provided types, and if <code>_type</code> is not included, all parameters SHALL be 
-    common to all resource types.
-
-    <span class='http-search-example'>
-      <span class='http-verb-selector'>Show as: <a href='#post'>HTTP POST</a> | <a href='#get'>HTTP GET</a></span>
-      <span class='http-verb-display'>
-        <span class='http-verb-display-get'>GET [base]?parameter(s)</span>
-        <span class='http-verb-display-post'>POST [base]/_search
 Content-Type: application/x-www-form-urlencoded
 parameter(s)</span>
       </span>
@@ -263,13 +258,13 @@ parameter(s)</span>
 </p>
 
 <a name="selflink"></a>
-<h4>Understanding What Was Searched - The Self Link</h4>
+<h4>Self Link - Understanding a Performed Search</h4>
 <p>
   In order to allow the client to be confident about what search parameters
-  were used as criteria by the server, the server SHALL return the parameters
-  that were actually used to process the search. Applications processing search
+  were used as criteria by a server, servers SHALL return the parameters
+  that were actually used to process a search. Applications processing search
   results SHALL check these returned values where necessary. For example, if
-  the server did not support some of the filters specified in the search, a
+  a server did not support some of the filters specified in the search, a
   client might manually apply those filters to the retrieved result set,
   display a warning message to the user or take some other action.
 </p>
@@ -306,14 +301,17 @@ parameter(s)</span>
 </span>
 </p>
 <p>
-  Self links SHALL be expressed as a GET-based search, with the relevant parameters included as query
-  parameters, because of the semantics around the link types.  This means that the above links are 
-  valid for either a GET-based search and the equivalent POST-based search.
+  Self links SHALL be expressed as an HTTP GET-based search with the relevant parameters included as query
+  parameters, because of the semantics around the link types.  This means that the same self link is a 
+  valid respons for any equivalent search, regardless of how a search is performed (e.g., HTTP GET, HTTP POST, 
+  Messsaging, etc.).
 </p>
 <p>
-  Note that this makes the <code>self</code> link special in the context of bundle links - it does not 
-  need to be resolvable.  A server that does not support search via GET will return links in the same 
-  style as a server that does not support search via POST.
+  Self links MAY be returned as absolute URIs or URIs relative to the base URL of a server, and 
+  MAY or MAY NOT be resolvable.  A server that does not support search via GET will return links
+  in the same style as a server that does not support search via POST.  Note that this makes the 
+  <code>self</code> link special in the context of bundle links, as all other links are intended
+  to be resolvable by a client.
 </p>
 <p>
   Clients SHOULD review the returned parameters in the self link to ensure proper processing of results.
@@ -506,8 +504,11 @@ Servers SHOULD honor the client's request, but are not required to do so.
 </p>
 
 
-<a name="searchrest"></a>
-<h3>Searching via REST</h3>
+<a name="transportprotocols"></a>
+<h3>Transport Protocols</h3>
+<p>
+  FHIR Search is available over a 
+</p>
 <p>
   FHIR Search operations can be performed either via HTTP <code>POST</code> or <code>GET</code>.
   Servers SHALL support both modes of operation, though MAY return a <code>HTTP 405</code> (Method Not Allowed)
@@ -515,7 +516,7 @@ Servers SHOULD honor the client's request, but are not required to do so.
 </p>
 
 <a name="basicspost"></a>
-<h4>Basics for POST</h4>
+<h4>HTTP POST</h4>
 <p>
   Basic POST-based search operations are performed by making an HTTP POST request to the <code>[type]/_search</code>
   (resource) level of a FHIR server, with search parameters included as <code>x-www-form-urlencoded</code> content
@@ -541,7 +542,7 @@ param2=value2&amp;...
 </p>
 
 <a name="basicsget"></a>
-<h4>Basics for GET</h4>
+<h4>HTTP GET</h4>
 <p>
   Basic GET-based search operations are performed by making an HTTP GET request to the <code>[type]</code>
   (resource) level of a FHIR server, with search parameters included as query parameters on the request:
@@ -555,7 +556,7 @@ GET [base]/[type]?param1=value&amp;...{&amp;_format=[mime-type]}
 </p>
 
 <a name="getvspost"></a>
-<h4>Choosing Between GET and POST</h4>
+<h4>Choosing an HTTP Method</h4>
 <p>
   As described above, servers that support search via REST SHALL support both the <code>GET</code> and <code>POST</code>
   methods. However, there are known use cases that prevent one or the other method from being desireable in production.
@@ -581,6 +582,25 @@ GET [base]/[type]?param1=value&amp;...{&amp;_format=[mime-type]}
   secure communications and endpoint management are recommended, see <a href="security.html#http">Security Communications</a>
 </p>
 
+<a name="batching"></a>
+<h4>Batching Search Requests</h4>
+<p>
+  Servers MAY support <a href="http.html#transaction">batching</a> multiple requests.  In the context of searching, this allows
+  several searches to be performed serially via a single request.  Note that each operation of a <code>batch</code> is independent,
+  so it is not possible to use the results of one request as input to another in the same batch.
+</p>
+<p>
+  A relevant note about HTTP verbs (<code>GET</code> versus <code>POST</code>) applies when a client <a href="http.html#transaction">batches</a>...
+</p>
+<p>
+  TODO: add text here depending on the outcome of <a href="https://jira.hl7.org/browse/FHIR-36095">FHIR-36095</a>.
+</p>
+
+<a name="messaging"></a>
+<h4>Search via Messaging</h4>
+<p>
+  Servers MAY support FHIR <a href="messaging.html">Messaging</a>.  The mapping of seach requests into messages is described in more detail in the section <a href="messaging.html#search">Invoking Search via Messages</a>.
+</p>
 
 <a name="ptypes"></a>
 <h3>Search Parameters</h3>
