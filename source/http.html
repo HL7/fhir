@@ -367,8 +367,16 @@ for the specification:
 <td>3.0</td>
 </tr>
 <tr>
-<td><a href="http://hl7.org/fhir/r4">FHIR R4</a> (this version)</td>
-<td>4.0 (once published)</td>
+  <td><a href="http://hl7.org/fhir/r4">FHIR R4</a> (R4, mixed STU/Normative)</td>
+  <td>4.0</td>
+</tr>
+<tr>
+  <td><a href="http://hl7.org/fhir/r4b">FHIR R4B</a> (R4B, only STU changes)</td>
+  <td>4.3 (once published)</td>
+</tr>
+<tr>
+  <td><a href="http://hl7.org/fhir/r5">FHIR R5</a> (this version)</td>
+  <td>5.0 (once published)</td>
 </tr>
 </table>
 <p>Intermediate balloted releases may also be encountered occasionally - see <a href="http://hl7.org/fhir/directory.html">publications directory</a>. 
@@ -494,7 +502,7 @@ Note that a resource that only contains a subset of the data is
 not suitable for use as a base to update the resource, and might not
 be suitable for other uses. The same applies to the <a href="search.html#elements">_elements</a> parameter - both
 that it should be supported, and the subset implications. Servers SHOULD define a <code>Resource.meta.tag</code> with
-the <a href="v3/ObservationValue/cs.html#v3-ObservationValue-SUBSETTED">SUBSETTED</a> as a <a href="resource.html#simple-tags">Simple Tag</a>
+the <a href="https://terminology.hl7.org/CodeSystem-v3-ObservationValue.html#v3-ObservationValue-SUBSETTED">SUBSETTED</a> as a <a href="resource.html#simple-tags">Simple Tag</a>
 to explicitly mark such resources.
 </p>
 <p>
@@ -578,6 +586,9 @@ in <a href="http.html#return">Managing Return Content</a>.
 </p>
 <p>
 Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting updates, but are not required to do so. The impact of this on digital signatures may need to be considered.
+</p>
+<p>
+Note: It is possible that a client may attempt to update a resource that was obtained using search and that was marked with the <code>SUBSETTED</code> tag. It is at the server's discretion whether to accept requests that are tagged as <code>SUBSETTED</code> and, if so, how to handle them.
 </p>
 <a name="upsert"></a>
 <h4>Update as Create</h4>
@@ -931,6 +942,9 @@ In either case, the server SHOULD include a response body containing an <a href=
 </p>
 <p>
 Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting creates, but are not required to do so. The impact of this on digital signatures may need to be considered.
+</p>
+<p>
+Note: A client may attempt to create a resource containing a <code>SUBSETTED</code> tag. It is at the server's discretion whether to accept requests that are tagged as <code>SUBSETTED</code> and, if so, how to handle them.
 </p>
 <p>
 Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
