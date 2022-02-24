@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="research-study-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <lastUpdated value="2022-02-10T16:15:00+05:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -69,7 +69,7 @@
   <concept>
     <code value="completed"/>
     <display value="Completed"/>
-    <definition value="Study is closed to accrual and intervention, i.e. the study is closed to enrollment, all study subjects have completed treatment&#xA;or intervention but are still being followed according to the primary objective of the study."/>
+    <definition value="The study closed according to the study plan.  There will be no further treatments, interventions  or data collection."/>
   </concept>
   <concept>
     <code value="disapproved"/>

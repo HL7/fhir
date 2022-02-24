@@ -128,7 +128,7 @@
     </element>
     <element id="ManufacturedItemDefinition.manufacturedDoseForm">
       <path value="ManufacturedItemDefinition.manufacturedDoseForm"/>
-      <short value="Dose form as manufactured and before any transformation into the pharmaceutical product"/>
+      <short value="Dose form as manufactured (before any necessary transformation)"/>
       <definition value="Dose form as manufactured and before any transformation into the pharmaceutical product."/>
       <min value="1"/>
       <max value="1"/>
@@ -136,6 +136,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ManufacturedDoseForm"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Dose form for a medication, in the form suitable for administering to the patient, after mixing, where necessary."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/manufactured-dose-form"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Manufactured Item.Manufactured Dose Form"/>
@@ -143,7 +151,7 @@
     </element>
     <element id="ManufacturedItemDefinition.unitOfPresentation">
       <path value="ManufacturedItemDefinition.unitOfPresentation"/>
-      <short value="The &#x201C;real world&#x201D; units in which the quantity of the manufactured item is described"/>
+      <short value="The &#x201C;real world&#x201D; units in which the quantity of the item is described"/>
       <definition value="The &#x201C;real world&#x201D; units in which the quantity of the manufactured item is described."/>
       <min value="0"/>
       <max value="1"/>
@@ -151,6 +159,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="UnitOfPresentation"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The presentation type in which an administrable medicinal product is given to a patient."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/unit-of-presentation"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Manufactured Item.Unit of Presentation"/>
@@ -174,7 +190,7 @@
     </element>
     <element id="ManufacturedItemDefinition.ingredient">
       <path value="ManufacturedItemDefinition.ingredient"/>
-      <short value="The ingredients of this manufactured item. This is only needed if the ingredients are not specified by incoming references from the Ingredient resource"/>
+      <short value="The ingredients of this manufactured item. Only needed if these are not specified by incoming references from the Ingredient resource"/>
       <definition value="The ingredients of this manufactured item. This is only needed if the ingredients are not specified by incoming references from the Ingredient resource."/>
       <min value="0"/>
       <max value="*"/>
@@ -182,6 +198,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTSubstanceCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This value set includes all substance codes from SNOMED CT - provided as an exemplar value set."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Manufactured Item.Ingredient (see also FHIR Ingredient resource)"/>
@@ -215,6 +239,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTCharacteristicCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This value set includes all observable entity codes from SNOMED CT - provided as an exemplar value set."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/product-characteristic-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Physical Characteristics, all attributes"/>

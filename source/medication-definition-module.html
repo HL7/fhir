@@ -34,7 +34,7 @@ This module is concerned with resources and functionality in areas such as:
 
 <p>
 	These resources are not typically used in direct patient care or day-to-day prescribing functionality 
-	(for which see the <a href="medications-module.html">Medications Module</a>), but play a supporting role.
+	(for which see the <a href="medications-module.html">Medications Module</a>, and further down on this page: <a href="#presc">Relationship to Prescribing</a>), but play a supporting role.
 	They can specify the "full" version of the product type, with all its information, including the licensed packages available, with their physical details and containers, 
 	through to individual tablet level and on to ingredients and component substances.
 </p>
@@ -160,6 +160,19 @@ This module is concerned with resources and functionality in areas such as:
 	   A simpler example of a co-packaged device and liquid is <a href="medicinalproductdefinition-example-co-packaged-liquid-and-syringe.html">here</a>.
 	</p>
 	
+	<a name="package-detail-consistency"/>
+	<p>The PackagedProductDefinition resource can be used for different aspects of package information:</p>
+	<ul>
+		<li>Complete package definitions (a package type, and its internals)</li>	
+		<li>Just the internal packaging (perhaps only the innermost layer of packaging that touches the tablet)</li>	
+		<li>A package type definition that has no internals specified (a common case for a drug dictionary)</li>	
+	</ul>
+	<p>The resource elements must be used in a consistent way for each case. This diagram shows how these three cases are handled. 
+	See the <a href="packagedproductdefinition.html">PackagedProductDefinition</a> resource for more information.
+	</p>
+	<img src="packages-and-backbone.png" alt="Package resource and package packbone"/>
+	<br/>	
+	<br/>	
 	<a name="ings"></a>
 	<h4>Ingredients and Substances</h4>
 	<table class="bare">
@@ -235,6 +248,63 @@ This module is concerned with resources and functionality in areas such as:
 	Instances of substances and ingredients (a substance in a role) are <a href="substance.html">Substances</a>.
 	Data such as batch numbers, and actual manufacturing dates belong on instances of products or substances rather than definitions.
 </p>
+<a name="presc"></a>
+	<h3>Relationship to Prescribing</h3>
+	<p>
+		This diagram shows the principles of how these sets of resources relate:
+		<img src="medication-definition-and-prescribing-resources.png" alt="Image showing the medication definition resources and prescribing ones"/>
+	</p>
+	<p>
+		The <a href="medication.html">Medication</a> resource, and others in the <a href="medications-module.html">Medications Module</a> (shown at the top of the diagram), 
+		mainly cover the use of a medication "by reference" (using a code), 
+		with only some basic extra optional information: form, strength, perhaps batch number and even less commonly used - simple ingredients. 
+		Many of those are rarely populated because they are implicit in the code. So the Medication resource doesn’t define medicinal products to any extent, 
+		it is more of a selector.
+	</p>
+	<p>
+		The <a href="medicinalproductdefinition.html">MedicinalProductDefinition</a> resource, and the others in this module (show lower in the diagram), 
+		cover the detailed defining data of medicinal products, 
+		to a level that is only occasionally needed for day-to-day prescribing 
+		(e.g. for look-ups of unfamiliar products), but that is commonly required by manufacturers and regulators.
+	</p>
+	<p>
+		These Medication Definition resources are information about drugs (and related products), and drug product information is useful any 
+		time that a drug is part of a scenario or is in the attention of a clinician or patient. 
+	</p>
+	<p>
+		If the drug is in scope of a workflow then these resources and their content data may be in scope of the software. 
+		But these resources are not themselves directly "prescribed". You usually prescribe a shorthand drug reference - a code (with varying specificity) - 
+		and not the page from the pharmacopeia or drug catalogue - which is more what these resources represent. 
+		But it is clear that the prescribed drug and the information in the catalogue or database about that drug are two sides of the same thing, 
+		and not two different worlds. Those detailed properties always exist, in all settings.
+	</p>
+	<p>
+		So the main difference between the Medication resource and the Medication Definition ones is level of detail, 
+		or more accurately the "extent" of information. To prescribe a drug all you need to do is identify what drug it is (or substance etc.). 
+		But there are times when you need to open your book (national formulary, or maybe a national drug regulator's website) 
+		and want to know the color of the tablet, or if it can be given for children, or if it has a syringe in the package. 
+		You may need to know if it is licensed as prescription only (in France), or if an excipient is present that the patient is allergic to - 
+		and who manufactured that. Or if it comes in a smaller or bigger pack. All of this is in these Medication Definition resources. 
+		You don't prescribe that information (or the book) but it is useful to support prescribing, and other patient processes, such as adverse event investigation. 
+	</p>
+	<p>
+		You therefore prescribe a "code", but these resources sit behind this code, providing context and definition, 
+		giving more detail than even most drug code systems/ontologies tend to have. Also, this information forms the product dossier when people want to 
+		decide if this drug is safe and effective, and this is separate from prescribing use. 
+	</p>
+	<p>
+		The distinction between the two sets of resources is not "regulatory" versus "prescribing". It is important to realise that there is only one set of 
+		defining information in the real world about the drug, no matter what context, or who needs it, or what subset is relevant to them. 
+		The drug info is the drug info and it exists whether it's a clinical trial, a drug licence approval, or a dispense. 
+		It always has this set of properties - though some parts of the information set vary depending on the geography and over time. 
+	</p>
+	<p>
+		Hence the information in the Medication Definition resources is not correctly scoped as "regulatory". It is just the facts about the drug, same as always, 
+		from when it was first created and trialled, to when it is manufactured, distributed, prescribed and then tracked after administration. 
+		However at dispense and especially at prescribe time only a smaller subset of this information is usually of direct interest. 
+		Regulators on the other hand, by the nature of their role, study the drug in great depth (down to molecular level perhaps) 
+		and consider more of the same set of information, which these resources cover.
+	</p>
 	<a name="secpriv"></a>
 <h3>Security and Privacy</h3>
 <p>

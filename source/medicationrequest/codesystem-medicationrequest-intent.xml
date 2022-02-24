@@ -33,27 +33,27 @@
     <code value="order"/>
     <display value="Order"/>
     <definition value="The request represents a request/demand and authorization for action"/>
-  </concept>
-  <concept>
-    <code value="original-order"/>
-    <display value="Original Order"/>
-    <definition value="The request represents the original authorization for the medication request."/>
-  </concept>
-  <concept>
-    <code value="reflex-order"/>
-    <display value="Reflex Order"/>
-    <definition value="The request represents an automatically generated supplemental authorization for action based on a parent authorization together with initial results of the action taken against that parent authorization.."/>
-  </concept>
-  <concept>
-    <code value="filler-order"/>
-    <display value="Filler Order"/>
-    <definition value="The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller&#39;s intention to act upon a submitted order."/>
-  </concept>
-  <concept>
-    <code value="instance-order"/>
-    <display value="Instance Order"/>
-    <definition value="The request represents an instance for the particular order, for example a medication administration record."/>
-  </concept>
+    <concept>
+      <code value="original-order"/>
+      <display value="Original Order"/>
+      <definition value="The request represents the original authorization for the medication request."/>
+    </concept>
+    <concept>
+      <code value="reflex-order"/>
+      <display value="Reflex Order"/>
+      <definition value="The request represents an automatically generated supplemental authorization for action based on a parent authorization together with initial results of the action taken against that parent authorization.."/>
+    </concept>
+    <concept>
+      <code value="filler-order"/>
+      <display value="Filler Order"/>
+      <definition value="The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller&#39;s intention to act upon a submitted order."/>
+      <concept>
+        <code value="instance-order"/>
+        <display value="Instance Order"/>
+        <definition value="The request represents an instance for the particular order and is used to generate a schedule of requests on a medication administration record (MAR)."/>
+      </concept>
+    </concept>
+    </concept>
   <concept>
     <code value="option"/>
     <display value="Option"/>
