@@ -16,7 +16,7 @@
   <name value="GenderIdentity"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <description value="This example code System defines a set of codes that can be used to indicate a patient&#39;s gender identity."/>
+  <description value="This example code system defines a set of codes that can be used to indicate a patient&#39;s gender identity."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

@@ -26,19 +26,7 @@
   <abstract value="false"/>
   <context>
     <type value="element"/>
-    <expression value="Patient"/>
-  </context>
-  <context>
-    <type value="element"/>
-    <expression value="RelatedPerson"/>
-  </context>
-  <context>
-    <type value="element"/>
-    <expression value="Person"/>
-  </context>
-  <context>
-    <type value="element"/>
-    <expression value="Practitioner"/>
+    <expression value="Resource"/>
   </context>
   <type value="Extension"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
