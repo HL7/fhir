@@ -754,7 +754,7 @@
         <severity value="error"/>
         <human value="If there are more than one enableWhen, enableBehavior must be specified"/>
         <expression value="enableWhen.count() &gt; 1 implies enableBehavior.exists()"/>
-        <xpath value="not(f:answerOption) or not(count(f:*[starts-with(local-name(.), 'initial')]))"/>
+				<xpath value="not(count(f:enableWhen) &gt; 1) or exists(f:enableBehavior)"/>
       </constraint>
       <mapping>
         <identity value="rim"/>
