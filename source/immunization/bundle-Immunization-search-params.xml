@@ -16,8 +16,8 @@
         <description value="Vaccination  (non)-Administration Date"/>
         <code value="date"/>
         <type value="date"/>
-        <expression value="Immunization.occurrence"/>
-        <xpath value="f:Immunization/f:occurrenceDateTime | f:Immunization/f:occurrenceString"/>
+        <expression value="(Immunization.occurrence as dateTime)"/>
+        <xpath value="f:Immunization/f:occurrenceDateTime"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
