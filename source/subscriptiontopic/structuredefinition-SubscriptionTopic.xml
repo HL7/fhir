@@ -362,7 +362,7 @@
     <element id="SubscriptionTopic.resourceTrigger.queryCriteria.resultForCreate">
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.resultForCreate"/>
       <short value="test-passes | test-fails"/>
-      <definition value="What behavior a server will exhibit if the previous state of a resource does NOT exist (e.g., prior to a create)."/>
+      <definition value="For &quot;create&quot; interactions, should the &quot;previous&quot; criteria count as an automatic pass or an automatic fail."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -393,7 +393,7 @@
     <element id="SubscriptionTopic.resourceTrigger.queryCriteria.resultForDelete">
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.resultForDelete"/>
       <short value="test-passes | test-fails"/>
-      <definition value="What behavior a server will exhibit if the current state of a resource does NOT exist (e.g., after a DELETE)."/>
+      <definition value="For &quot;delete&quot; interactions, should the &quot;current&quot; criteria count as an automatic pass or an automatic fail."/>
       <min value="0"/>
       <max value="1"/>
       <type>

@@ -86,14 +86,6 @@
 </p>
 <p>
 </p>
-<p>
-  As an alternative to subscriptions, the FHIR REST API describes a
-  polling-based method for observing events using <a href="bundle.html">bundles</a>
-  and the <a href="http.html#history">history operation</a>. This method
-  of polling allows for a more straightforward implementation, but can cause processing delays
-  (e.g., time between polling operations) and may result in higher computational
-  costs on the server (e.g., processing queries when there are no state changes).
-</p>
 
 <a name="relationtofhircast"/>
 <h3>Relation to FHIRcast</h3>
@@ -185,7 +177,7 @@
   <ul>
     <li>What causes a notification, either by referencing an event definition in an event trigger (e.g., <code>http://example.com/fhir/events#something-interesting-happened</code>) or by describing a resource state change in a resource trigger (e.g., an <code>Encounter</code> is created or updated to have an <code>Encounter.state</code> of <code>active</code>).</li>
     <li>What filters a client is allowed to request.  For example, a topic that allows clients to restrict notifications to a particular patient id or group, a specific procedure, etc., relevant to that particular topic.</li>
-    <li>What related resources MAY included in notifications.  For example, while a discharge notification would likely be focused on the <code>Encounter</code> resource, since that is the resource that is updated, it is likely desireable to include the patient information, observations, diagnosed conditions, location information, etc.</li>
+    <li>What related resources the server MAY include in notifications.  For example, while a discharge notification would likely be focused on the <code>Encounter</code> resource, since that is the resource that is updated, it is likely desireable to include the patient information, observations, diagnosed conditions, location information, etc.</li>
   </ul>
 </p>
 <p>
@@ -366,19 +358,19 @@
   <figcaption>Diagram showing broken communication detection and recovery workflow</figcaption>
 </figure>
 <p>
-  In the above sequence, the subscriber is aware that the <code>heartbeatPeriod</code> has elapsed for a subscription without receiving any notifications.  The subscriber then asks the server for the <code>$status</code> of the subscription, and seeing an error, begins a recovery process.  As in the previous scenario, the recovery process itself will vary by subscriber, but should be a well-understood method for recovering in the event of errors.
+  In the above sequence, the subscriber is aware that the <code>heartbeatPeriod</code> has elapsed for a subscription without receiving any notifications.  The subscriber then asks the server for the <a href="subscription-operation-status.html">$status</a> of the subscription, and seeing an error, begins a recovery process.  As in the previous scenario, the recovery process itself will vary by subscriber, but should be a well-understood method for recovering in the event of errors.
 </p>
 
 <a name="recovering-from-errors"/>
 <h4>Recovering from Errors</h4>
 <p>
-  Clients are responsible for devising an appropriate method for recovering from errors.  Often, this process will include a series or batch of requests that allow a client to know the current state, or a request to the <code>$events</code> operation when available.  For example, an application may need to query all relevant resources for a patient in order to ensure nothing has been missed.  Once an application has returned to a functional state, it should request the subscription is reactivated by updating the <code>status</code> to either <code>requested</code> or <code>active</code> as appropriate.
+  Clients are responsible for devising an appropriate method for recovering from errors.  Often, this process will include a series or batch of requests that allow a client to know the current state or a request to the <a href="subscription-operation-events.html">$events</a> operation when available.  For example, an application may need to query all relevant resources for a patient in order to ensure nothing has been missed.  Once an application has returned to a functional state, it should request the subscription is reactivated by updating the <code>status</code> to either <code>requested</code> or <code>active</code> as appropriate.
 </p>
 
 <a name="using-events-operation"/>
 <h4>Using the <code>$events</code> operation</h4>
 <p>
-  Servers MAY choose to support the <code>$events</code> operation, as defined on the <code>Subscription</code> resource.  The <code>$events</code> operation allows clients to request events which have occurred in the past.  Servers which implement the operation MAY use implementation-specific criteria to restrict availability of events (e.g., most recent 10 events, events within the past 30 days, etc.).
+  Servers MAY choose to support the <a href="subscription-operation-events.html">$events</a> operation, as defined on the <code>Subscription</code> resource.  The <code>$events</code> operation allows clients to request events which have occurred in the past.  Servers which implement the operation MAY use implementation-specific criteria to restrict availability of events (e.g., most recent 10 events, events within the past 30 days, etc.).
 </p>
 <p>
   During a recovery process, clients MAY try to retrieve missing events via the <code>$events</code> operation, which should allow processing to continue as normal.

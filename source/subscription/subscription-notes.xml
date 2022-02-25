@@ -24,7 +24,7 @@
 			An example notification with an <code>empty</code> payload can be found <a href="notification-empty.html">here</a>.
 		</p>
 		<p>
-			With the content type of <code>empty</code>, all information about the resources involved in triggering the notification is only available via channels other than the Subscription itself (e.g., the REST API or <code>$events</code> operation). This mitigates many security concerns by both removing most PHI from the notification and allows servers to consolidate authorization and authentication logic. When the subscriber receives a notification of this type, it may query the server to fetch all the relevant resources based on the <code>SubscriptionTopic</code> and applicable filters. The client might include a <code>_since=</code> query parameter, supplying its last query timestamp to retrieve only the most recent resources. For example, if the notification is for a topic about patient admission, the subscriber will generally query for recent <code>Encounters</code> for a patient or group of patients, then fetch them as needed.
+			With the content type of <code>empty</code>, all information about the resources involved in triggering the notification is only available via channels other than the Subscription itself (e.g., the REST API or <a href="subscription-operation-events.html">$events</a> operation). This mitigates many security concerns by both removing most PHI from the notification and allows servers to consolidate authorization and authentication logic. When the subscriber receives a notification of this type, it may query the server to fetch all the relevant resources based on the <code>SubscriptionTopic</code> and applicable filters. The client might include a <code>_since=</code> query parameter, supplying its last query timestamp to retrieve only the most recent resources. For example, if the notification is for a topic about patient admission, the subscriber will generally query for recent <code>Encounters</code> for a patient or group of patients, then fetch them as needed.
 		</p>
 		<p>
 			When the content type is <code>empty</code>, notification bundles SHALL not contain <code>Bundle.entry</code> elements other than the <code>SubscriptionStatus</code> for the notification.
@@ -213,7 +213,7 @@
         If the token is expiring soon and the Client wishes to continue receiving notifications, it should invoke the <code>$get-ws-binding-token</code> operation via REST.
       </li>
       <li>
-				Server responds with a <code>token</code>, <code>expiration</code>, and <code>websocket-url</code>.  Note that the <code>token</code> and <code>websocket-url</code> MAY be the same or new values, as determined by the server.
+				Server responds with at least a <code>token</code>, <code>expiration</code>, and <code>websocket-url</code>.  Note that the <code>token</code> and <code>websocket-url</code> MAY be the same or new values, as determined by the server.
       </li>
       <li>
         If the <code>websocket-url</code> is different from the existing connection, the Client establishes a new connection to the Client Endpoint.
@@ -229,7 +229,12 @@
 			</li>
 		</ol>
 		<p>
-			Note: all notifications sent from the server SHALL be in the MIME Type specified by the <a href="subscription-definitions.html#Subscription.contentType">Subscription.contentType</a> and the content level specified by <a href="subscription-definitions.html#Subscription.content">Subscription.content</a>.
+			Notes:
+      <ul>
+        <li>Notifications sent from the server SHALL be in the MIME Type specified by the <a href="subscription-definitions.html#Subscription.contentType">Subscription.contentType</a>, however, if notifications are requested for multiple subscriptions with different MIME types, the server MAY choose to send all notifications in a single MIME type.</li>
+        <li>Notifications SHALL conform to the content level specified by <a href="subscription-definitions.html#Subscription.content">Subscription.content</a>.</li>
+        <li>When receiving notifications, a connected websocket client has no responsibilities beyond reading the message (e.g., there is no acknowledgement message).</li>
+      </ul>
 		</p>
 		<p>
 			[%stu-note%]
