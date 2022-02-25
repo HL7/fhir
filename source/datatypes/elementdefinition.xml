@@ -4464,25 +4464,25 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">(isModifier.exists() and isModifier) implies isModifierReason.exists()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(f:isModifier/@value = 'true') or exists(f:isModifierReason)</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">19</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Element names cannot include some special characters</Data></Cell>
+    <Cell><Data ss:Type="String">Element names cannot include some special characters</Data></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">path.matches('[^\\s\\.,:;\\\'"\\/|?!@#$%&amp;*()\\[\\]{}]{1,64}(\\.[^\\s\\.,:;\\\'"\\/|?!@#$%&amp;*()\\[\\]{}]{1,64}(\\[x\\])?(\\:[^\\s\\.]+)?)*')</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">matches(path/@value, '[^\s\.,:;\'&amp;quot;\/|?!@#$%&amp;amp;*()\[\]{}]{1,64}(\.[^\s\.,:;\'&amp;quot;\/|?!@#$%&amp;amp;*()\[\]{}]{1,64}(\[x\])?(\:[^\s\.]+)?)*')</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">path.matches('^[^\\s\\.,:;\\\'"\\/|?!@#$%&amp;*()\\[\\]{}]{1,64}(\\.[^\\s\\.,:;\\\'"\\/|?!@#$%&amp;*()\\[\\]{}]{1,64}(\\[x\\])?(\\:[^\\s\\.]+)?)*$')</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">matches(f:path/@value, '^[^\s\.,:;\'&amp;quot;\/|?!@#$%&amp;*()\[\]{}]{1,64}(\.[^\s\.,:;\'&amp;quot;\/|?!@#$%&amp;*()\[\]{}]{1,64}(\[x\])?(\:[^\s\.]+)?)*$')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">20</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"><Data ss:Type="String">warning</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken</Data></Cell>
+    <Cell><Data ss:Type="String">Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken</Data></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">path.matches('[A-Za-z][A-Za-z0-9]*(\\.[a-z][A-Za-z0-9]*(\\[x])?)*')</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">matches(path/@value, '[A-Za-z][A-Za-z0-9]*(\.[a-z][A-Za-z0-9]*(\[x])?)*')</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">path.matches('^[A-Za-z][A-Za-z0-9]*(\\.[a-z][A-Za-z0-9]*(\\[x])?)*$')</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">matches(f:path/@value, '^[A-Za-z][A-Za-z0-9]*(\.[a-z][A-Za-z0-9]*(\[x])?)*$')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">21</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4771,7 +4771,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
