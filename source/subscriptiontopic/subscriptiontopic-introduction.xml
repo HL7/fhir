@@ -7,11 +7,8 @@
     This document contains information about the <code>SubscriptionTopic</code> resource and details specific to options in it.  See <a href="subscriptions.html">Subscriptions</a> for general information about using Subscriptions in FHIR.
   </p>
   <p>
-    <code>SubscriptionTopic</code> is canonical resource, used to define topics used by <a href="subscription.html">Subscription</a> resources.  A <code>SubscriptionTopic</code> creates or represents a concrete concept for both clients and servers.  For example:
+    <code>SubscriptionTopic</code> is <a href="canonical.html">canonical resource</a> defining a set of events that a client can subscribe to.  A <code>SubscriptionTopic</code> represents a concrete concept for both clients and servers.  For example:
     <ul>
-      <li>
-        Concept Definitions, such as the start of a clinical encounter or a new observation for a patient.
-      </li>
       <li>
         Resource Interactions, such as <code>create</code> on <code>Observation</code> resources.
       </li>
