@@ -1446,6 +1446,9 @@
       </type>
     </element>
     <element id="Citation.citedArtifact.contributorship.summary">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="ContributorshipSummary"/>
+      </extension>
       <path value="Citation.citedArtifact.contributorship.summary"/>
       <short value="Used to record a display of the author/contributor list without separate coding for each list member"/>
       <min value="0"/>
