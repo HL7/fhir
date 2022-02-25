@@ -555,7 +555,7 @@ The <code>update</code> interaction is performed by an HTTP <code>PUT</code> com
   PUT [base]/[type]/[id] {?_format=[mime-type]}
 </pre>
 <p>
-The request body SHALL be a <a href="resource.html">Resource</a> with an <code>id</code> element
+The request body SHALL be a <a href="resource.html">Resource</a> of the named type with an <code>id</code> element
 that has an identical value to the <code>[id]</code> in the URL. If no <code>id</code> element is provided, 
 or the id disagrees with the id in the URL, the server SHALL respond with an HTTP <code>400</code> error code, and SHOULD
 provide an <a href="operationoutcome.html">OperationOutcome</a> identifying the issue.
@@ -904,7 +904,7 @@ interaction instead. The <code>create</code> interaction is performed by an HTTP
   POST [base]/[type] {?_format=[mime-type]}
 </pre>
 <p>
-The request body SHALL be a FHIR Resource. The resource does not need to have an <code>id</code> element (this is 
+The request body SHALL be a FHIR Resource of the named type. The resource does not need to have an <code>id</code> element (this is 
 one of the few cases where a resource exists without an <code>id</code> element). If an <code>id</code> is provided, the
 server SHALL ignore it. If the request body includes a <a href="resource.html#meta">meta</a>, the server SHALL
 ignore the existing <code>versionId</code> and <code>lastUpdated</code> values.
@@ -1072,7 +1072,7 @@ issues with a <code>fatal</code> or <code>error</code> <a href="valueset-issue-s
 </p>
 <p>
 If the search fails (cannot be executed, not that there are no matches), the return value 
-SHALL be a status code 4xx or 5xx with an <a href="operationoutcome.html">OperationOutcome</a>.
+SHALL be a status code 4xx or 5xx, possibly accompanied by an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
 <p>
 Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
@@ -1534,7 +1534,7 @@ Additional Notes about maintaining a history of resources:
 </ul>
 
 <p>
-Thereis a caveat with the <code>_list</code> parameter, associated with changes to the list 
+There is a caveat with the <code>_list</code> parameter, associated with changes to the list 
 while making repeated periodic queries; if the list changes, the response will include 
 changes to the resources in the list for the period specified, but will omit both later 
 changes to items no longer in the list, or older changes associated with items in the list. 
@@ -1764,7 +1764,7 @@ Note that <i>all</i> requests may include an optional <code>Accept</code> header
 <table class="grid">
 <tr><th>Interaction</th>                <th>Path</th><th colspan="5">Request</th></tr>
 <tr><th colspan="2"></th>                                                       <th>Verb</th>           <th>Content-Type</th>   <th>Body</th>     <th>Prefer</th>         <th>Conditional</th></tr>
-<tr><td><code>read</code></td>                       <td><code>/[type]/[id]</code></td>                   <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>      <td>N/A</td>     		  <td>O: <code>ETag</code>, <code>If-Modified-Since</code>, <code>If-None-Match</code></td></tr>
+<tr><td><code>read</code></td>                       <td><code>/[type]/[id]</code></td>                   <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>      <td>N/A</td>     		  <td>O: <code>If-Modified-Since</code>, <code>If-None-Match</code></td></tr>
 <tr><td><code>vread</code></td>                      <td><code>/[type]/[id]/_history/[vid]</code></td>    <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>      <td>N/A</td>         	<td>N/A</td></tr>
 <tr><td><code>update</code></td>                     <td><code>/[type]/[id]</code></td>                   <td><code>PUT</code></td>            <td>R</td>              <td>Resource</td> <td>O</td>         	<td>O: <code>If-Match</code></td></tr>
 <tr><td><code>patch</code></td>                      <td><code>/[type]/[id]</code></td>                   <td><code>PATCH</code></td>          <td>R (may be a patch type)</td>        <td>Patch</td> <td>O</td>         	<td>O: <code>If-Match</code></td></tr>
@@ -1796,7 +1796,7 @@ Notes:
 <tr><th>Interaction</th><th colspan="6">Response</th></tr>
 <tr><th colspan="1"></th>   <th>Content-Type</th> <th>Body</th>               <th>Location</th> 	    <th>Versioning</th> 					<th>Status Codes</th></tr>
 <tr><td><code>read</code></td>           <td>R</td>            <td>R: Resource</td>           <td>N/A</td>         <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>404</code>, <code>410</code></td></tr>
-<tr><td><code>vread</code></td>          <td>R</td>            <td>R: Resource</td>           <td>N/A</td>         <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>404</code></td></tr>
+<tr><td><code>vread</code></td>          <td>R</td>            <td>R: Resource</td>           <td>N/A</td>         <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>404</code>, <code>410</code></td></tr>
 <tr><td><code>update</code></td>         <td>R if body</td>    <td>O: Resource (Prefer)</td>  <td>N/A</td>       	 <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>201</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
 <tr><td><code>patch</code></td>          <td>R if body</td>    <td>O: Resource (Prefer)</td>  <td>N/A</td>	       <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>201</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
 <tr><td><code>delete</code></td>         <td>R if body</td><td>O: OperationOutcome</td>  <td>N/A</td>      	       <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>204</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code></td></tr>
