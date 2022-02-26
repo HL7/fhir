@@ -788,6 +788,9 @@
       </type>
     </element>
     <element id="Evidence.statistic.attributeEstimate.attributeEstimate">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="AttributeEstimateAttributeEstimate"/>
+      </extension>
       <path value="Evidence.statistic.attributeEstimate.attributeEstimate"/>
       <short value="A nested attribute estimate; which is the attribute estimate of an attribute estimate"/>
       <definition value="A nested attribute estimate; which is the attribute estimate of an attribute estimate."/>
