@@ -530,7 +530,7 @@ Further notes about the use of the different discriminator types:
    This provides the most power, since the full range of profiling capabilities are available,
    but it is also the hardest to implement, and requires the most processing (>1000-fold compared
    to the others). Implementers should use this only where absolutely required. 
-   Typical example: slice on the type of <code>Composition.section.entry()</code> for the profiles Current-Clinical-Condition, Past-Medical-Event, etc
+   Typical example: slice on the type of <code>Composition.section.entry().resolve()</code> for the profiles Current-Clinical-Condition, Past-Medical-Event, etc
  </td></tr>
 </table>
 
