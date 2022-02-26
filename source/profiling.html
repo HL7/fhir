@@ -841,6 +841,16 @@ Note that an element that has the property IsModifier is not necessarily a "key"
 the important elements to make use of the resource), nor is it automatically mustSupport - however both
 of these things are more likely to be true for IsModifier elements than for other elements.
 </p>
+<p>
+When a child element is defined as Must Support and the parent element isn't, a system must support the child if it support the parent, 
+but there's no expectation that the system must support the parent.
+</p>
+<p>
+If an Implementation Guide defines a complex element as Must Support, and does not declare any of its child elements as Must Support, 
+then the Implementation Guide should provide further guidance; if there is no further guidance, then the expectation is that
+implementers must support at least a subset of the child elements of the MS parent.
+</p>
+
 
 <a name="search"></a>
 <h3>Search Criteria</h3>
