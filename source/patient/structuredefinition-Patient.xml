@@ -175,7 +175,7 @@
       <path value="Patient.name"/>
       <short value="A name associated with the patient"/>
       <definition value="A name associated with the individual."/>
-      <comment value="A patient may have multiple names with different uses or applicable periods. For animals, the name is a &quot;HumanName&quot; in the sense that is assigned and used by humans and has the same patterns."/>
+      <comment value="A patient may have multiple names with different uses or applicable periods. For animals, the name is a &quot;HumanName&quot; in the sense that is assigned and used by humans and has the same patterns. Animal names may be communicated as given names, and optionally may include a family name."/>
       <requirements value="Need to be able to track the patient by multiple names. Examples are your official name and a partner name."/>
       <min value="0"/>
       <max value="*"/>
