@@ -177,8 +177,9 @@
     </element>
     <element id="RelatedPerson.relationship">
       <path value="RelatedPerson.relationship"/>
-      <short value="The nature of the relationship to the patient"/>
-      <definition value="The nature of the relationship that the related person has with the patient. e.g. The RelatedPerson is the mother of the Patient."/>
+      <short value="The relationship of the related person to the patient."/>
+      <definition value="The nature of the relationship between the related person and the patient."/>
+      <comment value="The directionality of the relationship is from the RelatedPerson to the Patient. For example, if the Patient is a child, and the RelatedPerson is the mother, the relationship would be PRN (parent) or MTH (mother)."/>
       <requirements value="We need to know the relationship with the patient since it influences the interpretation of the information attributed to this person."/>
       <min value="0"/>
       <max value="*"/>
