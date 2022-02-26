@@ -367,6 +367,7 @@
       <path value="RelatedPerson.period"/>
       <short value="Period of time that this relationship is considered valid"/>
       <definition value="The period of time during which this relationship is or was active. If there are no dates defined, then the interval is unknown."/>
+      <comment value="If an individual has a relationship with a patient over multiple, non-adjacent periods, there should be a distinct RelatedPerson instance for each period.  For example, if a person is a roommate for a period of time, moves out, and is later a roommate with the same person again, you would have two RelatedPerson instances."/>
       <min value="0"/>
       <max value="1"/>
       <type>
