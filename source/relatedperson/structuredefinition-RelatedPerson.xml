@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process."/>
+  <description value="Information about a person that is involved in a patient's health or the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process."/>
   <purpose value="Need to track persons related to the patient or the healthcare process."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
@@ -76,7 +76,7 @@
       </extension>
       <path value="RelatedPerson"/>
       <short value="A person that is related to a patient, but who is not a direct target of care"/>
-      <definition value="Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process."/>
+      <definition value="Information about a person that is involved in a patient's health or the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
