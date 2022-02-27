@@ -11,9 +11,6 @@
     </coding>
   </type>
   <name value="Burgers UMC Ear,Nose,Throat unit"/>
-  <partOf>
-    <reference value="Organization/f001"/>
-  </partOf>
   <contact>
     <purpose>
       <coding>
@@ -40,4 +37,7 @@
       <line value="West Wing, floor 5"/>
     </address>
   </contact>
+  <partOf>
+    <reference value="Organization/f001"/>
+  </partOf>
 </Organization>

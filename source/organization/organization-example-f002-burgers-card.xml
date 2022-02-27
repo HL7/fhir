@@ -11,9 +11,6 @@
     </coding>
   </type>
   <name value="Burgers UMC Cardiology unit"/>
-  <partOf>
-    <reference value="Organization/f001"/>
-  </partOf>
   <contact>
     <purpose>
       <coding>
@@ -40,4 +37,7 @@
       <line value="South Wing, floor 2"/>
     </address>
   </contact>
+  <partOf>
+    <reference value="Organization/f001"/>
+  </partOf>
 </Organization>
