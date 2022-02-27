@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process."/>
+  <description value="Information about a person that is involved in a patient's health or the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process."/>
   <purpose value="Need to track persons related to the patient or the healthcare process."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
@@ -76,7 +76,7 @@
       </extension>
       <path value="RelatedPerson"/>
       <short value="A person that is related to a patient, but who is not a direct target of care"/>
-      <definition value="Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process."/>
+      <definition value="Information about a person that is involved in a patient's health or the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -177,8 +177,9 @@
     </element>
     <element id="RelatedPerson.relationship">
       <path value="RelatedPerson.relationship"/>
-      <short value="The nature of the relationship to the patient"/>
-      <definition value="The nature of the relationship that the related person has with the patient. e.g. The RelatedPerson is the mother of the Patient."/>
+      <short value="The relationship of the related person to the patient"/>
+      <definition value="The nature of the relationship between the related person and the patient."/>
+      <comment value="The directionality of the relationship is from the RelatedPerson to the Patient. For example, if the Patient is a child, and the RelatedPerson is the mother, the relationship would be PRN (parent) or MTH (mother)."/>
       <requirements value="We need to know the relationship with the patient since it influences the interpretation of the information attributed to this person."/>
       <min value="0"/>
       <max value="*"/>
@@ -367,6 +368,7 @@
       <path value="RelatedPerson.period"/>
       <short value="Period of time that this relationship is considered valid"/>
       <definition value="The period of time during which this relationship is or was active. If there are no dates defined, then the interval is unknown."/>
+      <comment value="If an individual has a relationship with a patient over multiple, non-adjacent periods, there should be a distinct RelatedPerson instance for each period.  For example, if a person is a roommate for a period of time, moves out, and is later a roommate with the same person again, you would have two RelatedPerson instances."/>
       <min value="0"/>
       <max value="1"/>
       <type>
