@@ -112,6 +112,7 @@
       <path value="PractitionerRole.identifier"/>
       <short value="Business Identifiers that are specific to a role/location"/>
       <definition value="Business Identifiers that are specific to a role/location."/>
+      <comment value="A specific identifier value (e.g. Minnesota Registration ID) may appear on multiple PractitionerRole instances which could be for different periods, or different Roles (or other reasons).  A specific identifier may be included multiple times in the same PractitionerRole instance with different identifier validity periods."/>
       <requirements value="Often, specific identities are assigned for the agent."/>
       <min value="0"/>
       <max value="*"/>
