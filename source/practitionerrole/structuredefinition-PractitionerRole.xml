@@ -177,6 +177,7 @@
       <path value="PractitionerRole.period"/>
       <short value="The period during which the practitioner is authorized to perform in these role(s)"/>
       <definition value="The period during which the person is authorized to act as a practitioner in these role(s) for the organization."/>
+      <comment value="If a practitioner is performing a role within an organization over multiple, non-adjacent periods, there should be a distinct PractitionerRole instance for each period.  For example, if a nurse is employed at a hospital, leaves the organization for a period of time due to pandemic related stress, but returns post-pandemic to the same job role, there would be two PractitionerRole instances for the different periods of employment."/>
       <requirements value="Even after the agencies is revoked, the fact that it existed must still be recorded."/>
       <min value="0"/>
       <max value="1"/>
