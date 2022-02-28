@@ -78,7 +78,7 @@
         <severity value="error"/>
         <human value="Indication, Contraindication, Interaction, UndesirableEffect and Warning cannot be used in the same instance"/>
         <expression value="(ClinicalUseDefinition.indication.count() + ClinicalUseDefinition.contraIndication.count() + ClinicalUseDefinition.interaction.count() + ClinicalUseDefinition.undesirableEffect.count() + ClinicalUseDefinition.warning.count())  &lt; 2"/>
-        <xpath value="count(f:ClinicalUseDefinition.f:indication|f:ClinicalUseDefinition.f:contraIndication|f:ClinicalUseDefinition.f:interaction|f:ClinicalUseDefinition.f:undesirableEffect|f:ClinicalUseDefinition.f:warning) &lt; 2"/>
+        <xpath value="count(f:ClinicalUseDefinition/f:indication|f:ClinicalUseDefinition/f:contraIndication|f:ClinicalUseDefinition/f:interaction|f:ClinicalUseDefinition/f:undesirableEffect|f:ClinicalUseDefinition/f:warning) &lt; 2"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
       </constraint>
       <mapping>
@@ -188,7 +188,7 @@
           <valueString value="PublicationStatus"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
@@ -241,7 +241,7 @@
     <element id="ClinicalUseDefinition.contraindication.diseaseStatus">
       <path value="ClinicalUseDefinition.contraindication.diseaseStatus"/>
       <short value="The status of the disease or symptom for the contraindication"/>
-      <definition value="The status of the disease or symptom for the contraindication."/>
+      <definition value="The status of the disease or symptom for the contraindication, for example &quot;chronic&quot; or &quot;metastatic&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -416,7 +416,7 @@
     <element id="ClinicalUseDefinition.indication.diseaseStatus">
       <path value="ClinicalUseDefinition.indication.diseaseStatus"/>
       <short value="The status of the disease or symptom for the indication"/>
-      <definition value="The status of the disease or symptom for the indication."/>
+      <definition value="The status of the disease or symptom for the indication, for example &quot;chronic&quot; or &quot;metastatic&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -434,8 +434,7 @@
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Therapeutic Indication.Disease Stat
-          us"/>
+        <map value="Therapeutic Indication.Disease Status"/>
       </mapping>
     </element>
     <element id="ClinicalUseDefinition.indication.comorbidity">
@@ -506,8 +505,8 @@
     </element>
     <element id="ClinicalUseDefinition.indication.undesirableEffect">
       <path value="ClinicalUseDefinition.indication.undesirableEffect"/>
-      <short value="Specific undesirable effects of the medicinal product"/>
-      <definition value="The specific undesirable effects of the medicinal product."/>
+      <short value="An unwanted side effect or negative outcome of the subject of this resource when being used for this indication"/>
+      <definition value="An unwanted side effect or negative outcome that may happen if you use the drug (or other subject of this resource) for this indication."/>
       <min value="0"/>
       <max value="*"/>
       <type>

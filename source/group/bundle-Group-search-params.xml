@@ -61,7 +61,7 @@
         </component>
         <component>
           <definition value="value"/>
-          <expression value="value"/>
+          <expression value="(value as CodeableConcept) | (value as boolean)"/>
         </component>
       </SearchParameter>
     </resource>

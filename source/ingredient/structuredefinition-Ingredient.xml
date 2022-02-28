@@ -72,6 +72,14 @@
       <definition value="An ingredient of a manufactured item or pharmaceutical product."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="ing-1"/>
+        <severity value="error"/>
+        <human value="If an ingredient is noted as an allergen (allergenicIndicator) then its substance should be a code. If the substance is a SubstanceDefinition, then the allegen information should be documented in that resource"/>
+        <expression value="(Ingredient.allergenicIndicator.where(value='true').count() + Ingredient.substance.code.reference.count())  &lt; 2"/>
+        <xpath value="count(f:Ingredient.f:allergenicIndicator[@value='true']|f:Ingredient.f:substance.f:code.f:reference) &lt; 2"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
+      </constraint>
       <mapping>
         <identity value="idmp"/>
         <map value="Ingredient"/>
@@ -124,14 +132,6 @@
         <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
-      <!--mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-      <mapping>
-        <identity value="iso11179"/>
-        <map value="Registration status"/>
-      </mapping-->
     </element>
     <element id="Ingredient.for">
       <path value="Ingredient.for"/>
@@ -153,7 +153,7 @@
     </element>
     <element id="Ingredient.role">
       <path value="Ingredient.role"/>
-      <short value="A classification of the ingredient identifying its purpose within the product, e.g. active, inactive"/>
+      <short value="Purpose of the ingredient within the product, e.g. active, inactive"/>
       <definition value="A classification of the ingredient identifying its purpose within the product, e.g. active, inactive."/>
       <min value="1"/>
       <max value="1"/>
@@ -176,8 +176,8 @@
     </element>
     <element id="Ingredient.function">
       <path value="Ingredient.function"/>
-      <short value="A classification of the ingredient identifying its precise purpose(s) in the drug product. This extends the Ingredient.role to add more detail. Example: Antioxidant, Alkalizing Agent"/>
-      <definition value="A classification of the ingredient identifying its precise purpose(s) in the drug product. This extends the Ingredient.role to add more detail. Example: Antioxidant, Alkalizing Agent."/>
+      <short value="Precise action within the drug product, e.g. antioxidant, alkalizing agent"/>
+      <definition value="A classification of the ingredient identifying its precise purpose(s) in the drug product. This extends the Ingredient.role to add more detail. Example: antioxidant, alkalizing agent."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -200,12 +200,13 @@
     <element id="Ingredient.allergenicIndicator">
       <path value="Ingredient.allergenicIndicator"/>
       <short value="If the ingredient is a known or suspected allergen"/>
-      <definition value="If the ingredient is a known or suspected allergen."/>
+      <definition value="If the ingredient is a known or suspected allergen. Note that this is a property of the substance, so if a reference to a SubstanceDefinition is used to decribe that (rather than just a code), the allergen information should go there, not here."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
+      <meaningWhenMissing value="If this value is not present, there is no statement being made about whether this is an allergen or not. No inference can be made"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -218,7 +219,11 @@
       </extension>
       <path value="Ingredient.manufacturer"/>
       <short value="An organization that manufactures this ingredient"/>
-      <definition value="An organization that manufactures this ingredient."/>
+      <definition value="The organization(s) that manufacture this ingredient. Can be used to indicate:
+        1) Organizations we are aware of that manufacture this ingredient
+        2) Specific Manufacturer(s) currently being used
+        3) Set of organisations allowed to manufacture this ingredient for this product
+        Users must be clear on the application of context relevant to their use case."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -232,12 +237,12 @@
     </element>
     <element id="Ingredient.manufacturer.role">
       <path value="Ingredient.manufacturer.role"/>
-      <short value="The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role"/>
+      <short value="allowed | possible | actual"/>
       <definition value="The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Coding"/> <!-- but needs to be code -->
+        <code value="code"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -290,7 +295,7 @@
     <element id="Ingredient.substance.code">
       <path value="Ingredient.substance.code"/>
       <short value="A code or full resource that represents the ingredient substance"/>
-      <definition value="A code or full resource that represents the ingredient substance."/>
+      <definition value="A code or full resource that represents the ingredient's substance."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -316,8 +321,8 @@
         <valueCode value="350,106"/>
       </extension>
       <path value="Ingredient.substance.strength"/>
-      <short value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item"/>
-      <definition value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item."/>
+      <short value="The quantity of substance, per presentation, or per volume or mass, and type of quantity"/>
+      <definition value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item. The allowed repetitions do not represent different strengths, but are different representations - mathematically equivalent - of a single strength."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -331,8 +336,8 @@
     </element>
     <element id="Ingredient.substance.strength.presentation[x]">
       <path value="Ingredient.substance.strength.presentation[x]"/>
-      <short value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item"/>
-      <definition value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item."/>
+      <short value="The quantity of substance in the unit of presentation"/>
+      <definition value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item. Unit of presentation refers to the quantity that the item occurs in e.g. a strength per tablet size, perhaps 'per 20mg' (the size of the tablet). It is not generally normalized as a unitary unit, which would be 'per mg')."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -349,7 +354,7 @@
     </element>
     <element id="Ingredient.substance.strength.presentationText">
       <path value="Ingredient.substance.strength.presentationText"/>
-      <short value="A textual represention of either the whole of the presentation strength or a part of it - with the rest being in Strength.presentation as a ratio"/>
+      <short value="Text of either the whole presentation strength or a part of it (rest being in Strength.presentation as a ratio)"/>
       <definition value="A textual represention of either the whole of the presentation strength or a part of it - with the rest being in Strength.presentation as a ratio."/>
       <min value="0"/>
       <max value="1"/>
@@ -382,7 +387,7 @@
     </element>
     <element id="Ingredient.substance.strength.concentrationText">
       <path value="Ingredient.substance.strength.concentrationText"/>
-      <short value="A textual represention of either the whole of the concentration strength or a part of it - with the rest being in Strength.concentration as a ratio"/>
+      <short value="Text of either the whole concentration strength or a part of it (rest being in Strength.concentration as a ratio)"/>
       <definition value="A textual represention of either the whole of the concentration strength or a part of it - with the rest being in Strength.concentration as a ratio."/>
       <min value="0"/>
       <max value="1"/>
@@ -397,8 +402,8 @@
     </element>
     <element id="Ingredient.substance.strength.measurementPoint">
       <path value="Ingredient.substance.strength.measurementPoint"/>
-      <short value="For when strength is measured at a particular point or distance"/>
-      <definition value="For when strength is measured at a particular point or distance."/>
+      <short value="When strength is measured at a particular point or distance"/>
+      <definition value="For when strength is measured at a particular point or distance. There are products where strength is measured at a particular point. For example, the strength of the ingredient in some inhalers is measured at a particular position relative to the point of aerosolization."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -412,7 +417,7 @@
     </element>
     <element id="Ingredient.substance.strength.country">
       <path value="Ingredient.substance.strength.country"/>
-      <short value="The country or countries for which the strength range applies"/>
+      <short value="Where the strength range applies"/>
       <definition value="The country or countries for which the strength range applies."/>
       <min value="0"/>
       <max value="*"/>
@@ -439,7 +444,7 @@
       </extension>
       <path value="Ingredient.substance.strength.referenceStrength"/>
       <short value="Strength expressed in terms of a reference substance"/>
-      <definition value="Strength expressed in terms of a reference substance."/>
+      <definition value="Strength expressed in terms of a reference substance. For when the ingredient strength is additionally expressed as equivalent to the strength of some other closely related substance (e.g. salt vs. base). Reference strength represents the strength (quantitative composition) of the active moiety of the active substance. There are situations when the active substance and active moiety are different, therefore both a strength and a reference strength are needed."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -472,7 +477,7 @@
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Reference Strength.Reference Specified Substance"/>
+        <map value="Reference Strength.Reference Substance"/>
       </mapping>
     </element>
     <element id="Ingredient.substance.strength.referenceStrength.strength[x]">
@@ -495,7 +500,7 @@
     </element>
     <element id="Ingredient.substance.strength.referenceStrength.measurementPoint">
       <path value="Ingredient.substance.strength.referenceStrength.measurementPoint"/>
-      <short value="For when strength is measured at a particular point or distance"/>
+      <short value="When strength is measured at a particular point or distance"/>
       <definition value="For when strength is measured at a particular point or distance."/>
       <min value="0"/>
       <max value="1"/>
@@ -510,7 +515,7 @@
     </element>
     <element id="Ingredient.substance.strength.referenceStrength.country">
       <path value="Ingredient.substance.strength.referenceStrength.country"/>
-      <short value="The country or countries for which the strength range applies"/>
+      <short value="Where the strength range applies"/>
       <definition value="The country or countries for which the strength range applies."/>
       <min value="0"/>
       <max value="*"/>

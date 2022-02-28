@@ -24,17 +24,19 @@ in one section. A summary:
 <ol>
  <li>Time Keeping - all clocks should be synchronized using NTP/SNTP, and the design of the system should be robust against a system clock with the wrong value</li>
  <li><a href="#http">Communications Security</a> - all exchange of production data should be secured using TLS (e.g., https).</li>
- <li><a href="#authentication">Authentication</a> - Users/Clients must be authenticated. For web-centric, OAuth is recommended. When using OAuth, a profile of OAuth will be needed. Consider use of <a href="http://docs.smarthealthit.org/">Smart-On-FHIR</a> where appropriate.</li>
+ <li><a href="#authentication">Authentication</a> - Users/Clients must be authenticated. For web-centric, OAuth is recommended. When using OAuth, a profile of OAuth will be needed. Consider use of <a href="http://www.hl7.org/fhir/smart-app-launch/index.html">HL7 SMART-On-FHIR</a> where appropriate.</li>
  <li><a href="#binding">Authorization/Access Control</a> - FHIR defines a Security Label infrastructure to support access control management. FHIR may also define a set of resources to administer access control management, but does not define any at present</li>
  <li><a href="#audit">Audit</a> - FHIR defines <a href="provenance.html">provenance</a> and <a href="auditevent.html">audit event</a> resources suitable for tracking the origins, authorship, history, status, and access of resources</li>
  <li><a href="signatures.html">Digital Signatures</a> - FHIR includes several specifically reserved locations for digital signatures</li>
  <li><a href="#attachments">Attachments</a> - FHIR allows for binary resources and attachments. These have their own concerns</li>
  <li><a href="security-labels.html">Labels</a> - FHIR allows for set of security related tags that affect the way resources are handled</li>
- <li>Data Management Policies - FHIR defines a set of capabilities to support data exchange.
+ <li><b>Data Management Policies</b> - FHIR defines a set of capabilities to support data exchange.
      Not all the capabilities that FHIR enables may be appropriate or legal for use in some combinations of context and jurisdiction (e.g. HIPAA, GDPR). 
-     It is the responsibility of implementers to ensure that relevant regulations and other requirements are met</li>
+     It is the responsibility of implementers to ensure that relevant regulations and other requirements are met.</li>
  <li><a href="#narrative">Narrative</a> - Care must be taken when displaying the narrative from FHIR resources</li>
- <li><a href="#narrative">Input Validation</a>  - Validate all input received from other actors to assure the data is well formed and does not contain content that would cause unwanted system behaviour. Testing ensures that the input is not susceptible to data input validation errors by using techniques such as fuzzing, invalid input attacks, and injection attacks.</li>
+ <li><a href="#input">Input Validation</a>  - Validate all input received from other actors to assure the data is well formed and does not contain content that would cause unwanted system behaviour. Testing ensures that the input is not susceptible to data input validation errors by using techniques such as fuzzing, invalid input attacks, and injection attacks.</li>
+ <li><a href="#AuthZmethods">When using OAuth</a> - Consider the draft <a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics">Best-Current-Practice for OAuth</a></li>
+ <li><b>Security / Privacy Event Reporting</b> - Consider legal obligations and ethical obligations to provide a means for Security and/or Privacy Event Reporting such as security vulnerability, or breach.  </li>
 </ol>
 <p>
 Time critical concerns regarding security flaws in the FHIR specification should be addressed to 
@@ -117,6 +119,7 @@ some other kind of profiled REST interface.
             Any declaration of 'required' or 'optional' requirements that could be mentioned here are only recommendations for that kind of Resource
             in general for the most common use of that Resource. Where one uses the Resource in a way that is different than this most common use, one will 
             have different risks and thus need different protections. 
+			Each Resource is indicated with the common "Security Category", and all of the Resources Security Category is shown on the <a href="resourcelist.html">Resource Types</a> page with the <a href="resourcelist.html#tabs-7">Security Category</a> tab.
       </p>
       <p>
             Most Resources will need some form of Access Control to Create, Update, or Delete. 
@@ -149,7 +152,7 @@ some other kind of profiled REST interface.
       <h3>Individual Sensitive</h3>
       <p>
             These Resources do NOT contain Patient data, but do contain individual information about other participants. 
-            These other individuals are Practitioners, PractionerRole, CareTeam, or other users.
+            These other individuals are Practitioners, PractitionerRole, CareTeam, or other users.
             These identities are needed to enable the practice of healthcare. 
             These identities are identities under general privacy regulations, and thus must consider Privacy risk. 
             Often access to these other identities are covered by business relationships.
@@ -214,19 +217,9 @@ Other than testing systems, FHIR servers should authenticate the clients.
 The server may choose to authenticate the client system and trust it, or to authenticate
 the individual user by a variety of techniques. For web-centric environments it is recommended to use 
 <a href="http://openid.net/connect/">OpenID Connect</a> (or other suitable authentication protocol) to verify identity of the end user, where it is necessary that end-users be identified to the application. 
-It is recommended that <a href="http://oauth.net/">OAuth</a> be used to authenticate and/or authorize 
-the client and user. The <a href="http://docs.smarthealthit.org/">Smart-On-FHIR</a> profile 
-on OAuth is a recommended method for using OAuth.
 </p>
 <p>
-The <a href="https://openid.net/wg/heart/">HEART Working Group</a> has developed a 
-set of privacy and security specifications that enable an individual to control the 
-authorization of access to RESTful health-related data sharing APIs, and to facilitate 
-the development of interoperable implementations of these specifications by others.
-IHE <a href="http://wiki.ihe.net/index.php/Internet_User_Authorization">IUA Profile</a> constrains OAuth token attributes to support Healthcare.
-</p>
-<p>
-All systems are shall protect authenticator mechanisms, and select the type of credential/strength of authenticator based on use-case and risk management.
+All systems shall protect authenticator mechanisms, and select the type of credential/strength of authenticator based on use-case and risk management.
 </p>
 <a name="binding"></a>
 <h2>
@@ -273,7 +266,7 @@ The rules behind the access control decision are often very complex, and potenti
  <li>Client, such as user identity, user role, location, level of assurance</li>
  <li>Resource, such as confidentiality, sensitivity, type of data, date ranges covered by the data, author of the data</li>
  <li>Patient, such as the patient identity, patient relationship to the user, patient consent policies</li>
- <li>Context of the transaction, system identity, time-of-day, purpose of use, workflow state, and transport security</li>
+ <li>Context of the transaction, system identity, time-of-day, token expiration, token scope, purpose of use, workflow state, and transport security</li>
 </ul>
 <!-- HL7 has papers on this topic. -->
 <p>For one source of further information, see the 
@@ -299,9 +292,34 @@ They include the following:
 <li>Several resources, including Bundle, Composition, Group and List, are designed to contain other resources. A security implementation should consider whether access to an individual resource, such as a Bundle, should permit access to all resources contained within the resource.</li>
 <li>FHIR defines several operations that may be supported by a server. Security implementations must evaluate whether a client can invoke these operations and what information should be returned from them. Fetch Encounter Record, Evaluate Measure, Observation Statistics, Find Patient Matches using MPI-based Logic, and Fetch Patient Record specifically provide the ability to disclose patient information.</li>
 <li>Batch and transaction processing provide ways for clients to create and update information in bulk. Security implementations should consider whether a client can initiate one of these interactions and make authorization decisions on each action in the batch/transaction.</li>
-<li>Security implementations must be aware of the <a href="security-labels.html#break-the-glass">Break the Glass protocol</a> (e.g. break the glass) (<a href="operationoutcome-example-break-the-glass.html">example</a>). </li>
+<li>Security implementations must be aware of the <a href="security-labels.html#break-the-glass">Break the Glass protocol</a> (e.g. break the glass) (<a href="auditevent-example-breakglass-start.html">example</a>). </li>
 </ul>
 
+<a name="AuthZmethods"></a>
+<h3>
+Approaches to Implementing Access Control
+</h3>
+<p>
+It is recommended that <a href="http://oauth.net/">OAuth</a> be used to authenticate and/or authorize 
+the client and user. The <a href="http://www.hl7.org/fhir/smart-app-launch/index.html">HL7 SMART-On-FHIR</a> Implementation Guide 
+on OAuth is a recommended method for using OAuth for authorizing interactions with a protected FHIR Server.
+</p>
+<p>
+The <a href="https://openid.net/wg/heart/">HEART Working Group</a> has developed a 
+set of privacy and security specifications that enable an individual to control the 
+authorization of access to RESTful health-related data sharing APIs, and to facilitate 
+the development of interoperable implementations of these specifications by others.
+IHE <a href="http://wiki.ihe.net/index.php/Internet_User_Authorization">IUA Profile</a> constrains OAuth token attributes to support Healthcare.
+</p>
+<p>
+Another proposed model for managing and enforcing patient consents relies on an OAuth 2.0 server which uses the patient consents as the applicable authorization policies at the time of issuing a token. In this model, the authorization server (OAuth 2.0 or its <a href="https://docs.kantarainitiative.org/uma/ed/uma-core-2.0-01.html">User-Managed Access profile</a>) examines the patient consent to determine whether or not to issue a token to a requesting client and what scopes to grant. The main motivation behind this model is to have a separate consent management system in charge of collecting, storing, and maintaining patient consents, as well as responding to authorization requests based on these consents. This facilitates having third-party consent management services to which organizations can outsource their consent management functions. Further details about this model are discussed in <a href="https://confluence.hl7.org/display/SEC/Veterans+Health+Administration+Sponsored+Security+and+Privacy+Papers?preview=%2F66931686%2F66939024%2FUMA_Consent_Management_Service-2017-11-27.pdf">this report</a>.
+</p>
+<p>
+An extension to this model, Cascaded Authorization, enables an OAuth/UMA authorization server to require and rely on the approval of another OAuth/UMA server before issuing a token and granting scopes. Using this model, the enterprise OAuth/UMA server at a provider organization can rely on the decisions by a Consent OAuth/UMA Server by requiring and accepting access tokens issued by that server as part of the client authorization process. This architecture preserves the independence of a consent management system, which can potentially be outsourced to third-parties, while ensuring that all authorization interfaces and interactions follow the OAuth/UMA protocols. A summary of the concepts and flows for Cascaded Authorization are discussed in <a href="https://confluence.hl7.org/display/SEC/Veterans+Health+Administration+Sponsored+Security+and+Privacy+Papers?preview=%266931686/66939023%2Cascaded_Authorization-2018-01-15.pdf">this report</a>. Further extensions to this model to leverage UMA’s capabilities to simplify some of the flows are discussed in <a href="https://confluence.hl7.org/display/SEC/Veterans+Health+Administration+Sponsored+Security+and+Privacy+Papers?preview=%266931686/66939022%2Privacy_Preserving_Authorization-2018-01-15.pdf">this report</a>. A reference implementation of Cascaded Authorization and more technical details can be found <a href="https://github.com/mojitoholic/pauldron">here</a>.
+</p>
+<p>
+Additionally, the <a href="http://www.udap.org">Unified Data Access Profiles (UDAP)</a> propose extensions to the OAuth 2.0 framework to scale authorization; authentication; trusted Dynamic Client Registration; and Client Certification and Endorsements using JSON Web Tokens and X.509 certificates.
+</p>
 <a name="AccessDenied"></a>
 <h3>
 Access Denied Response Handling
