@@ -97,4 +97,9 @@ Examples of this activity with Provenance profile can be found in the <a href="h
 <li>Reconciliation of Clinical Content and Care Providers - <a href="https://wiki.ihe.net/index.php/Reconciliation_of_Clinical_Content_and_Care_Providers">RECON</a> </li>
 </ul>
 </p>
+<a name="patients"></a>
+<h3>Muiltiple Patients Affected</h3>
+<p>
+Where a provenance activity impacts more than one Patient/Subject; multiple Provenance resources should be recorded, one for each Patient/Subject. This best enables segmentation of the Provenance details so as to limit the Privacy impact. The use of multiple Provenance is a best-practice and should be driven by a Policy. There will be cases where the use of multiple Provenance resources is not necessary, such as public health reporting.
+</p>
 </div>
