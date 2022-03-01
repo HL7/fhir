@@ -979,7 +979,7 @@
     </element>
 	<element id="Appointment.occurrenceChanged">
       <path value="Appointment.occurrenceChanged"/>
-      <short value="Indicates that this appointment varies from a recurrence pattern."/>
+      <short value="Indicates that this appointment varies from a recurrence pattern"/>
       <definition value="This property indicates that an appointment in a recurring series varies from the pattern."/>
 	  <comment value="For example, if a patient has physical therapy appointments every Tuesday and Thursday, but due to a national holiday, an single occurrence was rescheduled to a different day, while the rest of the recurring series remained on Tuesday / Thursday."/>
 	  <min value="0"/>
@@ -1026,10 +1026,10 @@
         <map value="TZID"/>
       </mapping>
     </element>
-	<element id="Appointment.recurrenceTemplateInformation.recurrenceType ">
+	<element id="Appointment.recurrenceTemplateInformation.recurrenceType">
       <path value="Appointment.recurrenceTemplateInformation.recurrenceType"/>
       <short value="The frequency of the recurrence"/>
-      <definition value="How often the appointment series should recur"/>
+      <definition value="How often the appointment series should recur."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1055,7 +1055,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Date"/>
+        <code value="date"/>
       </type>
       <mapping>
         <identity value="ical"/>
@@ -1086,70 +1086,70 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-	<element id="Appointment.recurrenceTemplateInformation.weeklyInformation.Monday">
-      <path value="Appointment.recurrenceTemplateInformation.weeklyInformation.Monday"/>
+	<element id="Appointment.recurrenceTemplateInformation.weeklyInformation.monday">
+      <path value="Appointment.recurrenceTemplateInformation.weeklyInformation.monday"/>
       <short value="Indicates if the series recurs on Mondays"/>
-      <definition value="Indicates that appointments in the series of recurring appointments should occur on Mondays"/>
+      <definition value="Indicates that appointments in the series of recurring appointments should occur on Mondays."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
     </element>
-	<element id="Appointment.recurrenceTemplateInformation.weeklyInformation.Tuesday">
-      <path value="Appointment.recurrenceTemplateInformation.weeklyInformation.Tuesday"/>
+	<element id="Appointment.recurrenceTemplateInformation.weeklyInformation.tuesday">
+      <path value="Appointment.recurrenceTemplateInformation.weeklyInformation.tuesday"/>
       <short value="Indicates if the series recurs on Tuesday"/>
-      <definition value="Indicates that appointments in the series of recurring appointments should occur on Tuesday"/>
+      <definition value="Indicates that appointments in the series of recurring appointments should occur on Tuesday."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
     </element>
-	<element id="Appointment.recurrenceTemplateInformation.weeklyInformation.Wednesday">
-      <path value="Appointment.recurrenceTemplateInformation.weeklyInformation.Wednesday"/>
+	<element id="Appointment.recurrenceTemplateInformation.weeklyInformation.wednesday">
+      <path value="Appointment.recurrenceTemplateInformation.weeklyInformation.wednesday"/>
       <short value="Indicates if the series recurs on Wednesday"/>
-      <definition value="Indicates that appointments in the series of recurring appointments should occur on Wednesday"/>
+      <definition value="Indicates that appointments in the series of recurring appointments should occur on Wednesday."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
     </element>
-	<element id="Appointment.recurrenceTemplateInformation.weeklyInformation.Thursday">
-      <path value="Appointment.recurrenceTemplateInformation.weeklyInformation.Thursday"/>
+	<element id="Appointment.recurrenceTemplateInformation.weeklyInformation.thursday">
+      <path value="Appointment.recurrenceTemplateInformation.weeklyInformation.thursday"/>
       <short value="Indicates if the series recurs on Thursday"/>
-      <definition value="Indicates that appointments in the series of recurring appointments should occur on Thursday"/>
+      <definition value="Indicates that appointments in the series of recurring appointments should occur on Thursday."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
     </element>
-	<element id="Appointment.recurrenceTemplateInformation.weeklyInformation.Friday">
-      <path value="Appointment.recurrenceTemplateInformation.weeklyInformation.Friday"/>
+	<element id="Appointment.recurrenceTemplateInformation.weeklyInformation.friday">
+      <path value="Appointment.recurrenceTemplateInformation.weeklyInformation.friday"/>
       <short value="Indicates if the series recurs on Friday"/>
-      <definition value="Indicates that appointments in the series of recurring appointments should occur on Friday"/>
+      <definition value="Indicates that appointments in the series of recurring appointments should occur on Friday."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
     </element>
-	<element id="Appointment.recurrenceTemplateInformation.weeklyInformation.Saturday">
-      <path value="Appointment.recurrenceTemplateInformation.weeklyInformation.Saturday"/>
+	<element id="Appointment.recurrenceTemplateInformation.weeklyInformation.saturday">
+      <path value="Appointment.recurrenceTemplateInformation.weeklyInformation.saturday"/>
       <short value="Indicates if the series recurs on Saturday"/>
-      <definition value="Indicates that appointments in the series of recurring appointments should occur on Saturday"/>
+      <definition value="Indicates that appointments in the series of recurring appointments should occur on Saturday."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
     </element>
-	<element id="Appointment.recurrenceTemplateInformation.weeklyInformation.Sunday">
-      <path value="Appointment.recurrenceTemplateInformation.weeklyInformation.Sunday"/>
+	<element id="Appointment.recurrenceTemplateInformation.weeklyInformation.sunday">
+      <path value="Appointment.recurrenceTemplateInformation.weeklyInformation.sunday"/>
       <short value="Indicates if the series recurs on Sunday"/>
-      <definition value="Indicates that appointments in the series of recurring appointments should occur on Sunday"/>
+      <definition value="Indicates that appointments in the series of recurring appointments should occur on Sunday."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1235,7 +1235,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Date"/>
+        <code value="date"/>
       </type>
 	  <mapping>
         <identity value="ical"/>
@@ -1260,7 +1260,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Date"/>
+        <code value="date"/>
       </type>
 	  <mapping>
         <identity value="ical"/>
