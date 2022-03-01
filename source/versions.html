@@ -233,7 +233,8 @@ Each FHIR version is identified by a string composed from 4 parts: publication.m
        <li>Incremented when HL7 publishes FHIR as an updated specification, e.g. a <i>Trial Use</i> or <i>Normative</i> version of FHIR</li>
        <li>The first <i>Trial Use</i> was version 0</li>
        <li>FHIR Release 2 (DSTU) was version 1</li>
-       <li>FHIR Release 3 (STU) is version 3 (skipped '2' to align the major numbers at implementer request)</li>
+       <li>FHIR Release 3 (STU) was version 3 (skipped '2' to align the major numbers at implementer request)</li>
+       <li>FHIR Release 4 (Normative + STU) is version 4</li>
      </ul>
    </td>
   </tr>
@@ -245,6 +246,7 @@ Each FHIR version is identified by a string composed from 4 parts: publication.m
        <li>When a new publication is made, this is reset to 0 in the publication, and 1 in the development branch</li>
        <li>Since HL7 does not make breaking changes as technical corrections to a published specification, these versions of FHIR always have a version number X.0.n.r</li>
        <li>Because the development version is the subject of ongoing analysis, debate, ballot and repeated alterations, breaking changes are to be expected in STU content</li>
+       <li>FHIR Release 4B (STU changes only) is version 4.3</li>
      </ul>
    </td>
   </tr>
@@ -653,8 +655,16 @@ This technique can be used with all versions of FHIR, including R2 and R3:
 <td>3.0</td>
 </tr>
 <tr>
-<td><a href="http://hl7.org/fhir/r4">FHIR R4</a> (this version)</td>
-<td>4.0</td>
+  <td><a href="http://hl7.org/fhir/r4">FHIR R4</a> (mixed STU/Normative)</td>
+  <td>4.0</td>
+</tr>
+<tr>
+  <td><a href="http://hl7.org/fhir/r4b">FHIR R4B</a> (only STU changes)</td>
+  <td>4.3 (once published)</td>
+</tr>
+<tr>
+  <td><a href="http://hl7.org/fhir/r5">FHIR R5</a> (this version)</td>
+  <td>5.0 (once published)</td>
 </tr>
 </table>
 <p>

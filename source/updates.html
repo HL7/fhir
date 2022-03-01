@@ -162,8 +162,7 @@ updates, the server can choose to not include an ETag when returning resource in
 This will prevent updates from being performed.
 </li>
 <li>
-The <a href="v3/vs/SecurityIntegrityObservationValue/cs.html#SUBSETTED">SUBSETTED</a> <a href="security-labels.html">Security Label</a>
-can be used to flag data that has had information removed.
+The <a href="https://terminology.hl7.org/CodeSystem-v3-ObservationValue.html#v3-ObservationValue-SUBSETTED">SUBSETTED</a> <a href="security-labels.html">Security Label</a> can be used to flag data that has had information removed. It is at the server's discretion whether or not to accept an <code>UPDATE</code> or <code>CREATE</code> request that is tagged as <code>SUBSETTED></code>, and, if so, how to process such a request. It is important that the server implementation considers how to avoid accidental loss of data to which the updating client did not have access, and also to consider the possibility that a client update might invalidate data the client was unaware of.
 </li>
 </ul>
 <p>
