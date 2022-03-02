@@ -19,6 +19,5 @@
 	<timeout value="5" />
 	<contentType value="application/fhir+json" />
 	<content value="id-only" />
-	<notificationUrlLocation value="all" />
 	<maxCount value="100" />
 </Subscription>

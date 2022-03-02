@@ -376,25 +376,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/subscription-payload-content"/>
       </binding>
     </element>
-    <element id="Subscription.notificationUrlLocation">
-      <path value="Subscription.notificationUrlLocation"/>
-      <short value="none | full-url | request-response | all"/>
-      <definition value="If present, where to place URLs of resources in notifications."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubscriptionUrlLocation"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The location, in Bundle.entry, where URLs for resources should be located."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-url-location"/>
-      </binding>
-    </element>
     <element id="Subscription.maxCount">
       <path value="Subscription.maxCount"/>
       <short value="Maximum number of triggering resources included in notification bundles"/>

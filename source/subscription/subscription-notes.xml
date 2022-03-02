@@ -17,6 +17,9 @@
 	<p>
 		If a server cannot or will not honor a payload type (e.g., will not send <code>full-resource</code> over HTTP), it SHOULD reject the Subscription request.  A server MAY instead accept the subscription with modificaitons and return the accepted version to the client.
 	</p>
+  <p>
+    When sending event notifications servers SHALL populate the <a href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent">SubscriptionStatus.notificationEvent</a> structure with relevant information, depending on the payload type.
+  </p>
 
 		<a name="payloads-empty" />
 		<h3>empty</h3>
@@ -24,8 +27,11 @@
 			An example notification with an <code>empty</code> payload can be found <a href="notification-empty.html">here</a>.
 		</p>
 		<p>
-			With the content type of <code>empty</code>, all information about the resources involved in triggering the notification is only available via channels other than the Subscription itself (e.g., the REST API or <a href="subscription-operation-events.html">$events</a> operation). This mitigates many security concerns by both removing most PHI from the notification and allows servers to consolidate authorization and authentication logic. When the subscriber receives a notification of this type, it may query the server to fetch all the relevant resources based on the <code>SubscriptionTopic</code> and applicable filters. The client might include a <code>_since=</code> query parameter, supplying its last query timestamp to retrieve only the most recent resources. For example, if the notification is for a topic about patient admission, the subscriber will generally query for recent <code>Encounters</code> for a patient or group of patients, then fetch them as needed.
+			With the content type of <code>empty</code>, all information about the resources involved in triggering the notification is only available via channels other than the Subscription itself (e.g., the REST API or <a href="subscription-operation-events.html">$events</a> operation). This mitigates many security concerns by both removing most PHI from the notification and allows servers to consolidate authorization and authentication logic. When the subscriber receives a notification of this type, it may query the server to fetch all the relevant resources based on the <code>SubscriptionTopic</code> and applicable filters. The client might include a <code>_since=</code> query parameter, supplying its last query timestamp to retrieve only the most recent resources. For example, if the notification is for a topic about patient admission, the subscriber will generally query for recent Encounters for a patient or group of patients, then fetch them as needed.
 		</p>
+    <p>
+      When populating the <code>SubscriptionStatus.notificationEvent</code> structure for a notification with an <code>empty</code> payload, a server SHALL NOT include references to resources (e.g., <a href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.focus">SubscriptionStatus.notificationEvent.focus</a> and <a href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.additionalContext">SubscriptionStatus.notificationEvent.additionalContex</a> SHALL NOT be present).
+    </p>
 		<p>
 			When the content type is <code>empty</code>, notification bundles SHALL not contain <code>Bundle.entry</code> elements other than the <code>SubscriptionStatus</code> for the notification.
 		</p>
@@ -36,13 +42,13 @@
 			An example notification with an <code>id-only</code> payload can be found <a href="notification-id-only.html">here</a>.
 		</p>
 		<p>
-			With the content type of <code>id-only</code>, the resources involved in triggering the notification are only available through other channels (e.g., REST API), but notifications include URLs which can be used to access those resources. This allows servers to consolidate authorization and authentication logic, while removing the need for expensive queries by subscribers. When a subscriber receives a notification of this type, it may directly fetch all the relevant resources using the supplied resource ids. For example, if the notification is for a topic about patient admission, the subscriber may fetch the <code>Encounter(s)</code> for a patient or group of patients.
+			With the content type of <code>id-only</code>, the resources involved in triggering the notification are only available through other channels (e.g., REST API), but notifications include URLs which can be used to access those resources. This allows servers to consolidate authorization and authentication logic, while removing the need for expensive queries by subscribers. When a subscriber receives a notification of this type, it may directly fetch all the relevant resources using the supplied resource ids. For example, if the notification is for a topic about patient admission, the subscriber may fetch the Encounter(s) for a patient or group of patients.
 		</p>
+    <p>
+      When the content type is <code>id-only</code>, the <code>SubscriptionStatus.notificationEvent</code> structure SHALL include references to the appropriate focus resources in the <a href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.focus">SubscriptionStatus.notificationEvent.focus</a> element.  This provides clients a fixed location to consolidate IDs for all notification types.
+    </p>
 		<p>
-			When the content type is <code>id-only</code>, notification bundles SHALL contain, in addition to the <code>SubscriptionStatus</code>, at least one <code>Bundle.entry</code> for each resource relevant to the notification.  For example, a notification for a topic based on <code>Encounter</code> SHALL include a reference to the <code>Encounter</code> and MAY include additional resources deemed relevant (e.g., the linked <code>Patient</code>).
-		</p>
-		<p>
-			Each <code>Bundle.entry</code> for <code>id-only</code> notification SHALL contain a relevant resource URL in the <code>fullUrl</code>, <code>request</code>, and/or <code>response</code> elements. The Subscription's <code>notificationUrlLocation</code> element describes the behavior which should be used.
+			Additionally, notification bundles MAY contain, in addition to the <code>SubscriptionStatus</code>, at least one <code>Bundle.entry</code> for each resource relevant to the notification.  For example, a notification for a topic based on Encounter MAY include a reference to the Encounter and MAY also include additional resources deemed relevant (e.g., the linked Patient).
 		</p>
 
 		<a name="payloads-full-resource" />
@@ -53,11 +59,11 @@
 		<p>
 			With the content type of <code>full-resource</code>, the resources involved in triggering the notification are included in the notification bundle. When a subscriber receives a notification of this type, resources are already present in the bundle, though the subscriber may need to fetch additional resources from the server. For example, the if the notification is for a topic about patient admission, the subscriber may require related <code>Observation</code> resources.
 		</p>
+    <p>
+      When the content type is <code>full-resource</code>, the <code>SubscriptionStatus.notificationEvent</code> structure SHALL include references to the appropriate focus resources in the <a href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.focus">SubscriptionStatus.notificationEvent.focus</a> element.  This provides clients a fixed location to consolidate IDs for all notification types.
+    </p>
 		<p>
-			When the content type is <code>full-resource</code>, notification bundles SHALL contain, in addition to the <code>SubscriptionStatus</code>, at least one <code>Bundle.entry</code> for each resource relevant to the notification. For example, a notification for a topic based on <code>Encounter</code> SHALL include an <code>Encounter</code> and MAY include additional resources deemed relevant (e.g., the relevant <code>Patient</code>).
-		</p>
-		<p>
-      Additionally, each <code>Bundle.entry</code> for a <code>full-resource</code> notification SHALL contain a relevant resource in the <code>entry.resource</code> element.  If a server cannot include the resource contents due to an issue with a specific notification, the server SHALL populate the <code>entry.request</code> and/or <code>entry.response</code> elements.
+      Notification bundles for <code>full-resource</code> subscriptions SHALL contain, in addition to the <code>SubscriptionStatus</code>, at least one <code>Bundle.entry</code> for each resource relevant to the notification. For example, a notification for a topic based on Encounter SHALL include an Encounter and MAY include additional resources deemed relevant (e.g., the relevant Patient). Each <code>Bundle.entry</code> for a <code>full-resource</code> notification SHALL contain a relevant resource in the <code>entry.resource</code> element.  If a server cannot include the resource contents due to an issue with a specific notification, the server SHALL populate the <code>entry.request</code> and/or <code>entry.response</code> elements.
     </p>
 
 	<a name="channels"/>
