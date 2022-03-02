@@ -15,7 +15,7 @@
 		Defining a new <code>SubscriptionTopic</code> requires clear communication around requirements and expectations.  Anyone defining a <code>SubscriptionTopic</code> is encouraged to publish their definition at <a href="https://registry.fhir.org/">registry.fhir.org</a>.  Similarly, before defining a new <code>SubscriptionTopic</code> implementers are encouraged to check the registry to see if an existing definition can be reused (either directly or as a base for derivation).
 	</p>
   <p>
-    Note that <code>SubscriptionTopic</code> is a <a href="metadataresource.html">Metadata Resource</a> and inherits many elements related to authoring and publication.  Authors SHOULD review inherited elements and populate them accordingly.
+    Note that <code>SubscriptionTopic</code> is a <a href="canonicalresource.html">Canonical Resource</a> and inherits many elements related to authoring and publication.  Authors SHOULD review inherited elements and populate them accordingly.
   </p>
 	
 	<a name="concept-definition" />
