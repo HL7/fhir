@@ -94,7 +94,7 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubscriptionState"/>
+          <valueString value="SubscriptionStatus"/>
         </extension>
         <strength value="required"/>
         <description value="The status of a subscription at the time this notification was generated."/>
