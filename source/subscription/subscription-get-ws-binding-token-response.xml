@@ -18,5 +18,5 @@
     <name value="websocket-url"/>
     <valueUrl value="wss://example.org/fhir/R5/subscription-websocket"/>
   </parameter>
-</Bundle>
+</Parameters>
 
