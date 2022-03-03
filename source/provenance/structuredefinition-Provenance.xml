@@ -401,6 +401,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.performer"/>
@@ -552,6 +553,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value="./subjectOf"/>
@@ -570,7 +572,7 @@
         <valueString value="No uses cases have been identified for extensibility for this role."/>
       </extension>
       <path value="Provenance.entity.role"/>
-      <short value="derivation | revision | quotation | source | instantiates | removal"/>
+      <short value="revision | quotation | source | instantiates | removal"/>
       <definition value="How the entity was used during the activity."/>
       <min value="1"/>
       <max value="1"/>
