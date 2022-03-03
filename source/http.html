@@ -367,8 +367,16 @@ for the specification:
 <td>3.0</td>
 </tr>
 <tr>
-<td><a href="http://hl7.org/fhir/r4">FHIR R4</a> (this version)</td>
-<td>4.0 (once published)</td>
+  <td><a href="http://hl7.org/fhir/r4">FHIR R4</a> (R4, mixed STU/Normative)</td>
+  <td>4.0</td>
+</tr>
+<tr>
+  <td><a href="http://hl7.org/fhir/r4b">FHIR R4B</a> (R4B, only STU changes)</td>
+  <td>4.3 (once published)</td>
+</tr>
+<tr>
+  <td><a href="http://hl7.org/fhir/r5">FHIR R5</a> (this version)</td>
+  <td>5.0 (once published)</td>
 </tr>
 </table>
 <p>Intermediate balloted releases may also be encountered occasionally - see <a href="http://hl7.org/fhir/directory.html">publications directory</a>. 
@@ -494,7 +502,7 @@ Note that a resource that only contains a subset of the data is
 not suitable for use as a base to update the resource, and might not
 be suitable for other uses. The same applies to the <a href="search.html#elements">_elements</a> parameter - both
 that it should be supported, and the subset implications. Servers SHOULD define a <code>Resource.meta.tag</code> with
-the <a href="v3/ObservationValue/cs.html#v3-ObservationValue-SUBSETTED">SUBSETTED</a> as a <a href="resource.html#simple-tags">Simple Tag</a>
+the <a href="https://terminology.hl7.org/CodeSystem-v3-ObservationValue.html#v3-ObservationValue-SUBSETTED">SUBSETTED</a> as a <a href="resource.html#simple-tags">Simple Tag</a>
 to explicitly mark such resources.
 </p>
 <p>
@@ -547,7 +555,7 @@ The <code>update</code> interaction is performed by an HTTP <code>PUT</code> com
   PUT [base]/[type]/[id] {?_format=[mime-type]}
 </pre>
 <p>
-The request body SHALL be a <a href="resource.html">Resource</a> with an <code>id</code> element
+The request body SHALL be a <a href="resource.html">Resource</a> of the named type with an <code>id</code> element
 that has an identical value to the <code>[id]</code> in the URL. If no <code>id</code> element is provided, 
 or the id disagrees with the id in the URL, the server SHALL respond with an HTTP <code>400</code> error code, and SHOULD
 provide an <a href="operationoutcome.html">OperationOutcome</a> identifying the issue.
@@ -578,6 +586,9 @@ in <a href="http.html#return">Managing Return Content</a>.
 </p>
 <p>
 Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting updates, but are not required to do so. The impact of this on digital signatures may need to be considered.
+</p>
+<p>
+Note: It is possible that a client may attempt to update a resource that was obtained using search and that was marked with the <code>SUBSETTED</code> tag. It is at the server's discretion whether to accept requests that are tagged as <code>SUBSETTED</code> and, if so, how to handle them.
 </p>
 <a name="upsert"></a>
 <h4>Update as Create</h4>
@@ -893,7 +904,7 @@ interaction instead. The <code>create</code> interaction is performed by an HTTP
   POST [base]/[type] {?_format=[mime-type]}
 </pre>
 <p>
-The request body SHALL be a FHIR Resource. The resource does not need to have an <code>id</code> element (this is 
+The request body SHALL be a FHIR Resource of the named type. The resource does not need to have an <code>id</code> element (this is 
 one of the few cases where a resource exists without an <code>id</code> element). If an <code>id</code> is provided, the
 server SHALL ignore it. If the request body includes a <a href="resource.html#meta">meta</a>, the server SHALL
 ignore the existing <code>versionId</code> and <code>lastUpdated</code> values.
@@ -931,6 +942,9 @@ In either case, the server SHOULD include a response body containing an <a href=
 </p>
 <p>
 Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting creates, but are not required to do so. The impact of this on digital signatures may need to be considered.
+</p>
+<p>
+Note: A client may attempt to create a resource containing a <code>SUBSETTED</code> tag. It is at the server's discretion whether to accept requests that are tagged as <code>SUBSETTED</code> and, if so, how to handle them.
 </p>
 <p>
 Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
@@ -1058,7 +1072,7 @@ issues with a <code>fatal</code> or <code>error</code> <a href="valueset-issue-s
 </p>
 <p>
 If the search fails (cannot be executed, not that there are no matches), the return value 
-SHALL be a status code 4xx or 5xx with an <a href="operationoutcome.html">OperationOutcome</a>.
+SHALL be a status code 4xx or 5xx, possibly accompanied by an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
 <p>
 Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
@@ -1520,7 +1534,7 @@ Additional Notes about maintaining a history of resources:
 </ul>
 
 <p>
-Thereis a caveat with the <code>_list</code> parameter, associated with changes to the list 
+There is a caveat with the <code>_list</code> parameter, associated with changes to the list 
 while making repeated periodic queries; if the list changes, the response will include 
 changes to the resources in the list for the period specified, but will omit both later 
 changes to items no longer in the list, or older changes associated with items in the list. 
@@ -1750,7 +1764,7 @@ Note that <i>all</i> requests may include an optional <code>Accept</code> header
 <table class="grid">
 <tr><th>Interaction</th>                <th>Path</th><th colspan="5">Request</th></tr>
 <tr><th colspan="2"></th>                                                       <th>Verb</th>           <th>Content-Type</th>   <th>Body</th>     <th>Prefer</th>         <th>Conditional</th></tr>
-<tr><td><code>read</code></td>                       <td><code>/[type]/[id]</code></td>                   <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>      <td>N/A</td>     		  <td>O: <code>ETag</code>, <code>If-Modified-Since</code>, <code>If-None-Match</code></td></tr>
+<tr><td><code>read</code></td>                       <td><code>/[type]/[id]</code></td>                   <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>      <td>N/A</td>     		  <td>O: <code>If-Modified-Since</code>, <code>If-None-Match</code></td></tr>
 <tr><td><code>vread</code></td>                      <td><code>/[type]/[id]/_history/[vid]</code></td>    <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>      <td>N/A</td>         	<td>N/A</td></tr>
 <tr><td><code>update</code></td>                     <td><code>/[type]/[id]</code></td>                   <td><code>PUT</code></td>            <td>R</td>              <td>Resource</td> <td>O</td>         	<td>O: <code>If-Match</code></td></tr>
 <tr><td><code>patch</code></td>                      <td><code>/[type]/[id]</code></td>                   <td><code>PATCH</code></td>          <td>R (may be a patch type)</td>        <td>Patch</td> <td>O</td>         	<td>O: <code>If-Match</code></td></tr>
@@ -1782,7 +1796,7 @@ Notes:
 <tr><th>Interaction</th><th colspan="6">Response</th></tr>
 <tr><th colspan="1"></th>   <th>Content-Type</th> <th>Body</th>               <th>Location</th> 	    <th>Versioning</th> 					<th>Status Codes</th></tr>
 <tr><td><code>read</code></td>           <td>R</td>            <td>R: Resource</td>           <td>N/A</td>         <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>404</code>, <code>410</code></td></tr>
-<tr><td><code>vread</code></td>          <td>R</td>            <td>R: Resource</td>           <td>N/A</td>         <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>404</code></td></tr>
+<tr><td><code>vread</code></td>          <td>R</td>            <td>R: Resource</td>           <td>N/A</td>         <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>404</code>, <code>410</code></td></tr>
 <tr><td><code>update</code></td>         <td>R if body</td>    <td>O: Resource (Prefer)</td>  <td>N/A</td>       	 <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>201</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
 <tr><td><code>patch</code></td>          <td>R if body</td>    <td>O: Resource (Prefer)</td>  <td>N/A</td>	       <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>201</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
 <tr><td><code>delete</code></td>         <td>R if body</td><td>O: OperationOutcome</td>  <td>N/A</td>      	       <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>204</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code></td></tr>
