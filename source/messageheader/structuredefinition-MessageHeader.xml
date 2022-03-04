@@ -200,7 +200,7 @@
       <definition value="Indicates where the message should be routed to."/>
       <comment value="The id may be a non-resolvable URI for systems that do not use standard network-based addresses."/>
       <requirements value="Identifies where to route the message."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="url"/>
@@ -265,6 +265,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -287,7 +288,7 @@
     <element id="MessageHeader.enterer">
       <path value="MessageHeader.enterer"/>
       <short value="The source of the data entry"/>
-      <definition value="The person or device that performed the data entry leading to this message. When there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions."/>
+      <definition value="The person,device, or careteam that performed the data entry leading to this message. When there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions."/>
       <comment value="Usually only for the request but can be used in a response."/>
       <requirements value="Need to know for audit/traceback requirements and possibly for authorization."/>
       <min value="0"/>
@@ -296,6 +297,8 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -314,7 +317,7 @@
     <element id="MessageHeader.author">
       <path value="MessageHeader.author"/>
       <short value="The source of the decision"/>
-      <definition value="The logical author of the message - the person or device that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions."/>
+      <definition value="The logical author of the message - the person,device or careteam that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions."/>
       <comment value="Usually only for the request but can be used in a response."/>
       <requirements value="Need to know for audit/traceback requirements and possibly for authorization."/>
       <min value="0"/>
@@ -323,6 +326,8 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -456,7 +461,7 @@
       <definition value="Identifies the routing target to send acknowledgements to."/>
       <comment value="The id may be a non-resolvable URI for systems that do not use standard network-based addresses."/>
       <requirements value="Identifies where to send responses, may influence security permissions."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="url"/>
@@ -561,7 +566,7 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="id"/>
+        <code value="Identifier"/>
       </type>
       <isSummary value="true"/>
       <mapping>
