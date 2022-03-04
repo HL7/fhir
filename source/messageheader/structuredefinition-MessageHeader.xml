@@ -265,7 +265,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -288,7 +287,7 @@
     <element id="MessageHeader.enterer">
       <path value="MessageHeader.enterer"/>
       <short value="The source of the data entry"/>
-      <definition value="The person,device, or careteam that performed the data entry leading to this message. When there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions."/>
+      <definition value="The person or device that performed the data entry leading to this message. When there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions."/>
       <comment value="Usually only for the request but can be used in a response."/>
       <requirements value="Need to know for audit/traceback requirements and possibly for authorization."/>
       <min value="0"/>
@@ -297,8 +296,6 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -317,7 +314,7 @@
     <element id="MessageHeader.author">
       <path value="MessageHeader.author"/>
       <short value="The source of the decision"/>
-      <definition value="The logical author of the message - the person,device or careteam that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions."/>
+      <definition value="The logical author of the message - the personor device that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions."/>
       <comment value="Usually only for the request but can be used in a response."/>
       <requirements value="Need to know for audit/traceback requirements and possibly for authorization."/>
       <min value="0"/>
@@ -326,8 +323,6 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
       </type>
       <isSummary value="true"/>
       <mapping>
