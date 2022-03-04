@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd http://hl7.org/fhir ../../schema/bundle.xsd http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+ xmlns="http://hl7.org/fhir">
+  <id value="bundle-example"/>
+  <!-- this example bundle is a search set -->
+  <meta>
+    <lastUpdated value="2014-08-18T01:43:30Z"/>
+    <!-- when the search was executed --> 
+  </meta> 
+  <type value="searchset"/>  
+
+  <!-- the total number of matches. This is a stupid example - there's a grand total of 3 matches, and 
+    we're only going to return the first 1, with a next link, in order to demonstrate what a page link
+    looks like -->
+  <total value="1"/>
+  <!-- all search sets include the self link - the server's statement of what it thought it was 
+    searching on. The client can use this to cross-check whether the server executed what it 
+    asked the server to, if it cares -->
+  <link>
+    <relation value="self"/>
+    <url value="https://example.com/base/MedicationRequest?patient=347&amp;_include=MedicationRequest.medication&amp;_count=2"/>
+  </link>
+  <!-- now, the link to the next set of results. The actual URL is entirely at the 
+  discretion of the server, and is opaque to the client. Many servers will insert 
+  some kind of search instance identifier 
+  
+  Note that a big set of results will include prev, first, last links as well as next -->
+  <link>
+    <relation value="next"/>
+    <url value="https://example.com/base/MedicationRequest?patient=347&amp;searchId=ff15fd40-ff71-4b48-b366-09c706bed9d0&amp;page=2"/>
+  </link>
+  
+  <!-- now, the actual entries -->
+  <entry>
+    <fullUrl value="https://example.com/base/MedicationRequest/3123"/>
+    <!-- the matching resource -->
+    <resource>
+		<MessageHeader xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/messageheader.xsd">
+		  <id value="1cbdfb97-5859-48a4-8301-d54eab818d68"/>
+		  <text>
+		    <status value="generated"/>
+		    <div xmlns="http://www.w3.org/1999/xhtml">
+		      <p>Update Person resource for Peter James CHALMERS (Jim), MRN: 12345 (Acme Healthcare)</p>
+		    </div>
+		  </text>
+		  <eventCoding>
+		    <system value="http://example.org/fhir/message-events"/>
+		    <code value="admin-notify"/>
+		  </eventCoding>
+		  <destination>
+		    <name value="Acme Message Gateway"/>
+		    
+		    <!-- this is to indicate to the Acme Message Gateway that this particular message 
+		       is intended for Practitioner "xcda" -->
+		    <target>
+		      <reference value="Device/example"/>
+		    </target>
+		    <endpoint value="llp:10.11.12.14:5432"/>
+		    <receiver>
+		      <reference value="http://acme.com/ehr/fhir/Practitioner/2323-33-4"/>
+		     </receiver>
+		  </destination>
+		  <sender>
+		    <reference value="Organization/1"/>
+		  </sender>
+		<!--   <timestamp value="2012-01-04T09:10:14Z"/> -->
+		  <enterer>
+		    <reference value="Practitioner/example"/>
+		  </enterer>
+		  <author>
+		    <reference value="Practitioner/example"/>
+		  </author>
+		  <source>
+		    <name value="Acme Central Patient Registry"/>
+		    <software value="FooBar Patient Manager"/>
+		    <version value="3.1.45.AABB"/>
+		    <contact>
+		      <system value="phone"/>
+		      <value value="+1 (555) 123 4567"/>
+		    </contact>
+		    <endpoint value="llp:10.11.12.13:5432"/>
+		  </source>
+		  <reason>
+		    <coding>
+		      <system value="http://terminology.hl7.org/CodeSystem/message-reasons-encounter"/>
+		      <code value="admit"/>
+		    </coding>
+		  </reason>
+		  <response>
+		    <identifier>
+			    <system value="http://acme.com/ehr/fhir/identifiers"/>
+		      <value value="19283746"/>
+		    </identifier>
+		    <code value="ok"/>
+		  </response>
+		  <!-- Here's the payload, the resource that this admin-update concerns -->
+		  <focus>
+		    <reference value="Patient/example"/>
+		  </focus>
+		  <definition value="http:////acme.com/ehr/fhir/messagedefinition/patientrequest"/>
+			</MessageHeader>
+    </resource>
+    <!-- and now optional search information -->
+    <search>
+      <!-- this resource included as a match to the search criteria.
+         Servers are not required to populate this, but should, because
+         there are a few cases where it might be ambiguous whether a 
+         resource is added because it's a match or an include         -->   
+      <mode value="match"/> 
+      <!-- score. For matches where the criteria are not determinate,
+        e.g. text search on narrative, the server can include a score to indicate
+        how well the resource matches the conditions. Since this search is by patient
+        identifier, there's nothing fuzzy about it, but for example purposes: -->
+      <score value="1"/>
+    </search>
+  </entry>
+  
+</Bundle>
+
