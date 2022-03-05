@@ -253,6 +253,8 @@
     </element>
     <element id="EvidenceVariable.experimental">
       <path value="EvidenceVariable.experimental"/>
+      <short value="For testing purposes, not real usage"/>
+      <definition value="A Boolean value to indicate that this resource is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -340,7 +342,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="string"/>
+        <code value="Annotation"/>
       </type>
     </element>
     <element id="EvidenceVariable.useContext">
@@ -362,6 +364,8 @@
     </element>
     <element id="EvidenceVariable.copyright">
       <path value="EvidenceVariable.copyright"/>
+      <short value="Use and/or publishing restrictions"/>
+      <definition value="A copyright statement relating to the resource and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the resource."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -370,6 +374,8 @@
     </element>
     <element id="EvidenceVariable.approvalDate">
       <path value="EvidenceVariable.approvalDate"/>
+      <short value="When the resource was approved by publisher"/>
+      <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -378,6 +384,8 @@
     </element>
     <element id="EvidenceVariable.lastReviewDate">
       <path value="EvidenceVariable.lastReviewDate"/>
+      <short value="When the resource was last reviewed"/>
+      <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -386,6 +394,8 @@
     </element>
     <element id="EvidenceVariable.effectivePeriod">
       <path value="EvidenceVariable.effectivePeriod"/>
+      <short value="When the resource is expected to be used"/>
+      <definition value="The period during which the resource content was or is planned to be in active use."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -472,7 +482,7 @@
     </element>
     <element id="EvidenceVariable.characteristic">
       <path value="EvidenceVariable.characteristic"/>
-      <short value="A defining factor of the EvidenceVariable."/>
+      <short value="A defining factor of the EvidenceVariable"/>
       <definition value="A defining factor of the EvidenceVariable. Multiple characteristics are applied with &quot;and&quot; semantics."/>
       <comment value="Characteristics can be defined flexibly to accommodate different use cases for membership criteria, ranging from simple codes, all the way to using an expression language to express the criteria."/>
       <min value="0"/>
@@ -485,7 +495,7 @@
     <element id="EvidenceVariable.characteristic.linkId">
       <path value="EvidenceVariable.characteristic.linkId"/>
       <short value="Label for internal linking"/>
-      <definition value="Label used for when a characteristic refers to another characteristic"/>
+      <definition value="Label used for when a characteristic refers to another characteristic."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -510,7 +520,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="string"/>
+        <code value="Annotation"/>
       </type>
     </element>
     <element id="EvidenceVariable.characteristic.definition[x]">
@@ -655,6 +665,7 @@
     <element id="EvidenceVariable.characteristic.timeFromEvent">
       <path value="EvidenceVariable.characteristic.timeFromEvent"/>
       <short value="Observation time from study specified event"/>
+      <definition value="Observation time from study specified event."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -664,6 +675,7 @@
     <element id="EvidenceVariable.characteristic.timeFromEvent.description">
       <path value="EvidenceVariable.characteristic.timeFromEvent.description"/>
       <short value="Human readable description"/>
+      <definition value="Human readable description."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -673,6 +685,7 @@
     <element id="EvidenceVariable.characteristic.timeFromEvent.event[x]">
       <path value="EvidenceVariable.characteristic.timeFromEvent.event[x]"/>
       <short value="The event used as a base point (reference point) in time"/>
+      <definition value="The event used as a base point (reference point) in time."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -698,6 +711,7 @@
     <element id="EvidenceVariable.characteristic.timeFromEvent.quantity">
       <path value="EvidenceVariable.characteristic.timeFromEvent.quantity"/>
       <short value="Used to express the observation at a defined amount of time after the study start"/>
+      <definition value="Used to express the observation at a defined amount of time after the study start."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -707,6 +721,7 @@
     <element id="EvidenceVariable.characteristic.timeFromEvent.range">
       <path value="EvidenceVariable.characteristic.timeFromEvent.range"/>
       <short value="Used to express the observation within a period after the study start"/>
+      <definition value="Used to express the observation within a period after the study start."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -720,7 +735,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="string"/>
+        <code value="Annotation"/>
       </type>
     </element>
     <element id="EvidenceVariable.characteristic.groupMeasure">
@@ -779,7 +794,8 @@
     </element>
     <element id="EvidenceVariable.characteristic.combination.characteristic">
       <path value="EvidenceVariable.characteristic.combination.characteristic"/>
-      <short value="A defining factor of the characteristic."/>
+      <short value="A defining factor of the characteristic"/>
+      <definition value="A defining factor of the characteristic."/>
       <min value="1"/>
       <max value="*"/>
       <contentReference value="#EvidenceVariable.characteristic"/>
@@ -787,6 +803,7 @@
     <element id="EvidenceVariable.handling">
       <path value="EvidenceVariable.handling"/>
       <short value="continuous | dichotomous | ordinal | polychotomous"/>
+      <definition value="The method of handling in statistical analysis."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -803,6 +820,7 @@
     <element id="EvidenceVariable.category">
       <path value="EvidenceVariable.category"/>
       <short value="A grouping for ordinal or polychotomous variables"/>
+      <definition value="A grouping for ordinal or polychotomous variables."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -812,6 +830,7 @@
     <element id="EvidenceVariable.category.name">
       <path value="EvidenceVariable.category.name"/>
       <short value="Description of the grouping"/>
+      <definition value="Description of the grouping."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -821,6 +840,7 @@
     <element id="EvidenceVariable.category.value[x]">
       <path value="EvidenceVariable.category.value[x]"/>
       <short value="Definition of the grouping"/>
+      <definition value="Definition of the grouping."/>
       <min value="0"/>
       <max value="1"/>
       <type>

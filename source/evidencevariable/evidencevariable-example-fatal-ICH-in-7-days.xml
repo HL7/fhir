@@ -11,7 +11,9 @@
   </text>
   <title value="Fatal Intracranial Hemorrhage Within Seven Days"/>
   <status value="draft"/>
-  <note value="Death must be due to intracranial hemorrhage"/>
+  <note>
+	<text value="Death must be due to intracranial hemorrhage"/>
+  </note>
   <actual value="true"/>
   <characteristic>
     <description value="intracranial hemorrhage within 7 days"/>
