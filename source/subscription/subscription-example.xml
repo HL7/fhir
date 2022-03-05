@@ -7,7 +7,7 @@
 	<reason value="subscription for beginning of a clinical encounter for patient 123"/>
 	<filterBy>
 		<resourceType value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
-		<searchParamName value="patient"/>
+		<filterParameter value="patient"/>
 		<value value="Patient/123"/>
 	</filterBy>
 	<channelType>
