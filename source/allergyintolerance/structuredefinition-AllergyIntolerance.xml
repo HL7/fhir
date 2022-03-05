@@ -179,7 +179,10 @@
       </mapping>
     </element>
     <element id="AllergyIntolerance.type">
-      <path value="AllergyIntolerance.type"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+	  <path value="AllergyIntolerance.type"/>
       <short value="allergy | intolerance - Underlying mechanism (if known)"/>
       <definition value="Identification of the underlying physiological mechanism for the reaction risk."/>
       <comment value="Allergic (typically immune-mediated) reactions have been traditionally regarded as an indicator for potential escalation to significant future risk. Contemporary knowledge suggests that some reactions previously thought to be immune-mediated are, in fact, non-immune, but in some cases can still pose a life threatening risk. It is acknowledged that many clinicians might not be in a position to distinguish the mechanism of a particular reaction. Often the term &quot;allergy&quot; is used rather generically and may overlap with the use of &quot;intolerance&quot; - in practice the boundaries between these two concepts might not be well-defined or understood. This data element is included nevertheless, because many legacy systems have captured this attribute. Immunologic testing may provide supporting evidence for the basis of the reaction and the causative substance, but no tests are 100% sensitive or specific for sensitivity to a particular substance. If, as is commonly the case, it is unclear whether the reaction is due to an allergy or an intolerance, then the type element should be omitted from the resource."/>
@@ -536,7 +539,10 @@
       </mapping>
     </element>
     <element id="AllergyIntolerance.reaction">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
       </extension>
       <path value="AllergyIntolerance.reaction"/>
