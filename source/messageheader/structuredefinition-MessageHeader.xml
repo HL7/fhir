@@ -200,7 +200,7 @@
       <definition value="Indicates where the message should be routed to."/>
       <comment value="The id may be a non-resolvable URI for systems that do not use standard network-based addresses."/>
       <requirements value="Identifies where to route the message."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="url"/>
@@ -314,7 +314,7 @@
     <element id="MessageHeader.author">
       <path value="MessageHeader.author"/>
       <short value="The source of the decision"/>
-      <definition value="The logical author of the message - the person or device that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions."/>
+      <definition value="The logical author of the message - the personor device that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions."/>
       <comment value="Usually only for the request but can be used in a response."/>
       <requirements value="Need to know for audit/traceback requirements and possibly for authorization."/>
       <min value="0"/>
@@ -456,7 +456,7 @@
       <definition value="Identifies the routing target to send acknowledgements to."/>
       <comment value="The id may be a non-resolvable URI for systems that do not use standard network-based addresses."/>
       <requirements value="Identifies where to send responses, may influence security permissions."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="url"/>
@@ -561,7 +561,7 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="id"/>
+        <code value="Identifier"/>
       </type>
       <isSummary value="true"/>
       <mapping>
