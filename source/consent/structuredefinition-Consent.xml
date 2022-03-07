@@ -444,7 +444,7 @@
         <element id="Consent.verification.verifiedBy">
             <path value="Consent.verification.verifiedBy" />
             <short value="Person conducting verification" />
-            <definition value="The person who conducted the verification/validation of the Grantee decision." />
+            <definition value="The person who conducted the verification/validation of the Grantor decision." />
             <min value="0" />
             <max value="1" />
             <type>
