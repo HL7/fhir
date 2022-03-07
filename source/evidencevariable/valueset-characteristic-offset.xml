@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="subscription-url-location"/>
+  <id value="characteristic-offset"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    <lastUpdated value="2022-03-04T16:55:11+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <text>
@@ -11,33 +11,33 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <ul>
         <li>Include all codes defined in 
-          <a href="codesystem-subscription-url-location.html">
-            <code>http://hl7.org/fhir/subscription-url-location</code>
+          <a href="codesystem-characteristic-offset.html">
+            <code>http://terminology.hl7.org/CodeSystem/characteristic-offset</code>
           </a>
         </li>
       </ul>
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
+    <valueCode value="cds"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="draft"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/subscription-url-location"/>
+  <url value="http://hl7.org/fhir/ValueSet/characteristic-offset"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1454"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="SubscriptionUrlLocation"/>
-  <title value="SubscriptionUrlLocation"/>
+  <name value="CharacteristicOffset"/>
+  <title value="CharacteristicOffset"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2022-03-04T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -49,11 +49,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The location, in Bundle.entry, where URLs for resources should be located."/>
+  <description value="Reference point for characteristic.valueQuantity."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/subscription-url-location"/>
+      <system value="http://terminology.hl7.org/CodeSystem/characteristic-offset"/>
     </include>
   </compose>
 </ValueSet>

@@ -584,8 +584,8 @@
     </element>
     <element id="HealthcareService.availableTime.allDay">
       <path value="HealthcareService.availableTime.allDay"/>
-      <short value="Always available? e.g. 24 hour service"/>
-      <definition value="Is this always available? (hence times are irrelevant) e.g. 24 hour service."/>
+      <short value="Always available? i.e. 24 hour service"/>
+      <definition value="Is this always available? (hence times are irrelevant) i.e. 24 hour service."/>
       <min value="0"/>
       <max value="1"/>
       <type>
