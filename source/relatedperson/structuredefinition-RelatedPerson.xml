@@ -99,6 +99,7 @@
       <path value="RelatedPerson.identifier"/>
       <short value="A human identifier for this person"/>
       <definition value="Identifier for a person within a particular scope."/>
+      <comment value="RelatedPerson identifiers might not be unique across instances within a system, as a single human individual may be represented as many different RelatedPerson resources with different roles, periods, or relationships."/>
       <requirements value="People are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the patient. Examples are national person identifier and local identifier."/>
       <min value="0"/>
       <max value="*"/>
