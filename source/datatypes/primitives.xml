@@ -14,6 +14,7 @@
   
   
   
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -37,20 +38,6 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s66">
-   <Borders/>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
-  <Style ss:ID="s67">
-   <Borders/>
-   <Font ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
   <Style ss:ID="s68">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
   </Style>
@@ -61,15 +48,34 @@
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
   </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Vertical="Top"/>
+  </Style>
+  <Style ss:ID="s74">
+   <Alignment ss:Vertical="Top"/>
+   <Borders/>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s75">
+   <Alignment ss:Vertical="Top"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Imports">
   <Names>
    <NamedRange ss:Name="boolean" ss:RefersTo="=Imports!R2C1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="12" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Width="67.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="177.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="362.0"/>
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="12" ss:StyleID="s73" x:FullColumns="1" x:FullRows="1">
+   <Column ss:AutoFitWidth="0" ss:StyleID="s73" ss:Width="67.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s73" ss:Width="177.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s73" ss:Width="362.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s62" ss:Width="117.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="6" ss:StyleID="s62" ss:Width="181.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="184.0"/>
@@ -123,13 +129,13 @@
     <Cell ss:Index="8"><Data ss:Type="String">REAL</Data></Cell>
     <Cell><Data ss:Type="String">~NM</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="43">
     <Cell><Data ss:Type="String">base64Binary</Data></Cell>
     <Cell><Data ss:Type="String">A stream of bytes</Data></Cell>
     <Cell><Data ss:Type="String">A stream of bytes, base64 encoded</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">base64Binary</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">base64Binary</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">^\s*([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{4})\s*$</Data></Cell>
+    <Cell><Data ss:Type="String">^\s*([A-Za-z0-9+\\/]{4})*(([A-Za-z0-9+\\/]{2}==)|([A-Za-z0-9+\\/]{3}=)|([A-Za-z0-9+\\/]{4}))\s*$</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">BIN</Data></Cell>
     <Cell><Data ss:Type="String">~ED</Data></Cell>
    </Row>
@@ -165,7 +171,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="59" ss:StyleID="s62">
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s66"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String"><Font html:Color="#000000">A date or partial date (e.g. just year or year + month). There is no UTC offset. The format is a union of the schema types gYear, gYearMonth and date.  </Font><B><Font html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
+    <Cell ss:StyleID="s74"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String"><Font html:Color="#000000">A date or partial date (e.g. just year or year + month). There is no UTC offset. The format is a union of the schema types gYear, gYearMonth and date.  </Font><B><Font html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">xs:gYear, xs:gYearMonth, xs:date</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?</Data></Cell>
@@ -175,7 +181,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="110" ss:StyleID="s62">
     <Cell><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:StyleID="s67"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String">       <Font html:Color="#000000">A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a UTC offset SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.  </Font><Font>       </Font><B>        <Font html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
+    <Cell ss:StyleID="s75"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String">       <Font html:Color="#000000">A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a UTC offset SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.  </Font><Font>       </Font><B>        <Font html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">xs:gYear, xs:gYearMonth, xs:date, xs:dateTime</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?</Data></Cell>
@@ -206,6 +212,7 @@
     <VerticalResolution>-1</VerticalResolution>
    </Print>
    <Selected/>
+   <TopRowVisible>4</TopRowVisible>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
