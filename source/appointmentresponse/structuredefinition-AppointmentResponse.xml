@@ -340,7 +340,12 @@
       <max value="1"/>
       <type>
         <code value="boolean"/>
-      </type>      
+      </type>
+	  <mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	  </mapping>
     </element>
   </differential>
 </StructureDefinition>

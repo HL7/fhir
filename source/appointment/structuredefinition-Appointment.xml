@@ -950,6 +950,11 @@
         <identity value="w5"/>
         <map value="FiveWs.context"/>
       </mapping>
+	  <mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	  </mapping>
     </element>
 	<element id="Appointment.originatingAppointment">
       <path value="Appointment.originatingAppointment"/>
@@ -966,6 +971,11 @@
         <identity value="w5"/>
         <map value="FiveWs.context"/>
       </mapping>
+	  <mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	  </mapping>
     </element>
 	<element id="Appointment.recurrenceId">
       <path value="Appointment.recurrenceId"/>
@@ -1000,6 +1010,11 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+	  <mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	  </mapping>
     </element>
 	<element id="Appointment.recurrenceTemplateInformation.timezone">
       <path value="Appointment.recurrenceTemplateInformation.timezone"/>
@@ -1025,6 +1040,11 @@
         <identity value="ical"/>
         <map value="TZID"/>
       </mapping>
+	  <mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	  </mapping>
     </element>
 	<element id="Appointment.recurrenceTemplateInformation.recurrenceType">
       <path value="Appointment.recurrenceTemplateInformation.recurrenceType"/>
@@ -1255,7 +1275,7 @@
     </element>
 	<element id="Appointment.recurrenceTemplateInformation.occurrenceDate">
       <path value="Appointment.recurrenceTemplateInformation.occurrenceDate"/>
-      <short value="The list of dates of appointments in the recurring series."/>
+      <short value="The list of dates of appointments in the recurring series"/>
       <definition value="The list of dates that will have appointments generated in the recurring series."/>
       <min value="0"/>
       <max value="*"/>
