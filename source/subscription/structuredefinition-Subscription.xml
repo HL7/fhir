@@ -118,11 +118,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubscriptionState"/>
+          <valueString value="SubscriptionStatusCodes"/>
         </extension>
         <strength value="required"/>
         <description value="The status of a subscription."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-state"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-status"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -225,10 +225,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
       </binding>
     </element>
-    <element id="Subscription.filterBy.searchParamName">
-      <path value="Subscription.filterBy.searchParamName"/>
+    <element id="Subscription.filterBy.filterParameter">
+      <path value="Subscription.filterBy.filterParameter"/>
       <short value="Filter label defined in SubscriptionTopic"/>
-      <definition value="The filter label (=key) as defined in the `SubscriptionTopic.canfilterBy.searchParamName`  element."/>
+      <definition value="The filter label (=key) as defined in the `SubscriptionTopic.canfilterBy.filterParameter`  element."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -236,10 +236,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="Subscription.filterBy.searchModifier">
-      <path value="Subscription.filterBy.searchModifier"/>
+    <element id="Subscription.filterBy.modifier">
+      <path value="Subscription.filterBy.modifier"/>
       <short value="= | eq | ne | gt | lt | ge | le | sa | eb | ap | above | below | in | not-in | of-type"/>
-      <definition value="The operator to apply to the filter value when determining matches (Search modifiers)."/>
+      <definition value="Operator to apply when determining matches (Search Modifiers), from the list of allowed modifiers for this filter in the relevant SubscriptionTopic."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -374,25 +374,6 @@
         <strength value="required"/>
         <description value="Codes to represent how much resource content to send in the notification payload."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subscription-payload-content"/>
-      </binding>
-    </element>
-    <element id="Subscription.notificationUrlLocation">
-      <path value="Subscription.notificationUrlLocation"/>
-      <short value="none | full-url | request-response | all"/>
-      <definition value="If present, where to place URLs of resources in notifications."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubscriptionUrlLocation"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The location, in Bundle.entry, where URLs for resources should be located."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-url-location"/>
       </binding>
     </element>
     <element id="Subscription.maxCount">

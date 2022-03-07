@@ -112,6 +112,7 @@
       <path value="PractitionerRole.identifier"/>
       <short value="Business Identifiers that are specific to a role/location"/>
       <definition value="Business Identifiers that are specific to a role/location."/>
+      <comment value="A specific identifier value (e.g. Minnesota Registration ID) may appear on multiple PractitionerRole instances which could be for different periods, or different Roles (or other reasons).  A specific identifier may be included multiple times in the same PractitionerRole instance with different identifier validity periods."/>
       <requirements value="Often, specific identities are assigned for the agent."/>
       <min value="0"/>
       <max value="*"/>
@@ -177,6 +178,7 @@
       <path value="PractitionerRole.period"/>
       <short value="The period during which the practitioner is authorized to perform in these role(s)"/>
       <definition value="The period during which the person is authorized to act as a practitioner in these role(s) for the organization."/>
+      <comment value="If a practitioner is performing a role within an organization over multiple, non-adjacent periods, there should be a distinct PractitionerRole instance for each period.  For example, if a nurse is employed at a hospital, leaves the organization for a period of time due to pandemic related stress, but returns post-pandemic to the same job role, there would be two PractitionerRole instances for the different periods of employment."/>
       <requirements value="Even after the agencies is revoked, the fact that it existed must still be recorded."/>
       <min value="0"/>
       <max value="1"/>
@@ -402,8 +404,8 @@
     </element>
     <element id="PractitionerRole.availableTime.allDay">
       <path value="PractitionerRole.availableTime.allDay"/>
-      <short value="Always available? e.g. 24 hour service"/>
-      <definition value="Indicates always available, hence times are irrelevant.  (e.g. 24-hour service)."/>
+      <short value="Always available? i.e. 24 hour service"/>
+      <definition value="Indicates always available, hence times are irrelevant.  (i.e. 24-hour service)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

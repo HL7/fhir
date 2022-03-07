@@ -3,166 +3,216 @@
 	<a name="implementing" />
 	<h2>Implementation Notes</h2>
 	<p>
-		Each server is responsible for accurately implementing each SubscriptionTopic it advertises support for.  Due to the breadth of possible topics, detailed implementation guidance cannot be provided here.  Following are a few topics to consider when implementing a Subscription Topic within a server:
+		Each server is responsible for accurately implementing each SubscriptionTopic it advertises support for.  Due to the breadth of possible topics, detailed implementation guidance cannot be provided here.  Following are a few points to consider when implementing a Subscription Topic within a server:
 	</p>
 
   <a name="defining" />
   <h2>Defining Subscription Topics</h2>
+  <p>
+    The <code>SubscriptionTopic</code> resource is designed to define what is possible for a subscription - what causes a server to generate notifications, what related information notifications contain, and what a client can use to filter a class of possible subscriptions down to what that particular client is interested in.  Implementers and users SHOULD be able to use a subscription topic to arrive at the same expectations.
+  </p>
 	<p>
-		Defining a new <code>SubscriptionTopic</code> requires clear communication to implementers of both clients and servers around requirements and expectations.  Anyone defining a <code>SubscriptionTopic</code> is encouraged to publish their definition at <a href="https://registry.fhir.org/">registry.fhir.org</a>.  Below are some areas which should be considered when creating a <code>SubscriptionTopic</code>.
+		Defining a new <code>SubscriptionTopic</code> requires clear communication around requirements and expectations.  Anyone defining a <code>SubscriptionTopic</code> is encouraged to publish their definition at <a href="https://registry.fhir.org/">registry.fhir.org</a>.  Similarly, before defining a new <code>SubscriptionTopic</code> implementers are encouraged to check the registry to see if an existing definition can be reused (either directly or as a base for derivation).
 	</p>
-
-	<p>
-		Definitions for Subscription Topics fall into three categories, which are described in more detail below.  Good definitions will have useful definitions for two parts (conceptual and one of the other two), but the server implementation should always prioritize accurately representing the concept definition.
-	</p>
+  <p>
+    Note that <code>SubscriptionTopic</code> is a <a href="canonicalresource.html">Canonical Resource</a> and inherits many elements related to authoring and publication.  Authors SHOULD review inherited elements and populate them accordingly.
+  </p>
 	
 	<a name="concept-definition" />
 	<h3>Conceptual Definition</h3>
 	<p>
-		Subscription Topics MUST always document the concept it represents.  While a short definition is included in the <code>SubscriptionTopic</code> itself, this documentation will typically not be sufficient for implementers.  Definitions must be clear and specific.  For example, if the goal is to define an 'admission' topic, the single word is common enough to feel sufficient - implementers generally know what an 'admission' is and could implement something that would qualify.  However, is the intention to represent a patient being physically admitted to a care facility, or the start of a clinical encounter?  Either definition is common, and without more information implementations will not be consistent.  Without complete and specific definitions, server implementions will vary and clients will have unexpected behavior.
+		Subscription Topics MUST always document the concept it represents.  While a short definition is included in the <code>SubscriptionTopic</code> itself, this documentation will typically not be sufficient for implementers.  Definitions must be clear and specific.  For example, if the goal is to define an 'admission' topic, the single word is common enough to feel sufficient - implementers generally know what an 'admission' is and could implement something that would qualify.  However, is the intention to represent a patient being physically admitted to a care facility, or the start of a clinical encounter?  Either definition is common, and without more information implementations will not be consistent.  Without complete and specific definitions, server implementations will vary and clients will have unexpected behavior.
 	</p>
 
 	<a name="resource-operation-pairs" />
-	<h3>Resource Operation Pairs</h3>
+	<h3>Resource Interactions</h3>
 	<p>
-		Subscription Topics based on Resource Operation Pairs are the simplest to describe - definitions include the resource type (e.g., <code>Patient</code>, <code>Encounter</code>) and the operation of interest (e.g., <code>create</code>, <code>delete</code>).
+		Subscription Topics based on Resource Interactions are simple to describe - definitions include the resource type (e.g., <code>Patient</code>, <code>Encounter</code>) and the interaction of interest (e.g., <code>create</code>, <code>delete</code>).
 	</p>
 	<p>
-		Subscription Topics for resource-operation pairs are defined using the <code>SubscriptionTopic.resourceTrigger.resourceType</code> and <code>SubscriptionTopic.resourceTrigger.methodCriteria</code> fields.
+		Subscription Topics for resource interactions are defined using the <code>SubscriptionTopic.resourceTrigger.resource</code> and <code>SubscriptionTopic.resourceTrigger.supportedInteraction</code> elements.
 	</p>
+  <p>
+    If a topic is designed to cover multiple resources, it can contain multiple <code>resourceTrigger</code> elements with each resource.  If a topic is generic to all resources, the <code>Resource</code> is available within the <a href="valueset-defined-types.html">FHIR Defined Type</a> value set.
+  </p>
 	
 		<a name="resource-operation-create" />
-		<h4>Resource: Create</h4>
+		<h4>Resource Interaction: Create</h4>
 		<p>
-			Subscription Topics defined around resource <code>create</code> operations are triggered each time a resource of the specified type is created.
+			Subscription Topics defined on <code>create</code> interactions are triggered each time a resource of the specified type is created.
 		</p>
 		<p>
 			Filters for <code>create</code> operations are restricted to the type of resource being created and must be evaluated on the created resource instance.  If more complicated filtering is required (e.g., new Observations when a Patient has a given diagnosis), implementers should use the computable definitions provided by <a href="#resource-value-tests">Resource Value Tests</a>.
 		</p>
 		<ul>
 			<li>
-				Example using 'create' operation
-			</li>
+        <code>resource: Patient</code>, <code>supportedInteraction: create</code>: notify each time a new <a href="patient.html">patient</a> is created on the server, e.g., to send 'new patient' information.
+      </li>
+			<li>
+        <code>resource: AdverseEvent</code>, <code>supportedInteraction: create</code>: notify each time a new <a href="adverseevent.html">Adverse Event</a> is created on the server, e.g., to perform internal review.
+      </li>
+			<li>
+        <code>resource: Resource</code>, <code>supportedInteraction: create</code>: notify each time any resource is created on the server, e.g., for internal logging/processing.
+      </li>
 		</ul>
 		
 		<a name="resource-operation-delete" />
-		<h4>Resource: Delete</h4>
+		<h4>Resource Interaction: Delete</h4>
 		<p>
-			Subscription Topics defined around resource <code>delete</code> operations are triggered each time a resource of the specified type is deleted.
+			Subscription Topics defined on <code>delete</code> interactions are triggered each time a resource of the specified type is deleted.
 		</p>
 		<p>
-			Filters for <code>delete</code> operations are restricted to the type of resource being deleted and must be evaluated on the resource instance being deleted.  If more complicated filtering is required (e.g., deleting a Patient which has a particular Observation), implementers should use the computable definitions provided by <a href="#resource-value-tests">Resource Value Tests</a>.
+			Filters for <code>delete</code> operations are restricted to the type of resource being deleted and must be evaluated on the resource instance being deleted.  If more complicated filtering is required (e.g., notifications for deleting a Patient which has a particular Condition), implementers should use the computable definitions provided by <a href="#resource-value-tests">Resource Value Tests</a>.
 		</p>
 		<ul>
 			<li>
-				Example using 'delete' operation
+        <code>resource: Resource</code>, <code>supportedInteraction: delete</code>: notify each time a new resource is delete on the server, e.g., for internal logging/processing.
 			</li>
 		</ul>
 		
 		<a name="resource-operation-update" />
-		<h4>Resource: Update</h4>
+		<h4>Resource Interaction: Update</h4>
 		<p>
-			Subscription Topics defined around resource <code>update</code> operations are triggered each time the server updates a resource of the specified type.  Triggering an <code>update</code> operation does not imply that the resource has changes visible to the subscriber, nor does it require servers to monitor resources for actual changes.  Servers MAY generate notifications on their internal triggers, regardless of actual changes (e.g., a client issuing an HTTP PUT with an identical resource).
+			Subscription Topics defined on <code>update</code> interactions are triggered each time the server updates a resource of the specified type.  Triggering an <code>update</code> operation does not imply that the resource has changes visible to the subscriber, nor does it require servers to monitor resources for actual changes.  Servers MAY generate notifications on their internal triggers, regardless of actual changes (e.g., a client issuing an HTTP PUT with an identical resource).
 		</p>
 		<p>
-			Filters for <code>update</code> operations are restricted to the type of resource being updated and must be evaluated on the resource instance after the update is performed (e.g., post-state change).  If more complicated filtering is required (e.g., detecting when an Encounter leaves the 'in-progress' state), implementers should use the computable definitions provided by <a href="#resource-value-tests">Resource Value Tests</a>.
+			Filters for <code>update</code> interactions are restricted to the type of resource being updated and must be evaluated on the resource instance after the update is performed (e.g., post-state change).  If more complicated filtering is required (e.g., detecting when an Encounter leaves the 'in-progress' state), implementers should use the computable definitions provided by <a href="#resource-value-tests">Resource Value Tests</a>.
 		</p>
 		<ul>
-			<li>
-				Example using 'update' operation
-			</li>
+			<li><code>resource: Patient</code>, <code>supportedInteraction: update</code>: notify each time a <a href="patient.html">patient</a> is modified on the server, e.g., to a processing server to determine further actions.</li>
+			<li><code>resource: CarePlan</code>, <code>supportedInteraction: update</code>: notify each time a <a href="careplan.html">Care Plan</a> is modified on the server, e.g., to notify a care team of changes.</li>
+			<li><code>resource: Resource</code>, <code>supportedInteraction: update</code>: notify each time any resource is modified on the server, e.g., for internal logging/processing.</li>
 		</ul>
 	
 	<a name="resource-value-tests" />
 	<h3>Resource Value Tests</h3>
 	<p>
-		If a topic requires more granularity than operations provide, a topic can provide either <a href="fhirpath.html">FHIRPath</a> or query (<a href="search.html">Search</a>) definitions to test against state changes.
+		If a topic requires more granularity than interactions provide, a topic can provide state-change tests using either <a href="fhirpath.html">FHIRPath</a> or query (<a href="search.html">Search</a>) definitions.
 	</p>
 	<p>
-		Computable Definitions serve two purposes when defining topics. First, some server implementers may be able to use computable definitions directly (or with minimal changes). In this scenario, the benifit of a computable definition is quite large (e.g., user-defined <code>SubscriptionTopics</code>, high portability, etc.). Second, implementers that do not use computable definitions internally will be able to read definitions during their implementation in order to precisley understand what is being defined.
+		Computable Definitions serve two purposes when defining topics. First, some server implementers may be able to use computable definitions directly or with minimal changes. In this scenario, the benifit of a computable definition is quite large (e.g., user-defined Subscription Topics, high portability, etc.). Second, implementers that do not use computable definitions directly will be able to read definitions during their implementation in order to precisley understand what is being defined.
 	</p>
 
 		<a name="query-criteria" />
 		<h4>Query (Search) Definitions</h4>
 		<p>
-			Query definitions are based on Search evaluations performed before and/or after a state change in the server.  Allowed query parameters are based on the <code>SubscriptionTopic.resourceTrigger.resourceType</code> (e.g., if the resource is an <a href="encounter.html">Encounter</a>, the list of available search parameters can be found <a href="encounter.html#search">here</a>).
+			Query definitions are based on Search evaluations performed before and/or after a state change in the server.  Allowed query parameters are based on the <code>resourceTrigger.resource</code> (e.g., if the resource is an <a href="encounter.html">Encounter</a>, the list of available search parameters can be found <a href="encounter.html#search">here</a>).
 		</p>
 
 		<a name="fhirpath-criteria" />
 		<h4>FHIRPath Definitions</h4>
 		<p>
-			FHIRPath expressions can be used to define topical state changes in a server.  Each FHIRPath expression is assumed to be provided the inputs listed below.  If multiple FHIRPath expressions are present in <code>SubscriptionTopic.resourceTrigger.fhirPathCriteria</code>, they are joined together by AND clauses.
+			FHIRPath expressions can be used to define topical state changes in a server.  The FHIRPath expression is assumed to be provided the inputs listed below.
 		</p>
 		<p>
 			FHIRPath expression input variables:
+      <ul>
+        <li>
+          Variable [previous] = resource instance prior to state change being applied
+        </li>
+        <li>
+          Variable [current] - resource instance post state change being applied
+        </li>
+      </ul>
 		</p>
-		<ul>
-			<li>
-				Variable [previous] = resource instance prior to state change being applied
-			</li>
-			<li>
-				Variable [current] - resource instance post state change being applied
-			</li>
-		</ul>
+    <p>
+      For example, the expression: <code>%previous.status!='in-progress' and %current.status='in-progress'</code> indicates that the resource has an element, <code>status</code>, and that notifications are generated if the pre-update version status is not 'in-progress' and the post-update version is 'in-progress'.
+    </p>
+
+	<a name="definition-event" />
+	<h3>Event Definitions</h3>
+  <p>
+    There are use-cases when a triggering event is not easily described in terms of FHIR resources (e.g., shift change at a facility) or that an existing workflow is already defined on an event-based system (e.g., patient admission in HL7v2).  To support these scenarios Subscription Topics MAY include an event trigger, either instead of or in addition to resource triggers.
+  </p>
+  <p>
+    Event triggers are straightforward to define, since most of the definition exists in the event.  The <a href="subscriptiontopic-definitions.html#SubscriptionTopic.eventTrigger.event">event</a> element references the event which causes a Subscription to trigger.  For example, using the event <code>http://terminology.hl7.org/CodeSystem/v2-0003#A01</code> indicates that a Subscription activates under the same conditions that a HL7v2 system would send an <code>ADT^A01</code> message.  Similarly, an event trigger using <code>http://fhircast.org/events/patient-open</code> indicates that a Subscription activates under the same conditions that a FHIRcast Hub generates a <code>patient-open</code> message.
+  </p>
+  <p>
+    In order to allow Subscriptions to filter event-based topic definitions, event definitions require a "root" FHIR resource that can be referenced.  This is defined in the <a href="subscriptiontopic-definitions.html#SubscriptionTopic.eventTrigger.resource">eventTrigger.resource</a> element.  For example, a HL7v2 patient admission event (<code>http://terminology.hl7.org/CodeSystem/v2-0003#A01</code>) would likely be rooted in an Encounter resource, while a FHIRcast patient open event (<code>http://fhircast.org/events/patient-open</code>) would likely be rooted in a Patient resource.  By establishing the appropriate root resource for an event, topics can expose filters that are appropriate for notifications.  If there is no logical resource available (e.g., events referencing non-FHIR events), resources such as <a href="parameters.html">Parameters</a> or <a href="basic.html">Basic</a> may be used.
+  </p>
+  <p>
+    Note that while having a conceptual description and linking to an event is sufficient for a definition, authors are encouraged to include resource triggers if possible.
+  </p>
 
 	<a name="filters"/>
-	<h3>Defining Filters for Subscriptions</h3>
+	<h3>Defining Allowed Filters</h3>
 	<p>
-		In order to reduce the complexity of evaluating <code>Subscription</code> requests at runtime, topics define what filters clients are allowed to request.  These filters are applied in servers to filter possible events into events that a particular client is interested in (e.g., from a topic defining all all admissions to a subscription for admissions on patients within a care team).
+    To help servers filter a large set of topic notifications into a smaller set of events that a particular client is interested in, each <code>SubscriptionTopic</code> defines a set of filters that clients are allowed to request. For example, filters can be used to allow a <code>Subscription</code> to narrow down notifications from a topic defining all patient admissions to a just admissions for patients for a specific care team.
 	</p>
 
 		<a name="filters-param-name"/>
-		<h4>Search Parameter Name</h4>
+		<h4>Filter Parameter</h4>
 		<p>
-			The element <code>SubscriptionTopic.canFilterBy.searchParamName</code> contains the name of the search parameter used to filter events for the focus resource (defined by <code>SubscriptionTopic.resourceTrigger.resourceType</code>). The search parameter must be either from the list of <a href="search.html#Summary">Parameters for all resources</a> (e.g., <code>_id</code>, <code>_tag</code>) or the parameters defined by the specific resource (e.g., <a href="encounter.html#search">Encounter Search Parameters</a>, <a href="patient.html#search">Patient search parameters</a>, etc.).
+			The element <code>canFilterBy.filterParameter</code> contains the name of a parameter used to filter events for the focus resource, as defined by <code>resourceTrigger.resource</code> or <code>eventTrigger.resource</code>.  The name used in this element is only valid in the context of the Subscription Topic.
+    </p>
+    <p>
+      The filter parameter MAY be a Search Parameter, either from the list of <a href="search.html#Summary">Parameters for all resources</a> (e.g., <code>_id</code>, <code>_tag</code>) or Search Parameter defined for a specific resource (e.g., <a href="encounter.html#search">Encounter Search Parameters</a>, <a href="patient.html#search">Patient search parameters</a>, etc.).  When a Search Parameter is used, the topic SHALL contain a reference to a valid canonical definition in the <code>canFilterBy.filterDefinition</code> element.
 		</p>
-		<p>
-			If a search parameter name is not provided, it is defaulted to <code>_id</code>.
-		</p>
+    <p>
+      The filter parameter MAY be a filter defined in the context of a topic.  When a parameter is defined by a topic, the <code>canFilterBy.filterDefinition</code> SHOULD point to a URL containing detailed information about the parameter - e.g., datatype of the parameter.
+    </p>
+
+    <a name="filter-param-definition"/>
+    <h4>Filter Definition</h4>
+    <p>
+      Filters MAY have external definitions.  For example, Search Parameters defined in the FHIR Specifications have canonical URLs in the format of <code>http://hl7.org/fhir/SearchParameter/[id]</code> (see <a href="searchparameter-registry.html">Search Parameter Registry</a>). with Search Parameters, it is possible that two externally-defined filters share the same "short" name.  In these cases, the URI contained in the <code>filterDefinition</code> element is used to link a context-local name for the parameter (<code>filterParameter</code>) to the complete definition.
+    </p>
+    <p>
+      As described in <a href="#filters-param-name">Filter Parameter</a>, parameters backed by full Search Parameter definitions SHALL contain a link to the canonical URL in this element and other parameters SHOULD contain a useful URI in this element.
+    </p>
 
 		<a name="filters-modifer"/>
-		<h4>Search Modifier</h4>
+		<h4>Modifier</h4>
 		<p>
-			The element <code>SubscriptionTopic.canFilterBy.searchModifier</code> contains the search modifier used when evaluating a change.  Allowed search parameters are pulled from <a href="search.html">Search</a>, with the addition of <code>=</code> to show simple equality (e.g., no modifier). Note that modifiers are only valid for specific types of data (e.g., a modifer of <code>sa</code> (starts after) has no meaning when applied to a string).
+			The element <code>canFilterBy.modifier</code> contains a search modifier used when evaluating a change.  Allowed search parameters are pulled from <a href="search.html">Search</a>, with the addition of <code>=</code> to show simple equality (e.g., no modifier). Note that modifiers are only valid for specific types of data (e.g., a modifer of <code>sa</code> (starts after) has no meaning when applied to a string).
 		</p>
 		<p>
 			If a search modifier is not provided, it is defaulted to <code>=</code> (no modifer).
 		</p>
+    <p>
+      If a filter parameter is a defined Search Parameter, the list of allowed modifiers SHALL be a strict subset of the modifiers defined on the Search Parameter.
+    </p>
 
 		<a name="filters-timing"/>
-		<h4>Filter Timing</h4>
+		<h4>Filter Timing and Interactions</h4>
 		<p>
-			When to evaluate filters depends on the type of change covered by the topic.
+			When a server evaluates filters depends on the type of change covered by the topic.  Guidance is provided based on implementation feedback, but note that all filters are defined to explicitly describe the state before and after the interaction occurs.
 		</p>
 
 			<a name="filters-timing-create"/>
 			<h5>Create</h5>
 			<p>
-				Filters for <code>create</code> operations must be applied after the resource has been created. For example, a topic interested in new patients may allow filters on elements within the patient resource (e.g., new patients in a specified age range).
+				Logically, filters evaluated against <code>create</code> interactions must be performed after the resource has been created. For example, a topic interested in new patients may allow filters on elements within the patient resource (e.g., new patients in a specified age range).
 			</p>
+      <p>
+        Tests can specifically include or exclude changes caused by a <code>create</code> interactions, either via null testing in FHIRPath (e.g., <code>%previous is null</code>) or via the <code>resourceTrigger.queryCriteria.resultForCreate</code> element for query-based definitions.
+      </p>
 
 			<a name="filters-timing-delete"/>
 			<h5>Delete</h5>
 			<p>
-				Filters for <code>delete</code> operations must be applied before the resource has been deleted. For example, a topic interested in practitioners being removed may allow filters on the practitioner resource (e.g., removed practitioners with a specific qualification).
+				Logically, filters evaluated against <code>delete</code> interactions must be performed before the resource has been deleted. For example, a topic interested in practitioners being removed may allow filters on the practitioner resource (e.g., removed practitioners with a specific qualification).
 			</p>
+      <p>
+        Tests can specifically include or exclude changes caused by a <code>delete</code> interactions, either via null testing in FHIRPath (e.g., <code>%current is null</code>) or via the <code>resourceTrigger.queryCriteria.resultForDelete</code> element for query-based definitions.
+      </p>
 
 			<a name="filters-timing-update"/>
 			<h5>Update</h5>
 			<p>
-				Filters for <code>update</code> operations can be applied to either the pre-update or post-update state. Servers SHOULD document their method of operation.
+				Logically, filters evaluated against <code>update</code> interactions MAY be performed either before or after the update occurs.  Note however that filters are explicitly defined against the two states: <code>previous</code> and <code>current</code>.  Notifications based on resource changes SHALL NOT be sent if the update request fails, since no state change occurred.
 			</p>
 
   <a name="notification-shape"/>
   <h3>Notification Shape</h3>
   <p>
-    In addition to the triggering information for a topic, this resource also defines the expected 'shape' of notifications via <code>SubscriptionTopic.notificationShape</code>.  This element defines the possible 'root' resources for a notification, as well as additional resources that may be included.
+    In addition to the triggering information for a topic, this resource also defines the expected 'shape' of notifications via <code>notificationShape</code>.  This element defines the possible 'root' resources for a notification, as well as additional resources that may be included.
   </p>
 
   <a name="shape-root-resource"/>
   <h4>Root Resource</h4>
   <p>
-    The element <code>SubscriptionTopic.notificationShape.resource</code> defines a 'root' resource for notifications.  Typically, this resource will be the same as the triggering resource (e.g., <code>SubscriptionTopic.resourceTrigger.resource</code> or <code>SubscriptionTopic.eventTrigger.resource</code>), however there may be situations where this is not the case.  For example, a topic may be defined across all resources (e.g., every time a resource is deleted), but the author may want additional information depending on which resource is involved.  In that scenario, the <code>resourceTrigger.resource</code> could be set to <code>Resource</code> to trigger on all resources.  However, shapes could be defined for each resource in the patient compartment to include patient information with those notifications (e.g., if an <code>Encounter</code> is deleted, include the <code>Patient</code> record as well).  Note that the opposite scenario is also supported - an author may define multiple triggers on different types of events and simply define a shape that is valid for all of those resources.
+    The element <code>notificationShape.resource</code> defines a 'root' resource for notifications.  Typically, this resource will be the same as the triggering resource (e.g., <code>resourceTrigger.resource</code> or <code>eventTrigger.resource</code>), however there may be situations where this is not the case.  For example, a topic may be defined across all resources (e.g., every time a resource is deleted), but the author may want additional information depending on which resource is involved.  In that scenario, the <code>resourceTrigger.resource</code> could be set to <code>Resource</code> to trigger on all resources.  However, shapes could be defined for each resource in the patient compartment to include patient information with those notifications (e.g., if an <code>Encounter</code> is deleted, include the <code>Patient</code> record as well).  Note that the opposite scenario is also supported - an author may define multiple triggers on different types of events and simply define a shape that is valid for all of those resources.
   </p>
  
   <a name="shape-additional-resources"/>
@@ -171,7 +221,7 @@
     Sometimes it is benficial to include additional resources with a subscription notification.  For example, queries for additional resources may be complex in the future, but simple at the time of notification due to context in the event.  Alternatively, the subscriber may have limited ability to request additional resource (e.g., a client that is generally offline).
   </p>
   <p>
-    In order to facilitate these workflows, a Subscription can define additional resources that MAY be included when a notification is sent.  These additions are based off of the focus resource of the notification, and are described as a list of <a href="search.html#include">_include and _revinclude</a> directives.  When notifications are generated, a server SHOULD check the appropriate <code>SubscriptionTopic.notificationShape.resource</code> for a matching resource and SHOULD include any additional resources listed via <code>SubscriptionTopic.notificationShape.include</code> and <code>SubscriptionTopic.notificationShape.revInclude</code>, if they exist and the user context for the subscription is authorized to access them.
+    In order to facilitate these workflows, a Subscription can define additional resources that MAY be included when a notification is sent.  These additions are based off of the focus resource of the notification, and are described as a list of <a href="search.html#include">_include and _revinclude</a> directives.  When notifications are generated, a server SHOULD check the appropriate <code>notificationShape.resource</code> for a matching resource and SHOULD include any additional resources listed via <code>notificationShape.include</code> and <code>notificationShape.revInclude</code>, if they exist and the user context for the subscription is authorized to access them.
   </p>
   <p>
     Included resources should be added in the same style as the focus resource - e.g., if notifications are <code>id-only</code>, then included resources should only include their ids as well.
@@ -179,7 +229,9 @@
 
 	<a name="deriving" />
 	<h2>Deriving from existing Subscription Topics</h2>
-  <p>Implementers are encouraged to add additional filters, but cannot remove existing ones nor change the 'concept' of a SubscriptionTopic during derivation.  For example:</p>
+  <p>
+    By populating the <a href="subscriptiontopic-definitions.html#SubscriptionTopic.derivedFrom">derivedFrom</a> element, implementers can advertise that a new topic is compatible with, and offers additional features on top of, another Subscription Topic. A derived topic can add additional filters, but cannot remove existing ones nor change the 'concept' of a topic during derivation.  For example:
+  </p>
 	<ul>
 		<li>Deriving a new SubscriptionTopic with the same concept but a different computable definition is OK.</li>
 		<li>Deriving a new SubscriptionTopic to expose additional canFilterBy parameters is OK.</li>
@@ -187,7 +239,7 @@
 		<li>Deriving a new SubscriptionTopic based on a different resource than its parent is NOT ok (e.g., start/end of medication derived from encounter).</li>
 	</ul>
   [%stu-note%]
-	Warning: This section is still in early drafting.
+	Warning: This section is still in early drafting; feedback from topic authors is welcome to refine the following guidance.
 	[%end-note%]
 
 </div>

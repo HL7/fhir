@@ -29,7 +29,7 @@
           (linked to the services directory resources - Organization/Location/Practitioner/HealthcareService)</li>
       <li>Patient/Person: Location of Master Patient/Person Indexes</li>
       <li>Service Provider Directories: Location of related directories (parent/child/federated) </li>
-	  <li>DICOM/imaging: Location of where to query for imaging content and metadata (QIDO-RS, WADO-RS, or WADO-URI)</li>
+	  <li>DICOM/imaging: Location of where to query, retrieve or store imaging content and metadata (QIDO-RS, WADO-RS, WADO-URI, STOW-RS)</li>
     </ul>
   </div>
   <div>
@@ -38,9 +38,9 @@
  <h3>CapabilityStatement</h3>
     <p>
       The endpoint is distinct from a capability statement in that the CapabilityStatement statement describes the entire capability
-      of a server (and in the metadata case, just this server)<br/>
+      of a system (and in the metadata case, just this system)<br/>
       Where the endpoint resource describes the technical details for how to connect, and for what purposes 
-      (which could be a small sub-set of the server's capabilities, and might not be a FHIR endpoint).
+      (which could be a small sub-set of the system's capabilities, and might not be a FHIR endpoint).
     </p>
 	<h3>ContactPoint</h3>
 	<p>
@@ -66,6 +66,7 @@ information would be required to use the value. The value is generally used to c
     <h3>Expected Implementations</h3>
     <ul>
       <li>Any solution where there are distributed FHIR servers deployed and need discovery/configuration</li>
+	  <li>Systems advertising connectivity information in a DICOM environment</li>
       <li>(Refer to the scope and usage section for common uses)</li>
     </ul>
   </div>
