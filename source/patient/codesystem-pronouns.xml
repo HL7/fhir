@@ -22,12 +22,12 @@
   <concept>
     <code value="he/him"/>
     <display value="He, Him, His, Himself"/>
-    <definition value="English pronouns typically associated with masculinity."/>
+    <definition value="English pronouns typically associated with masculinity"/>
   </concept>
   <concept>
     <code value="she/her"/>
     <display value="She, Her, Hers, Herself"/>
-    <definition value="English pronouns typically associated with femininity."/>
+    <definition value="English pronouns typically associated with femininity"/>
   </concept>
   <concept>
     <code value="they/them"/>
@@ -37,7 +37,7 @@
   <concept>
     <code value="other"/>
     <display value="Other"/>
-    <definition value="The individual uses pronouns other than he/him, she/her, or they/them."/>
+    <definition value="The individual uses pronouns other than he/him, she/her, or they/them"/>
   </concept>
   <concept>
     <code value="unknown"/>

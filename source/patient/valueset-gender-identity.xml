@@ -38,21 +38,23 @@
         <code value="non-binary"/>
         <display value="non-binary"/>
       </concept>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
       <concept>
-        <code value="transgender-male"/>
-        <display value="transgender male"/>
+        <code value="asked-declined"/>
+        <display value="Asked But Declined"/>
       </concept>
-      <concept>
-        <code value="transgender-female"/>
-        <display value="transgender female"/>
+	  <concept>
+        <code value="unknown"/>
+        <display value="Unknown"/>
       </concept>
+    </include>
+	<include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-NullFlavor"/>
       <concept>
-        <code value="other"/>
-        <display value="other"/>
-      </concept>
-      <concept>
-        <code value="non-disclose"/>
-        <display value="does not wish to disclose"/>
+        <code value="OTH"/>
+        <display value="Other"/>
       </concept>
     </include>
   </compose>
