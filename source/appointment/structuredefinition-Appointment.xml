@@ -1010,8 +1010,7 @@
       </type>
 	  <mapping>
 		<identity value="rim"/>
-		<uri value="http://hl7.org/v3"/>
-		<name value="RIM Mapping"/>
+		<map value="N/A"/> 
 	  </mapping>
     </element>
 	<element id="Appointment.recurrenceTemplateInformation.timezone">
@@ -1040,8 +1039,7 @@
       </mapping>
 	  <mapping>
 		<identity value="rim"/>
-		<uri value="http://hl7.org/v3"/>
-		<name value="RIM Mapping"/>
+		<map value="N/A"/> 
 	  </mapping>
     </element>
 	<element id="Appointment.recurrenceTemplateInformation.recurrenceType">
