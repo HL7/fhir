@@ -190,9 +190,7 @@ client certificates.
 When returning responses to non-authorized clients, ensure that Hypertext Transfer Protocol (HTTP) headers of a web server and API error messages or faults do not disclose detailed information about the underlying web server that could be the source of potential exploitation.
 </p>
 <p>
-Please follow IETF Best Current Practice (<a href="https://tools.ietf.org/html/bcp195">BCP 195</a>) - <a href="https://tools.ietf.org/html/bcp195">"Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Layer Security (DTLS)"</a>. This recommends TLS 1.2 or higher be used for all production data exchange, limits support for lower versions of TLS, and forbids SSL. 
-Versions of TLS prior to TLS 1.2 should be used only where TLS 1.2 or higher is not available between partners.
-When using TLS, use with strong cipher suites (e.g. AES).
+Please follow IETF Best Current Practice (<a href="https://tools.ietf.org/html/bcp195">BCP 195</a>) - <a href="https://tools.ietf.org/html/bcp195">"Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Layer Security (DTLS)"</a>. 
 </p>
 <p>
 Consider using additional methods of security for an API to help authenticate where Domain Name System (DNS) responses are coming from and ensure that they are valid. For example, the use of Domain Name System Security Extensions (DNSSEC), a suite of extensions that add security to the DNS protocol, can ensure that domains associated with API endpoints that transmit health information or information required for API access are secure.  DNSSEC provides origin authority, data integrity, and authenticated denial of existence. With DNSSEC, the DNS protocol is much less susceptible to certain types of attacks, particularly DNS spoofing attacks.

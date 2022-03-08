@@ -498,8 +498,8 @@
     </element>
     <element id="Location.hoursOfOperation.allDay">
       <path value="Location.hoursOfOperation.allDay"/>
-      <short value="The Location is open all day"/>
-      <definition value="The Location is open all day."/>
+      <short value="Always available? i.e. 24 hour service"/>
+      <definition value="Is this always available? (hence times are irrelevant) i.e. 24 hour service."/>
       <min value="0"/>
       <max value="1"/>
       <type>
