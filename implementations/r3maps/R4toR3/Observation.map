@@ -37,10 +37,10 @@ group Observation(source src : Observation, target tgt : ObservationR3) extends 
   src.referenceRange as vs0 -> tgt.referenceRange as vt0 then referenceRange(vs0, vt0);
   src.hasMember as vs0 ->  tgt.related as vt0,  vt0.type = 'has-member',  vt0.target as vt2 then Reference(vs0, vt2);
   src.derivedFrom as vs0 ->  tgt.related as vt0,  vt0.type = 'derived-from',  vt0.target as vt2 then Reference(vs0, vt2);
-  src.extension as vs0 where url = 'http://hl7.org/fhir/3.0/StructureDefinition/Observation.sequelTo' ->  tgt.related as rel,  rel.type = 'sequel-to',  rel.target as vt0 then relatedExt(vs0, vt0) "related3";
-  src.extension as vs0 where url = 'http://hl7.org/fhir/3.0/StructureDefinition/Observation.replaces' ->  tgt.related as rel,  rel.type = 'replaces',  rel.target as vt0 then relatedExt(vs0, vt0) "related4";
-  src.extension as vs0 where url = 'http://hl7.org/fhir/3.0/StructureDefinition/Observation.qualifiedBy' ->  tgt.related as rel,  rel.type = 'qualifiedBy',  rel.target as vt0 then relatedExt(vs0, vt0) "related5";
-  src.extension as vs0 where url = 'http://hl7.org/fhir/3.0/StructureDefinition/Observation.interferedBy' ->  tgt.related as rel,  rel.type = 'interfered-by',  rel.target as vt0 then relatedExt(vs0, vt0) "related6";
+  src.extension as vs0 where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Observation.sequelTo' ->  tgt.related as rel,  rel.type = 'sequel-to',  rel.target as vt0 then relatedExt(vs0, vt0) "related3";
+  src.extension as vs0 where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Observation.replaces' ->  tgt.related as rel,  rel.type = 'replaces',  rel.target as vt0 then relatedExt(vs0, vt0) "related4";
+  src.extension as vs0 where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Observation.qualifiedBy' ->  tgt.related as rel,  rel.type = 'qualifiedBy',  rel.target as vt0 then relatedExt(vs0, vt0) "related5";
+  src.extension as vs0 where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Observation.interferedBy' ->  tgt.related as rel,  rel.type = 'interfered-by',  rel.target as vt0 then relatedExt(vs0, vt0) "related6";
   src.component as vs0 -> tgt.component as vt0 then component(vs0, vt0);
 }
 

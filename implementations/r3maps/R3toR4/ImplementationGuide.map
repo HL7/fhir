@@ -51,7 +51,7 @@ group resource(source src, target tgt, source pck) extends BackboneElement {
   src.name -> tgt.name;
   src.description -> tgt.description;
   src.acronym as vs ->  tgt.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ImplementationGuide.package.resource.acronym',  ext.value = vs;
-  src.source : uri as vs ->  tgt.reference as ref,  ref.reference = vs,  ref.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/BaseType',  ext.value = 'uri' "sourceUri";
+  src.source : uri as vs ->  tgt.reference as ref,  ref.reference = vs,  ref.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-BaseType',  ext.value = 'uri' "sourceUri";
   src.source : Reference as vs0 -> tgt.reference as vt0 then reference(vs0, vt0) "sourceRef";
   src.exampleFor as vs0 -> tgt.example = create('canonical') as vt0 then Reference2Canonical(vs0, vt0);
 }
