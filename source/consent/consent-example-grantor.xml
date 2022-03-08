@@ -37,12 +37,12 @@
     <!-- likely use url pointer to common text -->
   </sourceAttachment>
   <!-- this is opt-out - e.g. nothing approved unless otherwise stated -->
-  <policyRule>
+  <regulatoryBasis>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="INFAO"/>
     </coding>
-  </policyRule>
+  </regulatoryBasis>
   <provision>
     <type value="deny"/>
     <provision>

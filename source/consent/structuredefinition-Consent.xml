@@ -333,6 +333,7 @@
                 <map value="Potential mappings to CON-5,6,7,8,16,19, 20-23" />
             </mapping>
         </element>
+        <!-- removed for update to new policy structure
         <element id="Consent.policy">
             <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
                 <valueCode value="400,0" />
@@ -400,10 +401,81 @@
                 <map value="CON-3 (Consent Form ID and Version – ST)&#xA;Note: An implementation-specific requirement will be needed" />
             </mapping>
         </element>
+    -->
+        <element id="Consent.regulatoryBasis">
+            <path value="Consent.regulatoryBasis" />
+            <short value="Regulatory Basis for Consent" />
+            <definition value="A set of codes that indicate the regulatory basis (if any) that this consent supports." />
+            <min value="0" />
+            <max value="*" />
+            <type>
+                <code value="CodeableConcept" />
+            </type>
+            <isSummary value="false" />
+            <binding>
+                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+                    <valueString value="ConsentRegulatoryBasis" />
+                </extension>
+                <strength value="example" />
+                <description value="Regulatory policy examples" />
+                <valueSet value="http://hl7.org/fhir/ValueSet/consent-policy" />
+            </binding>
+            <mapping>
+                <identity value="v2" />
+                <map value="CON-3 (Consent Form ID and Version – ST)&#xA;Note: An implementation-specific requirement will be needed" />
+            </mapping>
+        </element>
+        <element id="Consent.policyBasis">
+            <path value="Consent.policyBasis" />
+            <short value="Computable version of the backing policy" />
+            <definition value="A Reference or URL used to uniquely identify the policy the organization will enforce for this Consent. This Reference or URL should be specific to the version of the policy and should be dereferencable to a computable policy of some form." />
+            <min value="0" />
+            <max value="1" />
+            <type>
+                <code value="BackboneElement" />
+            </type>
+            <isSummary value="false" />
+        </element>        
+        <element id="Consent.policyBasis.reference">
+            <path value="Consent.policyBasis.reference" />
+            <short value="Reference backing policy resource" />
+            <definition value="A Reference that identifies the policy the organization will enforce for this Consent." />
+            <comment value="While any resource may be used, Consent, PlanDefinition and Contract would be most frequent" />
+            <min value="0" />
+            <max value="1" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource" />
+            </type>
+            <isSummary value="false" />
+        </element>        
+        <element id="Consent.policyBasis.url">
+            <path value="Consent.policyBasis.url" />
+            <short value="URL to a computable backing policy" />
+            <definition value="A URL that links to a computable version of the policy the organization will enforce for this Consent." />
+            <min value="0" />
+            <max value="1" />
+            <type>
+                <code value="url" />
+            </type>
+            <isSummary value="false" />
+        </element>
+        <element id="Consent.policyText">
+            <path value="Consent.policyText" />
+            <short value="Human Readable Policy" />
+            <definition value="A Reference to the human readable policy explaining the basis for the Consent." />
+            <min value="0" />
+            <max value="*" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference" />
+            </type>
+            <isSummary value="false" />
+        </element>  
         <element id="Consent.verification">
             <path value="Consent.verification" />
             <short value="Consent Verified by patient or family" />
-            <definition value="Whether a treatment instruction (e.g. artificial respiration yes or no) was verified with the patient, his/her family or another authorized person." />
+            <definition value="Whether a treatment instruction (e.g. artificial respiration: yes or no) was verified with the patient, his/her family or another authorized person." />
             <min value="0" />
             <max value="*" />
             <type>
