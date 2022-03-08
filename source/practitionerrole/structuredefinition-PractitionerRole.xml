@@ -346,8 +346,9 @@
     </element>
     <element id="PractitionerRole.contact">
       <path value="PractitionerRole.contact"/>
-      <short value="Official contact details of this PractitionerRole"/>
-      <requirements value="Human contacts for this PractitionerRole. These may be for the practitioner, or a representative of theirs (in which case the name property in the contact may be populated)"/>
+      <short value="Official contact details relating to this PractitionerRole"/>
+      <definition value="The contact details of communication devices available relevant to the specific PractitionerRole. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
+      <requirements value="Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these. Sometimes these also include a named person/organization that handles contact for specific purposes, such as a receptionist, or accounts clerk etc"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -359,7 +360,7 @@
         <valueCode value="deprecated"/>
       </extension>
       <path value="PractitionerRole.telecom"/>
-      <short value="Contact details that are specific to the role/location/service"/>
+      <short value="Deprecated - use contact.telecom"/>
       <definition value="Contact details that are specific to the role/location/service."/>
       <requirements value="Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these."/>
       <min value="0"/>

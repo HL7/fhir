@@ -275,15 +275,31 @@
         <valueCode value="right"/>
       </extension>
       <path value="Organization.contact"/>
-      <short value="Contact for the organization for a certain purpose"/>
-      <definition value="Contact for the organization for a certain purpose."/>
-      <comment value="Where multiple contacts for the same purpose are provided use the rank property to indicate preference."/>
+      <short value="Official contact details for the Organization"/>
+      <definition value="The contact details of communication devices available relevant to the specific Organization. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
+      <comment value="The address/telecom use code &#39;home&#39; are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the Organization itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc."/>
       <requirements value="Need to keep track of assigned contact points within bigger organization."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="ExtendedContactDetail"/>
       </type>
+      <constraint>
+        <key value="org-3"/>
+        <severity value="error"/>
+        <human value="The telecom of an organization can never be of use &#39;home&#39;"/>
+        <expression value="telecom.where(use = &#39;home&#39;).empty()"/>
+        <xpath value="f:telecom.count(f:use[@value=&#39;home&#39;]) = 0"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </constraint>
+      <constraint>
+        <key value="org-4"/>
+        <severity value="error"/>
+        <human value="The address of an organization can never be of use &#39;home&#39;"/>
+        <expression value="address.where(use = &#39;home&#39;).empty()"/>
+        <xpath value="f:address.count(f:use[@value=&#39;home&#39;]) = 0"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value=".contactParty"/>
@@ -294,7 +310,7 @@
         <valueCode value="deprecated"/>
       </extension>
       <path value="Organization.telecom"/>
-      <short value="A contact detail for the organization"/>
+      <short value="Deprecated - use contact.telecom"/>
       <definition value="A contact detail for the organization."/>
       <comment value="The use code &#39;home&#39; is not to be used. Note that these contacts are not the contact details of people who are employed by or represent the organization, but official contacts for the organization itself."/>
       <requirements value="Human contact for the organization."/>
@@ -334,7 +350,7 @@
         <valueCode value="deprecated"/>
       </extension>
       <path value="Organization.address"/>
-      <short value="An address for the organization"/>
+      <short value="Deprecated - use contact.address"/>
       <definition value="An address for the organization."/>
       <comment value="Organization may have multiple addresses with different uses or applicable periods. The use code &#39;home&#39; is not to be used."/>
       <requirements value="May need to keep track of the organization&#39;s addresses for contacting, billing or reporting requirements."/>
