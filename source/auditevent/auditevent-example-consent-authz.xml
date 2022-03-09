@@ -21,6 +21,9 @@
 			<text value="CONSENT_PERMIT"/>
 		</detail>
 	</outcome>
+		<patient>
+			<reference value="Patient/example"/>
+		</patient>
 	<agent>
 		<type>
 			<coding>
@@ -55,19 +58,6 @@
 			</coding>
 		</type>
 	</source>
-	<entity>
-		<what>
-			<reference value="Patient/example"/>
-			<display value="Patterson, Nicholas"/>
-		</what>
-		<role>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
-				<code value="1"/>
-				<display value="Patient"/>
-			</coding>
-		</role>
-	</entity>
 	<entity>
 		<what>
 			<reference value="Consent/consent-example-basic"/>

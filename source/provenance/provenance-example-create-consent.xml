@@ -3,7 +3,7 @@
 	<id value="example-create-consent"/>
 
 	<target>
-		<reference value="Consent/consent-example-basic"/>
+		<reference value="Consent/consent-example"/>
 	</target>
 	<recorded value="2021-09-10T07:08:21.722+00:00"/>
 	<activity>
@@ -13,6 +13,9 @@
 			<display value="create"/>
 		</coding>
 	</activity>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
 	<agent>
 		<type>
 			<coding>
