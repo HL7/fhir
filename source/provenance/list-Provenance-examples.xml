@@ -100,4 +100,16 @@
       <display value="CWL Workflow"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Provenance  example for creation of a Consent from a Questionnaire"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example-create-consent"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example-create-consent"/>
+      <display value="Consent Workflow"/>
+    </item>
+  </entry>
 </List>
