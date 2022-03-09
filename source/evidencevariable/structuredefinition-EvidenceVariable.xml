@@ -379,7 +379,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="dateTime"/>
+        <code value="date"/>
       </type>
     </element>
     <element id="EvidenceVariable.lastReviewDate">
@@ -389,7 +389,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="dateTime"/>
+        <code value="date"/>
       </type>
     </element>
     <element id="EvidenceVariable.effectivePeriod">
