@@ -35,14 +35,14 @@
   <imageRegion>
       <regionType value="POLYGON"/>
       <coordinateType value="2d"/>
-      <coordinates value="0.25"/>
-      <coordinates value="0.25"/>
-      <coordinates value="0.75"/>
-      <coordinates value="0.25"/>
-      <coordinates value="0.75"/>
-      <coordinates value="0.75"/>
-      <coordinates value="0.25"/>
-      <coordinates value="0.75"/>
+      <coordinate value="0.25"/>
+      <coordinate value="0.25"/>
+      <coordinate value="0.75"/>
+      <coordinate value="0.25"/>
+      <coordinate value="0.75"/>
+      <coordinate value="0.75"/>
+      <coordinate value="0.25"/>
+      <coordinate value="0.75"/>
     </imageRegion>
 
 </ImagingSelection>
