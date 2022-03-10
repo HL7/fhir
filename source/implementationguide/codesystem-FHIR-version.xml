@@ -301,6 +301,11 @@
     <definition value="FHIR Release 3 (STU) with 1 technical errata."/>
   </concept>
   <concept>
+    <code value="3.0.2"/>
+    <display value="3.0.2"/>
+    <definition value="FHIR Release 3 (STU) with 2 technical errata."/>
+  </concept>
+  <concept>
     <code value="3.3.0"/>
     <display value="3.3.0"/>
     <definition value="R4 Ballot #1."/>
@@ -314,6 +319,15 @@
     <code value="4.0.0"/>
     <display value="4.0.0"/>
     <definition value="FHIR Release 4 (Normative + STU)."/>
+   <concept>
+    <code value="4.0.1"/>
+    <display value="4.0.1"/>
+    <definition value="FHIR Release 4 (Normative + STU) with 1 technical errata."/>
+  </concept>
+  <concept>
+    <code value="4.3.0"/>
+    <display value="4.3.0"/>
+    <definition value="FHIR Release 4b (Normative + STU)."/>
   </concept>
   <concept>
     <code value="<valueCode value="4.0.0"/>"/>
