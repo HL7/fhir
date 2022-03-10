@@ -109,35 +109,6 @@
         <map value="FiveWs.identifier"/>
       </mapping>
     </element>
-    <element id="ImagingSelection.basedOn">
-      <path value="ImagingSelection.basedOn"/>
-      <short value="Associated request"/>
-      <definition value="A list of the diagnostic requests that resulted in this imaging selection being performed."/>
-      <alias value="AccessionNumber"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AppointmentResponse"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.basedOn"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.cause"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="Accession Number and Issuer (0080,0050)+(0080,0051)"/>
-      </mapping>
-    </element>
     <element id="ImagingSelection.subject">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
         <valueString value="dicom=http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.2.2.html"/>
@@ -257,6 +228,58 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>
       <isSummary value="true"/>
+    </element>
+    <element id="ImagingSelection.basedOn">
+      <path value="ImagingSelection.basedOn"/>
+      <short value="Associated request"/>
+      <definition value="A list of the diagnostic requests that resulted in this imaging selection being performed."/>
+      <alias value="AccessionNumber"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AppointmentResponse"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.basedOn"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.cause"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Accession Number and Issuer (0080,0050)+(0080,0051)"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.category">
+      <path value="ImagingSelection.category"/>
+      <short value="Classifies the imaging selection"/>
+      <definition value="Classifies the imaging selection."/>
+      <requirements value="Used for filtering what imaging selections are retrieved and displayed."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImagingSelectionCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Source image for segmentation."/>
+      </binding>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Concept Name Code Sequence (0040,A043)"/>
+      </mapping>
     </element>
     <element id="ImagingSelection.code">
       <path value="ImagingSelection.code"/>
@@ -387,7 +410,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Coding"/>
+        <code value="CodeableReference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -604,8 +628,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-coordinatetype"/>
       </binding>
     </element>
-    <element id="ImagingSelection.imageRegion.coordinates">
-      <path value="ImagingSelection.imageRegion.coordinates"/>
+    <element id="ImagingSelection.imageRegion.coordinate">
+      <path value="ImagingSelection.imageRegion.coordinate"/>
       <short value="Specifies the type of coordinates that define the image region 2d | 3d"/>
       <definition value="The coordinates describing the image region.
       If coordinateType is 2D this specifies sequence of (x,y) coordinates in the coordinate system of the image specified by the instance.uid element that contains this image region.
