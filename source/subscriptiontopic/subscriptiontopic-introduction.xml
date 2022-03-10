@@ -7,24 +7,30 @@
     This document contains information about the <code>SubscriptionTopic</code> resource and details specific to options in it.  See <a href="subscriptions.html">Subscriptions</a> for general information about using Subscriptions in FHIR.
   </p>
   <p>
-    The <code>SubscriptionTopic</code> resource is used to define conceptual or computable events for <a href="subscription.html">Subscription</a> resources.  A <code>SubscriptionTopic</code> defines the <b>data</b> and <b>change</b> of interest, as well as allowed <b>filters</b> so that servers can implement specific functionality around subscriptions and clearly communicate boundaries to clients.  In other words, a <code>SubscriptionTopic</code> is a way of describing a state change to know what is of interest.  Because it describes a state change, a <code>SubscriptionTopic</code> is typically defined by either a resource-operation pair or value criteria tested against the previous and current states.
-  </p>
-  <p>
-    Subscription Topics are intended to be discoverable, reusable, and extensible.  Definitions should be computably defined whenever possible, but the conceptual definition is the arbiter between any discrepancies.  For example, a query-based and a FHIRPath-based definition may differ slightly because of what is expressable in each language.  In such cases, the goal is correct implmentation of the concept - not literal translations between computable definitions.
-  </p>
-  <p>
-    A <code>SubscriptionTopic</code> represents a well-defined concept to both a client and a server.  These concepts fall under several categories:
+    <code>SubscriptionTopic</code> is <a href="canonicalresource.html">canonical resource</a> defining a set of events that a client can subscribe to.  A <code>SubscriptionTopic</code> represents a concrete concept for both clients and servers.  For example:
     <ul>
       <li>
-        Concept Definition - e.g., Start of a Clinical Encounter, New Observation
+        Resource Interactions, such as <code>create</code> on <code>Observation</code> resources.
       </li>
       <li>
-        Resource Operation Pairs - e.g., <code>create</code> on <code>Observation</code> resources
+        Resource Value Changes, such as an Encounter resource that is created or modified to have a <code>status</code> of <code>in-progress</code>.
       </li>
       <li>
-        Resource Value Tests - e.g., Encounter:<code>%previous.status!='in-progress' and %current.status='in-progress'</code>
+        External Events, such as <code>http://terminology.hl7.org/CodeSystem/v2-0003#A01</code>.
       </li>
     </ul>
+  </p>
+  <p>
+    <code>SubscriptionTopic</code> elements belong to a few general categories:
+    <ul>
+      <li>Canonical information, such as: <a href="subscriptiontopic-definitions.html#SubscriptionTopic.url">url</a>, <a href="subscriptiontopic-definitions.html#SubscriptionTopic.title">title</a>, <a href="subscriptiontopic-definitions.html#SubscriptionTopic.publisher">publisher</a>, etc.</li>
+      <li>What triggers a notification: <a href="subscriptiontopic-definitions.html#SubscriptionTopic.resourceTrigger">resourceTrigger</a> and <a href="subscriptiontopic-definitions.html#SubscriptionTopic.eventTrigger">eventTrigger</a>.  More information can be found in the <a href="subscriptiontopic.html#defining">Defining Subscription Topics</a> section.</li>
+      <li>How clients can filter notifications: <a href="subscriptiontopic-definitions.html#SubscriptionTopic.canFilterBy">canFilterBy</a>.  More information can be found in the <a href="subscriptiontopic.html#filters">Defining Allowed Filters</a> section.</li>
+      <li>Related resources that MAY be included in notifications: <a href="subscriptiontopic-definitions.html#SubscriptionTopic.notificationShape">notificationShape</a>.  More information can be found in the <a href="subscriptiontopic.html#notification-shape">Notification Shape</a> section.</li>
+    </ul>
+  </p>
+  <p>
+    Subscription Topics are intended to be discoverable, reusable, and extensible.  Definitions should be computably defined whenever possible, but the conceptual definition is the arbiter between any discrepancies.  For example, a query-based and a FHIRPath-based definition may differ slightly because of what is expressable in each language.  In such cases, the goal is correct implementation of the concept - not literal translations between computable definitions.
   </p>
 </div>
 
