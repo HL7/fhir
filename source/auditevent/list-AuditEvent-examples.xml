@@ -136,4 +136,16 @@
       <display value="BreakGlass Start"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An AuditEvent recording a 'permit' authorization decision by a Consent Decision Service, based on a Consent resource (C1) filed by a patient (P1), in response to a request by an organization (Org1) for the purpose of treatment (TREAT)."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="auditevent-example-consent-authz"/>
+    </extension>
+    <item>
+      <reference value="AuditEvent/example-consent-permit-authz"/>
+      <display value="Consent Permit Authorization"/>
+    </item>
+  </entry>
 </List>
