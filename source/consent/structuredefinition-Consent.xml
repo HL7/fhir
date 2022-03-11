@@ -404,7 +404,7 @@
     -->
         <element id="Consent.regulatoryBasis">
             <path value="Consent.regulatoryBasis" />
-            <short value="Regulatory Basis for Consent" />
+            <short value="Regulations establishing base Consent" />
             <definition value="A set of codes that indicate the regulatory basis (if any) that this consent supports." />
             <min value="0" />
             <max value="*" />
