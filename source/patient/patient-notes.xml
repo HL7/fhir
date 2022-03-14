@@ -113,17 +113,25 @@ Many systems and organizations only provide for a single attribute that aspires 
 In addition to this administrative gender, other kinds of gender or sex properties may be represented:
 </p>
 <ul>
-  <li><b>Clinical Sex</b> - a testable observation about a biological property of the patient.  There are several different types of clinical sex, including karyotypic/genetic/chromosomal, gonadal, ductal, phenotypic, etc.  Clinical sex observations should be represented using <a href="observation.html">Observation</a>, qualified with the appropriate clinical codes from LOINC and/or SNOMED.
- </li>
-  <li><b>Clinical Gender</b> - an observation about the patient, often collected as part of social history documentation, and represented as an <a href="observation.html">Observation</a>(<a href="observation-example-clinical-gender.html">example</a>) using, for example, the LOINC code <a href="http://loinc.org/76691-5">76691-5</a>. Clinical gender observations can provide both history and confidentiality, where the <a href="extension-patient-genderidentity.html">genderIdentity</a> extension does not.  
- </li>
-  <li><b>Gender Identity</b> - an indication from the patient about what gender they consider themselves to be.  This can influence how the patient prefers to be addressed by care providers and other individuals.  The standard <a href="extension-patient-genderidentity.html">genderIdentity</a> extension may be used to communicate this property.  This extension is appropriate when the gender identity is openly known.
- </li>
-  <li><b>Sex assigned at Birth</b> - the sex assigned at birth, as documented on the birth registration. Some countries allow variations such as not yet determined, unknown, or undifferentiated, while others do not. Some countries also allow birth registration information to be updated.  The US realm defines a US specific extension for this property.
-  Alternatively, if you were representing this concept with an observation, you could use the LOINC code <a href="http://loinc.org/76689-9">76689-9</a>.
- </li>
-  <li><b>Legal Sex</b> - regional and national entities often categorize citizens using a single legal sex value.  The legal sex of a patient can vary from region to region and country to country.  A single patient may have multiple legal sex values at the same time in different jurisdictions.  In case where the Patient.gender administrative property is not sufficient to communicate legal sex, realm specific extensions should be used.
- </li>
+	<li><b>Gender Identity</b> - an indication from the patient about what gender they consider themselves to be.  This can influence how the patient prefers to be addressed by care providers and other individuals.  The standard <a href="extension-patient-genderidentity.html">genderIdentity</a> extension may be used to communicate this property.  This extension is appropriate when the gender identity is openly known.
+	</li>
+	<li><b>Sex for Clinical Use</b> - a categorization of a patient's sex derived from observable information such as an organ inventory, recent hormone lab tests, genetic testing, etc. This property is intended for use in clinical decision making, and indicates that treatment or diagnostic tests should consider best practicies associated with the relevant reference population.  The standard <a href="extension-patient-sexforclinicaluse.html">sexForClinicalUse</a> extension may be used to communicate this property.
+	</li>
+	<li><b>Sex-related Clinical Observations</b> - a testable observation about a biological property of the patient.  There are several different clincal observations that are associated with a patient's sex.  These include karyotypic/genetic/chromosomal markers, gonadal sex, ductal sex, various phenotypic attributes, etc.  Clinical observations about sex characteristics should be represented using <a href="observation.html">Observation</a>, qualified with the appropriate clinical codes from LOINC and/or SNOMED.
+	</li>
+	<li><b>Recorded Sex or Gender</b> - a recorded sex or gender is a generic concept that includes the various sex and gender values that are often used in existing systems.  Examples of recorded sex or gender concepts include administrative gender, administrative sex, sex assigned at birth, the sex or gender on an insurance card, driver's license, passport or other legal document.  These sex or gender concepts vary widely in their use and value sets. For the purposes of exchanging these concepts, implementers are encouraged to define the specific sex or gender concept that is relevant for their use case, and create a use-case specific property or extension to represent that specific concept.  In cases where a specific property or extension is not practical, or there is a need to represent a historical field that is not well defined, there is a standard <a href="extension-patient-recordedsexorgender.html">recordedSexOrGender</a> extension that may be used.
+	</li>
+	<li><b>Legal Sex</b> - regional and national entities often categorize citizens using a single legal sex value.  The legal sex of a patient can vary from region to region and country to country.  A single patient may have multiple legal sex values at the same time in different jurisdictions.  In case where the Patient.gender administrative property is not sufficient to communicate legal sex, either realm specific extensions or the <a href="extension-patient-recordedsexorgender.html">recordedSexOrGender</a> extension could be used.
+	</li>
+	<li><b>Sex assigned at Birth</b> - the sex assigned at birth, often defind as the sex or gender value documented on the birth registration. Some jurisdictions allow variations such as not yet determined, unknown, or undifferentiated, while others do not. Some jurisdictions also allow birth registration information to be updated.
+	<ul>
+	<li>The sex assigned at birth may often be a poor approximation of the patient's current sex for clinical use.  See <a href="extension-patient-sexforclinicaluse.html">sexForClinicalUse</a> as a way to communicate a patient's current sex for clinical use.</li>
+	<li>The US realm defines a US specific extension for this property.</li>
+	<li>It is possible to represent this concept with an observation, using LOINC code <a href="http://loinc.org/76689-9">76689-9</a>.</li>
+	<li>The <a href="extension-patient-recordedsexorgender.html">recordedSexOrGender</a> extension may be used</li>
+	</ul>
+	
+	</li>
 </ul>
 <p>
 For veterinary use, the animal extension also includes the genderStatus which indicates sterility information.

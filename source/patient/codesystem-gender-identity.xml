@@ -20,16 +20,6 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="transgender-female"/>
-    <display value="Transgender female"/>
-    <definition value="the patient identifies as transgender male-to-female"/>
-  </concept>
-  <concept>
-    <code value="transgender-male"/>
-    <display value="Transgender male"/>
-    <definition value="the patient identifies as transgender female-to-male"/>
-  </concept>
-  <concept>
     <code value="non-binary"/>
     <display value="Non-binary"/>
     <definition value="the patient identifies with neither/both female and male"/>

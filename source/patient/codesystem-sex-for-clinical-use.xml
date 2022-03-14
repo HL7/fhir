@@ -22,22 +22,22 @@
   <concept>
     <code value="female"/>
     <display value="Female"/>
-    <definition value="Available data indicates treatment plans should consider best practices associated with female reference populations."/>
+    <definition value="Available data indicates diagnostic and treatment plans should consider best practices associated with female reference populations."/>
   </concept>
   <concept>
     <code value="male"/>
     <display value="Male"/>
-    <definition value="Available data indicates treatment plans should consider best practices associated with male reference populations."/>
+    <definition value="Available data indicates diagnostic and treatment plans should consider best practices associated with male reference populations."/>
   </concept>
   <concept>
     <code value="specified"/>
     <display value="Specified"/>
-    <definition value="Patient data indicates the clinical treatment best practices may be ambiguous, undefined, or not aligned with existing sex-derived reference populations.  Individuals or systems providing care should either use default behavior that is safe for both male and female populations, individually review treatment options with the patient, or carefully inspect relevant observations in the chart before proceeding with treatment."/>
+    <definition value="Patient data indicates the clinical diagnostic and treatment best practices may be ambiguous, undefined, or not aligned with existing sex-derived reference populations.  Individuals or systems providing care should either use default behavior that is safe for both male and female populations, individually review treatment options with the patient, or carefully inspect relevant observations in the chart before proceeding with treatment."/>
   </concept>
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="The sex for clinical use can not be determined because there are no relevant observations or the
-observations are not sufficient to determine a value."/>
+    <definition value="The sex for clinical use can not be determined because there are no relevant evidence or documentation or the
+evidence or documentation are not sufficient to determine a value."/>
   </concept>  
 </CodeSystem>
