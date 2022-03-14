@@ -148,4 +148,16 @@
       <display value="consent-example-CDA"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Prevent sharing a record with a specific Security Label"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="consent-example-notSecLabel"/>
+    </extension>
+    <item>
+      <reference value="Consent/consent-example-notSecLabel"/>
+      <display value="consent-example-notSecLabel"/>
+    </item>
+  </entry>
 </List>
