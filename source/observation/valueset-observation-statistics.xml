@@ -15,7 +15,9 @@
   </identifier>
   <version value="4.3.0-CIBUILD"/>
   <name value="StatisticsCode"/>
-  <description value="Description Needed Here"/>
+  <title value="Statistics Code value set"/>
+  <status value="active"/>
+  <description value="Codes indicating types of statistics that can be returned"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/observation-statistics"/>
