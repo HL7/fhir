@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
-  <id value="activity-definition-category"/>
-  <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-  </meta>
-  <url value="http://hl7.org/fhir/ValueSet/activity-definition-category"/>
-  <version value="4.3.0-CIBUILD"/>
-  <name value="ActivityDefinitionCategory"/>
-  <compose>
-    <include>
-      <system value="http://hl7.org/fhir/activity-definition-category"/>
-    </include>
-  </compose>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="activity-definition-category"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+	</meta>
+	<url value="http://hl7.org/fhir/ValueSet/activity-definition-category"/>
+	<version value="4.3.0-CIBUILD"/>
+	<name value="ActivityDefinitionCategory"/>
+	<title value="Activity Definition Category value set"/>
+	<status value="active"/>
+	<description value="Codes defining possible categories for activity definition instances"/>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/activity-definition-category"/>
+		</include>
+	</compose>
 </ValueSet>
