@@ -4,23 +4,28 @@
 <h3>Using the Provenance Resource</h3>
 
 <p>
-The Provenance resource identifies information about another resource (the <i>reference</i> element). 
+The Provenance resource identifies information about another resource (the <i>target</i> element). 
 The Provenance resource may be used in several different ways:
 </p>
 <ul>
- <li>As part of a <a href="documents.html">document bundle</a> where it identifies the provenance of part or all of the document</li>
+ <li>As part of a <a href="bundle.html">Bundle</a> where it identifies the provenance of part or all of the resources in the Bundle (e.g. <a href="documents.html">Documents</a>)</li>
  <li>On a <a href="http.html">RESTful system</a> where it keeps track of provenance information relating to resources</li>
 </ul>
 <p>
-When used in a document bundle, the <i>references</i> are often not explicitly versioned, but they always implicitly pertain to the version of the 
-resource found in the document. On a RESTful system, the target resource reference should be version specific, but this
+The resources found in a <a href="bundle.html#bundle-unique">Bundle are often the latest version and don't have a version identified</a>, yet Provenance resources in the Bundle may have references (e.g. .target) to version specific resources. When de-referencing resource references that may have a version identified one should look for the non-version resource found in the Bundle.
+</p>
+<p>
+On a RESTful system, the target resource reference should be version specific, but this
 requires special care: For new resources that need to have a corresponding Provenance resource, the version-specific
 reference is often not knowable until after the target resource has been updated. This can create an 
 integrity problem for the system - what if the Provenance resource cannot be created after the target 
 resource has been updated? To avoid any such integrity problems, the target resource and the Provenance resources should be submitted 
 as a pair using a <a href="http.html#transaction">transaction</a>. 
+The <a href="provenance.html#header">Provenance http header</a> may be used if supported. 
 </p>
-
+<p>
+The <i>Provenance.target</i> may point at a specific element within the targetted resource using the <a href="extension-targetelement.html">target element extension</a> or <a href="extension-targetpath.html">target path extension</a>. For example when updating a Patient resource with a new official name, such as shown in <a href="provenance-example1.html">example 1</a>, where the Provenance is indicating that the official name was provided by the Patient themselves.
+</p>
 <a name="header"> </a>
 <h4>HTTP Header</h4>
 
