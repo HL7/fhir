@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
-  <id value="consent-example-notLabs"/>
+  <id value="consent-example-notSecLabel"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -17,8 +17,8 @@
     </coding>
   </category>
   <subject>
-    <reference value="Patient/f002"/>
-    <display value="P. van de Heuvel"/>
+    <reference value="Patient/f201"/>
+    <display value="Roel"/>
   </subject>
   <dateTime value="2015-11-18"/>
   <manager>
