@@ -47,6 +47,7 @@ Notes:
  <li>Servers MAY ignore the header, but SHOULD process it if they support provenance</li>
  <li>Some server frameworks impose a length limit on individual HTTP headers, or on the the headers as a whole. Servers MAY reject a request if the X-Provenance header is too long</li>
  <li>The use of the header is not documented for other HTTP methods (GET etc)</li>
+ <li>When recording an AuditEvent, one AuditEvent may be used to record the create of the resource and provenance</li>
 </ul>
 
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <Bundle xmlns="http://hl7.org/fhir">
   <id value="Consent-search-params"/>
@@ -222,6 +222,7 @@
       </SearchParameter>
     </resource>
   </entry>
+  <!--
   <entry>
     <resource>
       <SearchParameter>
@@ -242,6 +243,7 @@
       </SearchParameter>
     </resource>
   </entry>
+  -->
   <entry>
     <resource>
       <SearchParameter>

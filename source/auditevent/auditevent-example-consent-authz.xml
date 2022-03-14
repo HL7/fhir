@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuditEvent xmlns="http://hl7.org/fhir">
+	<id value="example-consent-permit-authz"/>
+
+	<code>
+		<coding>
+			<system value="http://dicom.nema.org/resources/ontology/DCM"/>
+			<code value="110112"/>
+			<display value="Query"/>
+		</coding>
+	</code>
+	<action value="E"/>
+	<recorded value="2021-09-08T21:51:59.932Z"/>
+	<outcome>
+		<code>
+			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
+			<code value="success"/>
+			<display value="Success"/>
+		</code>
+		<detail>
+			<text value="CONSENT_PERMIT"/>
+		</detail>
+	</outcome>
+		<patient>
+			<reference value="Patient/example"/>
+		</patient>
+	<agent>
+		<type>
+			<coding>
+				<system value="http://dicom.nema.org/resources/ontology/DCM"/>
+				<code value="110152"/>
+				<display value="Destination Role ID"/>
+			</coding>
+		</type>
+		<who>
+			<identifier>
+				<system value="https://github.com/synthetichealth/synthea"/>
+				<value value="Org1"/>
+			</identifier>
+		</who>
+		<requestor value="true"/>
+		<authorization>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+				<code value="TREAT"/>
+			</coding>
+		</authorization>
+	</agent>
+	<source>
+		<observer>
+			<display value="LEAP Consent Decision Service"/>
+		</observer>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/security-source-type"/>
+				<code value="4"/>
+				<display value="Application Server"/>
+			</coding>
+		</type>
+	</source>
+	<entity>
+		<what>
+			<reference value="Consent/consent-example-basic"/>
+		</what>
+		<role>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
+				<code value="4"/>
+				<display value="Domain Resource"/>
+			</coding>
+		</role>
+	</entity>
+</AuditEvent>
