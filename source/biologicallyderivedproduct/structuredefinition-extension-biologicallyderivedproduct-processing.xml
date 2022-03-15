@@ -41,7 +41,7 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="Any processing of the product during collection"/>
-      <definition value="ny processing of the product during collection that does not change the fundamental nature of the product. For example adding anti-coagulants during the collection of Peripheral Blood Stem Cells."/>
+      <definition value="Any processing of the product during collection that does not change the fundamental nature of the product. For example adding anti-coagulants during the collection of Peripheral Blood Stem Cells."/>
       <min value="0"/>
       <max value="*"/>
     </element>
