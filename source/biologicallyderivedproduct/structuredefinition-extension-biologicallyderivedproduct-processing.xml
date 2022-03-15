@@ -82,8 +82,8 @@
     <element id="Extension.extension:procedure">
       <path value="Extension.extension"/>
       <sliceName value="procedure"/>
-      <short value="Procesing code"/>
-      <definition value="Coded representation of processing procedure."/>
+      <short value="Procesing procedure"/>
+      <definition value="The procedure used for processing."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -110,7 +110,8 @@
       <path value="Extension.extension.value[x]"/>
       <min value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
