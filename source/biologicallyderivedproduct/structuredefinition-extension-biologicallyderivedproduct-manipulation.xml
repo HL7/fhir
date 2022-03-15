@@ -43,7 +43,7 @@
       <short value="Any manipulation of the product post-collection"/>
       <definition value="Any manipulation of product post-collection that is intended to alter the product. For example a buffy-coat enrichment or CD8 reduction of Peripheral Blood Stem Cells to make it more suitable for infusion."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
     </element>
     <element id="Extension.extension:description">
       <path value="Extension.extension"/>
@@ -78,6 +78,52 @@
       <type>
         <code value="string"/>
       </type>
+    </element>
+    <element id="Extension.extension:procedure">
+      <path value="Extension.extension"/>
+      <sliceName value="procedure"/>
+      <short value="Procesing procedure"/>
+      <definition value="The procedure used for manipulation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="code"/>
+      </mapping>
+    </element>
+    <element id="Extension.extension:procedure.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:procedure.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="procedure"/>
+    </element>
+    <element id="Extension.extension:procedure.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Biologically Derived Product Procedure."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BiologicallyDerivedProductProcedure"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Biologically Derived Product Procedure."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
+      </binding>
     </element>
     <element id="Extension.extension:time[x]">
       <path value="Extension.extension"/>
