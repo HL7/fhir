@@ -11,7 +11,7 @@ referenceIdList - what type is this?
 <p>
 The XDS profile describes in detail how the <a href="documentreference.html">DocumentReference</a> and <a href="documentmanifest.html">DocumentManifest</a> resources 
 are used in the context of XDS. The two resources may be used as a facade to an existing
-XDS server, such as is used for the <a href="http://wiki.ihe.net/index.php?title=Mobile_access_to_Health_Documents_(MHD)">IHE MHD</a> specification,
+XDS server, such as is used for the <a href="https://profiles.ihe.net/ITI/MHD">IHE MHD</a> specification,
 or it can be used the other way around, where the XDS functionality is implemented using a FHIR based server as the storage mechanism.
 </p>
 </div>

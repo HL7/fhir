@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="biologicallyderivedproduct-processing"/>
+  <id value="biologicallyderivedproduct-manipulation"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/biologicallyderivedproduct-processing"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/biologicallyderivedproduct-manipulation"/>
   <version value="4.6.0"/>
-  <name value="processing"/>
-  <title value="Processing"/>
+  <name value="manipulation"/>
+  <title value="Manipulation"/>
   <status value="draft"/>
   <date value="2022-03-07"/>
   <publisher value="Health Level Seven, Inc. - OO WG"/>
@@ -21,7 +21,7 @@
       <value value="http://hl7.org/special/committees/orders"/>
     </telecom>
   </contact>
-  <description value="Extension for processing of a biologically dervied prodcut"/>
+  <description value="Extension for manipulation of a biologically dervied prodcut"/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
@@ -40,16 +40,16 @@
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="Any processing of the product during collection"/>
-      <definition value="Any processing of the product during collection that does not change the fundamental nature of the product. For example adding anti-coagulants during the collection of Peripheral Blood Stem Cells."/>
+      <short value="Any manipulation of the product post-collection"/>
+      <definition value="Any manipulation of product post-collection that is intended to alter the product. For example a buffy-coat enrichment or CD8 reduction of Peripheral Blood Stem Cells to make it more suitable for infusion."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
     </element>
     <element id="Extension.extension:description">
       <path value="Extension.extension"/>
       <sliceName value="description"/>
-      <short value="Processing of description"/>
-      <definition value="Textual description of the processing of the biologically derived product."/>
+      <short value="Description of manipulation"/>
+      <definition value="Textual description of the manipulation of the biologically derived product."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -83,9 +83,9 @@
       <path value="Extension.extension"/>
       <sliceName value="procedure"/>
       <short value="Procesing procedure"/>
-      <definition value="The procedure used for processing."/>
+      <definition value="The procedure used for manipulation."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Extension"/>
       </type>
@@ -125,42 +125,11 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
       </binding>
     </element>
-    <element id="Extension.extension:additive">
-      <path value="Extension.extension"/>
-      <sliceName value="additive"/>
-      <short value="Substance added during processing"/>
-      <definition value="Substance added during processing."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Extension"/>
-      </type>
-      <isModifier value="false"/>
-    </element>
-    <element id="Extension.extension:additive.extension">
-      <path value="Extension.extension.extension"/>
-      <max value="0"/>
-    </element>
-    <element id="Extension.extension:additive.url">
-      <path value="Extension.extension.url"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <fixedUri value="additive"/>
-    </element>
-    <element id="Extension.extension:additive.value[x]">
-      <path value="Extension.extension.value[x]"/>
-      <min value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
-      </type>
-    </element>
     <element id="Extension.extension:time[x]">
       <path value="Extension.extension"/>
       <sliceName value="time[x]"/>
-      <short value="Time of processing"/>
-      <definition value="Time of processing."/>
+      <short value="Time of manipulation"/>
+      <definition value="Time of manipulation."/>
       <min value="0"/>
       <max value="1"/>
       <type>
