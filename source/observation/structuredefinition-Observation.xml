@@ -221,10 +221,7 @@
         <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"/>
       </mapping>
     </element>
-    <!-- <element id="Observation.triggeredBy">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="right"/>
-      </extension>
+    <element id="Observation.triggeredBy">
       <path value="Observation.triggeredBy"/>
       <short value="Triggering observation(s)"/>
       <definition value="Identifies the observation(s) that triggered the performance of this observation."/>
@@ -253,7 +250,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
       <isSummary value="true"/>
-    </element> -->
+    </element>
    <!--  <element id="Observation.triggeredBy.type">
       <path value="Observation.triggeredBy.type"/>
       <short value="reflex | repeat | re-run"/>
