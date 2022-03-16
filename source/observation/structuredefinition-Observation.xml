@@ -272,10 +272,11 @@
         <description value="The type of TriggeredBy Observation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-triggeredbytype"/>
       </binding>
+      <isSummary value="true"/>
     </element>
     <element id="Observation.triggeredBy.reason">
       <path value="Observation.triggeredBy.reason"/>
-      <short value="Reason for the triggeredBy Observation"/>
+      <short value="triggeredBy Observation reason"/>
       <definition value="Provides the reason why this observation was performed as a result of the observation(s) referenced."/>
       <min value="0"/>
       <max value="1"/>
