@@ -221,6 +221,68 @@
         <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"/>
       </mapping>
     </element>
+
+<element id="Observation.triggeredBy">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="Observation.triggeredBy"/>
+      <short value="Triggering observation(s)"/>
+      <definition value="Identifies the observation(s) that triggered the performance of this observation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="Observation.triggeredBy.observation">
+      <path value="Observation.triggeredBy.observation"/>
+      <short value="Triggering observation"/>
+      <definition value="Reference to the triggering observation."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+     <element id="Observation.triggeredBy.type">
+      <path value="Observation.triggeredBy.type"/>
+      <short value="reflex | repeat | re-run"/>
+      <definition value="The type of trigger.&#xA;Reflex | Repeat | Re-run."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TriggeredByType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The type of TriggeredBy Observation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-triggeredbytype"/>
+      </binding>
+    </element>
+    <element id="Observation.triggeredBy.reason">
+      <path value="Observation.triggeredBy.reason"/>
+      <short value="Reason for the triggeredBy Observation"/>
+      <definition value="Provides the reason why this observation was performed as a result of the observation(s) referenced."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="Observation.partOf">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="11/8/2017 EH #14095."/>
