@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="patient-genderIdentity"/>
+  <id value="individual-genderIdentity"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/patient-genderIdentity"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/individual-genderIdentity"/>
   <version value="4.6.0"/>
   <name value="genderIdentity"/>
   <title value="genderIdentity"/>
@@ -91,8 +91,8 @@
     <element id="Extension.extension:period">
       <path value="Extension.extension"/>
       <sliceName value="period"/>
-      <short value="The time period during which the gender identity applies to the patient"/>
-      <definition value="The time period during which the gender identity applies to the patient"/>
+      <short value="The time period during which the gender identity applies to the individual"/>
+      <definition value="The time period during which the gender identity applies to the individual"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -148,7 +148,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url"/>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/patient-genderIdentity"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/individual-genderIdentity"/>
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>

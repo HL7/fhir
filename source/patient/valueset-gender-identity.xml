@@ -22,7 +22,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This example value set defines a set of codes that can be used to indicate a patient&#39;s gender identity."/>
+  <description value="This example value set defines a set of codes that can be used to indicate a individual&#39;s gender identity."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/gender-identity"/>

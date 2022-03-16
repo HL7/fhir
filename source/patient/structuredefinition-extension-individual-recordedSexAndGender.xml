@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="patient-recordedSexAndGender"/>
+  <id value="individual-recordedSexAndGender"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/patient-recordedSexAndGender"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/individual-recordedSexAndGender"/>
   <version value="4.6.0"/>
   <name value="recordedSexAndGender"/>
   <title value="recordedSexAndGender"/>
   <status value="draft"/>
   <date value="2022-01-28"/>
   <publisher value="HL7"/>
-  <description value="The recorded sex and gender is to be used to differentiate existing sex or gender data. This element is used for existing 'sex' or 'gender' elements in a document or record when the intent and meaning is unclear. For example, the person's birth certificate information, passport information, and national identity document information may all be present. This is necessary because an individual's documents may be updated at different rates or for different reasons. Sex assigned at birth (SAAB), while very common and considered essential in some jurisdictions, is considered a recorded sex and gender entry."/>
+  <description value="The recorded sex and gender is to be used to differentiate existing sex or gender data. This element is used for existing 'sex' or 'gender' elements in a document or record when the intent and meaning is unclear. For example, the individual's birth certificate information, passport information, and national identity document information may all be present. This is necessary because an individual's documents may be updated at different rates or for different reasons. Sex assigned at birth (SAAB), while very common and considered essential in some jurisdictions, is considered a recorded sex and gender entry."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
@@ -46,15 +46,15 @@
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="A recorded sex or gender property for the person"/>
-      <definition value="A sex or gender property for the person from a document or other record"/>
+      <short value="A recorded sex or gender property for the individual"/>
+      <definition value="A sex or gender property for the individual from a document or other record"/>
       <min value="0"/>
     </element>
     <element id="Extension.extension:value">
       <path value="Extension.extension"/>
       <sliceName value="value"/>
-      <short value="The recorded sex or gender property for the person"/>
-      <definition value="A sex or gender property for the person from a document or other record"/>
+      <short value="The recorded sex or gender property for the individual"/>
+      <definition value="A sex or gender property for the individual from a document or other record"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -149,7 +149,7 @@
       <path value="Extension.extension"/>
       <sliceName value="effectivePeriod"/>
       <short value="When the recorded sex or gender value applies"/>
-      <definition value="The time period during which the recorded sex or gender value applies to the patient"/>
+      <definition value="The time period during which the recorded sex or gender value applies to the individual"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -177,7 +177,7 @@
 	<element id="Extension.extension:sourceDocument">
       <path value="Extension.extension"/>
       <sliceName value="sourceDocument"/>
-      <short value="The document the sex or gender property was aquired from."/>
+      <short value="The document the sex or gender property was acquired from."/>
       <definition value="The source document where this sex or gender property is initially recorded."/>
       <comment value="For example, if a driver's license is scanned, this property may reference that scanned document."/>
       <min value="0"/>
@@ -210,7 +210,7 @@
       <sliceName value="jurisdiction"/>
       <short value="Who issued the document where the sex or gender was aquired"/>
       <definition value="The jurisdiction or organization that issued the document from which the sex or gender was aquired"/>
-      <comment value="For example, a patient's driver's license or passport would be issued by a specific state or country."/>
+      <comment value="For example, a individual's driver's license or passport would be issued by a specific state or country."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -239,7 +239,7 @@
       <path value="Extension.extension"/>
       <sliceName value="comment"/>
       <short value="Context or source information about the recorded sex or gender"/>
-      <definition value="Further explaination about the context or source of the recorded sex or gender value"/>
+      <definition value="Further explanation about the context or source of the recorded sex or gender value"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -266,7 +266,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url"/>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/patient-recordedSexAndGender"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/individual-recordedSexAndGender"/>
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>

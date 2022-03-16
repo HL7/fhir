@@ -16,23 +16,23 @@
   <name value="GenderIdentity"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <description value="This example code system defines a set of codes that can be used to indicate a patient&#39;s gender identity."/>
+  <description value="This example code system defines a set of codes that can be used to indicate a individual&#39;s gender identity."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
     <code value="non-binary"/>
     <display value="Non-binary"/>
-    <definition value="the patient identifies with neither/both female and male"/>
+    <definition value="the individual identifies with neither/both female and male"/>
   </concept>
   <concept>
     <code value="male"/>
     <display value="Male"/>
-    <definition value="the patient identifies as male"/>
+    <definition value="the individual identifies as male"/>
   </concept>
   <concept>
     <code value="female"/>
     <display value="Female"/>
-    <definition value="the patient identifies as female"/>
+    <definition value="the individual identifies as female"/>
   </concept>
   <concept>
     <code value="other"/>
@@ -42,6 +42,6 @@
   <concept>
     <code value="non-disclose"/>
     <display value="Does not wish to disclose"/>
-    <definition value="the patient does not wish to disclose his gender identity"/>
+    <definition value="the individual does not wish to disclose his gender identity"/>
   </concept>
 </CodeSystem>

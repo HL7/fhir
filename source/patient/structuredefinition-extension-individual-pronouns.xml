@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="patient-pronouns"/>
+  <id value="individual-pronouns"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/patient-pronouns"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/individual-pronouns"/>
   <version value="4.6.0"/>
   <name value="pronouns"/>
   <title value="pronouns"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="An individual's personal sense of being a man, woman, boy, girl, nonbinary, or something else. This represents an individual’s identity, ascertained by asking them what that identity is."/>
+  <description value="The pronouns to use when referring to an individual in verbal or written communication."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
@@ -89,8 +89,8 @@
     <element id="Extension.extension:period">
       <path value="Extension.extension"/>
       <sliceName value="period"/>
-      <short value="When the pronouns apply to the patient"/>
-      <definition value="The time period during which the pronouns apply to the patient"/>
+      <short value="When the pronouns apply to the individual"/>
+      <definition value="The time period during which the pronouns apply to the individual"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -146,7 +146,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url"/>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/patient-pronouns"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/individual-pronouns"/>
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>

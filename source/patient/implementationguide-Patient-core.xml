@@ -77,7 +77,7 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/patient-genderIdentity"/>
+        <reference value="StructureDefinition/individual-genderIdentity"/>
       </reference>
     </resource>
     <resource>
@@ -87,12 +87,12 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/patient-recordedSexAndGender"/>
+        <reference value="StructureDefinition/individual-recordedSexAndGender"/>
       </reference>
     </resource>
 	<resource>
       <reference>
-        <reference value="StructureDefinition/patient-pronouns"/>
+        <reference value="StructureDefinition/individual-pronouns"/>
       </reference>
     </resource>
     <resource>

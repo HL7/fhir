@@ -108,7 +108,7 @@
       <path value="Extension.extension"/>
       <sliceName value="comment"/>
       <short value="Context about the sex for clinical use"/>
-      <definition value="Further explaination about the context for the sex for clinical use"/>
+      <definition value="Further explanation about the context for the sex for clinical use"/>
       <min value="0"/>
       <max value="1"/>
       <type>
