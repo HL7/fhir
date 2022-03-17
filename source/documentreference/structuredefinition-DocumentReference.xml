@@ -265,11 +265,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DocumentC80Type"/>
+          <valueString value="DocumentType"/>
         </extension>
         <strength value="preferred"/>
         <description value="Precise type of clinical document."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/c80-doc-typecodes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/doc-typecodes"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -314,7 +314,7 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DocumentC80Class"/>
+          <valueString value="DocumentCategory"/>
         </extension>
         <strength value="example"/>
         <description value="High-level kind of a clinical document at a macro level."/>
