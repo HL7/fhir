@@ -759,8 +759,7 @@ have all been processed, the server processes the resulting document as an <a hr
 operation; all the version and error handling etc. apply as specified, as does the <a href="#prefer">Prefer Header</a>.
 </p>
 <p>
-Processing PATCH operations may be very version sensitive. For this reason, servers SHALL support
-conditional PATCH, which works exactly the same as specified for update in <a href="#versionaware">Concurrency Management</a>.
+Processing PATCH operations may be very version sensitive. For this reason,  servers that support PATCH SHALL support <a href="#versionaware">Concurrency Management</a>.
 Clients SHOULD always consider using version specific PATCH operations so that inappropriate
 actions are not executed.
 </p>
