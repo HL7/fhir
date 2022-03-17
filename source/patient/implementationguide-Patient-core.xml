@@ -87,7 +87,7 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/individual-recordedSexAndGender"/>
+        <reference value="StructureDefinition/individual-recordedSexOrGender"/>
       </reference>
     </resource>
 	<resource>

@@ -8,10 +8,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/individual-recordedSexAndGender"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/individual-recordedSexOrGender"/>
   <version value="4.6.0"/>
-  <name value="recordedSexAndGender"/>
-  <title value="recordedSexAndGender"/>
+  <name value="recordedSexOrGender"/>
+  <title value="recordedSexOrGender"/>
   <status value="draft"/>
   <date value="2022-01-28"/>
   <publisher value="HL7"/>
@@ -80,7 +80,7 @@
       </type>
 	  <binding>
 		  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-			<valueString value="recordedSexAndGender"/>
+			<valueString value="recordedSexOrGender"/>
 		  </extension>
 		  <strength value="example"/>
 		  <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|4.6.0"/>
@@ -266,7 +266,7 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url"/>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/individual-recordedSexAndGender"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/individual-recordedSexOrGender"/>
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>

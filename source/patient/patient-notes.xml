@@ -113,7 +113,7 @@ Many systems and organizations only provide for a single attribute that aspires 
 In addition to this administrative gender, other kinds of gender or sex properties may be represented:
 </p>
 <ul>
-	<li><b>Gender Identity</b> - an indication from the patient about what gender they consider themselves to be.  This can influence how the patient prefers to be addressed by care providers and other individuals.  The standard <a href="extension-patient-genderidentity.html">genderIdentity</a> extension may be used to communicate this property.  This extension is appropriate when the gender identity is openly known.
+	<li><b>Gender Identity</b> - an indication from the patient about what gender they consider themselves to be.  This can influence how the patient prefers to be addressed by care providers and other individuals.  The standard <a href="extension-individual-genderidentity.html">genderIdentity</a> extension may be used to communicate this property.  This extension is appropriate when the gender identity is openly known.
 	</li>
 	<li><b>Sex for Clinical Use</b> - a categorization of a patient's sex derived from observable information such as an organ inventory, recent hormone lab tests, genetic testing, etc. This property is intended for use in clinical decision making, and indicates that treatment or diagnostic tests should consider best practicies associated with the relevant reference population.  The standard <a href="extension-patient-sexforclinicaluse.html">sexForClinicalUse</a> extension may be used to communicate this property.
 	</li>
