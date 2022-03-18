@@ -10,13 +10,13 @@
   <identifier>
     <use value="usual"/>
     <system value="urn:oid:2.16.840.1.113883.2.4.6.1"/>
-  <!--  Dutch VEKTIS AGB-Z  -->
+    <!--  Dutch VEKTIS AGB-Z  -->
     <value value="17-0112278"/>
   </identifier>
   <type>
     <coding>
       <system value="urn:oid:2.16.840.1.113883.2.4.15.1060"/>
-    <!--  RoleCodeNLUZIRoleCodeOrganisaties  -->
+      <!--  RoleCodeNLUZIRoleCodeOrganisaties  -->
       <code value="V6"/>
       <display value="University Medical Hospital"/>
     </coding>
@@ -27,25 +27,31 @@
     </coding>
   </type>
   <name value="Burgers University Medical Center"/>
-  <telecom>
-    <system value="phone"/>
-    <value value="022-655 2300"/>
-    <use value="work"/>
-  </telecom>
-  <address>
-    <use value="work"/>
-    <line value="Galapagosweg 91"/>
-    <city value="Den Burg"/>
-    <postalCode value="9105 PZ"/>
-    <country value="NLD"/>
-  </address>
-  <address>
-    <use value="work"/>
-    <line value="PO Box 2311"/>
-    <city value="Den Burg"/>
-    <postalCode value="9100 AA"/>
-    <country value="NLD"/>
-  </address>
+  <contact>
+    <telecom>
+      <system value="phone"/>
+      <value value="022-655 2300"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <contact>
+    <address>
+      <use value="work"/>
+      <line value="Galapagosweg 91"/>
+      <city value="Den Burg"/>
+      <postalCode value="9105 PZ"/>
+      <country value="NLD"/>
+    </address>
+  </contact>
+  <contact>
+    <address>
+      <use value="work"/>
+      <line value="PO Box 2311"/>
+      <city value="Den Burg"/>
+      <postalCode value="9100 AA"/>
+      <country value="NLD"/>
+    </address>
+  </contact>
   <contact>
     <purpose>
       <coding>

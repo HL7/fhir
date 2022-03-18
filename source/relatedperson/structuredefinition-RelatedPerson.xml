@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process."/>
+  <description value="Information about a person that is involved in a patient's health or the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process."/>
   <purpose value="Need to track persons related to the patient or the healthcare process."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
@@ -76,7 +76,7 @@
       </extension>
       <path value="RelatedPerson"/>
       <short value="A person that is related to a patient, but who is not a direct target of care"/>
-      <definition value="Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process."/>
+      <definition value="Information about a person that is involved in a patient's health or the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -99,6 +99,7 @@
       <path value="RelatedPerson.identifier"/>
       <short value="A human identifier for this person"/>
       <definition value="Identifier for a person within a particular scope."/>
+      <comment value="RelatedPerson identifiers might not be unique across instances within a system, as a single human individual may be represented as many different RelatedPerson resources with different roles, periods, or relationships."/>
       <requirements value="People are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the patient. Examples are national person identifier and local identifier."/>
       <min value="0"/>
       <max value="*"/>
@@ -177,8 +178,9 @@
     </element>
     <element id="RelatedPerson.relationship">
       <path value="RelatedPerson.relationship"/>
-      <short value="The nature of the relationship to the patient"/>
-      <definition value="The nature of the relationship that the related person has with the patient. e.g. The RelatedPerson is the mother of the Patient."/>
+      <short value="The relationship of the related person to the patient"/>
+      <definition value="The nature of the relationship between the related person and the patient."/>
+      <comment value="The directionality of the relationship is from the RelatedPerson to the Patient. For example, if the Patient is a child, and the RelatedPerson is the mother, the relationship would be PRN (parent) or MTH (mother)."/>
       <requirements value="We need to know the relationship with the patient since it influences the interpretation of the information attributed to this person."/>
       <min value="0"/>
       <max value="*"/>
@@ -367,6 +369,7 @@
       <path value="RelatedPerson.period"/>
       <short value="Period of time that this relationship is considered valid"/>
       <definition value="The period of time during which this relationship is or was active. If there are no dates defined, then the interval is unknown."/>
+      <comment value="If an individual has a relationship with a patient over multiple, non-adjacent periods, there should be a distinct RelatedPerson instance for each period.  For example, if a person is a roommate for a period of time, moves out, and is later a roommate with the same person again, you would have two RelatedPerson instances."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -383,8 +386,8 @@
     </element>
     <element id="RelatedPerson.communication">
       <path value="RelatedPerson.communication"/>
-      <short value="A language which may be used to communicate with about the patient&#39;s health"/>
-      <definition value="A language which may be used to communicate with about the patient&#39;s health."/>
+      <short value="A language which may be used to communicate with the related person about the patient&#39;s health"/>
+      <definition value="A language which may be used to communicate with the related person about the patient&#39;s health."/>
       <comment value="If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple RelatedPerson.Communication associations.   If the RelatedPerson does not speak the default local language, then the Interpreter Required Standard can be used to explicitly declare that an interpreter is required."/>
       <requirements value="If a related person does not speak the local language, interpreters may be required, so languages spoken and proficiency is an important things to keep track of both for patient and other persons of interest."/>
       <min value="0"/>
@@ -403,7 +406,7 @@
     </element>
     <element id="RelatedPerson.communication.language">
       <path value="RelatedPerson.communication.language"/>
-      <short value="The language which can be used to communicate with the patient about his or her health"/>
+      <short value="The language which can be used to communicate with the related person about the patient&#39;s health"/>
       <definition value="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-EN&quot; for England English."/>
       <comment value="The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type."/>
       <requirements value="Most systems in multilingual countries will want to convey language. Not all systems actually need the regional dialect."/>
@@ -437,7 +440,7 @@
     <element id="RelatedPerson.communication.preferred">
       <path value="RelatedPerson.communication.preferred"/>
       <short value="Language preference indicator"/>
-      <definition value="Indicates whether or not the patient prefers this language (over other languages he masters up a certain level)."/>
+      <definition value="Indicates whether or not the related person prefers this language (over other languages he or she masters up a certain level)."/>
       <comment value="This language is specifically identified for communicating healthcare information."/>
       <requirements value="People that master multiple languages up to certain level may prefer one or more, i.e. feel more confident in communicating in a particular language making other languages sort of a fall back method."/>
       <min value="0"/>
