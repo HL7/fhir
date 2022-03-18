@@ -175,7 +175,7 @@
       <path value="Patient.name"/>
       <short value="A name associated with the patient"/>
       <definition value="A name associated with the individual."/>
-      <comment value="A patient may have multiple names with different uses or applicable periods. For animals, the name is a &quot;HumanName&quot; in the sense that is assigned and used by humans and has the same patterns."/>
+      <comment value="A patient may have multiple names with different uses or applicable periods. For animals, the name is a &quot;HumanName&quot; in the sense that is assigned and used by humans and has the same patterns. Animal names may be communicated as given names, and optionally may include a family name."/>
       <requirements value="Need to be able to track the patient by multiple names. Examples are your official name and a partner name."/>
       <min value="0"/>
       <max value="*"/>
@@ -285,7 +285,7 @@
       <path value="Patient.birthDate"/>
       <short value="The date of birth for the individual"/>
       <definition value="The date of birth for the individual."/>
-      <comment value="At least an estimated year should be provided as a guess if the real DOB is unknown  There is a standard extension &quot;patient-birthTime&quot; available that should be used where Time is required (such as in maternity/infant care systems)."/>
+      <comment value="Partial dates are allowed if the specific date of birth is unknown. There is a standard extension &quot;patient-birthTime&quot; available that should be used where Time is required (such as in maternity/infant care systems)."/>
       <requirements value="Age of the individual drives many clinical processes."/>
       <min value="0"/>
       <max value="1"/>
@@ -832,8 +832,8 @@
         <valueCode value="380,90"/>
       </extension>
       <path value="Patient.link"/>
-      <short value="Link to other Patient or RelatedPerson resource(s) that concerns the same actual person"/>
-      <definition value="Link to another patient or RelatedPErson resource that concerns the same actual patient."/>
+      <short value="Link to a Patient or RelatedPerson resource that concerns the same actual individual"/>
+      <definition value="Link to a Patient or RelatedPerson resource that concerns the same actual individual."/>
       <comment value="There is no assumption that linked patient records have mutual links."/>
       <requirements value="There are multiple use cases:   &#xA;&#xA;* Duplicate patient records due to the clerical errors associated with the difficulties of identifying humans consistently, and &#xA;* Distribution of patient information across multiple servers."/>
       <min value="0"/>

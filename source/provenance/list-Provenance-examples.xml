@@ -6,7 +6,7 @@
   <mode value="working"/>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="General Provenance Example"/>
+      <valueString value="General Provenance Example - data extracted from CDA document from XDS"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="provenance-example"/>
@@ -18,7 +18,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Targeted Provenance Example #1"/>
+      <valueString value="Targeted Provenance Example - got the patients name from the patient directly"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="provenance-example1"/>
@@ -30,7 +30,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Targeted Provenance Example #2"/>
+      <valueString value="Targeted Provenance Example - got the patient nickname from his partner"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="provenance-example2"/>
@@ -42,7 +42,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Targeted Provenance Example #3"/>
+      <valueString value="Targeted Provenance Example - followUp note came from specified practitioner"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="provenance-example3"/>
@@ -66,7 +66,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Provenance with signature for a Consent example"/>
+      <valueString value="Provenance with signature for a Consent"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="provenance-consent-signature"/>
@@ -78,7 +78,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Provenance  example for Biocompute objects"/>
+      <valueString value="MolecularSequence recorded by a Biocompute objects"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="provenance-example-biocompute-object"/>
@@ -90,7 +90,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Provenance  example for cwl workflow project"/>
+      <valueString value="MolecularSequence for CWL workflow project"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="provenance-example-cwl"/>
@@ -98,6 +98,18 @@
     <item>
       <reference value="Provenance/example-cwl"/>
       <display value="CWL Workflow"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Creation of a Consent from a Questionnaire"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example-create-consent"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example-create-consent"/>
+      <display value="Consent Workflow"/>
     </item>
   </entry>
 </List>

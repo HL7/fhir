@@ -12,9 +12,6 @@
   <title value="Alive and not functionally dependent at 90 days"/>
   <status value="draft"/>
   <actual value="false"/>
-  <characteristicCombination>
-	<code value="all-of" />
-  </characteristicCombination>
   <characteristic>
     <description value="not functionally dependent at 90 days"/>
     <definitionCodeableConcept>
@@ -26,6 +23,13 @@
     </definitionCodeableConcept>
     <exclude value="true"/>
     <timeFromEvent>
+	  <eventCodeableConcept>
+		<coding>
+			<system value="http://hl7.org/fhir/evidence-variable-event"/>
+			<code value="study-start"/>
+			<display value="Study Start"/>
+		</coding>
+	  </eventCodeableConcept>
       <quantity>
         <value value="90"/>
         <unit value="day"/>
@@ -45,13 +49,13 @@
     </definitionCodeableConcept>
     <exclude value="true"/>
     <timeFromEvent>
-	  <event>
+	  <eventCodeableConcept>
 		<coding>
 			<system value="http://hl7.org/fhir/evidence-variable-event"/>
 			<code value="study-start"/>
 			<display value="Study Start"/>
 		</coding>
-	  </event>
+	  </eventCodeableConcept>
       <quantity>
         <value value="90"/>
         <unit value="day"/>
