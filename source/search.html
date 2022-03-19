@@ -341,7 +341,9 @@ The modifiers are separated from the parameter name by a colon. Modifiers are:</
     Note that the handling of (extended) <a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">grapheme clusters</a> is within
 		the discretion of the server, i.e. the server decides if a string search parameter matches on canonically equivalent characters, or matches on
 		the actual used Unicode code points, or <code>:contains</code> (case insensitive and combining character-insensitive, search text matched anywhere in the string), instead of the default behavior (case insensitive and accent-insensitive, partial matches at the start of the string).</li>
- <li>For token: <code>:text</code> (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes. Other defined modifiers are <code>:in</code>, <code>:below</code>, <code>:above</code> and <code>:not-in</code> which are described below.</li>
+ <li>For token: <code>:text</code> (the match does a partial searches on CodeableConcept.text, Coding.display - including CodeableConcept.coding.display, 
+    the text and coding.display within Identifier.type, and Identifier.assigner.display), instead of the default search which uses codes. Other defined modifiers 
+    are <code>:in</code>, <code>:below</code>, <code>:above</code> and <code>:not-in</code> which are described below.</li>
  <li>For reference: <code>:[type]</code> where [type] is the name of a type of resource, :identifier, and, for some parameters, :above and :below</li>
  <li>For uri: <code>:below</code>, <code>:above</code> indicate that instead of an exact match, either the search term left-matches the value, or vice-versa.</li>
 </ul>
