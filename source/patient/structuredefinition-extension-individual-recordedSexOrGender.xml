@@ -86,9 +86,9 @@
 		  <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|4.6.0"/>
 	  </binding>
     </element>	
-	<element id="Extension.extension:international-equivalent">
+	<element id="Extension.extension:internationalEquivalent">
       <path value="Extension.extension"/>
-      <sliceName value="international-equivalent"/>
+      <sliceName value="internationalEquivalent"/>
       <short value="The recorded sex or gender property for the individual"/>
       <definition value="A sex or gender property for the individual from a document or other record"/>
       <min value="0"/>
@@ -97,19 +97,19 @@
         <code value="Extension"/>
       </type>
     </element>
-    <element id="Extension.extension:international-equivalent.extension">
+    <element id="Extension.extension:internationalEquivalent.extension">
       <path value="Extension.extension.extension"/>
       <max value="0"/>
     </element>
-    <element id="Extension.extension:international-equivalent.url">
+    <element id="Extension.extension:internationalEquivalent.url">
       <path value="Extension.extension.url"/>
       <type>
         <code value="uri"/>
       </type>
-      <fixedUri value="international-equivalent"/>
+      <fixedUri value="internationalEquivalent"/>
     </element>
-    <element id="Extension.extension:international-equivalent.value[x]">
-      <path value="Extension.extension.international-equivalent[x]"/>
+    <element id="Extension.extension:internationalEquivalent.value[x]">
+      <path value="Extension.extension.value[x]"/>
       <min value="1"/>
       <type>
         <code value="CodeableConcept"/>
