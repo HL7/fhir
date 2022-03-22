@@ -31,12 +31,12 @@
     <title value="The patient [grantor] declines to agree to the provider's [grantee's] consent directive form, which lists permissible collection, access, use, or disclosure activities, purposes of use, handling caveats, revocation policies, and consequences of not assenting."/>
     <!-- likely use url pointer to common text -->
   </sourceAttachment>
-  <policyRule>
+  <regulatoryBasis>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="INFA"/>
     </coding>
-  </policyRule>
+  </regulatoryBasis>
   <provision>
     <!-- this is opt-out - e.g. nothing approved unless otherwise stated. -->
     <type value="deny"/>

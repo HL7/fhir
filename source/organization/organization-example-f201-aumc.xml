@@ -29,21 +29,23 @@
     </coding>
   </type>
   <name value="Artis University Medical Center (AUMC)"/>
-  <telecom>
-  <!-- AUMC's contact detail -->
-    <system value="phone"/>
-    <value value="+31715269111"/>
-    <use value="work"/>
-  </telecom>
-  <address>
-  <!-- AUMC's address -->
-    <use value="work"/>
-    <line value="Walvisbaai 3"/>
-    <city value="Den Helder"/>
-    <postalCode value="2333ZA"/>
-    <country value="NLD"/>
-  <!-- ISO 3166 3 letter code -->
-  </address>
+  <contact>
+    <telecom>
+    <!-- AUMC's contact detail -->
+      <system value="phone"/>
+      <value value="+31715269111"/>
+      <use value="work"/>
+    </telecom>
+    <address>
+    <!-- AUMC's address -->
+      <use value="work"/>
+      <line value="Walvisbaai 3"/>
+      <city value="Den Helder"/>
+      <postalCode value="2333ZA"/>
+      <country value="NLD"/>
+    <!-- ISO 3166 3 letter code -->
+    </address>
+  </contact>
 <!-- The AUMC is in active use -->
 <!--     <accreditation>
         <!-\-HIMSS-6 Accreditation-\->
