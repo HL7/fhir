@@ -36,8 +36,6 @@
 <body>
   [%file newnavbar%]
 
-
-
   <h2>Genomics Implementation Guidance</h2>
   <table class="colstu">
     <tr>
@@ -55,10 +53,6 @@
     <li><a href="#background">Background</a></li>
     <li><a href="#overview">Overview</a></li>
     <li><a href="#sequence">MolecularSequence Resource</a></li>
-    <li><a href="#resource_vs_profiles">Relationship among MolecularSequence resource and profiles</a></li>
-    <li><a href="#dam">HL7 Domain Analysis Model Use Cases</a></li>
-    <li><a href="#other_examples">Other Genomics Use Cases</a></li>
-    <li><a href="#apps">Clinical Genomics Apps</a></li>
   </ol>
 
   [%stu-note%]
@@ -70,7 +64,7 @@
   [%end-note%]
 
   <a name="background"></a>
-  <h2>Background</h2>
+  <h3>Background</h3>
   <p>
     Rapid advances in sequencing technologies, clinical genetics tests for whole
     genome and exome sequencing are allowing sophisticated genetics testing to
@@ -123,7 +117,7 @@
   </p>
 
   <a name="overview"></a>
-  <h2>MolecularSequence Overview</h2>
+  <h3>MolecularSequence Overview</h3>
   <p>
     This resource will be used to hold clinically relevant sequence data in a manner that is both efficient and
     versatile integrating new and as yet undefined types of genomic and other -omics data that will soon be commonly
@@ -154,19 +148,16 @@
   </p>
 
   <a name="sequence"></a>
-  <h2>MolecularSequence Resource</h2>
-
-  <h3>Structure Diagram</h3>
+  <h3>MolecularSequence Resource</h3>
 
   [%resource-table MolecularSequence%]
 
-  <h3>Description</h3>
+  <h4>Description</h4>
   <p>
     The <a href="molecularsequence.html">MolecularSequence resource</a> is designed for next-generation sequencing data.
     Patients’ observed sequences should be represented by recording reference sequence id/string and detected variants.
     To specify how it proceed, here is a picture below:
   </p>
-
 
   <img src="genomics-image34.jpg" alt="" style="width:624px;height:468px" />
 
@@ -232,9 +223,6 @@
     </tr>
   </table>
 
-  <!-- <p>
-MolecularSequence.quality: Quality scores for bases in the sequence. It is intended to be compliant with emerging regulatory needs needs (eg: those found at <a href="https://precision.fda.gov">PrecisionFDA</a>).
-</p> -->
   <p>
     MolecularSequence.edit: This complex element is used for encoding sequence. When the information of reference
     sequence and edits are provided, the observed sequence will be derived.
@@ -283,9 +271,7 @@ MolecularSequence.quality: Quality scores for bases in the sequence. It is inten
     details of the data models, such as the resource representations.
   </p>
 
-  <h3>Usage Examples</h3>
-
-  <h4>Different way to represent sequence record with variations</h4>
+  <h4>Usage Examples</h4>
 
   <p>
     We provide a detailed example to show how sequence resource can be used to represent record of observed sequence by
