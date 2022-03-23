@@ -15,7 +15,9 @@
   </identifier>
   <version value="4.6.0"/>
   <name value="ResourceSecurityCategory"/>
-  <description value="Description Needed Here"/>
+  <title value="Resource security category value set"/>
+  <status value="active"/>
+  <description value="Codes indicating how resources behave from a security perspective"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/resource-security-category"/>

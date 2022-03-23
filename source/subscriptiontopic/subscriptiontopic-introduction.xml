@@ -4,24 +4,18 @@
   <a name="scope"></a>
   <h2>Scope and Usage</h2>
   <p>
-    This document contains information about the <code>SubscriptionTopic</code> resource and details specific to options in it.  It is defined as part of the Pub/Sub (Publish / Subscribe) model of Subscriptions.
+    This document contains information about the <code>SubscriptionTopic</code> resource and details specific to options in it.  It is defined as part of the topic-based model of Subscriptions (Publish / Subscribe pattern).
   </p>
   <p>
-    The <code>SubscriptionTopic</code> resource is used to define conceptual or computable events for <a href="subscription.html">Subscription</a> resources.  A <code>SubscriptionTopic</code> defines the <b>data</b> and <b>change</b> of interest, as well as allowed <b>filters</b> so that servers can implement specific functionality around subscriptions and clearly communicate boundaries to clients.  In other words, a <code>SubscriptionTopic</code> is a way of describing a state change to know what is of interest.  Because it describes a state change, a <code>SubscriptionTopic</code> is defined by:
+    The <code>SubscriptionTopic</code> resource is used to define conceptual or computable events for <code>Subscription</code> resources.  Conceptually, subscription topics specify:
     <ul>
-      <li>
-        a resource-operation pair (e.g., Patient.create)
-      </li>
-      <li>
-        an expression evaluated against a state change (e.g., a change resulting in Patient.deceased having a value)
-      </li>
-      <li>
-        a well-defined existing event (e.g., Patient Admission per HL7v2 ADT^A01).
-      </li>
+      <li>What causes a notification, either by referencing an event definition in an event trigger (e.g., <code>http://example.com/fhir/events#something-interesting-happened</code>) or by describing a resource state change in a resource trigger (e.g., an <code>Encounter</code> is created or updated to have an <code>Encounter.state</code> of <code>active</code>).</li>
+      <li>What filters a client is allowed to request.  For example, a topic that allows clients to restrict notifications to a particular patient id or group, a specific procedure, etc., relevant to that particular topic.</li>
+      <li>What related resources the server MAY include in notifications.  For example, while a discharge notification would likely be focused on the <code>Encounter</code> resource, since that is the resource that is updated, it is likely desireable to include the patient information, observations, diagnosed conditions, location information, etc.</li>
     </ul>
   </p>
   <p>
-    Subscription Topics are intended to be discoverable, reusable, and extensible.  Definitions should be computably defined whenever possible, but the conceptual definition is the arbiter between any discrepancies.  For example, a query-based and a FHIRPath-based definition may differ slightly because of what is expressable in each language.  In such cases, the goal is correct implmentation of the concept - not literal translations between computable definitions.
+    Subscription Topics are intended to be discoverable, reusable, and extensible.  Definitions should be computably defined whenever possible, but the conceptual definition is the arbiter between any discrepancies.  For example, a query-based and a FHIRPath-based definition may differ slightly because of what is expressable in each language.  In such cases, the goal is correct implementation of the concept - not literal translations between computable definitions.
   </p>
 </div>
 

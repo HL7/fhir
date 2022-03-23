@@ -316,8 +316,13 @@
     <definition value="FHIR Release 4 (Normative + STU)."/>
   </concept>
   <concept>
-    <code value="<valueCode value="4.0.0"/>"/>
-    <display value="<valueCode value="4.0.0"/>"/>
+    <code value="4.0.1"/>
+    <display value="4.0.1"/>
     <definition value="FHIR Release 4 Technical Correction."/>
+  </concept>
+  <concept>
+    <code value="4.3.0"/>
+    <display value="4.3.0"/>
+    <definition value="FHIR Release 4B (Normative + STU)."/>
   </concept>
 </CodeSystem>
