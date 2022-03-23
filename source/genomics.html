@@ -236,8 +236,8 @@
 MolecularSequence.quality: Quality scores for bases in the sequence. It is intended to be compliant with emerging regulatory needs needs (eg: those found at <a href="https://precision.fda.gov">PrecisionFDA</a>).
 </p> -->
   <p>
-    MolecularSequence.variant: This complex element is used for encoding sequence. When the information of reference
-    sequence and variants are provided, the observed sequence will be derived.
+    MolecularSequence.edit: This complex element is used for encoding sequence. When the information of reference
+    sequence and edits are provided, the observed sequence will be derived.
   </p>
 
   <h4>Internal Pointers</h4>
@@ -311,124 +311,16 @@ MolecularSequence.quality: Quality scores for bases in the sequence. It is inten
   </ul>
   </p>
 
-  <!-- 
-<h4>Example from precision FDA </h4>
-<p>
-We provide one <a href="sequence-example-fda.html">example</a> to show how precision FDA vcf data can be upload and comform FHIR specification, and how quality in sequence resource is represented by comparison between a reference sequence and the observed sequence.
-</p>
-<p>
-Source: <a href="sequence-example-fda.xml.html">XML</a>, <a href="sequence-example-fda.json.html">JSON</a>, <a href="sequence-example-fda.ttl.html">Turtle</a>.
-</p> -->
-
-  <h4>Complex Variation example</h4>
+  <h4>Complex Sequence example</h4>
   <p>
-    We provide one <a href="sequence-complex-variant.html">example</a> to show how a complex variant can be represented
-    with the help of cigar. The deletion, insertion and mutation is represented in characters along with the number of
-    repetition.
+    We provide one <a href="sequence-complex-variant.html">example</a> to show how a sequence can be represented with the help of cigar when the edit to a reference sequence is complex. The deletion, insertion and mutation is represented in characters along with the number of repetition.
   </p>
   <p>
     Source: <a href="sequence-complex-variant.xml.html">XML</a>, <a href="sequence-complex-variant.json.html">JSON</a>,
     <a href="sequence-complex-variant.ttl.html">Turtle</a>.
   </p>
 
-
-  <a name="resource_vs_profiles"></a>
-  <h2>Relationship among MolecularSequence resource and genetics profiles</h2>
-
-  <img src="genomics-image20.png" alt="" style="width:624.00px; height:428.00px;" />
-
-  <h3>Pointers to MolecularSequence resource</h3>
-
-  <p>
-    MolecularSequence resource is used to transmit and represent sequencing data. In FHIR Genomics, there are several
-    genetics profiles containing internal pointers to MolecularSequence resource for genetic data reporting. Here is the
-    summary:
-  </p>
-  <p>
-    MolecularSequence.pointer: A bundle of MolecularSequence instances can be connected by MolecularSequence.pointer to
-    build sequence graph described in Section 3. MolecularSequence.pointer will point to the next sequence block.
-  </p>
-  <p>
-    MolecularSequence extension in Observation-genetics profile: Observation-genetics profile is used to report a
-    genetic variant found in patients. MolecularSequence extension contains a pointer to MolecularSequence identifier
-    which has related sequencing read info. It will provide reference/observed allele information and quality scores for
-    each base/sequence block.
-  </p>
-
-  <h3>Pointer to Observation resource (based on genetics profile)</h3>
-
-  <p>
-    Observation-genetics based Observation resource is used for interpretative genetic data. MolecularSequence resource
-    and genetics profiles will use internal pointers to Observation-genetics-profile based Observation instance for
-    variant report.
-  </p>
-  <p>
-    MolecularSequence.observation: A pointer to genetics Observation instance which is used for interpretations of this
-    sequence block. Interpretations are generally about genetic variant found in this sequence block.
-  </p>
-  <p>
-    FamilyMemberHistory: A pointer to genetics Observation instance to report genetic test results of family member
-  </p>
-
-
-  <a name="other_examples"></a>
-  <h2>Other Genomics Use Cases</h2>
-
-  <p>
-    During the development of the FHIR Genomics design, CGWG participants have commented on the earlier use cases and/or
-    proposed new use cases. In this section, we list describe of these new cases and demonstrate how the proposed design
-    will address them.
-  </p>
-
-  <h3>Get a patient’s family members genetics report</h3>
-
-  <p>
-    This example is proposed by Kevin Hughes. Family history is useful for clinicians to know more about the condition
-    of the patient.
-  </p>
-
-  <pre class="http">
-Get /FamilyMemberHistory?
-    _profile=http://hl7.org/fhir/StructureDefinition/familymemberhistory-genetic&amp;
-    patient=123
-</pre>
-
-  <br />
-
-  <img alt="" src="genomics-image22.png" style="width: 624.00px; height: 292.00px;" />
-
-  <a name="apps"></a>
-  <h2>Clinical Genomic Apps</h2>
-
-  <p>
-    The idea for a MolecularSequence resource grew out, in part, the SMART Platforms Project, which explored creating
-    clinical genomic apps to integrated traditional EMR clinical data and genomic data to show data visualization and
-    analysis, including CDS that depended upon both types of data. Below are a couple of examples. Several apps have
-    already been designed including Genomics Advisor, SMART Precision Cancer Medicine, and Diabetes Bear EMR. Below, one
-    of these apps will be described. To include other apps in this section, please feel free to add a note on it and how
-    it uses FHIR/Genomics calls.
-  </p>
-
-  <h3>Genomics Advisor</h3>
-
-  <p>
-    The SMART on FHIR Genomics Advisor was an app incorporating genomics data to show risk of disease, drug
-    susceptibility, and related conditions based upon genotype. Technically, this app was architected (see below) by
-    combining data from independent data services, a SMART on FHIR clinical server for clinical information and one for
-    a SMART on FHIR Genomics data server for genomic data. The set of FHIR API calls that are necessary to support this
-    app are shown below:
-  </p>
-
-  <img alt="" src="genomics-image26.png" style="width: 503.49px; height: 240.48px;" />
-
-  <p>
-    The presentation of the app looks like this:
-  </p>
-
-  <img alt="" src="genomics-image31.png" style="width: 542.46px; height: 312.63px;" />
-
   [%file newfooter%]
-
 
 </body>
 

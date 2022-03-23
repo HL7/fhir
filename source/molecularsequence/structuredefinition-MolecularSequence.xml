@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/clingenomics/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Raw data describing a biological sequence."/>
+  <description value="Streamlined representation of a molecular sequence."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="w5"/>
@@ -61,8 +61,8 @@
   <differential>
     <element id="MolecularSequence">
       <path value="MolecularSequence"/>
-      <short value="Information about a biological sequence"/>
-      <definition value="Raw data describing a biological sequence."/>
+      <short value="Information about a molecular sequence"/>
+      <definition value="Streamlined representation of a molecular sequence."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -80,8 +80,8 @@
     </element>
     <element id="MolecularSequence.identifier">
       <path value="MolecularSequence.identifier"/>
-      <short value="Unique ID for this particular sequence. This is a FHIR-defined id"/>
-      <definition value="A unique identifier for this particular sequence instance. This is a FHIR-defined id."/>
+      <short value="Unique ID for this particular sequence."/>
+      <definition value="A unique identifier for this particular sequence instance."/>
       <requirements value="Allows sequences to be distinguished and referenced."/>
       <min value="0"/>
       <max value="*"/>
@@ -126,8 +126,8 @@
     </element>
     <element id="MolecularSequence.patient">
       <path value="MolecularSequence.patient"/>
-      <short value="Who and/or what this is about"/>
-      <definition value="The patient whose sequencing results are described by this resource."/>
+      <short value="Patient this sequence is associated too."/>
+      <definition value="Indicates the patient this sequence is associated too."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -169,17 +169,6 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quantity">
-      <path value="MolecularSequence.quantity"/>
-      <short value="The number of copies of the sequence of interest.  (RNASeq)"/>
-      <definition value="The number of copies of the sequence of interest. (RNASeq)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Quantity"/>
       </type>
       <isSummary value="true"/>
     </element>
@@ -434,308 +423,6 @@
       <max value="1"/>
       <type>
         <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <!--
-    <element id="MolecularSequence.quality">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="left"/>
-      </extension>
-      <path value="MolecularSequence.quality"/>
-      <short value="An set of value as quality of sequence"/>
-      <definition value="An experimental feature attribute that defines the quality of the feature in a quantitative way, such as a phred quality score ([SO:0001686](http://www.sequenceontology.org/browser/current_svn/term/SO:0001686))."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.type">
-      <path value="MolecularSequence.quality.type"/>
-      <short value="indel | snp | unknown"/>
-      <definition value="INDEL / SNP / Undefined variant."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="qualityType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Type for quality report."/>
-        </extension>
-        <strength value="required"/>
-        <description value="Type for quality"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/quality-type"/>
-      </binding>
-    </element>
-    <element id="MolecularSequence.quality.standardSequence">
-      <path value="MolecularSequence.quality.standardSequence"/>
-      <short value="Standard sequence for comparison"/>
-      <definition value="Gold standard sequence used for comparing against."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="qualityStandardSequence"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Reference identifier of the sequence that used to mark the quality of tested samples."/>
-        </extension>
-        <strength value="example"/>
-        <description value="Reference identifier for standard sequence"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/sequence-quality-standardSequence"/>
-      </binding>
-    </element>
-    <element id="MolecularSequence.quality.start">
-      <path value="MolecularSequence.quality.start"/>
-      <short value="Start position of the sequence"/>
-      <definition value="Start position of the sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.end">
-      <path value="MolecularSequence.quality.end"/>
-      <short value="End position of the sequence"/>
-      <definition value="End position of the sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.score">
-      <path value="MolecularSequence.quality.score"/>
-      <short value="Quality score for the comparison"/>
-      <definition value="The score of an experimentally derived feature such as a p-value ([SO:0001685](http://www.sequenceontology.org/browser/current_svn/term/SO:0001685))."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Quantity"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.method">
-      <path value="MolecularSequence.quality.method"/>
-      <short value="Method to get quality"/>
-      <definition value="Which method is used to get sequence quality."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="qualityMethod"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The method used to evaluate the numerical quality of the observed sequence."/>
-        </extension>
-        <strength value="example"/>
-        <description value="How to get the numerical score"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/sequence-quality-method"/>
-      </binding>
-    </element>
-    <element id="MolecularSequence.quality.truthTP">
-      <path value="MolecularSequence.quality.truthTP"/>
-      <short value="True positives from the perspective of the truth data"/>
-      <definition value="True positives, from the perspective of the truth data, i.e. the number of sites in the Truth Call Set for which there are paths through the Query Call Set that are consistent with all of the alleles at this site, and for which there is an accurate genotype call for the event."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.queryTP">
-      <path value="MolecularSequence.quality.queryTP"/>
-      <short value="True positives from the perspective of the query data"/>
-      <definition value="True positives, from the perspective of the query data, i.e. the number of sites in the Query Call Set for which there are paths through the Truth Call Set that are consistent with all of the alleles at this site, and for which there is an accurate genotype call for the event."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.truthFN">
-      <path value="MolecularSequence.quality.truthFN"/>
-      <short value="False negatives"/>
-      <definition value="False negatives, i.e. the number of sites in the Truth Call Set for which there is no path through the Query Call Set that is consistent with all of the alleles at this site, or sites for which there is an inaccurate genotype call for the event. Sites with correct variant but incorrect genotype are counted here."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.queryFP">
-      <path value="MolecularSequence.quality.queryFP"/>
-      <short value="False positives"/>
-      <definition value="False positives, i.e. the number of sites in the Query Call Set for which there is no path through the Truth Call Set that is consistent with this site. Sites with correct variant but incorrect genotype are counted here."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.gtFP">
-      <path value="MolecularSequence.quality.gtFP"/>
-      <short value="False positives where the non-REF alleles in the Truth and Query Call Sets match"/>
-      <definition value="The number of false positives where the non-REF alleles in the Truth and Query Call Sets match (i.e. cases where the truth is 1/1 and the query is 0/1 or similar)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.precision">
-      <path value="MolecularSequence.quality.precision"/>
-      <short value="Precision of comparison"/>
-      <definition value="QUERY.TP / (QUERY.TP + QUERY.FP)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.recall">
-      <path value="MolecularSequence.quality.recall"/>
-      <short value="Recall of comparison"/>
-      <definition value="TRUTH.TP / (TRUTH.TP + TRUTH.FN)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.fScore">
-      <path value="MolecularSequence.quality.fScore"/>
-      <short value="F-score"/>
-      <definition value="Harmonic mean of Recall and Precision, computed as: 2 * precision * recall / (precision + recall)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.roc">
-      <path value="MolecularSequence.quality.roc"/>
-      <short value="Receiver Operator Characteristic (ROC) Curve"/>
-      <definition value="Receiver Operator Characteristic (ROC) Curve  to give sensitivity/specificity tradeoff."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.roc.score">
-      <path value="MolecularSequence.quality.roc.score"/>
-      <short value="Genotype quality score"/>
-      <definition value="Invidual data point representing the GQ (genotype quality) score threshold."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.roc.numTP">
-      <path value="MolecularSequence.quality.roc.numTP"/>
-      <short value="Roc score true positive numbers"/>
-      <definition value="The number of true positives if the GQ score threshold was set to &quot;score&quot; field value."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.roc.numFP">
-      <path value="MolecularSequence.quality.roc.numFP"/>
-      <short value="Roc score false positive numbers"/>
-      <definition value="The number of false positives if the GQ score threshold was set to &quot;score&quot; field value."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.roc.numFN">
-      <path value="MolecularSequence.quality.roc.numFN"/>
-      <short value="Roc score false negative numbers"/>
-      <definition value="The number of false negatives if the GQ score threshold was set to &quot;score&quot; field value."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.roc.precision">
-      <path value="MolecularSequence.quality.roc.precision"/>
-      <short value="Precision of the GQ score"/>
-      <definition value="Calculated precision if the GQ score threshold was set to &quot;score&quot; field value."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.roc.sensitivity">
-      <path value="MolecularSequence.quality.roc.sensitivity"/>
-      <short value="Sensitivity of the GQ score"/>
-      <definition value="Calculated sensitivity if the GQ score threshold was set to &quot;score&quot; field value."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.quality.roc.fMeasure">
-      <path value="MolecularSequence.quality.roc.fMeasure"/>
-      <short value="FScore of the GQ score"/>
-      <definition value="Calculated fScore if the GQ score threshold was set to &quot;score&quot; field value."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    -->
-    <element id="MolecularSequence.readCoverage">
-      <path value="MolecularSequence.readCoverage"/>
-      <short value="Average number of reads representing a given nucleotide in the reconstructed sequence"/>
-      <definition value="Coverage (read depth or depth) is the average number of reads representing a given nucleotide in the reconstructed sequence."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="integer"/>
       </type>
       <isSummary value="true"/>
     </element>

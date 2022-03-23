@@ -6,11 +6,10 @@
 
 <h3>MolecularSequence Coordinate System</h3>
 <p>
-	When saving the variant information, the nucleic acid will be numbered with order. Some files are using 0-based coordinates (e.g. BCD file format) while some files are using 1-based coordinates (e.g. VCF file format). The element coordinateSystem in MolecularSequence resource contains this information.
+	When saving the sequence information, the nucleic acid will be numbered with order. Some files are using 0-based coordinates (e.g. BCD file format) while some files are using 1-based coordinates (e.g. VCF file format). The element coordinateSystem in MolecularSequence resource contains this information.
 </p>
 <p>
 	MolecularSequence.coordinateSystem constraints within two possible values: 0 for 0-based system, which will mark the sequence from number 0, while 1 for 1-based system, which will begin marking the first position with number 1. The significant difference between two system is the end position. In 0-based system, the end position is <b>exclusive</b>, which means the last position will not be contained in the sequence window while in 1-based system, the end position is <b>inclusive</b> , which means the last position is included in the sequence window. Note both systems has an inclusive start position.
-
 </p>
 <p>
 	For example, ACGTGCAT will be numbered from 1 to 8 in 1-based system and will be numbered from 0 to 8 in 0-based system to mark flanks (i.e. place between two Nucleotide). So the interval [3,5] in 1-based system is GTG while interval [2,5) in 0-based system is same segment GTG.
@@ -18,7 +17,7 @@
 
 <h3>Choice of Strand </h3>
 <p>
-There are lots of definition concerning with the Directionality of DNA or RNA. Here we are using <b>referenceSeq.orientation</b> and <b>referenceSeq.strand</b>. <b>orientation</b> represents the sense of the sequence, which has different meanings depending on the <b>MolecularSequence.type</b>. <b>strand</b> represents the sequence writing order. Watson strand refers to 5' to 3' top strand (5' -&gt; 3'), whereas Crick strand refers to 5' to 3' bottom strand (3' &lt;- 5').
+There are lots of definition concerning with the Directionality of DNA or RNA. Here we are using <b>referenceSeq.orientation</b> and <b>referenceSeq.strand</b>. <b>Orientation</b> represents the sense of the sequence, which has different meanings depending on the <b>MolecularSequence.type</b>. <b>Strand</b> represents the sequence writing order. Watson strand refers to 5' to 3' top strand (5' -&gt; 3'), whereas Crick strand refers to 5' to 3' bottom strand (3' &lt;- 5').
 </p>
 
 <h3> String usage for reference sequence and observed sequence </h3>

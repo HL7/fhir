@@ -14,7 +14,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.221"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="ENSEMBL"/>
+  <name value="Reference Sequences"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>

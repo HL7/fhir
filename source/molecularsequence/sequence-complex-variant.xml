@@ -18,9 +18,6 @@
     <reference value="Organization/hl7"/>
     <display value="HL7"/>
   </performer>
-  <quantity>
-  <value value="25" />
-  </quantity>
     <referenceSeq>
         <referenceSeqId>
           <coding>
@@ -39,8 +36,7 @@
         <referenceAllele value="CTCCATTGCATGCGTT"/>
         <cigar value="3M1D4M6N2M"/>
     </edit>
-    <readCoverage value="1"/>
-      <repository>
+    <repository>
       <type value="other"/>
       <datasetId value="Ensembl"/>
      <readsetId value="v1beta2"/>
