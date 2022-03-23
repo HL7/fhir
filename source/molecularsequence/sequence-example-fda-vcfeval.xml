@@ -15,12 +15,12 @@
         <windowStart value="10453"/>
         <windowEnd value="101770080"/>
     </referenceSeq>
-    <variant>
+    <edit>
         <start value="13116"/>
         <end value="13117"/>
         <observedAllele value="T"/>
         <referenceAllele value="G"/>
-    </variant>
+    </edit>
     <quality>
         <type value="indel"/>
         <standardSequence>

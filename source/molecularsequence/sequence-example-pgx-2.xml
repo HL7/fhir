@@ -17,15 +17,10 @@
         <windowStart value="55227970"/>
         <windowEnd value="55227980"/>
     </referenceSeq>
-    <variant>
+    <edit>
         <start value="55227978"/>
         <end value="55227979"/>
         <observedAllele value="G"/>
         <referenceAllele value="T"/>
-	 <variantPointer>
-          <reference value="Observation/example-haplotype2"/>
-          <display value="Target Haplotype Observation"/>
-        </variantPointer>
-
-    </variant>
+    </edit>
 </MolecularSequence>

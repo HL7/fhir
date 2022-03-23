@@ -360,10 +360,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.variant">
-      <path value="MolecularSequence.variant"/>
-      <short value="Variant in sequence"/>
-      <definition value="The definition of variant here originates from Sequence ontology ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)). This element can represent amino acid or nucleic sequence change(including insertion,deletion,SNP,etc.)  It can represent some complex mutation or segment variation with the assist of CIGAR string."/>
+    <element id="MolecularSequence.edit">
+      <path value="MolecularSequence.edit"/>
+      <short value="Changes in sequence from the reference"/>
+      <definition value="Changes in sequence from the reference."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -371,10 +371,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.variant.start">
-      <path value="MolecularSequence.variant.start"/>
-      <short value="Start position of the variant on the  reference sequence"/>
-      <definition value="Start position of the variant on the  reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive."/>
+    <element id="MolecularSequence.edit.start">
+      <path value="MolecularSequence.edit.start"/>
+      <short value="Start position of the edit on the reference sequence"/>
+      <definition value="Start position of the edit on the reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -382,10 +382,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.variant.end">
-      <path value="MolecularSequence.variant.end"/>
-      <short value="End position of the variant on the reference sequence"/>
-      <definition value="End position of the variant on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position."/>
+    <element id="MolecularSequence.edit.end">
+      <path value="MolecularSequence.edit.end"/>
+      <short value="End position of the edit on the reference sequence"/>
+      <definition value="End position of the edit on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -393,10 +393,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.variant.observedAllele">
-      <path value="MolecularSequence.variant.observedAllele"/>
+    <element id="MolecularSequence.edit.observedAllele">
+      <path value="MolecularSequence.edit.observedAllele"/>
       <short value="Allele that was observed"/>
-      <definition value="An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)).  Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed  sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end."/>
+      <definition value="Allele that was observed. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed  sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -404,10 +404,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.variant.referenceAllele">
-      <path value="MolecularSequence.variant.referenceAllele"/>
+    <element id="MolecularSequence.edit.referenceAllele">
+      <path value="MolecularSequence.edit.referenceAllele"/>
       <short value="Allele in the reference sequence"/>
-      <definition value="An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end."/>
+      <definition value="Allele in the reference sequence. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -415,26 +415,14 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.variant.cigar">
-      <path value="MolecularSequence.variant.cigar"/>
+    <element id="MolecularSequence.edit.cigar">
+      <path value="MolecularSequence.edit.cigar"/>
       <short value="Extended CIGAR string for aligning the sequence with reference bases"/>
       <definition value="Extended CIGAR string for aligning the sequence with reference bases. See detailed documentation [here](http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.variant.variantPointer">
-      <path value="MolecularSequence.variant.variantPointer"/>
-      <short value="Pointer to observed variant information"/>
-      <definition value="A pointer to an Observation containing variant information."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
       <isSummary value="true"/>
     </element>

@@ -1,5 +1,1 @@
-﻿unable to process start xhtml content /Users/bob/src/git-hl7/fhir/source/molecularsequence/molecularsequence-introduction.xml : 
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd"
-    xmlns="http://www.w3.org/1999/xh - should be 
-'<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">' or 
-'<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">'
+﻿Resource Examples failed instance validation

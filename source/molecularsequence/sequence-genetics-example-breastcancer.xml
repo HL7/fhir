@@ -18,10 +18,10 @@
 		<windowStart value="101488058"/>
 		<windowEnd value="101499444"/>
     </referenceSeq>			
-    <variant>
+    <edit>
 		<start value="32316186"/>
 		<end value="32316187"/>
 		<observedAllele value="A"/>
 		<referenceAllele value="C"/>
-	</variant>
+	</edit>
 </MolecularSequence>

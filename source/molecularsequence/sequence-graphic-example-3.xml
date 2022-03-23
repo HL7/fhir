@@ -12,13 +12,13 @@
         <windowStart value="128273732"/>
         <windowEnd value="128273736"/>
     </referenceSeq>
-    <variant>
+    <edit>
         <start value="1282737234"/>
         <end value="128273736"/>
         <observedAllele value="GA"/>
         <referenceAllele value="AT"/>
         <cigar value="2M"/>
-    </variant>
+    </edit>
     <pointer>
         <reference value="MolecularSequence/graphic-example-4"/>
     </pointer>

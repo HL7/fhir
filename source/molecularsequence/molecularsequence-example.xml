@@ -17,12 +17,12 @@
         <windowStart value="22125500"/>
         <windowEnd value="22125510"/>
     </referenceSeq>
-    <variant>
+    <edit>
         <start value="22125503"/>
         <end value="22125504"/>
         <observedAllele value="C"/>
         <referenceAllele value="G"/>
-    </variant>
+    </edit>
     <repository>
         <type value="openapi"/>
         <url value="http://grch37.rest.ensembl.org/ga4gh/variants/3:rs1333049?content-type=application/json"/>

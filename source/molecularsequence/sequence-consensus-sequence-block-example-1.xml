@@ -27,17 +27,17 @@
       <windowStart value="29942412"/>
       <windowEnd value="29942852"/>
   </referenceSeq>
-  <variant>
+  <edit>
       <start value="29945809"/>
       <end value="29942810"/>
       <observedAllele value="AT"/>
       <referenceAllele value="C"/>
-  </variant>
-  <variant>
+  </edit>
+  <edit>
       <start value="29942940"/>
       <end value="29942942"/>
       <observedAllele value="G"/>
       <referenceAllele value="CT"/>
-  </variant>
+  </edit>
 </MolecularSequence>
     
