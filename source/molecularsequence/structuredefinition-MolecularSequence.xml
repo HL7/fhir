@@ -80,7 +80,7 @@
     </element>
     <element id="MolecularSequence.identifier">
       <path value="MolecularSequence.identifier"/>
-      <short value="Unique ID for this particular sequence."/>
+      <short value="Unique ID for this particular sequence"/>
       <definition value="A unique identifier for this particular sequence instance."/>
       <requirements value="Allows sequences to be distinguished and referenced."/>
       <min value="0"/>
@@ -126,7 +126,7 @@
     </element>
     <element id="MolecularSequence.patient">
       <path value="MolecularSequence.patient"/>
-      <short value="Patient this sequence is associated too."/>
+      <short value="Patient this sequence is associated too"/>
       <definition value="Indicates the patient this sequence is associated too."/>
       <min value="0"/>
       <max value="1"/>
