@@ -8,20 +8,20 @@
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="77465005"/>
-			<display value="Transplantation (procedure)"/>
+			<display value="PBSC extraction"/>
 		</coding>
-		<text value="Transplantation"/>
+		<text value="PBSC extraction"/>
 	</category>
 	<code>
 		<coding>
 			<system value="http://snomed.info/sct"/>
-			<code value="234336002"/>
-			<display value="Hemopoietic stem cell transplant (procedure)"/>
+			<code value="387713003"/>
+			<display value="Surgical procedure"/>
 		</coding>
-		<text value="Hemopoietic stem cell transplant (procedure)"/>
+		<text value="Surgical procedure"/>
 	</code>
 	<subject>
-		<reference value="Patient/example-a"/>
+		<reference value="Patient/example-b"/>
 	</subject>
 	<occurrenceDateTime value="2022-03-22"/>
 	<authoredOn value="2022-03-22"/>

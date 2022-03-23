@@ -5,8 +5,12 @@
     </p>
 	<ul>
 		<li>
-			<a href="biologicallyderivedproduct-example-allogeneicHCT.html">Stem cell transplant from Donor B to Patient A</a>
+			<a href="biologicallyderivedproduct-example-allogeneicHCT.html">Allogeneic stem cell transplant from Donor B to Patient A</a>
 		</li>
     </ul>
-
+	<ul>
+		<li>
+			<a href="biologicallyderivedproduct-example-autologousHCT.html">Autologous stem cell transplant for Patient A</a>
+		</li>
+    </ul>
 </div>
