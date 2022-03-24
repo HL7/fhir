@@ -4,4 +4,9 @@
   <id value="DocumentReference-packs"/>
   <status value="current"/>
   <mode value="working"/>
+  <entry>
+    <item>
+      <reference value="ImplementationGuide/DocumentReference-core"/>
+    </item>
+  </entry>
 </List>
