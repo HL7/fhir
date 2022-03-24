@@ -272,7 +272,7 @@
     </element>
    <element id="Observation.triggeredBy.reason">
       <path value="Observation.triggeredBy.reason"/>
-      <short value="Reason the observation was triggered"/>
+      <short value="Reason that the observation was triggered"/>
       <definition value="Provides the reason why this observation was performed as a result of the observation(s) referenced."/>
       <min value="0"/>
       <max value="1"/>
