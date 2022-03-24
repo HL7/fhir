@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/clingenomics/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Streamlined representation of a molecular sequence."/>
+  <description value="Representation of a molecular sequence."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="w5"/>
@@ -61,8 +61,8 @@
   <differential>
     <element id="MolecularSequence">
       <path value="MolecularSequence"/>
-      <short value="Information about a molecular sequence"/>
-      <definition value="Streamlined representation of a molecular sequence."/>
+      <short value="Representation of a molecular sequence"/>
+      <definition value="Representation of a molecular sequence."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
