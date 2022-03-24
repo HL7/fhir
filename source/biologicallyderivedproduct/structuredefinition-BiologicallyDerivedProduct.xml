@@ -63,6 +63,41 @@
     <uri value="http://fda.gov/UDI"/>
     <name value="UDI Mapping"/>
   </mapping>
+  <mapping>
+    <identity value="ISBT128ProductCode"/>
+    <uri value="https://www.isbt128.org/uri/ProductDescriptionCode"/>
+    <name value="ISBT 128 Product Description Code"/>
+  </mapping>
+  <mapping>
+    <identity value="MPHOUniqueIdentifier"/>
+    <uri value="https://www.isbt128.org/uri/MPHOUniqueIdentifier"/>
+    <name value="MPHO Unique Identifier"/>
+  </mapping>
+  <mapping>
+    <identity value="DonationIdentificationNumber"/>
+    <uri value="https://www.isbt128.org/uri/DonationIdentificationNumber"/>
+    <name value="Donation Identification Number"/>
+  </mapping>
+  <mapping>
+    <identity value="ProcessingFacilityIdentificationNumber"/>
+    <uri value="https://www.isbt128.org/uri/ProcessorFIN"/>
+    <name value="Processing Facility Identification Number"/>
+  </mapping>
+  <mapping>
+    <identity value="DivisionIdentifier"/>
+    <uri value="https://www.isbt128.org/uri/DivisionIdentifier"/>
+    <name value="Division Identifier"/>
+  </mapping>
+  <mapping>
+    <identity value="ExpirationDateTimeISO"/>
+    <uri value="https://www.isbt128.org/uri/ExpirationDateTime"/>
+    <name value="Expiration Date and Time ISO"/>
+  </mapping>
+  <mapping>
+    <identity value="GlobalRegistrationIdentifierDonors"/>
+    <uri value="https://www.isbt128.org/uri/GRID"/>
+    <name value="Global Registration Identifier for Donors"/>
+  </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="BiologicallyDerivedProduct"/>
@@ -120,6 +155,10 @@
         <description value="ISBT 128 Product Code"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproduct-product-codes"/>
       </binding>
+      <mapping>
+        <identity value="ISBT128ProductCode"/>
+        <map value="Product Description Code   Required for ISBT 128 labeled products"/>
+      </mapping>
     </element>
      <element id="BiologicallyDerivedProduct.parent">
       <path value="BiologicallyDerivedProduct.parent"/>
@@ -167,6 +206,10 @@
         <identity value="rim"/>
         <map value="id"/>
       </mapping>
+      <mapping>
+        <identity value="MPHOUniqueIdentifier"/>
+        <map value="MPHO Unique Identifier   Required for ISBT 128 labeled products"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProduct.biologicalSource">
       <path value="BiologicallyDerivedProduct.biologicalSource"/>
@@ -181,6 +224,10 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="DonationIdentificationNumber"/>
+        <map value="Donation Identification Number   Required for ISBT 128 labeled products"/>
       </mapping>
       <!-- <mapping>
         <identity value="v2"/>
@@ -201,6 +248,10 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
+      <mapping>
+        <identity value="ProcessingFacilityIdentificationNumber"/>
+        <map value="Processing Facility Identification Number"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProduct.division">
       <path value="BiologicallyDerivedProduct.division"/>
@@ -211,6 +262,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+         <identity value="DivisionIdentifier"/>
+         <map value="Division Identifier   Required for ISBT 128 labeled products"/>
+     </mapping>
     </element>
     <element id="BiologicallyDerivedProduct.status">
       <path value="BiologicallyDerivedProduct.status"/>
@@ -239,6 +294,10 @@
       <type>
         <code value="dateTime"/>
       </type>
+      <mapping>
+        <identity value="ExpirationDateTimeISO"/>
+        <map value="Expiration Date and Time ISO"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProduct.collection">
       <path value="BiologicallyDerivedProduct.collection"/>
@@ -273,6 +332,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
+      <mapping>
+        <identity value="GlobalRegistrationIdentifierDonors"/>
+        <map value="Global Registration Identifier for Donors"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProduct.collection.collected[x]">
       <path value="BiologicallyDerivedProduct.collection.collected[x]"/>
@@ -291,6 +354,7 @@
       <path value="BiologicallyDerivedProduct.storageTempRequirements"/>
       <short value="Product storage temp requirements"/>
       <definition value="Product storage temp requirements."/>
+      <comment value="May be extracted from information held in the Product Description Code." />
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -312,6 +376,7 @@
       <path value="BiologicallyDerivedProduct.property.type"/>
       <short value="Code that specifies the property"/>
       <definition value="Code that specifies the property. It should reference an established coding system."/>
+      <comment value="The element is identified by name and system URI in the type. Some types may have multiple occurrences."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -330,7 +395,7 @@
       <path value="BiologicallyDerivedProduct.property.value[x]"/>
       <short value="Property values"/>
       <definition value="Property values."/>
-      <comment value="The value should be provided as a boolean, integer, CodeableConcept, period, quantity, range, ratio, or attachment. The description can be a string only when these others are not available." />
+      <comment value="The value should be provided as a boolean, integer, CodeableConcept, period, quantity, range, ratio, or attachment. The description can be a string only when these others are not available. The type of value will depend on the property type and is specified in ST-027." />
       <min value="1"/>
       <max value="1"/>
       <type>
