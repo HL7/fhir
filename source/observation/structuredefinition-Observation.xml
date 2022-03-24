@@ -249,6 +249,10 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outBoundRelationship"/>
+      </mapping>
       <isSummary value="true"/>
     </element>
    <element id="Observation.triggeredBy.type">
@@ -269,6 +273,10 @@
         <description value="The type of TriggeredBy Observation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-triggeredbytype"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="code"/>
+      </mapping>
     </element>
    <element id="Observation.triggeredBy.reason">
       <path value="Observation.triggeredBy.reason"/>
@@ -279,6 +287,10 @@
       <type>
         <code value="string"/>
       </type>
+       <mapping>
+        <identity value="rim"/>
+        <map value="annotation"/>
+      </mapping>
     </element>
     <element id="Observation.partOf">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
