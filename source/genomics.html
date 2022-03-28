@@ -48,65 +48,72 @@
         </td>
       </tr>
     </table>
-
     <p>
-      Rapid advances in sequencing technologies, clinical genetics tests for
-      whole genome and exome sequencing are allowing sophisticated genetics
-      testing to be used by providers and patients in clinical decisions.
-      Results from such tests are used to identify distinct genetic variants
-      that may contribute to syndromes, conditions and/or predictive responses
-      to treatments. The implementation of precision medicine will depend upon
-      having such data to diagnose patients, choose medications, and predict the
-      course of disease and care, but will require standards and effective user
-      interfaces.
+      The era of precision medicine-- an emerging approach for disease treatment
+      and prevention that takes into account individual variability in genes,
+      environment, and lifestyle for each person-- is upon us.
     </p>
     <p>
-      A current technical challenge exists in interoperability - the ability to
-      access and share genetics data in a consistant way. The challenges of
-      interoperability includes collection, coding, and retrieval to scale. An
-      individual's genetic data set is large, complex and requires curation.
-      Unfortunately, incompatible systems and nomenclatures are already in use.
-      A standards-based ontology that could be adopted to integrate both genetic
-      data and clinical information systems will be crucial to accelerating the
-      integration of precision medicine and to make sense of genetic testing
-      results in a complete clinical context.
+      Precision medicine is fueled by the amazing technological advancements in
+      genomics, making it possible (and feasible) to undertake broad genetic
+      testing on an individual in a clinically useful timeframe. Whereas not so
+      long ago genomics was primarily of concern to bioinformaticists
+      interacting with such artifacts as alignment (e.g. BAM, CRAM) and variant
+      calling (e.g. VCF) data files, we are now seeing tremendous interest
+      across the clinical community for integrating genomics findings and
+      recommendations into the EHR and into the care process. To that end, the
+      HL7 Clinical Genomics Work Group is developing a set of standards for
+      reporting structured genomic data using FHIR.
     </p>
     <p>
-      To solve these challenges, FHIR is attractive because it is widely adopted
-      across a number of clinical systems. The clinical requirements for
-      genetics data is, relative to genomics research needs, utilitarian and
-      reductive because it is about distilling and extracting particular
-      genetics data produced by ever more sophisticated testing for use at the
-      point-of-care. This has made FHIR a very functional framework to initiate
-      an interoperable clinical genetics data standardization to which multiple
-      stakeholders have contributed to this guide.
+      An individual's genetic data set is large and complex, and therefore
+      requires systems that can manage the size and make sense of the
+      complexity. Unfortunately, due to a lack of widely adopted standards,
+      these systems are often incompatible. A standards-based approach to data
+      exchange that could be adopted to integrate both genetic data and clinical
+      information systems will be crucial to accelerating the integration of
+      precision medicine and to make sense of genetic testing results in a
+      complete clinical context.
     </p>
     <p>
-      To facilitate the reporting of genomic data in FHIR, the
-      <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">
-        Genomics Reporting Implementation Guide
+      The
+      <a href="https://confluence.hl7.org/display/CGW">
+        Clinical Genomics Work Group
       </a>
-      is being developed. This implementation guide focuses on data structures -
-      what data should be/might be present and how it should be organized. It
-      does not address workflows around how reports are requested, created,
-      approved, routed, delivered, amended, etc. The implementation guide is
-      also paradigm-independent - the data structures presented here could be
-      used in RESTful, messaging, documents or other mechanisms.
+      supports the HL7 mission to create and promote its standards by enabling
+      the semantically meaningful exchange of data between parties interested in
+      clinical, personal, and population genomic information and family health
+      history, which are required to support precision medicine. The committee's
+      work products include:
     </p>
+    <ul>
+      <li>
+        <p>
+          <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">
+            Genomics Reporting
+          </a>
+          Implementation Guide: Standardizes the reporting of genomic variants,
+          haplotypes, genotypes, variant annotations, and more.
+        </p>
+      </li>
+      <li>
+        <p>
+          <a href="molecularsequence.html">MolecularSequence</a> Resource: A
+          resource representing a nucleotide or protein polymer. This resource
+          was created prior to the development of the Genomics Reporting
+          Implementation Guide. Because of this, there are currently
+          redundancies between the two which need to be reconciled (e.g.,
+          variants), and MolecularSequence will be refactored in the future to
+          reduce this redundancy as much as possible. Wherever possible, defer
+          to the Genomics Reporting IG to guide your approach reporting genomics
+          lab results.
+        </p>
+      </li>
+    </ul>
     <p>
-      Additional, this FHIR specification includes the
-      <a href="molecularsequence.html">MolecularSequence</a> resource that is
-      designed for representing a sequence. Sequences can be represented a
-      number of ways to suit the use case.
+      Uses of these FHIR artifacts and other genomic use cases can be found
+      [here].
     </p>
-    <p>
-      With the combination of the Implementation Guide and the MolecularSequence
-      resource, FHIR can support a large set of clinical use cases and is thus
-      positioned to address emergent -omics use cases. These tools are simple to
-      implement, will optimize payload sizes, and help developers avoid
-      redundant retrieval of data.
-    </p>
-
     [%file newfooter%]
   </body>
 </html>
