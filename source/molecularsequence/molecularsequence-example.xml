@@ -23,10 +23,9 @@
         <observedAllele value="C"/>
         <referenceAllele value="G"/>
     </edit>
-    <repository>
-        <type value="openapi"/>
+    <formatted>
+        <contentType value="application/json"/>
         <url value="http://grch37.rest.ensembl.org/ga4gh/variants/3:rs1333049?content-type=application/json"/>
-        <name value="GA4GH API"/>
-        <variantsetId value="3:rs1333049"/>
-    </repository>
+        <title value="GA4GH API"/>
+    </formatted>
 </MolecularSequence>

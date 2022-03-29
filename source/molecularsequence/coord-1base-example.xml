@@ -31,5 +31,5 @@
         <referenceAllele value="T"/>
         <cigar value="1D"/>
     </edit>  
-    <observedSeq value="ACATGGTAGC"/>
+    <literal value="ACATGGTAGC"/>
 </MolecularSequence>

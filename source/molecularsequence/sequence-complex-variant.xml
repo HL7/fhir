@@ -35,11 +35,5 @@
         <observedAllele value="CTCATTGT"/>
         <referenceAllele value="CTCCATTGCATGCGTT"/>
         <cigar value="3M1D4M6N2M"/>
-    </edit>
-    <repository>
-      <type value="other"/>
-      <datasetId value="Ensembl"/>
-     <readsetId value="v1beta2"/>
-    </repository>
-    
+    </edit>    
 </MolecularSequence>

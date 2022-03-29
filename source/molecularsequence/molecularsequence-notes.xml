@@ -75,7 +75,7 @@
 
   <h3>Representing the sequence</h3>
   <p>
-    <code>MolecularSequence.observedSequence</code>: This string element can be used to hold the sequence as a string of characters.
+    <code>MolecularSequence.literal</code>: This string element can be used to hold the sequence as a string of characters.
   </p>
   <p>
     <code>MolecularSequence.edit</code>: This complex element is used for encoding sequence. When the information of reference sequence and edits are provided, the observed sequence will be derived. Here is a picture below:
@@ -104,16 +104,12 @@
   </ul>
   </p>
   <p>
-    <code>MolecularSequence.repository</code>: This complex element is used to provide a clarifying structure, a base URL, and/or
-    relevant IDs when referring to an external repository.
+    <code>MolecularSequence.formatted</code>: This Attachment is used to refer to the sequence as embedded file content or via a URL reference.
   </p>
   <p>
-    GA4GH Repository Example. If the MolecularSequence resource refers to a GA4GH repository for read info, references
-    to a GA4GH full sequence dataset should conform to GA4GH data models and accessed via the GA4GH API. The URL of a
-    GA4GH repository, ids of a GA4GH variant and read group are contained in the MolecularSequence resource. The URL of
-    a GA4GH repository is an api_base of a GA4GH server that could be called for sequence data. The GA4GH variant set is
-    a collection of call sets and the GA4GH call set is a collection of variant calls, typically for one sample. A
-    variant call represents a determination of genotype with respect to that variant.
+    GA4GH Repository Example. If the MolecularSequence resource refers to a GA4GH repository, references
+    to a GA4GH full sequence dataset should conform to GA4GH data models and accessed via the GA4GH API. The URL of
+    a GA4GH repository is an api_base of a GA4GH server that could be called for sequence data.
   </p>
 
 <h3>String usage for reference sequence and observed sequence</h3>

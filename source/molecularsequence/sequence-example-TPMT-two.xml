@@ -22,5 +22,5 @@
         <observedAllele value="T"/>
         <referenceAllele value="C"/>
     </edit>
-    <observedSeq value="T-C-T-C-G-C-C-C"/>
+    <literal value="T-C-T-C-G-C-C-C"/>
 </MolecularSequence>

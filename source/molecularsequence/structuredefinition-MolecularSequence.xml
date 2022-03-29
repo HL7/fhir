@@ -415,8 +415,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.observedSeq">
-      <path value="MolecularSequence.observedSeq"/>
+    <element id="MolecularSequence.literal">
+      <path value="MolecularSequence.literal"/>
       <short value="Sequence that was observed"/>
       <definition value="Sequence that was observed. It is the result marked by referenceSeq along with variant records on referenceSeq. This shall start from referenceSeq.windowStart and end by referenceSeq.windowEnd."/>
       <min value="0"/>
@@ -426,94 +426,14 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.repository">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="down"/>
-      </extension>
-      <path value="MolecularSequence.repository"/>
-      <short value="External repository which contains detailed report related with observedSeq in this resource"/>
-      <definition value="Configurations of the external repository. The repository shall store target&#39;s observedSeq or records related with target&#39;s observedSeq."/>
+    <element id="MolecularSequence.formatted">
+      <path value="MolecularSequence.formatted"/>
+      <short value="Embedded file or a link (URI) which contains content to represent the sequence"/>
+      <definition value="Sequence that was observed as file content. Can be an actual file contents, or referenced by a URL to an external system."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.repository.type">
-      <path value="MolecularSequence.repository.type"/>
-      <short value="directlink | openapi | login | oauth | other"/>
-      <definition value="Click and see / RESTful API / Need login to see / RESTful API with authentication / Other ways to see resource."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="repositoryType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Type for access of external URI."/>
-        </extension>
-        <strength value="required"/>
-        <description value="Type for repository"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/repository-type"/>
-      </binding>
-    </element>
-    <element id="MolecularSequence.repository.url">
-      <path value="MolecularSequence.repository.url"/>
-      <short value="URI of the repository"/>
-      <definition value="URI of an external repository which contains further details about the genetics data."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.repository.name">
-      <path value="MolecularSequence.repository.name"/>
-      <short value="Repository&#39;s name"/>
-      <definition value="URI of an external repository which contains further details about the genetics data."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.repository.datasetId">
-      <path value="MolecularSequence.repository.datasetId"/>
-      <short value="Id of the dataset that used to call for dataset in repository"/>
-      <definition value="Id of the variant in this external repository. The server will understand how to use this id to call for more info about datasets in external repository."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.repository.variantsetId">
-      <path value="MolecularSequence.repository.variantsetId"/>
-      <short value="Id of the variantset that used to call for variantset in repository"/>
-      <definition value="Id of the variantset in this external repository. The server will understand how to use this id to call for more info about variantsets in external repository."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.repository.readsetId">
-      <path value="MolecularSequence.repository.readsetId"/>
-      <short value="Id of the read"/>
-      <definition value="Id of the read in this external repository."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
+        <code value="Attachment"/>
       </type>
       <isSummary value="true"/>
     </element>
@@ -529,125 +449,5 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <!--
-    <element id="MolecularSequence.structureVariant">
-      <path value="MolecularSequence.structureVariant"/>
-      <short value="Structural variant"/>
-      <definition value="Information about chromosome structure variation."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.structureVariant.variantType">
-      <path value="MolecularSequence.structureVariant.variantType"/>
-      <short value="Structural variant change type"/>
-      <definition value="Information about chromosome structure variation DNA change type."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="LOINC LL379-9 answerlist"/>
-        </extension>
-        <strength value="required"/>
-        <description value="DNA change type."/>
-        <valueSet value="http://loinc.org/vs/LL379-9"/>
-      </binding>
-    </element>
-    <element id="MolecularSequence.structureVariant.exact">
-      <path value="MolecularSequence.structureVariant.exact"/>
-      <short value="Does the structural variant have base pair resolution breakpoints?"/>
-      <definition value="Used to indicate if the outer and inner start-end values have the same meaning."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.structureVariant.length">
-      <path value="MolecularSequence.structureVariant.length"/>
-      <short value="Structural variant length"/>
-      <definition value="Length of the variant chromosome."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.structureVariant.outer">
-      <path value="MolecularSequence.structureVariant.outer"/>
-      <short value="Structural variant outer"/>
-      <definition value="Structural variant outer."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.structureVariant.outer.start">
-      <path value="MolecularSequence.structureVariant.outer.start"/>
-      <short value="Structural variant outer start"/>
-      <definition value="Structural variant outer start. If the coordinate system is either 0-based or 1-based, then start position is inclusive."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.structureVariant.outer.end">
-      <path value="MolecularSequence.structureVariant.outer.end"/>
-      <short value="Structural variant outer end"/>
-      <definition value="Structural variant outer end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.structureVariant.inner">
-      <path value="MolecularSequence.structureVariant.inner"/>
-      <short value="Structural variant inner"/>
-      <definition value="Structural variant inner."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.structureVariant.inner.start">
-      <path value="MolecularSequence.structureVariant.inner.start"/>
-      <short value="Structural variant inner start"/>
-      <definition value="Structural variant inner start. If the coordinate system is either 0-based or 1-based, then start position is inclusive."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.structureVariant.inner.end">
-      <path value="MolecularSequence.structureVariant.inner.end"/>
-      <short value="Structural variant inner end"/>
-      <definition value="Structural variant inner end. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    -->
   </differential>
 </StructureDefinition>

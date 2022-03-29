@@ -244,10 +244,10 @@ quantity</a>
        y="396.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="molecularsequence-definitions.html#MolecularSequence.observedSeq"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.literal"
    id="n972"><title
    id="title65">Sequence that was observed. It is the result marked by referenceSeq along with variant records on referenceSeq. This shall start from referenceSeq.windowStart and end by referenceSeq.windowEnd</title>
-observedSeq</a>
+literal</a>
  : <a
    xlink:href="datatypes.html#string"
    id="n973">string</a>
@@ -1405,7 +1405,7 @@ quality</a>
     <a
        xlink:href="molecularsequence-definitions.html#MolecularSequence.repository"
        id="n1377"><title
-   id="title414">Configurations of the external repository. The repository shall store target's observedSeq or records related with target's observedSeq</title>
+   id="title414">Configurations of the external repository. The repository shall store target's literal or records related with target's literal</title>
 repository</a>
   </text>
   <text
