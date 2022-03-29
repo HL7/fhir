@@ -465,66 +465,12 @@
 		<publish>true</publish>
 	</space>
 	<space>
-	    <url>https://www.isbt128.org/uri/ProductDescriptionCode</url>
-		<link>https://www.isbt128.org/uri/ProductDescriptionCode</link>
-		<columnName>ISBT 128 Product Description Code</columnName>
-		<title>ISBT 128 Product Description Code</title>
-		<id>ISBT128ProductCode</id>
-		<sort>44</sort>
-		<publish>true</publish>
-	</space>
-	<space>
-	    <url>https://www.isbt128.org/uri/MPHOUniqueIdentifier</url>
-		<link>https://www.isbt128.org/uri/MPHOUniqueIdentifier</link>
-		<columnName>MPHO Unique Identifier</columnName>
-		<title>MPHO Unique Identifier</title>
-		<id>MPHOUniqueIdentifier</id>
-		<sort>45</sort>
-		<publish>true</publish>
-	</space>
-	<space>
-	    <url>https://www.isbt128.org/uri/DonationIdentificationNumber</url>
-		<link>https://www.isbt128.org/uri/DonationIdentificationNumber</link>
-		<columnName>Donation Identification Number</columnName>
-		<title>Donation Identification Number</title>
-		<id>DonationIdentificationNumber</id>
-		<sort>46</sort>
-		<publish>true</publish>
-	</space>
-	<space>
-	    <url>https://www.isbt128.org/uri/ProcessorFIN</url>
-		<link>https://www.isbt128.org/uri/ProcessorFIN</link>
-		<columnName>Processing Facility Identification Number</columnName>
-		<title>Processing Facility Identification Number</title>
-		<id>ProcessingFacilityIdentificationNumber</id>
-		<sort>47</sort>
-		<publish>true</publish>
-	</space>
-	<space>
-	    <url>https://www.isbt128.org/uri/DivisionIdentifier</url>
-		<link>https://www.isbt128.org/uri/DivisionIdentifier</link>
-		<columnName>Division Identifier</columnName>
-		<title>Division Identifier</title>
-		<id>DivisionIdentifier</id>
-		<sort>48</sort>
-		<publish>true</publish>
-	</space>
-	<space>
-	    <url>https://www.isbt128.org/uri/ExpirationDateTime</url>
-		<link>https://www.isbt128.org/uri/ExpirationDateTime</link>
-		<columnName>Expiration Date and Time ISO</columnName>
-		<title>Expiration Date and Time ISO</title>
-		<id>ExpirationDateTimeISO</id>
-		<sort>49</sort>
-		<publish>true</publish>
-	</space>
-	<space>
-	    <url>https://www.isbt128.org/uri/GRID</url>
-		<link>https://www.isbt128.org/uri/GRID</link>
-		<columnName>Global Registration Identifier for Donors</columnName>
-		<title>Global Registration Identifier for Donors</title>
-		<id>GlobalRegistrationIdentifierDonors</id>
-		<sort>50</sort>
+	    <url>https://www.isbt128.org/uri/</url>
+		<link>https://www.isbt128.org/uri/</link>
+		<columnName>ISBT 128 Code</columnName>
+		<title>ISBT 128 Codes</title>
+		<id>ISBT128Code</id>
+		<sort>51</sort>
 		<publish>true</publish>
 	</space>
 </mappingSpaces>
