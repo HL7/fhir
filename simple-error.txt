@@ -1,1 +1,1 @@
-﻿Resource Examples failed instance validation
+unable to read /Users/jdln/workspace/fhir_build/fhir/source/transport/transport-example.xml: Element type "intent" must be followed by either attribute specifications, ">" or "/>".
