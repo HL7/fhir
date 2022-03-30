@@ -162,8 +162,8 @@
     </element>
      <element id="BiologicallyDerivedProduct.parent">
       <path value="BiologicallyDerivedProduct.parent"/>
-      <short value="BiologicallyDerivedProduct parent"/>
-      <definition value="Parent product (if any)."/>
+      <short value="Parent product"/>
+      <definition value="Parent product (if any) for this biologically-derived product."/>
       <comment value="For products that have multiple collections. For example Peripheral Blood Stem Cells may be collected over several days from a single donor and the donation split into in multiple containers which must be linked to the parent donation."/>
       <min value="0"/>
       <max value="*"/>
@@ -353,7 +353,7 @@
     <element id="BiologicallyDerivedProduct.storageTempRequirements">
       <path value="BiologicallyDerivedProduct.storageTempRequirements"/>
       <short value="Product storage temp requirements"/>
-      <definition value="Product storage temp requirements."/>
+      <definition value="The temperature requirements for storage of the biologically-derived product."/>
       <comment value="May be extracted from information held in the Product Description Code." />
       <min value="0"/>
       <max value="1"/>
