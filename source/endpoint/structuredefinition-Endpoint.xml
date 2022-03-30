@@ -99,8 +99,8 @@
     <element id="Endpoint.status">
       <path value="Endpoint.status"/>
       <short value="active | suspended | error | off | entered-in-error | test"/>
-      <definition value="active | suspended | error | off | test."/>
-      <comment value="This element is labeled as a modifier because the status contains codes that mark the endpoint as not currently valid."/>
+      <definition value="The endpoint status represents the general expected availability of an endpoint."/>
+      <comment value="This element is labeled as a modifier because the status contains codes that mark the endpoint as not currently valid. Temporary downtimes or other unexpected short-term changes in availability would not be represented in this property."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -210,6 +210,7 @@
       <path value="Endpoint.period"/>
       <short value="Interval the endpoint is expected to be operational"/>
       <definition value="The interval during which the endpoint is expected to be operational."/>
+	  <comment value="Temporary downtimes or other short-term changes in availability would not be represented in this property."/>
       <min value="0"/>
       <max value="1"/>
       <type>
