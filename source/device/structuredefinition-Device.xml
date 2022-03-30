@@ -720,7 +720,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -731,6 +731,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-specialization-category"/>
       </binding>
     </element>
+    
     <element id="Device.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,180"/>
