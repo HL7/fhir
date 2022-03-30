@@ -5,6 +5,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="BiologicallyDerivedProduct-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BiologicallyDerivedProduct.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-identifier"/>
+        <description value="Identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="BiologicallyDerivedProduct.identifier"/>
+        <xpath value="f:BiologicallyDerivedProduct/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>   
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="BiologicallyDerivedProduct-biological-source"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
