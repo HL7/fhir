@@ -46,9 +46,9 @@
           
           <td>0</td>
           
-          <td style="white-space:nowrap">invalid
-            
-            <a name="on"> </a>
+          <td style="white-space:nowrap">on
+            device-operation-status-on
+            <a name="device-operation-status-on"> </a>
           
           </td>
           
@@ -62,9 +62,9 @@
           
           <td>1</td>
           
-          <td style="white-space:nowrap">invalid
+          <td style="white-space:nowrap">online
             
-            <a name="online"> </a>
+            <a name="device-operation-status-online"> </a>
           
           </td>
           
@@ -78,9 +78,9 @@
           
           <td>1</td>
           
-          <td style="white-space:nowrap">invalid
+          <td style="white-space:nowrap">paused
             
-            <a name="paused"> </a>
+            <a name="device-operation-status-paused"> </a>
           
           </td>
           
@@ -94,9 +94,9 @@
           
           <td>1</td>
           
-          <td style="white-space:nowrap">invalid
+          <td style="white-space:nowrap">offline
             
-            <a name="offline"> </a>
+            <a name="device-operation-status-offline"> </a>
           
           </td>
           
@@ -110,9 +110,9 @@
           
           <td>0</td>
           
-          <td style="white-space:nowrap">invalid
+          <td style="white-space:nowrap">off
             
-            <a name="off"> </a>
+            <a name="device-operation-status-off"> </a>
           
           </td>
           
@@ -126,9 +126,9 @@
           
           <td>0</td>
           
-          <td style="white-space:nowrap">invalid
+          <td style="white-space:nowrap">not-ready
             
-            <a name="not-ready"> </a>
+            <a name="device-operation-status-not-ready"> </a>
           
           </td>
           
@@ -142,9 +142,9 @@
           
           <td>0</td>
           
-          <td style="white-space:nowrap">invalid
+          <td style="white-space:nowrap">standby
             
-            <a name="standby"> </a>
+            <a name="device-operation-status-standby"> </a>
           
           </td>
           
@@ -158,9 +158,9 @@
           
           <td>0</td>
           
-          <td style="white-space:nowrap">invalid
+          <td style="white-space:nowrap">shutdown
             
-            <a name="shutdown"> </a>
+            <a name="device-operation-status-shutdown"> </a>
           
           </td>
           
@@ -174,9 +174,9 @@
           
           <td>0</td>
           
-          <td style="white-space:nowrap">invalid
+          <td style="white-space:nowrap">defective
             
-            <a name="defective"> </a>
+            <a name="device-operation-status-defective"> </a>
           
           </td>
           
@@ -190,9 +190,9 @@
           
           <td>0</td>
           
-          <td style="white-space:nowrap">invalid
+          <td style="white-space:nowrap">unknown
             
-            <a name="unknown"> </a>
+            <a name="device-operation-status-unknown"> </a>
           
           </td>
           
