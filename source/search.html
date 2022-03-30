@@ -186,7 +186,7 @@ complexity that they require for their implementations.
 </p>
 <p>
   In the absence of any search filters, e.g. <code>GET [base]/Patient</code> or <code>POST [base]/Patient/_search</code> 
-  with an empty body, a server SHOULD return all records. NOTE: Severs MAY impose expectations prohibiting queries without 
+  with an empty body, a server SHOULD return all records. Note that severs MAY impose expectations prohibiting queries without 
   or with insufficient parameters.
 </p>
 
@@ -590,10 +590,11 @@ GET [base]/[type]?param1=value&amp;...{&amp;_format=[mime-type]}
   so it is not possible to use the results of one request as input to another in the same batch.
 </p>
 <p>
-  A relevant note about HTTP verbs (<code>GET</code> versus <code>POST</code>) applies when a client <a href="http.html#transaction">batches</a>...
-</p>
-<p>
-  TODO: add text here depending on the outcome of <a href="https://jira.hl7.org/browse/FHIR-36095">FHIR-36095</a>.
+  Note that when bundling requests via <code>batch</code> or <code>transaction</code>, HTTP verbs and the URLs for RESTful interfaces 
+  are used.  When requesting searches in a Bundle, systems SHOULD accept searches via GET, even if they do not typically accept GET-based 
+  searches.  There is no standard way to convey POST-based searches within a Bundle and the architectural differences when searching via
+  GET or POST are not relevant within a Bundle.  Servers receiving searches within a Bundle SHOULD NOT impose any GET-specific limitations 
+  on search (i.e. restrictions not imposed on POST-based searches) that they would impose if the GET-based search had been received outside a Bundle.
 </p>
 
 <a name="messaging"></a>
@@ -605,16 +606,16 @@ GET [base]/[type]?param1=value&amp;...{&amp;_format=[mime-type]}
 <a name="ptypes"></a>
 <h3>Search Parameters</h3>
 <p>
-  ...
-</p>
-<p>Each search parameter is defined by a type that specifies how the search parameter
-behaves. These are the defined parameter types:
+  Search parameters are often transmitted in encoded strings (e.g., in URL-Encoded POST or GET HTTP parameters).  However,
+  FHIR is modeled with a rich set of primitives to cover the many data types encountered in healthcare.  To provide consistent
+  mapping between the two formats, each search parameter is defined by a type that specifies how the search parameter
+  behaves.  These are the defined parameter types:
 </p>
 <%linkcodelist http://hl7.org/fhir/search-param-type%>
 <p>
-The search parameters can also append "modifiers" that control
-their behavior. The kinds of modifiers that available is dependent on the type
-of parameter being modified.
+  Individual search parameters MAY also define "modifiers" that control their behavior.  The kinds of modifiers available 
+  depend on the type of the search parameter.  More details can be found in the <a href="#modifiers">Modifiers</a> section
+  of the search page.
 </p>
 
 <a name="multivalue"></a>
@@ -679,8 +680,128 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
 
 <a name="modifiers"></a>
 <h4>Modifiers</h4>
-<p>Parameters are defined per resource.  Parameter names may specify a modifier as a suffix.
-The modifiers are separated from the parameter name by a colon. Modifiers are:</p>
+<p>
+  Generally, search parameters are used as input filters for one or more resource elements. For example, searching 
+  for patients that were born this year.  Sometimes it is necessary or desireable to use a search parameter with a 
+  different behavior, for example, searching for patients that do not have a birth date in their records.  Instead 
+  of requiring many search parameters on an element to cover each type of use, this specification defines <b>modifiers</b> 
+  that can used to change the meaning of a search parameter while leaving element mappings intact.
+</p>
+<p>
+  Allowed search parameter modifiers are defined by the <a href="codesystem-search-modifier-code.html">search-modifier-code</a> 
+  code system. Search parameter definitions MAY include a list of modifiers allowed in the <code>SearchParameter.code</code> 
+  element, which is bound to the <a href="valueset-search-modifier-code.html">search-modifier-code</a> value set.  Servers
+  MAY choose to support additional modifiers on search parameters that are not listed, but SHALL support any modifiers 
+  present in search parameters the server advertises support for.
+</p>
+<p>
+  In search requests, search modifiers are used by appending the modifier as a suffix to the search parameter name, with the syntax
+  of: <code>[name]:[modifier]</code>, such as <code>name:missing</code>.
+</p>
+<p>
+  Since modifiers change the meaning of a search parameter, a server SHALL reject any search request that contains a search 
+  parameter with an unsupported modifier.  For example, if the server supports the <code>name</code> search parameter, 
+  but not the <code>:exact</code> modifier on the name, it should reject a search with the parameter <code>name:exact=Bill</code>, 
+  using an HTTP <code>400</code> error with an <a href="operationoutcome.html">OperationOutcome</a> with a 
+  <a href="operationoutcome-example-searchfail.html">clear error message</a>.
+</p>
+<p>
+  While support for modifiers is applied per search parameter, modifiers are defined according to search parameter types:  
+</p>
+<table class="grid">
+  <tr>
+    <td><code>contains</code></td>
+    <td><code>string</code></td>
+    <td>
+      <b>Short:</b> The search parameter returns resources that include the supplied parameter value anywhere within the field being searched.<br/>
+      <a href="search.html#modifiercontains">Details</a>
+    </td>
+  </tr>
+  <tr>
+    <td><code>exact</code></td>
+    <td><code>string</code></td>
+    <td>
+      <b>Short:</b> The search parameter returns resources that have a value that exactly matches the supplied parameter (the whole string, including casing and accents).<br/>
+      <a href="search.html#modifierexact">Details</a>
+    </td>
+  </tr>
+  <tr>
+   <td><code>missing</code></td>
+   <td>All types except <code>combination</code></td>
+   <td>
+     <b>Short:</b> The search parameter returns resources that have a value or not.<br/>
+     <a href="search.html#modifiermissing">Details</a>
+   </td>
+  </tr>
+  <tr>
+    <td><code>not</code></td>
+    <td></td>
+    <td>
+      <b>Short:</b> The search parameter returns resources that do not contain a match.<br/>
+      <a href="search.html#modifiernot">Details</a>
+    </td>
+   </tr>
+ </table>
+
+  <a name="modifiercontains"></a>
+  <h5>contains</h5>
+  <p>
+    The <code>contains</code> modifier allows clients to indicate that a supplied <code>string</code> input should be matched
+    as a case-insensitive and combining-character insensitive match anywhere in the target string. Note that the handling of extended 
+    <a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">grapheme clusters</a> is within the discretion of 
+    the server, i.e. the server decides if a string search parameter matches on canonically equivalent characters or matches on
+		the actual used Unicode code points.
+  </p>
+  <p>
+    <code>contains</code> is only allowed on <code>string</code> type search parameters. When using the 'contains' modifier,
+    all typically-allowed string inputs are allowed.
+  </p>
+
+  <a name="modifierexact"></a>
+  <h5>exact</h5>
+  <p>
+    The <code>exact</code> modifier allows clients to indicate that a supplied <code>string</code> input is the complete and 
+    exact value that should be matched, including casing and combining characters. Note that the handling of extended 
+    <a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">grapheme clusters</a> is within the discretion of 
+    the server, i.e. the server decides if a string search parameter matches on canonically equivalent characters or matches on
+		the actual used Unicode code points.
+    
+    , or <code>:contains</code> (case insensitive and combining character-insensitive, search 
+    text matched anywhere in the string), instead of the default behavior (case insensitive and accent-insensitive, partial 
+    matches at the start of the string).
+  </p>
+  <p>
+    <code>exact</code> is only allowed on <code>string</code> type search parameters. When using the 'exact' modifier,
+    all typically-allowed string inputs are allowed.
+  </p>
+
+  <a name="modifiermissing"></a>
+  <h5>missing</h5>
+  <p>
+    The <code>missing</code> modifier allows clients to filter based on whether resources contain values that <i>can</i> match 
+    a search parameter.  Usually, this equates to testing if a resource has an element or not.
+  </p>
+  <p>
+    <code>missing</code> is allowed on all search parameter types except <code>combination</code>. When using the 'missing' modifier,
+    the only allowed input values are <code>true</code> and <code>false</code>.
+  </p>
+  <p>
+    Searching for <code>[parameter]:missing=true</code> requests all resources that <b>do not</b> have a value in the matching element
+    or where the element is present with extensions, but no <code>value</code> is specified.
+  </p>
+  <p>
+    Searching for <code>[parameter]:missing=false</code> requests all resources that <b>do</b> have a value in the matching element.
+  </p>
+
+
+<p>
+  Search Parameters are defined for one or more resources.  
+  The kinds of modifiers available 
+  depend on the type of the search parameter.
+</p>
+<p>
+  Parameters are defined per resource.  Parameter names may specify a modifier as a suffix.  The modifiers are separated from the parameter name by a colon. Modifiers are:
+</p>
 <ul>
  <li>For all parameters (except combination): <code>:missing</code>; e.g. gender:missing=true (or false).
   Searching for <code>gender:missing=true</code> will return all the resources that don't have a value for the gender parameter (which usually
