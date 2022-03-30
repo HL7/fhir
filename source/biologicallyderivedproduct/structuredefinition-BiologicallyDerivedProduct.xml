@@ -64,39 +64,9 @@
     <name value="UDI Mapping"/>
   </mapping>
   <mapping>
-    <identity value="ISBT128ProductCode"/>
-    <uri value="https://www.isbt128.org/uri/ProductDescriptionCode"/>
-    <name value="ISBT 128 Product Description Code"/>
-  </mapping>
-  <mapping>
-    <identity value="MPHOUniqueIdentifier"/>
-    <uri value="https://www.isbt128.org/uri/MPHOUniqueIdentifier"/>
-    <name value="MPHO Unique Identifier"/>
-  </mapping>
-  <mapping>
-    <identity value="DonationIdentificationNumber"/>
-    <uri value="https://www.isbt128.org/uri/DonationIdentificationNumber"/>
-    <name value="Donation Identification Number"/>
-  </mapping>
-  <mapping>
-    <identity value="ProcessingFacilityIdentificationNumber"/>
-    <uri value="https://www.isbt128.org/uri/ProcessorFIN"/>
-    <name value="Processing Facility Identification Number"/>
-  </mapping>
-  <mapping>
-    <identity value="DivisionIdentifier"/>
-    <uri value="https://www.isbt128.org/uri/DivisionIdentifier"/>
-    <name value="Division Identifier"/>
-  </mapping>
-  <mapping>
-    <identity value="ExpirationDateTimeISO"/>
-    <uri value="https://www.isbt128.org/uri/ExpirationDateTime"/>
-    <name value="Expiration Date and Time ISO"/>
-  </mapping>
-  <mapping>
-    <identity value="GlobalRegistrationIdentifierDonors"/>
-    <uri value="https://www.isbt128.org/uri/GRID"/>
-    <name value="Global Registration Identifier for Donors"/>
+    <identity value="ISBT128Code"/>
+    <uri value="https://www.isbt128.org/uri/"/>
+    <name value="ISBT 128 Code"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -149,15 +119,15 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ISBT 128 Product Code"/>
+          <valueString value="ISBT 128 Code"/>
         </extension>
         <strength value="example"/>
-        <description value="ISBT 128 Product Code"/>
+        <description value="ISBT 128 Code"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproduct-product-codes"/>
       </binding>
       <mapping>
-        <identity value="ISBT128ProductCode"/>
-        <map value="Product Description Code   Required for ISBT 128 labeled products"/>
+        <identity value="ISBT128Code"/>
+        <map value="Product Description Code. Required for ISBT 128 labeled products"/>
       </mapping>
     </element>
      <element id="BiologicallyDerivedProduct.parent">
@@ -207,8 +177,8 @@
         <map value="id"/>
       </mapping>
       <mapping>
-        <identity value="MPHOUniqueIdentifier"/>
-        <map value="MPHO Unique Identifier   Required for ISBT 128 labeled products"/>
+        <identity value="ISBT128Code"/>
+        <map value="MPHO Unique Identifier. Required for ISBT 128 labeled products"/>
       </mapping>
     </element>
     <element id="BiologicallyDerivedProduct.biologicalSource">
@@ -226,8 +196,8 @@
         <map value="FiveWs.identifier"/>
       </mapping>
       <mapping>
-        <identity value="DonationIdentificationNumber"/>
-        <map value="Donation Identification Number   Required for ISBT 128 labeled products"/>
+        <identity value="ISBT128Code"/>
+        <map value="Donation Identification Number. Required for ISBT 128 labeled products"/>
       </mapping>
       <!-- <mapping>
         <identity value="v2"/>
@@ -249,7 +219,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <mapping>
-        <identity value="ProcessingFacilityIdentificationNumber"/>
+        <identity value="ISBT128Code"/>
         <map value="Processing Facility Identification Number"/>
       </mapping>
     </element>
@@ -263,8 +233,8 @@
         <code value="string"/>
       </type>
       <mapping>
-         <identity value="DivisionIdentifier"/>
-         <map value="Division Identifier   Required for ISBT 128 labeled products"/>
+         <identity value="ISBT128Code"/>
+         <map value="Division Identifier. Required for ISBT 128 labeled products"/>
      </mapping>
     </element>
     <element id="BiologicallyDerivedProduct.status">
@@ -295,7 +265,7 @@
         <code value="dateTime"/>
       </type>
       <mapping>
-        <identity value="ExpirationDateTimeISO"/>
+        <identity value="ISBT128Code"/>
         <map value="Expiration Date and Time ISO"/>
       </mapping>
     </element>
@@ -333,7 +303,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <mapping>
-        <identity value="GlobalRegistrationIdentifierDonors"/>
+        <identity value="ISBT128Code"/>
         <map value="Global Registration Identifier for Donors"/>
       </mapping>
     </element>
