@@ -1,1 +1,1 @@
-﻿Errors executing build. Details logged.
+﻿Unknown CodeSystemContentMode code 'extensible'
