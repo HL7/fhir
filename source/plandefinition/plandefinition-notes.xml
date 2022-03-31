@@ -57,6 +57,7 @@
 
 <p>In addition to the $apply operation parameters, the context variable %action can be used within the path element of a dynamicValue to specify the current action target. For example, to specify the path to the description element of the current action, use <code>%action.description</code>.</p>
 
+<p>Note that result of this operation is transient (i.e. none of the resources created by the operation are persisted in the server, they are all returned as contained resources in the result). The result effectively represents a proposed set of activities, and it is up to the caller to determine whether and how those activities are actually carried out.</p>
 
 <h3>Overlap with ActivityDefinition</h3>
 
