@@ -244,6 +244,11 @@
         <map value="Participant.name"/>
       </mapping>
     </element>
+    <element id="Group.description">
+      <path value="Group.description"/>
+      <short value="Natural language description of the group"/>
+      <definition value="Explanation of what the group represents and how it is intended to be used."/>
+    </element>
     <element id="Group.quantity">
       <path value="Group.quantity"/>
       <short value="Number of members"/>
