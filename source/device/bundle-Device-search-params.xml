@@ -414,7 +414,7 @@
           <valueString value="Device.version.value"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Device-version"/>
-        <description value="The specific version of the device"/>
+        <description value="The specific version of the device"/> 
         <code value="version"/>
         <type value="string"/>
         <expression value="Device.version.value"/>
