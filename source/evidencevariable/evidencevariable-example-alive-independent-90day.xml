@@ -14,6 +14,7 @@
   <actual value="false"/>
   <characteristic>
     <description value="not functionally dependent at 90 days"/>
+    <exclude value="true"/>
     <definitionCodeableConcept>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -21,7 +22,6 @@
         <display value="Functionally dependent (finding)"/>
       </coding>
     </definitionCodeableConcept>
-    <exclude value="true"/>
     <timeFromEvent>
 	  <eventCodeableConcept>
 		<coding>
@@ -40,6 +40,7 @@
   </characteristic>
   <characteristic>
     <description value="alive at 90 days"/>
+    <exclude value="true"/>
     <definitionCodeableConcept>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -47,7 +48,6 @@
         <display value="Dead (finding)"/>
       </coding>
     </definitionCodeableConcept>
-    <exclude value="true"/>
     <timeFromEvent>
 	  <eventCodeableConcept>
 		<coding>
