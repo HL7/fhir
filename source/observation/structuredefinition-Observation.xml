@@ -1048,15 +1048,15 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <!-- <condition value="obs-3"/>
+     <condition value="obs-3"/>
       <mapping>
         <identity value="v2"/>
         <map value="OBX-7"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="value:IVL_PQ.high"/>
-      </mapping> -->
+        <map value="value:IVL_PQ.normal"/>
+      </mapping>
     </element>
     <element id="Observation.referenceRange.type">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
