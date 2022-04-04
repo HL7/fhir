@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Location xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/location.xsd">
+  <id value="hl7"/>
+
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      Lab A<br/>
+				100 Main Street<br/>
+				Anytown, AL 36106<br/>
+				USA<br/>
+				(+1) 334-272-1000 (phone)<br/>
+				(+1) 334-272-1001 (fax)<br/>
+				E-mail:  <a href="mailto:lab@labA.com">lab@labA.com</a>
+    </div>
+  </text>
+
+  <!-- HL7 itself -->
+  <status value="active"/>
+	<name value="Lab A Location"/>
+	<description value="Physical Location of Example Lab A" />
+	<mode value="instance"/>
+	<telecom>
+    <system value="phone"/>
+    <value value="(+1) 334-272-1000"/>
+  </telecom>
+  <telecom>
+    <system value="fax"/>
+    <value value="(+1) 334-272-1001"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="lab@labA.com"/>
+  </telecom>
+  <address>
+    <line value="100 Main Street"/>
+    <city value="Anytown"/>
+    <state value="AL"/>
+    <postalCode value="36106"/>
+    <country value="USA"/>
+  </address>  
+  <physicalType>
+	<coding>
+		<system value="http://terminology.hl7.org/CodeSystem/location-physical-type" />
+		<code value="bu"/>
+	<display value="Building" />
+	</coding>
+  </physicalType>
+</Location>
