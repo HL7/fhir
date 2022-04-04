@@ -588,7 +588,7 @@
       <path value="ImplementationGuide.definition.resource"/>
       <short value="Resource in the implementation guide"/>
       <definition value="A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
@@ -646,7 +646,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="ImplementationGuide.definition.resource.example[x]">
