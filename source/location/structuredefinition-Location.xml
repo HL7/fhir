@@ -456,7 +456,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundLink[typeCode=PART].source[classCode=SDLC]"/>
+        <map value=".inboundLink[typeCode=PART].source[classCode=SDLOC]"/>
       </mapping>
     </element>
     <element id="Location.hoursOfOperation">
