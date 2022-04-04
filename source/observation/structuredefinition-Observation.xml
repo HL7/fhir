@@ -1038,8 +1038,7 @@
         <map value="value:IVL_PQ.high"/>
       </mapping>
     </element>
-
-<element id="Observation.referenceRange.normalValue">
+    <element id="Observation.referenceRange.normalValue">
       <path value="Observation.referenceRange.normalValue"/>
       <short value="Normal value, if relevant"/>
       <definition value="The value of the normal value of the reference range."/>
@@ -1057,6 +1056,14 @@
         <identity value="rim"/>
         <map value="value:IVL_PQ.normal"/>
       </mapping>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationInterpretation"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Codes identifying interpretations of observations."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-interpretation"/>
+    </binding>
     </element>
     <element id="Observation.referenceRange.type">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
