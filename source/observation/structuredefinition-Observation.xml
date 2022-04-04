@@ -1038,6 +1038,26 @@
         <map value="value:IVL_PQ.high"/>
       </mapping>
     </element>
+
+<element id="Observation.referenceRange.normalValue">
+      <path value="Observation.referenceRange.normalValue"/>
+      <short value="Normal value, if relevant"/>
+      <definition value="The value of the normal value of the reference range."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <!-- <condition value="obs-3"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value:IVL_PQ.high"/>
+      </mapping> -->
+    </element>
     <element id="Observation.referenceRange.type">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[$8941][1115]."/>
