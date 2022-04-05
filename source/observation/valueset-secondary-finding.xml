@@ -13,8 +13,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.1285"/>
   </identifier>
-  <name value="ObservationCategoryCodes"/>
-  <title value="Observation Category Codes"/>
+  <name value="GeneticObservationSecondaryFindings"/>
+  <title value="Genetic Observation Secondary Findings"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -23,7 +23,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Codes to denote a guideline or policy statement.when a genetic test result is being shared as a secondary finding."/>
+  <description value="Codes to denote a guideline or policy statement when a genetic test result is being shared as a secondary finding."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/secondary-finding"/>
