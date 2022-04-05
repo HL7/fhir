@@ -1058,11 +1058,11 @@
       </mapping>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationInterpretation"/>
+          <valueString value="ObservationReferenceRangeNormalValue"/>
         </extension>
         <strength value="extensible"/>
-        <description value="Codes identifying interpretations of observations."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-interpretation"/>
+        <description value="Codes identifying the normal value of the observation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-referencerange-normalvalue"/>
     </binding>
     </element>
     <element id="Observation.referenceRange.type">
