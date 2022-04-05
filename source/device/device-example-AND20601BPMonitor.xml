@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/device.xsd">
+	<id value="and20601bpmonitor"/>	
+<identifier>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/uv/phd/CodeSystem/ContinuaDeviceIdentifiers"/>
+        <code value="SYSID"/>
+        <display value="System Identifier"/>
+      </coding>
+    </type>
+    <system value="urn:oid:1.2.840.10004.1.1.1.0.0.1.0.0.1.2680"/>
+    <value value="00-09-1F-FF-FE-80-07-3A"/>
+  </identifier>
+  <identifier>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/uv/phd/CodeSystem/ContinuaDeviceIdentifiers"/>
+        <code value="BTMAC"/>
+        <display value="Bluetooth Address"/>
+      </coding>
+    </type>
+    <system>http://hl7.org/fhir/sid/eui-48</system>
+    <value>00-09-1F-80-07-3A</value>
+  </identifier>
+  <udiCarrier>
+    <deviceIdentifier>39183189818</deviceIdentifier>
+    <issuer>http://hl7.org/fhir/NamingSystem/gs1-di</issuer>
+    <jurisdiction>http://hl7.org/fhir/NamingSystem/fda-udi</jurisdiction>
+    <carrierHRF>(01)39183189818(21)5091100966  </carrierHRF>
+    <entryType>unknown</entryType>
+  </udiCarrier>
+  <manufacturer>A&amp;D Medical </manufacturer>
+  <serialNumber>5091100966  </serialNumber>
+  <deviceName>
+    <name value="AND BP UA-767PBT-C" />
+    <type value="user-friendly-name"/>
+  </deviceName>
+  <modelNumber>UA-767PBT-C </modelNumber>
+  <type>
+    <coding>
+      <system>urn:iso:std:iso:11073:10101</system>
+      <code>65573</code>
+      <display>MDC_MOC_VMS_MDS_SIMP</display>
+    </coding>
+    <text>MDC_MOC_VMS_MDS_SIMP: Personal Health Device</text>
+  </type>
+  <specialization>
+    <systemType>
+      <coding>
+        <system>urn:iso:std:iso:11073:10101</system>
+        <code>528391</code>
+      </coding>
+      <text>MDC_DEV_SPEC_PROFILE_BP: Blood Pressure meter</text>
+    </systemType>
+    <version>1</version>
+  </specialization>
+  <version>
+    <type>
+      <coding>
+        <system>urn:iso:std:iso:11073:10101</system>
+        <code>532352</code>
+      </coding>
+      <text>MDC_REG_CERT_DATA_CONTINUA_VERSION: Continua version</text>
+    </type>
+    <value>1.0</value>
+  </version>
+  <property>
+    <type>
+      <coding>
+        <system>urn:iso:std:iso:11073:10101</system>
+        <code>532353</code>
+      </coding>
+      <text>MDC_REG_CERT_DATA_CONTINUA_CERT_DEV_LIST: Continua certified device list</text>
+    </type>
+    <value>
+      <coding>
+        <system>http://hl7.org/fhir/uv/phd/CodeSystem/ContinuaPAN</system>
+        <code>7</code>
+      </coding>
+    </value>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system>http://hl7.org/fhir/uv/phd/CodeSystem/ASN1ToHL7</system>
+        <code>532354.0</code>
+        <display>regulation-status</display>
+      </coding>
+    </type>
+    <value>
+      <coding>
+        <system>http://terminology.hl7.org/CodeSystem/v2-0136</system>
+        <code>N</code>
+      </coding>
+      <text>Device is Regulated</text>
+    </value>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system>urn:iso:std:iso:11073:10101</system>
+        <code>68220</code>
+      </coding>
+      <text>MDC_TIME_SYNC_PROTOCOL: Time synchronization protocol</text>
+    </type>
+    <value>
+      <coding>
+        <system>urn:iso:std:iso:11073:10101</system>
+        <code>532224</code>
+      </coding>
+      <text>MDC_TIME_SYNC_NONE: No time synchronization</text>
+    </value>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system>http://hl7.org/fhir/uv/phd/CodeSystem/ASN1ToHL7</system>
+        <code>68219.0</code>
+        <display>mds-time-capab-real-time-clock</display>
+      </coding>
+    </type>
+    <value>
+      <coding>
+        <system>http://terminology.hl7.org/CodeSystem/v2-0136</system>
+        <code>Y</code>
+      </coding>
+      <text>real time clock supported</text>
+    </value>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system>http://hl7.org/fhir/uv/phd/CodeSystem/ASN1ToHL7</system>
+        <code>68219.1</code>
+        <display>mds-time-capab-set-clock</display>
+      </coding>
+    </type>
+    <value>
+      <coding>
+        <system>http://terminology.hl7.org/CodeSystem/v2-0136</system>
+        <code>Y</code>
+      </coding>
+      <text>setting the time supported</text>
+    </value>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system>http://hl7.org/fhir/uv/phd/CodeSystem/ASN1ToHL7</system>
+        <code>68219.11</code>
+        <display>mds-time-mgr-set-time</display>
+      </coding>
+    </type>
+    <value>
+      <coding>
+        <system>http://terminology.hl7.org/CodeSystem/v2-0136</system>
+        <code>Y</code>
+      </coding>
+      <text>manager requested to set the time</text>
+    </value>
+  </property>
+</Device>
