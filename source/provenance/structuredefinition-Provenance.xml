@@ -21,7 +21,7 @@
     <valueCode value="sec"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value="Provenance are recorded, there is no update or delete. "/>
+    <valueCode value="Provenance are recorded, there is no update or delete."/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
   <version value="4.3.0-cibuild"/>

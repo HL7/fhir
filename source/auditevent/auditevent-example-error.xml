@@ -97,7 +97,7 @@
 		</type>
 		<detail>
 			<type value="requested transaction"/>
-			<valueString value="http POST ..... "/>
+			<valueString value="http POST ....."/>
 			<!-- or better to have a pointer to the propritary log files from the API gateway or web server -->
 		</detail>
 	</entity>

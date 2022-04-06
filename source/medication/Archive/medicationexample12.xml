@@ -15,7 +15,7 @@
     <coding>
       <system value="http://www.accessdata.fda.gov/scripts/cder/ndc/dsp_searchresult.cfm"/>
       <code value="0173068220"/>
-      <display value="Ventolin Aerosol "/>
+      <display value="Ventolin Aerosol"/>
     </coding>
   </code>  
   <isBrand value="true"/>

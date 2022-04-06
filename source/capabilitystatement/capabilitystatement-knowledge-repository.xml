@@ -1,4 +1,4 @@
-﻿<CapabilityStatement xmlns="http://hl7.org/fhir">
+<CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="knowledge-repository"/>
   <text>
     <status value="generated"/>

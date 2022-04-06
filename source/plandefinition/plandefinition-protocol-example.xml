@@ -29,7 +29,7 @@
       <id value="procedure"/>
       <status value="draft"/>
       <!--Extra information on activity-->
-      <description value="Extra information on activity "/>
+      <description value="Extra information on activity"/>
       <kind value="ServiceRequest"/>
       <code>
         <coding>

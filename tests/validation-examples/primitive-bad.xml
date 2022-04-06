@@ -109,7 +109,7 @@
   </parameter>
   <parameter> <!-- 28 -->
     <name value="paramCode3"/>
-    <valueCode value="asdasd "/>
+    <valueCode value="asdasd"/>
   </parameter>
   <parameter> <!-- 29 -->
     <name value="paramOid1"/>

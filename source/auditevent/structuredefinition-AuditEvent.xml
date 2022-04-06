@@ -21,7 +21,7 @@
     <valueCode value="sec"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value="Audit Events are recorded, there is no update or delete. "/>
+    <valueCode value="Audit Events are recorded, there is no update or delete."/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/AuditEvent"/>
   <version value="4.3.0-cibuild"/>

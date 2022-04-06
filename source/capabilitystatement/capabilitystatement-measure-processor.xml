@@ -1,4 +1,4 @@
-﻿<CapabilityStatement xmlns="http://hl7.org/fhir">
+<CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="measure-processor"/>
   <text>
     <status value="generated"/>

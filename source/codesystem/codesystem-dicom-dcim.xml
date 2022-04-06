@@ -7654,7 +7654,7 @@
   <concept>
     <code value="112068"/>
     <display value="Pseudoplaque"/>
-    <definition value="An irregular band of peripheral pulmonary opacity adjacent to visceral pleura that simulates the appearance of a pleural plaque and is formed by coalescence of small nodules [Fraser and Pare] "/>
+    <definition value="An irregular band of peripheral pulmonary opacity adjacent to visceral pleura that simulates the appearance of a pleural plaque and is formed by coalescence of small nodules [Fraser and Pare]"/>
   </concept>
   <concept>
     <code value="112069"/>
@@ -8285,7 +8285,7 @@
   <concept>
     <code value="112181"/>
     <display value="Mean Attenuation Coefficient"/>
-    <definition value="The value that is computed by dividing the sum of a set of X-Ray attenuation coefficients by the number of values "/>
+    <definition value="The value that is computed by dividing the sum of a set of X-Ray attenuation coefficients by the number of values"/>
   </concept>
   <concept>
     <code value="112182"/>
@@ -10008,12 +10008,12 @@
   <concept>
     <code value="113739"/>
     <display value="Positioner Primary End Angle"/>
-    <definition value="Positioner Primary Angle at the end of an irradiation event. For further definition see (112011, DCM, &quot;Positioner Primary Angle&quot;) "/>
+    <definition value="Positioner Primary Angle at the end of an irradiation event. For further definition see (112011, DCM, &quot;Positioner Primary Angle&quot;)"/>
   </concept>
   <concept>
     <code value="113740"/>
     <display value="Positioner Secondary End Angle"/>
-    <definition value="Positioner Secondary Angle at the end of an irradiation event. For further definition see (112012, DCM, &quot;Positioner Secondary Angle&quot;) "/>
+    <definition value="Positioner Secondary Angle at the end of an irradiation event. For further definition see (112012, DCM, &quot;Positioner Secondary Angle&quot;)"/>
   </concept>
   <concept>
     <code value="113742"/>
@@ -10088,17 +10088,17 @@
   <concept>
     <code value="113759"/>
     <display value="Table Longitudinal End Position"/>
-    <definition value="Table Longitudinal Position at the end of an irradiation event; see (113751, DCM, &quot;Table Longitudinal Position&quot;) "/>
+    <definition value="Table Longitudinal Position at the end of an irradiation event; see (113751, DCM, &quot;Table Longitudinal Position&quot;)"/>
   </concept>
   <concept>
     <code value="113760"/>
     <display value="Table Lateral End Position"/>
-    <definition value="Table Lateral Position at the end of an irradiation event; see (113752, DCM, &quot;Table Lateral Position&quot;) "/>
+    <definition value="Table Lateral Position at the end of an irradiation event; see (113752, DCM, &quot;Table Lateral Position&quot;)"/>
   </concept>
   <concept>
     <code value="113761"/>
     <display value="Table Height End Position"/>
-    <definition value="Table Height Position at the end of an irradiation event; see (113753, DCM, &quot;Table Height Position&quot;) "/>
+    <definition value="Table Height Position at the end of an irradiation event; see (113753, DCM, &quot;Table Height Position&quot;)"/>
   </concept>
   <concept>
     <code value="113763"/>
@@ -16248,7 +16248,7 @@
   <concept>
     <code value="125211"/>
     <display value="Biplane Ellipse"/>
-    <definition value="Area = P/4 X d1 X d2 d1 = anterior/posterior axis d2 = medial/lateral axis Hagen-Ansert, Sandra L., Textbook of Diagnostic Ultrasound, ed. 3, The C.V.Mosby Co., 1989, p. 73. "/>
+    <definition value="Area = P/4 X d1 X d2 d1 = anterior/posterior axis d2 = medial/lateral axis Hagen-Ansert, Sandra L., Textbook of Diagnostic Ultrasound, ed. 3, The C.V.Mosby Co., 1989, p. 73."/>
   </concept>
   <concept>
     <code value="125212"/>
@@ -16303,7 +16303,7 @@
   <concept>
     <code value="125222"/>
     <display value="Left Ventricle Mass by Truncated Ellipse"/>
-    <definition value="Mass = 1.05P ((b + t)2 X (2/3 (a + t) + d - d3 /3(a + t)2) - b2 (2/3a + d - d3 /3a2)) a = Semi-major axis from widest minor axis radius to apex. b = Short axis radius calculated from short axis cavity area t = Myocardial thickness calculated from short axis epicardial and cavity areas d = Truncated semi-major axis from widest short axis diameter to plane of mitral annulus. Mass unit is grams and length in cm. Schiller NB et al: Recommendations for quantification of the left ventricle by two-dimensional echocardiography, American Society of Echocardiography 2:364, 1989. "/>
+    <definition value="Mass = 1.05P ((b + t)2 X (2/3 (a + t) + d - d3 /3(a + t)2) - b2 (2/3a + d - d3 /3a2)) a = Semi-major axis from widest minor axis radius to apex. b = Short axis radius calculated from short axis cavity area t = Myocardial thickness calculated from short axis epicardial and cavity areas d = Truncated semi-major axis from widest short axis diameter to plane of mitral annulus. Mass unit is grams and length in cm. Schiller NB et al: Recommendations for quantification of the left ventricle by two-dimensional echocardiography, American Society of Echocardiography 2:364, 1989."/>
   </concept>
   <concept>
     <code value="125223"/>

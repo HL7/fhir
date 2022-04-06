@@ -56,7 +56,7 @@
 						<code value="C17998"/>
 						<display value="Unknown"/>
 					</concept>
-					<!--                <definition value="Not known, not observed, not recorded, or refused. "/>    -->
+					<!--                <definition value="Not known, not observed, not recorded, or refused."/>    -->
 					<concept>
 						<code value="C20197"/>
 						<display value="Male"/>
@@ -171,7 +171,7 @@
 		</coding>
 		<coding>
 			<system value="http://example.org/PhenX"/>
-			<display value="Substance Abuse and "/>
+			<display value="Substance Abuse and"/>
 		</coding>
 		<coding>
 			<system value="http://example.org/Category"/>

@@ -197,7 +197,7 @@
   </concept>
   <concept>
     <code value="36"/>
-    <display value="Kindergarten Inclusion Support "/>
+    <display value="Kindergarten Inclusion Support"/>
     <definition value="Kindergarten inclusion support for children with a disability"/>
   </concept>
   <concept>
@@ -557,7 +557,7 @@
   </concept>
   <concept>
     <code value="108"/>
-    <display value="Non-resid. Alcohol/Drug Treatment "/>
+    <display value="Non-resid. Alcohol/Drug Treatment"/>
     <definition value="Non-residential alcohol and/or drug dependence treatment"/>
   </concept>
   <concept>
@@ -572,7 +572,7 @@
   </concept>
   <concept>
     <code value="111"/>
-    <display value="Residential Alcohol/Drug Treatment "/>
+    <display value="Residential Alcohol/Drug Treatment"/>
     <definition value="Residential alcohol and/or drug dependence treatment"/>
   </concept>
   <concept>
@@ -802,7 +802,7 @@
   </concept>
   <concept>
     <code value="157"/>
-    <display value="Anatomical Pathology "/>
+    <display value="Anatomical Pathology"/>
     <definition value="Anatomical Pathology (including Cytopathology &amp; Forensic Pathology)"/>
   </concept>
   <concept>
@@ -1227,17 +1227,17 @@
   </concept>
   <concept>
     <code value="242"/>
-    <display value="Aged Persons Mental "/>
+    <display value="Aged Persons Mental"/>
     <definition value="Aged Persons Mental Health Residential Units"/>
   </concept>
   <concept>
     <code value="243"/>
-    <display value="Aged Persons Mental "/>
+    <display value="Aged Persons Mental"/>
     <definition value="Aged Persons Mental Health Services"/>
   </concept>
   <concept>
     <code value="244"/>
-    <display value="Aged Persons Mental "/>
+    <display value="Aged Persons Mental"/>
     <definition value="Aged Persons Mental Health Teams"/>
   </concept>
   <concept>
@@ -1477,7 +1477,7 @@
   </concept>
   <concept>
     <code value="292"/>
-    <display value="Community Child And "/>
+    <display value="Community Child And"/>
     <definition value="Community Child And Adolescent Mental Health Services"/>
   </concept>
   <concept>
@@ -1977,7 +1977,7 @@
   </concept>
   <concept>
     <code value="394"/>
-    <display value="Occupational Health "/>
+    <display value="Occupational Health"/>
     <definition value="Occupational Health &amp; Safety"/>
   </concept>
   <concept>
@@ -2407,7 +2407,7 @@
   </concept>
   <concept>
     <code value="480"/>
-    <display value="Gastroenterology "/>
+    <display value="Gastroenterology"/>
     <definition value="Gastroenterology"/>
   </concept>
   <concept>
@@ -2497,7 +2497,7 @@
   </concept>
   <concept>
     <code value="500"/>
-    <display value="Before and/or After "/>
+    <display value="Before and/or After"/>
     <definition value="Before and/or After School Care"/>
   </concept>
   <concept>
@@ -2532,7 +2532,7 @@
   </concept>
   <concept>
     <code value="507"/>
-    <display value="Dose administration "/>
+    <display value="Dose administration"/>
     <definition value="Dose administration aid"/>
   </concept>
   <concept>
@@ -2578,7 +2578,7 @@
   <concept>
     <code value="533"/>
     <display value="Cardiac Rehabilitati"/>
-    <definition value="Cardiac Rehabilitation Service "/>
+    <definition value="Cardiac Rehabilitation Service"/>
   </concept>
   <concept>
     <code value="534"/>
@@ -2592,7 +2592,7 @@
   </concept>
   <concept>
     <code value="536"/>
-    <display value="Art therapy "/>
+    <display value="Art therapy"/>
     <definition value="Art therapy"/>
   </concept>
   <concept>
@@ -2748,7 +2748,7 @@
   <concept>
     <code value="568"/>
     <display value="Men&#39;s Health Clinic"/>
-    <definition value="Men&#39;s Health Clinic "/>
+    <definition value="Men&#39;s Health Clinic"/>
   </concept>
   <concept>
     <code value="569"/>

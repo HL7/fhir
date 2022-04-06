@@ -11,7 +11,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set defines the set ofLOINcs for genomic panels "/>
+  <description value="This value set defines the set ofLOINcs for genomic panels"/>
   <copyright value="blah blah blah"/>
   <compose>
     <include>

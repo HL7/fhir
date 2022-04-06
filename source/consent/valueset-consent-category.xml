@@ -37,7 +37,7 @@
       <system value="http://loinc.org"/>
       <concept>
         <code value="59284-0"/>
-        <display value="Patient Consent "/>
+        <display value="Patient Consent"/>
       </concept>
       <concept>
         <code value="57016-8"/>
@@ -45,11 +45,11 @@
       </concept>
       <concept>
         <code value="57017-6"/>
-        <display value="Privacy policy Organization Document "/>
+        <display value="Privacy policy Organization Document"/>
       </concept>
       <concept>
         <code value="64292-6"/>
-        <display value="Release of information consent "/>
+        <display value="Release of information consent"/>
       </concept>
     </include>
   </compose>

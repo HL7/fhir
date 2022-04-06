@@ -214,7 +214,7 @@
   </concept>
   <concept>
     <code value="PRIRECIP"/>
-    <display value="Primary Responsible Party "/>
+    <display value="Primary Responsible Party"/>
     <definition value="An entity that may, should receive, or has received information or an object to which it was primarily addressed."/>
   </concept>
   <concept>

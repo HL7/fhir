@@ -1,4 +1,4 @@
-﻿<CodeSystem xmlns="http://hl7.org/fhir">
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="extra-security-role-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -32,7 +32,7 @@
   <concept>
     <code value="datacollector"/>
     <display value="data collector"/>
-    <definition value="An entity that collects information over which the data subject may have certain rights under policy or law to control that information's management and distribution by data collectors, including the right to access, retrieve, distribute, or delete that information. "/>
+    <definition value="An entity that collects information over which the data subject may have certain rights under policy or law to control that information's management and distribution by data collectors, including the right to access, retrieve, distribute, or delete that information."/>
   </concept>
   <concept>
     <code value="dataprocessor"/>

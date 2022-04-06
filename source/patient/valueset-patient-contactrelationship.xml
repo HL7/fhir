@@ -15,7 +15,7 @@
   </identifier>
   <version value="4.3.0-cibuild"/>
   <name value="PatientContactRelationship"/>
-  <title value="Patient Contact Relationship "/>
+  <title value="Patient Contact Relationship"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>

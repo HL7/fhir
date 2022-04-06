@@ -503,7 +503,7 @@
           <valueString value="MedicationDispenseType"/>
         </extension>
         <strength value="example"/>
-        <description value="ActPharmacySupplyType "/>
+        <description value="ActPharmacySupplyType"/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActPharmacySupplyType"/>
       </binding>
       <mapping>

@@ -26,7 +26,7 @@
 					<extension url="interpretation">
 						<valueCodeableConcept>
 							<coding>
-								<code value="LA9663-1 "/>
+								<code value="LA9663-1"/>
 								<display value="Inconclusive"/>
 							</coding>
 						</valueCodeableConcept>

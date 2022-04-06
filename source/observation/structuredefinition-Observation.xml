@@ -401,7 +401,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="participation[typeCode=RTGT] "/>
+        <map value="participation[typeCode=RTGT]"/>
       </mapping>
       <mapping>
         <identity value="w5"/>

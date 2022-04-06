@@ -15,7 +15,7 @@
   </identifier>
   <version value="4.3.0-cibuild"/>
   <name value="SNOMEDCTDrugTherapyStatusCodes"/>
-  <title value="SNOMED CT Drug Therapy Status codes "/>
+  <title value="SNOMED CT Drug Therapy Status codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
