@@ -15,7 +15,7 @@
   <status value="draft"/>
   <date value="2022-01-24T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="A categorization of a patient's sex derived from observable information (e.g., organ inventory, hormone lab test, genetic testing) that can be used for clinical purposes. "/>
+  <description value="A categorization of a patient's sex derived from observable information (e.g., organ inventory, hormone lab test, genetic testing) that can be used for clinical purposes. Sex for clinical use may be contexual. For example, the sex for clinical use for mammogram health maintenance may by different than the sex for clinical use for the purpose of selecting a reference range for a lab test.  There may also be a patient-context sex for clinical use that is a general categorization that would apply across all contexts if more specific information is not available.  This extension may be applied to any relevant contextual resources.  For example, this extension might be attached to a ServiceRequest for a lab test to indicate which sex should be used to determine reference ranges when that test is performed.  It might also be attached to a Patient to indicate what sex should be used for clinical use when  where a more specific, contextual sex for clinical use is not provided."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
