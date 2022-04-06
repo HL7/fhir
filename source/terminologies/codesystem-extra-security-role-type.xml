@@ -8,7 +8,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml"> </div>
   </text>
   <url value="http://terminology.hl7.org/CodeSystem/extra-security-role-type"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="SecurityRoleType"/>
   <status value="draft"/>
   <experimental value="true"/>

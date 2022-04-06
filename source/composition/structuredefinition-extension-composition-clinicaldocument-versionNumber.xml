@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="versionNumber"/>
   <status value="draft"/>
   <date value="2015-03-17"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="Version specific identifier for the composition, assigned when each version is created/updated."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

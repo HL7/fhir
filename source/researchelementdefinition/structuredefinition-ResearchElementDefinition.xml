@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ResearchElementDefinition"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="ResearchElementDefinition"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -46,7 +46,7 @@
   </contact>
   <description value="The ResearchElementDefinition resource describes a &quot;PICO&quot; element that knowledge (evidence, assertion, recommendation) is about."/>
   <purpose value="Need to be able to define and reuse the definition of individual elements of a research question."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

@@ -24,7 +24,7 @@
     <valueCode value="There are no fixed arrangements for Basic - profiles should describe how this works as arrangements will depend on the &#39;type&#39; of Basic resource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Basic"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="Basic"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -43,7 +43,7 @@
   </contact>
   <description value="Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don&#39;t map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification."/>
   <purpose value="Need some way to safely (without breaking interoperability) allow implementers to exchange content not supported by the initial set of declared resources."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

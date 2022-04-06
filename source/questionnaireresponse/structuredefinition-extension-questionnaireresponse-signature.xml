@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="signature"/>
   <status value="draft"/>
   <date value="2013-07-04"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="Represents a wet or electronic signature for either the form overall or for the question or item it&#39;s associated with."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

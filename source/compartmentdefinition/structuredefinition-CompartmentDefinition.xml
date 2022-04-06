@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CompartmentDefinition"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="CompartmentDefinition"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="A compartment definition that defines how resources are accessed on a server."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>

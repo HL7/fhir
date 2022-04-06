@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="choiceOrientation"/>
   <status value="draft"/>
   <date value="2013-07-04"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="Identifies the desired orientation when rendering a list of choices (typically radio-box or check-box lists)."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

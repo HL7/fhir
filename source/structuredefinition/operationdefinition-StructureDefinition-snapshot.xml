@@ -34,7 +34,7 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/StructureDefinition-snapshot"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="snapshot"/>
   <title value="Generate Snapshot"/>
   <status value="draft"/>

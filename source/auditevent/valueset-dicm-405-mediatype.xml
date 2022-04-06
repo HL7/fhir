@@ -13,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:1.2.840.10008.6.&#x200B;1.&#x200B;908"/>
   </identifier>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="MediaTypeCode"/>
   <title value="Media Type Code"/>
   <status value="active"/>

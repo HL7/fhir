@@ -85,7 +85,7 @@
   <software>
     <name value="ACME Measure Processor Service"/>
   </software>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <format value="json"/>
   <format value="xml"/>
   <rest>
