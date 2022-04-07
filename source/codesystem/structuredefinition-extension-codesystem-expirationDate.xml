@@ -9,13 +9,13 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/codesystem-expirationDate"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="expirationDate"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
   <publisher value="HL7"/>
   <description value="The date when the value set version is no longer expected to be used to create new content. This is the first date-time when the value set version becomes Inactive, so this value MUST present on all Inactive value set versions. The start Date_time is expected to be as of 0001 UTC of the Expiration Date."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

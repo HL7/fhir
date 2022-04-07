@@ -23,7 +23,7 @@ The following parameters are supported:
     Patterns are limited to a directory followed by a filename with an embedded
     asterisk.  E.g. foo*-examples.xml or someresource.*, etc.
 -defn [package|file|url]: where to find the FHIR specification igpack.zip
-      default value is hl7.fhir.core-4.3.0-CIBUILD. This parameter can only appear once
+      default value is hl7.fhir.core-4.3.0-cibuild. This parameter can only appear once
 -ig [package|file|url]: an IG or profile definition to load. Can be 
      the URL of an implementation guide or a package ([id]-[ver]) for
      a built implementation guide or a local folder that contains a

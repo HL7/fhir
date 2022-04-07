@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNARegionName"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="DNARegionName"/>
   <status value="draft"/>
   <date value="2016-03-14"/>
@@ -23,7 +23,7 @@
   <description value="The material on this page will be removed in a future release. This content is deprecated and SHOULD NOT be used. Implementers are instead directed to the ([Genomics Reporting Implementation Guide](http://hl7.org/fhir/uv/genomics-reporting/index.html)) for guidance. A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene may include regulatory regions, transcribed regions and/or other functional sequence regions ([SO:0000704](http://www.sequenceontology.org/browser/current_svn/term/SO:0000704)). This element is the official gene symbol approved by the HGNC, which is a short abbreviated form of the gene name ([HGNC](http://www.genenames.org)). LOINC Code: ([48018-6](http://loinc.org/48018-6))."/>
   
     
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>

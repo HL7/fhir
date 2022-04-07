@@ -5,7 +5,7 @@
     <use value="official"/>
     <value value="FHIRHelpers"/>
   </identifier>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="FHIRHelpers"/>
   <title value="FHIR Helpers"/>
   <status value="active"/>

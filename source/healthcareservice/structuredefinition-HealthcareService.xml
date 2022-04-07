@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="HealthcareService"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="The details of a healthcare service available at a location."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

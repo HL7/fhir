@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Group"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="Group"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn&#39;t an Organization."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

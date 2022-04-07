@@ -30,7 +30,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="StructureDefinition"/>
   <status value="active"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -48,7 +48,7 @@
     </telecom>
   </contact>
   <description value="A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -613,7 +613,7 @@
     <element id="StructureDefinition.fhirVersion">
       <path value="StructureDefinition.fhirVersion"/>
       <short value="FHIR Version this StructureDefinition targets"/>
-      <definition value="The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.3.0-CIBUILD for this version."/>
+      <definition value="The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.3.0-cibuild for this version."/>
       <comment value="A StructureDefinition does not need to specify the target it applies to as StructureDefinitions will often be valid across multiple versions of FHIR. FHIR tooling can determine whether a StructureDefinition is consistent with a particular StructureDefinition if desired."/>
       <min value="0"/>
       <max value="1"/>

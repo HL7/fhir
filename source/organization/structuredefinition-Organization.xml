@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="Organization"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>

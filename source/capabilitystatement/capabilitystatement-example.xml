@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="example"/>
 	<text>
@@ -69,7 +69,7 @@
 	</implementation>
 	<!--  while the FHIR infrastructure is turning over prior to development, a version is 
     required.   -->
-	<fhirVersion value="4.3.0-CIBUILD"/>
+	<fhirVersion value="4.3.0-cibuild"/>
 	<!--  this system can do either xml or json. (Listing both implies full support for either, with interconversion)  -->
 	<format value="xml"/>
 	<format value="json"/>

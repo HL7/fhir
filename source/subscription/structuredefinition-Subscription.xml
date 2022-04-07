@@ -24,7 +24,7 @@
     <valueCode value=".status = off (just turn it off, maybe update the error message)"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Subscription"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="Subscription"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="The subscription resource is used to define a push-based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined &quot;channel&quot; so that another system can take an appropriate action."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

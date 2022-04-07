@@ -9,13 +9,13 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-reference"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="reference"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
   <publisher value="HL7"/>
   <description value="A logical reference (e.g. a reference to ValueSet.url) that identifies the value set/version that identifies the set of possible coded values this coding was chosen from or constrained by."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>

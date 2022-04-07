@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/communicationrequest-initiatingLocation"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="initiatingLocation"/>
   <title value="initiatingLocation"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="Location where the information being requested to be communicated happened."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

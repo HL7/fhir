@@ -4443,7 +4443,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">sliceName must be composed of proper tokens separated by "/"</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">sliceName must be composed of proper tokens separated by"/"</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">sliceName.empty() or sliceName.matches('^[a-zA-Z0-9\\/\\-_\\[\\]\\@]+$')</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:sliceName/@value)) or matches(f:sliceName/@value, '^[a-zA-Z0-9\/\-_\[\]\@]+$')</Data></Cell>

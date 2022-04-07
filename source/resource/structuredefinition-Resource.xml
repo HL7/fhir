@@ -18,7 +18,7 @@
     <valueCode value="fhir"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="Resource"/>
   <status value="active"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -36,7 +36,7 @@
     </telecom>
   </contact>
   <description value="This is the base resource type for everything."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

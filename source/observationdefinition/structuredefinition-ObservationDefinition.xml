@@ -21,7 +21,7 @@
     <valueCode value="oo"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="ObservationDefinition"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -40,7 +40,7 @@
   </contact>
   <description value="Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service."/>
   <purpose value="In a catalog of health-related services that use or produce observations and measurements, this resource describes the expected characteristics of these observation / measurements."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>

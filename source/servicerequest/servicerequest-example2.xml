@@ -106,7 +106,7 @@
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="34431008"/>
-			<display value="Physiotherapy of chest (regime/therapy) "/>
+			<display value="Physiotherapy of chest (regime/therapy)"/>
 		</coding>
 	</code>
 	<subject>

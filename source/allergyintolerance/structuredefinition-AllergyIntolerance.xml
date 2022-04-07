@@ -24,7 +24,7 @@
     <valueCode value=".verificationStatus = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="AllergyIntolerance"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -43,7 +43,7 @@
   </contact>
   <description value="Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance."/>
   <purpose value="To record a clinical assessment of a propensity, or potential risk to an individual, of an adverse reaction upon future exposure to the specified substance, or class of substance."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

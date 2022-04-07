@@ -218,7 +218,7 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.479"/>
   </identifier>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="FilterOperator"/>
   <title value="FilterOperator"/>
   <status value="active"/>

@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/auditevent-SOPClass"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="SOPClass"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="Required if ParticipantObjectIDTypeCode is (110180, DCM, &quot;Study Instance UID&quot;) and any of the optional fields (AccessionNumber, ContainsMPPS, NumberOfInstances, ContainsSOPInstances,Encrypted,Anonymized) are present in this Participant Object. May be present if ParticipantObjectIDTypeCode is (110180, DCM, &quot;Study Instance UID&quot;) even though none of the optional fields are present."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="dicom"/>
     <uri value="http://nema.org/dicom"/>

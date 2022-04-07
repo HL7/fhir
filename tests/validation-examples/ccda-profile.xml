@@ -178,8 +178,8 @@
         <element id="107707">
             <path value="Composition.section"/>
             <sliceName value="section_slice_pos4"/>
-            <label value="Problem Section "/>
-            <short value="Problem Section "/>
+            <label value="Problem Section"/>
+            <short value="Problem Section"/>
             <definition
                 value="SHALL contain exactly one [1..1] section (CONF:2219-1371) such that it"/>
             <min value="1"/>
@@ -522,8 +522,8 @@
         <element id="107717">
             <path value="Composition.section"/>
             <sliceName value="section_slice_pos11"/>
-            <label value="Assessment and Plan Section "/>
-            <short value="Assessment and Plan Section "/>
+            <label value="Assessment and Plan Section"/>
+            <short value="Assessment and Plan Section"/>
             <definition value="MAY contain zero or one [0..1] section (CONF:2219-1381) such that it"/>
             <min value="0"/>
             <max value="1"/>
@@ -595,7 +595,7 @@
                 <coding>
                     <system value="http://loinc.org"/>
                     <code value="42348-3"/>
-                    <display value="Advance Directives&#x9; "/>
+                    <display value="Advance Directives&#x9;"/>
                 </coding>
             </patternCodeableConcept>
         </element>

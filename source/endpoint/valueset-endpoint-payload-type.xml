@@ -14,7 +14,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.496"/>
   </identifier>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="EndpointPayloadType"/>
   <title value="Endpoint Payload Type"/>
   <status value="draft"/>
@@ -315,11 +315,11 @@
       </concept>
       <concept>
         <code value="urn:hl7-org:sdwg:ccda-structuredBody:1.1"/>
-        <display value="For documents following C-CDA constraints using a structured body. "/>
+        <display value="For documents following C-CDA constraints using a structured body."/>
       </concept>
       <concept>
         <code value="urn:hl7-org:sdwg:ccda-nonXMLBody:1.1"/>
-        <display value="For documents following C-CDA constraints using a non structured body. "/>
+        <display value="For documents following C-CDA constraints using a non structured body."/>
       </concept>
     </include>
   </compose>

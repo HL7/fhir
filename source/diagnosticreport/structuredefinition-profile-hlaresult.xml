@@ -16,7 +16,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/hlaresult"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="Profile for HLA Genotyping Results"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -29,7 +29,7 @@
     </telecom>
   </contact>
   <description value="Describes how the HLA genotyping results"/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

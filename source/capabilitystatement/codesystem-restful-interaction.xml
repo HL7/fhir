@@ -181,7 +181,7 @@
     <valueInteger value="5"/>
   </extension>
   <url value="http://hl7.org/fhir/restful-interaction"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="FHIR Restful Interactions"/>
   <status value="active"/>
   <experimental value="false"/>

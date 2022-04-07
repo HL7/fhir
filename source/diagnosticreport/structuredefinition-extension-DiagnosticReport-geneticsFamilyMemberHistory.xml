@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsFamilyMemberHistory"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="FamilyMemberHistory"/>
   <status value="draft"/>
   <date value="2015-10-09"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="Significant health events and conditions for a person related to the patient relevant in the context of care for the patient."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

@@ -109,7 +109,7 @@ Where should it occur
 <quantity></quantity>
 -->
 				<!--Extra information on activity-->
-				<description value="Extra information on activity "/>
+				<description value="Extra information on activity"/>
 			</detail>
 		</activity>
 	</step>

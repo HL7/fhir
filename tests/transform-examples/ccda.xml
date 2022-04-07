@@ -30,9 +30,9 @@
                 </name>
                 <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" displayName="Female"/>
                 <birthTime value="19811208"/>
-                <maritalStatusCode code="M   " codeSystem="2.16.840.1.113883.5.2" codeSystemName="MaritalStatusCode" displayName="MARRIED   "/>
-                <raceCode code="null      " codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC" displayName="null      "/>
-                <ethnicGroupCode code="2186-5" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC" displayName="Hispanic or Latino "/>
+                <maritalStatusCode code="M   " codeSystem="2.16.840.1.113883.5.2" codeSystemName="MaritalStatusCode" displayName="MARRIED  "/>
+                <raceCode code="null      " codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC" displayName="null     "/>
+                <ethnicGroupCode code="2186-5" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC" displayName="Hispanic or Latino"/>
                 <languageCommunication>
                     <languageCode code="english"/>
                     <preferenceInd value="true"/>

@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/specimen-sequenceNumber"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="sequenceNumber"/>
   <title value="sequenceNumber"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="An assigned number on the specimen denoting the order of collection."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

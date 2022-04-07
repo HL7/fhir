@@ -30,7 +30,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="CodeSystem"/>
   <status value="active"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -48,7 +48,7 @@
     </telecom>
   </contact>
   <description value="The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

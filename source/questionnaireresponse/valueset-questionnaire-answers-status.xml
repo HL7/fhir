@@ -38,7 +38,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:required"/>
   </identifier>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="QuestionnaireResponseStatus"/>
   <title value="QuestionnaireResponseStatus"/>
   <status value="draft"/>

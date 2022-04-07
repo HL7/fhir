@@ -16,14 +16,14 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/cdshooksguidanceresponse"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="CDS Hooks GuidanceResponse"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-17T07:06:13+11:00"/>
   <publisher value="HL7"/>
   <description value="Defines a GuidanceResponse that represents the response container for a CDS Hooks response"/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

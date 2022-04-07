@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/structuredefinition-dependencies"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="dependencies"/>
   <title value="Dependent Profiles"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="Instances can only be valid against this StructureDefinition, if they also sucessfully validate against the dependent profile identified in this extension."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

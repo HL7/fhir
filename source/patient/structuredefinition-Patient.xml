@@ -27,7 +27,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="Patient"/>
   <status value="active"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -46,7 +46,7 @@
   </contact>
   <description value="Demographics and other administrative information about an individual or animal receiving care or other health-related services."/>
   <purpose value="Tracking patient is the center of the healthcare process."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

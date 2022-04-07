@@ -3,7 +3,7 @@
 <SearchParameter xmlns="http://hl7.org/fhir">
   <id value="diagnosticreport-genetic-DiagnosticReport-assessed-condition"/>
   <url value="http://hl7.org/fhir/SearchParameter/diagnosticreport-genetic-DiagnosticReport-assessed-condition"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="assessed-condition"/>
   <status value="draft"/>
   <experimental value="true"/>

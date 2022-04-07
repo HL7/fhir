@@ -308,7 +308,7 @@
         <system value="http://snomed.info/sct"/>
         <version value="http://snomed.info/sct/731000124108"/> <!-- SNOMED CT US Edition -->
         <code value="452121000124102"/> 
-        <display value="Paid work in United States armed forces "/> 
+        <display value="Paid work in United States armed forces"/> 
       </coding>
       <text value="Paid work, national armed forces"/>              
     </workClassification>
@@ -350,7 +350,7 @@
         <system value="http://snomed.info/sct"/>
         <version value="http://snomed.info/sct/731000124108"/> <!-- SNOMED CT US Edition -->
         <code value="452121000124102"/> 
-        <display value="Paid work in United States armed forces "/> 
+        <display value="Paid work in United States armed forces"/> 
       </coding>
       <text value="Paid work, national armed forces"/>              
     </workClassification>
@@ -392,7 +392,7 @@
         <system value="http://snomed.info/sct"/>
         <version value="http://snomed.info/sct/731000124108"/> <!-- SNOMED CT US Edition -->
         <code value="452121000124102"/> 
-        <display value="Paid work in United States armed forces "/> 
+        <display value="Paid work in United States armed forces"/> 
       </coding>
       <text value="Paid work, national armed forces"/>              
     </workClassification>
@@ -434,7 +434,7 @@
         <system value="http://snomed.info/sct"/>
         <version value="http://snomed.info/sct/731000124108"/> <!-- SNOMED CT US Edition -->
         <code value="452121000124102"/> 
-        <display value="Paid work in United States armed forces "/> 
+        <display value="Paid work in United States armed forces"/> 
       </coding>
       <text value="Paid work, national armed forces"/>              
     </workClassification>

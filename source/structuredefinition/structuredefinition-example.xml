@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="example"/>
 	<url value="http://hl7.org/fhir/StructureDefinition/example"/>
@@ -52,7 +52,7 @@
 		<code value="314079002"/>
 		<display value="Hyperlipidemia screening test (procedure)"/>
 	</keyword>
-	<fhirVersion value="4.3.0-CIBUILD"/>
+	<fhirVersion value="4.3.0-cibuild"/>
 	<!-- 0..1 FHIR Version this StructureDefinition targets -->
 	<mapping>
 		<identity value="m1"/>

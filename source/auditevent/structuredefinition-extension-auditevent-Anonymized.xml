@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/auditevent-Anonymized"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="Anonymized"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="True or False indicating whether all patient identifying information was removed from the data."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="dicom"/>
     <uri value="http://nema.org/dicom"/>

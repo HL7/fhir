@@ -23,7 +23,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="Ingredient"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
@@ -41,7 +41,7 @@
     </telecom>
   </contact>
   <description value="An ingredient of a manufactured item or pharmaceutical product."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="idmp"/>
     <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>

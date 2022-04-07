@@ -9,13 +9,13 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-keyWord"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="keyWord"/>
   <status value="draft"/>
   <date value="2021-01-17T07:06:13+11:00"/>
   <publisher value="HL7"/>
   <description value="Word or words used in an information retrieval system to indicate the content of the value set."/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

@@ -51,7 +51,7 @@
     </medicationReference>
     <subject>
         <reference value="Patient/pat1"/>
-        <display value="Donald Duck "/> 
+        <display value="Donald Duck"/> 
     </subject>
     <performer>
         <actor>

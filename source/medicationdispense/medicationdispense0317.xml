@@ -20,7 +20,7 @@
                     <coding>
                         <system value="http://snomed.info/sct"/>
                         <code value="421637006"/>
-                        <display value="Lyophilized powder for injectable solution (qualifier value) "/>
+                        <display value="Lyophilized powder for injectable solution (qualifier value)"/>
                     </coding>
                 </form>            
         </Medication>
@@ -33,7 +33,7 @@
     </medicationReference>
     <subject>
         <reference value="Patient/pat1"/>
-        <display value="Donald Duck "/> 
+        <display value="Donald Duck"/> 
     </subject>
     <performer>
         <actor>

@@ -192,7 +192,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.621"/>
   </identifier>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="BundleType"/>
   <title value="BundleType"/>
   <status value="active"/>

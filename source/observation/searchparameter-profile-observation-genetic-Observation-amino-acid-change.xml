@@ -3,7 +3,7 @@
 <SearchParameter xmlns="http://hl7.org/fhir">
   <id value="observation-genetic-Observation-amino-acid-change"/>
   <url value="http://hl7.org/fhir/SearchParameter/observation-genetic-Observation-amino-acid-change"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="amino-acid-change"/>
   <status value="draft"/>
   <experimental value="true"/>

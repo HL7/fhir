@@ -1,4 +1,4 @@
-﻿<CapabilityStatement xmlns="http://hl7.org/fhir">
+<CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="knowledge-repository"/>
   <text>
     <status value="generated"/>
@@ -85,7 +85,7 @@
   <software>
     <name value="ACME Knowledge Repository Service"/>
   </software>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <format value="json"/>
   <format value="xml"/>
   <rest>

@@ -1,4 +1,4 @@
-﻿<CodeSystem xmlns="http://hl7.org/fhir">
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="extra-security-role-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -8,7 +8,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml"> </div>
   </text>
   <url value="http://terminology.hl7.org/CodeSystem/extra-security-role-type"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="SecurityRoleType"/>
   <status value="draft"/>
   <experimental value="true"/>
@@ -32,7 +32,7 @@
   <concept>
     <code value="datacollector"/>
     <display value="data collector"/>
-    <definition value="An entity that collects information over which the data subject may have certain rights under policy or law to control that information's management and distribution by data collectors, including the right to access, retrieve, distribute, or delete that information. "/>
+    <definition value="An entity that collects information over which the data subject may have certain rights under policy or law to control that information's management and distribution by data collectors, including the right to access, retrieve, distribute, or delete that information."/>
   </concept>
   <concept>
     <code value="dataprocessor"/>

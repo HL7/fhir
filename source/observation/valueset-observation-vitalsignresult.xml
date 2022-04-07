@@ -13,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.3.88.12.80.62"/>
   </identifier>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="VitalSigns"/>
   <title value="Vital Signs"/>
   <status value="active"/>

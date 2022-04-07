@@ -25,7 +25,7 @@
 		<coding>
 			<system value="http://acme.ped/apgarrespiratoryeffort"/>
 			<code value="2"/>
-			<display value="Good, strong cry; normal rate and effort of breathing    "/>
+			<display value="Good, strong cry; normal rate and effort of breathing"/>
 		</coding>
 		<text value="2. Good, strong cry; normal rate and effort of breathing"/>
 	</valueCodeableConcept>

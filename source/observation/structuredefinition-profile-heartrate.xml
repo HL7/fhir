@@ -19,7 +19,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/heartrate"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="observation-heartrate"/>
   <title value="Observation Heart Rate Profile"/>
   <status value="draft"/>
@@ -33,7 +33,7 @@
     </telecom>
   </contact>
   <description value="FHIR Heart Rate Profile"/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

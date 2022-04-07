@@ -16,14 +16,14 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/actualgroup"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="Actual Group"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-17T07:06:13+11:00"/>
   <publisher value="HL7"/>
   <description value="Enforces an actual group, rather than a definitional group"/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

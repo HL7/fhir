@@ -16,7 +16,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/observation-genetics"/>
-  <version value="4.3.0-CIBUILD"/>
+  <version value="4.3.0-cibuild"/>
   <name value="Observation-genetics"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -29,7 +29,7 @@
     </telecom>
   </contact>
   <description value="Describes how the observation resource is used to report structured genetic test results"/>
-  <fhirVersion value="4.3.0-CIBUILD"/>
+  <fhirVersion value="4.3.0-cibuild"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
