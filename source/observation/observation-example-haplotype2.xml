@@ -30,7 +30,7 @@
 		<reference value="Patient/727127"/>
 		<display value="J*********** C***********"/>
 	</subject>
-	<issued value="2013-04-03T15:30:10+01:00"/>
+	<effectiveDateTime value="2013-04-03T15:30:10+01:00"/>
 	<valueCodeableConcept>
 		<coding>
 			<system value="http://pharmakb.org"/>
@@ -38,10 +38,17 @@
 			<display value="*4"/>
 		</coding>
 	</valueCodeableConcept>
+	<!--
 	<specimen>
 		<reference value="Specimen/genetics-example1-somatic"/>
 		<display value="Molecular Specimen ID: MLD45-Z4-1234"/>
-	</specimen><!-->If you do not like "related", you can delete this block<--><derivedFrom>
+	</specimen>
+	-->
+  <device>
+    <reference value="Device/example"/>
+  </device>
+	<!-->If you do not like "related", you can delete this block<-->
+	<derivedFrom>
 		<reference value="MolecularSequence/example-pgx-1"/>
 	</derivedFrom>
 	<derivedFrom>

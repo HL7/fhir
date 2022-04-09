@@ -24,7 +24,7 @@
 		<reference value="Patient/example"/>
 		<display value="E***********"/>
 	</subject>
-	<issued value="2013-04-03T15:30:10+01:00"/>
+	<effectiveDateTime value="2013-04-03T15:30:10+01:00"/>
 	<valueCodeableConcept>
 		<coding>
 			<system value="http://pharmakb.org"/>
@@ -32,6 +32,9 @@
 			<display value="*4"/>
 		</coding>
 	</valueCodeableConcept>
+  <device>
+    <reference value="Device/example"/>
+  </device>
 	<derivedFrom>
 		<reference value="MolecularSequence/example-TPMT-two"/>
 	</derivedFrom>
