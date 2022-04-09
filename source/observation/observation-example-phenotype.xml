@@ -23,7 +23,7 @@
 		<reference value="Patient/727127"/>
 		<display value="J*********** C***********"/>
 	</subject>
-	<issued value="2013-04-03T15:30:10+01:00"/>
+	<effectiveDateTime value="2013-04-03T15:30:10+01:00"/>
 	<valueCodeableConcept>
 		<coding>
 			<system value="http://loinc.org"/>
@@ -31,10 +31,16 @@
 			<display value="Normal metabolizer"/>
 		</coding>
 	</valueCodeableConcept>
+  <!-- 
 	<specimen>
 		<reference value="Specimen/genetics-example1-somatic"/>
 		<display value="Molecular Specimen ID: MLD45-Z4-1234"/>
 	</specimen>
+	-->
+  <device>
+    <reference value="Device/example"/>
+  </device>	
+
 	<derivedFrom>
 		<reference value="Observation/example-diplotype1"/>
 	</derivedFrom>

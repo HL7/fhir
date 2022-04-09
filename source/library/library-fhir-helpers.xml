@@ -38,7 +38,7 @@
 
   <relatedArtifact>
     <type value="predecessor"/> 
-    <resource value="library-fhir-helpers-predecessor"/>
+    <resource value="http://hl7.org/fhir/Library/library-fhir-helpers-predecessor"/>
   </relatedArtifact>
 
   <content>

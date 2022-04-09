@@ -7,12 +7,12 @@
   <eventsSinceSubscriptionStart value="1000"/>
   <notificationEvent>
     <eventNumber value="1000"/>
+    <focus>
+      <reference value="urn:uuid:9986fc11-a845-4965-af24-45312fd0cc4e"/>
+    </focus>
   </notificationEvent>
   <subscription>
     <reference value="http://example.org/FHIR/R4/Subscription/123"/>
   </subscription>
   <topic value="http://example.org/FHIR/R4/SubscriptionTopic/admission"/>
-  <focus>
-    <reference value="urn:uuid:9986fc11-a845-4965-af24-45312fd0cc4e"/>
-  </focus>
 </SubscriptionStatus>

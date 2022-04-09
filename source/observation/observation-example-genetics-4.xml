@@ -10,7 +10,7 @@
 		<reference value="Patient/example"/>
 		<display value="Molecular Lab Patient ID: HOSP-23456"/>
 	</subject>
-	<issued value="2013-04-03T15:30:10+01:00"/>
+	<effectiveDateTime value="2013-04-03T15:30:10+01:00"/>
 	<performer>
 		<reference value="Practitioner/example"/>
 		<display value="Molecular Diagnostics Laboratory"/>
@@ -22,10 +22,15 @@
 		</coding>
 		<text value="Positive"/>
 	</interpretation>
+  <device>
+    <reference value="Device/example"/>
+  </device>	
+	<!--
 	<specimen>
 		<reference value="Specimen/genetics-example1-somatic"/>
 		<display value="Molecular Specimen ID: MLD45-Z4-1234"/>
 	</specimen>
+	-->
 	<hasMember>
 		<reference value="Observation/example-genetics-1"/>
 		<display value="Variant-1"/>
