@@ -6,18 +6,6 @@
   <mode value="working"/>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Systematic Meta Review"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="citation-example-systematic-meta-review"/>
-    </extension>
-    <item>
-      <reference value="Citation/citation-example-systematic-meta-review"/>
-      <display value="Systematic Meta Review"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="NInFEA Citation"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
