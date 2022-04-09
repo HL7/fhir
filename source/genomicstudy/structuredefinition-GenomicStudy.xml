@@ -224,7 +224,7 @@
     <element id="GenomicStudy.reason">
       <path value="GenomicStudy.reason"/>
       <short value="Why the genomic study was performed"/>
-      <definition value="Why the genomic study was performed"/>
+      <definition value="Why the genomic study was performed."/>
       <min value="0"/>
       <max value="*"/>
       <type>
