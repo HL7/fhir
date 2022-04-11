@@ -159,6 +159,7 @@
         <expression value="Media.subject.where(resolve() is Patient)"/>
         <xpath value="f:Media/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -219,6 +219,7 @@
         <expression value="RequestGroup.subject.where(resolve() is Patient)"/>
         <xpath value="f:RequestGroup/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
