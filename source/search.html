@@ -692,7 +692,8 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
   code system. Search parameter definitions MAY include a list of modifiers allowed in the <code>SearchParameter.code</code> 
   element, which is bound to the <a href="valueset-search-modifier-code.html">search-modifier-code</a> value set.  Servers
   MAY choose to support additional modifiers on search parameters that are not listed, but SHALL support any modifiers 
-  present in search parameters the server advertises support for.
+  present in search parameters the server advertises support for.  Note that servers MAY support modifiers on types not defined
+  in this specification.
 </p>
 <p>
   In search requests, search modifiers are used by appending the modifier as a suffix to the search parameter name, with the syntax
@@ -706,12 +707,34 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
   <a href="operationoutcome-example-searchfail.html">clear error message</a>.
 </p>
 <p>
-  While support for modifiers is applied per search parameter, modifiers are defined according to search parameter types:  
+  While support for modifiers is applied per search parameter, modifiers are generally defined according to search parameter type.  
+  The exception is the search parameters type <a href="search.html#special">special</a>, which inherits <b>no</b> modifiers by
+  default but MAY include any modifier.  A search parameter defined with the 'speical' type SHALL define any modifiers allowed 
+  on that search parameter.
+</p>
+<p>
+  The modifiers defined by this specification are:
 </p>
 <table class="grid">
   <tr>
+    <td><code>above</code></td>
+    <td><a href="search.html#reference">reference</a>, <a href="search.html#token">token</a>, <a href="search.html#uri">uri</a></td>
+    <td>
+      <b>Short:</b> The search parameter tests whether the value in a resource subsumes the specified value (is-a, or hierarchical relationships).<br/>
+      <a href="search.html#modifierabove">Details</a>
+    </td>
+  </tr>
+  <tr>
+    <td><code>below</code></td>
+    <td><a href="search.html#reference">reference</a>, <a href="search.html#token">token</a>, <a href="search.html#uri">uri</a></td>
+    <td>
+      <b>Short:</b> The search parameter tests whether the value in a resource is subsumed by the specified value (is-a, or hierarchical relationships).<br/>
+      <a href="search.html#modifierbelow">Details</a>
+    </td>
+  </tr>
+  <tr>
     <td><code>contains</code></td>
-    <td><code>string</code></td>
+    <td><a href="search.html#string">string</a>, <a href="search.html#uri">uri</a></td>
     <td>
       <b>Short:</b> The search parameter returns resources that include the supplied parameter value anywhere within the field being searched.<br/>
       <a href="search.html#modifiercontains">Details</a>
@@ -719,15 +742,37 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
   </tr>
   <tr>
     <td><code>exact</code></td>
-    <td><code>string</code></td>
+    <td><a href="search.html#string">string</a></td>
     <td>
       <b>Short:</b> The search parameter returns resources that have a value that exactly matches the supplied parameter (the whole string, including casing and accents).<br/>
       <a href="search.html#modifierexact">Details</a>
     </td>
   </tr>
   <tr>
+    <td><code>identifier</code></td>
+    <td><a href="search.html#reference">reference</a></td>
+    <td>
+      <b>Short:</b> The search parameter applies to the identifier on the resource, not the reference.<br/>
+      <a href="search.html#modifieridentifier">Details</a>
+    </td>
+  </tr>
+  <tr>
+    <td><code>in</code></td>
+    <td><a href="search.html#reference">reference</a>, <a href="search.html#token">token</a></td>
+    <td>
+      <b>Short:</b> The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified value set..<br/>
+      <a href="search.html#modifieridentifier">Details</a>
+    </td>
+  </tr>
+
+
+  <tr>
    <td><code>missing</code></td>
-   <td>All types except <code>combination</code></td>
+   <td>
+     <a href="search.html#date">date</a>, <a href="search.html#number">number</a>, <a href="search.html#quantity">quantity</a>, 
+     <a href="search.html#reference">reference</a>, <a href="search.html#string">string</a>, <a href="search.html#token">token</a>, 
+     <a href="search.html#uri">uri</a>
+   </td>
    <td>
      <b>Short:</b> The search parameter returns resources that have a value or not.<br/>
      <a href="search.html#modifiermissing">Details</a>
@@ -753,7 +798,7 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
 		the actual used Unicode code points.
   </p>
   <p>
-    <code>contains</code> is only allowed on <code>string</code> type search parameters. When using the 'contains' modifier,
+    <code>contains</code> is only allowed on <a href="search.html#string">string</a> type search parameters. When using the 'contains' modifier,
     all typically-allowed string inputs are allowed.
   </p>
 
@@ -765,13 +810,9 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
     <a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">grapheme clusters</a> is within the discretion of 
     the server, i.e. the server decides if a string search parameter matches on canonically equivalent characters or matches on
 		the actual used Unicode code points.
-    
-    , or <code>:contains</code> (case insensitive and combining character-insensitive, search 
-    text matched anywhere in the string), instead of the default behavior (case insensitive and accent-insensitive, partial 
-    matches at the start of the string).
   </p>
   <p>
-    <code>exact</code> is only allowed on <code>string</code> type search parameters. When using the 'exact' modifier,
+    <code>exact</code> is only allowed on <a href="search.html#string">string</a> type search parameters. When using the 'exact' modifier,
     all typically-allowed string inputs are allowed.
   </p>
 
@@ -782,7 +823,29 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
     a search parameter.  Usually, this equates to testing if a resource has an element or not.
   </p>
   <p>
-    <code>missing</code> is allowed on all search parameter types except <code>combination</code>. When using the 'missing' modifier,
+    <code>missing</code> is allowed on search parameter types that represent single-elements: <a href="search.html#date">date</a>, 
+    <a href="search.html#number">number</a>, <a href="search.html#quantity">quantity</a>, <a href="search.html#reference">reference</a>, 
+    <a href="search.html#string">string</a>, <a href="search.html#token">token</a>, <a href="search.html#uri">uri</a>. When using the 'missing' modifier,
+    the only allowed input values are <code>true</code> and <code>false</code>.
+  </p>
+  <p>
+    Searching for <code>[parameter]:missing=true</code> requests all resources that <b>do not</b> have a value in the matching element
+    or where the element is present with extensions, but no <code>value</code> is specified.
+  </p>
+  <p>
+    Searching for <code>[parameter]:missing=false</code> requests all resources that <b>do</b> have a value in the matching element.
+  </p>
+
+  <a name="modifiernot"></a>
+  <h5>not</h5>
+  <p>
+    The <code>not</code> modifier allows clients to filter based on whether resources do not contain a specified value based on the 
+    search parameter input.
+  </p>
+  <p>
+    <code>missing</code> is allowed on search parameter types that represent single-elements: <a href="search.html#date">date</a>, 
+    <a href="search.html#number">number</a>, <a href="search.html#quantity">quantity</a>, <a href="search.html#reference">reference</a>, 
+    <a href="search.html#string">string</a>, <a href="search.html#token">token</a>, <a href="search.html#uri">uri</a>. When using the 'missing' modifier,
     the only allowed input values are <code>true</code> and <code>false</code>.
   </p>
   <p>
