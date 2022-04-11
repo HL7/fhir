@@ -221,6 +221,77 @@
         <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"/>
       </mapping>
     </element>
+    <element id="Observation.triggeredBy">
+      <path value="Observation.triggeredBy"/>
+      <short value="Triggering observation(s)"/>
+      <definition value="Identifies the observation(s) that triggered the performance of this observation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="Observation.triggeredBy.observation">
+      <path value="Observation.triggeredBy.observation"/>
+      <short value="Triggering observation"/>
+      <definition value="Reference to the triggering observation."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outBoundRelationship"/>
+      </mapping>
+      <isSummary value="true"/>
+    </element>
+   <element id="Observation.triggeredBy.type">
+      <path value="Observation.triggeredBy.type"/>
+      <short value="reflex | repeat | re-run"/>
+      <definition value="The type of trigger.&#xA;Reflex | Repeat | Re-run."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TriggeredByType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The type of TriggeredBy Observation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-triggeredbytype"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="code"/>
+      </mapping>
+    </element>
+   <element id="Observation.triggeredBy.reason">
+      <path value="Observation.triggeredBy.reason"/>
+      <short value="Reason that the observation was triggered"/>
+      <definition value="Provides the reason why this observation was performed as a result of the observation(s) referenced."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+       <mapping>
+        <identity value="rim"/>
+        <map value="annotation"/>
+      </mapping>
+    </element>
     <element id="Observation.partOf">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="11/8/2017 EH #14095."/>
@@ -966,6 +1037,33 @@
         <identity value="rim"/>
         <map value="value:IVL_PQ.high"/>
       </mapping>
+    </element>
+    <element id="Observation.referenceRange.normalValue">
+      <path value="Observation.referenceRange.normalValue"/>
+      <short value="Normal value, if relevant"/>
+      <definition value="The value of the normal value of the reference range."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+     <condition value="obs-3"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value:IVL_PQ.normal"/>
+      </mapping>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationReferenceRangeNormalValue"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Codes identifying the normal value of the observation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-referencerange-normalvalue"/>
+    </binding>
     </element>
     <element id="Observation.referenceRange.type">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
