@@ -200,6 +200,7 @@
         <expression value="AuditEvent.agent.who.where(resolve() is Patient) | AuditEvent.entity.what.where(resolve() is Patient)"/>
         <xpath value="f:AuditEvent/f:agent/f:who | f:AuditEvent/f:entity/f:what"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

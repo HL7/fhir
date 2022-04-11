@@ -119,6 +119,7 @@
         <expression value="RiskAssessment.subject.where(resolve() is Patient)"/>
         <xpath value="f:RiskAssessment/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
