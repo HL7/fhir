@@ -156,9 +156,10 @@
         <description value="Context of the document  content"/>
         <code value="encounter"/>
         <type value="reference"/>
-        <expression value="DocumentReference.context.encounter"/>
+        <expression value="DocumentReference.context.encounter.where(resolve() is Encounter)"/>
         <xpath value="f:DocumentReference/f:context/f:encounter"/>
         <xpathUsage value="normal"/>
+        <target value="Encounter"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -299,6 +300,7 @@
         <expression value="DocumentReference.subject.where(resolve() is Patient)"/>
         <xpath value="f:DocumentReference/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

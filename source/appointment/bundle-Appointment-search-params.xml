@@ -119,6 +119,7 @@
         <expression value="Appointment.participant.actor.where(resolve() is Location)"/>
         <xpath value="f:Appointment/f:participant/f:actor"/>
         <xpathUsage value="normal"/>
+        <target value="Location"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -159,6 +160,7 @@
         <expression value="Appointment.participant.actor.where(resolve() is Patient)"/>
         <xpath value="f:Appointment/f:participant/f:actor"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -179,6 +181,7 @@
         <expression value="Appointment.participant.actor.where(resolve() is Practitioner)"/>
         <xpath value="f:Appointment/f:participant/f:actor"/>
         <xpathUsage value="normal"/>
+        <target value="Practitioner"/>
       </SearchParameter>
     </resource>
   </entry>

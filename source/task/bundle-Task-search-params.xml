@@ -259,6 +259,7 @@
         <expression value="Task.for.where(resolve() is Patient)"/>
         <xpath value="f:Task/f:for"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
