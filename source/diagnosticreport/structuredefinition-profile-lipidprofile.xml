@@ -80,13 +80,13 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <fixedCodeableConcept>
+      <patternCodeableConcept>
         <coding>
           <system value="http://loinc.org"/>
           <code value="57698-3"/>
           <display value="Lipid panel with direct LDL - Serum or Plasma"/>
         </coding>
-      </fixedCodeableConcept>
+      </patternCodeableConcept>
     </element>
     <element id="DiagnosticReport.result">
       <path value="DiagnosticReport.result"/>

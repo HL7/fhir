@@ -32,10 +32,13 @@
       <display value="The material on this page will be removed in a future release. This content is deprecated and SHOULD NOT be used. Implementers are instead directed to the ([Genomics Reporting Implementation Guide](http://hl7.org/fhir/uv/genomics-reporting/index.html)) for guidance. BRCA1+BRCA2 gene mutations tested for in Blood or Tissue by Molecular genetics method Nominal"/>
     </coding>
   </code>
-  
   <subject>
       <reference value="Patient/brcapat"/>
       <display value="Patient1 with Breast Cancer FamilyHistory"/>
   </subject>
+  <effectiveDateTime value="2021-03-03T14:50:23-05:00"/>
 
+  <device>
+    <reference value="Device/example"/>
+  </device>
 </Observation>

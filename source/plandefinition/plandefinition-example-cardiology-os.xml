@@ -117,7 +117,7 @@
         <itemReference>
           <reference value="#metoprololTartrate25Substance" />
         </itemReference>
-        <strengthRatio>
+        <strength>
           <numerator>
             <value value="25" />
             <unit value="mg" />
@@ -126,7 +126,7 @@
             <value value="1" />
             <unit value="{tbl}" />
           </denominator>
-        </strengthRatio>
+        </strength>
       </ingredient>
     </Medication>
   </contained>
@@ -134,9 +134,11 @@
     <Substance>
       <id value="metoprololTartrate25Substance" />
       <code>
+        <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
             <code value="6918" />
-          <text value="Metoprolol" />
+        </coding>    
+        <text value="Metoprolol" />
       </code>
     </Substance>
   </contained>
@@ -209,7 +211,7 @@
         <itemReference>
           <reference value="#metoprololTartrate50Substance" />
         </itemReference>
-        <strengthRatio>
+        <strength>
           <numerator>
             <value value="50" />
             <unit value="mg" />
@@ -218,7 +220,7 @@
             <value value="1" />
             <unit value="{tbl}" />
           </denominator>
-        </strengthRatio>
+        </strength>
       </ingredient>
     </Medication>
   </contained>
@@ -226,11 +228,11 @@
     <Substance>
       <id value="metoprololTartrate50Substance" />
       <code>
-          <coding>
-            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
-            <code value="6918" />
-          </coding>
-          <text value="Metoprolol" />
+        <coding>
+          <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+          <code value="6918" />
+        </coding>
+        <text value="Metoprolol" />
       </code>
     </Substance>
   </contained>
@@ -399,7 +401,7 @@
         <itemReference>
           <reference value="#nitroglycerinSubstance" />
         </itemReference>
-        <strengthRatio>
+        <strength>
           <numerator>
             <value value="0.4" />
             <unit value="mg" />
@@ -408,7 +410,7 @@
             <value value="1" />
             <unit value="{tbl}" />
           </denominator>
-        </strengthRatio>
+        </strength>
       </ingredient>
     </Medication>
   </contained>

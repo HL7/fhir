@@ -15,7 +15,7 @@ with a different code:
   <status value="active"/>
   <experimental value="false"/>
   <date value="2018-11-05T17:47:00+11:00"/>
-  <kind value="complex-type"/>
+  <kind value="resource"/>
   <abstract value="false"/>
   <type value="Composition"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition"/>

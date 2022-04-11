@@ -38,7 +38,7 @@
           <denominator>
             <value value="1"/>
             <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-            <code value="Tab"/>
+            <code value="TAB"/>
           </denominator>
         </strength>
       </ingredient>
@@ -59,7 +59,7 @@
           <denominator>
             <value value="1"/>
             <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-            <code value="Tab"/>
+            <code value="TAB"/>
           </denominator>
         </strength>
       </ingredient>

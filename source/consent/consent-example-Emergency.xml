@@ -21,8 +21,8 @@
       <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
       <code value="patient-privacy"/>
     </coding>  
-        </scope>
-<category>
+  </scope>
+  <category>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="EMRGONLY"/>

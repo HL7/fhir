@@ -25,7 +25,7 @@
           <itemReference>
             <reference value="#citalopramSubstance"/>
           </itemReference>
-          <strengthRatio>
+          <strength>
             <numerator>
               <value value="20"/>
               <unit value="mg"/>
@@ -34,7 +34,7 @@
               <value value="1"/>
               <unit value="{tbl}"/>
             </denominator>
-          </strengthRatio>
+          </strength>
         </ingredient>
     </Medication>
   </contained>

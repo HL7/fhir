@@ -9,7 +9,7 @@
       </p>
 	</div>
   </text>
-	<url value="Evidence/example-ASTRAL-12-alteplase-mRS3-6"/>
+	<url value="http://hl7.org/fhir/Evidence/example-ASTRAL-12-alteplase-mRS3-6"/>
 	<title value="Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12"/>
 	<status value="draft"/>
   <useContext>

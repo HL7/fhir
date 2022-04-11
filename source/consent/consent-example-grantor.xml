@@ -19,8 +19,8 @@ This is a case where a Patient is giving a limited (read-only) access to an indi
       <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
       <code value="patient-privacy"/>
     </coding>  
-        </scope>
-<category>
+  </scope>
+  <category>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="INFAO"/>
