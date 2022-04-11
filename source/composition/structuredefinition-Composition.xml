@@ -135,6 +135,21 @@
         <map value="DocumentReference.masterIdentifier"/>
       </mapping>
     </element>
+    <element id="Composition.version">
+      <path value="Composition.version"/>
+      <short value="An explicitly assigned identifer of a variation of the content in the composition."/>
+      <comment value="While each resource, including the composition itself, has its own version identifier, this is a formal identifier for the logical version of the composition as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example." />
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".versionNumber"/>
+      </mapping>
+    </element>
     <element id="Composition.status">
       <path value="Composition.status"/>
       <short value="preliminary | final | amended | entered-in-error | deprecated"/>
@@ -591,7 +606,7 @@
       <path value="Composition.relatesTo"/>
       <short value="Relationships to other compositions/documents"/>
       <definition value="Relationships that this composition has with other compositions or documents that already exist."/>
-      <comment value="A document is a version specific composition."/>
+      <comment value="To reference (using relatesTo) a Bundle of type &quot;document&quot; or another Composition where you only have the identifier, use a resourceReference with an identifier.\nHere is an example of using relatesTo to reference another Bundle of type &quot;document&quot; or Composition where you only have the identifier:&#xA;```&#xA;&lt;relatesTo  &gt;&#xA;    &lt;type value=&quot;replaces&quot; /&gt;&#xA;&lt;resourceReference&gt;&#xA;&lt;identifier&gt;&#xA;&lt;system value=&quot;...&quot; /&gt;&#xA;&lt;value value=&quot;...&quot; /&gt;&#xA;&lt;/identifier&gt;&#xA;&lt;/resourceReference&gt;&#xA;&lt;/relatesTo&gt;&#xA;```"/>
       <min value="0"/>
       <max value="*"/>
       <type>
