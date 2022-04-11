@@ -530,7 +530,7 @@
       <path value="Specimen.collection.bodySite"/>
       <short value="Anatomical collection site"/>
       <definition value="Anatomical location from which the specimen was collected (if subject is a patient). This is the target site.  This element is not used for environmental specimens."/>
-      <comment value="If the use case requires  BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [bodySite](extension-bodysite.html)."/>
+      <comment value="Reasons for using BodyStructure reference include: 1.) Need to identify a specific site instance (e.g. a specific mole), 2.) a single pre-coordinated coded concept for the body site does not exist, 3.) a desire to represent bodySite using multiple attributes (e.g. modifiers)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
