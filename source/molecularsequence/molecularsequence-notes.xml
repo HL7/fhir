@@ -3,21 +3,6 @@
 <!-- insert xhtml content here -->
 
 <h2>Notes</h2>
-<h3>Reference Sequence</h3>
-  <p>
-    <code>MolecularSequence.referenceSeq</code>: There are four optional ways to represent a reference sequence in MolecularSequence
-    resource:
-    <ol>
-      <li><code>MolecularSequence.referenceSeq.referenceSeqId</code>: Reference sequence id in public database;</li>
-      <li><code>MolecularSequence.referenceSeq.referenceSeqString</code>: Reference sequence string; </li>
-      <li><code>MolecularSequence.referenceSeq.referenceSeqPointer</code>: Reference to observed sequence stored in another sequence entity; </li>
-      <li><code>MolecularSequence.referenceSeq.genomeBuild</code>, <code>MolecularSequence.reference.chromosome</code>: The combination of genome build and chromosome. </li>
-    </ol>
-  </p>
-  <p>
-    The <code>MolecularSequence.referenceSeq.window</code> defines a range from the reference sequence that is used to define building block of a sequence.
-  </p>
-
 <h3>Coordinate System</h3>
 <p>
 	When saving the sequence information, the nucleic acid will be numbered with order. Some files are using 0-based coordinates (e.g. BCD file format) while some files are using 1-based coordinates (e.g. VCF file format). The element coordinateSystem in MolecularSequence resource contains this information.
@@ -45,7 +30,7 @@
 
 <h3>Choice of Strand </h3>
   <p>
-    There are lots of definition concerning with the Directionality of DNA or RNA. Here we are using <code>referenceSeq.orientation</code> and <code>referenceSeq.strand</code>. <b>Orientation</b> represents the sense of the sequence, which has different meanings depending on the <code>MolecularSequence.type</code>. <b>Strand</b> represents the sequence writing order. Watson strand refers to 5' to 3' top strand (5' -&gt; 3'), whereas Crick strand refers to 5' to 3' bottom strand (3' &lt;- 5').
+    There are lots of definition concerning with the directionality of DNA or RNA. Here we are using <code>MolecularSequence.relative.reference.orientation</code> and <code>MolecularSequence.relative.reference.strand</code>. <b>Orientation</b> represents the sense of the sequence, which has different meanings depending on the <code>MolecularSequence.type</code>. <b>Strand</b> represents the sequence writing order. Watson strand refers to 5' to 3' top strand (5' -&gt; 3'), whereas Crick strand refers to 5' to 3' bottom strand (3' &lt;- 5').
   </p>
   <p>
     Only two possible values can be made by strand, +1 for plus strand while -1 for minus strand. Since the directionality of the sequence string might be represented in different word in different omics scenario, below are simple example of how to map other expressions into its correlated value:
@@ -73,36 +58,32 @@
     </tr>
   </table>
 
-  <h3>Representing the sequence</h3>
+  <h3>Representing the Sequence</h3>
+  <h4>Sequence as a String</h4>
   <p>
     <code>MolecularSequence.literal</code>: This string element can be used to hold the sequence as a string of characters.
   </p>
+  <h4>Sequence as a series of edits from a known sequence</h4>
   <p>
-    <code>MolecularSequence.edit</code>: This complex element is used for encoding sequence. When the information of reference sequence and edits are provided, the observed sequence will be derived. Here is a picture below:
+    <code>MolecularSequence.relative</code>: This complex element is used for encoding sequence. When the information of reference sequence and edits are provided, the observed sequence will be derived. Here is a picture below:
   </p>
   <img src="genomics-image34.jpg" alt="" style="width:624px;height:468px" />
+  <h5>Representing the Reference Sequence</h5>
+  <p>
+    <code>MolecularSequence.relative.reference</code>: There are four optional ways to represent a reference sequence in MolecularSequence
+    resource:
+    <ol>
+      <li><code>MolecularSequence.relative.reference.referenceSeqId</code>: Reference sequence id in public database;</li>
+      <li><code>MolecularSequence.relative.reference.referenceSeqString</code>: Reference sequence string; </li>
+      <li><code>MolecularSequence.relative.reference.referenceSeqPointer</code>: Reference to observed sequence stored in another sequence entity; </li>
+      <li><code>MolecularSequence.relative.reference.genomeBuild</code>, <code>MolecularSequence.reference.chromosome</code>: The combination of genome build and chromosome. </li>
+    </ol>
+  </p>
+  <p>
+    The <code>MolecularSequence.relative.reference.window</code> defines a range from the reference sequence that is used to define building block of a sequence.
+  </p>
 
-  <p>
-    Here is how to use the resource can be used to represent a sequence by different methods.
-  </p>
-  <img src="genomics-image15.jpeg" alt="MolecularSequence Graph" style="width:624px;height:468px;" />
-  <p>
-    The diagram above describes 4 optional ways provided in the MolecularSequence resource to encode sequencing data. Here are the corresponding examples:
-  <ul>
-    <li> <a href="sequence-graphic-example-1.html">By referenceSeqId</a> Source:<a
-        href="sequence-graphic-example-1.xml.html">XML</a>,<a href="sequence-graphic-example-1.json.html">JSON</a>,<a
-        href="sequence-graphic-example-1.ttl.html">TURTLE</a></li>
-    <li> <a href="sequence-graphic-example-2.html">By referenceSeqString</a> Source:<a
-        href="sequence-graphic-example-2.xml.html">XML</a>,<a href="sequence-graphic-example-2.json.html">JSON</a>,<a
-        href="sequence-graphic-example-2.ttl.html">TURTLE</a></li>
-    <li> <a href="sequence-graphic-example-3.html">By referenceSeqPointer</a> Source:<a
-        href="sequence-graphic-example-3.xml.html">XML</a>,<a href="sequence-graphic-example-3.json.html">JSON</a>,<a
-        href="sequence-graphic-example-3.ttl.html">TURTLE</a></li>
-    <li> <a href="sequence-graphic-example-4.html">By Genomebuild+chromosome</a> Source:<a
-        href="sequence-graphic-example-4.xml.html">XML</a>,<a href="sequence-graphic-example-4.json.html">JSON</a>,<a
-        href="sequence-graphic-example-4.json.html">TURTLE</a></li>
-  </ul>
-  </p>
+  <h4>Sequence as a file or URI</h4>
   <p>
     <code>MolecularSequence.formatted</code>: This Attachment is used to refer to the sequence as embedded file content or via a URL reference.
   </p>
@@ -114,79 +95,7 @@
 
 <h3>String usage for reference sequence and observed sequence</h3>
 <p>
-  The string representations of a sequence can be constrained more than just any normal string but with notation tables. Here we present what the nucleotide acid string should be constrained within the range:
-  <table>
-    <tr>
-      <td>A --> adenosine </td>
-      <td>M --> A C (amino)</td>
-      <td>U --> uridine </td>
-      <td>H --> A C T</td>
-      <td>V --> G C A</td>
-    </tr>
-    <tr>
-      <td>C --> cytidine</td> 
-      <td>S --> G C (strong)</td>
-      <td>D --> G A T</td>
-    <td>K --> G T (keto)</td>
-    </tr>
-    <tr>
-      <td>G --> guanine </td>
-      <td>W --> A T (weak)</td>
-      <td>R --> G A (purine)</td> 
-      <td>N --> A G C T (any)</td>
-    </tr>
-    <tr>
-      <td>T --> thymidine</td>
-      <td>B --> G T C</td>
-      <td>Y --> T C (pyrimidine)</td> 
-      <td>- --> gap of indeterminate length  </td>
-    </tr>
-  </table>
-</p>
-<p>
-  An amino acid string should be constrained within the range:
-  <table>
-    <tr>
-      <td>A alanine </td>
-      <td>P proline</td>
-      <td>B aspartate or asparagine</td>
-      <td>Q glutamine</td>
-    </tr>
-    <tr>
-      <td>C cystine </td>
-      <td>R arginine</td>
-      <td>D aspartate</td>
-      <td>S serine</td>
-    </tr>
-    <tr>
-      <td>E glutamate </td>
-      <td>T threonine</td>
-      <td>F phenylalanine </td>
-      <td>U selenocysteine</td>
-    </tr>
-    <tr>
-      <td>G glycine </td>
-      <td>V valine</td>
-      <td>H histidine </td>
-      <td>W tryptophan </td>
-    </tr>
-    <tr>
-      <td>I isoleucine </td>
-      <td>Y tyrosine </td>
-      <td>K lysine </td>
-      <td>Z glutamate or glutamine</td>
-    </tr>
-    <tr>
-      <td>L leucine</td>
-      <td> X any </td>
-      <td>M methionine </td>
-      <td>* translation stop </td>
-    </tr>
-    <tr>
-      <td>N asparagine </td>
-      <td>- gap of indeterminate length </td>
-    </tr>
-  </table>
+  The string representations of a sequence can be constrained more than just any normal string. The characters should be constrained to the IUPAC codes found here <a href="https://www.bioinformatics.org/sms2/iupac.html">https://www.bioinformatics.org/sms2/iupac.html</a>.
 </p>
 
 </div>

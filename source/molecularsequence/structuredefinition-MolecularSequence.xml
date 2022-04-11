@@ -172,11 +172,25 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.referenceSeq">
+    <element id="MolecularSequence.relative">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="up"/>
       </extension>
-      <path value="MolecularSequence.referenceSeq"/>
+      <path value="MolecularSequence.relative"/>
+      <short value="A sequence defined relative to another sequence"/>
+      <definition value="A sequence defined relative to another sequence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularSequence.relative.reference">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="up"/>
+      </extension>
+      <path value="MolecularSequence.relative.reference"/>
       <short value="A sequence used as reference"/>
       <definition value="A sequence that is used as a reference to describe variants that are present in a sequence analyzed."/>
       <min value="0"/>
@@ -202,8 +216,8 @@
       </constraint>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.referenceSeq.chromosome">
-      <path value="MolecularSequence.referenceSeq.chromosome"/>
+    <element id="MolecularSequence.relative.reference.chromosome">
+      <path value="MolecularSequence.relative.reference.chromosome"/>
       <short value="Chromosome containing genetic finding"/>
       <definition value="Structural unit composed of a nucleic acid molecule which controls its own replication through the interaction of specific proteins at one or more origins of replication ([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340))."/>
       <min value="0"/>
@@ -224,8 +238,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/chromosome-human"/>
       </binding>
     </element>
-    <element id="MolecularSequence.referenceSeq.genomeBuild">
-      <path value="MolecularSequence.referenceSeq.genomeBuild"/>
+    <element id="MolecularSequence.relative.reference.genomeBuild">
+      <path value="MolecularSequence.relative.reference.genomeBuild"/>
       <short value="The Genome Build used for reference, following GRCh build versions e.g. &#39;GRCh 37&#39;"/>
       <definition value="The Genome Build used for reference, following GRCh build versions e.g. &#39;GRCh 37&#39;.  Version number must be included if a versioned release of a primary build was used."/>
       <min value="0"/>
@@ -235,8 +249,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.referenceSeq.orientation">
-      <path value="MolecularSequence.referenceSeq.orientation"/>
+    <element id="MolecularSequence.relative.reference.orientation">
+      <path value="MolecularSequence.relative.reference.orientation"/>
       <short value="sense | antisense"/>
       <definition value="A relative reference to a DNA strand based on gene orientation. The strand that contains the open reading frame of the gene is the &quot;sense&quot; strand, and the opposite complementary strand is the &quot;antisense&quot; strand."/>
       <min value="0"/>
@@ -257,8 +271,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/orientation-type"/>
       </binding>
     </element>
-    <element id="MolecularSequence.referenceSeq.referenceSeqId">
-      <path value="MolecularSequence.referenceSeq.referenceSeqId"/>
+    <element id="MolecularSequence.relative.reference.referenceSeqId">
+      <path value="MolecularSequence.relative.reference.referenceSeqId"/>
       <short value="Reference identifier"/>
       <definition value="Reference identifier of reference sequence submitted to NCBI. It must match the type in the MolecularSequence.type field. For example, the prefix, &#x201C;NG_&#x201D; identifies reference sequence for genes, &#x201C;NM_&#x201D; for messenger RNA transcripts, and &#x201C;NP_&#x201D; for amino acid sequences."/>
       <min value="0"/>
@@ -279,8 +293,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/sequence-referenceSeq"/>
       </binding>
     </element>
-    <element id="MolecularSequence.referenceSeq.referenceSeqPointer">
-      <path value="MolecularSequence.referenceSeq.referenceSeqPointer"/>
+    <element id="MolecularSequence.relative.reference.referenceSeqPointer">
+      <path value="MolecularSequence.relative.reference.referenceSeqPointer"/>
       <short value="A pointer to another MolecularSequence entity as reference sequence"/>
       <definition value="A pointer to another MolecularSequence entity as reference sequence."/>
       <min value="0"/>
@@ -291,8 +305,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.referenceSeq.referenceSeqString">
-      <path value="MolecularSequence.referenceSeq.referenceSeqString"/>
+    <element id="MolecularSequence.relative.reference.referenceSeqString">
+      <path value="MolecularSequence.relative.reference.referenceSeqString"/>
       <short value="A string to represent reference sequence"/>
       <definition value="A string like &quot;ACGT&quot;."/>
       <min value="0"/>
@@ -302,8 +316,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.referenceSeq.strand">
-      <path value="MolecularSequence.referenceSeq.strand"/>
+    <element id="MolecularSequence.relative.reference.strand">
+      <path value="MolecularSequence.relative.reference.strand"/>
       <short value="watson | crick"/>
       <definition value="An absolute reference to a strand. The Watson strand is the strand whose 5&#39;-end is on the short arm of the chromosome, and the Crick strand as the one whose 5&#39;-end is on the long arm."/>
       <min value="0"/>
@@ -324,8 +338,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/strand-type"/>
       </binding>
     </element>
-    <element id="MolecularSequence.referenceSeq.windowStart">
-      <path value="MolecularSequence.referenceSeq.windowStart"/>
+    <element id="MolecularSequence.relative.reference.windowStart">
+      <path value="MolecularSequence.relative.reference.windowStart"/>
       <short value="Start position of the window on the  reference sequence"/>
       <definition value="Start position of the window on the reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive."/>
       <min value="0"/>
@@ -335,11 +349,11 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.referenceSeq.windowEnd">
+    <element id="MolecularSequence.relative.reference.windowEnd">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
       </extension>
-      <path value="MolecularSequence.referenceSeq.windowEnd"/>
+      <path value="MolecularSequence.relative.reference.windowEnd"/>
       <short value="End position of the window on the reference sequence"/>
       <definition value="End position of the window on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position."/>
       <min value="0"/>
@@ -349,8 +363,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.edit">
-      <path value="MolecularSequence.edit"/>
+    <element id="MolecularSequence.relative.edit">
+      <path value="MolecularSequence.relative.edit"/>
       <short value="Changes in sequence from the reference"/>
       <definition value="Changes in sequence from the reference."/>
       <min value="0"/>
@@ -360,8 +374,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.edit.start">
-      <path value="MolecularSequence.edit.start"/>
+    <element id="MolecularSequence.relative.edit.start">
+      <path value="MolecularSequence.relative.edit.start"/>
       <short value="Start position of the edit on the reference sequence"/>
       <definition value="Start position of the edit on the reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive."/>
       <min value="0"/>
@@ -371,8 +385,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.edit.end">
-      <path value="MolecularSequence.edit.end"/>
+    <element id="MolecularSequence.relative.edit.end">
+      <path value="MolecularSequence.relative.edit.end"/>
       <short value="End position of the edit on the reference sequence"/>
       <definition value="End position of the edit on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position."/>
       <min value="0"/>
@@ -382,8 +396,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.edit.observedAllele">
-      <path value="MolecularSequence.edit.observedAllele"/>
+    <element id="MolecularSequence.relative.edit.observedAllele">
+      <path value="MolecularSequence.relative.edit.observedAllele"/>
       <short value="Allele that was observed"/>
       <definition value="Allele that was observed. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed  sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end."/>
       <min value="0"/>
@@ -393,8 +407,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.edit.referenceAllele">
-      <path value="MolecularSequence.edit.referenceAllele"/>
+    <element id="MolecularSequence.relative.edit.referenceAllele">
+      <path value="MolecularSequence.relative.edit.referenceAllele"/>
       <short value="Allele in the reference sequence"/>
       <definition value="Allele in the reference sequence. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end."/>
       <min value="0"/>
@@ -404,8 +418,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.edit.cigar">
-      <path value="MolecularSequence.edit.cigar"/>
+    <element id="MolecularSequence.relative.edit.cigar">
+      <path value="MolecularSequence.relative.edit.cigar"/>
       <short value="Extended CIGAR string for aligning the sequence with reference bases"/>
       <definition value="Extended CIGAR string for aligning the sequence with reference bases. See detailed documentation [here](http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm)."/>
       <min value="0"/>

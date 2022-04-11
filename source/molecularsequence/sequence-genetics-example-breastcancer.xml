@@ -7,21 +7,23 @@
 	<patient>
         <reference value="Patient/brcapat"/>
     </patient>
-	<referenceSeq>
-        <referenceSeqId>
-            <coding>
-                <system value="http://www.ncbi.nlm.nih.gov/nuccore/"/>
-                <code value="NM_000059.3"/>
-                <display value="Homo sapiens BRCA2, DNA repair associated (BRCA2), mRNA"/>
-            </coding>
-        </referenceSeqId>
-		<windowStart value="101488058"/>
-		<windowEnd value="101499444"/>
-    </referenceSeq>			
-    <edit>
-		<start value="32316186"/>
-		<end value="32316187"/>
-		<observedAllele value="A"/>
-		<referenceAllele value="C"/>
-	</edit>
+    <relative>
+        <reference>
+            <referenceSeqId>
+                <coding>
+                    <system value="http://www.ncbi.nlm.nih.gov/nuccore/"/>
+                    <code value="NM_000059.3"/>
+                    <display value="Homo sapiens BRCA2, DNA repair associated (BRCA2), mRNA"/>
+                </coding>
+            </referenceSeqId>
+            <windowStart value="101488058"/>
+            <windowEnd value="101499444"/>
+        </reference>			
+        <edit>
+            <start value="32316186"/>
+            <end value="32316187"/>
+            <observedAllele value="A"/>
+            <referenceAllele value="C"/>
+        </edit>
+    </relative>
 </MolecularSequence>

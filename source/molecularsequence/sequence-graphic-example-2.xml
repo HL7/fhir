@@ -4,12 +4,14 @@
     <id value="graphic-example-2"/>
     <type value="dna"/>
     <coordinateSystem value="0"/>
-    <referenceSeq>
-        <referenceSeqString value="CGCCATTG"/>
-        <strand value="watson"/>
-        <windowStart value="0"/>
-        <windowEnd value="8"/>
-    </referenceSeq>
+    <relative>
+        <reference>
+            <referenceSeqString value="CGCCATTG"/>
+            <strand value="watson"/>
+            <windowStart value="0"/>
+            <windowEnd value="8"/>
+        </reference>
+    </relative>
     <pointer>
         <reference value="MolecularSequence/graphic-example-3"/>
     </pointer>
