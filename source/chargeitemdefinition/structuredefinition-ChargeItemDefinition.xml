@@ -586,6 +586,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>
       <mapping>
         <identity value="rim"/>
