@@ -170,7 +170,7 @@
     <element id="MolecularSequence.relative.coordinateSystem">
       <path value="MolecularSequence.relative.coordinateSystem"/>
       <short value="Ways of identifying nucleotides or amino acids within a sequence"/>
-      <definition value="These are different ways of identifying nucleotides or amino acids within a sequence. Different databases and file types may use different systems. For detail definitions, see https://loinc.org/92822-6/"/>
+      <definition value="These are different ways of identifying nucleotides or amino acids within a sequence. Different databases and file types may use different systems. For detail definitions, see https://loinc.org/92822-6/ for more detail."/>
       <min value="1"/>
       <max value="1"/>
       <type>
