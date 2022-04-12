@@ -15,8 +15,14 @@
       <valueInteger value="1"/>
   </extension>
   <type value="DNA"/>
-  <coordinateSystem value="0"/>
   <relative>
+    <coordinateSystem>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="LA30100-4"/>
+            <display value="0-based interval counting"/>
+        </coding>
+    </coordinateSystem>
     <reference>
             <referenceSeqId>
                 <coding>

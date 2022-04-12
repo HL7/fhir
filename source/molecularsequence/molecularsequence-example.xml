@@ -2,11 +2,17 @@
 <MolecularSequence xmlns="http://hl7.org/fhir">
     <id value="example"/>
     <type value="dna"/>
-    <coordinateSystem value ="0"/>
     <patient>
         <reference value="Patient/example"/>
     </patient>
     <relative>
+        <coordinateSystem>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="LA30100-4"/>
+                <display value="0-based interval counting"/>
+            </coding>
+        </coordinateSystem>
         <reference>
             <referenceSeqId>
             <coding>

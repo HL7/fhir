@@ -3,8 +3,14 @@
 <MolecularSequence xmlns="http://hl7.org/fhir">
     <id value="coord-1-base"/>
     <type value="dna"/>
-    <coordinateSystem value="1"/>
     <relative>
+        <coordinateSystem>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="LA30102-0"/>
+                <display value="1-based character counting"/>
+            </coding>
+        </coordinateSystem>
         <reference>
             <referenceSeqString value="ACGTAGTC"/>
             <strand value="watson"/>

@@ -1,11 +1,17 @@
 <MolecularSequence xmlns="http://hl7.org/fhir">
     <id value="example-TPMT-two"/>
     <type value="dna"/>
-    <coordinateSystem value="1"/>
     <patient>
         <reference value="Patient/example"/>
     </patient>
     <relative>
+      <coordinateSystem>
+          <coding>
+              <system value="http://loinc.org"/>
+              <code value="LA30102-0"/>
+              <display value="1-based character counting"/>
+          </coding>
+      </coordinateSystem>
       <reference>
           <referenceSeqId>
             <coding>
