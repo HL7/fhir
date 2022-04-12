@@ -51,7 +51,7 @@
   <p>If an <code>_outputFormat</code> parameter is supplied as part of the request, the server SHALL respond using the
     <a href="async-bulk.html">Asynchronous Bulk Data Request</a> pattern, or if this pattern is not supported by the
     server
-    for the current request type, SHALL return an error and <a href="OperationOutcome.html">OperationOutcome
+    for the current request type, SHALL return an error and <a href="operationoutcome.html">OperationOutcome
       Resource</a>.
   </p>
 
@@ -59,7 +59,7 @@
   <ul>
     <li>
       <p><code>Accept</code> (string)</p>
-      <p>Specifies the format of the optional <a href="OperationOutcome.html">OperationOutcome Resource</a> response to
+      <p>Specifies the format of the optional <a href="operationoutcome.html">OperationOutcome Resource</a> response to
         the kick-off request. A client SHOULD provide this header. A server may support any subset of the <a
           href="formats.html#wire">Serialization Format Representations</a>. If omitted, the server MAY return an error
         or MAY process the request and return a format selected by the server format.</p>
@@ -76,13 +76,13 @@
     <li>HTTP Status Code of <code>202 Accepted</code> </li>
     <li><code>Content-Location</code> header with the absolute URL of an endpoint for subsequent status requests
       (polling location)</li>
-    <li>Optionally, a <a href="OperationOutcome.html">OperationOutcome Resource</a> in the body</li>
+    <li>Optionally, a <a href="operationoutcome.html">OperationOutcome Resource</a> in the body</li>
   </ul>
 
   <h5 id="kick-off-response---error">Response - Error (e.g. unsupported search parameter)</h5>
   <ul>
     <li>HTTP Status Code of <code>4XX</code> or <code>5XX</code></li>
-    <li>The body SHALL be a <a href="OperationOutcome.html">OperationOutcome Resource</a></li>
+    <li>The body SHALL be a <a href="operationoutcome.html">OperationOutcome Resource</a></li>
   </ul>
   <hr />
 
@@ -91,7 +91,7 @@
   <p>After an asynchronous request has been started, a client MAY send a http DELETE request to the URL provided in the
     <code>Content-Location</code> header to cancel the request. Following the delete request, when subsequent requests
     are made to the polling location, the server SHALL
-    return a <code>404 Not Found</code> error and an associated <a href="OperationOutcome.html">OperationOutcome
+    return a <code>404 Not Found</code> error and an associated <a href="operationoutcome.html">OperationOutcome
       Resource</a>.
   </p>
 
@@ -104,7 +104,7 @@
   <h5 id="delete-response---error">Response - Error</h5>
   <ul>
     <li>HTTP status code of <code>4XX</code> or <code>5XX</code></li>
-    <li>Optionally a <a href="OperationOutcome.html">OperationOutcome Resource</a> in the body</li>
+    <li>Optionally a <a href="operationoutcome.html">OperationOutcome Resource</a> in the body</li>
   </ul>
 
   <h3 id="status-request">Status Request</h3>
@@ -121,7 +121,7 @@
     timing of future polling requests. The server SHOULD keep an accounting of status queries received from a given
     client, and if a client is polling too frequently, the server SHOULD respond with a
     <code>429 Too Many Requests</code> status code in addition to a <code>Retry-After</code> header, and optionally a <a
-      href="OperationOutcome.html">OperationOutcome Resource</a> with further explanation. If excessively frequent
+      href="operationoutcome.html">OperationOutcome Resource</a> with further explanation. If excessively frequent
     status queries persist, the server MAY return a <code>429 Too Many Requests</code> status code and terminate the
     session. Other standard HTTP <code>4XX</code> as well as <code>5XX</code> status codes may be used to identify
     errors as mentioned.
@@ -139,7 +139,7 @@
   <h5 id="status-response---error">Response - Error</h5>
   <ul>
     <li>HTTP status code of <code>4XX</code> or <code>5XX</code></li>
-    <li>The body of the response SHOULD be a <a href="OperationOutcome.html">OperationOutcome Resource</a>.
+    <li>The body of the response SHOULD be a <a href="operationoutcome.html">OperationOutcome Resource</a>.
       If this is not possible (for example, the infrastructure layer returning the error is not FHIR
       aware), the server MAY return an error message in another format and include a corresponding value for the
       <code>Content-Type</code> header.
@@ -149,7 +149,7 @@
   <p>Servers SHOULD NOT use status request failures to indicate a problem processing the original request. Rather,
     status request failures SHOULD use a <a href="codesystem-issue-type.html#issue-type-transient">transient code</a>
     from the <a href="codesystem-issue-type.html">IssueType valueset</a> when populating the <a
-      href="OperationOutcome.html">OperationOutcome Resource</a> <code>issue.code</code> element to indicate to the
+      href="operationoutcome.html">OperationOutcome Resource</a> <code>issue.code</code> element to indicate to the
     client that it should retry the request at a later time.</p>
 
   <h5 id="status-response---complete">Response - Complete</h5>
@@ -169,7 +169,7 @@
     required parameter, the server would respond with a
     <code>200 OK</code> on the status request once processing is complete, and would include a
     <code>Bundle.entry[0].response.code</code> element with a value of <code>400 Bad Request</code>
-    and a <code>Bundle.entry[0].response.outcome</code> with a <a href="OperationOutcome.html">OperationOutcome Resource</a>
+    and a <code>Bundle.entry[0].response.outcome</code> with a <a href="operationoutcome.html">OperationOutcome Resource</a>
     containing details about the error.
   </p>
 
