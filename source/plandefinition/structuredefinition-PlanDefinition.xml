@@ -88,7 +88,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </constraint>
@@ -1939,7 +1939,7 @@
     <element id="PlanDefinition.action.definition[x]">
       <path value="PlanDefinition.action.definition[x]"/>
       <short value="Description of the activity to be performed"/>
-      <definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, or an ObservationDefinition that specifies what observation should be captured."/>
+      <definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, or an ObservationDefinition that specifies what observation should be captured."/>
       <comment value="Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically."/>
       <min value="0"/>
       <max value="1"/>
@@ -1949,6 +1949,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
       </type>
       <type>
         <code value="uri"/>
