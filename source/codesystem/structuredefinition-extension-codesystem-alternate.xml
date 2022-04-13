@@ -107,7 +107,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="Indicates the type of use for which the code is defined."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/codesystem-altcode-kind"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/codesystem-altcode-kind"/>
       </binding>
     </element>
     <element id="Extension.url">

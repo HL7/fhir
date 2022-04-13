@@ -75,7 +75,7 @@
         </extension>
         <strength value="required"/>
         <description value="Identifies the modes of usage of a questionnaire that should enable a particular questionnaire item."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-usage-mode"/>
+        <valueSet value="http://terminology.hl7.org/CodeSystem/questionnaire-usage-mode"/>
       </binding>
     </element>
   </differential>

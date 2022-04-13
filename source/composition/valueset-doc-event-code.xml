@@ -58,7 +58,7 @@
   </codeSystem>
   <compose>
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/dicom-cid29"/>
+      <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html"/>
     </include>
     <include>
       <system value="http://snomed.info/sct"/>
