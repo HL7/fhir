@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="consent-state-codes" />
   <meta>
@@ -9,117 +8,68 @@
   <text>
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">
-
       <p>This code system http://hl7.org/fhir/consent-state-codes defines the following codes:</p>
-
       <table class="codes">
-
         <tr>
-
           <td style="white-space:nowrap">
-
             <b>Code</b>
-
           </td>
-
           <td>
-
             <b>Display</b>
-
           </td>
-
           <td>
-
             <b>Definition</b>
-
           </td>
-
         </tr>
-
         <tr>
-
           <td style="white-space:nowrap">
             draft
             <a name="consent-state-codes-draft"></a>
-
           </td>
-
           <td>Pending</td>
-
           <td>The consent is in development or awaiting use but is not yet intended to be acted upon.</td>
-
         </tr>
-
         <tr>
-
           <td style="white-space:nowrap">
             active
             <a name="consent-state-codes-active"></a>
-
           </td>
-
           <td>Active</td>
-
           <td>The consent is to be followed and enforced.</td>
-
         </tr>
-
         <tr>
-
           <td style="white-space:nowrap">
             inactive
             <a name="consent-state-codes-inactive"></a>
-
           </td>
-
           <td>Inactive</td>
-
           <td>The consent is terminated or replaced.</td>
-
         </tr>
         <tr>
-
           <td style="white-space:nowrap">
-            inactive
+            not-done
             <a name="consent-state-codes-abandoned"></a>
-
           </td>
-
           <td>Abandoned</td>
-
           <td>The consent development has been terminated prior to completion.</td>
-
         </tr>
         <tr>
-
           <td style="white-space:nowrap">
             entered-in-error
             <a name="consent-state-codes-entered-in-error"></a>
-
           </td>
-
           <td>Entered in Error</td>
-
           <td>The consent was created wrongly (e.g. wrong patient) and should be ignored.</td>
-
         </tr>
-
         <tr>
-
           <td style="white-space:nowrap">
             unknown
             <a name="consent-state-codes-unknown"></a>
-
           </td>
-
           <td>Unknown</td>
-
           <td>The resource is in an indeterminate state.</td>
-
         </tr>
-
       </table>
-
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -173,7 +123,7 @@
     <definition value="The consent is terminated or replaced." />
   </concept>
   <concept>
-    <code value="stopped" />
+    <code value="not-done" />
     <display value="Abandoned" />
     <definition value="The consent development has been terminated prior to completion." />
   </concept>
