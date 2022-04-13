@@ -19,8 +19,9 @@ handling instructions to which the authorized entity must comply:
             This resource is scoped to cover all three uses, but at this time, only the privacy use case is fully modeled, others are being used but no formal modelling exists.  
 The scope of the resource may change when the other possible scopes are investigated, tested, or profiled. HL7 is working on Advance Directives and would welcome participation by the community.
         </p>
-        <p>Usage of the
-            <A href="https://www.hl7.org/fhir/provenance.html">Provenance</A>
+        <p>
+            Usage of the
+            <a href="https://www.hl7.org/fhir/provenance.html">Provenance</a>
             resource may be the best way to manage the tracking of the changes to Consent. In addition, the
             <a href="https://www.hl7.org/fhir/documentreference.html">DocumentReference</a>
             may be used as an attachment to show the stages of consent ceremony with additional or updated document(s) attached at each stage.
