@@ -576,6 +576,8 @@
                 <code value="code" />
             </type>
             <isSummary value="true" />
+            <isModifier value="true" />
+            <isModifierReason value="Sets context for the other values in .provision" />
             <binding>
                 <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                     <valueString value="ConsentProvisionType" />
