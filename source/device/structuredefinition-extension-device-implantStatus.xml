@@ -68,7 +68,7 @@
         </extension>
         <strength value="required"/>
         <description value="A set codes that define the functional status of an implanted device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/implantStatus"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/implantStatus"/>
       </binding>
     </element>
   </differential>

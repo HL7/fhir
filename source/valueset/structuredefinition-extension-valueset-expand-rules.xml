@@ -61,7 +61,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines how concepts are processed into the expansion when it&#39;s for UI presentation."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/expansion-processing-rule"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/expansion-processing-rule"/>
       </binding>
     </element>
   </differential>

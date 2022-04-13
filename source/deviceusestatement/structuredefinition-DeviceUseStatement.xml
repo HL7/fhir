@@ -389,7 +389,7 @@
       <path value="DeviceUseStatement.bodySite"/>
       <short value="Target body site"/>
       <definition value="Indicates the anotomic location on the subject&#39;s body where the device was used ( i.e. the target)."/>
-      <requirements value="Knowing where the device is targeted is important for tracking if multiple sites are possible. If more information than just a code is required, use the extension [http://hl7.org/fhir/StructureDefinition/bodySite](null.html)."/>
+      <requirements value="Knowing where the device is targeted is important for tracking if multiple sites are possible. If more information than just a code is required, use the extension [http://hl7.org/fhir/StructureDefinition/bodySite](extension-bodysite.html)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

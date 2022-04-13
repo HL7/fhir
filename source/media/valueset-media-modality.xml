@@ -28,7 +28,7 @@
   <copyright value="This resource includes content from the Digital Imaging and Communications in Medicine (DICOM) Standard, Copyright 2011 by the National Electrical Manufacturers Association"/>
   <compose>
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/dicom-cid29"/>
+      <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html"/>
     </include>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/media-modality"/>

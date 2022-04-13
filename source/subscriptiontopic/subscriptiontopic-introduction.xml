@@ -23,7 +23,7 @@
   <a name="bnr"></a>
   <h2>Boundaries and Relationships</h2>
   <p>
-    The <code>SubscriptionTopic</code> resource is used in the Pub/Sub (Publisher/Subscriber) model of FHIR Subscriptions.  Information about the Boundaries and Relationships both within the Subscriptions Framework and to other areas of the FHIR specification can be found <a href="subscriptions.html#bnr">here</a>.
+    The <code>SubscriptionTopic</code> resource is used in the Pub/Sub (Publisher/Subscriber) model of FHIR Subscriptions.  Information about the Boundaries and Relationships both within the Subscriptions Framework and to other areas of the FHIR specification can be found <a href="subscription.html#bnr">here</a>.
   </p>
 </div>
 
