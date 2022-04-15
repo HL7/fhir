@@ -1,8 +1,7 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<div>
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+	<div>
 		<a name="scope"> </a>
-		<h2>Scope and Usage</h2>
+		<h3>Scope and Usage</h3>
 		<p style="border:2px; border-style:solid; border-color:#999999; padding: 1em; border-radius: 4px 4px 4px 4px;"><b><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></b></p>
 		<p>
 			The MedicinalProductDefinition resource covers the detailed defining data of medicinal products, 
@@ -56,7 +55,7 @@
 </div>
 <div>
 		<a name="authorisations"></a>
-		<h2>Authorisations</h2>
+		<h3>Authorisations</h3>
 		<p id="auth">
 			A key aspect of a regulated medicinal product is the authorisation (marketing authorisation). 
 				This is not directly carried on the product resource, but instead a <a href="regulatedauthorization.html">RegulatedAuthorization</a> resource is 
@@ -66,7 +65,7 @@
 <div>
 
 		<a name="contained"></a>
-		<h2>Contained Resources</h2>
+		<h3>Contained Resources</h3>
 		<p>Due to the amount of information, cardinalities, and update granularity necessary for some applications, the full product model
 			is split over several resources.</p>
 		<p>If you need just a coded "package type" list for your product you can use MedicinalProductDefinition.packagedMedicinalProduct. 

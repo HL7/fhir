@@ -174,7 +174,6 @@
       <type>
         <code value="string"/>
       </type>
-      <condition value="inv-0"/>
       <isSummary value="true"/>
     </element>
     <element id="ExampleScenario.status">
