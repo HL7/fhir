@@ -179,6 +179,7 @@
         <expression value="ClinicalUseDefinition.subject.where(resolve() is MedicinalProductDefinition)"/>
         <xpath value="f:ClinicalUseDefinition/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="MedicinalProductDefinition"/>
       </SearchParameter>
     </resource>
   </entry>
