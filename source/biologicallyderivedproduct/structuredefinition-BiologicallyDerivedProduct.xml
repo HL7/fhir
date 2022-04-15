@@ -111,7 +111,7 @@
     <element id="BiologicallyDerivedProduct.productCode">
       <path value="BiologicallyDerivedProduct.productCode"/>
       <short value="A code that identifies the kind of this biologically derived product"/>
-      <definition value="A code that identifies the kind of this biologically derived product. Should reference a standard terminology, for example ISBT 128 Product."/>
+      <definition value="A codified value that systematically supports characterization and classification of medical products of human origin inclusive of processing conditions such as additives, volumes and handling conditions."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -293,7 +293,7 @@
     </element>
     <element id="BiologicallyDerivedProduct.collection.source">
       <path value="BiologicallyDerivedProduct.collection.source"/>
-      <short value="Who is product from"/>
+      <short value="The patient or entity providing the product"/>
       <definition value="The patient or entity, such as a hospital or vendor in the case of a processed/manipulated/manufactured product, providing the product."/>
       <min value="0"/>
       <max value="1"/>
