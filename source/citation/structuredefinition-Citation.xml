@@ -481,9 +481,6 @@
       <definition value="A human-readable display of the citation."/>
       <min value="0"/>
       <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
     </element>
     <element id="Citation.summary.style">
       <path value="Citation.summary.style"/>
