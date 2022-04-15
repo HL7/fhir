@@ -249,7 +249,7 @@
         </extension>
         <strength value="example"/>
         <description value="High-level kind of a clinical document at a macro level."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/document-classcodes"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-LoincDocumentOntologyInternational"/>
       </binding>
       <mapping>
         <identity value="workflow"/>

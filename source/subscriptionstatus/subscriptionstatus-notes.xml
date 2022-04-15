@@ -109,9 +109,9 @@
 
     <a name="query-status"/>
     <h3>Query Status</h3>
-    <p>
+<!--    <p>
       Clients can ask a server at any time for the current status of a Subscription via the <a href="subscription-operation-status.html">$status operation</a>.
-    </p>
+    </p> -->
     <p>
       Since the <code>$status</code> operation is part of the FHIR REST API, the guidance below assumes that a user has been authenticated and is allowed access to all relevant resources.
     </p>
@@ -146,11 +146,12 @@
       <tr><td>SubscriptionStatus.notificationEvent.additionalContext</td><td>Special</td><td>Links contained in the <code>additionalContext</code> element contain resource IDs and MAY or MAY not exist.  Presence is determined based on the payload level relevant to the notification, if they are available:<ul><li><code>empty</code>: SHALL NOT be present</li><li><code>id-only</code>: SHOULD be present</li><li><code>full-resource</code>: SHOULD be present</li></ul></td></tr>
       <tr><td>SubscriptionStatus.topic</td><td>Recommended</td><td>See <a href="#content-phi">Content and PHI</a>, but note that guidance will vary since there is an active user session.</td></tr>
     </table>
+    <!--
 		<ul>
 			<li>
 				<a href="notification-query-event.html">Example query-event notification</a>
 			</li>
-		</ul>
+		</ul>-->
 
   <a name="errors"/>
   <h2>Notifications and Errors</h2>
@@ -190,7 +191,7 @@
   <figcaption>Diagram showing broken communication detection and recovery workflow</figcaption>
 </figure>
 <p>
-  In the above sequence, the subscriber is aware that the <code>heartbeatPeriod</code> has elapsed for a subscription without receiving any notifications.  The subscriber then asks the server for the <a href="subscription-operation-status.html">$status</a> of the subscription, and seeing an error, begins a recovery process.  As in the previous scenario, the recovery process itself will vary by subscriber, but should be a well-understood method for recovering in the event of errors.
+  In the above sequence, the subscriber is aware that the <code>heartbeatPeriod</code> has elapsed for a subscription without receiving any notifications. <!-- The subscriber then asks the server for the <a href="subscription-operation-status.html">$status</a> of the subscription, and seeing an error, begins a recovery process.  As in the previous scenario, the recovery process itself will vary by subscriber, but should be a well-understood method for recovering in the event of errors -->.
 </p>
 
 <a name="recovering-from-errors"/>

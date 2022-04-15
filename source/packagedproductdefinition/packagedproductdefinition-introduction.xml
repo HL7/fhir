@@ -1,5 +1,6 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-	<div>
+
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+  <div>
 		<a name="scope"></a>
 		<h3>Scope and Usage</h3>
 		<p style="border:2px; border-style:solid; border-color:#999999; padding: 1em; border-radius: 4px 4px 4px 4px;"><b><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></b></p>
@@ -14,9 +15,9 @@
 			is need in a product, use as a contained resource to MPD may be appropriate. 
 			See <a href="medicinalproductdefinition.html#contained">MedicinalProductDefinition</a> for an example.
 		</p>
-
 		<h3>Consistent representation of different package aspects</h3>
-		
+		<a name="consistent"></a>
+		<h2>Consistent representation of different package aspects</h2>
 		<p>The PackagedProductDefinition resource covers two main areas - package types that exist for a product (linked via productFor), and the packaging within those packages.</p> 
 		
 		<p>These can be thought of as the "package type" and the "packaging" respectively.
@@ -38,7 +39,7 @@
 		whether or not there are any package type properties documented. 
 		A diagram of this is shown on the Medication Definition <a href="medication-definition-module.html#package-detail-consistency">module page</a>.
 		</p>
-		
+		<a name="bnr"></a>
 		<h3>Recursive relationships in this resource</h3>
 		<p>
 			This resource has two recursive relationships. 
@@ -68,5 +69,5 @@
 				consistent representation of different package information and recursive relationships are aspects of this 
 				resource that BR&amp;R workgroup are particularly seeking implementation feedback on. 
 				(Comments links are found at the bottom of each page.)</p> 
-	</div>
+</div>
 </div>

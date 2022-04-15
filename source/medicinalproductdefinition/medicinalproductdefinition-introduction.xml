@@ -52,7 +52,8 @@
 			These defining characteristics are some of the key features that marketing approvals and approved usage indications are based on. 
 			A change of any of these would usually mean a different product - a different MedicinalProductDefinition instance - and a different approval being needed.
 		</p>
-
+</div>
+<div>
 		<a name="authorisations"></a>
 		<h3>Authorisations</h3>
 		<p id="auth">
@@ -60,6 +61,8 @@
 				This is not directly carried on the product resource, but instead a <a href="regulatedauthorization.html">RegulatedAuthorization</a> resource is 
 				created which points back to this resource.
 		</p>
+</div>
+<div>
 
 		<a name="contained"></a>
 		<h3>Contained Resources</h3>
@@ -73,6 +76,6 @@
 			Similarly if the Ingredient resource is too much, but a link to a substance as component part of a product is needed, 
 			consider a contained Ingredient, that links straight to a SubstanceDefinition.</p>
 		<p>This <a href="medicinalproductdefinition-with-contained-package-and-ingredient.html">example</a> demonstrates both of these cases.</p>
+</div>
 		
-	</div>
 </div>

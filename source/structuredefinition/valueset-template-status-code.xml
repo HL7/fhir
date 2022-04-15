@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="template-status-code"/> 
+  <meta> 
+    <lastUpdated value="2019-11-01T09:29:23.356+11:00"/> 
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/> 
+  </meta> 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/> 
+  </extension> 
+  <url value="http://hl7.org/fhir/ValueSet/template-status-code"/> 
+  <identifier> 
+    <system value="urn:ietf:rfc:3986"/> 
+    <value value="urn:oid:2.16.840.1.113883.3.1937.98.11.8"/> 
+  </identifier> 
+  <version value="4.0.1"/> 
+  <name value="TemplateStatusCode"/> 
+  <title value="TemplateStatusCode"/> 
+  <status value="draft"/> 
+  <experimental value="false"/> 
+  <date value="2019-11-01T09:29:23+11:00"/> 
+  <publisher value="HL7 (FHIR Project)"/> 
+  <contact> 
+    <telecom> 
+      <system value="url"/> 
+      <value value="http://hl7.org/fhir"/> 
+    </telecom> 
+    <telecom> 
+      <system value="email"/> 
+      <value value="fhir@lists.hl7.org"/> 
+    </telecom> 
+  </contact> 
+  <description value="The status indicates the level of maturity of the design and may be used to manage the
+   use of the design."/> 
+  <compose> 
+    <include> 
+      <system value="urn:oid:2.16.840.1.113883.3.1937.98.5.8"/> 
+      <concept> 
+        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
+          <valueString value="Design is under development (nascent)"/> 
+        </extension> 
+        <code value="draft"/> 
+        <display value="Draft"/> 
+      </concept> 
+      <concept> 
+        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
+          <valueString value="Design is completed and is being reviewed"/> 
+        </extension> 
+        <code value="pending"/> 
+        <display value="Under pre-publication review"/> 
+      </concept> 
+      <concept> 
+        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
+          <valueString value="Design has been deemed fit for the intended purpose and is published by the governance
+           group"/> 
+        </extension> 
+        <code value="active"/> 
+        <display value="Active"/> 
+      </concept> 
+      <concept> 
+        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
+          <valueString value="Design is active, but is under review. The review may result in a change to the design.
+           The change may necessitate a new version to be created. This in turn may result in the
+           prior version of the template to be retired. Alternatively, the review may result in a
+           change to the design that does not require a new version to be created, or it may result
+           in no change to the design at all"/> 
+        </extension> 
+        <code value="review"/> 
+        <display value="In Review"/> 
+      </concept> 
+      <concept> 
+        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
+          <valueString value="A drafted design is determined to be erroneous or not fit for intended purpose and is
+           discontinued before ever being published in an active state"/> 
+        </extension> 
+        <code value="cancelled"/> 
+        <display value="Cancelled"/> 
+      </concept> 
+      <concept> 
+        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
+          <valueString value="A previously drafted design is determined to be erroneous or not fit for intended purpose
+           and is discontinued before ever being published for consideration in a pending state"/> 
+        </extension> 
+        <code value="rejected"/> 
+        <display value="Rejected"/> 
+      </concept> 
+      <concept> 
+        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
+          <valueString value="A previously active design is discontinued from use. It should no longer be used for future
+           designs, but for historical purposes may be used to process data previously recorded using
+           this design. A newer design might or might not exist. The design is published in the retired
+           state"/> 
+        </extension> 
+        <code value="retired"/> 
+        <display value="Retired"/> 
+      </concept> 
+      <concept> 
+        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
+          <valueString value="A design is determined to be erroneous or not fit for the intended purpose and should
+           no longer be used, even for historical purposes. No new designs can be developed for this
+           template. The associated template no longer needs to be published, but if published, is
+           shown in the terminated state"/> 
+        </extension> 
+        <code value="terminated"/> 
+        <display value="Terminated"/> 
+      </concept> 
+    </include> 
+  </compose> 
+</ValueSet> 

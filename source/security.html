@@ -292,7 +292,7 @@ They include the following:
 <li>Several resources, including Bundle, Composition, Group and List, are designed to contain other resources. A security implementation should consider whether access to an individual resource, such as a Bundle, should permit access to all resources contained within the resource.</li>
 <li>FHIR defines several operations that may be supported by a server. Security implementations must evaluate whether a client can invoke these operations and what information should be returned from them. Fetch Encounter Record, Evaluate Measure, Observation Statistics, Find Patient Matches using MPI-based Logic, and Fetch Patient Record specifically provide the ability to disclose patient information.</li>
 <li>Batch and transaction processing provide ways for clients to create and update information in bulk. Security implementations should consider whether a client can initiate one of these interactions and make authorization decisions on each action in the batch/transaction.</li>
-<li>Security implementations must be aware of the <a href="security-labels.html#break-the-glass">Break the Glass protocol</a> (e.g. break the glass) (<a href="auditevent-example-breakglass-start.html">example</a>). </li>
+<li>Security implementations must be aware of the <a href="security-labels.html#break-the-glass">Break the Glass protocol</a> (e.g. break the glass) <!--(<a href="auditevent-example-breakglass-start.html">example</a>)-->. </li>
 </ul>
 
 <a name="AuthZmethods"></a>

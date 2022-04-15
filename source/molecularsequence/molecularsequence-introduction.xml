@@ -1,12 +1,14 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div>
+<a name="scope"> </a>
+    
+<h2>Scope and Usage</h2>
 <blockquote class="stu-note">
   <p>
     The <a href="http://www.hl7.org/Special/committees/clingenomics/index.cfm">Clinical Genomics committee</a> has identified overlaps and redundancies between content in the MolecularSequence resource and content in Observation profiles in the evolving Implementation Guide for Clinical Genomics Reporting found <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">here</a>. The committee is considering options for modifying the resource and anticipates potential changes being brought forward in an upcoming ballot.
   </p>
 </blockquote>
-<div>
-    
-<h2>Scope and Usage</h2>
+
 <p>
     The MolecularSequence resource is designed to describe an atomic sequence which contains the alignment sequencing test result and multiple variations. Atomic sequences can be connected by link element and they will lead to sequence graph. By this method, a sequence can be reported. Complete genetic sequence information, of which specific genetic variations are a part, is reported by reference to the GA4GH repository.  Thus, the FHIR MolecularSequence resource avoids large genomic payloads in a manner analogous to how the FHIR ImagingStudy resource references large images maintained in other systems.
     For use cases, details on how this resource interact with other Clinical Genomics resources or profiles, please refer to implementation guidance document <a href="genomics.html">here</a>.
@@ -36,6 +38,7 @@
 </div>
 
 <div>
+<a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 
 <p>
