@@ -485,14 +485,17 @@
         <map value="Therapeutic Indication.Intended Effect"/>
       </mapping>
     </element>
-    <element id="ClinicalUseDefinition.indication.duration">
-      <path value="ClinicalUseDefinition.indication.duration"/>
+    <element id="ClinicalUseDefinition.indication.duration[x]">
+      <path value="ClinicalUseDefinition.indication.duration[x]"/>
       <short value="Timing or duration information"/>
-      <definition value="Timing or duration information."/>
+      <definition value="Timing or duration information, that may be associated with use with the indicated condition e.g. Adult patients suffering from myocardial infarction (from a few days until less than 35 days), ischaemic stroke (from 7 days until less than 6 months)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Quantity"/>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="string"/>
       </type>
       <isSummary value="true"/>
       <mapping>
