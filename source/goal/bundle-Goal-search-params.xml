@@ -99,6 +99,7 @@
         <expression value="Goal.subject.where(resolve() is Patient)"/>
         <xpath value="f:Goal/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

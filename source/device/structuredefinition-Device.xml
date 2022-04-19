@@ -686,7 +686,7 @@
     <element id="Device.specialization">
       <path value="Device.specialization"/>
       <short value="The standard(s) the device supports"/>
-      <definition value="The standards to which the device adheres in support of its capabilities, e.g., communication, performance, or measurement standards."/>
+      <definition value="The standards to which the device adheres and may be certified to in support of its capabilities, e.g., communication, performance, process, or measurement standards."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -738,7 +738,7 @@
       </extension>
       <path value="Device.property"/>
       <short value="The actual configuration settings of a device as it actually operates, e.g., regulation status, time properties"/>
-      <definition value="The actual configuration settings of a device as it actually operates, e.g., regulation status, time properties."/>
+      <definition value="Characteristics or features of the device that are otherwise not captured in available attributes, e.g., actual configuration settings, time or timing attributes, resolution, accuracy, and physical attributes.  The focus is on properties of the device actually in use while DeviceDefinition focuses on properties that are available to be used."/>
       <min value="0"/>
       <max value="*"/>
       <type>
