@@ -54,9 +54,10 @@
 		<timeDateTime value="2015-08-18T08:10:00Z"/>
 	</processing>
 	<container>
-		<type>
-			<text value="Non-sterile specimen container"/>
-		</type>
+	<device>
+	      <reference value="Specimen/specimen-device-container-example-polycup"/>
+	   </device>
+		
 		<capacity>
 			<value value="50"/>
 			<unit value="mls"/>

@@ -95,15 +95,9 @@
       (http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/)
     -->
     <container>
-	<identifier>
-		<!-- this is a serial number off the tube - there's no context such as a system -->
-		<value value="48736-15394-75465"/>
-	</identifier>
-	<description value="Green Gel tube"/>
-	<type>
-		<!-- again, this might easily be used to cover additives and capacity as well -->
-		<text value="Vacutainer"/>
-	</type>
+	<device>
+	      <reference value="Specimen/specimen-device-container-example-green-gel-vacutainer"/>
+	</device>
 	<capacity>
 		<value value="10"/>
 		<unit value="mL"/>
