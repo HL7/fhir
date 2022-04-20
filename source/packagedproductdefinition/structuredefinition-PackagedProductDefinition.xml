@@ -474,13 +474,16 @@
       </mapping>
     </element>
     <element id="PackagedProductDefinition.package.shelfLifeStorage">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="750,150"/>
+      </extension>
       <path value="PackagedProductDefinition.package.shelfLifeStorage"/>
       <short value="Shelf Life and storage information"/>
       <definition value="Shelf Life and storage information."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="ProductShelfLife"/>
+        <code value="BackboneElement"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -488,6 +491,44 @@
         <map value="Package Item (Container).Shelf Life / Storage"/>
       </mapping>
     </element>
+
+    <element id="PackagedProductDefinition.package.shelfLifeStorage.type">
+      <path value="PackagedProductDefinition.package.shelfLifeStorage.type"/>
+      <short value="This describes the shelf life, taking into account various scenarios such as shelf life of the packaged Medicinal Product itself, shelf life after transformation where necessary and shelf life after the first opening of a bottle, etc. The shelf life type shall be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified"/>
+      <definition value="This describes the shelf life, taking into account various scenarios such as shelf life of the packaged Medicinal Product itself, shelf life after transformation where necessary and shelf life after the first opening of a bottle, etc. The shelf life type shall be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="PackagedProductDefinition.package.shelfLifeStorage.period[x]">
+      <path value="PackagedProductDefinition.package.shelfLifeStorage.period[x]"/>
+      <short value="The shelf life time period can be specified using a numerical value for the period of time and its unit of time measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used"/>
+      <definition value="The shelf life time period can be specified using a numerical value for the period of time and its unit of time measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Duration"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="PackagedProductDefinition.package.shelfLifeStorage.specialPrecautionsForStorage">
+      <path value="PackagedProductDefinition.package.shelfLifeStorage.specialPrecautionsForStorage"/>
+      <short value="Special precautions for storage, if any, can be specified using an appropriate controlled vocabulary. The controlled term and the controlled term identifier shall be specified"/>
+      <definition value="Special precautions for storage, if any, can be specified using an appropriate controlled vocabulary. The controlled term and the controlled term identifier shall be specified."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    
     <element id="PackagedProductDefinition.package.manufacturer">
       <path value="PackagedProductDefinition.package.manufacturer"/>
       <short value="Manufacturer of this package Item (multiple means these are all possible manufacturers)"/>
