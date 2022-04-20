@@ -3735,7 +3735,7 @@
     <Cell ss:Index="19"><Data ss:Type="String">unknown</Data></Cell>
    </Row>
    <Row>
-    <Cell ss:StyleID="s42"><Data ss:Type="String">BiologicallyDerivedProduct.status</Data></Cell>
+    <Cell ss:StyleID="s42"><Data ss:Type="String">BiologicallyDerivedProduct.productStatus</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s38"/>
     <Cell ss:StyleID="s38"/>
     <Cell ss:StyleID="s38"/>

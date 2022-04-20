@@ -29,7 +29,9 @@
     <reference value="Organization/Example" />
   </processingFacility>
   <division value="A00000" />
-  <status value="available" />
+  <productStatus>
+       <code  value="available" />
+  </productStatus>
   <expirationDate value="2028-08-02T23:59:00-05:00"/>
   <collection>
     <source>

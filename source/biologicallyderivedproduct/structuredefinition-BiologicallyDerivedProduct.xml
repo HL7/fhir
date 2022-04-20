@@ -237,20 +237,20 @@
          <map value="Division Identifier. Required for ISBT 128 labeled products"/>
      </mapping>
     </element>
-    <element id="BiologicallyDerivedProduct.status">
-      <path value="BiologicallyDerivedProduct.status"/>
+    <element id="BiologicallyDerivedProduct.productStatus">
+      <path value="BiologicallyDerivedProduct.productStatus"/>
       <short value="available | unavailable"/>
       <definition value="Whether the product is currently available."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="Coding"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BiologicallyDerivedProductStatus"/>
         </extension>
-        <strength value="required"/>
+        <strength value="example"/>
         <description value="Biologically Derived Product Status."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/biological-product-status"/>
       </binding>
