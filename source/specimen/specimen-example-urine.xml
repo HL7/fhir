@@ -57,11 +57,6 @@
 	<device>
 	      <reference value="Specimen/specimen-device-container-example-polycup"/>
 	   </device>
-		
-		<capacity>
-			<value value="50"/>
-			<unit value="mls"/>
-		</capacity>
 		<specimenQuantity>
 			<value value="10"/>
 			<unit value="mls"/>

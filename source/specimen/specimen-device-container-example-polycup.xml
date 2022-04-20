@@ -19,4 +19,13 @@
 			</coding>
 		</type>
   </property>
+  <property>
+    <type>
+			<coding>
+				<system value="http://acme.com/containers/capacities"/>
+				<code value="100mL"/>
+				<display value="100 mL"/>
+			</coding>
+		</type>
+  </property>
 </Device>
