@@ -728,25 +728,6 @@
         <map value=".participation[typeCode=LOC].role"/>
       </mapping>
     </element>
-    <element id="Specimen.container.capacity">
-      <path value="Specimen.container.capacity"/>
-      <short value="Container volume or size"/>
-      <definition value="The capacity (volume or other measure) the container may contain."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
-      </type>
-      <mapping>
-        <identity value="v2"/>
-        <map value="one of: SAC 16, SAC17 and SAC 20, or SAC 21 and SAC 20"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".quantity"/>
-      </mapping>
-    </element>
     <element id="Specimen.container.specimenQuantity">
       <path value="Specimen.container.specimenQuantity"/>
       <short value="Quantity of specimen within container"/>
@@ -764,39 +745,6 @@
       <mapping>
         <identity value="rim"/>
         <map value=".playedRole[classCode=CONT].quantity"/>
-      </mapping>
-    </element>
-    <element id="Specimen.container.additive[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="#3634."/>
-      </extension>
-      <path value="Specimen.container.additive[x]"/>
-      <short value="Additive associated with container"/>
-      <definition value="Introduced substance to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SpecimenContainerAdditive"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Substance added to specimen container."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/v2-0371"/>
-      </binding>
-      <mapping>
-        <identity value="v2"/>
-        <map value="SAC-27"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".scopesRole[classCode=ADTV].player"/>
       </mapping>
     </element>
     <element id="Specimen.condition">

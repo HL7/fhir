@@ -19,4 +19,22 @@
 			</coding>
 		</type>
   </property>
+  <property>
+    <type>
+			<coding>
+				<system value="http://acme.com/containers/capacities"/>
+				<code value="4.5mL"/>
+				<display value="4.5 mL"/>
+			</coding>
+		</type>
+  </property>
+  <property>
+    <type>
+			<coding>
+				<system value="http://acme.com/containers/additive"/>
+				<code value="EDTA"/>
+				<display value="EDTA"/>
+			</coding>
+		</type>
+  </property>
 </Device>

@@ -25,8 +25,8 @@
 		<collectedDateTime value="2015-08-16T06:40:17Z"/>
 	</collection>
 	<container>
-	<device>
+	  <device>
 	      <reference value="Specimen/specimen-device-container-example-sst-vacutainer"/>
-	   </device>
+	  </device>
 	</container>
 </Specimen>
