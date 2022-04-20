@@ -103,7 +103,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BiologicallyDerivedProductCategory"/>
         </extension>
-        <strength value="required"/>
+        <strength value="example"/>
         <description value="Biologically Derived Product Category."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/product-category"/>
       </binding>
