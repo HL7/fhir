@@ -1,0 +1,1105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n795"
+   version="1.1"
+   width="1473.6"
+   height="639.0"
+   sodipodi:docname="clinicalusedefinition.svg"
+   inkscape:version="1.1.2 (b8e25be8, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview364"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.74579263"
+     inkscape:cx="736.79999"
+     inkscape:cy="319.79399"
+     inkscape:window-width="1312"
+     inkscape:window-height="1027"
+     inkscape:window-x="2882"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n795" />
+  <defs
+     id="defs18">
+    <filter
+       id="shadow1"
+       x="-0.026767677"
+       y="-0.0828125"
+       width="1.0686869"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset9" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix11" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur13" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend15" />
+    </filter>
+  </defs>
+  <g
+     id="n796"
+     transform="translate(10.961736,-25.910909)">
+    <rect
+       id="ClinicalUseDefinition"
+       x="0"
+       y="200"
+       rx="4"
+       ry="4"
+       width="300.95999"
+       height="148"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n797"
+       x1="0"
+       y1="228"
+       x2="300.95999"
+       y2="228"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n798"
+       x="150.48"
+       y="220"
+       fill="#000000"
+       class="diagram-class-title  diagram-class-resource">ClinicalUseDefinition<tspan
+   class="diagram-class-title-link"
+   id="tspan23">(<a
+   id="n799"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n800"
+       x="6"
+       y="242"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n801"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.identifier"><title
+   id="title26">Business identifier for this issue</title>identifier</a> : <a
+   id="n802"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n806"
+       x="6"
+       y="256"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n807"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.type"><title
+   id="title31">indication | contraindication | interaction | undesirable-effect | warning</title>type</a> : <a
+   id="n808"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n809"
+   xlink:href="valueset-clinical-use-definition-type.html"><title
+   id="n810">null (Strength=Required)</title>ClinicalUseDefinitionType</a>! »</text>
+    <text
+       id="n816"
+       x="6"
+       y="270"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n817"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.category"><title
+   id="title38">A categorisation of the issue, primarily for dividing warnings into subject heading areas such as &quot;Pregnancy and Lactation&quot;, &quot;Overdose&quot;, &quot;Effects on Ability to Drive and Use Machines&quot;</title>category</a> : <a
+   id="n818"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n819"
+   xlink:href="valueset-clinical-use-definition-category.html"><title
+   id="title42">null (Strength=Preferred)</title>ClinicalUseDefinitionCategory</a>? »</text>
+    <text
+       id="n824"
+       x="6"
+       y="284"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n825"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.subject"><title
+   id="title46">The medication or procedure for which this is an indication</title>subject</a> : <a
+   id="n826"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n827"
+   xlink:href="medicinalproductdefinition.html#MedicinalProductDefinition">MedicinalProductDefinition</a>|<a
+   id="n828"
+   xlink:href="medication.html#Medication">Medication</a>|</text>
+    <text
+       id="n829"
+       x="26"
+       y="298"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n830"
+   xlink:href="activitydefinition.html#ActivityDefinition">ActivityDefinition</a>|<a
+   id="n831"
+   xlink:href="plandefinition.html#PlanDefinition">PlanDefinition</a>|<a
+   id="n832"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n833"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a>|</text>
+    <text
+       id="n834"
+       x="26"
+       y="312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n835"
+   xlink:href="substance.html#Substance">Substance</a> »</text>
+    <text
+       id="n848"
+       x="6"
+       y="326"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n849"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.status"><title
+   id="title60">Whether this is a current issue or one that has been retired etc</title>status</a> : <a
+   id="n850"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n851"
+   xlink:href="valueset-publication-status.html"><title
+   id="title64">null (Strength=Preferred)</title>PublicationStatus</a>? »</text>
+    <text
+       id="n856"
+       x="6"
+       y="340"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n857"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.population"><title
+   id="title68">The population group to which this applies</title>population</a> : <a
+   id="n858"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n859"
+   xlink:href="group.html#Group">Group</a> »</text>
+  </g>
+  <g
+     id="n864"
+     transform="translate(-50,134)">
+    <rect
+       id="ClinicalUseDefinition.contraindication"
+       x="470"
+       y="0"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="134"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n865"
+       x1="470"
+       y1="28"
+       x2="760.40002"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n866"
+       x="615.20001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Contraindication</text>
+    <text
+       id="n867"
+       x="476"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n868"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.contraindication.diseaseSymptomProcedure"><title
+   id="title78">The situation that is being documented as contraindicating against this item</title>diseaseSymptomProcedure</a> : <a
+   id="n869"
+   xlink:href="element.html#Element">Element</a> [0..1] « <a
+   id="n870"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a>; <a
+   id="n871"
+   xlink:href="valueset-disease-symptom-procedure.html"><title
+     id="n872">null (Strength=Example)</title></a></text>
+    <text
+       id="n873"
+       x="496"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n874"
+   xlink:href="valueset-disease-symptom-procedure.html">DiseaseSymptomProcedure</a>?? »</text>
+    <text
+       id="n883"
+       x="476"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n884"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.contraindication.diseaseStatus"><title
+   id="title88">The status of the disease or symptom for the contraindication, for example &quot;chronic&quot; or &quot;metastatic&quot;</title>diseaseStatus</a> : <a
+   id="n885"
+   xlink:href="element.html#Element">Element</a> [0..1] « <a
+   id="n886"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a>; <a
+   id="n887"
+   xlink:href="valueset-disease-status.html"><title
+     id="n888">null (Strength=Example)</title></a></text>
+    <text
+       id="n889"
+       x="496"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n890"
+   xlink:href="valueset-disease-status.html">DiseaseStatus</a>?? »</text>
+    <text
+       id="n899"
+       x="476"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n900"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.contraindication.comorbidity"><title
+   id="title98">A comorbidity (concurrent condition) or coinfection</title>comorbidity</a> : <a
+   id="n901"
+   xlink:href="element.html#Element">Element</a> [0..*] « <a
+   id="n902"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a>; <a
+   id="n903"
+   xlink:href="valueset-disease-symptom-procedure.html"><title
+     id="n904">null (Strength=Example)</title></a></text>
+    <text
+       id="n905"
+       x="496"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n906"
+   xlink:href="valueset-disease-symptom-procedure.html">DiseaseSymptomProcedure</a>?? »</text>
+    <text
+       id="n915"
+       x="476"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n916"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.contraindication.indication"><title
+   id="title108">The indication which this is a contraidication for</title>indication</a> : <a
+   id="n917"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n918"
+   xlink:href="clinicalusedefinition.html#ClinicalUseDefinition">ClinicalUseDefinition</a> »</text>
+  </g>
+  <g
+     id="n923"
+     transform="translate(-27,181)">
+    <rect
+       id="ClinicalUseDefinition.contraindication.otherTherapy"
+       x="870"
+       y="70"
+       rx="4"
+       ry="4"
+       width="303.60001"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n924"
+       x1="870"
+       y1="98"
+       x2="1173.6"
+       y2="98"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n925"
+       x="1021.8"
+       y="90"
+       fill="#000000"
+       class="diagram-class-title">OtherTherapy</text>
+    <text
+       id="n926"
+       x="876"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n927"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.contraindication.otherTherapy.relationshipType"><title
+   id="title118">The type of relationship between the medicinal product indication or contraindication and another therapy</title>relationshipType</a> : <a
+   id="n928"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n929"
+   xlink:href="valueset-therapy-relationship-type.html"><title
+   id="title122">null (Strength=Preferred)</title>TherapyRelationshipType</a>? »</text>
+    <text
+       id="n934"
+       x="876"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n935"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.contraindication.otherTherapy.therapy"><title
+   id="title126">Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication</title>therapy</a> : <a
+   id="n936"
+   xlink:href="element.html#Element">Element</a> [1..1] « <a
+   id="n937"
+   xlink:href="medicinalproductdefinition.html#MedicinalProductDefinition">MedicinalProductDefinition</a>|<a
+   id="n938"
+   xlink:href="medication.html#Medication">Medication</a>|</text>
+    <text
+       id="n939"
+       x="896"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n940"
+   xlink:href="substance.html#Substance">Substance</a>|<a
+   id="n941"
+   xlink:href="substancedefinition.html#SubstanceDefinition">SubstanceDefinition</a>|<a
+   id="n942"
+   xlink:href="activitydefinition.html#ActivityDefinition">ActivityDefinition</a>; <a
+   id="n943"
+   xlink:href="valueset-therapy.html"><title
+   id="n944">null (Strength=Example)</title>Therapy</a>?? »</text>
+  </g>
+  <g
+     id="n956"
+     transform="translate(-32.180527,168.02328)">
+    <rect
+       id="ClinicalUseDefinition.indication"
+       x="470"
+       y="140"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="176"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n957"
+       x1="470"
+       y1="168"
+       x2="760.40002"
+       y2="168"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n958"
+       x="615.20001"
+       y="160"
+       fill="#000000"
+       class="diagram-class-title">Indication</text>
+    <text
+       id="n959"
+       x="476"
+       y="182"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n960"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.indication.diseaseSymptomProcedure"><title
+   id="title143">The situation that is being documented as an indicaton for this item</title>diseaseSymptomProcedure</a> : <a
+   id="n961"
+   xlink:href="element.html#Element">Element</a> [0..1] « <a
+   id="n962"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a>; <a
+   id="n963"
+   xlink:href="valueset-disease-symptom-procedure.html"><title
+     id="n964">null (Strength=Example)</title></a></text>
+    <text
+       id="n965"
+       x="496"
+       y="196"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n966"
+   xlink:href="valueset-disease-symptom-procedure.html">DiseaseSymptomProcedure</a>?? »</text>
+    <text
+       id="n975"
+       x="476"
+       y="210"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n976"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.indication.diseaseStatus"><title
+   id="title153">The status of the disease or symptom for the indication, for example &quot;chronic&quot; or &quot;metastatic&quot;</title>diseaseStatus</a> : <a
+   id="n977"
+   xlink:href="element.html#Element">Element</a> [0..1] « <a
+   id="n978"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a>; <a
+   id="n979"
+   xlink:href="valueset-disease-status.html"><title
+     id="n980">null (Strength=Example)</title></a></text>
+    <text
+       id="n981"
+       x="496"
+       y="224"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n982"
+   xlink:href="valueset-disease-status.html">DiseaseStatus</a>?? »</text>
+    <text
+       id="n991"
+       x="476"
+       y="238"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n992"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.indication.comorbidity"><title
+   id="title163">A comorbidity (concurrent condition) or coinfection as part of the indication</title>comorbidity</a> : <a
+   id="n993"
+   xlink:href="element.html#Element">Element</a> [0..*] « <a
+   id="n994"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a>; <a
+   id="n995"
+   xlink:href="valueset-disease-symptom-procedure.html"><title
+     id="n996">null (Strength=Example)</title></a></text>
+    <text
+       id="n997"
+       x="496"
+       y="252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n998"
+   xlink:href="valueset-disease-symptom-procedure.html">DiseaseSymptomProcedure</a>?? »</text>
+    <text
+       id="n1007"
+       x="476"
+       y="266"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1008"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.indication.intendedEffect"><title
+   id="title173">The intended effect, aim or strategy to be achieved</title>intendedEffect</a> : <a
+   id="n1009"
+   xlink:href="element.html#Element">Element</a> [0..1] « <a
+   id="n1010"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a>; <a
+   id="n1011"
+   xlink:href="valueset-product-intended-use.html"><title
+     id="title178">null (Strength=Preferred)</title></a></text>
+    <text
+       id="n1012"
+       x="496"
+       y="280"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1013"
+   xlink:href="valueset-product-intended-use.html">ProductIntendedUse</a>? »</text>
+    <text
+       id="n1021"
+       x="476"
+       y="294"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1022"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.indication.duration_x_"><title
+   id="title184">Timing or duration information, that may be associated with use with the indicated condition e.g. Adult patients suffering from myocardial infarction (from a few days until less than 35 days), ischaemic stroke (from 7 days until less than 6 months)</title>duration[x]</a> : <a
+   id="n1023"
+   xlink:href="element.html#Element">Element</a> [0..1] « <a
+   id="n1024"
+   xlink:href="datatypes.html#Range">Range</a>|<a
+   id="n1025"
+   xlink:href="datatypes.html#string">string</a> »</text>
+    <text
+       id="n1031"
+       x="476"
+       y="308"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1032"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.indication.undesirableEffect"><title
+   id="title191">An unwanted side effect or negative outcome that may happen if you use the drug (or other subject of this resource) for this indication</title>undesirableEffect</a> : <a
+   id="n1033"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1034"
+   xlink:href="clinicalusedefinition.html#ClinicalUseDefinition">ClinicalUseDefinition</a> »</text>
+  </g>
+  <g
+     id="n1039"
+     transform="translate(-443.8231,-297.66988)">
+    <rect
+       id="ClinicalUseDefinition.interaction"
+       x="470"
+       y="323"
+       rx="4"
+       ry="4"
+       width="299.20001"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1040"
+       x1="470"
+       y1="351"
+       x2="769.20001"
+       y2="351"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1041"
+       x="619.59998"
+       y="343"
+       fill="#000000"
+       class="diagram-class-title">Interaction</text>
+    <text
+       id="n1042"
+       x="476"
+       y="365"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1043"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.interaction.type"><title
+   id="title201">The type of the interaction e.g. drug-drug interaction, drug-food interaction, drug-lab test interaction</title>type</a> : <a
+   id="n1044"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1045"
+   xlink:href="valueset-interaction-type.html"><title
+   id="n1046">null (Strength=Example)</title>InteractionType</a>?? »</text>
+    <text
+       id="n1052"
+       x="476"
+       y="379"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1053"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.interaction.effect"><title
+   id="title208">The effect of the interaction, for example &quot;reduced gastric absorption of primary medication&quot;</title>effect</a> : <a
+   id="n1054"
+   xlink:href="element.html#Element">Element</a> [0..1] « <a
+   id="n1055"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a>; <a
+   id="n1056"
+   xlink:href="valueset-interaction-effect.html"><title
+   id="n1057">null (Strength=Example)</title>InteractionEffect</a>?? »</text>
+    <text
+       id="n1064"
+       x="476"
+       y="393"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1065"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.interaction.incidence"><title
+   id="title216">The incidence of the interaction, e.g. theoretical, observed</title>incidence</a> : <a
+   id="n1066"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1067"
+   xlink:href="valueset-interaction-incidence.html"><title
+   id="n1068">null (Strength=Example)</title>InteractionIncidence</a>?? »</text>
+    <text
+       id="n1074"
+       x="476"
+       y="407"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1075"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.interaction.management"><title
+   id="title223">Actions for managing the interaction</title>management</a> : <a
+   id="n1076"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1077"
+   xlink:href="valueset-interaction-management.html"><title
+   id="n1078">null (Strength=Example)</title>InteractionManagement</a>?? »</text>
+  </g>
+  <g
+     id="n1084"
+     transform="translate(-436.38675,-250.70187)">
+    <rect
+       id="ClinicalUseDefinition.interaction.interactant"
+       x="870"
+       y="266"
+       rx="4"
+       ry="4"
+       width="294.79999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1085"
+       x1="870"
+       y1="294"
+       x2="1164.8"
+       y2="294"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1086"
+       x="1017.4"
+       y="286"
+       fill="#000000"
+       class="diagram-class-title">Interactant</text>
+    <text
+       id="n1087"
+       x="876"
+       y="308"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1088"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.interaction.interactant.item_x_"><title
+   id="title234">The specific medication, food or laboratory test that interacts</title>item[x]</a> : <a
+   id="n1089"
+   xlink:href="element.html#Element">Element</a> [1..1] « <a
+   id="n1090"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n1091"
+   xlink:href="medicinalproductdefinition.html#MedicinalProductDefinition">MedicinalProductDefinition</a>|</text>
+    <text
+       id="n1092"
+       x="896"
+       y="322"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1093"
+   xlink:href="medication.html#Medication">Medication</a>|<a
+   id="n1094"
+   xlink:href="substance.html#Substance">Substance</a>|<a
+   id="n1095"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a>)|<a
+   id="n1096"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>; <a
+   id="n1097"
+   xlink:href="valueset-interactant.html"><title
+     id="n1098">null (Strength=Example)</title></a></text>
+    <text
+       id="n1099"
+       x="896"
+       y="336"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1100"
+   xlink:href="valueset-interactant.html">Interactant</a>?? »</text>
+  </g>
+  <g
+     id="n1115"
+     transform="translate(-434.43712,-32.180527)">
+    <rect
+       id="ClinicalUseDefinition.undesirableEffect"
+       x="470"
+       y="425"
+       rx="4"
+       ry="4"
+       width="286"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1116"
+       x1="470"
+       y1="453"
+       x2="756"
+       y2="453"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1117"
+       x="613"
+       y="445"
+       fill="#000000"
+       class="diagram-class-title">UndesirableEffect</text>
+    <text
+       id="n1118"
+       x="476"
+       y="467"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1119"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.undesirableEffect.symptomConditionEffect"><title
+   id="title254">The situation in which the undesirable effect may manifest</title>symptomConditionEffect</a> : <a
+   id="n1120"
+   xlink:href="element.html#Element">Element</a> [0..1] « <a
+   id="n1121"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a>; <a
+   id="n1122"
+   xlink:href="valueset-undesirable-effect-symptom.html"><title
+     id="n1123">null (Strength=Example)</title></a></text>
+    <text
+       id="n1124"
+       x="496"
+       y="481"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1125"
+   xlink:href="valueset-undesirable-effect-symptom.html">UndesirableEffectSymptom</a>?? »</text>
+    <text
+       id="n1134"
+       x="476"
+       y="495"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1135"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.undesirableEffect.classification"><title
+   id="title264">High level classification of the effect</title>classification</a> : <a
+   id="n1136"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1137"
+   xlink:href="valueset-undesirable-effect-classification.html"><title
+     id="n1138">null (Strength=Example)</title></a></text>
+    <text
+       id="n1139"
+       x="496"
+       y="509"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1140"
+   xlink:href="valueset-undesirable-effect-classification.html">UndesirableEffectClassificati...</a>?? »</text>
+    <text
+       id="n1148"
+       x="476"
+       y="523"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1149"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.undesirableEffect.frequencyOfOccurrence"><title
+   id="title273">How often the effect is seen</title>frequencyOfOccurrence</a> : <a
+   id="n1150"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1151"
+   xlink:href="valueset-undesirable-effect-frequency.html"><title
+     id="n1152">null (Strength=Example)</title></a></text>
+    <text
+       id="n1153"
+       x="496"
+       y="537"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1154"
+   xlink:href="valueset-undesirable-effect-frequency.html">UndesirablEffectFrequency</a>?? »</text>
+  </g>
+  <g
+     id="n1162"
+     transform="translate(-62.269319,-28.094998)">
+    <rect
+       id="ClinicalUseDefinition.warning"
+       x="470"
+       y="555"
+       rx="4"
+       ry="4"
+       width="198"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1163"
+       x1="470"
+       y1="583"
+       x2="668"
+       y2="583"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1164"
+       x="569"
+       y="575"
+       fill="#000000"
+       class="diagram-class-title">Warning</text>
+    <text
+       id="n1165"
+       x="476"
+       y="597"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1166"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.warning.description"><title
+   id="title286">A textual definition of this warning, with formatting</title>description</a> : <a
+   id="n1167"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1171"
+       x="476"
+       y="611"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1172"
+   xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.warning.code"><title
+   id="title291">A coded or unformatted textual definition of this warning</title>code</a> : <a
+   id="n1173"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1174"
+   xlink:href="valueset-warning-type.html"><title
+   id="n1175">null (Strength=Example)</title>WarningType</a>?? »</text>
+  </g>
+  <line
+     id="n1181"
+     x1="760.4000000000001"
+     y1="81.99852434825381"
+     x2="870.0"
+     y2="93.31972454500738"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1182"
+     points="760.4000000000001,81.99852434825381 766.4000000000001,85.99852434825381 772.4000000000001,81.99852434825381 766.4000000000001,77.99852434825381 760.4000000000001,81.99852434825381"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(5.897487178991166 760.4000000000001 81.99852434825381)" />
+  <rect
+     id="n1183"
+     x="789.0"
+     y="80.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1184"
+     x="815.0"
+     y="90.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1185"
+       xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.contraindication.otherTherapy"><title
+   id="title302">Information about the use of the medicinal product in relation to other therapies described as part of the contraindication</title>otherTherapy</a></text>
+  <text
+     id="n1186"
+     x="850.0"
+     y="89.31972454500738"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1187"
+     x1="300.96000000000004"
+     y1="206.9717679462902"
+     x2="470.0"
+     y2="131.67636426235154"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1188"
+     points="300.96000000000004,206.9717679462902 306.96000000000004,210.9717679462902 312.96000000000004,206.9717679462902 306.96000000000004,202.9717679462902 300.96000000000004,206.9717679462902"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-24.009601937486146 300.96000000000004 206.9717679462902)" />
+  <rect
+     id="n1189"
+     x="350.0"
+     y="162.0"
+     width="70.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1190"
+     x="385.0"
+     y="172.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1191"
+       xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.contraindication"><title
+   id="title310">Specifics for when this is a contraindication</title>contraindication</a></text>
+  <text
+     id="n1192"
+     x="450.0"
+     y="127.67636426235154"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1193"
+     x1="760.4000000000001"
+     y1="185.5041810132808"
+     x2="888.544537815126"
+     y2="148.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1194"
+     points="760.4000000000001,185.5041810132808 766.4000000000001,189.5041810132808 772.4000000000001,185.5041810132808 766.4000000000001,181.5041810132808 760.4000000000001,185.5041810132808"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-16.313219274751475 760.4000000000001 185.5041810132808)" />
+  <rect
+     id="n1195"
+     x="798.0"
+     y="159.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1196"
+     x="824.0"
+     y="169.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1197"
+       xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.indication.otherTherapy"><title
+   id="title318">Information about the use of the medicinal product in relation to other therapies described as part of the indication</title>otherTherapy</a></text>
+  <text
+     id="n1198"
+     x="888.544537815126"
+     y="162.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1199"
+     x1="300.96000000000004"
+     y1="259.10483732139784"
+     x2="470.0"
+     y2="242.37252539163367"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1200"
+     points="300.96000000000004,259.10483732139784 306.96000000000004,263.10483732139784 312.96000000000004,259.10483732139784 306.96000000000004,255.10483732139784 300.96000000000004,259.10483732139784"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-5.65297019619649 300.96000000000004 259.10483732139784)" />
+  <rect
+     id="n1201"
+     x="363.0"
+     y="243.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1202"
+     x="385.0"
+     y="253.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1203"
+       xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.indication"><title
+   id="title326">Specifics for when this is an indication</title>indication</a></text>
+  <text
+     id="n1204"
+     x="450.0"
+     y="238.37252539163367"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1205"
+     x1="769.2"
+     y1="344.9316239316239"
+     x2="870.0"
+     y2="328.71442936148816"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1206"
+     points="769.2,344.9316239316239 775.2,348.9316239316239 781.2,344.9316239316239 775.2,340.9316239316239 769.2,344.9316239316239"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-9.139703715709306 769.2 344.9316239316239)" />
+  <rect
+     id="n1207"
+     x="795.0"
+     y="329.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1208"
+     x="819.0"
+     y="339.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1209"
+       xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.interaction.interactant"><title
+   id="title334">The specific medication, food, substance or laboratory test that interacts</title>interactant</a></text>
+  <text
+     id="n1210"
+     x="850.0"
+     y="324.71442936148816"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1211"
+     x1="300.96000000000004"
+     y1="304.4732264665757"
+     x2="470.0"
+     y2="338.7049795361528"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1212"
+     points="300.96000000000004,304.4732264665757 306.96000000000004,308.4732264665757 312.96000000000004,304.4732264665757 306.96000000000004,300.4732264665757 300.96000000000004,304.4732264665757"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(11.447971698678298 300.96000000000004 304.4732264665757)" />
+  <rect
+     id="n1213"
+     x="361.0"
+     y="314.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1214"
+     x="385.0"
+     y="324.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1215"
+       xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.interaction"><title
+   id="title342">Specifics for when this is an interaction</title>interaction</a></text>
+  <text
+     id="n1216"
+     x="450.0"
+     y="334.7049795361528"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1217"
+     x1="300.96000000000004"
+     y1="342.6484476346969"
+     x2="481.4777251184834"
+     y2="425.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1218"
+     points="300.96000000000004,342.6484476346969 306.96000000000004,346.6484476346969 312.96000000000004,342.6484476346969 306.96000000000004,338.6484476346969 300.96000000000004,342.6484476346969"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(24.522305128131006 300.96000000000004 342.6484476346969)" />
+  <rect
+     id="n1219"
+     x="354.0"
+     y="376.0"
+     width="74.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1220"
+     x="391.0"
+     y="386.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1221"
+       xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.undesirableEffect"><title
+   id="title350">Describe the possible undesirable effects (negative outcomes) from the use of the medicinal product as treatment</title>undesirableEffect</a></text>
+  <text
+     id="n1222"
+     x="481.4777251184834"
+     y="421.0"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1223"
+     x1="209.20155"
+     y1="343.97745"
+     x2="485.98639"
+     y2="550.97742"
+     style="stroke:#000080;stroke-width:1" />
+  <polygon
+     id="n1224"
+     points="249.42722044728438,348.0 255.42722044728438,352.0 261.4272204472844,348.0 255.42722044728438,344.0 249.42722044728438,348.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(36.79183924393111 249.42722044728438 348.0)" />
+  <rect
+     id="n1225"
+     x="372.0"
+     y="444.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1226"
+     x="387.0"
+     y="454.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1227"
+       xlink:href="clinicalusedefinition-definitions.html#ClinicalUseDefinition.warning"><title
+   id="title358">A critical piece of information about environmental, health or physical risks or hazards that serve as caution to the user. For example 'Do not operate heavy machinery', 'May cause drowsiness', or 'Get medical advice/attention if you feel unwell'</title>warning</a></text>
+  <text
+     id="n1228"
+     x="526.2120127795528"
+     y="551.0"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+</svg>

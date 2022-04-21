@@ -8,11 +8,11 @@ height=148
 
 [directions]
 Element=0;0
-ContactDetail=-150;-50
-Contributor=-30;-50
-DataRequirement=70;-50
+ContactDetail=-150;-40
+Contributor=-30;-40
+DataRequirement=70;-40
 RelatedArtifact=-150;0
-UsageContext=100;0
-ParameterDefinition=-150;50
-TriggerDefinition=60;50
-Expression=-10;50
+TriggerDefinition=80;0
+ParameterDefinition=-150;40
+UsageContext=50;80
+Expression=-50;80

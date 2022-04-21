@@ -1,0 +1,1109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n829"
+   version="1.1"
+   width="1260.4"
+   height="444.0"
+   sodipodi:docname="medicinalproductdefinition.svg"
+   inkscape:version="1.1.2 (b8e25be8, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview386"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.8719454"
+     inkscape:cx="630.20001"
+     inkscape:cy="221.91757"
+     inkscape:window-width="1312"
+     inkscape:window-height="1081"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n829" />
+  <defs
+     id="defs18">
+    <filter
+       id="shadow1"
+       x="-0.02458256"
+       y="-0.0828125"
+       width="1.0630798"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset9" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix11" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur13" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend15" />
+    </filter>
+  </defs>
+  <g
+     id="n830"
+     transform="translate(33.608704)">
+    <rect
+       id="MedicinalProductDefinition"
+       x="310"
+       y="20"
+       rx="4"
+       ry="4"
+       width="340.56"
+       height="414"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n831"
+       x1="310"
+       y1="48"
+       x2="650.56"
+       y2="48"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n832"
+       x="480.28"
+       y="40"
+       fill="#000000"
+       class="diagram-class-title  diagram-class-resource">MedicinalProductDefinition<tspan
+   class="diagram-class-title-link"
+   id="tspan23">(<a
+   id="n833"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n834"
+       x="316"
+       y="62"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n835"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.identifier"><title
+   id="title26">Business identifier for this product. Could be an MPID. When in development or being regulated, products are typically referenced by official identifiers, assigned by a manufacturer or regulator, and unique to a product (which, when compared to a product instance being prescribed, is actually a product type). See also MedicinalProductDefinition.code</title>identifier</a> : <a
+   id="n836"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n840"
+       x="316"
+       y="76"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n841"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.type"><title
+   id="title31">Regulatory type, e.g. Investigational or Authorized</title>type</a> : <a
+   id="n842"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n843"
+   xlink:href="valueset-medicinal-product-type.html"><title
+   id="n844">null (Strength=Example)</title>MedicinalProductType</a>?? »</text>
+    <text
+       id="n850"
+       x="316"
+       y="90"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n851"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.domain"><title
+   id="title38">If this medicine applies to human or veterinary uses</title>domain</a> : <a
+   id="n852"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n853"
+   xlink:href="valueset-medicinal-product-domain.html"><title
+   id="n854">null (Strength=Example)</title>MedicinalProductDomain</a>?? »</text>
+    <text
+       id="n860"
+       x="316"
+       y="104"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n861"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.version"><title
+   id="title45">A business identifier relating to a specific version of the product, this is commonly used to support revisions to an existing product</title>version</a> : <a
+   id="n862"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n866"
+       x="316"
+       y="118"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n867"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.status"><title
+   id="title50">The status within the lifecycle of this product record. A high-level status, this is not intended to duplicate details carried elsewhere such as legal status, or authorization status (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n868"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n869"
+   xlink:href="valueset-publication-status.html"><title
+   id="title54">null (Strength=Preferred)</title>PublicationStatus</a>? »</text>
+    <text
+       id="n874"
+       x="316"
+       y="132"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n875"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.statusDate"><title
+   id="title58">The date at which the given status became applicable</title>statusDate</a> : <a
+   id="n876"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n880"
+       x="316"
+       y="146"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n881"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.description"><title
+   id="title63">General description of this product</title>description</a> : <a
+   id="n882"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n886"
+       x="316"
+       y="160"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n887"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.combinedPharmaceuticalDoseForm"><title
+   id="title68">The dose form for a single part product, or combined form of a multiple part product. This is one concept that describes all the components. It does not represent the form with components physically mixed, if that might be necessary, for which see (AdministrableProductDefinition.administrableDoseForm)</title>combinedPharmaceuticalDoseForm</a> : <a
+   id="n888"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n889"
+   xlink:href="valueset-combined-dose-form.html"><title
+     id="n890">null (Strength=Example)</title></a></text>
+    <text
+       id="n891"
+       x="336"
+       y="174"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n892"
+   xlink:href="valueset-combined-dose-form.html">CombinedDoseForm</a>?? »</text>
+    <text
+       id="n900"
+       x="316"
+       y="188"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n901"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.route"><title
+   id="title77">The path by which the product is taken into or makes contact with the body. In some regions this is referred to as the licenced or approved route. See also AdministrableProductDefinition resource. MedicinalProductDefinition.route is the same concept as AdministrableProductDefinition.routeOfAdministration.code, and they cannot be used together</title>route</a> : <a
+   id="n902"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n903"
+   xlink:href="valueset-route-codes.html"><title
+   id="n904">null (Strength=Example)</title>SNOMEDCTRouteCodes</a>?? »</text>
+    <text
+       id="n910"
+       x="316"
+       y="202"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n911"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.indication"><title
+   id="title84">Description of indication(s) for this product, used when structured indications are not required. In cases where structured indications are required, they are captured using the ClinicalUseDefinition resource. An indication is a medical situation for which using the product is appropriate</title>indication</a> : <a
+   id="n912"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n916"
+       x="316"
+       y="216"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n917"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.legalStatusOfSupply"><title
+   id="title89">The legal status of supply of the medicinal product as classified by the regulator</title>legalStatusOfSupply</a> : <a
+   id="n918"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n919"
+   xlink:href="valueset-legal-status-of-supply.html"><title
+   id="n920">null (Strength=Example)</title>LegalStatusOfSupply</a>?? »</text>
+    <text
+       id="n926"
+       x="316"
+       y="230"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n927"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.additionalMonitoringIndicator"><title
+   id="title96">Whether the Medicinal Product is subject to additional monitoring for regulatory reasons, such as heightened reporting requirements</title>additionalMonitoringIndicator</a> : <a
+   id="n928"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n929"
+   xlink:href="valueset-medicinal-product-additional-monitoring.html"><title
+     id="n930">null (Strength=Example)</title></a></text>
+    <text
+       id="n931"
+       x="336"
+       y="244"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n932"
+   xlink:href="valueset-medicinal-product-additional-monitoring.html">AdditionalMonitoring</a>?? »</text>
+    <text
+       id="n940"
+       x="316"
+       y="258"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n941"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.specialMeasures"><title
+   id="title105">Whether the Medicinal Product is subject to special measures for regulatory reasons, such as a requirement to conduct post-authorisation studies</title>specialMeasures</a> : <a
+   id="n942"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n943"
+   xlink:href="valueset-medicinal-product-special-measures.html"><title
+   id="n944">null (Strength=Example)</title>SpecialMeasures</a>?? »</text>
+    <text
+       id="n950"
+       x="316"
+       y="272"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n951"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.pediatricUseIndicator"><title
+   id="title112">If authorised for use in children, or infants, neonates etc</title>pediatricUseIndicator</a> : <a
+   id="n952"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n953"
+   xlink:href="valueset-medicinal-product-pediatric-use.html"><title
+   id="n954">null (Strength=Example)</title>PediatricUse</a>?? »</text>
+    <text
+       id="n960"
+       x="316"
+       y="286"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n961"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.classification"><title
+   id="title119">Allows the product to be classified by various systems, commonly WHO ATC</title>classification</a> : <a
+   id="n962"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n963"
+   xlink:href="http://hl7.org/fhir/ValueSet/product-classification-codes"><title
+   id="n964">null (Strength=Example)</title>ProductClassification</a>?? »</text>
+    <text
+       id="n970"
+       x="316"
+       y="300"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n971"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.marketingStatus"><title
+   id="title126">Marketing status of the medicinal product, in contrast to marketing authorization. This refers to the product being actually 'on the market' as opposed to being allowed to be on the market (which is an authorization)</title>marketingStatus</a> : <a
+   id="n972"
+   xlink:href="marketingstatus.html#MarketingStatus">MarketingStatus</a> [0..*]</text>
+    <text
+       id="n976"
+       x="316"
+       y="314"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n977"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.packagedMedicinalProduct"><title
+   id="title131">Package type for the product. See also the PackagedProductDefinition resource</title>packagedMedicinalProduct</a> : <a
+   id="n978"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n979"
+   xlink:href="valueset-medicinal-product-package-type.html"><title
+     id="n980">null (Strength=Example)</title></a></text>
+    <text
+       id="n981"
+       x="336"
+       y="328"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n982"
+   xlink:href="valueset-medicinal-product-package-type.html">MedicinalProductPackageType</a>?? »</text>
+    <text
+       id="n990"
+       x="316"
+       y="342"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n991"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.ingredient"><title
+   id="title140">The ingredients of this medicinal product - when not detailed in other resources. This is only needed if the ingredients are not specified by incoming references from the Ingredient resource, or indirectly via incoming AdministrableProductDefinition, PackagedProductDefinition or ManufacturedItemDefinition references. In cases where those levels of detail are not used, the ingredients may be specified directly here as codes</title>ingredient</a> : <a
+   id="n992"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n993"
+   xlink:href="http://hl7.org/fhir/ValueSet/substance-codes"><title
+   id="n994">null (Strength=Example)</title>SNOMEDCTSubstanceCodes</a>?? »</text>
+    <text
+       id="n1000"
+       x="316"
+       y="356"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1001"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.impurity"><title
+   id="title147">Any component of the drug product which is not the chemical entity defined as the drug substance, or an excipient in the drug product. This includes process-related impurities and contaminants, product-related impurities including degradation products</title>impurity</a> : <a
+   id="n1002"
+   xlink:href="element.html#Element">Element</a> [0..*] « <a
+   id="n1003"
+   xlink:href="substancedefinition.html#SubstanceDefinition">SubstanceDefinition</a>; <a
+   id="n1004"
+   xlink:href="http://hl7.org/fhir/ValueSet/substance-codes"><title
+     id="n1005">null (Strength=Example)</title></a></text>
+    <text
+       id="n1006"
+       x="336"
+       y="370"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1007"
+   xlink:href="http://hl7.org/fhir/ValueSet/substance-codes">SNOMEDCTSubstanceCodes</a>?? »</text>
+    <text
+       id="n1016"
+       x="316"
+       y="384"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1017"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.attachedDocument"><title
+   id="title157">Additional information or supporting documentation about the medicinal product</title>attachedDocument</a> : <a
+   id="n1018"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1019"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a> »</text>
+    <text
+       id="n1024"
+       x="316"
+       y="398"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1025"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.masterFile"><title
+   id="title163">A master file for the medicinal product (e.g. Pharmacovigilance System Master File). Drug master files (DMFs) are documents submitted to regulatory agencies to provide confidential detailed information about facilities, processes or articles used in the manufacturing, processing, packaging and storing of drug products</title>masterFile</a> : <a
+   id="n1026"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1027"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a> »</text>
+    <text
+       id="n1032"
+       x="316"
+       y="412"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1033"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.clinicalTrial"><title
+   id="title169">Clinical trials or studies that this product is involved in</title>clinicalTrial</a> : <a
+   id="n1034"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1035"
+   xlink:href="researchstudy.html#ResearchStudy">ResearchStudy</a> »</text>
+    <text
+       id="n1040"
+       x="316"
+       y="426"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1041"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.code"><title
+   id="title175">A code that this product is known by, usually within some formal terminology, perhaps assigned by a third party (i.e. not the manufacturer or regulator). Products (types of medications) tend to be known by identifiers during development and within regulatory process. However when they are prescribed they tend to be identified by codes. The same product may be have multiple codes, applied to it by multiple organizations</title>code</a> : <a
+   id="n1042"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..*] « <a
+   id="n1043"
+   xlink:href="valueset-medication-codes.html"><title
+   id="n1044">null (Strength=Example)</title>SNOMEDCTMedicationCodes</a>?? »</text>
+  </g>
+  <g
+     id="n1050"
+     transform="translate(33.608704)">
+    <rect
+       id="MedicinalProductDefinition.contact"
+       x="770"
+       y="240"
+       rx="4"
+       ry="4"
+       width="264"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1051"
+       x1="770"
+       y1="268"
+       x2="1034"
+       y2="268"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1052"
+       x="902"
+       y="260"
+       fill="#000000"
+       class="diagram-class-title">Contact</text>
+    <text
+       id="n1053"
+       x="776"
+       y="282"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1054"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.contact.type"><title
+   id="title186">Allows the contact to be classified, for example QPPV, Pharmacovigilance Enquiry Information</title>type</a> : <a
+   id="n1055"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1056"
+   xlink:href="valueset-medicinal-product-contact-type.html"><title
+   id="n1057">null (Strength=Example)</title>ProductContactType</a>?? »</text>
+    <text
+       id="n1063"
+       x="776"
+       y="296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1064"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.contact.contact"><title
+   id="title193">A product specific contact, person (in a role), or an organization</title>contact</a> : <a
+   id="n1065"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1066"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n1067"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
+  </g>
+  <g
+     id="n1073"
+     transform="translate(11.818349,-6.8811648)">
+    <rect
+       id="MedicinalProductDefinition.name"
+       x="30"
+       y="191"
+       rx="4"
+       ry="4"
+       width="215.60001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1074"
+       x1="30"
+       y1="219"
+       x2="245.60001"
+       y2="219"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1075"
+       x="137.8"
+       y="211"
+       fill="#000000"
+       class="diagram-class-title">Name</text>
+    <text
+       id="n1076"
+       x="36"
+       y="233"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1077"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.name.productName"><title
+   id="title204">The full product name</title>productName</a> : <a
+   id="n1078"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+    <text
+       id="n1082"
+       x="36"
+       y="247"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1083"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.name.type"><title
+   id="title209">Type of product name, such as rINN, BAN, Proprietary, Non-Proprietary</title>type</a> : <a
+   id="n1084"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1085"
+   xlink:href="valueset-medicinal-product-name-type.html"><title
+   id="n1086">null (Strength=Example)</title>ProductNameType</a>?? »</text>
+  </g>
+  <g
+     id="n1092"
+     transform="translate(19.846374,18.349773)">
+    <rect
+       id="MedicinalProductDefinition.name.namePart"
+       x="20"
+       y="305"
+       rx="4"
+       ry="4"
+       width="233.2"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1093"
+       x1="20"
+       y1="333"
+       x2="253.2"
+       y2="333"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1094"
+       x="136.60001"
+       y="325"
+       fill="#000000"
+       class="diagram-class-title">NamePart</text>
+    <text
+       id="n1095"
+       x="26"
+       y="347"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1096"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.name.namePart.part"><title
+   id="title220">A fragment of a product name</title>part</a> : <a
+   id="n1097"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+    <text
+       id="n1101"
+       x="26"
+       y="361"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1102"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.name.namePart.type"><title
+   id="title225">Identifying type for this part of the name (e.g. strength part)</title>type</a> : <a
+   id="n1103"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n1104"
+   xlink:href="valueset-medicinal-product-name-part-type.html"><title
+   id="n1105">null (Strength=Example)</title>ProductNamePartType</a>?? »</text>
+  </g>
+  <g
+     id="n1111"
+     transform="translate(35.902425,-19.496634)">
+    <rect
+       id="MedicinalProductDefinition.name.countryLanguage"
+       x="0"
+       y="60"
+       rx="4"
+       ry="4"
+       width="277.20001"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1112"
+       x1="0"
+       y1="88"
+       x2="277.20001"
+       y2="88"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1113"
+       x="138.60001"
+       y="80"
+       fill="#000000"
+       class="diagram-class-title">CountryLanguage</text>
+    <text
+       id="n1114"
+       x="6"
+       y="102"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1115"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.name.countryLanguage.country"><title
+   id="title236">Country code for where this name applies</title>country</a> : <a
+   id="n1116"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n1117"
+   xlink:href="valueset-country.html"><title
+   id="n1118">null (Strength=Example)</title>Country ValueSet</a>?? »</text>
+    <text
+       id="n1124"
+       x="6"
+       y="116"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1125"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.name.countryLanguage.jurisdiction"><title
+   id="title243">Jurisdiction code for where this name applies. A jurisdiction may be a sub- or supra-national entity (e.g. a state or a geographic region)</title>jurisdiction</a> : <a
+   id="n1126"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1127"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n1128">null (Strength=Example)</title>Jurisdiction ValueSet</a>?? »</text>
+    <text
+       id="n1134"
+       x="6"
+       y="130"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1135"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.name.countryLanguage.language"><title
+   id="title250">Language code for this name</title>language</a> : <a
+   id="n1136"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n1137"
+   xlink:href="valueset-languages.html"><title
+   id="title254">null (Strength=Preferred)</title>CommonLanguages</a>? »</text>
+  </g>
+  <g
+     id="n1142"
+     transform="translate(33.608704)">
+    <rect
+       id="MedicinalProductDefinition.crossReference"
+       x="770"
+       y="0"
+       rx="4"
+       ry="4"
+       width="259.60001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1143"
+       x1="770"
+       y1="28"
+       x2="1029.6"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1144"
+       x="899.79999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">CrossReference</text>
+    <text
+       id="n1145"
+       x="776"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1146"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.crossReference.product"><title
+   id="title262">Reference to another product, e.g. for linking authorised to investigational product</title>product</a> : <a
+   id="n1147"
+   xlink:href="element.html#Element">Element</a> [1..1] « <a
+   id="n1148"
+   xlink:href="medicinalproductdefinition.html#MedicinalProductDefinition">MedicinalProductDefinition</a> »</text>
+    <text
+       id="n1153"
+       x="776"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1154"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.crossReference.type"><title
+   id="title268">The type of relationship, for instance branded to generic, virtual to actual product, product to development product (investigational), parallel import version</title>type</a> : <a
+   id="n1155"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1156"
+   xlink:href="valueset-medicinal-product-cross-reference-type.html"><title
+   id="n1157">null (Strength=Example)</title>ProductCrossReferenceType</a>?? »</text>
+  </g>
+  <g
+     id="n1163"
+     transform="translate(33.608704)">
+    <rect
+       id="MedicinalProductDefinition.operation"
+       x="770"
+       y="100"
+       rx="4"
+       ry="4"
+       width="259.60001"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1164"
+       x1="770"
+       y1="128"
+       x2="1029.6"
+       y2="128"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1165"
+       x="899.79999"
+       y="120"
+       fill="#000000"
+       class="diagram-class-title">Operation</text>
+    <text
+       id="n1166"
+       x="776"
+       y="142"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1167"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.operation.type"><title
+   id="title279">The type of manufacturing operation e.g. manufacturing itself, re-packaging. For the authorization of this, a RegulatedAuthorization would point to the same plan or activity referenced here</title>type</a> : <a
+   id="n1168"
+   xlink:href="element.html#Element">Element</a> [0..1] « <a
+   id="n1169"
+   xlink:href="activitydefinition.html#ActivityDefinition">ActivityDefinition</a>|<a
+   id="n1170"
+   xlink:href="plandefinition.html#PlanDefinition">PlanDefinition</a> »</text>
+    <text
+       id="n1176"
+       x="776"
+       y="156"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1177"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.operation.effectiveDate"><title
+   id="title286">Date range of applicability</title>effectiveDate</a> : <a
+   id="n1178"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n1182"
+       x="776"
+       y="170"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1183"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.operation.organization"><title
+   id="title291">The organization or establishment responsible for (or associated with) the particular process or step, examples include the manufacturer, importer, agent</title>organization</a> : <a
+   id="n1184"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1185"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n1190"
+       x="776"
+       y="184"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1191"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.operation.confidentialityIndicator"><title
+   id="title297">Specifies whether this particular business or manufacturing process is considered proprietary or confidential</title>confidentialityIndicator</a> : <a
+   id="n1192"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1193"
+   xlink:href="valueset-medicinal-product-confidentiality.html"><title
+     id="n1194">null (Strength=Example)</title></a></text>
+    <text
+       id="n1195"
+       x="796"
+       y="198"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1196"
+   xlink:href="valueset-medicinal-product-confidentiality.html">ProductConfidentiality</a>?? »</text>
+  </g>
+  <g
+     id="n1204"
+     transform="translate(33.608704)">
+    <rect
+       id="MedicinalProductDefinition.characteristic"
+       x="770"
+       y="340"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1205"
+       x1="770"
+       y1="368"
+       x2="1060.4"
+       y2="368"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1206"
+       x="915.20001"
+       y="360"
+       fill="#000000"
+       class="diagram-class-title">Characteristic</text>
+    <text
+       id="n1207"
+       x="776"
+       y="382"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1208"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.characteristic.type"><title
+   id="title310">A code expressing the type of characteristic</title>type</a> : <a
+   id="n1209"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n1210"
+   xlink:href="http://hl7.org/fhir/ValueSet/product-characteristic-codes"><title
+   id="n1211">null (Strength=Example)</title>ProductCharacteristic</a>?? »</text>
+    <text
+       id="n1217"
+       x="776"
+       y="396"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1218"
+   xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.characteristic.value_x_"><title
+   id="title317">A value for the characteristic</title>value[x]</a> : <a
+   id="n1219"
+   xlink:href="element.html#Element">Element</a> [0..1] « <a
+   id="n1220"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n1221"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n1222"
+   xlink:href="datatypes.html#date">date</a>|<a
+   id="n1223"
+   xlink:href="datatypes.html#boolean">boolean</a>|</text>
+    <text
+       id="n1224"
+       x="796"
+       y="410"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1225"
+   xlink:href="datatypes.html#Attachment">Attachment</a> »</text>
+  </g>
+  <line
+     id="n1235"
+     x1="650.5600000000001"
+     y1="245.1698757469411"
+     x2="770.0"
+     y2="257.91482500237123"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1236"
+     points="650.5600000000001,245.1698757469411 656.5600000000001,249.1698757469411 662.5600000000001,245.1698757469411 656.5600000000001,241.1698757469411 650.5600000000001,245.1698757469411"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(6.090749129110319 650.5600000000001 245.1698757469411)" />
+  <rect
+     id="n1237"
+     x="695.0"
+     y="244.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1238"
+     x="710.0"
+     y="254.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1239"
+       xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.contact"><title
+   id="title332">A product specific contact, person (in a role), or an organization</title>contact</a></text>
+  <text
+     id="n1240"
+     x="750.0"
+     y="253.91482500237123"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1241"
+     x1="137.46315789473687"
+     y1="255.0"
+     x2="136.9368421052632"
+     y2="305.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1242"
+     points="137.46315789473687,255.0 143.46315789473687,259.0 149.46315789473687,255.0 143.46315789473687,251.0 137.46315789473687,255.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(90.60309119438051 137.46315789473687 255.0)" />
+  <rect
+     id="n1243"
+     x="119.5"
+     y="273.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1244"
+     x="137.0"
+     y="283.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1245"
+       xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.name.namePart"><title
+   id="title340">Coding words or phrases of the name</title>namePart</a></text>
+  <text
+     id="n1246"
+     x="136.9368421052632"
+     y="301.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1247"
+     x1="138.00645161290325"
+     y1="191.0"
+     x2="138.34838709677422"
+     y2="138.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1248"
+     points="138.00645161290325,191.0 144.00645161290325,195.0 150.00645161290325,191.0 144.00645161290325,187.0 138.00645161290325,191.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-89.63035493815298 138.00645161290325 191.0)" />
+  <rect
+     id="n1249"
+     x="105.0"
+     y="157.0"
+     width="66.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1250"
+     x="138.0"
+     y="167.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1251"
+       xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.name.countryLanguage"><title
+   id="title348">Country and jurisdiction where the name applies, and associated language</title>countryLanguage</a></text>
+  <text
+     id="n1252"
+     x="138.34838709677422"
+     y="152.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1253"
+     x1="310.0"
+     y1="225.0112123335669"
+     x2="245.60000000000002"
+     y2="224.25905162345245"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1254"
+     points="310.0,225.0112123335669 316.0,229.0112123335669 322.0,225.0112123335669 316.0,221.0112123335669 310.0,225.0112123335669"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-179.33084355913178 310.0 225.0112123335669)" />
+  <rect
+     id="n1255"
+     x="268.5"
+     y="217.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1256"
+     x="277.0"
+     y="227.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1257"
+       xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.name"><title
+   id="title356">The product's name, including full name and possibly coded parts</title>name</a></text>
+  <text
+     id="n1258"
+     x="260.6"
+     y="220.25905162345245"
+     fill="black"
+     class="diagram-class-linkage">[1..*]</text>
+  <line
+     id="n1259"
+     x1="650.5600000000001"
+     y1="147.85097254004575"
+     x2="830.9556923076923"
+     y2="64.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1260"
+     points="650.5600000000001,147.85097254004575 656.5600000000001,151.85097254004575 662.5600000000001,147.85097254004575 656.5600000000001,143.85097254004575 650.5600000000001,147.85097254004575"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-24.929802882902873 650.5600000000001 147.85097254004575)" />
+  <rect
+     id="n1261"
+     x="709.5"
+     y="98.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1262"
+     x="740.0"
+     y="108.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1263"
+       xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.crossReference"><title
+   id="title364">Reference to another product, e.g. for linking authorised to investigational product, or a virtual product</title>crossReference</a></text>
+  <text
+     id="n1264"
+     x="830.9556923076923"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1265"
+     x1="650.5600000000001"
+     y1="196.9639588100686"
+     x2="770.0"
+     y2="175.8956903127383"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1266"
+     points="650.5600000000001,196.9639588100686 656.5600000000001,200.9639588100686 662.5600000000001,196.9639588100686 656.5600000000001,192.9639588100686 650.5600000000001,196.9639588100686"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-10.00361668822902 650.5600000000001 196.9639588100686)" />
+  <rect
+     id="n1267"
+     x="690.5"
+     y="179.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1268"
+     x="710.0"
+     y="189.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1269"
+       xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.operation"><title
+   id="title372">A manufacturing or administrative process or step associated with (or performed on) the medicinal product</title>operation</a></text>
+  <text
+     id="n1270"
+     x="750.0"
+     y="171.8956903127383"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1271"
+     x1="650.5600000000001"
+     y1="286.51108249793066"
+     x2="803.6086842105267"
+     y2="340.0000000000001"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1272"
+     points="650.5600000000001,286.51108249793066 656.5600000000001,290.51108249793066 662.5600000000001,286.51108249793066 656.5600000000001,282.51108249793066 650.5600000000001,286.51108249793066"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(19.263987745504213 650.5600000000001 286.51108249793066)" />
+  <rect
+     id="n1273"
+     x="696.5"
+     y="306.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1274"
+     x="727.0"
+     y="316.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1275"
+       xlink:href="medicinalproductdefinition-definitions.html#MedicinalProductDefinition.characteristic"><title
+   id="title380">Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;</title>characteristic</a></text>
+  <text
+     id="n1276"
+     x="803.6086842105267"
+     y="336.0000000000001"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

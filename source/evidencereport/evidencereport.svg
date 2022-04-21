@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n586"
+   version="1.1"
+   width="1597.2"
+   height="296.0"
+   sodipodi:docname="evidencereport.svg"
+   inkscape:version="1.1.2 (b8e25be8, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview290"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.68807916"
+     inkscape:cx="798.59998"
+     inkscape:cy="147.5121"
+     inkscape:window-width="1312"
+     inkscape:window-height="1081"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n586" />
+  <defs
+     id="defs18">
+    <filter
+       id="shadow1"
+       x="-0.050189395"
+       y="-0.106"
+       width="1.1287879"
+       height="1.272">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset9" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix11" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur13" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend15" />
+    </filter>
+  </defs>
+  <g
+     id="n587">
+    <rect
+       id="EvidenceReport"
+       x="0.0"
+       y="40.0"
+       rx="4"
+       ry="4"
+       width="259.6"
+       height="246.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n588"
+       x1="0.0"
+       y1="68.0"
+       x2="259.6"
+       y2="68.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n589"
+       x="129.8"
+       y="60.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">EvidenceReport<tspan
+   class="diagram-class-title-link"
+   id="tspan23"> (<a
+   id="n590"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n591"
+       x="6.0"
+       y="82.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n592"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.url"><title
+   id="title26">An absolute URI that is used to identify this EvidenceReport when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers</title>url</a> : <a
+   id="n593"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n597"
+       x="6.0"
+       y="96.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n598"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.status"><title
+   id="title31">The status of this summary. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n599"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n600"
+   xlink:href="valueset-publication-status.html"><title
+   id="n601">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n607"
+       x="6.0"
+       y="110.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n608"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.useContext"><title
+   id="title38">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate evidence report instances</title>useContext</a> : <a
+   id="n609"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n613"
+       x="6.0"
+       y="124.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n614"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.identifier"><title
+   id="title43">A formal identifier that is used to identify this EvidenceReport when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n615"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n619"
+       x="6.0"
+       y="138.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n620"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.relatedIdentifier"><title
+   id="title48">A formal identifier that is used to identify things closely related to this EvidenceReport</title>relatedIdentifier</a> : <a
+   id="n621"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n625"
+       x="6.0"
+       y="152.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n626"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.citeAs_x_"><title
+   id="title53">Citation Resource or display of suggested citation for this report</title>citeAs[x]</a> : <a
+   id="n627"
+   xlink:href="element.html#Element">Element</a> [0..1] « <a
+   id="n628"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n629"
+   xlink:href="citation.html#Citation">Citation</a>)|<a
+   id="n630"
+   xlink:href="datatypes.html#markdown">markdown</a> »</text>
+    <text
+       id="n637"
+       x="6.0"
+       y="166.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n638"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.type"><title
+   id="title61">Specifies the kind of report, such as grouping of classifiers, search results, or human-compiled expression</title>type</a> : <a
+   id="n639"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n640"
+   xlink:href="valueset-evidence-report-type.html"><title
+   id="n641">null (Strength=Example)</title>EvidenceReportType</a>?? »</text>
+    <text
+       id="n647"
+       x="6.0"
+       y="180.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n648"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.note"><title
+   id="title68">Used for footnotes and annotations</title>note</a> : <a
+   id="n649"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n653"
+       x="6.0"
+       y="194.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n654"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.relatedArtifact"><title
+   id="title73">Link, description or reference to artifact associated with the report</title>relatedArtifact</a> : <a
+   id="n655"
+   xlink:href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a> [0..*]</text>
+    <text
+       id="n659"
+       x="6.0"
+       y="208.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n660"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.publisher"><title
+   id="title78">The name of the organization or individual that published the evidence report</title>publisher</a> : <a
+   id="n661"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n665"
+       x="6.0"
+       y="222.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n666"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.contact"><title
+   id="title83">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n667"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n671"
+       x="6.0"
+       y="236.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n672"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.author"><title
+   id="title88">An individiual, organization, or device primarily involved in the creation and maintenance of the content</title>author</a> : <a
+   id="n673"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n677"
+       x="6.0"
+       y="250.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n678"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.editor"><title
+   id="title93">An individiual, organization, or device primarily responsible for internal coherence of the content</title>editor</a> : <a
+   id="n679"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n683"
+       x="6.0"
+       y="264.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n684"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.reviewer"><title
+   id="title98">An individiual, organization, or device primarily responsible for review of some aspect of the content</title>reviewer</a> : <a
+   id="n685"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n689"
+       x="6.0"
+       y="278.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n690"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.endorser"><title
+   id="title103">An individiual, organization, or device responsible for officially endorsing the content for use in some setting</title>endorser</a> : <a
+   id="n691"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+  </g>
+  <g
+     id="n695"
+     transform="translate(5.526766,7.4386873)">
+    <rect
+       id="EvidenceReport.subject"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="105.6"
+       height="50"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n696"
+       x1="320"
+       y1="28"
+       x2="425.60001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n697"
+       x="372.79999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Subject</text>
+    <text
+       id="n698"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n699"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.subject.note"><title
+   id="title112">Used for general notes and annotations not coded elsewhere</title>note</a> : <a
+   id="n700"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+  </g>
+  <g
+     id="n704"
+     transform="translate(-100.79999,112)">
+    <rect
+       id="EvidenceReport.subject.characteristic"
+       x="480"
+       y="0"
+       rx="4"
+       ry="4"
+       width="294.79999"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n705"
+       x1="480"
+       y1="28"
+       x2="774.79999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n706"
+       x="627.40002"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Characteristic</text>
+    <text
+       id="n707"
+       x="486"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n708"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.subject.characteristic.code"><title
+   id="title121">Characteristic code</title>code</a> : <a
+   id="n709"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n710"
+   xlink:href="valueset-focus-characteristic-code.html"><title
+   id="n711">null (Strength=Extensible)</title>FocusCharacteristicCode</a>+ »</text>
+    <text
+       id="n717"
+       x="486"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n718"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.subject.characteristic.value_x_"><title
+   id="title128">Characteristic value</title>value[x]</a> : <a
+   id="n719"
+   xlink:href="element.html#Element">Element</a> [1..1] « <a
+   id="n720"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n721"
+   xlink:href="resourcelist.html#Any">Any</a>)|<a
+   id="n722"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n723"
+   xlink:href="datatypes.html#boolean">boolean</a>|</text>
+    <text
+       id="n724"
+       x="506"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n725"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n726"
+   xlink:href="datatypes.html#Range">Range</a> »</text>
+    <text
+       id="n737"
+       x="486"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n738"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.subject.characteristic.exclude"><title
+   id="title140">Is used to express not the characteristic</title>exclude</a> : <a
+   id="n739"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n743"
+       x="486"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n744"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.subject.characteristic.period"><title
+   id="title145">Timeframe for the characteristic</title>period</a> : <a
+   id="n745"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+  </g>
+  <g
+     id="n749"
+     transform="translate(-794.96667,361.87697)">
+    <rect
+       id="EvidenceReport.relatesTo"
+       x="800"
+       y="0"
+       rx="4"
+       ry="4"
+       width="294.79999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n750"
+       x1="800"
+       y1="28"
+       x2="1094.8"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n751"
+       x="947.40002"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">RelatesTo</text>
+    <text
+       id="n752"
+       x="806"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n753"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.relatesTo.code"><title
+   id="title154">The type of relationship that this composition has with anther composition or document</title>code</a> : <a
+   id="n754"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n755"
+   xlink:href="valueset-report-relation-type.html"><title
+   id="n756">null (Strength=Required)</title>ReportRelationshipType</a>! »</text>
+    <text
+       id="n762"
+       x="806"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n763"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.relatesTo.target_x_"><title
+   id="title161">The target composition/document of this relationship</title>target[x]</a> : <a
+   id="n764"
+   xlink:href="element.html#Element">Element</a> [1..1] « <a
+   id="n765"
+   xlink:href="datatypes.html#Identifier">Identifier</a>|<a
+   id="n766"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n767"
+   xlink:href="evidencereport.html#EvidenceReport">EvidenceReport</a>) »</text>
+  </g>
+  <g
+     id="n774"
+     transform="translate(-736.83383,268.86441)">
+    <rect
+       id="EvidenceReport.section"
+       x="1120"
+       y="0"
+       rx="4"
+       ry="4"
+       width="277.20001"
+       height="190"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n775"
+       x1="1120"
+       y1="28"
+       x2="1397.2"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n776"
+       x="1258.6"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Section</text>
+    <text
+       id="n777"
+       x="1126"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n778"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.section.title"><title
+   id="title173">The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents</title>title</a> : <a
+   id="n779"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n783"
+       x="1126"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n784"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.section.focus"><title
+   id="title178">A code identifying the kind of content contained within the section. This should be consistent with the section title</title>focus</a> : <a
+   id="n785"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n786"
+   xlink:href="valueset-evidence-report-section.html"><title
+   id="n787">null (Strength=Extensible)</title>ReportSectionType</a>+ »</text>
+    <text
+       id="n793"
+       x="1126"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n794"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.section.focusReference"><title
+   id="title185">A definitional Resource identifying the kind of content contained within the section. This should be consistent with the section title</title>focusReference</a> : <a
+   id="n795"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n796"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n801"
+       x="1126"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n802"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.section.author"><title
+   id="title191">Identifies who is responsible for the information in this section, not necessarily who typed it in</title>author</a> : <a
+   id="n803"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n804"
+   xlink:href="person.html#Person">Person</a>|<a
+   id="n805"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n806"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n807"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n815"
+       x="1126"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n816"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.section.text"><title
+   id="title200">A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is peferred to contain sufficient detail to make it acceptable for a human to just read the narrative</title>text</a> : <a
+   id="n817"
+   xlink:href="narrative.html#Narrative">Narrative</a> [0..1]</text>
+    <text
+       id="n821"
+       x="1126"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n822"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.section.mode"><title
+   id="title205">How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted</title>mode</a> : <a
+   id="n823"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n824"
+   xlink:href="valueset-list-mode.html"><title
+   id="n825">null (Strength=Required)</title>ListMode</a>! »</text>
+    <text
+       id="n831"
+       x="1126"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n832"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.section.orderedBy"><title
+   id="title212">Specifies the order applied to the items in the section entries</title>orderedBy</a> : <a
+   id="n833"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n834"
+   xlink:href="valueset-list-order.html"><title
+   id="title216">null (Strength=Preferred)</title>ListOrderCodes</a>? »</text>
+    <text
+       id="n839"
+       x="1126"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n840"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.section.entryClassifier"><title
+   id="title220">Specifies any type of classification of the evidence report</title>entryClassifier</a> : <a
+   id="n841"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n842"
+   xlink:href="valueset-evidence-classifier-code.html"><title
+   id="n843">null (Strength=Extensible)</title>EvidenceClassifier</a>+ »</text>
+    <text
+       id="n849"
+       x="1126"
+       y="154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n850"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.section.entryReference"><title
+   id="title227">A reference to the actual resource from which the narrative in the section is derived</title>entryReference</a> : <a
+   id="n851"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n852"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n857"
+       x="1126"
+       y="168"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n858"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.section.entryQuantity"><title
+   id="title233">Quantity as content</title>entryQuantity</a> : <a
+   id="n859"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..*]</text>
+    <text
+       id="n863"
+       x="1126"
+       y="182"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n864"
+   xlink:href="evidencereport-definitions.html#EvidenceReport.section.emptyReason"><title
+   id="title238">If the section is empty, why the list is empty. An empty section typically has some text explaining the empty reason</title>emptyReason</a> : <a
+   id="n865"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n866"
+   xlink:href="valueset-list-empty-reason.html"><title
+   id="title242">null (Strength=Preferred)</title>ListEmptyReasons</a>? »</text>
+  </g>
+  <line
+     id="n871"
+     x1="425.6"
+     y1="30.806755695208167"
+     x2="480.0"
+     y2="36.78947368421052"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n872"
+     points="425.6,30.806755695208167 431.6,34.80675569520817 437.6,30.806755695208167 431.6,26.806755695208167 425.6,30.806755695208167"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(6.275964374893205 425.6 30.806755695208167)" />
+  <rect
+     id="n873"
+     x="421.5"
+     y="26.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n874"
+     x="452.0"
+     y="36.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n875"
+       xlink:href="evidencereport-definitions.html#EvidenceReport.subject.characteristic"><title
+   id="title250">Characteristic</title>characteristic</a></text>
+  <text
+     id="n876"
+     x="460.0"
+     y="32.78947368421052"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n877"
+     x1="259.6"
+     y1="89.28641975308642"
+     x2="328.77826086956526"
+     y2="50.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n878"
+     points="259.6,89.28641975308642 265.6,93.28641975308642 271.6,89.28641975308642 265.6,85.28641975308642 259.6,89.28641975308642"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-29.592296359357974 259.6 89.28641975308642)" />
+  <rect
+     id="n879"
+     x="279.0"
+     y="62.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n880"
+     x="294.0"
+     y="72.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n881"
+       xlink:href="evidencereport-definitions.html#EvidenceReport.subject"><title
+   id="title258">Specifies the subject or focus of the report. Answers &quot;What is this report about?&quot;</title>subject</a></text>
+  <text
+     id="n882"
+     x="328.77826086956526"
+     y="64.0"
+     fill="black"
+     class="diagram-class-linkage">[1..1]</text>
+  <line
+     id="n883"
+     x1="259.60001"
+     y1="155.18073"
+     x2="800"
+     y2="68.595108"
+     style="stroke:#000080;stroke-width:1" />
+  <polygon
+     id="n884"
+     points="259.6,142.20278864970643 265.6,146.20278864970643 271.6,142.20278864970643 265.6,138.20278864970643 259.6,142.20278864970643"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-9.102848976800681 259.6 142.20278864970643)" />
+  <rect
+     id="n885"
+     x="509.5"
+     y="91.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n886"
+     x="529.0"
+     y="101.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n887"
+       xlink:href="evidencereport-definitions.html#EvidenceReport.relatesTo"><title
+   id="title266">Relationships that this composition has with other compositions or documents that already exist</title>relatesTo</a></text>
+  <text
+     id="n888"
+     x="780.0"
+     y="51.617172211350265"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n889"
+     x1="1397.2"
+     y1="70.0"
+     x2="1457.2"
+     y2="70.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n890"
+     x1="1457.2"
+     y1="70.0"
+     x2="1457.2"
+     y2="120.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n891"
+     x1="1457.2"
+     y1="120.0"
+     x2="1397.2"
+     y2="120.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n892"
+     points="1397.2,70.0 1403.2,74.0 1409.2,70.0 1403.2,66.0 1397.2,70.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 1397.2 70.0)" />
+  <rect
+     id="n893"
+     x="1442.0"
+     y="88.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n894"
+     x="1457.0"
+     y="98.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n895"
+       xlink:href="evidencereport-definitions.html#EvidenceReport.section.section"><title
+   id="title276">A nested sub-section within this section</title>section</a></text>
+  <text
+     id="n896"
+     x="1412.2"
+     y="116.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n897"
+     x1="259.6"
+     y1="155.18072289156626"
+     x2="1120.0"
+     y2="103.34939759036145"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n898"
+     points="259.6,155.18072289156626 265.6,159.18072289156626 271.6,155.18072289156626 265.6,151.18072289156626 259.6,155.18072289156626"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-3.4473868518651978 259.6 155.18072289156626)" />
+  <rect
+     id="n899"
+     x="674.0"
+     y="122.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n900"
+     x="689.0"
+     y="132.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n901"
+       xlink:href="evidencereport-definitions.html#EvidenceReport.section"><title
+   id="title284">The root of the sections that make up the composition</title>section</a></text>
+  <text
+     id="n902"
+     x="1100.0"
+     y="99.34939759036145"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

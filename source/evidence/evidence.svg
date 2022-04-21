@@ -1,0 +1,1343 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n911"
+   version="1.1"
+   width="2121.6"
+   height="436.0"
+   sodipodi:docname="evidence.svg"
+   inkscape:version="1.1.2 (b8e25be8, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview463"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.51800526"
+     inkscape:cx="1060.8"
+     inkscape:cy="217.17926"
+     inkscape:window-width="1312"
+     inkscape:window-height="1027"
+     inkscape:window-x="2719"
+     inkscape:window-y="113"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n911" />
+  <defs
+     id="defs18">
+    <filter
+       id="shadow1"
+       x="-0.029379158"
+       y="-0.0828125"
+       width="1.075388"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset9" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix11" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur13" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend15" />
+    </filter>
+  </defs>
+  <g
+     id="n912">
+    <rect
+       id="Evidence"
+       x="0.0"
+       y="40.0"
+       rx="4"
+       ry="4"
+       width="259.6"
+       height="344.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n913"
+       x1="0.0"
+       y1="68.0"
+       x2="259.6"
+       y2="68.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n914"
+       x="129.8"
+       y="60.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">Evidence<tspan
+   class="diagram-class-title-link"
+   id="tspan23"> (<a
+   id="n915"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n916"
+       x="6.0"
+       y="82.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n917"
+   xlink:href="evidence-definitions.html#Evidence.url"><title
+   id="title26">An absolute URI that is used to identify this evidence when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers</title>url</a> : <a
+   id="n918"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n922"
+       x="6.0"
+       y="96.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n923"
+   xlink:href="evidence-definitions.html#Evidence.identifier"><title
+   id="title31">A formal identifier that is used to identify this summary when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n924"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n928"
+       x="6.0"
+       y="110.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n929"
+   xlink:href="evidence-definitions.html#Evidence.version"><title
+   id="title36">The identifier that is used to identify this version of the summary when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the summary author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="n930"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n934"
+       x="6.0"
+       y="124.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n935"
+   xlink:href="evidence-definitions.html#Evidence.title"><title
+   id="title41">A short, descriptive, user-friendly title for the summary</title>title</a> : <a
+   id="n936"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n940"
+       x="6.0"
+       y="138.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n941"
+   xlink:href="evidence-definitions.html#Evidence.citeAs_x_"><title
+   id="title46">Citation Resource or display of suggested citation for this evidence</title>citeAs[x]</a> : <a
+   id="n942"
+   xlink:href="element.html#Element">Element</a> [0..1] « <a
+   id="n943"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n944"
+   xlink:href="citation.html#Citation">Citation</a>)|<a
+   id="n945"
+   xlink:href="datatypes.html#markdown">markdown</a> »</text>
+    <text
+       id="n952"
+       x="6.0"
+       y="152.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n953"
+   xlink:href="evidence-definitions.html#Evidence.status"><title
+   id="title54">The status of this summary. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n954"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n955"
+   xlink:href="valueset-publication-status.html"><title
+   id="n956">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n962"
+       x="6.0"
+       y="166.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n963"
+   xlink:href="evidence-definitions.html#Evidence.date"><title
+   id="title61">The date  (and optionally time) when the summary was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the summary changes</title>date</a> : <a
+   id="n964"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n968"
+       x="6.0"
+       y="180.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n969"
+   xlink:href="evidence-definitions.html#Evidence.useContext"><title
+   id="title66">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate evidence instances</title>useContext</a> : <a
+   id="n970"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n974"
+       x="6.0"
+       y="194.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n975"
+   xlink:href="evidence-definitions.html#Evidence.approvalDate"><title
+   id="title71">The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage</title>approvalDate</a> : <a
+   id="n976"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n980"
+       x="6.0"
+       y="208.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n981"
+   xlink:href="evidence-definitions.html#Evidence.lastReviewDate"><title
+   id="title76">The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date</title>lastReviewDate</a> : <a
+   id="n982"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n986"
+       x="6.0"
+       y="222.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n987"
+   xlink:href="evidence-definitions.html#Evidence.publisher"><title
+   id="title81">The name of the organization or individual that published the evidence</title>publisher</a> : <a
+   id="n988"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n992"
+       x="6.0"
+       y="236.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n993"
+   xlink:href="evidence-definitions.html#Evidence.contact"><title
+   id="title86">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n994"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n998"
+       x="6.0"
+       y="250.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n999"
+   xlink:href="evidence-definitions.html#Evidence.author"><title
+   id="title91">An individiual, organization, or device primarily involved in the creation and maintenance of the content</title>author</a> : <a
+   id="n1000"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1004"
+       x="6.0"
+       y="264.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1005"
+   xlink:href="evidence-definitions.html#Evidence.editor"><title
+   id="title96">An individiual, organization, or device primarily responsible for internal coherence of the content</title>editor</a> : <a
+   id="n1006"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1010"
+       x="6.0"
+       y="278.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1011"
+   xlink:href="evidence-definitions.html#Evidence.reviewer"><title
+   id="title101">An individiual, organization, or device primarily responsible for review of some aspect of the content</title>reviewer</a> : <a
+   id="n1012"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1016"
+       x="6.0"
+       y="292.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1017"
+   xlink:href="evidence-definitions.html#Evidence.endorser"><title
+   id="title106">An individiual, organization, or device responsible for officially endorsing the content for use in some setting</title>endorser</a> : <a
+   id="n1018"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1022"
+       x="6.0"
+       y="306.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1023"
+   xlink:href="evidence-definitions.html#Evidence.relatedArtifact"><title
+   id="title111">Link or citation to artifact associated with the summary</title>relatedArtifact</a> : <a
+   id="n1024"
+   xlink:href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a> [0..*]</text>
+    <text
+       id="n1028"
+       x="6.0"
+       y="320.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1029"
+   xlink:href="evidence-definitions.html#Evidence.description"><title
+   id="title116">A free text natural language description of the evidence from a consumer's perspective</title>description</a> : <a
+   id="n1030"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1034"
+       x="6.0"
+       y="334.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1035"
+   xlink:href="evidence-definitions.html#Evidence.assertion"><title
+   id="title121">Declarative description of the Evidence</title>assertion</a> : <a
+   id="n1036"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1040"
+       x="6.0"
+       y="348.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1041"
+   xlink:href="evidence-definitions.html#Evidence.note"><title
+   id="title126">Footnotes and/or explanatory notes</title>note</a> : <a
+   id="n1042"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n1046"
+       x="6.0"
+       y="362.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1047"
+   xlink:href="evidence-definitions.html#Evidence.synthesisType"><title
+   id="title131">The method to combine studies</title>synthesisType</a> : <a
+   id="n1048"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1049"
+   xlink:href="valueset-synthesis-type.html"><title
+   id="n1050">null (Strength=Extensible)</title>SynthesisType</a>+ »</text>
+    <text
+       id="n1056"
+       x="6.0"
+       y="376.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1057"
+   xlink:href="evidence-definitions.html#Evidence.studyType"><title
+   id="title138">The type of study that produced this evidence</title>studyType</a> : <a
+   id="n1058"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1059"
+   xlink:href="valueset-study-type.html"><title
+   id="n1060">null (Strength=Extensible)</title>StudyType</a>+ »</text>
+  </g>
+  <g
+     id="n1066"
+     transform="translate(-154.80482,259.96797)">
+    <rect
+       id="Evidence.variableDefinition"
+       x="490"
+       y="150"
+       rx="4"
+       ry="4"
+       width="277.20001"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1067"
+       x1="490"
+       y1="178"
+       x2="767.20001"
+       y2="178"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1068"
+       x="628.59998"
+       y="170"
+       fill="#000000"
+       class="diagram-class-title">VariableDefinition</text>
+    <text
+       id="n1069"
+       x="496"
+       y="192"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1070"
+   xlink:href="evidence-definitions.html#Evidence.variableDefinition.description"><title
+   id="title149">A text description or summary of the variable</title>description</a> : <a
+   id="n1071"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1075"
+       x="496"
+       y="206"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1076"
+   xlink:href="evidence-definitions.html#Evidence.variableDefinition.note"><title
+   id="title154">Footnotes and/or explanatory notes</title>note</a> : <a
+   id="n1077"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n1081"
+       x="496"
+       y="220"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1082"
+   xlink:href="evidence-definitions.html#Evidence.variableDefinition.variableRole"><title
+   id="title159">population | subpopulation | exposure | referenceExposure | measuredVariable | confounder</title>variableRole</a> : <a
+   id="n1083"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n1084"
+   xlink:href="valueset-variable-role.html"><title
+   id="n1085">null (Strength=Extensible)</title>EvidenceVariableRole</a>+ »</text>
+    <text
+       id="n1091"
+       x="496"
+       y="234"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1092"
+   xlink:href="evidence-definitions.html#Evidence.variableDefinition.observed"><title
+   id="title166">Definition of the actual variable related to the statistic(s)</title>observed</a> : <a
+   id="n1093"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1094"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n1095"
+   xlink:href="evidencevariable.html#EvidenceVariable">EvidenceVariable</a> »</text>
+    <text
+       id="n1101"
+       x="496"
+       y="248"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1102"
+   xlink:href="evidence-definitions.html#Evidence.variableDefinition.intended"><title
+   id="title173">Definition of the intended variable related to the Evidence</title>intended</a> : <a
+   id="n1103"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1104"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n1105"
+   xlink:href="evidencevariable.html#EvidenceVariable">EvidenceVariable</a> »</text>
+    <text
+       id="n1111"
+       x="496"
+       y="262"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1112"
+   xlink:href="evidence-definitions.html#Evidence.variableDefinition.directnessMatch"><title
+   id="title180">Indication of quality of match between intended variable to actual variable</title>directnessMatch</a> : <a
+   id="n1113"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1114"
+   xlink:href="valueset-directness.html"><title
+   id="n1115">null (Strength=Extensible)</title>EvidenceDirectness</a>+ »</text>
+  </g>
+  <g
+     id="n1121">
+    <rect
+       id="Evidence.statistic"
+       x="320.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="246.40000000000003"
+       height="134.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1122"
+       x1="320.0"
+       y1="28.0"
+       x2="566.4000000000001"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1123"
+       x="443.20000000000005"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title">Statistic</text>
+    <text
+       id="n1124"
+       x="326.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1125"
+   xlink:href="evidence-definitions.html#Evidence.statistic.description"><title
+   id="title191">A description of the content value of the statistic</title>description</a> : <a
+   id="n1126"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1130"
+       x="326.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1131"
+   xlink:href="evidence-definitions.html#Evidence.statistic.note"><title
+   id="title196">Footnotes and/or explanatory notes</title>note</a> : <a
+   id="n1132"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n1136"
+       x="326.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1137"
+   xlink:href="evidence-definitions.html#Evidence.statistic.statisticType"><title
+   id="title201">Type of statistic, eg relative risk</title>statisticType</a> : <a
+   id="n1138"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1139"
+   xlink:href="valueset-statistic-type.html"><title
+   id="n1140">null (Strength=Extensible)</title>StatisticType</a>+ »</text>
+    <text
+       id="n1146"
+       x="326.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1147"
+   xlink:href="evidence-definitions.html#Evidence.statistic.category"><title
+   id="title208">When the measured variable is handled categorically, the category element is used to define which category the statistic is reporting</title>category</a> : <a
+   id="n1148"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n1152"
+       x="326.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1153"
+   xlink:href="evidence-definitions.html#Evidence.statistic.quantity"><title
+   id="title213">Statistic value</title>quantity</a> : <a
+   id="n1154"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
+    <text
+       id="n1158"
+       x="326.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1159"
+   xlink:href="evidence-definitions.html#Evidence.statistic.numberOfEvents"><title
+   id="title218">The number of events associated with the statistic, where the unit of analysis is different from numberAffected, sampleSize.knownDataCount and sampleSize.numberOfParticipants</title>numberOfEvents</a> : <a
+   id="n1160"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..1]</text>
+    <text
+       id="n1164"
+       x="326.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1165"
+   xlink:href="evidence-definitions.html#Evidence.statistic.numberAffected"><title
+   id="title223">The number of participants affected where the unit of analysis is the same as sampleSize.knownDataCount and sampleSize.numberOfParticipants</title>numberAffected</a> : <a
+   id="n1166"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..1]</text>
+  </g>
+  <g
+     id="n1170"
+     transform="translate(-305.5,204)">
+    <rect
+       id="Evidence.statistic.sampleSize"
+       x="640"
+       y="0"
+       rx="4"
+       ry="4"
+       width="180.39999"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1171"
+       x1="640"
+       y1="28"
+       x2="820.40002"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1172"
+       x="730.20001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">SampleSize</text>
+    <text
+       id="n1173"
+       x="646"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1174"
+   xlink:href="evidence-definitions.html#Evidence.statistic.sampleSize.description"><title
+   id="title232">Human-readable summary of population sample size</title>description</a> : <a
+   id="n1175"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1179"
+       x="646"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1180"
+   xlink:href="evidence-definitions.html#Evidence.statistic.sampleSize.note"><title
+   id="title237">Footnote or explanatory note about the sample size</title>note</a> : <a
+   id="n1181"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n1185"
+       x="646"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1186"
+   xlink:href="evidence-definitions.html#Evidence.statistic.sampleSize.numberOfStudies"><title
+   id="title242">Number of participants in the population</title>numberOfStudies</a> : <a
+   id="n1187"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..1]</text>
+    <text
+       id="n1191"
+       x="646"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1192"
+   xlink:href="evidence-definitions.html#Evidence.statistic.sampleSize.numberOfParticipants"><title
+   id="title247">A human-readable string to clarify or explain concepts about the sample size</title>numberOfParticipants</a> : <a
+   id="n1193"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..1]</text>
+    <text
+       id="n1197"
+       x="646"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1198"
+   xlink:href="evidence-definitions.html#Evidence.statistic.sampleSize.knownDataCount"><title
+   id="title252">Number of participants with known results for measured variables</title>knownDataCount</a> : <a
+   id="n1199"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..1]</text>
+  </g>
+  <g
+     id="n1203"
+     transform="translate(-194,28)">
+    <rect
+       id="Evidence.statistic.attributeEstimate"
+       x="880"
+       y="0"
+       rx="4"
+       ry="4"
+       width="242"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1204"
+       x1="880"
+       y1="28"
+       x2="1122"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1205"
+       x="1001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">AttributeEstimate</text>
+    <text
+       id="n1206"
+       x="886"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1207"
+   xlink:href="evidence-definitions.html#Evidence.statistic.attributeEstimate.description"><title
+   id="title261">Human-readable summary of the estimate</title>description</a> : <a
+   id="n1208"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1212"
+       x="886"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1213"
+   xlink:href="evidence-definitions.html#Evidence.statistic.attributeEstimate.note"><title
+   id="title266">Footnote or explanatory note about the estimate</title>note</a> : <a
+   id="n1214"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n1218"
+       x="886"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1219"
+   xlink:href="evidence-definitions.html#Evidence.statistic.attributeEstimate.type"><title
+   id="title271">The type of attribute estimate, eg confidence interval or p value</title>type</a> : <a
+   id="n1220"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1221"
+   xlink:href="valueset-attribute-estimate-type.html"><title
+   id="n1222">null (Strength=Extensible)</title>AttributeEstimateType</a>+ »</text>
+    <text
+       id="n1228"
+       x="886"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1229"
+   xlink:href="evidence-definitions.html#Evidence.statistic.attributeEstimate.quantity"><title
+   id="title278">The singular quantity of the attribute estimate, for attribute estimates represented as single values; also used to report unit of measure</title>quantity</a> : <a
+   id="n1230"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
+    <text
+       id="n1234"
+       x="886"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1235"
+   xlink:href="evidence-definitions.html#Evidence.statistic.attributeEstimate.level"><title
+   id="title283">Use 95 for a 95% confidence interval</title>level</a> : <a
+   id="n1236"
+   xlink:href="datatypes.html#decimal">decimal</a> [0..1]</text>
+    <text
+       id="n1240"
+       x="886"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1241"
+   xlink:href="evidence-definitions.html#Evidence.statistic.attributeEstimate.range"><title
+   id="title288">Lower bound of confidence interval</title>range</a> : <a
+   id="n1242"
+   xlink:href="datatypes.html#Range">Range</a> [0..1]</text>
+  </g>
+  <g
+     id="n1246"
+     transform="translate(-501.92541,212.35306)">
+    <rect
+       id="Evidence.statistic.modelCharacteristic"
+       x="1200"
+       y="0"
+       rx="4"
+       ry="4"
+       width="228.8"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1247"
+       x1="1200"
+       y1="28"
+       x2="1428.8"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1248"
+       x="1314.4"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">ModelCharacteristic</text>
+    <text
+       id="n1249"
+       x="1206"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1250"
+   xlink:href="evidence-definitions.html#Evidence.statistic.modelCharacteristic.code"><title
+   id="title297">Description of a component of the method to generate the statistic</title>code</a> : <a
+   id="n1251"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n1252"
+   xlink:href="valueset-statistic-model-code.html"><title
+   id="n1253">null (Strength=Extensible)</title>StatisticModelCode</a>+ »</text>
+    <text
+       id="n1259"
+       x="1206"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1260"
+   xlink:href="evidence-definitions.html#Evidence.statistic.modelCharacteristic.value"><title
+   id="title304">Further specification of the quantified value of the component of the method to generate the statistic</title>value</a> : <a
+   id="n1261"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a308">SimpleQuantity</a>) [0..1]</text>
+  </g>
+  <g
+     id="n1265"
+     transform="translate(-749.02715,378.37453)">
+    <rect
+       id="Evidence.statistic.modelCharacteristic.variable"
+       x="1440"
+       y="0"
+       rx="4"
+       ry="4"
+       width="281.60001"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1266"
+       x1="1440"
+       y1="28"
+       x2="1721.6"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1267"
+       x="1580.8"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Variable</text>
+    <text
+       id="n1268"
+       x="1446"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1269"
+   xlink:href="evidence-definitions.html#Evidence.statistic.modelCharacteristic.variable.variableDefinition"><title
+   id="title315">Description of the variable</title>variableDefinition</a> : <a
+   id="n1270"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1271"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n1272"
+   xlink:href="evidencevariable.html#EvidenceVariable">EvidenceVariable</a> »</text>
+    <text
+       id="n1278"
+       x="1446"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1279"
+   xlink:href="evidence-definitions.html#Evidence.statistic.modelCharacteristic.variable.handling"><title
+   id="title322">How the variable is classified for use in adjusted analysis</title>handling</a> : <a
+   id="n1280"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1281"
+   xlink:href="valueset-variable-handling.html"><title
+   id="n1282">null (Strength=Required)</title>EvidenceVariableHandling</a>! »</text>
+    <text
+       id="n1288"
+       x="1446"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1289"
+   xlink:href="evidence-definitions.html#Evidence.statistic.modelCharacteristic.variable.valueCategory"><title
+   id="title329">Description for grouping of ordinal or polychotomous variables</title>valueCategory</a> : <a
+   id="n1290"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n1294"
+       x="1446"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1295"
+   xlink:href="evidence-definitions.html#Evidence.statistic.modelCharacteristic.variable.valueQuantity"><title
+   id="title334">Discrete value for grouping of ordinal or polychotomous variables</title>valueQuantity</a> : <a
+   id="n1296"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..*]</text>
+    <text
+       id="n1300"
+       x="1446"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1301"
+   xlink:href="evidence-definitions.html#Evidence.statistic.modelCharacteristic.variable.valueRange"><title
+   id="title339">Range of values for grouping of ordinal or polychotomous variables</title>valueRange</a> : <a
+   id="n1302"
+   xlink:href="datatypes.html#Range">Range</a> [0..*]</text>
+  </g>
+  <g
+     id="n1306"
+     transform="translate(-474.89866,121.62039)">
+    <rect
+       id="Evidence.certainty"
+       x="490"
+       y="310"
+       rx="4"
+       ry="4"
+       width="259.60001"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1307"
+       x1="490"
+       y1="338"
+       x2="749.59998"
+       y2="338"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1308"
+       x="619.79999"
+       y="330"
+       fill="#000000"
+       class="diagram-class-title">Certainty</text>
+    <text
+       id="n1309"
+       x="496"
+       y="352"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1310"
+   xlink:href="evidence-definitions.html#Evidence.certainty.description"><title
+   id="title348">Textual description of certainty</title>description</a> : <a
+   id="n1311"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1315"
+       x="496"
+       y="366"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1316"
+   xlink:href="evidence-definitions.html#Evidence.certainty.note"><title
+   id="title353">Footnotes and/or explanatory notes</title>note</a> : <a
+   id="n1317"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n1321"
+       x="496"
+       y="380"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1322"
+   xlink:href="evidence-definitions.html#Evidence.certainty.type"><title
+   id="title358">Aspect of certainty being rated</title>type</a> : <a
+   id="n1323"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1324"
+   xlink:href="valueset-certainty-type.html"><title
+   id="n1325">null (Strength=Extensible)</title>EvidenceCertaintyType</a>+ »</text>
+    <text
+       id="n1331"
+       x="496"
+       y="394"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1332"
+   xlink:href="evidence-definitions.html#Evidence.certainty.rating"><title
+   id="title365">Assessment or judgement of the aspect</title>rating</a> : <a
+   id="n1333"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1334"
+   xlink:href="valueset-certainty-rating.html"><title
+   id="n1335">null (Strength=Extensible)</title>EvidenceCertaintyRating</a>+ »</text>
+    <text
+       id="n1341"
+       x="496"
+       y="408"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1342"
+   xlink:href="evidence-definitions.html#Evidence.certainty.rater"><title
+   id="title372">Individual or group who did the rating</title>rater</a> : <a
+   id="n1343"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <line
+     id="n1347"
+     x1="259.6"
+     y1="211.47955092221332"
+     x2="490.0"
+     y2="210.5557337610265"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1348"
+     points="259.6,211.47955092221332 265.6,215.47955092221332 271.6,211.47955092221332 265.6,207.47955092221332 259.6,211.47955092221332"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-0.22973324966512892 259.6 211.47955092221332)" />
+  <rect
+     id="n1349"
+     x="334.5"
+     y="204.0"
+     width="79.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1350"
+     x="374.0"
+     y="214.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1351"
+       xlink:href="evidence-definitions.html#Evidence.variableDefinition"><title
+   id="title381">Evidence variable such as population, exposure, or outcome</title>variableDefinition</a></text>
+  <text
+     id="n1352"
+     x="470.0"
+     y="206.5557337610265"
+     fill="black"
+     class="diagram-class-linkage">[1..*]</text>
+  <line
+     id="n1353"
+     x1="566.4000000000001"
+     y1="60.990243902439005"
+     x2="640.0"
+     y2="57.39999999999999"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1354"
+     points="566.4000000000001,60.990243902439005 572.4000000000001,64.990243902439 578.4000000000001,60.990243902439005 572.4000000000001,56.990243902439005 566.4000000000001,60.990243902439005"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-2.792702365713278 566.4000000000001 60.990243902439005)" />
+  <rect
+     id="n1355"
+     x="581.0"
+     y="52.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1356"
+     x="603.0"
+     y="62.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1357"
+       xlink:href="evidence-definitions.html#Evidence.statistic.sampleSize"><title
+   id="title389">Number of samples in the statistic</title>sampleSize</a></text>
+  <text
+     id="n1358"
+     x="620.0"
+     y="53.39999999999999"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1359"
+     x1="1122.0"
+     y1="35.0"
+     x2="1182.0"
+     y2="35.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n1360"
+     x1="1182.0"
+     y1="35.0"
+     x2="1182.0"
+     y2="85.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n1361"
+     x1="1182.0"
+     y1="85.0"
+     x2="1122.0"
+     y2="85.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1362"
+     points="1122.0,35.0 1128.0,39.0 1134.0,35.0 1128.0,31.0 1122.0,35.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 1122.0 35.0)" />
+  <rect
+     id="n1363"
+     x="1145.0"
+     y="53.0"
+     width="74.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1364"
+     x="1182.0"
+     y="63.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1365"
+       xlink:href="evidence-definitions.html#Evidence.statistic.attributeEstimate.attributeEstimate"><title
+   id="title399">A nested attribute estimate; which is the attribute estimate of an attribute estimate</title>attributeEstimate</a></text>
+  <text
+     id="n1366"
+     x="1137.0"
+     y="81.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1367"
+     x1="566.4000000000001"
+     y1="65.45392613840086"
+     x2="880.0"
+     y2="61.51846539978487"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1368"
+     points="566.4000000000001,65.45392613840086 572.4000000000001,69.45392613840086 578.4000000000001,65.45392613840086 572.4000000000001,61.45392613840086 566.4000000000001,65.45392613840086"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-0.7189842316129251 566.4000000000001 65.45392613840086)" />
+  <rect
+     id="n1369"
+     x="686.0"
+     y="56.0"
+     width="74.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1370"
+     x="723.0"
+     y="66.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1371"
+       xlink:href="evidence-definitions.html#Evidence.statistic.attributeEstimate"><title
+   id="title407">A statistical attribute of the statistic such as a measure of heterogeneity</title>attributeEstimate</a></text>
+  <text
+     id="n1372"
+     x="860.0"
+     y="57.51846539978487"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1373"
+     x1="1428.8"
+     y1="41.018018018018"
+     x2="1440.0"
+     y2="41.90090090090088"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1374"
+     points="1428.8,41.018018018018 1434.8,45.018018018018 1440.8,41.018018018018 1434.8,37.018018018018 1428.8,41.018018018018"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(4.507238645991104 1428.8 41.018018018018)" />
+  <rect
+     id="n1375"
+     x="1416.5"
+     y="34.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1376"
+     x="1434.0"
+     y="44.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1377"
+       xlink:href="evidence-definitions.html#Evidence.statistic.modelCharacteristic.variable"><title
+   id="title415">A variable adjusted for in the adjusted analysis</title>variable</a></text>
+  <text
+     id="n1378"
+     x="1420.0"
+     y="37.90090090090088"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1379"
+     x1="1200.0"
+     y1="42.220804084237386"
+     x2="1122.0"
+     y2="49.18953414167197"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1380"
+     points="1200.0,42.220804084237386 1206.0,46.220804084237386 1212.0,42.220804084237386 1206.0,38.220804084237386 1200.0,42.220804084237386"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(174.89459594131455 1200.0 42.220804084237386)" />
+  <rect
+     id="n1381"
+     x="1124.0"
+     y="38.0"
+     width="74.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1382"
+     x="1161.0"
+     y="48.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1383"
+       xlink:href="evidence-definitions.html#Evidence.statistic.modelCharacteristic.attributeEstimate"><title
+   id="title423">An attribute of the statistic used as a model characteristic</title>attributeEstimate</a></text>
+  <text
+     id="n1384"
+     x="1137.0"
+     y="45.18953414167197"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1385"
+     x1="566.4000000000001"
+     y1="62.05050505050504"
+     x2="1200.0"
+     y2="36.595959595959584"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1386"
+     points="566.4000000000001,62.05050505050504 572.4000000000001,66.05050505050504 578.4000000000001,62.05050505050504 572.4000000000001,58.05050505050504 566.4000000000001,62.05050505050504"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-2.3005905129547157 566.4000000000001 62.05050505050504)" />
+  <rect
+     id="n1387"
+     x="841.5"
+     y="42.0"
+     width="83.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1388"
+     x="883.0"
+     y="52.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1389"
+       xlink:href="evidence-definitions.html#Evidence.statistic.modelCharacteristic"><title
+   id="title431">A component of the method to generate the statistic</title>modelCharacteristic</a></text>
+  <text
+     id="n1390"
+     x="730.19769"
+     y="206.33937"
+     fill="#000000"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1391"
+     x1="259.6"
+     y1="151.94575622208038"
+     x2="320.0"
+     y2="124.00063816209317"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1392"
+     points="259.6,151.94575622208038 265.6,155.94575622208038 271.6,151.94575622208038 265.6,147.94575622208038 259.6,151.94575622208038"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-24.82844757698552 259.6 151.94575622208038)" />
+  <rect
+     id="n1393"
+     x="269.5"
+     y="130.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1394"
+     x="289.0"
+     y="140.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1395"
+       xlink:href="evidence-definitions.html#Evidence.statistic"><title
+   id="title439">Values and parameters for a single statistic</title>statistic</a></text>
+  <text
+     id="n1396"
+     x="300.0"
+     y="120.00063816209317"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1397"
+     x1="749.6"
+     y1="338.0"
+     x2="809.6"
+     y2="338.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n1398"
+     x1="809.6"
+     y1="338.0"
+     x2="809.6"
+     y2="388.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n1399"
+     x1="809.6"
+     y1="388.0"
+     x2="749.6"
+     y2="388.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1400"
+     points="749.6,338.0 755.6,342.0 761.6,338.0 755.6,334.0 749.6,338.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 749.6 338.0)" />
+  <rect
+     id="n1401"
+     x="783.0"
+     y="356.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1402"
+     x="809.0"
+     y="366.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1403"
+       xlink:href="evidence-definitions.html#Evidence.certainty.subcomponent"><title
+   id="title449">A domain or subdomain of certainty</title>subcomponent</a></text>
+  <text
+     id="n1404"
+     x="764.6"
+     y="384.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1405"
+     x1="259.6"
+     y1="251.99959183673468"
+     x2="490.0"
+     y2="323.0004081632653"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1406"
+     points="259.6,251.99959183673468 265.6,255.99959183673468 271.6,251.99959183673468 265.6,247.99959183673468 259.6,251.99959183673468"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(17.12737584716206 259.6 251.99959183673468)" />
+  <rect
+     id="n1407"
+     x="354.5"
+     y="280.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1408"
+     x="374.0"
+     y="290.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1409"
+       xlink:href="evidence-definitions.html#Evidence.certainty"><title
+   id="title457">Assessment of certainty, confidence in the estimates, or quality of the evidence</title>certainty</a></text>
+  <text
+     id="n1410"
+     x="470.0"
+     y="319.0004081632653"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>
