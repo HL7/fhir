@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+
+
+[%settitle R4B Explanation%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+  <link rel="stylesheet" href="./assets/css/modules.css"/>
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12"><!--ReleaseHeader--><p id="publish-box"></p><!--EndReleaseHeader-->
+
+<!--!ns!-->
+<a name="root"></a>
+<h2>R4B Explanation</h2>
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fmg%]">[%wgt fmg%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+<p>
+  As the FHIR specification has matured, the cadence of release has gradually 
+  slowed (<a href="http://hl7.org/fhir/directory.html">see the release history</a>),
+  and the Covid pendemic exacerbated this trend. However there are parts of the FHIR
+  specification that are still very new, which need a higher release frequency in 
+  order to continue developing. 
+</p>
+<p>
+  The R4B release incorporates changes to a few selected modules, while preserving 
+  compatibility across the rest of the specification. Implementers that do not use 
+  the specific portions where changes have been made can continue to use either R4 or 
+  R4B without any functional difference - there are no impactful changes other than 
+  those listed on this page. This is the vast majority of existing implementers.
+</p>
+<p>
+  HL7 is maintaining a set of information about <a href="https://confluence.hl7.org/display/FHIR/Strategies+for+dealing+with+R4+and+R4B">implementation strategies 
+  with tooling support for dealing with R4 and R4B</a>. 
+</p>
+
+<h3>Changes between R4 and R4B</h3>
+
+<p>The following general changes were made:</p>
+<ul>
+  <li>Add <a href="references.html#codeablereference">CodeableReference</a> and <a href="datatypes.html#RatioRange">RatioRange</a> types</li>
+  <li>Add <a title="[%resdesc NutritionProduct%]" href="nutritionproduct.html">NutritionProduct</a> Resource</li>
+  <li>Refine some invariants that behaved erroneously with missing data (no new restrictions were introduced)</li>
+</ul>
+
+<h4>Medication Definition Module</h4>
+
+<p>This modules has had extensive changes in R4:</p>
+<ul>
+  <li>Add new Resources <a title="[%resdesc AdministrableProductDefinition%]" href="administrableproductdefinition.html">AdministrableProductDefinition</a>, 
+    <a title="[%resdesc ClinicalUseDefinition%]" href="clinicalusedefinition.html">ClinicalUseDefinition</a>, 
+    <a title="[%resdesc PackagedProductDefinition%]" href="packagedproductdefinition.html">PackagedProductDefinition</a>, 
+    <a title="[%resdesc ManufacturedItemDefinition%]" href="manufactureditemdefinition.html">ManufacturedItemDefinition</a> and 
+    <a title="[%resdesc RegulatedAuthorization%]" href="regulatedauthorization.html">RegulatedAuthorization</a></li>
+<li>Rework <a href="marketingstatus.html">MarketingStatus</a> (relax cardinality constraints) and 
+  <a href="productshelflife.html">ProductShelfLife</a> Types</li>
+<li>Rework &amp; rename MedicinalProduct -> <a title="[%resdesc MedicinalProductDefinition%]" href="medicinalproductdefinition.html">MedicinalProductDefinition</a></li>
+<li>Rework &amp; rename MedicinalProductIngredient -> <a title="[%resdesc Ingredient%]" href="ingredient.html">Ingredient</a></li>
+<li>Rework &amp; rename SubstanceSpecification -> <a title="[%resdesc SubstanceDefinition%]" href="substancedefinition.html">SubstanceDefinition</a></li> 
+<li>Remove MedicinalProductAuthorization, MedicinalProductContraindication, 
+    MedicinalProductIndication, MedicinalProductInteraction, MedicinalproductManufactured,
+    MedicinalproductPackaged, MedicinalproductPharmaceutical, MedicinalproductUndesirableEffect,
+    SubstanceAmount, SubstanceNucleicAcid, SubstancePolymer, SubstanceProtein, 
+    SubstanceReferenceInformation and SubstanceSourceMaterial resources</li>
+</ul>
+
+<h4>Clinical Reasoning</h4>
+<p>This module has had changes around the Evidence Based Medication resources:</p>
+
+<ul>
+ <li>Rework <a title="[%resdesc Evidence%]" href="evidence.html">Evidence</a> and 
+  <a title="[%resdesc EvidenceVariable%]" href="evidencevariable.html">EvidenceVariable</a> Resources</li>
+ <li>Add <a title="[%resdesc Citation%]" href="citation.html">Citation</a> and
+  <a title="[%resdesc EvidenceReport%]" href="evidencereport.html">EvidenceReport</a> Resources</li>
+ <li>Remove EffectEvidenceSynthesis and RiskEvidenceSynthesis Resources</li>
+ <li>Add canonical as an allowed type for <code>subject[x]</code> to 
+  <a title="[%resdesc ActivityDefinition%]" href="activitydefinition.html">ActivityDefinition</a> and 
+  <a title="[%resdesc PlanDefinition%]" href="plandefinition.html">PlanDefinition</a></li>
+</ul>
+
+
+<h4>Exchange</h4>
+
+<p>R4B introduces a new subscription interaction model that defines 
+additional subscription related resources:</p>
+<ul>
+  <li>Add <a title="[%resdesc SubscriptionStatus%]" href="subscriptionstatus.html">SubscriptionStatus</a> 
+    and <a title="[%resdesc SubscriptionTopic%]" href="subscriptiontopic.html">SubscriptionTopic</a> Resources</li>
+</ul>
+
+</div>
+
+[%file newfooter%]
+
+
+</body>
+</html>

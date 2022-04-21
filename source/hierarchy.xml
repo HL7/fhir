@@ -33,7 +33,8 @@ signatures.html
         <page title="ANSI FHIR Observation Standard" filename="ansi-observation.html"/>
       
       </page>
-      <page title="Ballot Introduction" filename="ballot-intro.html"/>
+      <page title="R4B Explanation" filename="r4b-explanation.html"/>
+<!--      <page title="Ballot Introduction" filename="ballot-intro.html"/> -->
     </page>
 
     <!-- foundation - quite a lot of documentation -->
