@@ -21,7 +21,7 @@
         <valueString value="&quot;#### Complete Summary of the Mandatory Requirements&#10;&#10;1.  One status in `Observation.status`which has a [required](http://build.fhir.org/terminologies.html#extensible) binding to:&#10;    -    [ObservationStatus] value set.&#10;1.  A category in `Observation.category` which must have:&#10;    -   a fixed `Observation.category.coding.system`=&quot;http://terminology.hl7.org/CodeSystem/observation-category&quot;&#10;    -   a fixed `Observation.category.coding.code`= &quot;vital-signs&quot;&#10;&#10;1.  A code in `Observation.code`&#10;    -   a fixed `Observation.code.coding.system`= &quot;http://loinc.org&quot;&quot;&#10;    -   a LOINC code in `Observation.code.coding.code` which has an [extensible](http://build.fhir.org/terminologies.html#extensible) binding to:&#10;         -   [Vital Signs] value set.&#10;                &#10;1.  One patient in `Observation.subject`&#10;1.  A date and time in `effectiveDateTime` or `effectivePeriod`&#10;1.  Either one `Observation.value[x]` or, if there is no value, one code in `Observation.DataAbsentReason`&#10;    -   if a vital sign measure then:&#10;        -  One numeric value in Observation.valueQuantity.value&#10;        - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#10;        - a UCUM unit code in Observation.valueQuantity.code which has an required binding to the [Vital Signs Units] value set.&#10;    -   Observation.DataAbsentReason is bound to [Observation Value&#10;        Absent Reason] value set.&#10;&#10;1.  When using a panel code to group component observations (Note: See&#10;    the comments regarding blood pressure in the table above), one or&#10;    more `Observation.component.code` each of which must have:&#10;    -   a fixed&#10;        `Observation.component.code.coding.system` =&quot;&quot;http://loinc.org&quot;&quot;&#10;         -   a LOINC code in `Observation.code.coding.code` which has an [extensible] binding to:&#10;             -   [Vital Signs Units] value set.&#10;&#10;1.  Either one `Observation.component.valueQuantity` or, if there is&#10;    no value, one code in `Observation.component.DataAbsentReason`&#10;    -   Observation.component.DataAbsentReason is bound to [Observation&#10;        Value Absent Reason] value set.&#10;&#10;1.  When using a panel code to group observations, one or more reference&#10;    to Vitals Signs Observations in `Observation.related.target`&#10;    -   a fixed `Observation.related.type`= &quot;has-member&quot;&quot;&#10;&#10; [Vital Signs]: valueset-observation-vitalsignresult.html&#10;  [Vital Signs Units]: valueset-ucum-vitals-common.html&#10;  [extensible]: terminologies.html#extensible&#10;  [ObservationStatus]: valueset-observation-status.html&#10; [Observation Value Absent Reason]: valueset-data-absent-reason.html&#10;[required]: terminologies.html#required&quot;"/>
     </extension>
     <url value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
-    <version value="4.6.0"/>
+    <version value="4.3.0-cibuild"/>
     <name value="observation-vitalsigns"/>
     <title value="Vital Signs Profile"/>
     <status value="draft"/>
@@ -35,7 +35,7 @@
         </telecom>
     </contact>
     <description value="FHIR Vital Signs Profile"/>
-    <fhirVersion value="4.6.0"/>
+    <fhirVersion value="4.3.0-cibuild"/>
     <mapping>
         <identity value="workflow"/>
         <uri value="http://hl7.org/fhir/workflow"/>
