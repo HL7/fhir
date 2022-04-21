@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n346"
+   version="1.1"
+   width="1254.4"
+   height="326.0"
+   sodipodi:docname="nutritionproduct.svg"
+   inkscape:version="1.1.2 (b8e25be8, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview190"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.87611605"
+     inkscape:cx="627.20002"
+     inkscape:cy="162.64969"
+     inkscape:window-width="1312"
+     inkscape:window-height="1027"
+     inkscape:window-x="2824"
+     inkscape:window-y="1141"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n346" />
+  <defs
+     id="defs18">
+    <filter
+       id="shadow1"
+       x="-0.028679653"
+       y="-0.0828125"
+       width="1.0735931"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset9" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix11" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur13" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend15" />
+    </filter>
+  </defs>
+  <g
+     id="n347">
+    <rect
+       id="NutritionProduct"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="308.0"
+       height="134.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n348"
+       x1="0.0"
+       y1="28.0"
+       x2="308.0"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n349"
+       x="154.0"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">NutritionProduct<tspan
+   class="diagram-class-title-link"
+   id="tspan23"> (<a
+   id="n350"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n351"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n352"
+   xlink:href="nutritionproduct-definitions.html#NutritionProduct.status"><title
+   id="title26">The current state of the product (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n353"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n354"
+   xlink:href="valueset-nutritionproduct-status.html"><title
+   id="n355">null (Strength=Required)</title>NutritionProductStatus</a>! »</text>
+    <text
+       id="n361"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n362"
+   xlink:href="nutritionproduct-definitions.html#NutritionProduct.category"><title
+   id="title33">Nutrition products can have different classifications - according to its nutritional properties, preparation methods, etc</title>category</a> : <a
+   id="n363"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n364"
+   xlink:href="valueset-nutrition-product-category.html"><title
+   id="n365">null (Strength=Example)</title>Categories of Nutrition Produ...</a>?? »</text>
+    <text
+       id="n371"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n372"
+   xlink:href="nutritionproduct-definitions.html#NutritionProduct.code"><title
+   id="title40">The code assigned to the product, for example a manufacturer number or other terminology</title>code</a> : <a
+   id="n373"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n374"
+   xlink:href="http://hl7.org/fhir/ValueSet/edible-substance-type"><title
+   id="n375">null (Strength=Example)</title>NutritionProductCode</a>?? »</text>
+    <text
+       id="n381"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n382"
+   xlink:href="nutritionproduct-definitions.html#NutritionProduct.manufacturer"><title
+   id="title47">The organisation (manufacturer, representative or legal authorisation holder) that is responsible for the device</title>manufacturer</a> : <a
+   id="n383"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n384"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n389"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n390"
+   xlink:href="nutritionproduct-definitions.html#NutritionProduct.knownAllergen"><title
+   id="title53">Allergens that are known or suspected to be a part of this nutrition product</title>knownAllergen</a> : <a
+   id="n391"
+   xlink:href="element.html#Element">Element</a> [0..*] « <a
+   id="n392"
+   xlink:href="substance.html#Substance">Substance</a>; <a
+   id="n393"
+   xlink:href="valueset-allergen-class.html"><title
+   id="n394">null (Strength=Example)</title>Codes for Allergen</a></text>
+    <text
+       id="n395"
+       x="26.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n396"
+   xlink:href="valueset-allergen-class.html"> Classes</a>?? »</text>
+    <text
+       id="n405"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n406"
+   xlink:href="nutritionproduct-definitions.html#NutritionProduct.note"><title
+   id="title63">Comments made about the product</title>note</a> : <a
+   id="n407"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+  </g>
+  <g
+     id="n411">
+    <rect
+       id="NutritionProduct.nutrient"
+       x="400.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="303.6"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n412"
+       x1="400.0"
+       y1="28.0"
+       x2="703.6"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n413"
+       x="551.8"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title">Nutrient</text>
+    <text
+       id="n414"
+       x="406.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n415"
+   xlink:href="nutritionproduct-definitions.html#NutritionProduct.nutrient.item"><title
+   id="title72">The (relevant) nutrients in the product</title>item</a> : <a
+   id="n416"
+   xlink:href="element.html#Element">Element</a> [0..1] « <a
+   id="n417"
+   xlink:href="substance.html#Substance">Substance</a>; <a
+   id="n418"
+   xlink:href="valueset-nutrition-product-nutrient.html"><title
+   id="n419">null (Strength=Example)</title>Codes for Nutrition Product N...</a>?? »</text>
+    <text
+       id="n426"
+       x="406.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n427"
+   xlink:href="nutritionproduct-definitions.html#NutritionProduct.nutrient.amount"><title
+   id="title80">The amount of nutrient expressed in one or more units: X per pack / per serving / per dose</title>amount</a> : <a
+   id="n428"
+   xlink:href="datatypes.html#Ratio">Ratio</a> [0..*]</text>
+  </g>
+  <g
+     id="n432"
+     transform="translate(93.594907,12.555415)">
+    <rect
+       id="NutritionProduct.ingredient"
+       x="375"
+       y="100"
+       rx="4"
+       ry="4"
+       width="184.8"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n433"
+       x1="375"
+       y1="128"
+       x2="559.79999"
+       y2="128"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n434"
+       x="467.39999"
+       y="120"
+       fill="#000000"
+       class="diagram-class-title">Ingredient</text>
+    <text
+       id="n435"
+       x="381"
+       y="142"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n436"
+   xlink:href="nutritionproduct-definitions.html#NutritionProduct.ingredient.item"><title
+   id="title89">The ingredient contained in the product</title>item</a> : <a
+   id="n437"
+   xlink:href="element.html#Element">Element</a> [1..1] « <a
+   id="n438"
+   xlink:href="nutritionproduct.html#NutritionProduct">NutritionProduct</a> »</text>
+    <text
+       id="n443"
+       x="381"
+       y="156"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n444"
+   xlink:href="nutritionproduct-definitions.html#NutritionProduct.ingredient.amount"><title
+   id="title95">The amount of ingredient that is in the product</title>amount</a> : <a
+   id="n445"
+   xlink:href="datatypes.html#Ratio">Ratio</a> [0..*]</text>
+  </g>
+  <g
+     id="n449"
+     transform="translate(-423.86372,207.90828)">
+    <rect
+       id="NutritionProduct.productCharacteristic"
+       x="720"
+       y="0"
+       rx="4"
+       ry="4"
+       width="334.39999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n450"
+       x1="720"
+       y1="28"
+       x2="1054.4"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n451"
+       x="887.20001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">ProductCharacteristic</text>
+    <text
+       id="n452"
+       x="726"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n453"
+   xlink:href="nutritionproduct-definitions.html#NutritionProduct.productCharacteristic.type"><title
+   id="title104">A code specifying which characteristic of the product is being described (for example, colour, shape)</title>type</a> : <a
+   id="n454"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n455"
+   xlink:href="valueset-measurement-property.html"><title
+   id="n456">null (Strength=Example)</title>Codes for Product Characteris...</a>?? »</text>
+    <text
+       id="n462"
+       x="726"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n463"
+   xlink:href="nutritionproduct-definitions.html#NutritionProduct.productCharacteristic.value_x_"><title
+   id="title111">The actual characteristic value corresponding to the type</title>value[x]</a> : <a
+   id="n464"
+   xlink:href="element.html#Element">Element</a> [1..1] « <a
+   id="n465"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n466"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n467"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a118">SimpleQuantity</a>)|</text>
+    <text
+       id="n468"
+       x="746"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n469"
+   xlink:href="datatypes.html#base64Binary">base64Binary</a>|<a
+   id="n470"
+   xlink:href="datatypes.html#Attachment">Attachment</a>|<a
+   id="n471"
+   xlink:href="datatypes.html#boolean">boolean</a> »</text>
+  </g>
+  <g
+     id="n482">
+    <rect
+       id="NutritionProduct.instance"
+       x="0.0"
+       y="200.0"
+       rx="4"
+       ry="4"
+       width="184.8"
+       height="106.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n483"
+       x1="0.0"
+       y1="228.0"
+       x2="184.8"
+       y2="228.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n484"
+       x="92.4"
+       y="220.0"
+       fill="black"
+       class="diagram-class-title">Instance</text>
+    <text
+       id="n485"
+       x="6.0"
+       y="242.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n486"
+   xlink:href="nutritionproduct-definitions.html#NutritionProduct.instance.quantity"><title
+   id="title129">The amount of items or instances that the resource considers, for instance when referring to 2 identical units together</title>quantity</a> : <a
+   id="n487"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a133">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n491"
+       x="6.0"
+       y="256.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n492"
+   xlink:href="nutritionproduct-definitions.html#NutritionProduct.instance.identifier"><title
+   id="title136">The identifier for the physical instance, typically a serial number</title>identifier</a> : <a
+   id="n493"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n497"
+       x="6.0"
+       y="270.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n498"
+   xlink:href="nutritionproduct-definitions.html#NutritionProduct.instance.lotNumber"><title
+   id="title141">The identification of the batch or lot of the product</title>lotNumber</a> : <a
+   id="n499"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n503"
+       x="6.0"
+       y="284.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n504"
+   xlink:href="nutritionproduct-definitions.html#NutritionProduct.instance.expiry"><title
+   id="title146">The time after which the product is no longer expected to be in proper condition, or its use is not advised or not allowed</title>expiry</a> : <a
+   id="n505"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n509"
+       x="6.0"
+       y="298.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n510"
+   xlink:href="nutritionproduct-definitions.html#NutritionProduct.instance.useBy"><title
+   id="title151">The time after which the product is no longer expected to be in proper condition, or its use is not advised or not allowed</title>useBy</a> : <a
+   id="n511"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+  </g>
+  <line
+     id="n515"
+     x1="308.0"
+     y1="53.450477626948214"
+     x2="400.0"
+     y2="45.35595776772247"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n516"
+     points="308.0,53.450477626948214 314.0,57.450477626948214 320.0,53.450477626948214 314.0,49.450477626948214 308.0,53.450477626948214"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-5.028158861697508 308.0 53.450477626948214)" />
+  <rect
+     id="n517"
+     x="336.5"
+     y="42.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n518"
+     x="354.0"
+     y="52.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n519"
+       xlink:href="nutritionproduct-definitions.html#NutritionProduct.nutrient"><title
+   id="title160">The product's nutritional information expressed by the nutrients</title>nutrient</a></text>
+  <text
+     id="n520"
+     x="380.0"
+     y="41.35595776772247"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n521"
+     x1="308.0"
+     y1="98.94001276324187"
+     x2="375.0"
+     y2="112.83599234205488"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n522"
+     points="308.0,98.94001276324187 314.0,102.94001276324187 320.0,98.94001276324187 314.0,94.94001276324187 308.0,98.94001276324187"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(11.717175029159037 308.0 98.94001276324187)" />
+  <rect
+     id="n523"
+     x="319.0"
+     y="98.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n524"
+     x="341.0"
+     y="108.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n525"
+       xlink:href="nutritionproduct-definitions.html#NutritionProduct.ingredient"><title
+   id="title168">Ingredients contained in this product</title>ingredient</a></text>
+  <text
+     id="n526"
+     x="355.0"
+     y="108.83599234205488"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n527"
+     x1="308.0"
+     y1="61.11893071467539"
+     x2="720.0"
+     y2="45.38516093835243"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n528"
+     points="308.0,61.11893071467539 314.0,65.1189307146754 320.0,61.11893071467539 314.0,57.11893071467539 308.0,61.11893071467539"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-2.1869921209668974 308.0 61.11893071467539)" />
+  <rect
+     id="n529"
+     x="468.0"
+     y="46.0"
+     width="92.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n530"
+     x="514.0"
+     y="56.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n531"
+       xlink:href="nutritionproduct-definitions.html#NutritionProduct.productCharacteristic"><title
+   id="title176">Specifies descriptive properties of the nutrition product</title>productCharacteristic</a></text>
+  <text
+     id="n532"
+     x="700.0"
+     y="41.38516093835243"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n533"
+     x1="131.81075268817204"
+     y1="134.0"
+     x2="109.95268817204301"
+     y2="200.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n534"
+     points="131.81075268817204,134.0 137.81075268817204,138.0 143.81075268817204,134.0 137.81075268817204,130.0 131.81075268817204,134.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(108.32398231315642 131.81075268817204 134.0)" />
+  <rect
+     id="n535"
+     x="102.5"
+     y="160.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n536"
+     x="120.0"
+     y="170.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n537"
+       xlink:href="nutritionproduct-definitions.html#NutritionProduct.instance"><title
+   id="title184">Conveys instance-level information about this product item. One or several physical, countable instances or occurrences of the product</title>instance</a></text>
+  <text
+     id="n538"
+     x="109.95268817204301"
+     y="196.0"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+</svg>

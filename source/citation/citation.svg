@@ -1,0 +1,2240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n1841"
+   version="1.1"
+   width="6984.0"
+   height="422.0"
+   sodipodi:docname="citation.svg"
+   inkscape:version="1.1.2 (b8e25be8, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview935"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.6294387"
+     inkscape:cx="403.53413"
+     inkscape:cy="424.98181"
+     inkscape:window-width="1565"
+     inkscape:window-height="919"
+     inkscape:window-x="67"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n1841"
+     inkscape:snap-global="false" />
+  <defs
+     id="defs18">
+    <filter
+       id="shadow1"
+       x="-0.044612793"
+       y="-0.106"
+       width="1.1144781"
+       height="1.272">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset9" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix11" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur13" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend15" />
+    </filter>
+  </defs>
+  <g
+     id="n1842"
+     transform="translate(395.59055,-23.830755)">
+    <rect
+       id="Citation"
+       x="0"
+       y="40"
+       rx="4"
+       ry="4"
+       width="277.20001"
+       height="372"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1843"
+       x1="0"
+       y1="68"
+       x2="277.20001"
+       y2="68"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1844"
+       x="138.60001"
+       y="60"
+       fill="#000000"
+       class="diagram-class-title  diagram-class-resource">Citation<tspan
+   class="diagram-class-title-link"
+   id="tspan23">(<a
+   id="n1845"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n1846"
+       x="6"
+       y="82"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1847"
+   xlink:href="citation-definitions.html#Citation.url"><title
+   id="title26">An absolute URI that is used to identify this citation when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers</title>url</a> : <a
+   id="n1848"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n1852"
+       x="6"
+       y="96"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1853"
+   xlink:href="citation-definitions.html#Citation.identifier"><title
+   id="title31">A formal identifier that is used to identify this citation when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n1854"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n1858"
+       x="6"
+       y="110"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1859"
+   xlink:href="citation-definitions.html#Citation.version"><title
+   id="title36">The identifier that is used to identify this version of the citation when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the citation author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="n1860"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1864"
+       x="6"
+       y="124"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1865"
+   xlink:href="citation-definitions.html#Citation.name"><title
+   id="title41">A natural language name identifying the citation. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n1866"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1870"
+       x="6"
+       y="138"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1871"
+   xlink:href="citation-definitions.html#Citation.title"><title
+   id="title46">A short, descriptive, user-friendly title for the citation</title>title</a> : <a
+   id="n1872"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1876"
+       x="6"
+       y="152"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1877"
+   xlink:href="citation-definitions.html#Citation.status"><title
+   id="title51">The status of this summary. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n1878"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1879"
+   xlink:href="valueset-publication-status.html"><title
+   id="n1880">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n1886"
+       x="6"
+       y="166"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1887"
+   xlink:href="citation-definitions.html#Citation.experimental"><title
+   id="title58">A Boolean value to indicate that this citation is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
+   id="n1888"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1892"
+       x="6"
+       y="180"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1893"
+   xlink:href="citation-definitions.html#Citation.date"><title
+   id="title63">The date  (and optionally time) when the citation was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the citation changes</title>date</a> : <a
+   id="n1894"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n1898"
+       x="6"
+       y="194"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1899"
+   xlink:href="citation-definitions.html#Citation.publisher"><title
+   id="title68">The name of the organization or individual that published the citation</title>publisher</a> : <a
+   id="n1900"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1904"
+       x="6"
+       y="208"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1905"
+   xlink:href="citation-definitions.html#Citation.contact"><title
+   id="title73">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n1906"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1910"
+       x="6"
+       y="222"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1911"
+   xlink:href="citation-definitions.html#Citation.description"><title
+   id="title78">A free text natural language description of the citation from a consumer's perspective</title>description</a> : <a
+   id="n1912"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1916"
+       x="6"
+       y="236"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1917"
+   xlink:href="citation-definitions.html#Citation.useContext"><title
+   id="title83">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate citation instances</title>useContext</a> : <a
+   id="n1918"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n1922"
+       x="6"
+       y="250"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1923"
+   xlink:href="citation-definitions.html#Citation.jurisdiction"><title
+   id="title88">A legal or geographic region in which the citation is intended to be used</title>jurisdiction</a> : <a
+   id="n1924"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1925"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n1926">null (Strength=Extensible)</title>Jurisdiction ValueSet</a>+ »</text>
+    <text
+       id="n1932"
+       x="6"
+       y="264"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1933"
+   xlink:href="citation-definitions.html#Citation.purpose"><title
+   id="title95">Explanation of why this citation is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n1934"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1938"
+       x="6"
+       y="278"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1939"
+   xlink:href="citation-definitions.html#Citation.copyright"><title
+   id="title100">Use and/or publishing restrictions for the Citation, not for the cited artifact</title>copyright</a> : <a
+   id="n1940"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1944"
+       x="6"
+       y="292"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1945"
+   xlink:href="citation-definitions.html#Citation.approvalDate"><title
+   id="title105">The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage</title>approvalDate</a> : <a
+   id="n1946"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n1950"
+       x="6"
+       y="306"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1951"
+   xlink:href="citation-definitions.html#Citation.lastReviewDate"><title
+   id="title110">The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date</title>lastReviewDate</a> : <a
+   id="n1952"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n1956"
+       x="6"
+       y="320"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1957"
+   xlink:href="citation-definitions.html#Citation.effectivePeriod"><title
+   id="title115">The period during which the citation content was or is planned to be in active use</title>effectivePeriod</a> : <a
+   id="n1958"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n1962"
+       x="6"
+       y="334"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1963"
+   xlink:href="citation-definitions.html#Citation.author"><title
+   id="title120">Who authored the Citation</title>author</a> : <a
+   id="n1964"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1968"
+       x="6"
+       y="348"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1969"
+   xlink:href="citation-definitions.html#Citation.editor"><title
+   id="title125">Who edited the Citation</title>editor</a> : <a
+   id="n1970"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1974"
+       x="6"
+       y="362"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1975"
+   xlink:href="citation-definitions.html#Citation.reviewer"><title
+   id="title130">Who reviewed the Citation</title>reviewer</a> : <a
+   id="n1976"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1980"
+       x="6"
+       y="376"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1981"
+   xlink:href="citation-definitions.html#Citation.endorser"><title
+   id="title135">Who endorsed the Citation</title>endorser</a> : <a
+   id="n1982"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1986"
+       x="6"
+       y="390"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1987"
+   xlink:href="citation-definitions.html#Citation.note"><title
+   id="title140">Used for general notes and annotations not coded elsewhere</title>note</a> : <a
+   id="n1988"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n1992"
+       x="6"
+       y="404"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1993"
+   xlink:href="citation-definitions.html#Citation.currentState"><title
+   id="title145">The status of the citation</title>currentState</a> : <a
+   id="n1994"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1995"
+   xlink:href="valueset-citation-status-type.html"><title
+   id="n1996">null (Strength=Example)</title>CitationStatusType</a>?? »</text>
+  </g>
+  <g
+     id="n2002"
+     transform="translate(-306.62238,6.354868)">
+    <rect
+       id="Citation.summary"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="242"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2003"
+       x1="320"
+       y1="28"
+       x2="562"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2004"
+       x="441"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Summary</text>
+    <text
+       id="n2005"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2006"
+   xlink:href="citation-definitions.html#Citation.summary.style"><title
+   id="title156">Format for display of the citation</title>style</a> : <a
+   id="n2007"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2008"
+   xlink:href="valueset-citation-summary-style.html"><title
+   id="n2009">null (Strength=Extensible)</title>CitationSummaryStyle</a>+ »</text>
+    <text
+       id="n2015"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2016"
+   xlink:href="citation-definitions.html#Citation.summary.text"><title
+   id="title163">The human-readable display of the citation</title>text</a> : <a
+   id="n2017"
+   xlink:href="datatypes.html#markdown">markdown</a> [1..1]</text>
+  </g>
+  <g
+     id="n2021"
+     transform="translate(110.37178,12.709738)">
+    <rect
+       id="Citation.classification"
+       x="640"
+       y="0"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2022"
+       x1="640"
+       y1="28"
+       x2="930.40002"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2023"
+       x="785.20001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Classification</text>
+    <text
+       id="n2024"
+       x="646"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2025"
+   xlink:href="citation-definitions.html#Citation.classification.type"><title
+   id="title172">The kind of classifier (e.g. publication type, keyword)</title>type</a> : <a
+   id="n2026"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2027"
+   xlink:href="valueset-citation-classification-type.html"><title
+   id="n2028">null (Strength=Extensible)</title>CitationClassificationType</a>+ »</text>
+    <text
+       id="n2034"
+       x="646"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2035"
+   xlink:href="citation-definitions.html#Citation.classification.classifier"><title
+   id="title179">The specific classification value</title>classifier</a> : <a
+   id="n2036"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2037"
+   xlink:href="valueset-citation-artifact-classifier.html"><title
+   id="n2038">null (Strength=Example)</title>CitationArtifactClassifier</a>?? »</text>
+  </g>
+  <g
+     id="n2044"
+     transform="translate(-942.25804,103.70443)">
+    <rect
+       id="Citation.statusDate"
+       x="960"
+       y="0"
+       rx="4"
+       ry="4"
+       width="246.39999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2045"
+       x1="960"
+       y1="28"
+       x2="1206.4"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2046"
+       x="1083.2"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">StatusDate</text>
+    <text
+       id="n2047"
+       x="966"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2048"
+   xlink:href="citation-definitions.html#Citation.statusDate.activity"><title
+   id="title190">Classification of the status</title>activity</a> : <a
+   id="n2049"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n2050"
+   xlink:href="valueset-citation-status-type.html"><title
+   id="n2051">null (Strength=Example)</title>CitationStatusType</a>?? »</text>
+    <text
+       id="n2057"
+       x="966"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2058"
+   xlink:href="citation-definitions.html#Citation.statusDate.actual"><title
+   id="title197">Either occurred or expected</title>actual</a> : <a
+   id="n2059"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n2063"
+       x="966"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2064"
+   xlink:href="citation-definitions.html#Citation.statusDate.period"><title
+   id="title202">When the status started and/or ended</title>period</a> : <a
+   id="n2065"
+   xlink:href="datatypes.html#Period">Period</a> [1..1]</text>
+  </g>
+  <g
+     id="n2069"
+     transform="translate(-527.28025,108.88717)">
+    <rect
+       id="Citation.relatesTo"
+       x="1280"
+       y="0"
+       rx="4"
+       ry="4"
+       width="308"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2070"
+       x1="1280"
+       y1="28"
+       x2="1588"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2071"
+       x="1434"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">RelatesTo</text>
+    <text
+       id="n2072"
+       x="1286"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2073"
+   xlink:href="citation-definitions.html#Citation.relatesTo.relationshipType"><title
+   id="title211">How the Citation resource relates to the target artifact</title>relationshipType</a> : <a
+   id="n2074"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n2075"
+   xlink:href="valueset-artifact-relationship-type.html"><title
+   id="n2076">null (Strength=Extensible)</title>ArtifactRelationshipType</a>+ »</text>
+    <text
+       id="n2082"
+       x="1286"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2083"
+   xlink:href="citation-definitions.html#Citation.relatesTo.targetClassifier"><title
+   id="title218">The clasification of the related artifact</title>targetClassifier</a> : <a
+   id="n2084"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2085"
+   xlink:href="valueset-citation-artifact-classifier.html"><title
+     id="n2086">null (Strength=Example)</title></a></text>
+    <text
+       id="n2087"
+       x="1306"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2088"
+   xlink:href="valueset-citation-artifact-classifier.html">CitationArtifactClassifier</a>?? »</text>
+    <text
+       id="n2096"
+       x="1286"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2097"
+   xlink:href="citation-definitions.html#Citation.relatesTo.target_x_"><title
+   id="title227">The article or artifact that the Citation Resource is related to</title>target[x]</a> : <a
+   id="n2098"
+   xlink:href="element.html#Element">Element</a> [1..1] « <a
+   id="n2099"
+   xlink:href="datatypes.html#uri">uri</a>|<a
+   id="n2100"
+   xlink:href="datatypes.html#Identifier">Identifier</a>|<a
+   id="n2101"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n2102"
+   xlink:href="resourcelist.html#Any">Any</a>)|</text>
+    <text
+       id="n2103"
+       x="1306"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2104"
+   xlink:href="datatypes.html#Attachment">Attachment</a> »</text>
+  </g>
+  <g
+     id="n2114"
+     transform="translate(-1178.3388,449.6788)">
+    <rect
+       id="Citation.citedArtifact"
+       x="1600"
+       y="0"
+       rx="4"
+       ry="4"
+       width="286"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2115"
+       x1="1600"
+       y1="28"
+       x2="1886"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2116"
+       x="1743"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">CitedArtifact</text>
+    <text
+       id="n2117"
+       x="1606"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2118"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.identifier"><title
+   id="title242">A formal identifier that is used to identify this citation when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n2119"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n2123"
+       x="1606"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2124"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.relatedIdentifier"><title
+   id="title247">A formal identifier that is used to identify things closely related to this citation</title>relatedIdentifier</a> : <a
+   id="n2125"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n2129"
+       x="1606"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2130"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.dateAccessed"><title
+   id="title252">When the cited artifact was accessed</title>dateAccessed</a> : <a
+   id="n2131"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n2135"
+       x="1606"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2136"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.currentState"><title
+   id="title257">The status of the cited artifact</title>currentState</a> : <a
+   id="n2137"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2138"
+   xlink:href="valueset-cited-artifact-status-type.html"><title
+   id="n2139">null (Strength=Extensible)</title>CitedArtifactStatusType</a>+ »</text>
+    <text
+       id="n2145"
+       x="1606"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2146"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.note"><title
+   id="title264">Any additional information or content for the article or artifact</title>note</a> : <a
+   id="n2147"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+  </g>
+  <g
+     id="n2151"
+     transform="translate(-1821.0451,214.69427)">
+    <rect
+       id="Citation.citedArtifact.version"
+       x="1920"
+       y="0"
+       rx="4"
+       ry="4"
+       width="193.60001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2152"
+       x1="1920"
+       y1="28"
+       x2="2113.6001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2153"
+       x="2016.8"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Version</text>
+    <text
+       id="n2154"
+       x="1926"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2155"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.version.value"><title
+   id="title273">The version number or other version identifier</title>value</a> : <a
+   id="n2156"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+    <text
+       id="n2160"
+       x="1926"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2161"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.version.baseCitation"><title
+   id="title278">Citation for the main version of the cited artifact</title>baseCitation</a> : <a
+   id="n2162"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2163"
+   xlink:href="citation.html#Citation">Citation</a> »</text>
+  </g>
+  <g
+     id="n2168"
+     transform="translate(-2135.7147,312.05732)">
+    <rect
+       id="Citation.citedArtifact.statusDate"
+       x="2160"
+       y="0"
+       rx="4"
+       ry="4"
+       width="268.39999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2169"
+       x1="2160"
+       y1="28"
+       x2="2428.3999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2170"
+       x="2294.2"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">StatusDate</text>
+    <text
+       id="n2171"
+       x="2166"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2172"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.statusDate.activity"><title
+   id="title288">Classification of the status</title>activity</a> : <a
+   id="n2173"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n2174"
+   xlink:href="valueset-cited-artifact-status-type.html"><title
+   id="n2175">null (Strength=Extensible)</title>CitedArtifactStatusType</a>+ »</text>
+    <text
+       id="n2181"
+       x="2166"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2182"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.statusDate.actual"><title
+   id="title295">Either occurred or expected</title>actual</a> : <a
+   id="n2183"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n2187"
+       x="2166"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2188"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.statusDate.period"><title
+   id="title300">When the status started and/or ended</title>period</a> : <a
+   id="n2189"
+   xlink:href="datatypes.html#Period">Period</a> [1..1]</text>
+  </g>
+  <g
+     id="n2193"
+     transform="translate(-1700.1046,756.71497)">
+    <rect
+       id="Citation.citedArtifact.title"
+       x="2480"
+       y="0"
+       rx="4"
+       ry="4"
+       width="233.2"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2194"
+       x1="2480"
+       y1="28"
+       x2="2713.2"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2195"
+       x="2596.6001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Title</text>
+    <text
+       id="n2196"
+       x="2486"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2197"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.title.type"><title
+   id="title309">Used to express the reason or specific aspect for the title</title>type</a> : <a
+   id="n2198"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2199"
+   xlink:href="valueset-title-type.html"><title
+   id="n2200">null (Strength=Extensible)</title>TitleType</a>+ »</text>
+    <text
+       id="n2206"
+       x="2486"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2207"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.title.language"><title
+   id="title316">Used to express the specific language</title>language</a> : <a
+   id="n2208"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2209"
+   xlink:href="valueset-languages.html"><title
+   id="title320">null (Strength=Preferred)</title>CommonLanguages</a>? »</text>
+    <text
+       id="n2214"
+       x="2486"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2215"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.title.text"><title
+   id="title324">The title of the article or artifact</title>text</a> : <a
+   id="n2216"
+   xlink:href="datatypes.html#markdown">markdown</a> [1..1]</text>
+  </g>
+  <g
+     id="n2220"
+     transform="translate(-2699.4831,582.6151)">
+    <rect
+       id="Citation.citedArtifact.abstract"
+       x="2720"
+       y="0"
+       rx="4"
+       ry="4"
+       width="259.60001"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2221"
+       x1="2720"
+       y1="28"
+       x2="2979.6001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2222"
+       x="2849.8"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Abstract</text>
+    <text
+       id="n2223"
+       x="2726"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2224"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.abstract.type"><title
+   id="title333">Used to express the reason or specific aspect for the abstract</title>type</a> : <a
+   id="n2225"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2226"
+   xlink:href="valueset-cited-artifact-abstract-type.html"><title
+   id="n2227">null (Strength=Extensible)</title>CitedArtifactAbstractType</a>+ »</text>
+    <text
+       id="n2233"
+       x="2726"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2234"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.abstract.language"><title
+   id="title340">Used to express the specific language</title>language</a> : <a
+   id="n2235"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2236"
+   xlink:href="valueset-languages.html"><title
+   id="title344">null (Strength=Preferred)</title>CommonLanguages</a>? »</text>
+    <text
+       id="n2241"
+       x="2726"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2242"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.abstract.text"><title
+   id="title348">Abstract content</title>text</a> : <a
+   id="n2243"
+   xlink:href="datatypes.html#markdown">markdown</a> [1..1]</text>
+    <text
+       id="n2247"
+       x="2726"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2248"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.abstract.copyright"><title
+   id="title353">Copyright notice for the abstract</title>copyright</a> : <a
+   id="n2249"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+  </g>
+  <g
+     id="n2253"
+     transform="translate(-3014.3003,798.9636)">
+    <rect
+       id="Citation.citedArtifact.part"
+       x="3040"
+       y="0"
+       rx="4"
+       ry="4"
+       width="242"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2254"
+       x1="3040"
+       y1="28"
+       x2="3282"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2255"
+       x="3161"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Part</text>
+    <text
+       id="n2256"
+       x="3046"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2257"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.part.type"><title
+   id="title362">The kind of component</title>type</a> : <a
+   id="n2258"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2259"
+   xlink:href="valueset-cited-artifact-part-type.html"><title
+   id="n2260">null (Strength=Extensible)</title>CitedArtifactPartType</a>+ »</text>
+    <text
+       id="n2266"
+       x="3046"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2267"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.part.value"><title
+   id="title369">The specification of the component</title>value</a> : <a
+   id="n2268"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2272"
+       x="3046"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2273"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.part.baseCitation"><title
+   id="title374">The citation for the full article or artifact</title>baseCitation</a> : <a
+   id="n2274"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2275"
+   xlink:href="citation.html#Citation">Citation</a> »</text>
+  </g>
+  <g
+     id="n2280"
+     transform="translate(-3342.6606,441.66333)">
+    <rect
+       id="Citation.citedArtifact.relatesTo"
+       x="3360"
+       y="0"
+       rx="4"
+       ry="4"
+       width="308"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2281"
+       x1="3360"
+       y1="28"
+       x2="3668"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2282"
+       x="3514"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">RelatesTo</text>
+    <text
+       id="n2283"
+       x="3366"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2284"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.relatesTo.relationshipType"><title
+   id="title384">How the cited artifact relates to the target artifact</title>relationshipType</a> : <a
+   id="n2285"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n2286"
+   xlink:href="valueset-artifact-relationship-type.html"><title
+   id="n2287">null (Strength=Extensible)</title>ArtifactRelationshipType</a>+ »</text>
+    <text
+       id="n2293"
+       x="3366"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2294"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.relatesTo.targetClassifier"><title
+   id="title391">The clasification of the related artifact</title>targetClassifier</a> : <a
+   id="n2295"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2296"
+   xlink:href="valueset-citation-artifact-classifier.html"><title
+     id="n2297">null (Strength=Example)</title></a></text>
+    <text
+       id="n2298"
+       x="3386"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2299"
+   xlink:href="valueset-citation-artifact-classifier.html">CitationArtifactClassifier</a>?? »</text>
+    <text
+       id="n2307"
+       x="3366"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2308"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.relatesTo.target_x_"><title
+   id="title400">The article or artifact that the cited artifact is related to</title>target[x]</a> : <a
+   id="n2309"
+   xlink:href="element.html#Element">Element</a> [1..1] « <a
+   id="n2310"
+   xlink:href="datatypes.html#uri">uri</a>|<a
+   id="n2311"
+   xlink:href="datatypes.html#Identifier">Identifier</a>|<a
+   id="n2312"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n2313"
+   xlink:href="resourcelist.html#Any">Any</a>)|</text>
+    <text
+       id="n2314"
+       x="3386"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2315"
+   xlink:href="datatypes.html#Attachment">Attachment</a> »</text>
+  </g>
+  <g
+     id="n2325"
+     transform="translate(-3207.6195,596.56324)">
+    <rect
+       id="Citation.citedArtifact.publicationForm"
+       x="3680"
+       y="0"
+       rx="4"
+       ry="4"
+       width="233.2"
+       height="162"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2326"
+       x1="3680"
+       y1="28"
+       x2="3913.2"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2327"
+       x="3796.6001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">PublicationForm</text>
+    <text
+       id="n2328"
+       x="3686"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2329"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.articleDate"><title
+   id="title415">The date the article was added to the database, or the date the article was released (which may differ from the journal issue publication date)</title>articleDate</a> : <a
+   id="n2330"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n2334"
+       x="3686"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2335"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.lastRevisionDate"><title
+   id="title420">The date the article was last revised or updated in the database</title>lastRevisionDate</a> : <a
+   id="n2336"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n2340"
+       x="3686"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2341"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.language"><title
+   id="title425">Language in which this form of the article is published</title>language</a> : <a
+   id="n2342"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2343"
+   xlink:href="valueset-languages.html"><title
+   id="title429">null (Strength=Preferred)</title>CommonLanguages</a>? »</text>
+    <text
+       id="n2348"
+       x="3686"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2349"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.accessionNumber"><title
+   id="title433">Entry number or identifier for inclusion in a database</title>accessionNumber</a> : <a
+   id="n2350"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2354"
+       x="3686"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2355"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.pageString"><title
+   id="title438">Used for full display of pagination</title>pageString</a> : <a
+   id="n2356"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2360"
+       x="3686"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2361"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.firstPage"><title
+   id="title443">Used for isolated representation of first page</title>firstPage</a> : <a
+   id="n2362"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2366"
+       x="3686"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2367"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.lastPage"><title
+   id="title448">Used for isolated representation of last page</title>lastPage</a> : <a
+   id="n2368"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2372"
+       x="3686"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2373"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.pageCount"><title
+   id="title453">Actual or approximate number of pages or screens</title>pageCount</a> : <a
+   id="n2374"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2378"
+       x="3686"
+       y="154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2379"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.copyright"><title
+   id="title458">Copyright notice for the full article or artifact</title>copyright</a> : <a
+   id="n2380"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+  </g>
+  <g
+     id="n2384"
+     transform="translate(-3069.5946,865.69791)">
+    <rect
+       id="Citation.citedArtifact.publicationForm.publishedIn"
+       x="3920"
+       y="0"
+       rx="4"
+       ry="4"
+       width="215.60001"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2385"
+       x1="3920"
+       y1="28"
+       x2="4135.6001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2386"
+       x="4027.8"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">PublishedIn</text>
+    <text
+       id="n2387"
+       x="3926"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2388"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.publishedIn.type"><title
+   id="title467">Kind of container (e.g. Periodical, database, or book)</title>type</a> : <a
+   id="n2389"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2390"
+   xlink:href="valueset-published-in-type.html"><title
+   id="n2391">null (Strength=Extensible)</title>PublishedInType</a>+ »</text>
+    <text
+       id="n2397"
+       x="3926"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2398"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.publishedIn.identifier"><title
+   id="title474">Journal identifiers include ISSN, ISO Abbreviation and NLMuniqueID; Book identifiers include ISBN</title>identifier</a> : <a
+   id="n2399"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n2403"
+       x="3926"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2404"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.publishedIn.title"><title
+   id="title479">Name of the database or title of the book or journal</title>title</a> : <a
+   id="n2405"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2409"
+       x="3926"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2410"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.publishedIn.publisher"><title
+   id="title484">Name of the publisher</title>publisher</a> : <a
+   id="n2411"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2412"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n2417"
+       x="3926"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2418"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.publishedIn.publisherLocation"><title
+   id="title490">Geographic location of the publisher</title>publisherLocation</a> : <a
+   id="n2419"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n2423"
+     transform="translate(-3590.2584,880.51228)">
+    <rect
+       id="Citation.citedArtifact.publicationForm.periodicRelease"
+       x="4160"
+       y="0"
+       rx="4"
+       ry="4"
+       width="228.8"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2424"
+       x1="4160"
+       y1="28"
+       x2="4388.7998"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2425"
+       x="4274.3999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">PeriodicRelease</text>
+    <text
+       id="n2426"
+       x="4166"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2427"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.periodicRelease.citedMedium"><title
+   id="title499">Describes the form of the medium cited. Common codes are &quot;Internet&quot; or &quot;Print&quot;</title>citedMedium</a> : <a
+   id="n2428"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2429"
+   xlink:href="valueset-cited-medium.html"><title
+   id="n2430">null (Strength=Extensible)</title>CitedMedium</a>+ »</text>
+    <text
+       id="n2436"
+       x="4166"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2437"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.periodicRelease.volume"><title
+   id="title506">Volume number of journal in which the article is published</title>volume</a> : <a
+   id="n2438"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2442"
+       x="4166"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2443"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.periodicRelease.issue"><title
+   id="title511">Issue, part or supplement of journal in which the article is published</title>issue</a> : <a
+   id="n2444"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n2448"
+     transform="translate(-4055.9946,864.26206)">
+    <rect
+       id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication"
+       x="4400"
+       y="0"
+       rx="4"
+       ry="4"
+       width="134.64"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2449"
+       x1="4400"
+       y1="28"
+       x2="4534.6401"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2450"
+       x="4467.3198"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">DateOfPublication</text>
+    <text
+       id="n2451"
+       x="4406"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2452"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.date"><title
+   id="title520">Date on which the issue of the journal was published</title>date</a> : <a
+   id="n2453"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n2457"
+       x="4406"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2458"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.year"><title
+   id="title525">Year on which the issue of the journal was published</title>year</a> : <a
+   id="n2459"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2463"
+       x="4406"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2464"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.month"><title
+   id="title530">Month on which the issue of the journal was published</title>month</a> : <a
+   id="n2465"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2469"
+       x="4406"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2470"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.day"><title
+   id="title535">Day on which the issue of the journal was published</title>day</a> : <a
+   id="n2471"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2475"
+       x="4406"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2476"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.season"><title
+   id="title540">Spring, Summer, Fall/Autumn, Winter</title>season</a> : <a
+   id="n2477"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2481"
+       x="4406"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2482"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.text"><title
+   id="title545">Text representation of the date of which the issue of the journal was published</title>text</a> : <a
+   id="n2483"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n2487"
+     transform="translate(-4529.4322,708.5678)">
+    <rect
+       id="Citation.citedArtifact.webLocation"
+       x="4560"
+       y="0"
+       rx="4"
+       ry="4"
+       width="211.2"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2488"
+       x1="4560"
+       y1="28"
+       x2="4771.2002"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2489"
+       x="4665.6001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">WebLocation</text>
+    <text
+       id="n2490"
+       x="4566"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2491"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.webLocation.type"><title
+   id="title554">Code the reason for different URLs, e.g. abstract and full-text</title>type</a> : <a
+   id="n2492"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2493"
+   xlink:href="valueset-article-url-type.html"><title
+   id="n2494">null (Strength=Extensible)</title>ArticleUrlType</a>+ »</text>
+    <text
+       id="n2500"
+       x="4566"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2501"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.webLocation.url"><title
+   id="title561">The specific URL</title>url</a> : <a
+   id="n2502"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+  </g>
+  <g
+     id="n2506"
+     transform="translate(-4510.3675,773.7052)">
+    <rect
+       id="Citation.citedArtifact.classification"
+       x="4800"
+       y="0"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2507"
+       x1="4800"
+       y1="28"
+       x2="5090.3999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2508"
+       x="4945.2002"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Classification</text>
+    <text
+       id="n2509"
+       x="4806"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2510"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.classification.type"><title
+   id="title570">The kind of classifier (e.g. publication type, keyword)</title>type</a> : <a
+   id="n2511"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2512"
+   xlink:href="valueset-cited-artifact-classification-type.html"><title
+   id="n2513">null (Strength=Extensible)</title>CitedArtifactClassificationTy...</a>+ »</text>
+    <text
+       id="n2519"
+       x="4806"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2520"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.classification.classifier"><title
+   id="title577">The specific classification value</title>classifier</a> : <a
+   id="n2521"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2522"
+   xlink:href="valueset-citation-artifact-classifier.html"><title
+   id="n2523">null (Strength=Example)</title>CitationArtifactClassifier</a>?? »</text>
+  </g>
+  <g
+     id="n2529"
+     transform="translate(-5073.0846,912.7698)">
+    <rect
+       id="Citation.citedArtifact.classification.whoClassified"
+       x="5120"
+       y="0"
+       rx="4"
+       ry="4"
+       width="215.60001"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2530"
+       x1="5120"
+       y1="28"
+       x2="5335.6001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2531"
+       x="5227.7998"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">WhoClassified</text>
+    <text
+       id="n2532"
+       x="5126"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2533"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.classification.whoClassified.person"><title
+   id="title588">Person who created the classification</title>person</a> : <a
+   id="n2534"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2535"
+   xlink:href="person.html#Person">Person</a>|<a
+   id="n2536"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a> »</text>
+    <text
+       id="n2542"
+       x="5126"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2543"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.classification.whoClassified.organization"><title
+   id="title595">Organization who created the classification</title>organization</a> : <a
+   id="n2544"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2545"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n2550"
+       x="5126"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2551"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.classification.whoClassified.publisher"><title
+   id="title601">The publisher of the classification, not the publisher of the article or artifact being cited</title>publisher</a> : <a
+   id="n2552"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2553"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n2558"
+       x="5126"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2559"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.classification.whoClassified.classifierCopyright"><title
+   id="title607">Rights management statement for the classification</title>classifierCopyright</a> : <a
+   id="n2560"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2564"
+       x="5126"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2565"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.classification.whoClassified.freeToShare"><title
+   id="title612">Acceptable to re-use the classification</title>freeToShare</a> : <a
+   id="n2566"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+  </g>
+  <g
+     id="n2570"
+     transform="translate(-4597.5623,556.6397)">
+    <rect
+       id="Citation.citedArtifact.contributorship"
+       x="5360"
+       y="0"
+       rx="4"
+       ry="4"
+       width="118.8"
+       height="50"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2571"
+       x1="5360"
+       y1="28"
+       x2="5478.7998"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2572"
+       x="5419.3999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Contributorship</text>
+    <text
+       id="n2573"
+       x="5366"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2574"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.complete"><title
+   id="title621">Indicates if the list includes all authors and/or contributors</title>complete</a> : <a
+   id="n2575"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+  </g>
+  <g
+     id="n2579"
+     transform="translate(-4761.7808,323.79709)">
+    <rect
+       id="Citation.citedArtifact.contributorship.entry"
+       x="5520"
+       y="0"
+       rx="4"
+       ry="4"
+       width="308"
+       height="176"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2580"
+       x1="5520"
+       y1="28"
+       x2="5828"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2581"
+       x="5674"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Entry</text>
+    <text
+       id="n2582"
+       x="5526"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2583"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.entry.name"><title
+   id="title630">A name associated with the individual</title>name</a> : <a
+   id="n2584"
+   xlink:href="datatypes.html#HumanName">HumanName</a> [0..1]</text>
+    <text
+       id="n2588"
+       x="5526"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2589"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.entry.initials"><title
+   id="title635">Initials for forename</title>initials</a> : <a
+   id="n2590"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2594"
+       x="5526"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2595"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.entry.collectiveName"><title
+   id="title640">Used for collective or corporate name as an author</title>collectiveName</a> : <a
+   id="n2596"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2600"
+       x="5526"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2601"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.entry.identifier"><title
+   id="title645">Unique person identifier</title>identifier</a> : <a
+   id="n2602"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n2606"
+       x="5526"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2607"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.entry.address"><title
+   id="title650">Physical mailing address for the author or contributor</title>address</a> : <a
+   id="n2608"
+   xlink:href="datatypes.html#Address">Address</a> [0..*]</text>
+    <text
+       id="n2612"
+       x="5526"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2613"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.entry.telecom"><title
+   id="title655">Email or telephone contact methods for the author or contributor</title>telecom</a> : <a
+   id="n2614"
+   xlink:href="datatypes.html#ContactPoint">ContactPoint</a> [0..*]</text>
+    <text
+       id="n2618"
+       x="5526"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2619"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.entry.contributionType"><title
+   id="title660">This element identifies the specific nature of an individual’s contribution with respect to the cited work</title>contributionType</a> : <a
+   id="n2620"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2621"
+   xlink:href="valueset-artifact-contribution-type.html"><title
+   id="n2622">null (Strength=Extensible)</title>ArtifactContributionType</a>+ »</text>
+    <text
+       id="n2628"
+       x="5526"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2629"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.entry.role"><title
+   id="title667">The role of the contributor (e.g. author, editor, reviewer)</title>role</a> : <a
+   id="n2630"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2631"
+   xlink:href="valueset-contributor-role.html"><title
+   id="n2632">null (Strength=Extensible)</title>ContributorRole</a>+ »</text>
+    <text
+       id="n2638"
+       x="5526"
+       y="154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2639"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.entry.correspondingContact"><title
+   id="title674">Indication of which contributor is the corresponding contributor for the role</title>correspondingContact</a> : <a
+   id="n2640"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n2644"
+       x="5526"
+       y="168"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2645"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.entry.listOrder"><title
+   id="title679">Used to code order of authors</title>listOrder</a> : <a
+   id="n2646"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
+  </g>
+  <g
+     id="n2650"
+     transform="translate(-4916.9018,536.33758)">
+    <rect
+       id="Citation.citedArtifact.contributorship.entry.affiliationInfo"
+       x="5840"
+       y="0"
+       rx="4"
+       ry="4"
+       width="132"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2651"
+       x1="5840"
+       y1="28"
+       x2="5972"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2652"
+       x="5906"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">AffiliationInfo</text>
+    <text
+       id="n2653"
+       x="5846"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2654"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.entry.affiliationInfo.affiliation"><title
+   id="title688">Display for the organization</title>affiliation</a> : <a
+   id="n2655"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2659"
+       x="5846"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2660"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.entry.affiliationInfo.role"><title
+   id="title693">Role within the organization, such as professional title</title>role</a> : <a
+   id="n2661"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2665"
+       x="5846"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2666"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.entry.affiliationInfo.identifier"><title
+   id="title698">Identifier for the organization</title>identifier</a> : <a
+   id="n2667"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+  </g>
+  <g
+     id="n2671"
+     transform="translate(-5243.3695,231.20017)">
+    <rect
+       id="Citation.citedArtifact.contributorship.entry.contributionInstance"
+       x="6000"
+       y="0"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2672"
+       x1="6000"
+       y1="28"
+       x2="6290.3999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2673"
+       x="6145.2002"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">ContributionInstance</text>
+    <text
+       id="n2674"
+       x="6006"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2675"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.entry.contributionInstance.type"><title
+   id="title707">The specific contribution</title>type</a> : <a
+   id="n2676"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n2677"
+   xlink:href="valueset-artifact-contribution-instance-type.html"><title
+   id="n2678">null (Strength=Extensible)</title>ArtifactContributionInstanceT...</a>+ »</text>
+    <text
+       id="n2684"
+       x="6006"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2685"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.entry.contributionInstance.time"><title
+   id="title714">The time that the contribution was made</title>time</a> : <a
+   id="n2686"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+  </g>
+  <g
+     id="n2690"
+     transform="translate(-5538.1611,645.95906)">
+    <rect
+       id="Citation.citedArtifact.contributorship.summary"
+       x="6320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="264"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2691"
+       x1="6320"
+       y1="28"
+       x2="6584"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2692"
+       x="6452"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">ContributorshipSummary</text>
+    <text
+       id="n2693"
+       x="6326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2694"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.summary.type"><title
+   id="title723">Used most commonly to express an author list or a contributorship statement</title>type</a> : <a
+   id="n2695"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2696"
+   xlink:href="valueset-contributor-summary-type.html"><title
+   id="n2697">null (Strength=Extensible)</title>ContributorSummaryType</a>+ »</text>
+    <text
+       id="n2703"
+       x="6326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2704"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.summary.style"><title
+   id="title730">The format for the display string</title>style</a> : <a
+   id="n2705"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2706"
+   xlink:href="valueset-contributor-summary-style.html"><title
+   id="n2707">null (Strength=Extensible)</title>ContributorSummaryStyle</a>+ »</text>
+    <text
+       id="n2713"
+       x="6326"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2714"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.summary.source"><title
+   id="title737">Used to code the producer or rule for creating the display string</title>source</a> : <a
+   id="n2715"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2716"
+   xlink:href="valueset-contributor-summary-source.html"><title
+   id="n2717">null (Strength=Extensible)</title>ContributorSummarySource</a>+ »</text>
+    <text
+       id="n2723"
+       x="6326"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2724"
+   xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.summary.value"><title
+   id="title744">The display string for the author list, contributor list, or contributorship statement</title>value</a> : <a
+   id="n2725"
+   xlink:href="datatypes.html#markdown">markdown</a> [1..1]</text>
+  </g>
+  <line
+     id="n2729"
+     x1="712.50848"
+     y1="160.91408"
+     x2="826.4281"
+     y2="87.830757"
+     style="stroke:#000080;stroke-width:1" />
+  <polygon
+     id="n2730"
+     points="283.2,141.08333 289.2,137.08333 283.2,133.08333 277.2,137.08333 "
+     style="fill:#000080;stroke:#000080;stroke-width:1"
+     transform="rotate(-32.681568,535.49424,-593.35875)" />
+  <rect
+     id="n2731"
+     x="754.30847"
+     y="116.83076"
+     width="30"
+     height="18"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+  <text
+     id="n2732"
+     x="769.30847"
+     y="126.83076"
+     fill="#000000"
+     class="diagram-class-linkage"><a
+       id="n2733"
+       xlink:href="citation-definitions.html#Citation.summary"><title
+   id="title753">A human-readable display of the citation</title>summary</a></text>
+  <text
+     id="n2734"
+     x="826.4281"
+     y="101.83076"
+     fill="#000000"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n2735"
+     x1="712.50848"
+     y1="208.24646"
+     x2="1113.8528"
+     y2="87.830757"
+     style="stroke:#000080;stroke-width:1" />
+  <polygon
+     id="n2736"
+     points="283.2,188.41571 289.2,184.41571 283.2,180.41571 277.2,184.41571 "
+     style="fill:#000080;stroke:#000080;stroke-width:1"
+     transform="rotate(-16.70087,576.03088,-1286.4956)" />
+  <rect
+     id="n2737"
+     x="881.80847"
+     y="140.83075"
+     width="61"
+     height="18"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+  <text
+     id="n2738"
+     x="912.30847"
+     y="150.83075"
+     fill="#000000"
+     class="diagram-class-linkage"><a
+       id="n2739"
+       xlink:href="citation-definitions.html#Citation.classification"><title
+   id="title761">The assignment to an organizing scheme</title>classification</a></text>
+  <text
+     id="n2740"
+     x="1113.8528"
+     y="101.83076"
+     fill="#000000"
+     class="diagram-class-linkage">[0..*]</text>
+  <polygon
+     id="n2742"
+     points="283.2,202.56172 289.2,198.56172 283.2,194.56172 277.2,198.56172 "
+     style="fill:#000080;stroke:#000080;stroke-width:1"
+     transform="rotate(-11.197908,616.39951,-2009.7498)" />
+  <rect
+     id="n2743"
+     x="1031.3085"
+     y="146.83075"
+     width="44"
+     height="18"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+  <text
+     id="n2744"
+     x="1053.3085"
+     y="156.83075"
+     fill="#000000"
+     class="diagram-class-linkage"><a
+       id="n2745"
+       xlink:href="citation-definitions.html#Citation.statusDate"><title
+   id="title769">An effective date or period for a status of the citation</title>statusDate</a></text>
+  <text
+     id="n2746"
+     x="1375.3085"
+     y="83.220337"
+     fill="#000000"
+     class="diagram-class-linkage">[0..*]</text>
+  <polygon
+     id="n2748"
+     points="283.2,211.49004 289.2,207.49004 283.2,203.49004 277.2,207.49004 "
+     style="fill:#000080;stroke:#000080;stroke-width:1"
+     transform="rotate(-7.6068112,674.08776,-3054.5936)" />
+  <rect
+     id="n2749"
+     x="1193.8085"
+     y="156.83075"
+     width="39"
+     height="18"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+  <text
+     id="n2750"
+     x="215.59416"
+     y="373.36395"
+     fill="#000000"
+     class="diagram-class-linkage"><a
+       id="n2751"
+       xlink:href="citation-definitions.html#Citation.relatesTo"><title
+   id="title777">Artifact related to the Citation Resource</title>relatesTo</a></text>
+  <text
+     id="n2752"
+     x="1695.3085"
+     y="93.397377"
+     fill="#000000"
+     class="diagram-class-linkage">[0..*]</text>
+  <rect
+     id="n2785"
+     x="1621.6729"
+     y="247.76706"
+     width="39"
+     height="18"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+  <rect
+     id="n2851"
+     x="253.5869"
+     y="889.67334"
+     width="30"
+     height="18"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+  <rect
+     id="n2857"
+     x="965.43951"
+     y="512.38129"
+     width="66"
+     height="18"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+  <polygon
+     id="n2862"
+     points="283.2,215.05497 289.2,211.05497 283.2,207.05497 277.2,211.05497 "
+     style="fill:#000080;stroke:#000080;stroke-width:1"
+     transform="rotate(-6.1543377,716.50094,-3825.7762)" />
+  <rect
+     id="n2863"
+     x="1344.8085"
+     y="155.83075"
+     width="57"
+     height="18"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+  <text
+     id="n2864"
+     x="1373.3085"
+     y="165.83075"
+     fill="#000000"
+     class="diagram-class-linkage"><a
+       id="n2865"
+       xlink:href="citation-definitions.html#Citation.citedArtifact"><title
+   id="title929">The article or artifact being described</title>citedArtifact</a></text>
+  <text
+     id="n2866"
+     x="2015.3085"
+     y="88.250229"
+     fill="#000000"
+     class="diagram-class-linkage">[0..1]</text>
+</svg>

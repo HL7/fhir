@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n410"
+   version="1.1"
+   width="1248.8"
+   height="347.0"
+   sodipodi:docname="administrableproductdefinition.svg"
+   inkscape:version="1.1.2 (b8e25be8, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview210"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.88004481"
+     inkscape:cx="624.40002"
+     inkscape:cy="173.28663"
+     inkscape:window-width="1312"
+     inkscape:window-height="1081"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n410" />
+  <defs
+     id="defs18">
+    <filter
+       id="shadow1"
+       x="-0.025628626"
+       y="-0.106"
+       width="1.065764"
+       height="1.272">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset9" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix11" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur13" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend15" />
+    </filter>
+  </defs>
+  <g
+     id="n411">
+    <rect
+       id="AdministrableProductDefinition"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="372.24"
+       height="162.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n412"
+       x1="0.0"
+       y1="28.0"
+       x2="372.24"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n413"
+       x="186.12"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">AdministrableProductDefinition<tspan
+   class="diagram-class-title-link"
+   id="tspan23"> (<a
+   id="n414"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n415"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n416"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.identifier"><title
+   id="title26">An identifier for the administrable product</title>identifier</a> : <a
+   id="n417"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n421"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n422"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.status"><title
+   id="title31">The status of this administrable product. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n423"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n424"
+   xlink:href="valueset-publication-status.html"><title
+   id="n425">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n431"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n432"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.formOf"><title
+   id="title38">References a product from which one or more of the constituent parts of that product can be prepared and used as described by this administrable product.  If this administrable product describes the administration of a crushed tablet, the 'formOf' would be the product representing a distribution containing tablets and possibly also a cream.  This is distinct from the 'producedFrom' which refers to the specific components of the product that are used in this preparation, rather than the product as a whole</title>formOf</a> : <a
+   id="n433"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n434"
+   xlink:href="medicinalproductdefinition.html#MedicinalProductDefinition">MedicinalProductDefinition</a> »</text>
+    <text
+       id="n439"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n440"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.administrableDoseForm"><title
+   id="title44">The dose form of the final product after necessary reconstitution or processing. Contrasts to the manufactured dose form (see ManufacturedItemDefinition). If the manufactured form was 'powder for solution for injection', the administrable dose form could be 'solution for injection' (once mixed with another item having manufactured form 'solvent for solution for injection')</title>administrableDoseForm</a> : <a
+   id="n441"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n442"
+   xlink:href="valueset-administrable-dose-form.html"><title
+     id="n443">null (Strength=Example)</title></a></text>
+    <text
+       id="n444"
+       x="26.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n445"
+   xlink:href="valueset-administrable-dose-form.html">AdministrableDoseForm</a>?? »</text>
+    <text
+       id="n453"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n454"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.unitOfPresentation"><title
+   id="title53">The presentation type in which this item is given to a patient. e.g. for a spray - 'puff' (as in 'contains 100 mcg per puff'), or for a liquid - 'vial' (as in 'contains 5 ml per vial')</title>unitOfPresentation</a> : <a
+   id="n455"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n456"
+   xlink:href="valueset-unit-of-presentation.html"><title
+   id="n457">null (Strength=Example)</title>UnitOfPresentation</a>?? »</text>
+    <text
+       id="n463"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n464"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.producedFrom"><title
+   id="title60">Indicates the specific manufactured items that are part of the 'formOf' product that are used in the preparation of this specific administrable form.  In some cases, an administrable form might use all of the items from the overall product (or there might only be one item), while in other cases, an administrable form might use only a subset of the items available in the overall product.  For example, an administrable form might involve combining a liquid and a powder available as part of an overall product, but not involve applying the also supplied cream</title>producedFrom</a> : <a
+   id="n465"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n466"
+   xlink:href="manufactureditemdefinition.html#ManufacturedItemDefinition">ManufacturedItemDefinition</a> »</text>
+    <text
+       id="n471"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n472"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.ingredient"><title
+   id="title66">The ingredients of this administrable medicinal product. This is only needed if the ingredients are not specified either using ManufacturedItemDefiniton (via AdministrableProductDefinition.producedFrom) to state which component items are used to make this, or using by incoming references from the Ingredient resource, to state in detail which substances exist within this. This element allows a basic coded ingredient to be used</title>ingredient</a> : <a
+   id="n473"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n474"
+   xlink:href="http://hl7.org/fhir/ValueSet/substance-codes"><title
+   id="n475">null (Strength=Example)</title>SNOMEDCTSubstanceCodes</a>?? »</text>
+    <text
+       id="n481"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n482"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.device"><title
+   id="title73">A device that is integral to the medicinal product, in effect being considered as an &quot;ingredient&quot; of the medicinal product. This is not intended for devices that are just co-packaged</title>device</a> : <a
+   id="n483"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n484"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a> »</text>
+  </g>
+  <g
+     id="n489"
+     transform="translate(47.724842)">
+    <rect
+       id="AdministrableProductDefinition.property"
+       x="500"
+       y="25"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n490"
+       x1="500"
+       y1="53"
+       x2="790.40002"
+       y2="53"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n491"
+       x="645.20001"
+       y="45"
+       fill="#000000"
+       class="diagram-class-title">Property</text>
+    <text
+       id="n492"
+       x="506"
+       y="67"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n493"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.property.type"><title
+   id="title83">A code expressing the type of characteristic</title>type</a> : <a
+   id="n494"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n495"
+   xlink:href="http://hl7.org/fhir/ValueSet/product-characteristic-codes"><title
+   id="n496">null (Strength=Example)</title>SNOMEDCTCharacteristicCodes</a>?? »</text>
+    <text
+       id="n502"
+       x="506"
+       y="81"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n503"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.property.value_x_"><title
+   id="title90">A value for the characteristic</title>value[x]</a> : <a
+   id="n504"
+   xlink:href="element.html#Element">Element</a> [0..1] « <a
+   id="n505"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n506"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n507"
+   xlink:href="datatypes.html#date">date</a>|<a
+   id="n508"
+   xlink:href="datatypes.html#boolean">boolean</a>|</text>
+    <text
+       id="n509"
+       x="526"
+       y="95"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n510"
+   xlink:href="datatypes.html#Attachment">Attachment</a> »</text>
+    <text
+       id="n520"
+       x="506"
+       y="109"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n521"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.property.status"><title
+   id="title101">The status of characteristic e.g. assigned or pending</title>status</a> : <a
+   id="n522"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n523"
+   xlink:href="valueset-publication-status.html"><title
+   id="n524">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+  </g>
+  <g
+     id="n530">
+    <rect
+       id="AdministrableProductDefinition.routeOfAdministration"
+       x="57.0"
+       y="205.0"
+       rx="4"
+       ry="4"
+       width="228.8"
+       height="120.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n531"
+       x1="57.0"
+       y1="233.0"
+       x2="285.8"
+       y2="233.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n532"
+       x="171.4"
+       y="225.0"
+       fill="black"
+       class="diagram-class-title">RouteOfAdministration</text>
+    <text
+       id="n533"
+       x="63.0"
+       y="247.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n534"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.routeOfAdministration.code"><title
+   id="title112">Coded expression for the route</title>code</a> : <a
+   id="n535"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n536"
+   xlink:href="valueset-route-codes.html"><title
+   id="n537">null (Strength=Example)</title>SNOMEDCTRouteCodes</a>?? »</text>
+    <text
+       id="n543"
+       x="63.0"
+       y="261.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n544"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.routeOfAdministration.firstDose"><title
+   id="title119">The first dose (dose quantity) administered can be specified for the product, using a numerical value and its unit of measurement</title>firstDose</a> : <a
+   id="n545"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
+    <text
+       id="n549"
+       x="63.0"
+       y="275.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n550"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.routeOfAdministration.maxSingleDose"><title
+   id="title124">The maximum single dose that can be administered, specified using a numerical value and its unit of measurement</title>maxSingleDose</a> : <a
+   id="n551"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
+    <text
+       id="n555"
+       x="63.0"
+       y="289.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n556"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.routeOfAdministration.maxDosePerDay"><title
+   id="title129">The maximum dose per day (maximum dose quantity to be administered in any one 24-h period) that can be administered</title>maxDosePerDay</a> : <a
+   id="n557"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
+    <text
+       id="n561"
+       x="63.0"
+       y="303.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n562"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.routeOfAdministration.maxDosePerTreatmentPeriod"><title
+   id="title134">The maximum dose per treatment period that can be administered</title>maxDosePerTreatmentPeriod</a> : <a
+   id="n563"
+   xlink:href="datatypes.html#Ratio">Ratio</a> [0..1]</text>
+    <text
+       id="n567"
+       x="63.0"
+       y="317.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n568"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.routeOfAdministration.maxTreatmentPeriod"><title
+   id="title139">The maximum treatment period during which the product can be administered</title>maxTreatmentPeriod</a> : <a
+   id="n569"
+   xlink:href="datatypes.html#Duration">Duration</a> [0..1]</text>
+  </g>
+  <g
+     id="n573"
+     transform="translate(61.200012,37)">
+    <rect
+       id="AdministrableProductDefinition.routeOfAdministration.targetSpecies"
+       x="360"
+       y="239"
+       rx="4"
+       ry="4"
+       width="206.8"
+       height="50"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n574"
+       x1="360"
+       y1="267"
+       x2="566.79999"
+       y2="267"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n575"
+       x="463.39999"
+       y="259"
+       fill="#000000"
+       class="diagram-class-title">TargetSpecies</text>
+    <text
+       id="n576"
+       x="366"
+       y="281"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n577"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.routeOfAdministration.targetSpecies.code"><title
+   id="title148">Coded expression for the species</title>code</a> : <a
+   id="n578"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n579"
+   xlink:href="valueset-target-species.html"><title
+   id="n580">null (Strength=Example)</title>TargetSpecies</a>?? »</text>
+  </g>
+  <g
+     id="n586"
+     transform="translate(95.449685,-77.268793)">
+    <rect
+       id="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod"
+       x="620"
+       y="229"
+       rx="4"
+       ry="4"
+       width="228.8"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n587"
+       x1="620"
+       y1="257"
+       x2="848.79999"
+       y2="257"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n588"
+       x="734.40002"
+       y="249"
+       fill="#000000"
+       class="diagram-class-title">WithdrawalPeriod</text>
+    <text
+       id="n589"
+       x="626"
+       y="271"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n590"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod.tissue"><title
+   id="title159">Coded expression for the type of tissue for which the withdrawal period applies, e.g. meat, milk</title>tissue</a> : <a
+   id="n591"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n592"
+   xlink:href="valueset-animal-tissue-type.html"><title
+   id="n593">null (Strength=Example)</title>AnimalTissueType</a>?? »</text>
+    <text
+       id="n599"
+       x="626"
+       y="285"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n600"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod.value"><title
+   id="title166">A value for the time</title>value</a> : <a
+   id="n601"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [1..1]</text>
+    <text
+       id="n605"
+       x="626"
+       y="299"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n606"
+   xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod.supportingInformation"><title
+   id="title171">Extra information about the withdrawal period</title>supportingInformation</a> : <a
+   id="n607"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <line
+     id="n611"
+     x1="372.24"
+     y1="76.94580465278383"
+     x2="500.0"
+     y2="74.16284743399844"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n612"
+     points="372.24,76.94580465278383 378.24,80.94580465278383 384.24,76.94580465278383 378.24,72.94580465278383 372.24,76.94580465278383"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-1.2478591983992096 372.24 76.94580465278383)" />
+  <rect
+     id="n613"
+     x="418.5"
+     y="68.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n614"
+     x="436.0"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n615"
+       xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.property"><title
+   id="title180">Characteristics e.g. a product's onset of action</title>property</a></text>
+  <text
+     id="n616"
+     x="480.0"
+     y="70.16284743399844"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n617"
+     x1="566.8"
+     y1="265.5261992619927"
+     x2="620.0"
+     y2="266.3114391143912"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n618"
+     points="566.8,265.5261992619927 572.8,269.5261992619927 578.8,265.5261992619927 572.8,261.5261992619927 566.8,265.5261992619927"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.8456327557195912 566.8 265.5261992619927)" />
+  <rect
+     id="n619"
+     x="558.0"
+     y="258.0"
+     width="70.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n620"
+     x="593.0"
+     y="268.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n621"
+       xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod"><title
+   id="title188">A species specific time during which consumption of animal product is not appropriate</title>withdrawalPeriod</a></text>
+  <text
+     id="n622"
+     x="600.0"
+     y="262.3114391143912"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n623"
+     x1="285.8"
+     y1="264.60821917808215"
+     x2="360.0"
+     y2="264.35410958904106"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n624"
+     points="285.8,264.60821917808215 291.8,268.60821917808215 297.8,264.60821917808215 291.8,260.60821917808215 285.8,264.60821917808215"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-0.19621765589391896 285.8 264.60821917808215)" />
+  <rect
+     id="n625"
+     x="293.5"
+     y="257.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n626"
+     x="322.0"
+     y="267.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n627"
+       xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.routeOfAdministration.targetSpecies"><title
+   id="title196">A species for which this route applies</title>targetSpecies</a></text>
+  <text
+     id="n628"
+     x="340.0"
+     y="260.35410958904106"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n629"
+     x1="179.64000000000001"
+     y1="162.0"
+     x2="176.20000000000002"
+     y2="205.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n630"
+     points="179.64000000000001,162.0 185.64000000000001,166.0 191.64000000000001,162.0 185.64000000000001,158.0 179.64000000000001,162.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(94.57392125990089 179.64000000000001 162.0)" />
+  <rect
+     id="n631"
+     x="131.0"
+     y="176.0"
+     width="92.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n632"
+     x="177.0"
+     y="186.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n633"
+       xlink:href="administrableproductdefinition-definitions.html#AdministrableProductDefinition.routeOfAdministration"><title
+   id="title204">The path by which the product is taken into or makes contact with the body. In some regions this is referred to as the licenced or approved route. RouteOfAdministration cannot be used when the 'formOf' product already uses MedicinalProductDefinition.route (and vice versa)</title>routeOfAdministration</a></text>
+  <text
+     id="n634"
+     x="176.20000000000002"
+     y="201.0"
+     fill="black"
+     class="diagram-class-linkage">[1..*]</text>
+</svg>

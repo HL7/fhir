@@ -4,6 +4,6 @@ element-attributes=true
 
 [directions]
 Element=0;0
-Extension=10;60
-Narrative=-120;-70
-Reference=140;-50
+Extension=-130;20
+Narrative=-170;-50
+Reference=90;-40
