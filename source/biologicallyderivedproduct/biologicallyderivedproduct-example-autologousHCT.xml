@@ -5,7 +5,9 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text> -->
-  <productCategory value="cells" />
+  <productCategory>
+  <code  value="cells" />
+  </productCategory>
   <productCode>
     <coding>
       <system value="https://www.isbt128.org/uri/ProductDescriptionCode" />
