@@ -1160,7 +1160,7 @@
       <path value="CapabilityStatement.rest.resource.searchParam.definition"/>
       <short value="Source of definition for parameter"/>
       <definition value="An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [SearchParameter.url](searchparameter-definitions.html#SearchParameter.url)). This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs."/>
-      <comment value="This SHOULD be present, and matches refers to a SearchParameter by its canonical URL. If systems wish to document their support for modifiers, comparators, target resource types, and chained parameters, they should do using a search parameter resource. This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs."/>
+      <comment value="This SHOULD be present, and matches refers to a SearchParameter by its canonical URL, except for the control parameters that do not have a canonical URL (or a SearchParameter definition). If systems wish to document their support for modifiers, comparators, target resource types, and chained parameters, they should do using a search parameter resource. This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs."/>
       <min value="0"/>
       <max value="1"/>
       <type>
