@@ -18,6 +18,18 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Immunization with a Reaction"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="immunization-example-reaction"/>
+    </extension>
+    <item>
+      <reference value="Immunization/reaction"/>
+      <display value="Reaction"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Not Given Immunization Example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">

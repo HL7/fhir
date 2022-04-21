@@ -135,7 +135,7 @@
     <publish>true</publish>
 	</space>
 	<space>
-		<url>http://ihe.net/xds</url>
+		<url>https://profiles.ihe.net/ITI/HIE-Whitepaper</url>
     <link>http://wiki.ihe.net/index.php/Category:DocShare</link>
 		<columnName>XDS Mapping</columnName>
 		<title>XDS metadata equivalent</title>
@@ -462,6 +462,15 @@
 		<title>ISO/IEEE 11073-10207</title>
 		<id>BICEPS</id>
 		<sort>43</sort>
+		<publish>true</publish>
+	</space>
+	<space>
+	    <url>https://www.isbt128.org/uri/</url>
+		<link>https://www.isbt128.org/uri/</link>
+		<columnName>ISBT 128 Code</columnName>
+		<title>ISBT 128 Codes</title>
+		<id>ISBT128Code</id>
+		<sort>51</sort>
 		<publish>true</publish>
 	</space>
 </mappingSpaces>

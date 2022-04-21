@@ -252,12 +252,12 @@
     </element>
     <element id="Ingredient.manufacturer.role">
       <path value="Ingredient.manufacturer.role"/>
-      <short value="The way in which this manufacturer is associated with the ingredient (one of several possible, or exclusive)"/>
+      <short value="allowed | possible | actual"/>
       <definition value="The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Coding"/> <!-- but needs to be code -->
+        <code value="code"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -376,8 +376,8 @@
         <map value="Strength.Strength (Presentation)"/>
       </mapping>
     </element>
-    <element id="Ingredient.substance.strength.presentationText">
-      <path value="Ingredient.substance.strength.presentationText"/>
+    <element id="Ingredient.substance.strength.textPresentation">
+      <path value="Ingredient.substance.strength.textPresentation"/>
       <short value="Text of either the whole presentation strength or a part of it (rest being in Strength.presentation as a ratio)"/>
       <definition value="A textual represention of either the whole of the presentation strength or a part of it - with the rest being in Strength.presentation as a ratio."/>
       <min value="0"/>
@@ -415,8 +415,8 @@
         <map value="Strength.Strength (Concentration)"/>
       </mapping>
     </element>
-    <element id="Ingredient.substance.strength.concentrationText">
-      <path value="Ingredient.substance.strength.concentrationText"/>
+    <element id="Ingredient.substance.strength.textConcentration">
+      <path value="Ingredient.substance.strength.textConcentration"/>
       <short value="Text of either the whole concentration strength or a part of it (rest being in Strength.concentration as a ratio)"/>
       <definition value="A textual represention of either the whole of the concentration strength or a part of it - with the rest being in Strength.concentration as a ratio."/>
       <min value="0"/>

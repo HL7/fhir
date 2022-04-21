@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This is the corresponding supply delivery from the supplye request example
+-->
+<Transport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/transport.xsd">
+	<id value="simpledelivery"/>
+	<!--
+business identifier - in this case the same as the request id
+-->
+	<identifier>
+		<value value="Transport1234"/>
+	</identifier>
+	<basedOn>
+		<reference value="SupplyRequest/simpleorder"/>
+	</basedOn>
+	<partOf>
+		<display value="Central Supply Restock"/>
+	</partOf>
+	<status value="completed"/>
+	<intent value="order"/>
+	<requestedLocation>
+             <reference value="Transport/location-hospitalLab" />
+			 <display value="Requested location for item at City Hospital Lab"/>  
+	</requestedLocation>	
+	<currentLocation>
+             <reference value="Transport/location-labA" />
+			 <display value="Current location for item at Lab A"/>  
+	</currentLocation>	
+</Transport>

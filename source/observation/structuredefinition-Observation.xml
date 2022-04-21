@@ -221,6 +221,77 @@
         <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"/>
       </mapping>
     </element>
+    <element id="Observation.triggeredBy">
+      <path value="Observation.triggeredBy"/>
+      <short value="Triggering observation(s)"/>
+      <definition value="Identifies the observation(s) that triggered the performance of this observation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="Observation.triggeredBy.observation">
+      <path value="Observation.triggeredBy.observation"/>
+      <short value="Triggering observation"/>
+      <definition value="Reference to the triggering observation."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outBoundRelationship"/>
+      </mapping>
+      <isSummary value="true"/>
+    </element>
+   <element id="Observation.triggeredBy.type">
+      <path value="Observation.triggeredBy.type"/>
+      <short value="reflex | repeat | re-run"/>
+      <definition value="The type of trigger.&#xA;Reflex | Repeat | Re-run."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TriggeredByType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The type of TriggeredBy Observation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-triggeredbytype"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="code"/>
+      </mapping>
+    </element>
+   <element id="Observation.triggeredBy.reason">
+      <path value="Observation.triggeredBy.reason"/>
+      <short value="Reason that the observation was triggered"/>
+      <definition value="Provides the reason why this observation was performed as a result of the observation(s) referenced."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+       <mapping>
+        <identity value="rim"/>
+        <map value="annotation"/>
+      </mapping>
+    </element>
     <element id="Observation.partOf">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="11/8/2017 EH #14095."/>
@@ -265,6 +336,7 @@
       <path value="Observation.status"/>
       <short value="registered | preliminary | final | amended +"/>
       <definition value="The status of the result value."/>
+      <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <requirements value="Need to track the status of individual results. Some results are finalized before the whole report is finalized."/>
       <min value="1"/>
       <max value="1"/>
@@ -310,7 +382,7 @@
       <path value="Observation.category"/>
       <short value="Classification of  type of observation"/>
       <definition value="A code that classifies the general type of observation being made."/>
-      <comment value="In addition to the required category valueset, this element allows various categorization schemes based on the owner&#x2019;s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set."/>
+      <comment value="In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set."/>
       <requirements value="Used for filtering what observations are retrieved and displayed."/>
       <min value="0"/>
       <max value="*"/>
@@ -539,7 +611,7 @@
       <path value="Observation.issued"/>
       <short value="Date/Time this version was made available"/>
       <definition value="The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified."/>
-      <comment value="For Observations that don&#x2019;t require review and verification, it may be the same as the [`lastUpdated` ](resource-definitions.html#Meta.lastUpdated) time of the resource itself.  For Observations that do require review and verification for certain updates, it might not be the same as the `lastUpdated` time of the resource itself due to a non-clinically significant update that doesn&#x2019;t require the new version to be reviewed and verified again."/>
+      <comment value="For Observations that don't require review and verification, it may be the same as the [`lastUpdated` ](resource-definitions.html#Meta.lastUpdated) time of the resource itself.  For Observations that do require review and verification for certain updates, it might not be the same as the `lastUpdated` time of the resource itself due to a non-clinically significant update that doesn't require the new version to be reviewed and verified again."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -771,6 +843,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BodySite"/>
         </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
+          <valueString value="Codes describing anatomical locations. May include laterality."/>
+        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
           <valueString value="Codes describing anatomical locations. May include laterality."/>
         </extension>
@@ -962,6 +1037,33 @@
         <identity value="rim"/>
         <map value="value:IVL_PQ.high"/>
       </mapping>
+    </element>
+    <element id="Observation.referenceRange.normalValue">
+      <path value="Observation.referenceRange.normalValue"/>
+      <short value="Normal value, if relevant"/>
+      <definition value="The value of the normal value of the reference range."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+     <condition value="obs-3"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value:IVL_PQ.normal"/>
+      </mapping>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationReferenceRangeNormalValue"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Codes identifying the normal value of the observation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-referencerange-normalvalue"/>
+    </binding>
     </element>
     <element id="Observation.referenceRange.type">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">

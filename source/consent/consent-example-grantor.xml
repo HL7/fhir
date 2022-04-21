@@ -6,7 +6,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>Consent given to authorized representative</p>
       <p>This is a case where a Patient is giving a limited (read-only) access to an individual.</p>
-      <p>Patient "Donald D DUCK" wishes to provide Dr. Simone Heps with read-only access to the data at Blijdorp Medisch Centrum available for patient requested access use.</p>
+      <p>Patient "Roel" wishes to provide Dr. Simone Heps with read-only access to the data at Blijdorp Medisch Centrum available for patient requested access use.</p>
     </div>
   </text>
   <status value="active"/>
@@ -17,8 +17,8 @@
     </coding>
   </category>
   <subject>
-    <reference value="Patient/f002"/>
-    <display value="Donald D DUCK"/>
+    <reference value="Patient/f201"/>
+    <display value="Roel"/>
   </subject>
   <dateTime value="2018-12-24"/>
   <grantor>
@@ -37,12 +37,12 @@
     <!-- likely use url pointer to common text -->
   </sourceAttachment>
   <!-- this is opt-out - e.g. nothing approved unless otherwise stated -->
-  <policyRule>
+  <regulatoryBasis>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="INFAO"/>
     </coding>
-  </policyRule>
+  </regulatoryBasis>
   <provision>
     <type value="deny"/>
     <provision>

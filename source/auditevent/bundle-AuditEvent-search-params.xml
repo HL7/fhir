@@ -191,15 +191,16 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AuditEvent.agent.who,AuditEvent.entity.what"/>
+          <valueString value="AuditEvent.patient"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-patient"/>
-        <description value="Identifier of who"/>
+        <description value="Where the activity involved patient data"/>
         <code value="patient"/>
         <type value="reference"/>
-        <expression value="AuditEvent.agent.who.where(resolve() is Patient) | AuditEvent.entity.what.where(resolve() is Patient)"/>
-        <xpath value="f:AuditEvent/f:agent/f:who | f:AuditEvent/f:entity/f:what"/>
+        <expression value="AuditEvent.patient"/>
+        <xpath value="f:AuditEvent/f:patient"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

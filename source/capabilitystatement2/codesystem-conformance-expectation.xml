@@ -6,7 +6,7 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <url value="http://hl7.org/fhir/conformance-expectation"/>
-  <version value="4.6.0"/>
+  <version value="4.7.0"/>
   <name value="ConformanceExpectation"/>
   <concept>
     <code value="SHALL"/>
@@ -27,5 +27,10 @@
     <code value="SHOULD-NOT"/>
     <display value="SHOULD-NOT"/>
     <definition value="Support for the specified capability is strongly discouraged and should occur only after careful consideration."/>
+  </concept>
+  <concept>
+    <code value="SHALL-NOT"/>
+    <display value="SHALL-NOT"/>
+    <definition value="Support for the specified capability is prohibited to be considered conformant."/>
   </concept>
 </CodeSystem>
