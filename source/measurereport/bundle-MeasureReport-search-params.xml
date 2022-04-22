@@ -99,6 +99,7 @@
         <expression value="MeasureReport.subject.where(resolve() is Patient)"/>
         <xpath value="f:MeasureReport/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -3,7 +3,6 @@
 <a name="impl"></a>
 <h2>Implementation Notes</h2>
 <ul>
- <li>The use of the .docStatus codes is discussed in the <a href="composition.html#status">Composition description</a></li>
  <li>The resources maintain one way relationships that point backwards - e.g., the document that replaces one document points towards the document that it replaced. The reverse relationships can be followed by using 
   indexes built from the resources. Typically, this is done using the search parameters described below. Given that documents may have other documents that replace or append them, clients should always check these relationships when accessing documents</li>
   <li>The _content search parameter shall search across the DocumentReference.content.attachment.data, and DocumentReference.content.url.</li>

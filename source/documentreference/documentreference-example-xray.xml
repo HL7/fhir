@@ -26,18 +26,22 @@
     </identifier>
   </encounter>
   <event>
+  <concept>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="39714003"/>
       <display value="Skeletal X-ray of wrist and hand"/>
     </coding>
+	</concept>
   </event>
   <event>
+  <concept>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="85151006"/>
       <display value="Structure of left hand (body structure)"/>
     </coding>
+	</concept>
   </event>
 
 
