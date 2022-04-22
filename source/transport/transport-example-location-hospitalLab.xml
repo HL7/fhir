@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Location xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/location.xsd">
+  <id value="hl7"/>
+
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      City Hospital Lab<br/>
+				200 Main Street<br/>
+				Anytown, AL 36106<br/>
+				USA<br/>
+				(+1) 334-272-2001 (fax)<br/>
+				E-mail:  <a href="mailto:lab@cityhospital.com">lab@cityhospital.com</a>
+    </div>
+  </text>
+
+  <!-- HL7 itself -->
+  <status value="active"/>
+	<name value="City Hospital Lab Location"/>
+	<description value="Physical Location of Example City Hospital Lab" />
+	<mode value="instance"/>
+	<telecom>
+    <system value="phone"/>
+    <value value="(+1) 334-272-2000"/>
+  </telecom>
+  <telecom>
+    <system value="fax"/>
+    <value value="(+1) 334-272-2001"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="lab@cityhospital.com"/>
+  </telecom>
+  <address>
+    <line value="200 Main Street"/>
+    <city value="Anytown"/>
+    <state value="AL"/>
+    <postalCode value="36106"/>
+    <country value="USA"/>
+  </address>  
+  <physicalType>
+	<coding>
+		<system value="http://terminology.hl7.org/CodeSystem/location-physical-type" />
+		<code value="bu"/>
+	<display value="Building" />
+	</coding>
+  </physicalType>
+</Location>

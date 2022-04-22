@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/servicerequest.xsd">
+	<id value="HCTcollection-procedure"/>
+	<!-- insert contents here -->
+	<productStatus value="completed"/>
+	<intent value="order"/>
+	<category>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="77465005"/>
+			<display value="PBSC extraction"/>
+		</coding>
+		<text value="PBSC extraction"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="387713003"/>
+			<display value="Surgical procedure"/>
+		</coding>
+		<text value="Surgical procedure"/>
+	</code>
+	<subject>
+		<reference value="Patient/example-b"/>
+	</subject>
+	<occurrenceDateTime value="2022-03-22"/>
+	<authoredOn value="2022-03-22"/>
+	<requester>
+			<display value="Harry HemeOnc, MD"/>
+	</requester>
+	<performer>
+		<display value="Harry HemeOnc, MD"/>
+	</performer>
+	<reason>
+    <concept>
+        <text value="HCT transplant"/>
+    </concept>
+  </reason>
+  <bodySite>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="12123001"/>
+      <display value="Internal jugular vein structure (body structure)"/>
+    </coding>
+    <text value="Internal jugular vein"/>
+  </bodySite>
+</ServiceRequest>
