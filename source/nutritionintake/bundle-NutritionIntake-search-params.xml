@@ -90,34 +90,14 @@
           <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="NutritionIntake.consumedItem.nutritionProduct"/>
+          <valueString value="NutritionIntake.consumedItem.nutritionProduct.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/NutritionIntake-nutrition"/>
-        <description value="Return statements of this medication reference"/>
+        <description value="Return intakes for a specific consumed item"/>
         <code value="nutrition"/>
         <type value="token"/>
-        <expression value="NutritionIntake.consumedItem.nutritionProduct"/>
-        <xpath value="f:NutritionIntake/f:consumedItem/f:nutritionProduct"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="NutritionIntake-part-of"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="NutritionIntake.partOf"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionIntake-part-of"/>
-        <description value="Returns statements that are part of another event."/>
-        <code value="part-of"/>
-        <type value="reference"/>
-        <expression value="NutritionIntake.partOf"/>
-        <xpath value="f:NutritionIntake/f:partOf"/>
+        <expression value="NutritionIntake.consumedItem.nutritionProduct.concept"/>
+        <xpath value="f:NutritionIntake/f:consumedItem/f:nutritionProduct/f:concept"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

@@ -9,7 +9,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="1"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="patient"/>
@@ -218,7 +218,7 @@
         </extension>
         <strength value="example"/>
         <description value="A coded concept indicating the reason for the status of the statement."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/reason-medication-status-codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/clinicalimpression-status-reason"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -227,8 +227,8 @@
     </element>
     <element id="NutritionIntake.code">
       <path value="NutritionIntake.code"/>
-      <short value="Type of nutrition intake setting/reporting"/>
-      <definition value="Type of nutrition intake setting/reporting."/>
+      <short value="Code representing an overall type of nutrition intake"/>
+      <definition value="Overall type of nutrition intake."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -240,7 +240,7 @@
           <valueString value="NutritionIntakeCategory"/>
         </extension>
         <strength value="example"/>
-        <description value="A coded concept identifying where the medication included in the NutritionIntake is expected to be consumed or administered."/>
+        <description value="A coded concept identifying an overall type of diet or nutrition that is represented by this intake.  See consumedItem for more details."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/diet-type"/>
       </binding>
       <mapping>
