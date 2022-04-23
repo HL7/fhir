@@ -35,7 +35,7 @@
 		<concept>
 			<code value="shareable"/>
 			<display value="Shareable"/>
-			<definition value="The artifact provides essential information necessary to ensure shareability of the content as a FHIR resource."/>
+			<definition value="The artifact provides essential information necessary to ensure the artifact can be reliably shared in a public repository as a FHIR resource."/>
 		</concept>
 		<concept>
 			<code value="computable"/>
