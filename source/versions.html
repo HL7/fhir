@@ -628,20 +628,30 @@ where [version] is taken from this list:
 <p>
 This technique can be used with all versions of FHIR, including R2 and R3:
 </p>
+
 <table class="grid">
-<tr>
-<td><a href="http://hl7.org/fhir/DSTU2">FHIR DSTU2</a></td>
-<td>1.0</td>
-</tr>
-<tr>
-<td><a href="http://hl7.org/fhir/STU3">FHIR R3</a> (STU3, or just R3)</td>
-<td>3.0</td>
-</tr>
-<tr>
-<td><a href="http://hl7.org/fhir/r4">FHIR R4</a> (this version)</td>
-<td>4.0</td>
-</tr>
-</table>
+  <tr>
+  <td><a href="http://hl7.org/fhir/DSTU1">FHIR R1</a> (DSTU 1)</td>
+  <td>0.0</td>
+  </tr>
+  <tr>
+  <td><a href="http://hl7.org/fhir/DSTU2">FHIR R2</a> (DSTU 2)</td>
+  <td>1.0</td>
+  </tr>
+  <tr>
+  <td><a href="http://hl7.org/fhir/STU3">FHIR R3</a> (STU3, or just R3)</td>
+  <td>3.0</td>
+  </tr>
+  <tr>
+  <td><a href="http://hl7.org/fhir/R4">FHIR R4</a> (R4)</td>
+  <td>4.0</td>
+  </tr>
+  <tr>
+  <td><a href="http://hl7.org/fhir/R4B">FHIR R4B</a> (this version)</td>
+  <td>4.3</td>
+  </tr>
+  </table>
+
 <p>
 Note that this extension framework only applies back to DSTU2.
 The [Path] is actually the ElementDefinition.id from the relevant
@@ -667,7 +677,7 @@ This table shows the mapping between primitive data types across versions:
 </p>
 
 <table class="grid">
- <tr>    <td>R4</td>  <td>R3</td>  <td>DSTU2</td> </tr>
+ <tr>    <td>R4/R4B</td>  <td>R3</td>  <td>DSTU2</td> </tr>
  <tr>    <td>base64Binary</td>  <td>base64Binary</td>  <td>base64Binary</td> </tr>
  <tr>    <td>boolean</td>  <td>boolean</td>  <td>boolean</td> </tr>
  <tr>    <td>canonical</td>  <td><i>(uri)</i></td>  <td><i>(uri)</i></td> </tr>
@@ -698,6 +708,7 @@ Formal Definitions for extensions:
 		<td>R2 Package</td>
 		<td>R3 Package</td>
 		<td>R4 Package</td>
+		<td>R4B Package</td>
 	</tr>
   <tr>
 	  <td>R2 Extensions:</td>
@@ -717,10 +728,16 @@ Formal Definitions for extensions:
 		<td>hl7.fhir.extensions.r4:3.0.1 <a href="http://hl7.org/fhir/4.0/extensions/3.0/package.tgz"><img src="npm16.png"/></a></td>
 		<td style="background-color: #EEEEEE">n/a</td>
 	</tr>
+  <tr>
+	  <td>R4 Extensions:</td>
+		<td>hl7.fhir.extensions.r4b:1.0.2 <a href="http://hl7.org/fhir/4.3/extensions/1.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td>hl7.fhir.extensions.r4b:3.0.1 <a href="http://hl7.org/fhir/4.3/extensions/3.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td style="background-color: #EEEEEE">n/a</td>
+	</tr>
 </table>
 
 <p>
-Note for balloters: these packages will be created when R4 is finalized. Until then, these are broken links.
+Note for balloters: some of these packages will be created when R4B is finalized. Until then, these are broken links.
 </p>
 
 <a name="plans"></a>

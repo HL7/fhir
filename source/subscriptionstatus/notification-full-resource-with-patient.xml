@@ -15,16 +15,16 @@
         <notificationEvent>
           <eventNumber value="2"/>
           <focus>
-            <reference value="http://example.org/FHIR/R4/Encounter/2"/>
+            <reference value="http://example.org/FHIR/R4B/Encounter/2"/>
           </focus>
           <additionalContext>
-            <reference value="http://example.org/FHIR/R4/Patient/ABC"/>
+            <reference value="http://example.org/FHIR/R4B/Patient/ABC"/>
           </additionalContext>
         </notificationEvent>
         <subscription>
-          <reference value="http://example.org/FHIR/R4/Subscription/123"/>
+          <reference value="http://example.org/FHIR/R4B/Subscription/123"/>
         </subscription>
-        <topic value="http://example.org/FHIR/R4/SubscriptionTopic/admission"/>
+        <topic value="http://example.org/FHIR/R4B/SubscriptionTopic/admission"/>
       </SubscriptionStatus>
     </resource>
     <request>

@@ -10,14 +10,14 @@
     <timestamp value="2020-04-17T10:20:00.0000000-05:00"/>
   </notificationEvent>
   <subscription>
-    <reference value="http://example.org/FHIR/R4/Subscription/123"/>
+    <reference value="http://example.org/FHIR/R4B/Subscription/123"/>
   </subscription>
-  <topic value="http://example.org/FHIR/R4/SubscriptionTopic/admission"/>
+  <topic value="http://example.org/FHIR/R4B/SubscriptionTopic/admission"/>
   <error>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/subscription-error"/>
       <code value="no-response"/>
     </coding>
   </error>
-  <topic value="http://example.org/FHIR/R4/SubscriptionTopic/admission"/>
+  <topic value="http://example.org/FHIR/R4B/SubscriptionTopic/admission"/>
 </SubscriptionStatus>

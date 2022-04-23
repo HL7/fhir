@@ -42,6 +42,12 @@ Major Milestones:
 </p>
 <table class="grid">
   <tr>
+    <td><a href="http://hl7.org/fhir/R4B/index.html">??? ??, 2022</a></td>
+    <td>4.3.0</td>
+    <td>Release 4B Trial Use - Limited changes to Release 4
+    </td>
+  </tr>
+  <tr>
     <td><a href="http://hl7.org/fhir/R4/index.html">Dec 27, 2018</a></td>
     <td>4.0.1</td>
     <td>Release 4 (1<sup>st</sup> Normative Content + Trial Use Developments)
@@ -65,7 +71,7 @@ Major Milestones:
 </table>
 
 <p>
-This is the 4th milestone release of FHIR. The only changes tracked here are
+This is the B version of the 4th milestone release of FHIR. The only changes tracked here are
 the changes made after the publication of the first DSTU release. For earlier changes,
 see the <a href="http://hl7.org/fhir/history.html">DSTU #1 Version History</a>.
 Note that a full archive history of everything is available
@@ -96,8 +102,52 @@ template:
 
 notes: do not list revision in the version
 -->
-	<tr>
-		<td>4.0.1<a name="v4.3.0-cibuild"></a></td>
+ <tr>
+  <td>4.3.0<a name="v4.3.0"></a></td>
+  <td>
+    <p><b>Release R4B</b>: ???-??, 2020:</p>
+    <ul>
+      <li>Add <a href="references.html#codeablereference">CodeableReference</a> and <a href="datatypes.html#RatioRange">RatioRange</a> types</li>
+      <li>Add <a title="[%resdesc NutritionProduct%]" href="nutritionproduct.html">NutritionProduct</a> Resource</li>
+      <li>Add <a title="[%resdesc SubscriptionStatus%]" href="subscriptionstatus.html">SubscriptionStatus</a> 
+        and <a title="[%resdesc SubscriptionTopic%]" href="subscriptiontopic.html">SubscriptionTopic</a> Resources</li>        
+      <li>Add new Resources <a title="[%resdesc AdministrableProductDefinition%]" href="administrableproductdefinition.html">AdministrableProductDefinition</a>, 
+        <a title="[%resdesc ClinicalUseDefinition%]" href="clinicalusedefinition.html">ClinicalUseDefinition</a>, 
+        <a title="[%resdesc PackagedProductDefinition%]" href="packagedproductdefinition.html">PackagedProductDefinition</a>, 
+        <a title="[%resdesc ManufacturedItemDefinition%]" href="manufactureditemdefinition.html">ManufacturedItemDefinition</a> and 
+        <a title="[%resdesc RegulatedAuthorization%]" href="regulatedauthorization.html">RegulatedAuthorization</a></li>
+    <li>Rework <a href="marketingstatus.html">MarketingStatus</a> (relax cardinality constraints) and 
+      <a href="productshelflife.html">ProductShelfLife</a> Types</li>
+    <li>Rework &amp; rename MedicinalProduct -> <a title="[%resdesc MedicinalProductDefinition%]" href="medicinalproductdefinition.html">MedicinalProductDefinition</a></li>
+    <li>Rework &amp; rename MedicinalProductIngredient -> <a title="[%resdesc Ingredient%]" href="ingredient.html">Ingredient</a></li>
+    <li>Rework &amp; rename SubstanceSpecification -> <a title="[%resdesc SubstanceDefinition%]" href="substancedefinition.html">SubstanceDefinition</a></li> 
+    <li>Rework <a title="[%resdesc Evidence%]" href="evidence.html">Evidence</a> and 
+      <a title="[%resdesc EvidenceVariable%]" href="evidencevariable.html">EvidenceVariable</a> Resources</li>
+     <li>Add <a title="[%resdesc Citation%]" href="citation.html">Citation</a> and
+      <a title="[%resdesc EvidenceReport%]" href="evidencereport.html">EvidenceReport</a> Resources</li>
+     <li>Remove EffectEvidenceSynthesis and RiskEvidenceSynthesis Resources</li>
+     <li>Add canonical as an allowed type for <code>subject[x]</code> to 
+      <a title="[%resdesc ActivityDefinition%]" href="activitydefinition.html">ActivityDefinition</a> and 
+      <a title="[%resdesc PlanDefinition%]" href="plandefinition.html">PlanDefinition</a></li>            
+<li>Remove MedicinalProductAuthorization, MedicinalProductContraindication, 
+        MedicinalProductIndication, MedicinalProductInteraction, MedicinalproductManufactured,
+        MedicinalproductPackaged, MedicinalproductPharmaceutical, MedicinalproductUndesirableEffect,
+        SubstanceAmount, SubstanceNucleicAcid, SubstancePolymer, SubstanceProtein, 
+        SubstanceReferenceInformation and SubstanceSourceMaterial resources</li>
+          <li>Refine some invariants that behaved erroneously with missing data (no new restrictions were introduced)</li>
+        </ul>
+  <p>
+  To help see and understand the differences between the specification releases, implementers can:
+</p>
+<ul>
+  <li>review (or use) the <a href="diff.html">R4/R4B difference analysis</a></li>
+  <li>Use the "Compare To R4" link at the foot of every page </li>
+</ul>
+</td>
+
+ </tr>
+ <tr>
+		<td>4.0.1<a name="v4.0.1"></a></td>
 		<td>
       <p><b>Technical Corrections to R4</b>: Oct-30, 2019. Corrections to invariants &amp; generated conformance resources, and add ANSI Normative Status Notes</p>
       <p>
@@ -201,13 +251,8 @@ notes: do not list revision in the version
       Note that between R3 and R4, nearly 3000 change proposals were applied to the specification, 
       including &gt;1000 substantive changes, of which 339 were labeled 'non-compatible'. As 
       such, providing a comprehensive list of changes between specifications is not appropriate. 
-      To help see and understand the differences between the specification releases, implementers can:
-      </p>
-      <ul>
-        <li>consult the <a href="diff.html">R3/R4 difference analysis</a></li>
-        <li>review (or use) the <a href="r3maps.html">R3/R4 transforms</a></li>
-        <li>Use the <img src="compare-to-r3.png"/> link at the foot of every page </li>
-      </ul>
+      To help see and understand the differences between the specification releases, implementers can 
+      review (or use) the <a href="r3maps.html">R3/R4 transforms</a></p>
       <p>
       To help implementers, the more significant changes are listed here:
       </p>
