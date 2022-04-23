@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-[%settitle Differences from DSTU Release 3%]
+[%settitle Conversions from DSTU Release 3%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -11,18 +11,19 @@
 <div class="col-12"><!--ReleaseHeader--><p id="publish-box"></p><!--EndReleaseHeader-->
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
-<h2>Transforms between DSTU 3 and STU 4</h2>
+<h2>Transforms between DSTU 3 and R4</h2>
 
 <p>
-In addition to a <a href="diff.html">list of all differences between DSTU 3 and STU 4</a>,
+In addition to a <a href="diff.html">list of all differences between Release 4 and 4B</a>,
 this specification also provides transforms between R3 and R4 for most resources
 that were in R3. These transforms are expressed using the 
 <a href="mapping-language.html">FHIR Mapping Language</a>, and both serve as
 formal documentation of the relationship between the resource structures in R3 and R4, 
 and can also be used to convert between the formats automatically. 
 </p>
+[%dragons-start%]
 <p>
-R4B Note: These transforms are R4 based not R4B. None of the resources that changed in R4B 
+R4B Note: These transforms are between R3 and R4, not R4 and R4B. None of the resources that changed in R4B 
 existed in R3, so they are not relevant here. Conversions are not offered from R4 to R4B
 because:
 </p>
@@ -30,6 +31,8 @@ because:
   <li>The resources that have changed in R4B have been changed extensively, and it's not clear that conversion is even possible</li>
   <li>The resources that were changed had very little use, if any, due to their maturity status (low FMM)</li>
 </ul>
+[%dragons-end%]
+
 <p>
 The following table summarizes the state of the R3:R4 maps for each resource type.
 </p>
@@ -62,7 +65,7 @@ Note the following:
    The transform scripts are only tested to the degree that R3 provided example data
  </li>
  <li style="background: gold">For all these reasons, the maps provided in the specification are not authoritative; they are provided to help implementers 
-   who need to convert between the R2 and R3 format, but additional revision may be required in an implementation specific context</li>
+   who need to convert between the R3 and R4 format, but additional revision may be required in an implementation specific context</li>
  <li>The 
    maps are subject to ongoing maintenance using the <a href="https://confluence.hl7.org/display/FHIR/NPM+Package+Specification">FHIR NPM Package</a> "<code>fhir.versions.r3r4</code>" which is maintained on <a href="https://github.com/FHIR/r3r4">GitHub</a>.
    See also 

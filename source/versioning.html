@@ -92,12 +92,12 @@ which version to support using the <a href="http.html#version-parameter">fhirVer
 </p>
 <pre>
 GET [base]/metadata
-Accept: application/fhir+json; fhirVersion=3.0
+Accept: application/fhir+json; fhirVersion=4.3
 </pre>
 <p>
 This is a request to return the CapabilityStatement for the server's 
-support of FHIR Release 3. The client will know that the server doesn't 
-support R3 if it gets an error in return, or if the capability statement 
+support of FHIR Release R4B. The client will know that the server doesn't 
+support R4B if it gets an error in return, or if the capability statement 
 that comes back has a different fhirVersion (which would mean that the 
 server does not support the fhirVersion parameter).
 </p>
@@ -109,11 +109,37 @@ Notes:
  <li>The same parameter can be used anywhere Mime type is used to describe that a content contains a FHIR resource - such as in an Email attachment:
    <pre>
    --MIME_boundary
-   Content-Type: application/fhir+xml; fhirVersion=1.0
+   Content-Type: application/fhir+xml; fhirVersion=4.3
    </pre>
  </li>
 </ul>
 
+<p>
+  This table lists the past versions, along with the version number to use to identify them.
+</p>
+<table class="grid">
+  <tr>
+  <td><a href="http://hl7.org/fhir/DSTU1">FHIR R1</a> (DSTU 1)</td>
+  <td>0.0</td>
+  </tr>
+  <tr>
+  <td><a href="http://hl7.org/fhir/DSTU2">FHIR R2</a> (DSTU 2)</td>
+  <td>1.0</td>
+  </tr>
+  <tr>
+  <td><a href="http://hl7.org/fhir/STU3">FHIR R3</a> (STU3, or just R3)</td>
+  <td>3.0</td>
+  </tr>
+  <tr>
+  <td><a href="http://hl7.org/fhir/R4">FHIR R4</a> (R4)</td>
+  <td>4.0</td>
+  </tr>
+  <tr>
+  <td><a href="http://hl7.org/fhir/R4B">FHIR R4B</a> (this version)</td>
+  <td>4.3</td>
+  </tr>
+  </table>
+  
 <p>
 Clients can determine what versions a server supports by using the <a href="capabilitystatement-operation-versions.html">$versions</a> operation.
 </p>
@@ -151,31 +177,14 @@ is done by indicating that the resource conforms to specific version in
 {
   "resourceType" : "Patient",
   "meta" : {
-    "profile" : ["http://hl7.org/fhir/3.0/StructureDefinition/Patient"]
+    "profile" : ["http://hl7.org/fhir/4.3/StructureDefinition/Patient"]
   }
 }
 </pre>
 <p>
-This technique can be used with all versions of FHIR, including R2 and R3:
+This technique can be used with all versions of FHIR, including R2 and R3, 
+with version numbers as <a href="#mt-version">listed above</a>.
 </p>
-<table class="grid">
-<tr>
-<td><a href="http://hl7.org/fhir/DSTU1">FHIR R1</a> (DSTU 1)</td>
-<td>0.0</td>
-</tr>
-<tr>
-<td><a href="http://hl7.org/fhir/DSTU2">FHIR R2</a> (DSTU 2)</td>
-<td>1.0</td>
-</tr>
-<tr>
-<td><a href="http://hl7.org/fhir/STU3">FHIR R3</a> (STU3, or just R3)</td>
-<td>3.0</td>
-</tr>
-<tr>
-<td><a href="http://hl7.org/fhir/r4">FHIR R4</a> (this version)</td>
-<td>4.0 (once published)</td>
-</tr>
-</table>
 
 <a name="managing"> </a>
 

@@ -27,7 +27,6 @@
       <ul>
        <li><a href="definitions.xml.zip">XML</a></li>
        <li><a href="definitions.json.zip">JSON</a></li>
-       <li><a href="definitions-r2.xml.zip">Forge</a>: Special version of definitions for <a href="https://simplifier.net/Forge">Forge</a> (temporary)</li>
       </ul>
       This is the master set of definitions that should be the first choice whenever generating any implementation artifacts. All
       the other forms below include only subsets of the information available in these definition files, and do not contain all of the rules about what makes resources valid. Implementers
@@ -92,25 +91,31 @@
 
   <tr>
     <td>Validator</td>
-    <td>The <a href="validator.zip">official FHIR validator</a> - a Java jar file that can be used to validate resources. See <a href="validation.html">Validation Tools</a> for further information, or <a href="https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator">Using the FHIR Validator</a> for parameter documentation</td>
+    <td>The <a href="https://github.com/hapifhir/org.hl7.fhir.core/releases/latest/download/validator_cli.jar">official FHIR validator</a> - a Java jar file that can be used to validate resources. See <a href="validation.html">Validation Tools</a> for further information, or <a href="https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator">Using the FHIR Validator</a> for parameter documentation</td>
   </tr>
 
   <tr>
     <td>IG Publisher</td>
-    <td>The <a href="https://fhir.github.io/latest-ig-publisher/org.hl7.fhir.publisher.jar">Implementation Guide Publishing Tool</a> (see <a href="https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation">IG Publishing documentation</a>)</td>
+    <td>The <a href="https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar">Implementation Guide Publishing Tool</a> (see <a href="https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation">IG Publishing documentation</a>)</td>
   </tr>
 
   <tr>
-    <td>NPM Package</td>
-    <td>The NPM Packages are used by many FHIR tools. Four packages are provided:
+    <td>NPM Packages</td>
+    <td>
+      There are several packages that support the FHIR specification:
       <ul>
-        <li><a href="hl7.fhir.r4.core.tgz">hl7.fhir.r4.core</a>: all the conformance related resources</li>
-        <li><a href="hl7.fhir.r4.examples.tgz">hl7.fhir.r4.examples</a>: all the conformance related resources</li>
-        <li><a href="hl7.fhir.r4.elements.tgz">hl7.fhir.r4.elements</a>: all the conformance related resources</li>
-        <li><a href="hl7.fhir.r4.expansions.tgz">hl7.fhir.r4.expansions</a>: all the conformance related resources</li>
-      </ul>
-      Note that the tools usually find the packages directly, and there's no need to download them
-    </td>
+        <li><b><code><a href="hl7.fhir.r4b.core.tgz">hl7.fhir.r4b.core</a></code></b>: Contains all the resources needed to test conformance to the FHIR specification, and/or generate code</li>
+        <li><b><code><a href="hl7.fhir.r4b.expansions.tgz">hl7.fhir.r4b.expansions</a></code></b>: Contains the expansions of the subset of the value sets the have a required binding (other than those that can't be expanded at all)</li>
+        <li><b><code><a href="hl7.fhir.r4b.examples.tgz">hl7.fhir.r4b.examples</a></code></b>: All the resources that are defined as part of the FHIR specification</li>
+        <li><b><code><a href="hl7.fhir.r4b.elements.tgz">hl7.fhir.r4b.elements</a></code></b>: A set of <a href="structuredefinition.html">StructureDefinition</a> resources that represent the resources and data types as a series of independently defined data elements</li>
+        <li><b><code><a href="hl7.fhir.r4b.corexml.tgz">hl7.fhir.r4b.corexml</a></code></b>: The same content as hl7.fhir.r4b.core, but with the resources in XML, not JSON</li>
+      </ul>    
+    These packages are used by many of the FHIR tools (e.g. the IG publisher and the validator). Note that the tools usually find this package directly through the NPM-based distribution framework, and there's no need to download them</td>
+  </tr>
+
+  <tr>
+    <td>Spreadsheets</td>
+    <td>All the resource structures in a <a href="definitions.xlsx.zip">Spreadsheet Format</a> - mostly provided to assist with mapping</td>
   </tr>
 
   <tr>
@@ -125,7 +130,7 @@
 
   <tr>
     <td>Test Cases</td>
-    <td>A <a href="test-cases.zip">Collection of Test Cases</a>. These are XML or JSON files that provide test cases for the various FHIR reference implementations to ensure correct functioning</td>
+    <td>Test cases can mainly be found in the <a href="https://github.com/hapifhir/org.hl7.fhir.core/tree/master/org.hl7.fhir.r4/src/main/resources">org.hl7.fhir.core</a> repository</td>
   </tr>
 
   <tr>
@@ -155,8 +160,8 @@
   <tr>
    <td>C#</td>
    <td>
-    <a href="http://www.nuget.org/packages/Hl7.Fhir">HL7.FHIR</a>:
-    Object models, Parsers/Serializers, Utilities, and a Client. Source code on GitHub at <a href="http://github.com/ewoutkramer/fhir-net-api">http://github.com/ewoutkramer/fhir-net-api</a>
+    <a href="https://www.nuget.org/packages/Hl7.Fhir.R4/">Hl7.Fhir.R4</a> / <a href="https://www.nuget.org/packages/Hl7.Fhir.STU3/">Hl7.Fhir.STU3</a>:
+    Object models, Parsers/Serializers, Utilities, and a Client. Source code on GitHub at <a href="https://github.com/FirelyTeam/firely-net-sdk">https://github.com/FirelyTeam/firely-net-sdk</a>
    </td>
   </tr>
   <tr>
@@ -176,6 +181,13 @@
   <tr>
    <td>Javascript</td>
    <td>See the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=35718838#OpenSourceImplementations-Javascript">HL7 wiki for Javascript libraries</a> (Clients and Utilities for both servers and clients)
+   </td>
+  </tr>
+  <tr>
+   <td>Python</td>
+   <td>
+    <a href="https://github.com/smart-on-fhir/client-py">Python SMART on FHIR client</a>:
+    Object Model, Client and Utilities
    </td>
   </tr>
   <tr>

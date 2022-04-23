@@ -101,8 +101,7 @@
 		<!--  zero or more of these - declaration of support for a resource  -->
 		<resource>
 			<type value="Patient"/>
-			<!--  let's assume that HL7 has stood up a profile registry at http://registry.fhir.org
-        - it's likely to have a registry, though this is not decided, nor is a URL decided. 
+			<!-- 
         This application simply uses a profile registered directly with HL7. For the simplest 
         case of a FHIR REST Server, just delete this profile reference. Profile references do 
         not need to be a UUID, though a profile registry could insist that they are  -->

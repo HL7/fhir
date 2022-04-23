@@ -15,19 +15,19 @@
         <notificationEvent>
           <eventNumber value="1"/>
           <focus>
-            <reference value="http://example.org/FHIR/R4/Encounter/1"/>
+            <reference value="http://example.org/FHIR/R4B/Encounter/1"/>
           </focus>
         </notificationEvent>
         <notificationEvent>
           <eventNumber value="2"/>
           <focus>
-            <reference value="http://example.org/FHIR/R4/Encounter/2"/>
+            <reference value="http://example.org/FHIR/R4B/Encounter/2"/>
           </focus>
         </notificationEvent>
         <subscription>
-          <reference value="http://example.org/FHIR/R4/Subscription/123"/>
+          <reference value="http://example.org/FHIR/R4B/Subscription/123"/>
         </subscription>
-        <topic value="http://example.org/FHIR/R4/SubscriptionTopic/admission"/>
+        <topic value="http://example.org/FHIR/R4B/SubscriptionTopic/admission"/>
       </SubscriptionStatus>
     </resource>
     <request>
@@ -39,7 +39,7 @@
     </response>
   </entry>
   <entry>
-    <fullUrl value="http://example.org/FHIR/R4/Encounter/1" />
+    <fullUrl value="http://example.org/FHIR/R4B/Encounter/1" />
     <request>
       <method value="PUT" />
       <url value="Encounter/1" />
@@ -49,7 +49,7 @@
     </response>
   </entry>
   <entry>
-    <fullUrl value="http://example.org/FHIR/R4/Encounter/2" />
+    <fullUrl value="http://example.org/FHIR/R4B/Encounter/2" />
     <request>
       <method value="PUT" />
       <url value="Encounter/2" />

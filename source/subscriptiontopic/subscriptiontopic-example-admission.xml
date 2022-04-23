@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SubscriptionTopic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionTopic.xsd">
 	<id value="admission"/>
-	<url value="http://example.org/FHIR/R4/SubscriptionTopic/admission"/>
+	<url value="http://example.org/FHIR/R4B/SubscriptionTopic/admission"/>
 	<title value="admission"/>
 	<status value="active"/>
   <description value="Example admission topic"/>
