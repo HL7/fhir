@@ -1,0 +1,61 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This is <b>NOT</b> a resource.  It is not part of the FHIR schema and cannot appear directly in FHIR instances.  It is a logical model that defines a pattern adhered to by
+other resources (or profiles of those resources).  This pattern serves two purposes:
+</p>
+<ul>
+  <li>It offers guidance to work groups designing resources and helps ensure consistency of content created by different work groups</li>
+  <li>It provides a standard "view" that might be useful for implementers in processing and manipulating all resources that adhere to the same pattern.  (Tooling that supports
+  this may become available in a future release.)</li>
+</ul>
+<p>
+For knowledge artifacts, a "publishable" artifact defines the expectations for publication and distribution of an artifact, typically as part of an artifact repository.
+The Publishable pattern is defined to ensure that artifacts have enough metadata to understand when, where, and why a particular artifact would be used, as well as who
+contributed to it, who reviewed or endorsed it, and what evidence supports its use. The pattern is about ensuring artifacts can establish trust and credibility, as well
+as carry enough metadata to be discoverable in a public repository or artifact catalog.
+All "publishable" artifacts are also "shareable". This pattern is intended to apply to <a href="canonicalresource.html">Canonical Resources</a> such as ValueSet, CodeSystem, StructureDefinition, Library, and so on.
+</p>
+
+<p>
+Note that this pattern is a profile pattern in that it is intended to serve as a model for defining Publishable profiles of knowledge artifact resources, and that all Publishable profiles
+should be derived from a Shareable profile of the same resource.
+</p>
+
+<!-- TODO: Add link to resources/profiles that implement this pattern -->
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+
+<p>
+  The publishable pattern is one of four common content management patterns that introduce knowledge capabilities to support separation of concerns across the content management and consumption lifecycle:
+</p>
+
+<ul>
+  <li><b>Shareable</b>: Shareable profiles set the minimum expectations for reliably exchanging an artifact in public repositories, including the URL, version, name, and publisher.</li>
+  <li><b>Computable</b>: Computable profiles deal with authoring and design-time considerations, describing the minimum expectations for exchanging a machine-readable representation of an artifact. At a minimum, a computable artifact is one that does not have only human-readable content.</li>
+  <li><b>Publishable</b>: Publishable profiles describe the expectations for publication and distribution of an artifact, typically as part of an artifact repository.</li>
+  <li><b>Executable</b>: Executable profiles deal with run-time behavior and implementation considerations. For example, an executable library may contain compiled content that can be directly executed by an engine. At a minimum, an executable artifact is guaranteed to have all the elements required to support at least one operation appropriate to the type of artifact.</li>
+</ul>
+
+<p>
+A given artifact may provide all knowledge capabilities (Shareable plus Computable, Publishable, and Executable), or it may be focused on a particular capability. For example, a ValueSet may be only Shareable and Executable because it is intended for use in environments without access to a terminology service capable of expanding the Computable value set.
+</p>
+
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+This model represents a pattern.  It provides a standard list of data elements with cardinalities, data types, definitions, rationale and usage notes that will ideally be
+adhered to by resources that describe "knowledge artifacts" such as value sets, profiles, decision support rules, and quality measures.  However, adherence to this pattern is not mandatory.  Not all healthcare domains are the same.
+Concepts that may be generally applicable (and thus are included in this standard pattern) might still not be relevant everywhere or may be sufficiently uncommon that they
+are more appropriate to include as extensions than as core properties of the resource.  Work groups are encouraged to adjust descriptions, usage notes and rationale to be
+specific to their resource.
+</p>
+</div>
+
+</div>
