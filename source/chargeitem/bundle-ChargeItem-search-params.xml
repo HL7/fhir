@@ -179,6 +179,7 @@
         <expression value="ChargeItem.subject.where(resolve() is Patient)"/>
         <xpath value="f:ChargeItem/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
