@@ -759,20 +759,20 @@
         <map value="FiveWs.subject"/>
       </mapping>
     </element>
-    <element id="Device.operationalStatus">
-      <path value="Device.operationalStatus"/>
+    <element id="Device.operationalState">
+      <path value="Device.operationalState"/>
       <short value="The status of the device itself - whether it is switched on, or activated, etc"/>
       <definition value="The status of the device itself - whether it is switched on, or activated, etc."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="Device.operationalStatus.value">
-      <path value="Device.operationalStatus.value"/>
-      <short value="on |off | standby"/>
-      <definition value="on |off | standby."/>
+    <element id="Device.operationalState.status">
+      <path value="Device.operationalState.status"/>
+      <short value="Device operational condition"/>
+      <definition value="The state or condition of the device's operation."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -783,12 +783,12 @@
           <valueString value="DeviceOperationalStatus"/>
         </extension>
         <strength value="example"/>
-        <description value="OperationalStatus of a device."/>
+        <description value="Operational status of a device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-operationalstatus"/>
       </binding>      
     </element>
-    <element id="Device.operationalStatus.reason">
-      <path value="Device.operationalStatus.reason"/>
+    <element id="Device.operationalState.statusReason">
+      <path value="Device.operationalState.statusReason"/>
       <short value="The reasons given for the current operational status"/>
       <definition value="The reasons given for the current operational status - i.e. why is the device switched on etc."/>
       <min value="0"/>
@@ -796,7 +796,52 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceOperationalStatusReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Operational status reason of a device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-status-reason"/>
+      </binding>
     </element>
+    <element id="Device.operationalState.operator">
+      <path value="Device.operationalState.operator"/>
+      <short value="Device operator"/>
+      <definition value="The individual performing the action enabled by the device."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+    </element>
+    <!-- <element id="Device.operationalState.mode">
+      <path value="Device.operationalState.mode"/>
+      <short value="Designated condition for task"/>
+      <definition value="The designated condition for performing a task with the device."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceOperationalStatusReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Operational status reason of a device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-status-reason"/>
+      </binding>
+    </element> -->
+
+
+
+
+
+
     <element id="Device.associationState">
       <path value="Device.associationState"/>
       <short value="Current state of the device"/>
