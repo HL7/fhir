@@ -857,7 +857,7 @@
     </element>
     <element id="Device.operationalState.operator">
       <path value="Device.operationalState.operator"/>
-      <short value="Device operator"/>
+      <short value="The device operator"/>
       <definition value="The individual performing the action enabled by the device."/>
       <min value="0"/>
       <max value="*"/>
@@ -868,7 +868,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
     </element>
-    <!-- <element id="Device.operationalState.mode">
+    <element id="Device.operationalState.mode">
       <path value="Device.operationalState.mode"/>
       <short value="Designated condition for task"/>
       <definition value="The designated condition for performing a task with the device."/>
@@ -879,19 +879,41 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceOperationalStatusReason"/>
+          <valueString value="DeviceOperationalStateMode"/>
         </extension>
         <strength value="example"/>
-        <description value="Operational status reason of a device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-status-reason"/>
+        <description value="Operational mode of a device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-operational-state-mode"/>
       </binding>
-    </element> -->
-
-
-
-
-
-
+    </element>
+    <element id="Device.operationalState.cycle">
+      <path value="Device.operationalState.cycle"/>
+      <short value="Number of operationcycles"/>
+      <definition value="The series of occurrences that repeats during the operation of the device."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Count"/>
+      </type>
+    </element>
+    <element id="Device.operationalState.duration">
+      <path value="Device.operationalState.duration"/>
+      <short value="Operation time measurement"/>
+      <definition value="A measurement of time during the device's operation (e.g., days, hours, mins, etc)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceOperationalStateMode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Operational mode of a device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-operational-state-mode"/>
+      </binding>
+    </element>
     <element id="Device.associationState">
       <path value="Device.associationState"/>
       <short value="Current state of the device"/>
