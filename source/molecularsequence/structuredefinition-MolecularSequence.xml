@@ -69,6 +69,14 @@
         <identity value="w5"/>
         <map value="clinical.diagnostics"/>
       </mapping>
+      <constraint>
+        <key value="msq-1"/>
+        <severity value="error"/>
+        <human value="Each MolecularSequence SHALL have only one representation of a sequence: literal, formatted, or relative."/>
+        <expression value="(literal.count() + formatted.count() + relative.count()) = 1"/>
+        <xpath value="count(f:literal)+count(f:formatted)+count(f:relative)=1"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
+      </constraint>
     </element>
     <element id="MolecularSequence.identifier">
       <path value="MolecularSequence.identifier"/>
@@ -153,6 +161,28 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="MolecularSequence.literal">
+      <path value="MolecularSequence.literal"/>
+      <short value="Sequence that was observed"/>
+      <definition value="Sequence that was observed. It is the result marked by referenceSeq along with variant records on referenceSeq. This shall start from referenceSeq.windowStart and end by referenceSeq.windowEnd."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularSequence.formatted">
+      <path value="MolecularSequence.formatted"/>
+      <short value="Embedded file or a link (URL) which contains content to represent the sequence"/>
+      <definition value="Sequence that was observed as file content. Can be an actual file contents, or referenced by a URL to an external system."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="MolecularSequence.relative">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="up"/>
@@ -221,7 +251,7 @@
     </element>
     <element id="MolecularSequence.relative.reference.chromosome">
       <path value="MolecularSequence.relative.reference.chromosome"/>
-      <short value="Chromosome containing genetic finding"/>
+      <short value="Chromosome Identifier"/>
       <definition value="Structural unit composed of a nucleic acid molecule which controls its own replication through the interaction of specific proteins at one or more origins of replication ([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340))."/>
       <min value="0"/>
       <max value="1"/>
@@ -231,14 +261,14 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="chromosome-human"/>
+          <valueString value="LL2938-0"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Chromosome number for human."/>
+          <valueString value="List of human chromosomes."/>
         </extension>
         <strength value="example"/>
-        <description value="The chromosome containing the genetic finding"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/chromosome-human"/>
+        <description value="The chromosome containing the sequence."/>
+        <valueSet value="http://loinc.org/LL2938-0/"/>
       </binding>
     </element>
     <element id="MolecularSequence.relative.reference.genomeBuild">
@@ -277,7 +307,7 @@
     <element id="MolecularSequence.relative.reference.referenceSeqId">
       <path value="MolecularSequence.relative.reference.referenceSeqId"/>
       <short value="Reference identifier"/>
-      <definition value="Reference identifier of reference sequence submitted to NCBI. It must match the type in the MolecularSequence.type field. For example, the prefix, &#x201C;NG_&#x201D; identifies reference sequence for genes, &#x201C;NM_&#x201D; for messenger RNA transcripts, and &#x201C;NP_&#x201D; for amino acid sequences."/>
+      <definition value="This field carries the ID for the reference sequence. For this ID use either the NCBI genomic nucleotide RefSeq IDs with their version number (see: NCBI.NLM.NIH.Gov/RefSeq) or use the LRG identifiers when they become available. (See- Report sponsored by GEN2PHEN at the European Bioinformatics Institute at Hinxton UK April 24-25, 2008)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -286,14 +316,13 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="sequenceReference"/>
+          <valueString value="Multiple bindings acceptable (NCBI or LRG)"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
           <valueString value="Reference identifier."/>
         </extension>
         <strength value="example"/>
-        <description value="Reference identifier for reference sequence"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/sequence-referenceSeq"/>
+        <description value="Multiple bindings acceptable (NCBI or LRG)"/>
       </binding>
     </element>
     <element id="MolecularSequence.relative.reference.referenceSeqPointer">
@@ -424,33 +453,11 @@
     <element id="MolecularSequence.relative.edit.cigar">
       <path value="MolecularSequence.relative.edit.cigar"/>
       <short value="Extended CIGAR string for aligning the sequence with reference bases"/>
-      <definition value="Extended CIGAR string for aligning the sequence with reference bases. See detailed documentation [here](http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm)."/>
+      <definition value="Extended CIGAR string for aligning the sequence with reference bases. See documentation [here](https://samtools.github.io/hts-specs/SAMv1.pdf) and search for CIGAR."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.literal">
-      <path value="MolecularSequence.literal"/>
-      <short value="Sequence that was observed"/>
-      <definition value="Sequence that was observed. It is the result marked by referenceSeq along with variant records on referenceSeq. This shall start from referenceSeq.windowStart and end by referenceSeq.windowEnd."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.formatted">
-      <path value="MolecularSequence.formatted"/>
-      <short value="Embedded file or a link (URL) which contains content to represent the sequence"/>
-      <definition value="Sequence that was observed as file content. Can be an actual file contents, or referenced by a URL to an external system."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Attachment"/>
       </type>
       <isSummary value="true"/>
     </element>

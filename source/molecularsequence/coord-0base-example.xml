@@ -39,5 +39,4 @@
             <cigar value="1D"/>
         </edit> 
     </relative>
-    <literal value="ACATGGTAGC"/>
 </MolecularSequence>

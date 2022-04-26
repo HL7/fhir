@@ -4,9 +4,25 @@
 
 <h2>Notes</h2>
   <h3>Representing the Sequence</h3>
-  <h4>Sequence as a String</h4>
+  <p>
+  This resource supports three patterns for representing a sequence of interest:
+  <ul>
+    <li>By providing a “literal” string of IUPAC codes representing nucleotides or amino acids.</li>
+    <li>By linking to a “formatted” file or link containing the sequence information (e.g. FASTA file or GA4GH sequence repository).</li>
+    <li>By providing a list of “edits” from a reference sequence.</li>
+  </ul>
+  Implementers SHALL use only one of the above patterns to represent the sequence of interest.
+  </p>
+  <h4>Sequence as a literal string</h4>
   <p>
     <code>MolecularSequence.literal</code>: This string element can be used to hold the sequence as a string of characters.
+  </p>
+  <h4>Sequence as a file or URL</h4>
+  <p>
+    <code>MolecularSequence.formatted</code>: This Attachment is used to refer to the sequence as embedded file content or via a URL reference.
+  </p>
+  <p>
+    This method can be used to refer to sequence data from an an external source. If the sequence is referring to a GA4GH repository, the <code>MolecularSequence.formatted.url</code> should refer to a GA4GH compliant endpoint that conforms to GA4GH data models.
   </p>
   <h4>Sequence as a series of edits from a known sequence</h4>
   <p>
@@ -70,18 +86,18 @@
       <td>Negative</td>
     </tr>
   </table>
-
-  <h4>Sequence as a file or URL</h4>
-  <p>
-    <code>MolecularSequence.formatted</code>: This Attachment is used to refer to the sequence as embedded file content or via a URL reference.
-  </p>
-  <p>
-    This method can be used to refer to sequence data from an an external source. If the sequence is referring to a GA4GH repository, the <code>MolecularSequence.formatted.url</code> should refer to a GA4GH compliant endpoint that conforms to GA4GH data models.
-  </p>
-
-<h3>Character usage for reference and observed sequence as strings</h3>
+<h3>Character usage for sequence as strings</h3>
 <p>
-  The characters used in string representations of a sequence should be constrained to the IUPAC codes found here <a href="https://www.bioinformatics.org/sms2/iupac.html">https://www.bioinformatics.org/sms2/iupac.html</a>.
+  There are attributes where the sequence is represented as a string of characters.
+    <ul>
+      <li><code>relative.reference.referenceSeqString</code></li>
+      <li><code>relative.edit.observedAllele</code></li>
+      <li><code>relative.edit.referenceAllele</code></li>
+      <li><code>literal</code></li>
+    </ul>
+</p>
+<p>
+  The characters used in these string representations of a sequence should be constrained to the IUPAC codes found here <a href="https://www.bioinformatics.org/sms2/iupac.html">https://www.bioinformatics.org/sms2/iupac.html</a>.
 </p>
 
 </div>

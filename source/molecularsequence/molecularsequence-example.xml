@@ -5,32 +5,6 @@
     <patient>
         <reference value="Patient/example"/>
     </patient>
-    <relative>
-        <coordinateSystem>
-            <coding>
-                <system value="http://loinc.org"/>
-                <code value="LA30100-4"/>
-                <display value="0-based interval counting"/>
-            </coding>
-        </coordinateSystem>
-        <reference>
-            <referenceSeqId>
-            <coding>
-                <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
-                <code value="NC_000009.11"/>
-            </coding>
-            </referenceSeqId>
-            <strand value="watson"/>
-            <windowStart value="22125500"/>
-            <windowEnd value="22125510"/>
-        </reference>
-        <edit>
-            <start value="22125503"/>
-            <end value="22125504"/>
-            <observedAllele value="C"/>
-            <referenceAllele value="G"/>
-        </edit>
-    </relative>
     <formatted>
         <contentType value="application/json"/>
         <url value="http://grch37.rest.ensembl.org/ga4gh/variants/3:rs1333049?content-type=application/json"/>
