@@ -857,7 +857,7 @@
     </element>
     <element id="Device.operationalState.operator">
       <path value="Device.operationalState.operator"/>
-      <short value="Operator of the device"/>
+      <short value="The current device operator"/>
       <definition value="The individual performing the action enabled by the device."/>
       <min value="0"/>
       <max value="*"/>
