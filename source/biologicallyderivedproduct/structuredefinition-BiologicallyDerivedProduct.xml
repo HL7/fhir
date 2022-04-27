@@ -119,11 +119,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ISBT 128 Code"/>
+          <valueString value="BiologicallyderivedProductCodes"/>  
         </extension>
         <strength value="example"/>
-        <description value="ISBT 128 Code"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproduct-product-codes"/>
+        <description value="Biologically-derived Product Codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-codes"/>
       </binding>
       <mapping>
         <identity value="ISBT128Code"/>
