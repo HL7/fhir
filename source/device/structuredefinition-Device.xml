@@ -852,7 +852,7 @@
         </extension>
         <strength value="example"/>
         <description value="Operational status reason of a device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-status-reason"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-operation-status-reason"/>
       </binding>
     </element>
     <element id="Device.operationalState.operator">
