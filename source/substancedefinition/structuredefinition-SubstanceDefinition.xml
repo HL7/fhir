@@ -416,8 +416,8 @@
         <map value="Moiety.Amount"/>
       </mapping>
     </element>
-    <element id="SubstanceDefinition.moiety.amountType">
-      <path value="SubstanceDefinition.moiety.amountType"/>
+    <element id="SubstanceDefinition.moiety.measurementType">
+      <path value="SubstanceDefinition.moiety.measurementType"/>
       <short value="The measurement type of the quantitative value"/>
       <definition value="The measurement type of the quantitative value. In capturing the actual relative amounts of substances or molecular fragments it may be necessary to indicate whether the amount refers to, for example, a mole ratio or weight ratio."/>
       <min value="0"/>
@@ -441,7 +441,7 @@
     </element>
     <element id="SubstanceDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="350,825"/>      
+        <valueCode value="370,825"/>      
       </extension>
       <path value="SubstanceDefinition.property"/>
       <short value="General specifications for this substance"/>
@@ -525,7 +525,7 @@
     </element>
     <element id="SubstanceDefinition.molecularWeight">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="448,733"/>
+        <valueCode value="468,733"/>
       </extension>
       <path value="SubstanceDefinition.molecularWeight"/>
       <short value="The molecular weight or weight range"/>
@@ -843,7 +843,7 @@
     </element>
     <element id="SubstanceDefinition.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="280,922"/> <!-- was 221,880 -->
+        <valueCode value="300,922"/> <!-- was 221,880 -->
       </extension>
       <path value="SubstanceDefinition.code"/>
       <short value="Codes associated with the substance"/>
@@ -1335,8 +1335,8 @@
         <map value="Substance_Relationship.Amount.Quantity"/>
       </mapping>
     </element>
-    <element id="SubstanceDefinition.relationship.amountRatioHighLimit">
-      <path value="SubstanceDefinition.relationship.amountRatioHighLimit"/>
+    <element id="SubstanceDefinition.relationship.ratioHighLimitAmount">
+      <path value="SubstanceDefinition.relationship.ratioHighLimitAmount"/>
       <short value="For use when the numeric has an uncertain range"/>
       <definition value="For use when the numeric has an uncertain range."/>
       <min value="0"/>
@@ -1350,8 +1350,8 @@
         <map value="Substance_Relationship.Amount.Quantity.High_Limit"/>
       </mapping>
     </element>
-    <element id="SubstanceDefinition.relationship.amountType">
-      <path value="SubstanceDefinition.relationship.amountType"/>
+    <element id="SubstanceDefinition.relationship.comparator">
+      <path value="SubstanceDefinition.relationship.comparator"/>
       <short value="An operator for the amount, for example &quot;average&quot;, &quot;approximately&quot;, &quot;less than&quot;"/>
       <definition value="An operator for the amount, for example &quot;average&quot;, &quot;approximately&quot;, &quot;less than&quot;."/>
       <min value="0"/>
