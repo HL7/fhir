@@ -121,7 +121,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BiologicallyderivedProductCodes"/>  
         </extension>
-        <strength value="example"/>
+        <strength value="required"/>
         <description value="Biologically-derived Product Codes"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-codes"/>
       </binding>
