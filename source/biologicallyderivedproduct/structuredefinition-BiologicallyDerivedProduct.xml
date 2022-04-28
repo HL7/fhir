@@ -248,7 +248,7 @@
         </extension>
         <strength value="example"/>
         <description value="Biologically Derived Product Status."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/biological-product-status"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-status"/>
       </binding>
     </element>
     <element id="BiologicallyDerivedProduct.expirationDate">
