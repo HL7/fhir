@@ -6,13 +6,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text> -->
   <productCategory value="cells" />
-  <productCode>
-    <coding>
-      <system value="https://www.isbt128.org/uri/ProductDescriptionCode" />
-  		<code value="S1127" />
-	  	<display value="HPC, APHERESIS|6% HES + 5% DMSO|Cryopreserved|Mobilized" />
-    </coding>
-  </productCode>
+  <productCode value="S1127" />
   <request>
     <reference value="BiologicallyDerivedProduct/HCTcollection-servicerequest" />
     <display value="Service Request for HCT Collection"/>    
