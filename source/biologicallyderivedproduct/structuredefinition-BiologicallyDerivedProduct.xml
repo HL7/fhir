@@ -119,16 +119,12 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BiologicallyderivedProductCodes"/>  
+          <valueString value="BiologicallyDerivedProductCodes"/>  
         </extension>
         <strength value="example"/>
         <description value="Biologically-derived Product Codes"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-codes"/>
       </binding>
-      <mapping>
-        <identity value="ISBT128Code"/>
-        <map value="Product Description Code. Required for ISBT 128 labeled products"/>
-      </mapping>
     </element>
      <element id="BiologicallyDerivedProduct.parent">
       <path value="BiologicallyDerivedProduct.parent"/>
