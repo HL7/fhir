@@ -4,16 +4,12 @@
   <!-- <text>
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
-  </text> -->
+  </text> -->    
   <productCategory>
-  <code  value="cells" />
+   <code value="cells" />
   </productCategory>
   <productCode>
-    <coding>
-      <system value="https://www.isbt128.org/uri/ProductDescriptionCode" />
   		<code value="S1127" />
-	  	<display value="HPC, APHERESIS|6% HES + 5% DMSO|Cryopreserved|Mobilized" />
-    </coding>
   </productCode>
   <request>
     <reference value="BiologicallyDerivedProduct/HCTcollection-servicerequest" />
