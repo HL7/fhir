@@ -5,8 +5,12 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text> -->    
-  <productCategory value="cells" />
-  <productCode value="S1127" />
+  <productCategory>
+   <code value="cells" />
+  </productCategory>
+  <productCode>
+  		<code value="S1127" />
+  </productCode>
   <request>
     <reference value="BiologicallyDerivedProduct/HCTcollection-servicerequest" />
     <display value="Service Request for HCT Collection"/>    

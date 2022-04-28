@@ -25,6 +25,7 @@
     </telecom>
   </contact>
   <description value="This value set includes all ISBT 128 product codes"/>
+  <immutable value="true"/>
   <copyright value="This content from ICCBBA® is copyright © 2021 ICCBBA."/>
   <compose>
     <include>
