@@ -1,1 +1,1 @@
-﻿markup not allowed inside attribute value - illegal <  (position: TEXT seen ...<display value="HPC, APHERESIS|NS/XX/<... @147:43) 
+﻿Errors executing build. Details logged.
