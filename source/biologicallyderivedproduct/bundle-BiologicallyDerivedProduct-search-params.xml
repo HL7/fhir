@@ -85,19 +85,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="BiologicallyDerivedProduct-status"/>
+        <id value="BiologicallyDerivedProduct-product-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="BiologicallyDerivedProduct.status"/>
+          <valueString value="BiologicallyDerivedProduct.productStatus"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-status"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-product-status"/>
         <description value="Whether the product is currently available."/>
-        <code value="status"/>
+        <code value="product-status"/>
         <type value="token"/>
-        <expression value="BiologicallyDerivedProduct.status"/>
-        <xpath value="f:BiologicallyDerivedProduct/f:status"/>
+        <expression value="BiologicallyDerivedProduct.productStatus"/>
+        <xpath value="f:BiologicallyDerivedProduct/f:productStatus"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

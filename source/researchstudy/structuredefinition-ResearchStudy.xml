@@ -1039,6 +1039,7 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </type>
     </element>
     <element id="ResearchStudy.recruitment.actualGroup">
