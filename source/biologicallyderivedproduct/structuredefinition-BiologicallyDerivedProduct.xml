@@ -350,10 +350,10 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ISBT 128 Code"/>
+          <valueString value="BiologicallyDerivedProductPropertyTypeCodes"/>
         </extension>
         <strength value="example"/>
-        <description value="ISBT 128 Code"/>
+        <description value="Biologically Derived Product Property Type Codes"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproduct-property-type-codes"/>
       </binding>
     </element>
