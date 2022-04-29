@@ -344,6 +344,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </type>
       <meaningWhenMissing value="Patient"/>
       <binding>
