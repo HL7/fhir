@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="device-operation-status"/>
+  <id value="biologicallyderived-product-codes"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -14,9 +14,9 @@
         
         <li>Include all codes defined in 
           
-          <a href="codesystem-device-operation-status.html">
+          <a href="codesystem-biologicallyderived-product-codes.html">
             
-            <code>http://hl7.org/fhir/device-operation-status</code>
+            <code>http://hl7.org/fhir/biologicallyderived-product-codes</code>
           
           </a>
         
@@ -33,12 +33,16 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/device-operation-status"/>
+  <url value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-codes"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+  </identifier>
   <version value="4.6.0"/>
-  <name value="FHIRDeviceOperationStatus"/>
-  <title value="FHIRDeviceOperationStatus"/>
+  <name value="BiologicallyDerivedProductProductCodes"/>
+  <title value="BiologicallyDerivedProductCodes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -53,11 +57,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The operation status of the device."/>
+  <description value="Biologically Derived Product Codes."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/device-operation-status"/>
+      <system value="http://hl7.org/fhir/biologicallyderived-product-codes"/>
     </include>
   </compose>
 </ValueSet>

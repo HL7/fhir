@@ -205,19 +205,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="DocumentReference-encounter"/>
+        <id value="DocumentReference-context"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DocumentReference.encounter"/>
+          <valueString value="DocumentReference.context"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-encounter"/>
-        <description value="Context of the document  content"/>
-        <code value="encounter"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-context"/>
+        <description value="Context of the document content"/>
+        <code value="context"/>
         <type value="reference"/>
-        <expression value="DocumentReference.encounter"/>
-        <xpath value="f:DocumentReference/f:encounter"/>
+        <expression value="DocumentReference.context"/>
+        <xpath value="f:DocumentReference/f:context"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
