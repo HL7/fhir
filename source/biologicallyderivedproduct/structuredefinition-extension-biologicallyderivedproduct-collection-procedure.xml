@@ -57,7 +57,8 @@
       <path value="Extension.value[x]"/>
       <min value="1"/>
       <type>
-        <code value="integer"/>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
     </element>
   </differential>
