@@ -12,11 +12,6 @@
   <definition>
     <resource>
       <reference>
-        <reference value="StructureDefinition/task-candidateList"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/task-replaces"/>
       </reference>
     </resource>
