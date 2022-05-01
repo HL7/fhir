@@ -82,6 +82,14 @@
 				<xpath value="not(exists(f:lastModified/@value)) or not(exists(f:authoredOn/@value)) or f:lastModified/@value &gt;= f:authoredOn/@value"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Task"/>
 			</constraint>
+			<constraint>
+				<key value="tsk-1"/>
+				<severity value="error"/>
+				<human value="Task.restriction is only allowed if the Task is seeking fulfillment and a target is specified."/>
+				<expression value="restriction.exists() implies code.coding.where(code='fulfill' and system='http://hl7.org/fhir/CodeSystem/task-code').exists() and target.exists()"/>
+				<xpath value="not(exists(f:restriction)) or (exists(f:code/f:coding[f:code/@value='fulfill' and f:system/@value='http://hl7.org/fhir/CodeSystem/task-code']) and exists(f:target))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/Task"/>
+			</constraint>
 			<mapping>
 				<identity value="workflow"/>
 				<map value="Request, Event"/>
@@ -862,6 +870,7 @@
 			<path value="Task.restriction"/>
 			<short value="Constraints on fulfillment tasks"/>
 			<definition value="If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned."/>
+			<comment value="Task.restriction can only be present if the Task is seeking fulfillment of another Request resource, and the restriction identifies what subset of the authorization conveyed by the request is supposed to be fulfilled by this Task. A possible example could be a standing order (the request) covering a significant time period and/or individuals, while the Task seeks fulfillment for only a subset of that time-period and a single individual."/>
 			<requirements value="Sometimes when fulfillment is sought, you don&#39;t want full fulfillment."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -890,9 +899,9 @@
 		</element>
 		<element id="Task.restriction.period">
 			<path value="Task.restriction.period"/>
-			<short value="When fulfillment sought"/>
-			<definition value="Over what time-period is fulfillment sought."/>
-			<comment value="Note that period.high is the due date representing the time by which the task should be completed."/>
+			<short value="When fulfillment is sought"/>
+			<definition value="The time-period for which fulfillment is sought. This must fall within the overall time period authorized in the referenced request.  E.g. ServiceRequest.occurance[x]."/>
+			<comment value="This is distinct from Task.executionPeriod. ExecutionPeriod indicates when the task needs to be initiated, while Task.restriction.period specifies the subset of the overall authorization that this period covers. For example, a MedicationRequest with an overall effective period of 1 year might have a Task whose restriction.period is 2 months (i.e. satisfy 2 months of medication therapy), while the execution period might be 'between now and 5 days from now' - i.e. If you say yes to this, then you're agreeing to supply medication for that 2 month period within the next 5 days.&#x0a;&#x0a;Note that period.high is the due date representing the time by which the task should be completed."/>
 			<requirements value="E.g. order that authorizes 1 year&#39;s services.  Fulfillment is sought for next 3 months."/>
 			<min value="0"/>
 			<max value="1"/>
