@@ -16,7 +16,8 @@
       <display value="Example of MolecularSequence"/>
     </item>
   </entry>
-  <entry>
+  <!--
+    <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="MolecularSequence example from precisionFDA"/>
     </extension>
@@ -28,6 +29,7 @@
       <display value="MolecularSequence example for precisionFDA"/>
     </item>
   </entry>
+  -->
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Example of representing complex variants in MolecularSequence resource"/>
@@ -172,6 +174,7 @@
       <display value="MolecularSequence example for 1-based coordinatesytem usage"/>
     </item>
   </entry>
+  <!--
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="MolecularSequence example for vcf comparison on precisionFDA"/>
@@ -184,6 +187,8 @@
       <display value="vcf comparison (precisionFDA)"/>
     </item>
   </entry>
+  -->
+  <!--
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="MolecularSequence example for vcf and Hap.py comparison on precisionFDA"/>
@@ -196,6 +201,7 @@
       <display value="vcf and Hap.py comparison (precisionFDA)"/>
     </item>
   </entry>
+  -->
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="MolecularSequence example for patient with breast cancer gene variant"/>
