@@ -10,20 +10,22 @@
         </coding>
         <text value="Homo sapiens"/>
     </species>
-    <referenceSeq>
-        <referenceSeqId>
-            <coding>
-                <system value="http://www.ensembl.org/"/>
-                <code value="ENSP00000252486"/>
-            </coding>
-        </referenceSeqId>
-        <windowStart value="40"/>
-        <windowEnd value="52"/>
-    </referenceSeq>
-    <variation>
-        <start value="46"/>
-        <end value="47"/>
-        <observedAllele value="L"/>
-        <referenceAllele value="P"/>
-    </variation>
+    <relative>
+        <reference>
+            <referenceSeqId>
+                <coding>
+                    <system value="http://www.ensembl.org/"/>
+                    <code value="ENSP00000252486"/>
+                </coding>
+            </referenceSeqId>
+            <windowStart value="40"/>
+            <windowEnd value="52"/>
+        </reference>
+        <edit>
+            <start value="46"/>
+            <end value="47"/>
+            <observedAllele value="L"/>
+            <referenceAllele value="P"/>
+        </edit>
+    </relative>
 </MolecularSequence>

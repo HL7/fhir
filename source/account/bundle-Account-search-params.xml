@@ -79,6 +79,7 @@
         <expression value="Account.subject.where(resolve() is Patient)"/>
         <xpath value="f:Account/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

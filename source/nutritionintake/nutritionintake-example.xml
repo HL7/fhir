@@ -2,6 +2,10 @@
 <NutritionIntake xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<!-- id = example  file name = nutritionintake-example.xml  Name=Simple   Description = General NutritionIntake Example edited by Jean Duteau & Becky Gradl-->
 	<id value="example"/>
+	<identifier>
+		<system value="http://example.org"/>
+		<value value="1144223344"/>
+	</identifier>
 	<status value="completed"/>
 	<code>
 		<text value="Inpatient"/>
@@ -9,7 +13,13 @@
 	<subject>
 		<display value="Paula Patient Chalmers"/>
 	</subject>
+	<encounter>
+		<reference value="Encounter/example"/>
+	</encounter>
 	<occurrenceDateTime value="2019-08-02T12:45:18+04:00"/>
+	<reportedReference>
+		<reference value="PractitionerRole/example"/>
+	</reportedReference>
 	<consumedItem>
 		<type>
 			<text value="food"/>
