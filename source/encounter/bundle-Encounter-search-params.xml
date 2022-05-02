@@ -299,6 +299,7 @@
         <expression value="Encounter.subject.where(resolve() is Patient)"/>
         <xpath value="f:Encounter/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -319,6 +320,7 @@
         <expression value="Encounter.participant.actor.where(resolve() is Practitioner)"/>
         <xpath value="f:Encounter/f:participant/f:actor"/>
         <xpathUsage value="normal"/>
+        <target value="Practitioner"/>
       </SearchParameter>
     </resource>
   </entry>
