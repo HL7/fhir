@@ -64,7 +64,7 @@
           <valueString value="SecondaryFinding"/>
         </extension>
         <strength value="extensible"/>
-        <description value="Codes to denote a guideline or policy statement.when a genetic test result is being shared as a secondary finding."/>
+        <description value="Codes to denote a guideline or policy statement when a genetic test result is being shared as a secondary finding."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/secondary-finding"/>
       </binding>
     </element>

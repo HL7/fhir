@@ -85,7 +85,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Citation"/>
       </constraint>
@@ -927,7 +927,104 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="RelatedArtifact"/>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.type">
+      <path value="Citation.citedArtifact.relatesTo.type"/>
+      <short value="documentation | justification | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | cite-as | created-with | documents | reprint | reprint-of | specification-of"/>
+      <definition value="The type of relationship to the related artifact."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RelatedArtifactTypeExpanded"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/related-artifact-type-expanded"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.classifier">
+      <path value="Citation.citedArtifact.relatesTo.classifier"/>
+      <short value="Additional classifiers"/>
+      <definition value="Provides additional classifiers of the related artifact."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitationArtifactClassifier"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.label">
+      <path value="Citation.citedArtifact.relatesTo.label"/>
+      <short value="Short label"/>
+      <definition value="A short label that can be used to reference the citation from elsewhere in the containing artifact, such as a footnote index."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.display">
+      <path value="Citation.citedArtifact.relatesTo.display"/>
+      <short value="Brief description of the related artifact"/>
+      <definition value="A brief description of the document or knowledge resource being referenced, suitable for display to a consumer."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.citation">
+      <path value="Citation.citedArtifact.relatesTo.citation"/>
+      <short value="Bibliographic citation for the artifact"/>	  
+      <definition value="A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format."/>
+      <comment value="Additional structured information about citations should be captured as extensions."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.document">
+      <path value="Citation.citedArtifact.relatesTo.document"/>
+      <short value="What document is being referenced"/>	  
+      <definition value="The document being referenced, represented as an attachment. This is exclusive with the resource element."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.resource">
+      <path value="Citation.citedArtifact.relatesTo.resource"/>
+      <short value="What artifact is being referenced"/>
+      <definition value="The related artifact, such as a library, value set, profile, or other knowledge resource."/>
+	  <comment value="If the type is predecessor, this is a reference to the succeeding knowledge resource. If the type is successor, this is a reference to the prior knowledge resource"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.resourceReference">
+      <path value="Citation.citedArtifact.relatesTo.resourceReference"/>
+      <short value="What artifact, if not a conformance resource"/>
+      <definition value="The related artifact, if the artifact is not a canonical resource, or a resource reference to a canonical resource."/>
+	  <comment value="If both resource and resourceReference are present, they SHOULD be consistent and reference the same resource. Although relatedArtifact is intended to support references to definitional resources, there are cases where non-definitional resources can be definitional (such as Location where the kind is mode). Related artifacts SHOULD be used to reference definitional resources, and profiles SHOULD be used to make that explicit for particular use cases."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
       </type>
     </element>
     <element id="Citation.citedArtifact.publicationForm">

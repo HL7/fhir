@@ -11371,6 +11371,10 @@
     <display value="Nutrients"/>
     <display value="Nutrients (substance)"/>
   </concept>
+  <concept id="226465004" display="Drinks">
+    <display value="Drinks"/>
+    <display value="Drinks (substance)"/>
+  </concept>
   <concept id="226529007" display="Starchy food">
     <display value="Starchy food"/>
     <display value="Starchy food (substance)"/>
@@ -11398,6 +11402,12 @@
     <display value="Vegetables pulses herbs and spices"/>
     <display value="Vegetables pulses herbs and spices (substance)"/>
   </concept>
+  <concept id="227313005" display="Pulse vegetables">
+    <display value="Pulse vegetables"/>
+    <display value="Beans peas and lentils"/>
+    <display value="Pulse vegetables (substance)"/>
+    <display value="Legumes"/>
+  </concept>
   <concept id="227415002" display="Fruit nuts and seeds">
     <display value="Fruit nuts and seeds"/>
     <display value="Fruit nuts and seeds (substance)"/>
@@ -11406,6 +11416,10 @@
     <display value="Cashew nuts"/>
     <display value="Cashew nut"/>
     <display value="Cashew nut (substance)"/>
+  </concept>
+  <concept id="227507002" display="Smooth peanut butter">
+    <display value="Smooth peanut butter"/>
+    <display value="Smooth peanut butter (substance)"/>
   </concept>
   <concept id="227518002" display="Sauces seasonings and soups">
     <display value="Sauces seasonings and soups"/>
@@ -16436,6 +16450,10 @@
   <concept id="76268003" display="Campine chicken">
     <display value="Campine chicken"/>
     <display value="Campine chicken (organism)"/>
+  </concept>
+  <concept id="762766007" display="Edible substance">
+    <display value="Edible substance (substance)"/>
+    <display value="Edible substance"/>
   </concept>
   <concept id="76302002" display="Spanish mustang horse">
     <display value="Spanish mustang horse"/>
