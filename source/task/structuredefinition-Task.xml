@@ -653,7 +653,7 @@
 		</element>
 		<element id="Task.requestedPerformer">
 			<path value="Task.requestedPerformer"/>
-			<short value="Requested performer"/>
+			<short value="Who should perform Task"/>
 			<definition value="The kind of participant or specific participant that should perform the task."/>
 			<requirements value="Use to distinguish tasks on different activity queues."/>
 			<min value="0"/>
