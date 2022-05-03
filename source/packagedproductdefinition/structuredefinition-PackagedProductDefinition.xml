@@ -223,7 +223,7 @@
     </element>
     <element id="PackagedProductDefinition.legalStatusOfSupply">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,250"/> 
+        <valueCode value="27,270"/> 
       </extension>
       <path value="PackagedProductDefinition.legalStatusOfSupply"/>
       <short value="The legal status of supply of the packaged item as classified by the regulator"/>
@@ -374,7 +374,7 @@
     </element>
     <element id="PackagedProductDefinition.package">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="403,29"/>
+        <valueCode value="453,47"/>
       </extension>
       <path value="PackagedProductDefinition.package"/>
       <short value="A packaging item, as a container for medically related items, possibly with other packaging items within, or a packaging component, such as bottle cap"/>
@@ -522,7 +522,7 @@
     </element>
     <element id="PackagedProductDefinition.package.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="300,250"/>
+        <valueCode value="320,270"/>
       </extension>
       <path value="PackagedProductDefinition.package.property"/>
       <short value="General characteristics of this item"/>
@@ -590,7 +590,7 @@
     </element>
     <element id="PackagedProductDefinition.package.containedItem">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="610,250"/>
+        <valueCode value="630,270"/>
       </extension>
       <path value="PackagedProductDefinition.package.containedItem"/>
       <short value="The item(s) within the packaging"/>
