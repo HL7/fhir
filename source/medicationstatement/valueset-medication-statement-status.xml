@@ -14,7 +14,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.367"/>
   </identifier>
   <version value="4.3.0-cibuild"/>
-  <name value="Medication Status Codes"/>
+  <name value="MedicationStatement Status Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -23,7 +23,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Medication Status Codes"/>
+  <description value="MedicationStatement Status Codes"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/CodeSystem/medication-statement-status"/>
