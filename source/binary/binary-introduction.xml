@@ -51,7 +51,7 @@ The Binary resource may be used to convey actual binary file content conveyed by
 the DocumentReference resource.
 </p>
 <p>
-See some uses of Binary and DocumentReferece in the <a href="https://wiki.ihe.net/index.php/Cross-Enterprise_Document_Sharing">IHE XDS</a> Implementation Guide.
+See some uses of Binary and DocumentReferece in the <a href="https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html">IHE XDS</a> Implementation Guide.
 </p>
 </div>
 

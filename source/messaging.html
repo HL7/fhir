@@ -20,7 +20,7 @@ Applications asserting conformance to this framework claim to be conformant to "
 </p>
 
 <p>
-In FHIR messaging, a "request message" is sent from a source application to a destination
+In FHIR messaging, a "message" is sent from a source application to a destination
 application when an event happens. Events mostly correspond to things that happen in the
 real world. The request message consists of a <a href="bundle.html">Bundle</a> identified
 by the <a href="bundle-definitions.html#Bundle.type">type</a> "message",
@@ -470,9 +470,6 @@ Here's an example:
           &lt;code value=&quot;http://hl7.org/fhir/OperationDefinition/ValueSet-expand&quot;/&gt;
         &lt;/event&gt;
         &lt;!-- more normal message header stuff --&gt;
-        &lt;data&gt;
-          &lt;reference value=&quot;urn:uuid:00213637-dc7c-40d2-a7de-f4ef1eea5685&quot;/&gt;
-        &lt;/data&gt;
       &lt;/MessageHeader&gt;
     &lt;/resource&gt;
   &lt;/entry&gt;
@@ -564,9 +561,6 @@ Here's an example:
           &lt;code value=&quot;search-type&quot;/&gt;
         &lt;/event&gt;
         &lt;!-- more normal message header stuff --&gt;
-        &lt;data&gt;
-          &lt;reference value=&quot;urn:uuid:59a17a19-46eb-42d9-821a-f93a0c530cac&quot;/&gt;
-        &lt;/data&gt;
       &lt;/MessageHeader&gt;
     &lt;/resource&gt;
   &lt;/entry&gt;

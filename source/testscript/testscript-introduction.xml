@@ -2,29 +2,39 @@
 
 <div>
 <a name="scope"></a>
-
 <h2>Scope and Usage</h2>
 <p>
-The TestScript resource is used to define tests that can be executed on one or more FHIR servers. The TestScript resource would typically contain
+This resource is a <strong>Quality Reporting &amp; Testing</strong> resource from a FHIR Implementation Support perspective - see <a href="implsupport-module.html">Implementation Support Module</a>.
+</p>
+<p>
+The TestScript resource is used to define tests that can be executed against one or more FHIR clients and servers. The TestScript resource will typically contain
 <ul>
   <li>a list of fixtures (required resources used in the tests)</li>
   <li>setup procedures</li>
   <li>a suite of thematically related tests</li>
   <li>teardown procedures</li>
 </ul>
-</p><p>
-For example, one TestScript might feature a set of tests focusing on searching Patients and validating the Bundle responses. The fixtures for such a test would contain a list of Patient resources that are required for the test
-to complete successfully. The setup procedures create the fixtures on the FHIR server being tested. A series
-of tests execute various search parameters and search for the fixtures in the results. The teardown procedures would then clean up (delete) the fixtures on FHIR server that were created during the setup procedures.
-</p><p>
-The purpose of the TestScript is to encode in an executable representation tests that can be used to
-<ol>
-  <li>determine whether a given FHIR server adheres to the FHIR specification and</li>
-  <li>determine whether two or more FHIR servers implement capabilities in a compatible or interoperable manner.</li>
-</ol>
-It might not be possible to fully automate the latter goal (especially with regards to business rules that might ride on top of different implementations), however the tests should be able to determine whether two servers support the operations, value sets, profiles, and extensions to exchange Bundles of Resources (such as returned from the <a href="operation-patient-everything.html">Patient $everything operation</a>).
-<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 </p>
+<p>
+For example, one TestScript might feature a set of tests focusing on searching Patients and validating the Bundle responses. The fixtures for such a test would contain a list of Patient resources that are required for the test to complete successfully. The setup procedures create the fixtures on the FHIR server being tested. A series of tests execute search operations with various search parameter combinations and evaluate the client requests and server responses for conformance and expected results. The teardown procedures could then clean up (delete) the fixtures on FHIR server that were created during the setup procedures.
+</p>
+<p>
+The purpose of the TestScript is to encode in an executable representation tests that can be used
+<ol>
+  <li>to support end-to-end testing of business case workflow, such as patient coordination</li>
+  <li>within an Ecosystem or Community of Systems-Under-Test</li>
+  <li>to determine whether given FHIR clients and servers adhere and are conformant to the FHIR specification</li>
+  <li>to determine whether the capabilities of two or more FHIR implementations capabilities are compatible and interoperable according to the FHIR specification</li>
+</ol>
+It might not be possible to fully automate the latter goal (especially with regards to business rules that might ride on top of different implementations), however the tests should be able to determine whether two servers support the operations, value sets, profiles, and extensions to exchange FHIR Resources; for example, the request sent and response returned from a <a href="operation-patient-everything.html">Patient $everything operation</a>.
+</p>
+
+<blockquote class="stu-note">
+<p>
+<strong>Note to implementers:</strong> At this time the scope and usage of TestScript resources is focused on the FHIR specification. The TestScript resource scope and usage may expand in the future to include support for other HL7 specifications such as C-CDA and V2 as HL7 aligns these specifications with FHIR-based nomenclature and definitions. Future support may also additionally include non-HL7 specifications that leverage the FHIR specification such as IHE profiles.
+</p>
+</blockquote>
+
 <p>
 
 </p>
@@ -34,9 +44,7 @@ It might not be possible to fully automate the latter goal (especially with rega
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-The TestScript resource should <b>NOT</b> be used to represent Clinical tests, Prescriptions, or any other Healthcare related concept.
-The TestScript resource is an infrastructure support resource used to represent standardized tests to determine an
-implementation's level of adherence to the FHIR specification.
+The TestScript resource should <b>NOT</b> be used to represent Clinical tests, Prescriptions, or any other Healthcare related concept. The TestScript resource is an infrastructure support resource used to represent standardized tests to determine a FHIR implementation's level of adherence to the FHIR specification.
 </p>
 <p>
 TestScript is a part of the conformance framework and is used to validate the behavior of FHIR systems, specifically their correct
@@ -56,6 +64,9 @@ The following resources represent the FHIR conformance framework that are used t
   <li><a title="A Search Parameter that defines a named search item that can be used to search/filter on a resource." href="searchparameter.html">SearchParameter</a> </li>
   <li><a title="A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts." href="implementationguide.html">ImplementationGuide</a> </li>
 </ul>
+<p>
+
+</p>
 
 </div>
 
