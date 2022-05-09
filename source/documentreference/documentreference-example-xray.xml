@@ -12,19 +12,12 @@
   <subject>
     <reference value="Patient/example"/>
   </subject>
-    <encounter>
+  <context>
     <reference value="Encounter/example"/>
-  </encounter>
-
-    <encounter>
-    <identifier>
-      <system value="http://someclinic.org/fhir/NamingSystem/imaging-orders"/>
-      <value value="111222"/>
-      <assigner>
-        <display value="XYZ Medical Clinic"/>
-      </assigner>
-    </identifier>
-  </encounter>
+  </context>
+  <context>
+   <reference value="DocumentReference/documentreference-example-xray-encounter"/>
+  </context>
   <event>
   <concept>
     <coding>
