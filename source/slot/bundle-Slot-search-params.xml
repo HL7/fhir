@@ -90,14 +90,34 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Slot.serviceType"/>
+          <valueString value="Slot.serviceType.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Slot-service-type"/>
-        <description value="The type of appointments that can be booked into the slot"/>
+        <description value="The type (by coding) of appointments that can be booked into the slot"/>
         <code value="service-type"/>
         <type value="token"/>
-        <expression value="Slot.serviceType"/>
-        <xpath value="f:Slot/f:serviceType"/>
+        <expression value="Slot.serviceType.concept"/>
+        <xpath value="f:Slot/f:serviceType/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Slot-service-type-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Slot.serviceType.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Slot-service-type-reference"/>
+        <description value="The type (by HealthcareService) of appointments that can be booked into the slot"/>
+        <code value="service-type-reference"/>
+        <type value="reference"/>
+        <expression value="Slot.serviceType.reference"/>
+        <xpath value="f:Slot/f:serviceType/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
