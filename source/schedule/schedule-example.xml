@@ -20,10 +20,12 @@
 		</coding>
 	</serviceCategory>
 	<serviceType>
-		<coding>
-			<code value="57"/>
-			<display value="Immunization" />
-		</coding>
+		<concept>
+			<coding>
+				<code value="57"/>
+				<display value="Immunization" />
+			</coding>
+		</concept>
 	</serviceType>
 	<specialty>
 		<coding>
