@@ -1,5 +1,17 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<blockquote class="stu-note">
+<p>
+DocumentManifest will be retired in R5 of FHIR as the functionality has been taken over by other resources such as <a href="list.html">List</a>. Those that require DocumentManifest should look to other resources, or provide Change Requests justifying the need for DocumentManifest.
+</p>
+<p>
+DocumentManifest resources was initially used in document indexing systems, such as <a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-10.html">IHE XDS</a>.
+Such as profiled in <a href="https://profiles.ihe.net/ITI/MHD/index.html">IHE Mobile access to Health Documents</a>.
+The <a href="https://profiles.ihe.net/ITI/MHD/index.html">IHE Mobile access to Health Documents</a> has moved away from DocumentManifest toward the use of the <a href="list.html">List</a> resource.
+</p>
+</blockquote>
+
+
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
@@ -9,11 +21,7 @@ into a single package with some clinical context that may be the subject of work
 The usage of "document" in the case of DocumentManifest, covers the broader scope of "document" as defined in REST and HTTP. 
 This use is not limited to the formal "Document" model used for <a href="documents.html">FHIR documents</a> or <a href="documentreference.html">DocumentReference</a> resources.
 </p>
-<p>
-Typically, DocumentManifest resources are used in document indexing systems, such as <a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-10.html">IHE XDS</a>.
-Such as profiled in <a href="https://profiles.ihe.net/ITI/MHD/index.html">IHE Mobile access to Health Documents</a>.
-When used as a Manifest of "Documents" in this way, the DocumentManifest will point exclusively to <a href="documentreference.html">DocumentReference</a> resources.
-</p>
+
 <p>
 A DocumentManifest resource could be used to bring clinical context grouping to a broader set of Resources.</p>
 </div>

@@ -285,7 +285,7 @@
         </extension>
         <strength value="example"/>
         <description value="High-level kind of a clinical document at a macro level."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/document-classcodes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/referenced-item-category"/>
       </binding>
       <mapping>
         <identity value="workflow"/>

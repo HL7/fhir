@@ -14,10 +14,12 @@
 		</coding>
 	</serviceCategory>
 	<serviceType>
-		<coding>
-			<code value="52"/>
-			<display value="General Discussion" />
-		</coding>
+		<concept>
+			<coding>
+				<code value="52"/>
+				<display value="General Discussion" />
+			</coding>
+		</concept>
 	</serviceType>
 	<specialty>
 		<coding>
