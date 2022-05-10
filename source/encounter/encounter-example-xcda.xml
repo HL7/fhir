@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/encounter.xsd">
   <id value="xcda"/>
-  <identifier>
-    <use value="official"/>
-    <system value="http://healthcare.example.org/identifiers/enocunter"/>
-    <value value="1234213.52345873"/>
-  </identifier>
-  <status value="completed"/>
+	<identifier>
+		<use value="official"/>
+		<system value="http://healthcare.example.org/identifiers/enocunter"/>
+		<value value="1234213.52345873"/>
+	</identifier>
+	<status value="completed"/>
     <class>
-        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-        <code value="AMB"/> <!-- outpatient -->
-        <display value="ambulatory"/>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+			<code value="AMB"/> <!-- outpatient -->
+			<display value="ambulatory"/>
+		</coding>
     </class>
-  <subject>
-    <reference value="Patient/xcda"/>
-  </subject>
-  <participant>
-    <actor>
-      <reference value="Practitioner/xcda1"/>
-    </actor>
-  </participant>
-  <reason>
-    <concept>
-      <coding>
-        <system value="http://ihe.net/xds/connectathon/eventCodes"/>
-        <code value="T-D8200"/>
-        <display value="Arm"/>
-      </coding>
-    </concept>
-  </reason>
+	<subject>
+		<reference value="Patient/xcda"/>
+	</subject>
+	<participant>
+		<actor>
+			<reference value="Practitioner/xcda1"/>
+		</actor>
+	</participant>
+	<reason>
+		<concept>
+			<coding>
+				<system value="http://ihe.net/xds/connectathon/eventCodes"/>
+				<code value="T-D8200"/>
+				<display value="Arm"/>
+			</coding>
+		</concept>
+	</reason>
 </Encounter>
