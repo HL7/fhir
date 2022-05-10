@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="FormularyItem-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Phenoxymethylpenicillin 125mg/5mL oral solution (product)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="formularyitemexample01"/>
+    </extension>
+    <item>
+      <reference value="FormularyItem/formularyitemexample01"/>
+      <display value="Medication Formulary Item"/>
+    </item>
+  </entry>
+</List>
