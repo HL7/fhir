@@ -256,7 +256,7 @@ in particular implementations or contexts of use.
      Version identifiers are generally either a serially incrementing id scoped by the logical id, or a uuid, though neither of these approaches 
      is required. There is no fixed order for version ids - clients cannot assume that a versionId that comes after another one either numerically or alphabetically represents a later version. 
      The same versionId can never be used for more than one version of the same resource.
-    <br/>On the RESTful API: On receiving a <a href="http.html#write">write operation</a>, the server SHALL update this item to 
+	    <br/>On the RESTful API: On receiving an <a href="http.html#update">update</a>, <a href="http.html#patch">patch</a>, or other operation that impacts meta, the server SHALL update this item to 
 		the current value, or remove it. Note that servers SHOULD support versions, but some are unable to</td>
   </tr>
 	 
