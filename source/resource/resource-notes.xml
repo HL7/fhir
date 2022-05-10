@@ -563,7 +563,8 @@ pattern:
 </ul>
 <p>
 However, in some cases, an update may invalidate existing tags.  Servers may update 
-or remove previously existing recognized tags if this is known to be appropriate.
+or remove previously existing recognized tags if this is known to be appropriate. A client
+can retrieve the current tags using the <a href="resource-operation-meta.html">$meta</a> operation.
 </p>
 
  
