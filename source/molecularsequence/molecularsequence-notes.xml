@@ -62,20 +62,20 @@
     There are lots of definition concerning with the directionality of DNA or RNA. Here we are using <code>MolecularSequence.relative.reference.orientation</code> and <code>MolecularSequence.relative.reference.strand</code>. <b>Orientation</b> represents the sense of the sequence, which has different meanings depending on the <code>MolecularSequence.type</code>. <b>Strand</b> represents the sequence writing order. Watson strand refers to 5' to 3' top strand (5' -&gt; 3'), whereas Crick strand refers to 5' to 3' bottom strand (3' &lt;- 5').
   </p>
   <p>
-    Only two possible values can be made by strand, +1 for plus strand while -1 for minus strand. Since the directionality of the sequence string might be represented in different word in different omics scenario, below are simple example of how to map other expressions into its correlated value:
+    Only two possible values can be made by strand, watson and crick. Since the directionality of the sequence string might be represented in different word in different omics scenario, below are simple example of how to map other expressions into its correlated value:
   </p>
   <table style="width:100%">
     <tr>
-      <th>Map to +1</th>
-      <th>Map to -1</th>
+      <th>Watson</th>
+      <th>Crick</th>
     </tr>
     <tr>
       <td>5′-to-3′ direction</td>
       <td>3′-to-5′ direction</td>
     </tr>
     <tr>
-      <td>Watson</td>
-      <td>Crick</td>
+      <td>+1</td>
+      <td>-1</td>
     </tr>
     <tr>
       <td>Sense</td>
