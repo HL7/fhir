@@ -1,6 +1,8 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml"><a name="policy"></a>
-  <h2>Policies</h2>
-  <p>
+  
+<a name="policies"></a>
+<h2>Policies</h2>
+<p>
 The Consent resource has a reference to a single <code>policyRule</code>. Many organizations will work in a context where multiple different consent regulations and policies apply. 
 In these cases, the single policy rule reference refers to a policy document that resolves and reconciles the various policies and presents a single policy for patient
 consent. If it is still necessary to track which of the underlying policies an exception is make in regard to, the <code>policy</code> may be used.
@@ -39,6 +41,75 @@ consent has been rejected, and consent approved.
   <p>For each of these patterns (positive or negative pattern), there can be exceptions. 
 	  These exceptions are explicitly recorded in the <b>provision</b> element. 
     </p>
+
+<a name="provisions"></a>
+
+<h2>Provisions</h2>
+<p>The provision structure provides a mechanism for modeling consent rules in a machine-readable and computable way. 
+This is the FHIR Consent's native mechanism for expressing and encoding policy rules within the resource --an alternative to using an external policy language.</p>
+
+<p>Provisions are organized in a tree structure where the <em>root</em> states the default decision and each subsequent level specifies exceptions to the rules stated in the parent provision. 
+The following figure depicts this structure:</p>
+<img src="consent-provisions.png" alt="consent provisions" /> 
+
+<p>The <em>root</em> provision states the default decision by setting the value of the <code>type</code> attribute to <code>permit</code> or <code>deny</code>. 
+It also defines other broad conditions about the applicability of the consent, such as the <code>purpose</code> of use to which the consent applies.</p>
+
+<p>Note that the <code>type</code> attribute is only permitted in the root provision; 
+the type of subsequent levels of provisions is implied by the type of the parent provision --since they express exceptions to the parent provision. 
+For example, if the <code>type</code> in the root provision is <code>permit</code>, 
+the children of this provision express exceptions to this rule, therefore,
+the decision when matching these children will be a <code>deny</code>.
+</p>
+
+<p>The provision structure provides a rich mechanism to construct complex rules using logical <em>AND</em> and <em>OR</em>:</p>
+
+<ul>
+  <li> 
+    Provisions at the same level of depth are interpreted as disjunctive (i.e., <em>OR</em>-ed). 
+    This means that matching <em>any</em> of the sibling provisions at one level constitutes an exception to the rule stated in the parent provision.
+  </li>
+
+  <li> 
+    Within a provision, the conditions implied by different attributes are interpreted conjunctively (i.e., <em>AND</em>-ed). 
+    This means that in order to match the provision, all the attributes must match.
+  </li>
+
+  <li> 
+    Within an attribute, if the attribute is multi-valued, the values are interpreted as disjunctive (i.e., <em>OR</em>-ed). 
+    This means that matching <em>any</em> of the values listed for the attribute is sufficient for the attribute to match. 
+    For single-valued attributes, matching is simply based on matching the value of the attribute.
+  </li>
+</ul>
+
+<p>The following figure visualizes this in the course of an example.</p>
+<img src="consent-provisions-example.png" alt="consent provisions example" /> 
+
+<p>The root provision articulates that during the time period from 01/01/2020 to 31/12/2022, 
+all access by <em>Org A</em> is permitted. 
+In order to match this provision (and therefore for this <em>permit</em> decision to be 
+applicable) the requestor identifier must match <em>Org A</em> AND the current date must be within the range 01/01/2020-31/12/2022.</p>
+
+<p>The subsequent child provisions state exceptions to this base rule. 
+Matching <em>any</em> of these provisions results in a <em>deny</em> since these 
+are exceptions to a <em>permit</em> parent provision.</p>
+
+<ul>
+  <li> 
+    access is denied if the purpose of use is <em>marketing</em> (<code>HMK</code>).
+  </li>
+  <li> 
+    access is denied if the requested data is <em>restricted</em> (<code>R</code>).
+  </li>
+  <li>
+    access is denied if the purpose of use is <em>payment</em> (<code>PAY</code>) unless: 
+  </li>
+    <ul>
+      <li> 
+        content type is <code>Claims</code>, <em>OR</em> <code>Claim Responses</code>, <em>OR</em> <code>Accounts</code>.
+      </li>
+    </ul>
+</ul>
 
 <a name="tracking-changes"></a>
   <h2>Tracking Changes in Consent</h2>
