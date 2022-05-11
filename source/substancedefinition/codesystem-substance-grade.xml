@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="substance-grade"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/substance-grade"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1609"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="SubstanceGrade"/>
+  <title value="SubstanceGrade"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value=""/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/substance-grade"/>
+  <content value="complete"/>
+  <concept>
+    <code value="USP-NF"/>
+    <display value="USP/NF United States Pharmacopeia (USP) and the National Formulary (NF)"/>
+  </concept>
+  <concept>
+    <code value="Ph.Eur"/>
+    <display value="European Pharmacopoeia"/>
+  </concept>
+  <concept>
+    <code value="JP"/>
+    <display value="Japanese Pharmacopoeia"/>
+  </concept>
+  <concept>
+    <code value="BP"/>
+    <display value="British Pharmacopoeia"/>
+  </concept>
+  <concept>
+    <code value="CompanyStandard"/>
+    <display value="Company Standard"/>
+  </concept>
+ </CodeSystem>

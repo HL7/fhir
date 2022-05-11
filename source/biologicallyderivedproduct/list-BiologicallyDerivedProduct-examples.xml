@@ -16,4 +16,28 @@
       <display value="General"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of allogeneic HCT transplant using biologicallyderivedproduct"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="biologicallyderivedproduct-example-allogeneicHCT"/>
+    </extension>
+    <item>
+      <reference value="BiologicallyDerivedProduct/allogeneicHCT"/>
+      <display value="Allogeneic HCT"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of autologous HCT transplant using biologicallyderivedproduct"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="biologicallyderivedproduct-example-autologousHCT"/>
+    </extension>
+    <item>
+      <reference value="BiologicallyDerivedProduct/autologousHCT"/>
+      <display value="Autologous HCT"/>
+    </item>
+  </entry>
 </List>

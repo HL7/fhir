@@ -52,17 +52,26 @@
   </encounter>
   <onsetDateTime value="2011-08-05"/>
   <recordedDate value="2011-10-05"/>
-  <asserter>
-    <reference value="Patient/f001"/>
-    <display value="P. van de Heuvel"/>
-  </asserter>
+  <participant> 
+    <function> 
+      <coding> 
+        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/> 
+        <code value="informant"/> 
+        <display value="Informant"/> 
+      </coding> 
+    </function> 
+    <actor> 
+      <reference value="Patient/f001"/> 
+      <display value="P. van de Heuvel"/> 
+    </actor> 
+  </participant> 
   <evidence>
-    <code>
+    <concept>
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="426396005"/>
         <display value="Cardiac chest pain"/>
       </coding>
-    </code>
+    </concept>
   </evidence>
 </Condition>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
+  <id value="HCTpatient-condition"/>
+  <clinicalStatus>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/condition-clinical"/>
+      <code value="active"/>
+    </coding>
+  </clinicalStatus>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="109989006"/>
+      <display value="Multiple myeloma"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/example-a"/>
+    <display value="Patient A"/>
+  </subject>
+  <recordedDate value="2020-05-01"/>
+</Condition>

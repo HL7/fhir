@@ -65,20 +65,28 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Condition-asserter"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Condition.asserter"/>
+          <valueString value="Condition.participant.actor"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-asserter"/>
-        <description value="Person or device that asserts this condition"/>
-        <code value="asserter"/>
+        <description value="Who or what participated in the activities related to the condition"/>
+        <code value="participant-actor"/>
         <type value="reference"/>
-        <expression value="Condition.asserter"/>
-        <xpath value="f:Condition/f:asserter"/>
-        <xpathUsage value="normal"/>
+        <expression value="Condition.participant.actor"/>
+        <xpath value="f:Condition/f:participant/f:actor"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.participant.function"/>
+        </extension>
+        <description value="Type of involvement of the actor in the activities related to the condition"/>
+        <code value="participant-function"/>
+        <type value="token"/>
+        <expression value="Condition.participant.function"/>
+        <xpath value="f:Condition/f:participant/f:function"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -190,14 +198,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Condition.evidence.code"/>
+          <valueString value="Condition.evidence.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Condition-evidence"/>
         <description value="Manifestation/symptom"/>
         <code value="evidence"/>
         <type value="token"/>
-        <expression value="Condition.evidence.code"/>
-        <xpath value="f:Condition/f:evidence/f:code"/>
+        <expression value="Condition.evidence.concept"/>
+        <xpath value="f:Condition/f:evidence/f:concept"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -210,14 +218,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Condition.evidence.detail"/>
+          <valueString value="Condition.evidence.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Condition-evidence-detail"/>
         <description value="Supporting information found elsewhere"/>
         <code value="evidence-detail"/>
         <type value="reference"/>
-        <expression value="Condition.evidence.detail"/>
-        <xpath value="f:Condition/f:evidence/f:detail"/>
+        <expression value="Condition.evidence.reference"/>
+        <xpath value="f:Condition/f:evidence/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -319,6 +327,7 @@
         <expression value="Condition.subject.where(resolve() is Patient)"/>
         <xpath value="f:Condition/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -31,7 +31,7 @@
   <dosage>
     <sequence value="1"/>
     <text value="1 tablet per day" />
-    <asNeededBoolean value="false" />
+    <asNeeded value="false" />
     <route>
      <coding>
        <system value="http://snomed.info/sct"/>

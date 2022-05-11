@@ -89,7 +89,7 @@
     <element id="TestReport.identifier">
       <path value="TestReport.identifier"/>
       <short value="External identifier"/>
-      <definition value="Identifier for the TestScript assigned for external purposes outside the context of FHIR."/>
+      <definition value="Identifier for the TestReport assigned for external purposes outside the context of FHIR."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -103,8 +103,8 @@
     </element>
     <element id="TestReport.name">
       <path value="TestReport.name"/>
-      <short value="Informal name of the executed TestScript"/>
-      <definition value="A free text natural language name identifying the executed TestScript."/>
+      <short value="Informal name of the executed TestReport"/>
+      <definition value="A free text natural language name identifying the executed TestReport."/>
       <comment value="Not expected to be globally unique."/>
       <min value="0"/>
       <max value="1"/>
@@ -148,12 +148,12 @@
     </element>
     <element id="TestReport.testScript">
       <path value="TestReport.testScript"/>
-      <short value="Reference to the  version-specific TestScript that was executed to produce this TestReport"/>
+      <short value="Canonical URL to the  version-specific TestScript that was executed to produce this TestReport"/>
       <definition value="Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
       </type>
       <isSummary value="true"/>

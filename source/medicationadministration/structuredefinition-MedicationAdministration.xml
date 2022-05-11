@@ -444,6 +444,33 @@
         <map value=".participation[typeCode=AUT].time"/>
       </mapping>
     </element>
+    <element id="MedicationAdministration.isSubPotent">
+      <path value="MedicationAdministration.isSubPotent"/>
+      <short value="Full dose was not administered"/>
+      <definition value="An indication that the full dose was not administered."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="MedicationAdministration.subPotentReason">
+      <path value="MedicationAdministration.subPotentReason"/>
+      <short value="Reason full dose was not administered"/>
+      <definition value="The reason or reasons why the full dose was not administered."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationAdministrationSubPotentReason"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/administration-subpotent-reason"/>
+      </binding>
+    </element>
     <element id="MedicationAdministration.performer">
       <path value="MedicationAdministration.performer"/>
       <short value="Who performed the medication administration and what they did"/>
@@ -784,7 +811,7 @@
       <path value="MedicationAdministration.eventHistory"/>
       <short value="A list of events of interest in the lifecycle"/>
       <definition value="A summary of the events of interest that have occurred, such as when the administration was verified."/>
-      <comment value="This might not include provenances for all versions of the request &#x2013; only those deemed &#x201C;relevant&#x201D; or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a &#x201C;relevant&#x201D; change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject."/>
+      <comment value="This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject."/>
       <min value="0"/>
       <max value="*"/>
       <type>

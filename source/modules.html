@@ -20,7 +20,7 @@
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
-FHIR is a platform specification that defines a set of capabilities use across the healthcare
+FHIR is a platform specification that defines a set of capabilities for use across the healthcare
 process, in all jurisdictions, and in lots of different contexts. While the basics of the
 FHIR specification are relatively straight-forward (see the Overviews: <a href="overview.html">General</a>,
 <a href="overview-dev.html">Developers</a>, <a href="overview-clinical.html">Clinical</a>, and <a href="overview-arch.html">Architects</a>), it can still be difficult to know
@@ -35,8 +35,9 @@ start? Generally, an implementer needs to resolve:
  <li>How will information be exchanged? (see <a href="foundation-module.html#uses">Foundation Module</a>)</li>
  <li>How are terminologies being used? (see <a href="terminology-module.html#uses">Terminology Module</a>)</li>
  <li>How will the information be secured? (see <a href="secpriv-module.html#uses">Security and Privacy Module</a>)</li>
- <li>When is information exchanged? (See <a href="workflow-module.html">Workflow Module</a>)</li>
+ <li>When is information exchanged? (see <a href="workflow-module.html">Workflow Module</a>)</li>
  <li>What information is going to be exchanged?</li>
+ <li>How the information conforms to the FHIR specification and implementation guides? (see <a href="conformance-module.html#uses">Conformance Module</a>)</li>
 </ul>
 <p>
 The remaining sections provide guidance on specific areas (Foundation, Implementer Support, Security and Privacy, Conformance,
@@ -61,7 +62,7 @@ specification, and contains:
  <li><b>Scope and Index</b>: A description of the content covered by the module, and an index of the important content</li>
  <li><b>Use cases</b>: Guidance for common uses of the module, and how to approach them. This is a key resource for
    implementers familiarizing themselves with the FHIR specification</li>
- <li><b>Security / Privacy</b>: Information</li>
+ <li><b>Security / Privacy</b>: The Security and Privacy Module describes how to protect a FHIR server, how to document what permissions a user has granted, and how to keep records about what events have been performed.</li>
  <li><b>Roadmap</b>: Where the content covered by the module is in terms of overall progress (see also, for general information: <a href="versions.html">FHIR Timelines</a>)</li>
 </ul>
 

@@ -1,0 +1,434 @@
+<!DOCTYPE HTML>
+
+[%settitle Asynchronous bulk data pattern%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  [%file newheader%]
+</head>
+
+<body>
+  [%file newnavbar%]
+
+
+  <h2 id="asynchronous-bulk-data-request-pattern">Asynchronous Bulk Data Request Pattern</h2>
+  <table class="colsd">
+    <tr>
+      <td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td>
+      <td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 4</td>
+      <td id="ballot"><a href="versions.html#std-process">Standards Status</a>:
+        <!--!ns!--><a href="versions.html#std-process">Draft</a>
+      </td>
+    </tr>
+  </table>
+
+  <h3 id="use-case">Use Case</h3>
+  <p>All of the interactions defined in the <a href="http.html">RESTful API</a> are described as synchronous operations
+    - that is, the client makes a query and waits for the server to respond with the outcome in the HTTP response. This
+    pattern is not always suitable when substantial amounts of data must be returned.</p>
+  <p>A good example of this is the <a href="https://hl7.org/fhir/uv/bulkdata/export.html">$export operation</a>, where
+    simple searches may result in large amounts of data. </p>
+  <p>The asynchronous request pattern, based on <a href="https://tools.ietf.org/html/rfc7240#section-4.1">rfc 7240</a>,
+    caters to this use case and is applicable for for use in <a href="operations.html">Operations</a> and
+    <a href="http.html">Defined Interactions</a> interactions. Servers may choose which interactions the pattern should be
+    supported
+    on (if at all).</p>
+
+  <h4 id="compare-with">Related Pattern: Asynchronous Interaction Request</h4>
+  <p>For use cases that return small amounts of data but may take a lot of time to process, see <a href="async-bundle.html">Asynchronous Interaction Request</a>.</p>
+
+  <h3 id="kick-off-request">Kick-off Request</h3>
+  <p>The request will support the HTTP methods, URLs, headers and other parameters that normally apply, but servers
+    SHALL also support the <code>Prefer</code> header described below, and SHOULD support the <code>Accept</code> header
+    and <code>_outputFormat</code> parameter described below.</p>
+
+  <h5 id="headers">Headers</h5>
+  <ul>
+    <li>
+      <p><code>Accept</code> (string)</p>
+      <p>Specifies the format of the optional <a href="operationoutcome.html">OperationOutcome Resource</a> response to
+        the kick-off request. A client SHOULD provide this header. A server may support any subset of the <a
+          href="formats.html#wire">Serialization Format Representations</a>. If omitted, the server MAY return an error
+        or MAY process the request and return a format selected by the server.</p>
+    </li>
+    <li>
+      <p><code>Prefer</code> (string, required)</p>
+      <p>Specifies whether the response is immediate or asynchronous. Setting this to <code>respond-async</code>
+        triggers this async pattern.</p>
+    </li>
+  </ul>
+
+  <h5 id="kick-off-parameters">Parameters</h5>
+  <ul>
+    <li>
+      <p><code>_outputFormat</code> (string, optional, defaults to <code>application/fhir+ndjson</code>)</p>
+      <p>The format for the generated bulk data files. Currently, <a href="http://ndjson.org/">ndjson</a> must be
+        supported, though servers may choose to also support other output formats. Servers SHALL support the full
+        content type of <code>application/fhir+ndjson</code> as well as abbreviated representations including
+        <code>application/ndjson</code> and <code>ndjson</code>.
+      </p>
+      <p>For requests types where the server supports either the Asynchronous Bulk Data Request pattern or the <a
+          href="async-bundle.html">Asynchronous Interaction Request</a> pattern,
+        requests that include the <code>_outputFormat</code> parameter SHALL trigger the Asynchronous Bulk Data Request pattern.</p>
+    </li>
+  </ul>
+
+  <h5 id="kick-off-response---success">Response - Success</h5>
+  <ul>
+    <li>HTTP Status Code of <code>202 Accepted</code> </li>
+    <li><code>Content-Location</code> header with the absolute URL of an endpoint for subsequent status requests
+      (polling location)</li>
+    <li>Optionally, a <a href="operationoutcome.html">OperationOutcome Resource</a> in the body</li>
+  </ul>
+  <h5 id="kick-off-response---error">Response - Error (e.g. unsupported search parameter)</h5>
+  <ul>
+    <li>HTTP Status Code of <code>4XX</code> or <code>5XX</code></li>
+    <li>The body SHALL be a <a href="operationoutcome.html">OperationOutcome Resource</a></li>
+  </ul>
+  <hr />
+
+  <h3 id="delete-request">Delete Request</h3>
+
+  <p>After a Bulk Data request has been started, a client MAY send a http DELETE request to the URL provided in the
+  <code>Content-Location</code> header to cancel the request. If the request has been completed, a server MAY use the
+  request as a signal that a client is done retrieving files and that it is safe for the sever to remove those from
+  storage. Following the delete request, when subsequent requests are made to the polling location, the server SHALL
+  return a <code>404 Not Found</code> error and an associated <a href="operationoutcome.html">OperationOutcome
+    Resource</a>.</p>
+
+  <h5 id="delete-response---success">Response - Success</h5>
+  <ul>
+    <li>HTTP Status Code of <code>202 Accepted</code></li>
+    <li>Optionally a FHIR OperationOutcome in the body</li>
+  </ul>
+  <h5 id="delete-response---error">Response - Error</h5>
+  <ul>
+    <li>HTTP status code of <code>4XX</code> or <code>5XX</code></li>
+    <li>Optionally a <a href="operationoutcome.html">OperationOutcome Resource</a> in the body</li>
+  </ul>
+
+  <h3 id="status-request">Status Request</h3>
+
+  <p>After a Bulk Data request has been started, the client MAY poll the status URL provided in the
+    <code>Content-Location</code> header by issuing HTTP GET requests to the location.
+  </p>
+
+  <p>A client SHOULD follow an <a href="https://en.wikipedia.org/wiki/Exponential_backoff">exponential backoff</a>
+    approach when polling for status. A server SHOULD supply a <a
+      href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After"><code>Retry-After</code></a> header
+    with a with a delay time in seconds (e.g., <code>120</code> to represent two minutes) or a http-date (e.g.,
+    <code>Fri, 31 Dec 1999 23:59:59 GMT</code>). When provided, a client SHOULD use this information to inform the
+    timing of future polling requests. The server SHOULD keep an accounting of status queries received from a given
+    client, and if a client is polling too frequently, the server SHOULD respond with a
+    <code>429 Too Many Requests</code> status code in addition to a <code>Retry-After</code> header, and optionally a <a
+      href="operationoutcome.html">OperationOutcome Resource</a> with further explanation. If excessively frequent
+    status queries persist, the server MAY return a <code>429 Too Many Requests</code> status code and terminate the
+    session. Other standard HTTP <code>4XX</code> as well as <code>5XX</code> status codes may be used to identify
+    errors as mentioned.
+  </p>
+
+  <p>When requesting status, the client SHOULD use an <code>Accept</code> header indicating a content type of
+    <code>application/json</code>. In the case that errors prevent the asynchronous operation from completing, the server SHOULD respond
+    with a <a href="operationoutcome.html">OperationOutcome Resource</a> in JSON format.
+  </p>
+
+  <h5 id="status-response---in-progress">Response - In-Progress</h5>
+  <ul>
+    <li>HTTP Status Code of <code>202 Accepted</code></li>
+    <li>Optionally an <code>X-Progress</code> header with a text description of the status of the request that is less
+      than 100 characters. The format of this description is at the server's discretion and MAY be a percentage complete
+      value, or MAY be a more general status such as "in progress". The client MAY parse the description, display it to
+      the user, or log it.</li>
+  </ul>
+  <h5 id="status-response---error">Response - Error</h5>
+  <ul>
+    <li>HTTP status code of <code>4XX</code> or <code>5XX</code></li>
+    <li><code>Content-Type</code> header of <code>application/fhir+json</code> when body is a <a
+        href="operationoutcome.html">OperationOutcome Resource</a></li>
+    <li>The body of the response SHOULD be a <a href="operationoutcome.html">OperationOutcome Resource</a> in
+      JSON format. If this is not possible (for example, the infrastructure layer returning the error is not FHIR
+      aware), the server MAY return an error message in another format and include a corresponding value for the
+      <code>Content-Type</code> header.
+    </li>
+  </ul>
+
+  <p>In the case of a polling failure that does not indicate failure of the original request, a server SHOULD use a <a
+      href="codesystem-issue-type.html#issue-type-transient">transient code</a> from the <a
+      href="codesystem-issue-type.html">IssueType valueset</a> when populating the <a
+      href="operationoutcome.html">OperationOutcome Resource</a> <code>issue.code</code> element to indicate to the
+    client that it should retry the request at a later time.</p>
+
+  <p><em>Note</em>: Even if some of the requested resources cannot successfully be returned, the overall request MAY
+    still succeed. In this case, the <code>Response.error</code> array of the completion response body SHALL be
+    populated with one or more files in ndjson format containing <a href="operationoutcome.html">OperationOutcome
+      Resources</a> to indicate what went wrong (see below). In the case of a partial success, the server SHALL use a
+    <code>200</code> status code instead of <code>4XX</code> or <code>5XX</code>. The choice of when to determine that
+    an job has failed in its entirety (error status) vs. returning a partial success (complete status) is left up to the
+    server implementer.
+  </p>
+
+  <h5 id="status-response---complete">Response - Complete</h5>
+  <ul>
+    <li>HTTP status of <code>200 OK</code></li>
+    <li><code>Content-Type</code> header of <code>application/json</code></li>
+    <li>The server SHOULD return an <code>Expires</code> header indicating when the files listed will no longer be
+      available for access.</li>
+    <li>A body containing a JSON object providing metadata, and links to the generated Bulk Data files. The files SHALL
+      be accessible to the client at the URLs advertised. These URLs MAY be served by file servers other than a
+      FHIR-specific server.</li>
+  </ul>
+
+  <p>Fields:</p>
+  <table class="table">
+    <thead>
+      <th>Field</th>
+      <th>Optionality</th>
+      <th>Type</th>
+      <th>Description</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>transactionTime</code></td>
+        <td><span class="label label-success">required</span></td>
+        <td>FHIR instant</td>
+        <td>Indicates the server's time when the query is run. The response SHOULD NOT include any resources modified
+          after this instant, and SHALL include any matching resources modified up to and including this instant.
+          <br />
+          <br />
+          Note: To properly meet these constraints, a FHIR server might need to wait for any pending transactions to
+          resolve in its database before starting the asynchronous operation process.
+        </td>
+      </tr>
+      <tr>
+        <td><code>request</code></td>
+        <td><span class="label label-success">required</span></td>
+        <td>String</td>
+        <td>The full URL of the original kick-off request. In the case of a HTTP POST request, this URL will not include
+          the request parameters. Note: this field may be removed in a future version.</td>
+      </tr>
+      <tr>
+        <td><code>requiresAccessToken</code></td>
+        <td><span class="label label-success">required</span></td>
+        <td>Boolean</td>
+        <td>Indicates whether downloading the generated files requires the same authorization mechanism as kick-off and
+          status requests.
+          <br />
+          <br />
+          Value SHALL be <code>true</code> if both the file server and the FHIR API server control access using OAuth
+          2.0 bearer tokens. Value MAY be <code>false</code> for file servers that use access-control schemes other than
+          OAuth 2.0 or provide output file URLs that are "capability URLs" (e.g., short-lived high-entropy URLs that can
+          be dereferenced without additional authentication).
+        </td>
+      </tr>
+      <tr>
+        <td><code>output</code></td>
+        <td><span class="label label-success">required</span></td>
+        <td>JSON array</td>
+        <td>An array of file items with one entry for each generated file. If no resources are returned from the
+          kick-off request, the server SHOULD return an empty array.
+          <br />
+          <br />
+          Each file item SHALL contain the following fields:
+          <br />
+          <br />
+          - <code>type</code> - the FHIR resource type that is contained in the file.
+          <br />
+          <br />
+          Each file SHALL contain resources of only one type, but a server MAY create more than one file for each
+          resource type returned. The number of resources contained in a file MAY vary between servers. If no data are
+          found for a resource, the server SHOULD NOT return an output item for that resource in the response. These
+          rules apply only to top-level resources within the response; as always in FHIR, any resource MAY have a
+          "contained" array that includes referenced resources of other types.
+          <br />
+          <br />
+          - <code>url</code> - the absolute path to the file. The format of the file SHOULD reflect that requested in
+          the <code>_outputFormat</code> parameter of the initial kick-off request.
+          <br />
+          <br />
+          Each file item MAY optionally contain the following field:
+          <br />
+          <br />
+          - <code>count</code> - the number of resources in the file, represented as a JSON number.
+        </td>
+      </tr>
+      <tr>
+        <td><code>deleted</code></td>
+        <td><span class="label label-success">optional</span></td>
+        <td>JSON array</td>
+        <td>An array of deleted file items following the same structure as the <code>output</code> array.
+          <br />
+          <br />
+          The ability to convey deleted resources is important in cases when a server may have previously returned data
+          and wishes to indicate that these data should be removed from downstream systems. When a
+          timestamp parameter such as <code>_since</code> is supported by the request type and supplied in the kick-off
+          request, this array SHOULD be populated with output files containing
+          FHIR Transaction Bundles that indicate which FHIR resources match the kick-off request criteria, but have been
+          deleted subsequent to the timestamp. If no resources have been deleted, or the
+          timestamp parameter was not supplied, or the server has other reasons to avoid exposing these data,
+          the server MAY omit this key or MAY return an empty array. Resources that appear in the 'deleted' section of
+          a manifest SHALL NOT appear in the 'output' section of the manifest.
+          <br />
+          <br />
+          Each line in the output file SHALL contain a FHIR Bundle with a type of <code>transaction</code> which SHALL
+          contain one or more entry items that reflect a deleted resource. In each entry, the <code>request.url</code>
+          and <code>request.method</code> elements SHALL be populated. The <code>request.method</code> element SHALL be
+          set to <code>DELETE</code>.
+          <br />
+          <br />
+          Example deleted resource bundle (represents one line in output file):
+          <pre><code>{
+&nbsp;"resourceType": "Bundle",
+&nbsp;"id": "bundle-transaction",
+&nbsp;"meta": {"lastUpdated: "2020-04-27T02:56:00Z},
+&nbsp;"type": "transaction",
+&nbsp;"entry":[{
+&nbsp;&nbsp;"request": {"method": "DELETE", "url": "Patient/123"}
+&nbsp;&nbsp;...
+&nbsp;}]
+}</code></pre>
+        </td>
+      </tr>
+      <tr>
+        <td><code>error</code></td>
+        <td><span class="label label-success">required</span></td>
+        <td>Array</td>
+        <td>Array of message file items following the same structure as the <code>output</code> array.
+          <br />
+          <br />
+          Error, warning, and information messages related to the asynchronous operation SHOULD be included here (not in output). If
+          there are no relevant messages, the server SHOULD return an empty array. Only the FHIR
+          <code>OperationOutcome</code> resource type is currently supported, so the server SHALL generate files in the
+          same format as Bulk Data output files that contain FHIR <code>OperationOutcome</code> resources.<br /><br />
+          If the request contained invalid or unsupported parameters along with a <code>Prefer: handling=lenient</code>
+          header and the server processed the request, the server SHOULD include a FHIR <code>OperationOutcome</code>
+          resource for each of these parameters.
+          <br /><br />Note: this field may be renamed in a future version of this specification to reflect the inclusion of FHIR
+          <code>OperationOutcome</code> resources with severity levels other than error.
+        </td>
+      </tr>
+      <tr>
+        <td><code>extension</code></td>
+        <td><span class="label label-info">optional</span></td>
+        <td>JSON object</td>
+        <td>Server implementations may use the extension field to provide custom behavior and information. For example,
+          a server may choose to provide a custom extension that contains a decryption key for encrypted ndjson files.
+          The value of an extension element SHALL be a pre-coordinated JSON object.
+          <br />
+          <br />
+          Note: In addition to extensions being supported on the root object level, extensions may also be included
+          within the fields above (e.g., in the 'output' object).
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Example response body:</p>
+
+  <pre><code class="json language-json">{
+  "transactionTime": "2021-01-01T00:00:00Z",
+  "request" : "https://example.com/fhir/Patient/$export?_type=Patient,Observation",
+  "requiresAccessToken" : true,
+  "output" : [{
+    "type" : "Patient",
+    "url" : "https://example.com/output/patient_file_1.ndjson"
+  },{
+    "type" : "Patient",
+    "url" : "https://example.com/output/patient_file_2.ndjson"
+  },{
+    "type" : "Observation",
+    "url" : "https://example.com/output/observation_file_1.ndjson"
+  }],
+  "deleted": [{
+    "type" : "Bundle",
+    "url" : "https://example.com/output/del_file_1.ndjson"      
+  }],
+  "error" : [{
+    "type" : "OperationOutcome",
+    "url" : "https://example.com/output/err_file_1.ndjson"
+  }],
+  "extension":{"https://example.com/extra-property": true}
+}</code></pre>
+
+  <h3 id="output-file-request">Output File Request</h3>
+
+  <p>Using the URLs supplied by the FHIR server in the Complete Status response body, a client MAY download the
+    generated Bulk Data files (one or more per resource type) within the time period specified in the
+    <code>Expires</code> header (if present). If the <code>requiresAccessToken</code> field in the Complete Status body
+    is set to <code>true</code>, the request SHALL include a valid access token.
+  </p>
+
+  <p>As long as servers are following relevant security guidance, they MAY choose to generate output manifests where
+    <code>requiresAccessToken</code> is true or false; this applies even for servers available on the public internet.
+    When <code>requiresAccessToken</code> is set to <code>false</code> and no additional authorization-related
+    extensions are present on the completion manifest's output entry, then the output URLs SHALL be dereferenceable
+    directly, and SHALL be short lived following the expiration timing requirement that have been documented for bearer
+    tokens in the <a href="https://hl7.org/fhir/uv/bulkdata/authorization/index.html">SMART Backend Services
+      Authorization Guide</a>. In this case, a client MAY re-fetch the output manifest if output links have expired and
+    MAY use the Expires header on the output response, when present, as a hint to know when capability URLs will expire.
+  </p>
+
+  <p>The output data SHALL include only the most recent version of any FHIR resources unless the client explicitly
+    requests different behavior in a fashion supported by the server (e.g., via a new query parameter yet to be
+    defined). Inclusion of the <code>Resource.meta</code> information in the resources is at the discretion of the
+    server (as it is for all FHIR interactions).</p>
+
+  <p>References in the resources returned MAY be relative URLs with the format
+    <code>resourceType</code>/<code>id</code>, or MAY be absolute
+    URLs with the same structure rooted in the base URL for the server from which the asynchronous operation was performed.
+  </p>
+
+  <p>Example NDJSON output file:</p>
+  <pre><code class="json language-json">{"resourceType":"Patient","id":"5c41cecf-cf81-434f-9da7-e24e5a99dbc2","name":[{"given":["Brenda"],"family":["Jackson"]}],"gender":"female","birthDate":"1956-10-14T00:00:00.000Z"}
+{"resourceType":"Patient","id":"3fabcb98-0995-447d-a03f-314d202b32f4","name":[{"given":["Bram"],"family":["Sandeep"]}],"gender":"male","birthDate":"1994-11-01T00:00:00.000Z"}
+{"resourceType":"Patient","id":"945e5c7f-504b-43bd-9562-a2ef82c244b2","name":[{"given":["Sandy"],"family":["Hamlin"]}],"gender":"female","birthDate":"1988-01-24T00:00:00.000Z"}
+</code></pre>
+
+  <h5 id="output-file-headers">Headers</h5>
+  <ul>
+    <li><code>Accept</code> (optional, defaults to <code>application/fhir+ndjson</code>)</li>
+  </ul>
+
+  <p>Specifies the format of the file being requested.</p>
+
+  <h5 id="output-file-response---success">Response - Success</h5>
+
+  <ul>
+    <li>HTTP status of <code>200 OK</code></li>
+    <li><code>Content-Type</code> header that matches the file format being delivered. For files in ndjson format, SHALL
+      be <code>application/fhir+ndjson</code></li>
+    <li>Body of FHIR resources in newline delimited json - <a href="http://ndjson.org/">ndjson</a> or other requested
+      format</li>
+  </ul>
+
+  <h5 id="output-file-response---error">Response - Error</h5>
+
+  <ul>
+    <li>HTTP Status Code of <code>4XX</code> or <code>5XX</code></li>
+  </ul>
+
+  <h5 id="attachments">Attachments</h5>
+
+  <p>If resources in an output file contain elements of the type <code>Attachment</code>, the server SHOULD populate the
+    <code>Attachment.contentType</code> code as well as either the <code>data</code> element or the <code>url</code>
+    element. When populated, the <code>url</code> element SHALL be an absolute url that can be de-referenced to the
+    attachment’s content.
+  </p>
+
+  <p>When the <code>url</code> element is populated with an absolute URL and the <code>requiresAccessToken</code> field
+    in the Complete Status body is set to <code>true</code>, the url location must be accessible by a client with a
+    valid access token, and SHALL NOT require the use of additional authentication credentials. When the
+    <code>url</code> element is populated and the <code>requiresAccessToken</code> field in the Complete Status body is
+    set to <code>false</code> and no additional authorization-related extensions are present on a the Complete Status
+    body's output entry, the url location SHALL be dereferenceable directly, and SHALL be short lived following the 
+    expiration timing requirement that have been documented for bearer
+    tokens in the <a href="https://hl7.org/fhir/uv/bulkdata/authorization/index.html">SMART Backend Services Authorization Guide</a>.
+  </p>
+
+  <p>Note that if a server copies files to the Bulk Data output endpoint or proxies requests to facilitate access from
+    this endpoint, it may need to modify the <code>Attachment.url</code> element when generating the Bulk Data output
+    files.</p>
+
+  [%file newfooter%]
+</body>
+
+</html>

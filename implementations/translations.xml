@@ -432,6 +432,9 @@
 		<translation lang="fr">Drapeau</translation>
 		<translation lang="zh">标记</translation>
 	</item>
+	<item id="FormularyItem">
+		<translation lang="en">FormularyItem</translation>
+	</item>
 	<item id="GeneExpression">
 		<translation lang="en">GeneExpression</translation>
 		<translation lang="zh">基因表达</translation>
@@ -1048,6 +1051,9 @@
 		<translation lang="es">ScriptDePrueba</translation>
 		<translation lang="fr">ScriptTest</translation>
 		<translation lang="zh">测试脚本</translation>
+	</item>
+	<item id="Transport">
+		<translation lang="en">Transport</translation>
 	</item>
 	<item id="User">
 		<translation lang="en">User</translation>

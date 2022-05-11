@@ -296,7 +296,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProvenanceActivity"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="The activity that took place."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/provenance-activity-type"/>
       </binding>
@@ -357,6 +357,37 @@
         <map value="Activity.Activity"/>
       </mapping>
     </element>    
+	<element id="Provenance.patient">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="Provenance.patient"/>
+      <short value="The patient is the subject of the data created/updated (.target) by the activity"/>
+      <definition value="The patient element is available to enable deterministic tracking of activities that involve the patient as the subject of the data used in an activity."/>
+	  <requirements value="When the .patient is populated it shall be accurate to the subject of the target data. The .patient shall not be populated when the target data created/updated (.target) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.patient"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=RTGT]"/>
+      </mapping>
+      <mapping>
+        <identity value="w3c.prov"/>
+        <map value="Entity.Identity"/>
+      </mapping>
+    </element>
 	<element id="Provenance.encounter">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>
@@ -401,6 +432,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.performer"/>
@@ -552,6 +584,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value="./subjectOf"/>
@@ -570,7 +603,7 @@
         <valueString value="No uses cases have been identified for extensibility for this role."/>
       </extension>
       <path value="Provenance.entity.role"/>
-      <short value="derivation | revision | quotation | source | instantiates | removal"/>
+      <short value="revision | quotation | source | instantiates | removal"/>
       <definition value="How the entity was used during the activity."/>
       <min value="1"/>
       <max value="1"/>

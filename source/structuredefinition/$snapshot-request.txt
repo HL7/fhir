@@ -1,2 +1,2 @@
 GET /fhir/StructureDefinition/daf-patient/$snapshot
-Accept: application/json+fhir
+Accept: application/fhir+json
