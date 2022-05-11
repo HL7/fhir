@@ -41,7 +41,6 @@
           <end value="128273736"/>
           <observedAllele value="CTCATTGT"/>
           <referenceAllele value="CTCCATTGCATGCGTT"/>
-          <cigar value="3M1D4M6N2M"/>
       </edit>    
     </relative>
 </MolecularSequence>
