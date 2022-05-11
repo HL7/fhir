@@ -664,7 +664,8 @@ on how many matches are found:
 </p>
 <ul>
  <li><b>No matches, no id provided</b>: The server creates the resource.</li>
- <li><b>No matches, id provided</b>: The server treats the interaction as an <a href="#upsert">Update as Create</a> interaction (or rejects it, if it does not support Update as Create)</li>
+ <li><b>No matches, id provided and doesn't already exist</b>: The server treats the interaction as an <a href="#upsert">Update as Create</a> interaction (or rejects it, if it does not support Update as Create)</li>
+ <li><b>No matches, id provided and already exist</b>: The server rejects the update with a <code>409</code> Conflict error</li>
  <li><b>One Match, no resource id provided OR (resource id provided and it matches the found resource)</b>: The server performs the update against the matching resource</li>
  <li><b>One Match, resource id provided but does not match resource found</b>: The server returns a <code>400</code> Bad Request error indicating the client id specification was a problem preferably with an OperationOutcome</li>
  <li><b>Multiple matches</b>: The server returns a <code>412</code> Precondition Failed error indicating the client's criteria were not selective enough preferably with an OperationOutcome</li>
