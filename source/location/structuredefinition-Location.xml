@@ -278,10 +278,28 @@
         <map value=".code"/>
       </mapping>
     </element>
+    <element id="Location.contact">
+      <path value="Location.contact"/>
+      <short value="Official contact details for the location"/>
+      <definition value="The contact details of communication devices available at the location. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
+      <requirements value="Need to keep track of both simple contact details and also assigned contacts within larger organizations."/>
+      <comment value="The address/telecom use code &#39;home&#39; are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the Healthcare itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc.&#xA;&#xA;If this is empty (or the type of interest is empty), refer to the organization&#39;s contacts."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ExtendedContactDetail"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".telecom and .addr and other .role(relevant datatype properties mapped from role into extendedcontactdetail)"/>
+      </mapping>
+    </element>
     <element id="Location.telecom">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="deprecated"/>
+      </extension>
       <path value="Location.telecom"/>
-      <short value="Contact details of the location"/>
-      <definition value="The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
+      <short value="Deprecated - use contact.telecom"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -365,7 +383,7 @@
     <element id="Location.position.longitude">
       <path value="Location.position.longitude"/>
       <short value="Longitude with WGS84 datum"/>
-      <definition value="Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below)."/>
+      <definition value="Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes on Location main page)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -379,7 +397,7 @@
     <element id="Location.position.latitude">
       <path value="Location.position.latitude"/>
       <short value="Latitude with WGS84 datum"/>
-      <definition value="Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below)."/>
+      <definition value="Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes on Location main page)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -393,7 +411,7 @@
     <element id="Location.position.altitude">
       <path value="Location.position.altitude"/>
       <short value="Altitude with WGS84 datum"/>
-      <definition value="Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below)."/>
+      <definition value="Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes on Location main page)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -438,7 +456,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundLink[typeCode=PART].source[classCode=SDLC]"/>
+        <map value=".inboundLink[typeCode=PART].source[classCode=SDLOC]"/>
       </mapping>
     </element>
     <element id="Location.hoursOfOperation">
@@ -480,8 +498,8 @@
     </element>
     <element id="Location.hoursOfOperation.allDay">
       <path value="Location.hoursOfOperation.allDay"/>
-      <short value="The Location is open all day"/>
-      <definition value="The Location is open all day."/>
+      <short value="Always available? i.e. 24 hour service"/>
+      <definition value="Is this always available? (hence times are irrelevant) i.e. 24 hour service."/>
       <min value="0"/>
       <max value="1"/>
       <type>

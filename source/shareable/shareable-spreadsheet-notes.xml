@@ -1,0 +1,11 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+  <a name="extensions"> </a>
+  <h2>Extensions</h2>
+  <p>
+    Not all resources that follow the 'Shareable' pattern will necessarily include all of the above elements.  A set of standard extensions have been defined
+    for use with resources where an element might be "applicable" but is not commonly supported.  A list of these can be found on the
+    <a href="artifact-extensions.html">Artifact Extensions</a> page.
+  </p>
+
+</div>

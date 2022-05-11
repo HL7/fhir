@@ -15,29 +15,37 @@
       <valueInteger value="1"/>
   </extension>
   <type value="DNA"/>
-  <coordinateSystem value="0"/>
-  <referenceSeq>
-        <referenceSeqId>
-            <coding>
-                <system value="http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/human/"/>
-                <code value="ref1"/>
-            </coding>
-        </referenceSeqId>
-      <strand value="watson"/>
-      <windowStart value="29942412"/>
-      <windowEnd value="29942852"/>
-  </referenceSeq>
-  <variant>
-      <start value="29945809"/>
-      <end value="29942810"/>
-      <observedAllele value="AT"/>
-      <referenceAllele value="C"/>
-  </variant>
-  <variant>
-      <start value="29942940"/>
-      <end value="29942942"/>
-      <observedAllele value="G"/>
-      <referenceAllele value="CT"/>
-  </variant>
+  <relative>
+    <coordinateSystem>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="LA30100-4"/>
+            <display value="0-based interval counting"/>
+        </coding>
+    </coordinateSystem>
+    <reference>
+            <referenceSeqId>
+                <coding>
+                    <system value="http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/human/"/>
+                    <code value="ref1"/>
+                </coding>
+            </referenceSeqId>
+        <strand value="watson"/>
+        <windowStart value="29942412"/>
+        <windowEnd value="29942852"/>
+    </reference>
+    <edit>
+        <start value="29945809"/>
+        <end value="29942810"/>
+        <observedAllele value="AT"/>
+        <referenceAllele value="C"/>
+    </edit>
+    <edit>
+        <start value="29942940"/>
+        <end value="29942942"/>
+        <observedAllele value="G"/>
+        <referenceAllele value="CT"/>
+    </edit>
+  </relative>
 </MolecularSequence>
     

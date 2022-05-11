@@ -105,46 +105,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="NutritionOrder-instantiates-canonical"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="NutritionOrder.instantiatesCanonical"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-instantiates-canonical"/>
-        <description value="Instantiates FHIR protocol or definition"/>
-        <code value="instantiates-canonical"/>
-        <type value="reference"/>
-        <expression value="NutritionOrder.instantiatesCanonical"/>
-        <xpath value="f:NutritionOrder/f:instantiatesCanonical"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="NutritionOrder-instantiates-uri"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="NutritionOrder.instantiatesUri"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-instantiates-uri"/>
-        <description value="Instantiates external protocol or definition"/>
-        <code value="instantiates-uri"/>
-        <type value="uri"/>
-        <expression value="NutritionOrder.instantiatesUri"/>
-        <xpath value="f:NutritionOrder/f:instantiatesUri"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="NutritionOrder-oraldiet"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

@@ -351,6 +351,7 @@ signatures.html
         <page title="Detailed Descriptions" filename="dosage-definitions.html"/>
         <page title="Dosage Mappings" filename="dosage-mappings.html"/>
       </page>
+      <page type="resource" resource="FormularyItem"/>
     </page>
 
 
@@ -456,11 +457,11 @@ signatures.html
         <page title="Detailed Descriptions" filename="population-definitions.html"/>
         <page title="Mappings" filename="population-mappings.html"/>
       </page>
-      <page title="ProdCharacteristic" filename="prodcharacteristic.html">
+      <!--page title="ProdCharacteristic" filename="prodcharacteristic.html">
         <page title="Examples" filename="prodcharacteristic-examples.html"/>
         <page title="Detailed Descriptions" filename="prodcharacteristic-definitions.html"/>
         <page title="Mappings" filename="prodcharacteristic-mappings.html"/>
-      </page>
+      </page-->
       <page title="ProductShelfLife" filename="productshelflife.html">
         <page title="Examples" filename="productshelflife-examples.html"/>
         <page title="Detailed Descriptions" filename="productshelflife-definitions.html"/>

@@ -35,7 +35,7 @@
       <min value="1"/>
       <type>
         <code value="BackboneElement"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/document-section-library">
+        <profile value="http://hl7.org/fhir/StructureDefinition/example-section-library">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element">
             <valueString value="Composition.section:procedure"/>
           </extension>
@@ -48,7 +48,7 @@
       <min value="1"/>
       <type>
         <code value="BackboneElement"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/document-section-library">
+        <profile value="http://hl7.org/fhir/StructureDefinition/example-section-library">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element">
             <valueString value="Composition.section:medications"/>
           </extension>
@@ -61,7 +61,7 @@
       <min value="0"/>
       <type>
         <code value="BackboneElement"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/document-section-library">
+        <profile value="http://hl7.org/fhir/StructureDefinition/example-section-library">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element">
             <valueString value="Composition.section:plan"/>
           </extension>

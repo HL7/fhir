@@ -79,6 +79,7 @@
         <expression value="ImagingSelection.subject.where(resolve() is Patient)"/>
         <xpath value="f:ImagingSelection/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>  <entry>
@@ -169,14 +170,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ImagingSelection.bodySite"/>
+          <valueString value="ImagingSelection.bodySite.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-code"/>
         <description value="The body site associated with the imaging selection"/>
         <code value="body-site"/>
         <type value="token"/>
-        <expression value="ImagingSelection.bodySite"/>
-        <xpath value="f:ImagingSelection/f:bodySite"/>
+        <expression value="ImagingSelection.bodySite.concept"/>
+        <xpath value="f:ImagingSelection/f:bodySite/f:concept"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

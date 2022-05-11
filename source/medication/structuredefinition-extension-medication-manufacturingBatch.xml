@@ -252,10 +252,6 @@
         <code value="Extension"/>
       </type>
     </element>
-    <element id="Extension.extension:container.extension">
-      <path value="Extension.extension.extension"/>
-      <max value="0"/>
-    </element>
     <element id="Extension.extension:container.extension:lotNumber">
       <path value="Extension.extension.extension"/>
       <sliceName value="lotNumber"/>

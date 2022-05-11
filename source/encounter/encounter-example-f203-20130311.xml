@@ -15,10 +15,12 @@
     </statusHistory>
     <!--Encounter has been completed-->
     <class>
-        <!--Inpatient encounter for straphylococcus infection-->
-        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-        <code value="IMP"/>
-        <display value="inpatient encounter"/>
+		<coding>
+			<!--Inpatient encounter for straphylococcus infection-->
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+			<code value="IMP"/>
+			<display value="inpatient encounter"/>
+		</coding>
     </class>
     <type>
         <coding>

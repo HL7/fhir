@@ -221,7 +221,7 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="Coding"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -347,7 +347,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -484,14 +485,17 @@
     </element>
     <element id="Encounter.basedOn">
       <path value="Encounter.basedOn"/>
-      <short value="The ServiceRequest that initiated this encounter"/>
+      <short value="The request that initiated this encounter"/>
       <definition value="The request this encounter satisfies (e.g. incoming referral or procedure request)."/>
       <alias value="incomingReferral"/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
       </type>
       <mapping>
         <identity value="workflow"/>
