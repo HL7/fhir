@@ -453,17 +453,5 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.pointer">
-      <path value="MolecularSequence.pointer"/>
-      <short value="Pointer to next atomic sequence"/>
-      <definition value="Pointer to next atomic sequence which at most contains one variant."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
   </differential>
 </StructureDefinition>
