@@ -1,0 +1,7 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<p>The following are examples of FormularyItem resources where the formulary item is referring to a medication:
+</p>
+<ul>
+    <li><a href="formularyitemexample01.html">Phenoxymethylpenicillin 125mg/5mL oral solution (product)</a></li>
+</ul>
+</div>
