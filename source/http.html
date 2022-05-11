@@ -1462,12 +1462,12 @@ the <code>entry.request.method</code> is a <code>PUT</code> or a <code>POST</cod
 SHALL contain a resource.
 </p>
 <p>
-The interactions <a href="#create"><code>create</code></a>, <a href="#update"><code>update</code></a>, and <a href="#delete"><code>delete</code></a>
-create history entries. Other interactions do not (note that these operations may produce side-effects
-such as new AuditEvent resources; these are represented as create interactions in their own right).
-New resources or updates to existing resources that are triggered by operations also appear in the
-history, as do updates to the resources that result from interactions outside the scope of the
-RESTful interface.
+Interactions (<a href="#create"><code>create</code></a>, <a href="#update"><code>update</code></a>, <a href="#patch"><code>patch</code></a>,
+and <a href="#delete"><code>delete</code></a>) or operations that change/delete/add resources create history entries. Note, the result of a
+<a href="#patch"><code>patch</code></a> (PATCH) interaction is represented as an <a href="#update"><code>update</code></a> (PUT) interaction
+in the history Bundle. In addition, operations may produce side-effects such as new AuditEvent resources; these are represented as
+<a href="#create"><code>create</code></a> (POST) interactions in their own right. New resources or updates to existing resources that are
+triggered by operations also appear in the history, as do updates to the resources that result from interactions outside the scope of the RESTful interface.
 </p>
 <p>
 A HEAD request can also be used - <a href="#head">see below</a>.
