@@ -575,13 +575,26 @@ around update behavior. Note that <code>update</code> generally updates the whol
 updates, see <a href="#patch"><code>patch</code></a> below.
 </p>
 <p>
-If the interaction is successful, the server SHALL return either a <code>200</code> OK HTTP status code
-if the resource was updated, or a <code>201</code> Created status code if the resource was created (or brought
-back to life/re-created), with a <code>Last-Modified</code> header, and an <code>ETag</code> header which
-contains the new <code>versionId</code> of the resource. If the resource was created (i.e. the interaction
-resulted in a <code>201</code> Created), the server SHOULD return a <code>Location</code> header (this
-is for HTTP conformance; it's not otherwise needed). The body of response is as described
-in <a href="http.html#return">Managing Return Content</a>.
+If the interaction is successful and the resource was updated, the server SHALL return a <code>200</code> OK HTTP status code.
+If the interaction is successful and the resource was created, the server SHALL return a <code>201</code> Created HTTP status code.
+The server SHALL also return a <code>Location</code> header which
+contains the new <a href="resource.html#metadata">Logical Id</a> and <a href="resource.html#metadata">Version Id</a> of
+the created resource version:
+</p>
+<pre class="http">
+  Location: [base]/[type]/[id]/_history/[vid]
+</pre>
+<p>
+where <code>[id]</code> and <code>[vid]</code> are the existing or newly created id and version id for the resource version.
+The Location header should be as specific as possible - if the server understands versioning, the version is
+included. If a server does not track versions, the Location header will just contain [base]/[type]/[id]. The
+Location MAY be an absolute or relative URL.
+</p>
+<p>
+Servers SHOULD return an <code>ETag</code> header with the <code>versionId</code> (if versioning is supported) and a <code>Last-Modified</code> header.
+</p>
+<p>
+The body of the response is as described in <a href="http.html#return">Managing Return Content</a>.
 </p>
 <p>
 Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting updates, but are not required to do so. The impact of this on digital signatures may need to be considered.
@@ -665,7 +678,7 @@ on how many matches are found:
  <li><b>No matches, no id provided</b>: The server creates the resource.</li>
  <li><b>No matches, id provided and doesn't already exist</b>: The server treats the interaction as an <a href="#upsert">Update as Create</a> interaction (or rejects it, if it does not support Update as Create)</li>
  <li><b>No matches, id provided and already exist</b>: The server rejects the update with a <code>409</code> Conflict error</li>
- <li><b>One Match, no resource id provided OR (resource id provided and it matches the found resource)</b>: The server performs the update against the matching resource</li>
+ <li><b>One Match, no resource id provided OR (resource id provided and it matches the found resource)</b>: The server performs the update against the matching resource as above where, if the resource was updated, the server SHALL return a <code>200</code> OK; if the resource was created, the server SHALL return a <code>201</code> Created; and, the server SHALL also return a <code>Location</code> header which contains the new <a href="resource.html#metadata">Logical Id</a> and <a href="resource.html#metadata">Version Id</a> of the created resource version</li>
  <li><b>One Match, resource id provided but does not match resource found</b>: The server returns a <code>400</code> Bad Request error indicating the client id specification was a problem preferably with an OperationOutcome</li>
  <li><b>Multiple matches</b>: The server returns a <code>412</code> Precondition Failed error indicating the client's criteria were not selective enough preferably with an OperationOutcome</li>
 </ul>
@@ -994,7 +1007,7 @@ When the server processes this create, it performs a search as specified using i
 on how many matches are found:
 </p>
 <ul>
- <li><b>No matches</b>: The server processes the create as above</li>
+ <li><b>No matches</b>: The server processes the create as above where, if the resource is created, the server returns a <code>201</code> Created HTTP status code, and SHALL also return a <code>Location</code> header which contains the new <a href="resource.html#metadata">Logical Id</a> and <a href="resource.html#metadata">Version Id</a> of the created resource version</li>
  <li><b>One Match</b>: The server ignores the post and returns <code>200</code> OK, with headers and body populated
  as they would have been if a create had actually occurred. (i.e. the body is set as per the prefer header, location and etag headers set, etc.)</li>
  <li><b>Multiple matches</b>: The server returns a <code>412</code> Precondition Failed error indicating the client's criteria were not selective enough</li>
