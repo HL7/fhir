@@ -699,6 +699,21 @@ update SHOULD return an HTTP <code>400</code> error and MAY include an <a href="
 The resource MAY contain an <code>id</code> element, but does not need to (this is
 one of the few cases where a resource exists without an <code>id</code> element).
 </p>
+<p>
+The conditional <code>update</code> interaction also allows a client to update a resource only if a specified version
+of the resource does not already exist on the server. The client defines this version using an HL7 defined extension
+header "<code>If-None-Match</code>" as the week ETag (<code><a href="resource.html#metadata">Version Id</a></code>) value as shown:
+</p>
+<pre class="http">
+  If-None-Match: W/"[ETag]"
+</pre>
+<p>
+Servers MAY choose to only support the wildcard variant of "<code>If-None-Match</code>" using an asterisk "*" value
+to indicate where no existing versions of the resource exist as shown:
+</p>
+<pre class="http">
+  If-None-Match: *
+</pre>
 </div>
 
 <a name="versionaware"></a>
