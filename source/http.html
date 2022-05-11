@@ -1822,26 +1822,29 @@ Notes:
 <table class="grid">
 <tr><th>Interaction</th><th colspan="6">Response</th></tr>
 <tr><th colspan="1"></th>   <th>Content-Type</th> <th>Body</th>               <th>Location</th> 	    <th>Versioning</th> 					<th>Status Codes</th></tr>
-<tr><td><code>read</code></td>           <td>R</td>            <td>R: Resource</td>           <td>N/A</td>         <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>404</code>, <code>410</code></td></tr>
-<tr><td><code>vread</code></td>          <td>R</td>            <td>R: Resource</td>           <td>N/A</td>         <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>404</code>, <code>410</code></td></tr>
-<tr><td><code>update</code></td>         <td>R if body</td>    <td>O: Resource (Prefer)</td>  <td>N/A</td>       	 <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>201</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
-<tr><td><code>patch</code></td>          <td>R if body</td>    <td>O: Resource (Prefer)</td>  <td>N/A</td>	       <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>201</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
+<tr><td><code>read</code></td>           <td>R</td>            <td>R: Resource</td>           <td>N/A</td>         <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>202</code>, <code>404</code>, <code>410</code></td></tr>
+<tr><td><code>vread</code></td>          <td>R</td>            <td>R: Resource</td>           <td>N/A</td>         <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>202</code>, <code>404</code>, <code>410</code></td></tr>
+<tr><td><code>update</code></td>         <td>R if body</td>    <td>O: Resource (Prefer)</td>  <td>N/A</td>       	 <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>201</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
+<tr><td><code>patch</code></td>          <td>R if body</td>    <td>O: Resource (Prefer)</td>  <td>N/A</td>	       <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>201</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
 <tr><td><code>delete</code></td>         <td>R if body</td><td>O: OperationOutcome</td>  <td>N/A</td>      	       <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>204</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code></td></tr>
-<tr><td><code>create</code></td>         <td>R if body</td>    <td>O : Resource (Prefer)</td>  <td>R</td>			     <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>201</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>422</code></td></tr>
-<tr><td><code>search</code></td>         <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>401</code>?</td></tr>
-<tr><td><code>search-all</code></td>     <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>401</code>?</td></tr>
-<tr><td><code>capabilities</code></td>   <td>R</td>            <td>R: CapabilityStatement</td><td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>404</code></td></tr>
-<tr><td><code>transaction</code></td>    <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
-<tr><td><code>history</code></td>        <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>     		<td>N/A</td>							<td><code>200</code></td></tr>
-<tr><td><code>history-type</code></td>   <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code></td></tr>
-<tr><td><code>history-all</code></td>    <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code></td></tr>
-<tr><td>(operation)</td>   	<td>R</td> 			      <td>R: Parameters/Resource</td><td>N/A</td>    	    <td>N/A</td>			        <td><code>200</code></td></tr>
+<tr><td><code>create</code></td>         <td>R if body</td>    <td>O : Resource (Prefer)</td>  <td>R</td>			     <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>201</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>422</code></td></tr>
+<tr><td><code>search</code></td>         <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>401</code>?</td></tr>
+<tr><td><code>search-all</code></td>     <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>401</code>?</td></tr>
+<tr><td><code>capabilities</code></td>   <td>R</td>            <td>R: CapabilityStatement</td><td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>404</code></td></tr>
+<tr><td><code>transaction</code></td>    <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
+<tr><td><code>history</code></td>        <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>     		<td>N/A</td>							<td><code>200</code>, <code>202</code></td></tr>
+<tr><td><code>history-type</code></td>   <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>202</code></td></tr>
+<tr><td><code>history-all</code></td>    <td>R</td>            <td>R: Bundle</td>             <td>N/A</td>      	  <td>N/A</td>							<td><code>200</code>, <code>202</code></td></tr>
+<tr><td>(operation)</td>   	<td>R</td> 			      <td>R: Parameters/Resource</td><td>N/A</td>    	    <td>N/A</td>			        <td><code>200</code>, <code>202</code></td></tr>
 </table>
 
 <p>
-Note: this table lists the status codes described here, but other status codes are possible as described by the HTTP specification.
-Additional codes that are likely are server errors and various codes associated with authentication protocols. The <a href="security.html">security page</a>
-notes several security related issues that may impact which codes to return.
+Notes:
+</p>
+<ul>
+ <li>This table lists the status codes described here, but other status codes are possible as described by the HTTP specification. Additional codes that are likely are server errors and various codes associated with authentication protocols. The <a href="security.html">security page</a> notes several security related issues that may impact which codes to return.</li>
+ <li>The returned status code <code>202</code> is applicable when <code>Prefer: respond-async</code> is supplied by the client.</li>
+</ul>
 </p>
 
 [%file newfooter%]
