@@ -1287,11 +1287,26 @@ When the server assigns a new id to any resource in the bundle which has a POST 
 as part of the processing rules above, it SHALL also update any references to that resource in the same bundle as they
 are processed  (see <a href="bundle.html#bundle-unique">about Ids in a bundle</a>). References to resources that are not
 part of the bundle are left untouched.
-Servers SHALL replace all matching links in the bundle, whether they are found in the resource ids,
-<a href="references.html">resource references</a>,
-elements of type <a href="datatypes.html#uri">uri</a>, <a href="datatypes.html#url">url</a>, <a href="datatypes.html#oid">oid</a>,
-<a href="datatypes.html#uuid">uuid</a>, and <code>&lt;a href=""</code> &amp; <code>&lt;img src=""</code> in the narrative.
-Elements of type <a href="datatypes.html#canonical">canonical</a> are not replaced.
+</p>
+<p>
+Servers SHALL replace all matching links in the bundle, found in the resource ids,
+<a href="references.html">resource references</a>, elements of type <a href="datatypes.html#uri">uri</a>,
+<a href="datatypes.html#url">url</a>, <a href="datatypes.html#oid">oid</a>, <a href="datatypes.html#uuid">uuid</a>,
+and <code>&lt;a href=""</code> &amp; <code>&lt;img src=""</code> in the Narrative elements in DomainResource.text or
+Composition.section.text. Elements of type canonical are not replaced. Servers SHOULD also replace references found
+in elements of type <a href="datatypes.html#markdown">markdown</a>, including extensions. Replacement within URLs is
+based on either an exact match or a match of the portion of the URL preceding a '#'.
+</p>
+<p>
+E.g. If posting a resource with a reference of <code>"http://somewhere.org/StructureDefinition/myprofile#some.element.path"</code>
+and <code>"http://somewhere.org/StructureDefinition/myprofile"</code> is the fullUrl of another entry in the transaction, the server
+would replace the 'myprofile' id portion of the reference with whatever id it assigns and, if the target server base
+differs from <code>"http://somewhere.org"</code>, would also replace the base portion of the URL.
+</p>
+<p>
+Similarly if the narrative includes <code>&lt;img src="urn:uuid:someguid"/&gt;</code> and there is an entry within the
+transaction creating a Binary with a full url of <code>"urn:uuid:someguid"</code>, that entire URL would be replaced with the new
+absolute URL of the created Binary resource.
 </p>
 <p>
 If a reference within a transaction contains a version-specific reference, the expectation is that the referenced version
