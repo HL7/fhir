@@ -941,6 +941,12 @@ When the server rejects the content of the resource because of business rules, t
 In either case, the server SHOULD include a response body containing an <a href="operationoutcome.html">OperationOutcome</a> with detailed error messages describing the reason for the error.
 </p>
 <p>
+Note: Servers MAY determine that the <code>create</code> request matches an existing record with high confidence and MAY return a 201,
+effectively making it look to the client as though a new resource had been created, even though the the "created" resource is actually
+a pre-existing resource. Add a note that client developers should review all returned data (as they always should for all interactions)
+to ensure that it matches expectations.
+</p>
+<p>
 Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting creates, but are not required to do so. The impact of this on digital signatures may need to be considered.
 </p>
 <p>
