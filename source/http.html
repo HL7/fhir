@@ -989,7 +989,8 @@ on how many matches are found:
 </p>
 <ul>
  <li><b>No matches</b>: The server processes the create as above</li>
- <li><b>One Match</b>: The server ignores the post and returns <code>200</code> OK</li>
+ <li><b>One Match</b>: The server ignores the post and returns <code>200</code> OK, with headers and body populated
+ as they would have been if a create had actually occurred. (i.e. the body is set as per the prefer header, location and etag headers set, etc.)</li>
  <li><b>Multiple matches</b>: The server returns a <code>412</code> Precondition Failed error indicating the client's criteria were not selective enough</li>
 </ul>
 <p>
