@@ -1270,10 +1270,10 @@ Because of the rules that a transaction is atomic where all actions pass or fail
 together and the order of the entries doesn't matter, there is a particular order in which to process the actions:
 </p>
 <ol>
- <li>Process any <code>DELETE</code> interactions</li>
- <li>Process any <code>POST</code> interactions</li>
- <li>Process any <code>PUT</code> or <code>PATCH</code> interactions</li>
- <li>Process any <code>GET</code> or <code>HEAD</code> interactions</li>
+ <li>Process any <a href="#delete"><code>delete</code></a> (DELETE) interactions</li>
+ <li>Process any <a href="#create"><code>create</code></a> (POST) interactions</li>
+ <li>Process any <a href="#update"><code>update</code></a> (PUT) or <a href="#patch"><code>patch</code></a> (PATCH) interactions</li>
+ <li>Process any <a href="#read"><code>read</code></a>, <a href="#vread"><code>vread</code></a>, <a href="#search"><code>search</code></a> or <a href="#history"><code>history</code></a> (GET or HEAD) interactions</li>
  <li>Resolve any conditional references</li>
 </ol>
 <p>
@@ -1284,7 +1284,7 @@ then the transaction SHALL fail.
 <p>
 A transaction may include references from one resource to another in the bundle, including
 circular references where resources refer to each other.
-When the server assigns a new id to any resource in the bundle which has a POST method
+When the server assigns a new id to any resource in the bundle which has a <a href="#create"><code>create</code></a> (POST) method
 as part of the processing rules above, it SHALL also update any references to that resource in the same bundle as they
 are processed  (see <a href="bundle.html#bundle-unique">about Ids in a bundle</a>). References to resources that are not
 part of the bundle are left untouched.
@@ -1324,7 +1324,7 @@ need to happen before the 'update' (per transaction rules), the created record w
 version-specific reference to the newly updated version of the reference target.
 </p>
 <p>
-When processing a "POST" (create), the full URL is treated as the id of the resource on the
+When processing a <a href="#create"><code>create</code></a> (POST), the full URL is treated as the id of the resource on the
 source, and is ignored; the server generates an id for the resource. For updates,
 the server performs a mapping between the fullUrl specified and the local URL the server
 knows that instance as, if possible. If the server does not have a mapping for the fullUrl,
