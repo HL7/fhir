@@ -69,14 +69,6 @@
         <identity value="w5"/>
         <map value="clinical.diagnostics"/>
       </mapping>
-      <constraint>
-        <key value="msq-1"/>
-        <severity value="error"/>
-        <human value="Each MolecularSequence SHALL have only one representation of a sequence: literal, formatted, or relative."/>
-        <expression value="(literal.count() + formatted.count() + relative.count()) = 1"/>
-        <xpath value="count(f:literal)+count(f:formatted)+count(f:relative)=1"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
-      </constraint>
     </element>
     <element id="MolecularSequence.identifier">
       <path value="MolecularSequence.identifier"/>
@@ -177,7 +169,7 @@
       <short value="Embedded file or a link (URL) which contains content to represent the sequence"/>
       <definition value="Sequence that was observed as file content. Can be an actual file contents, or referenced by a URL to an external system."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Attachment"/>
       </type>
@@ -191,7 +183,7 @@
       <short value="A sequence defined relative to another sequence"/>
       <definition value="A sequence defined relative to another sequence."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
