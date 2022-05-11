@@ -12632,6 +12632,11 @@
     <display value="Boar power pig 48"/>
     <display value="Boar power pig 48 (organism)"/>
   </concept>
+  <concept id="323418000" display="Penicillin V (as penicillin V potassium) 25 mg/mL oral solution">
+    <display value="Penicillin V (as penicillin V potassium) 25 mg/mL oral solution"/>
+    <display value="Phenoxymethylpenicillin (as phenoxymethylpenicillin potassium) 25 mg/mL oral solution"/>
+    <display value="Product containing precisely phenoxymethylpenicillin (as phenoxymethylpenicillin potassium) 25 milligram/1 milliliter conventional release oral solution (clinical drug)"/>
+  </concept>
   <concept id="32361000" display="Popliteal fossa">
     <display value="Popliteal fossa"/>
     <display value="Popliteal fossa structure"/>
