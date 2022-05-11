@@ -11,6 +11,8 @@
     <li>By linking to a “formatted” file or link containing the sequence information (e.g. FASTA file or GA4GH sequence repository).</li>
     <li>By providing a list of “edits” from a reference sequence.</li>
   </ul>
+  </p>
+  <p>
   The MolecularSequence resource is designed to represent a single sequence in an instance. Each sequence might have multiple representations, but implementers SHALL ensure all representations are for the same sequence.
   </p>
   <h4>Sequence as a literal string</h4>
