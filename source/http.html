@@ -1638,11 +1638,14 @@ If clients follow this pattern, then information from other systems
 that they do not understand will be maintained through the update.
 </p>
 <p>
-Note that it is possible for a server to choose to maintain the
-information that would be lost, but there is no defined way for
-a server to determine whether the client omitted the information
-because it wasn't supported (perhaps in this case) or whether it
-wishes to delete the information.
+Notes:
+</p>
+<ul>
+ <li>A server MAY to choose to maintain the information that would be lost, but there is no defined way for a server to determine whether the client omitted the information because it wasn't supported (perhaps in this case) or whether it wishes to delete the information.</li>
+ <li>If a server has changed the content of the resource from what was submitted before the records was stored, the server SHOULD either return the record (regardless of the <code>PREFER</code> response header) or omit the etag from the response.</li>
+ <li>If a client receives a copy of the resource in the response body of a create, update or patch, it SHOULD use the returned content as the basis for subsequent update or patch requests.</li>
+ <li>This behavior may not be strictly necessary if out-of-band agreements are in place to ensure data consistency is maintained.</li>
+</ul>
 </p>
 <a name="conformance-rules"></a>
 <h4>Conformance</h4>
