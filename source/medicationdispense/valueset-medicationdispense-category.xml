@@ -17,7 +17,7 @@
   <description value="MedicationDispense Category Codes"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-category"/>
+      <system value="http://hl7.org/fhir/CodeSystem/medicationdispense-category"/>
     </include>
   </compose>
 </ValueSet>
