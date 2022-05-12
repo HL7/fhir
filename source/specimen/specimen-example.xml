@@ -7,20 +7,6 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text>-->
-	<contained>
-		<Substance>
-			<id value="hep"/>
-			<instance value="false"/>
-			<code>
-				<concept>
-					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v3-EntityCode"/>
-						<code value="HEPL"/>
-					</coding>
-				</concept>
-			</code>
-		</Substance>
-	</contained>
 	<identifier>
 		<!-- a specimen identifier - e.g. assigned when the specimen was taken this is often not done -->
 		<system value="http://ehr.acme.org/identifiers/collections"/>
@@ -95,29 +81,17 @@
       (http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/)
     -->
     <container>
-	<identifier>
-		<!-- this is a serial number off the tube - there's no context such as a system -->
-		<value value="48736-15394-75465"/>
-	</identifier>
-	<description value="Green Gel tube"/>
-	<type>
-		<!-- again, this might easily be used to cover additives and capacity as well -->
-		<text value="Vacutainer"/>
-	</type>
-	<capacity>
-		<value value="10"/>
-		<unit value="mL"/>
-	</capacity>
+	<device>
+	      <reference value="Specimen/specimen-device-container-example-green-gel-vacutainer"/>
+	</device>
+	
 	<!-- if there's only one container, then this value is the same
      as .collection.quantity (usually). This is for when there is more
      than one container -->
 	<specimenQuantity>
-		<value value="6"/>
+		<value value="3"/>
 		<unit value="mL"/>
 	</specimenQuantity>
-	<additiveReference>
-		<reference value="#hep"/>
-	</additiveReference>
 	</container>
 	<note>
 		<text value="Specimen is grossly lipemic"/>

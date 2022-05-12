@@ -88,7 +88,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
@@ -695,7 +695,7 @@
       </extension>
       <path value="ValueSet.compose.include.filter"/>
       <short value="Select codes/concepts by their properties (including relationships)"/>
-      <definition value="Select concepts by specify a matching criterion based on the properties (including relationships) defined by the system, or on filters defined by the system. If multiple filters are specified, they SHALL all be true."/>
+      <definition value="Select concepts by specifying a matching criterion based on the properties (including relationships) defined by the system, or on filters defined by the system. If multiple filters are specified within the include, they SHALL all be true."/>
       <comment value="Selecting codes by specifying filters based on properties is only possible where the underlying code system defines appropriate properties. Note that in some cases, the underlying code system defines the logical concepts but not the literal codes for the concepts. In such cases, the literal definitions may be provided by a third party."/>
       <min value="0"/>
       <max value="*"/>
@@ -1170,8 +1170,8 @@
     </element>
     <element id="ValueSet.scope">
       <path value="ValueSet.scope"/>
-      <short value="Description of the semantic space the Value Set Expansion is intended to cover"/>
-      <definition value="Description of the semantic space the Value Set Expansion is intended to cover."/>
+      <short value="Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description"/>
+      <definition value="Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description."/>
       <min value="0"/>
       <max value="1"/>
       <type>

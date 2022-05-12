@@ -515,7 +515,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="EVN.7"/>
+        <map value="EVN-7"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -941,7 +941,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="EVN.5 or by domain"/>
+        <map value="EVN-5 or by domain"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

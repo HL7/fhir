@@ -1,1 +1,1 @@
-﻿Errors executing build. Details logged.
+﻿start tag unexpected character < (position: TEXT seen ...pation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"\n      <... @732:8) 

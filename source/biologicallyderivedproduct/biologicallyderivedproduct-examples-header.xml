@@ -1,5 +1,16 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- content goes here -->
-
+<h3>BDP Examples</h3>
+	<p>The following are examples of biologicall-derived product resource uses:
+    </p>
+	<ul>
+		<li>
+			<a href="biologicallyderivedproduct-example-allogeneicHCT.html">Allogeneic stem cell transplant from Donor B to Patient A</a>
+		</li>
+    </ul>
+	<ul>
+		<li>
+			<a href="biologicallyderivedproduct-example-autologousHCT.html">Autologous stem cell transplant for Patient A</a>
+		</li>
+    </ul>
 </div>
