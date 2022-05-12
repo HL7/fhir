@@ -33,17 +33,16 @@
   <img src="genomics-image34.jpg" alt="" style="width:624px;height:468px" />
   <h5>Representing the Reference Sequence</h5>
   <p>
-    <code>MolecularSequence.relative.reference</code>: There are four optional ways to represent a reference sequence in MolecularSequence
-    resource:
+    <code>MolecularSequence.relative.reference</code>: There are four optional ways to represent a starting sequence in MolecularSequence resource:
     <ol>
       <li><code>MolecularSequence.relative.reference.referenceSeqId</code>: Reference sequence id in public database;</li>
       <li><code>MolecularSequence.relative.reference.referenceSeqString</code>: Reference sequence string; </li>
       <li><code>MolecularSequence.relative.reference.referenceSeqPointer</code>: Reference to observed sequence stored in another sequence entity; </li>
-      <li><code>MolecularSequence.relative.reference.genomeBuild</code>, <code>MolecularSequence.relative.reference.chromosome</code>: The combination of genome build and chromosome. </li>
+      <li><code>MolecularSequence.relative.reference.referenceAssembly</code>, <code>MolecularSequence.relative.reference.chromosome</code>: The combination of reference assembly and chromosome. </li>
     </ol>
   </p>
   <p>
-    The <code>MolecularSequence.relative.reference.window</code> defines a range from the reference sequence that is used to define building block of a sequence.
+    The <code>MolecularSequence.relative.reference.windowStart</code> and <code>MolecularSequence.relative.reference.windowEnd</code>defines a range from the reference sequence that is used to define a subsequence used as the starting sequence.
   </p>
   <h5>Coordinate System</h5>
   <p>

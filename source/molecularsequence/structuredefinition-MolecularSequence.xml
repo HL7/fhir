@@ -156,7 +156,7 @@
     <element id="MolecularSequence.literal">
       <path value="MolecularSequence.literal"/>
       <short value="Sequence that was observed"/>
-      <definition value="Sequence that was observed. It is the result marked by referenceSeq along with variant records on referenceSeq. This shall start from referenceSeq.windowStart and end by referenceSeq.windowEnd."/>
+      <definition value="Sequence that was observed."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -226,20 +226,42 @@
       <constraint>
         <key value="msq-6"/>
         <severity value="error"/>
-        <human value="Have and only have one of the following elements in referenceSeq : 1. genomeBuild ; 2 referenceSeqId; 3. referenceSeqPointer;  4. referenceSeqString;"/>
-        <expression value="(genomeBuild.count()+referenceSeqId.count()+ referenceSeqPointer.count()+ referenceSeqString.count()) = 1"/>
-        <xpath value="count(f:genomeBuild)+count(f:referenceSeqId)+count(f:referenceSeqPointer)+count(f:referenceSeqString)=1"/>
+        <human value="Have and only have one of the following elements in referenceSeq : 1. referenceAssembly ; 2 referenceSeqId; 3. referenceSeqPointer;  4. referenceSeqString;"/>
+        <expression value="(referenceAssembly.count()+referenceSeqId.count()+ referenceSeqPointer.count()+ referenceSeqString.count()) = 1"/>
+        <xpath value="count(f:referenceAssembly)+count(f:referenceSeqId)+count(f:referenceSeqPointer)+count(f:referenceSeqString)=1"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </constraint>
       <constraint>
         <key value="msq-5"/>
         <severity value="error"/>
-        <human value="GenomeBuild and chromosome must be both contained if either one of them is contained"/>
-        <expression value="(chromosome.empty() and genomeBuild.empty()) or (chromosome.exists() and genomeBuild.exists())"/>
-        <xpath value="(exists(f:chromosome) and exists(f:genomeBuild)) or (not(exists(f:chromosome)) and not(exists(f:genomeBuild)))"/>
+        <human value="Both referenceAssembly and chromosome must be both contained if either one of them is contained"/>
+        <expression value="(chromosome.empty() and referenceAssembly.empty()) or (chromosome.exists() and referenceAssembly.exists())"/>
+        <xpath value="(exists(f:chromosome) and exists(f:referenceAssembly)) or (not(exists(f:chromosome)) and not(exists(f:referenceAssembly)))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </constraint>
       <isSummary value="true"/>
+    </element>
+    <element id="MolecularSequence.relative.reference.referenceAssembly">
+      <path value="MolecularSequence.relative.reference.referenceAssembly"/>
+      <short value="The reference assembly used for reference, e.g. GRCh38"/>
+      <definition value="The reference assembly used for reference, e.g. GRCh38."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="LL1040-6"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="HumanRefSeqNCBIBuildId."/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Human reference sequence NCBI build ID."/>
+        <valueSet value="http://loinc.org/LL1040-6/"/>
+      </binding>
     </element>
     <element id="MolecularSequence.relative.reference.chromosome">
       <path value="MolecularSequence.relative.reference.chromosome"/>
@@ -261,39 +283,6 @@
         <strength value="example"/>
         <description value="The chromosome containing the sequence."/>
         <valueSet value="http://loinc.org/LL2938-0/"/>
-      </binding>
-    </element>
-    <element id="MolecularSequence.relative.reference.genomeBuild">
-      <path value="MolecularSequence.relative.reference.genomeBuild"/>
-      <short value="The Genome Build used for reference, following GRCh build versions e.g. &#39;GRCh 37&#39;"/>
-      <definition value="The Genome Build used for reference, following GRCh build versions e.g. &#39;GRCh 37&#39;.  Version number must be included if a versioned release of a primary build was used."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.relative.reference.orientation">
-      <path value="MolecularSequence.relative.reference.orientation"/>
-      <short value="sense | antisense"/>
-      <definition value="A relative reference to a DNA strand based on gene orientation. The strand that contains the open reading frame of the gene is the &quot;sense&quot; strand, and the opposite complementary strand is the &quot;antisense&quot; strand."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="orientationType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Type for orientation."/>
-        </extension>
-        <strength value="required"/>
-        <description value="Type for orientation"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/orientation-type"/>
       </binding>
     </element>
     <element id="MolecularSequence.relative.reference.referenceSeqId">
@@ -340,6 +329,53 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="MolecularSequence.relative.reference.windowStart">
+      <path value="MolecularSequence.relative.reference.windowStart"/>
+      <short value="Start position of the window on the  reference sequence"/>
+      <definition value="Start position of the window on the reference sequence. This value should honor the rules of the coordinateSystem."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularSequence.relative.reference.windowEnd">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="MolecularSequence.relative.reference.windowEnd"/>
+      <short value="End position of the window on the reference sequence"/>
+      <definition value="End position of the window on the reference sequence. This value should honor the rules of the  coordinateSystem."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularSequence.relative.reference.orientation">
+      <path value="MolecularSequence.relative.reference.orientation"/>
+      <short value="sense | antisense"/>
+      <definition value="A relative reference to a DNA strand based on gene orientation. The strand that contains the open reading frame of the gene is the &quot;sense&quot; strand, and the opposite complementary strand is the &quot;antisense&quot; strand."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="orientationType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Type for orientation."/>
+        </extension>
+        <strength value="required"/>
+        <description value="Type for orientation"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/orientation-type"/>
+      </binding>
+    </element>
     <element id="MolecularSequence.relative.reference.strand">
       <path value="MolecularSequence.relative.reference.strand"/>
       <short value="watson | crick"/>
@@ -361,31 +397,6 @@
         <description value="Type for strand"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/strand-type"/>
       </binding>
-    </element>
-    <element id="MolecularSequence.relative.reference.windowStart">
-      <path value="MolecularSequence.relative.reference.windowStart"/>
-      <short value="Start position of the window on the  reference sequence"/>
-      <definition value="Start position of the window on the reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.relative.reference.windowEnd">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="right"/>
-      </extension>
-      <path value="MolecularSequence.relative.reference.windowEnd"/>
-      <short value="End position of the window on the reference sequence"/>
-      <definition value="End position of the window on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
     </element>
     <element id="MolecularSequence.relative.edit">
       <path value="MolecularSequence.relative.edit"/>

@@ -32,9 +32,9 @@
               <code value="NC_000002.12"/>
             </coding>
           </referenceSeqId>
-          <strand value="watson"/>
           <windowStart value="128273724"/>
           <windowEnd value="128273754"/>
+          <strand value="watson"/>
       </reference>
       <edit>
           <start value="128273724"/>
