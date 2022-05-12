@@ -158,6 +158,14 @@
         <xpath value="not(f:type/@value = 'document') or exists(f:timestamp/f:value)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
+      <constraint>
+        <key value="bdl-14"/>
+        <severity value="error"/>
+        <human value="entry.request.method PATCH not allowed for history"/>
+        <expression value="type = 'history' implies entry.request.method != 'PATCH'"/>
+        <xpath value="(f:type/@value = 'history') and not(f:entry/request/method/@value = 'PATCH')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+      </constraint>
       <mapping>
         <identity value="v2"/>
         <map value="N/A"/>
