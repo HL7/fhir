@@ -202,8 +202,14 @@ Each resource has an associated set of <a href="resource.html#metadata">resource
   <tr><td><a href="resource.html#metadata">Version Id (.meta.versionId)</a></td><td>The Version Id is represented in the <code>ETag</code> header</td></tr>
   <tr><td><a href="resource.html#metadata">Last modified (.meta.lastUpdated)</a></td><td>HTTP Last-Modified header</td></tr>
 </table>
-<p>Note that the Version Id is considered a "weak" ETag and <code>ETag</code> headers
-	should be prefixed with <code>W/</code> and enclosed in quotes, for example:</p>
+<p>
+Notes:
+</p>
+<ul>
+ <li>The <code>Last-Modified</code> header should come from <code><a href="resource-definitions.html#Meta.lastUpdated">.meta.lastUpdated</a></code> which is a FHIR <code><a href="datatypes.html#instant">instant</a></code>, but the <code>Last-Modified</code> header has a different format. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified">Last-Modified</a> and <a href="https://tools.ietf.org/html/rfc7232#section-2.2">rfc7232#section-2.2</a></li>
+ <li>The Version Id is considered a "weak" ETag and <code>ETag</code> headers should be prefixed with <code>W/</code> and enclosed in quotes, for example:</li>
+</ul>
+</p>
 <pre>
 ETag: W/"3141"
 </pre>
