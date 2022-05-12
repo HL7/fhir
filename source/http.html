@@ -1446,9 +1446,10 @@ the server returns a single <a href="operationoutcome.html">OperationOutcome</a>
 A client may use the returned Bundle to track the outcomes of processing the entry,
 and the identities assigned to the resources by the server. Each entry element SHALL
 contain a <code>response</code> element which details the outcome of processing the
-entry - the HTTP status code, and the location and <code>ETag</code> header values,
-which are used for identifying and versioning the resources. In addition, a resource
-may be included in the entry, as specified by the <a href="#prefer">Prefer</a> header.
+entry - the HTTP status code and, where applicable, the <code>Location</code> and
+<code>ETag</code> header values, which are used for identifying and versioning the
+resources. In addition, a resource may be included in the entry, as specified by
+the <a href="#prefer">Prefer</a> header.
 </p>
 
 
