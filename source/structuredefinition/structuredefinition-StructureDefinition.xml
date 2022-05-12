@@ -920,6 +920,14 @@
         <xpath value="not(exists(f:binding)) or exists(f:binding/f:valueSet) or exists(f:binding/f:description)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
+      <constraint>
+        <key value="sdf-24"/>
+        <severity value="error" />
+        <human value="If there are no discriminators, there must be a definition"/>
+        <expression value="slicing.exists().not() or (slicing.discriminator.exists() or slicing.description.exists())"/>
+        <xpath value="empty(f:slicing) or f:slicing[f:discriminator | f:description]"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+      </constraint>
       <mapping>
         <identity value="iso11179"/>
         <map value="--"/>
