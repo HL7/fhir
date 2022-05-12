@@ -242,77 +242,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisDefinition">
-      <path value="GenomicStudy.analysisDefinition"/>
-      <short value="Genomic Analysis Definition"/>
-      <definition value="The details about a specific analysis that will be performed in this GenomicStudy."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="GenomicStudy.analysisDefinition.url">
-      <path value="GenomicStudy.analysisDefinition.url"/>
-      <short value="Canonical identifier for this analysis definition, represented as a URI (unique for this GenomicStudy)"/>
-      <definition value="Canonical identifier for this analysis definition, represented as a URI (unique for this GenomicStudy)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-    </element>
-    <element id="GenomicStudy.analysisDefinition.identifier">
-      <path value="GenomicStudy.analysisDefinition.identifier"/>
-      <short value="Identifiers for the analysis definition"/>
-      <definition value="Identifiers for the analysis definition."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-    </element>
-    <element id="GenomicStudy.analysisDefinition.version">
-      <path value="GenomicStudy.analysisDefinition.version"/>
-      <short value="Business version of the analysis definition"/>
-      <definition value="Business version of the analysis definition."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="GenomicStudy.analysisDefinition.name">
-      <path value="GenomicStudy.analysisDefinition.name"/>
-      <short value="Name of the analysis definition (computer friendly)"/>
-      <definition value="Name of the analysis definition (computer friendly)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="GenomicStudy.analysisDefinition.title">
-      <path value="GenomicStudy.analysisDefinition.title"/>
-      <short value="Name of the analysis definition (human friendly)"/>
-      <definition value="Name of the analysis definition (human friendly)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="GenomicStudy.analysisDefinition.protocolDefinition">
-      <path value="GenomicStudy.analysisDefinition.protocolDefinition"/>
-      <short value="The defined protocol that describes the analysis"/>
-      <definition value="The defined protocol that describes the analysis."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-      </type>
-    </element>
+<!--
+  still need a plan to address these attributes
     <element id="GenomicStudy.analysisDefinition.methodType">
       <path value="GenomicStudy.analysisDefinition.methodType"/>
       <short value="Type of the methods used in the analysis"/>
@@ -344,8 +275,9 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent">
-      <path value="GenomicStudy.analysisEvent"/>
+-->
+    <element id="GenomicStudy.analysis">
+      <path value="GenomicStudy.analysis"/>
       <short value="Genomic Analysis Event"/>
       <definition value="The details about a specific analysis that was performed in this GenomicStudy."/>
       <min value="0"/>
@@ -354,8 +286,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-   <element id="GenomicStudy.analysisEvent.identifier">
-      <path value="GenomicStudy.analysisEvent.identifier"/>
+   <element id="GenomicStudy.analysis.identifier">
+      <path value="GenomicStudy.analysis.identifier"/>
       <short value="Identifiers for the analysis event"/>
       <definition value="Identifiers for the analysis event."/>
       <min value="0"/>
@@ -364,18 +296,29 @@
         <code value="Identifier"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.instantiatesUri">
-      <path value="GenomicStudy.analysisEvent.instantiatesUri"/>
-      <short value="References the analysisDefinition instantiated for this event"/>
-      <definition value="References the analysisDefinition instantiated for this event."/>
+    <element id="GenomicStudy.analysis.instantiatesCanonical">
+      <path value="GenomicStudy.analysis.instantiatesCanonical"/>
+      <short value="The defined protocol that describes the analysis"/>
+      <definition value="The defined protocol that describes the analysis."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+      </type>
+    </element>
+    <element id="GenomicStudy.analysis.instantiatesUri">
+      <path value="GenomicStudy.analysis.instantiatesUri"/>
+      <short value="The URL pointing to an externally maintained protocol that describes the analysis"/>
+      <definition value="The URL pointing to an externally maintained protocol that describes the analysis."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="uri"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.title">
-      <path value="GenomicStudy.analysisEvent.title"/>
+    <element id="GenomicStudy.analysis.title">
+      <path value="GenomicStudy.analysis.title"/>
       <short value="Name of the analysis event (human friendly)"/>
       <definition value="Name of the analysis event (human friendly)."/>
       <min value="0"/>
@@ -384,8 +327,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.subject">
-      <path value="GenomicStudy.analysisEvent.subject"/>
+    <element id="GenomicStudy.analysis.subject">
+      <path value="GenomicStudy.analysis.subject"/>
       <short value="The subject of the analysis event"/>
       <definition value="The subject of the analysis event."/>
       <min value="0"/>
@@ -395,8 +338,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.specimen">
-      <path value="GenomicStudy.analysisEvent.specimen"/>
+    <element id="GenomicStudy.analysis.specimen">
+      <path value="GenomicStudy.analysis.specimen"/>
       <short value="The specimen used in the analysis event"/>
       <definition value="The specimen used in the analysis event."/>
       <min value="0"/>
@@ -406,8 +349,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.date">
-      <path value="GenomicStudy.analysisEvent.date"/>
+    <element id="GenomicStudy.analysis.date">
+      <path value="GenomicStudy.analysis.date"/>
       <short value="The date of the analysis event"/>
       <definition value="The date of the analysis event."/>
       <min value="0"/>
@@ -416,8 +359,8 @@
         <code value="dateTime"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.note">
-      <path value="GenomicStudy.analysisEvent.note"/>
+    <element id="GenomicStudy.analysis.note">
+      <path value="GenomicStudy.analysis.note"/>
       <short value="Any notes capture with the analysis event"/>
       <definition value="Any notes capture with the analysis event."/>
       <min value="0"/>
@@ -426,8 +369,8 @@
         <code value="Annotation"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.protocolPerformed">
-      <path value="GenomicStudy.analysisEvent.protocolPerformed"/>
+    <element id="GenomicStudy.analysis.protocolPerformed">
+      <path value="GenomicStudy.analysis.protocolPerformed"/>
       <short value="The protocol that was performed for the analysis event"/>
       <definition value="The protocol that was performed for the analysis event."/>
       <min value="0"/>
@@ -438,10 +381,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.regionStudied">
-      <path value="GenomicStudy.analysisEvent.regionStudied"/>
-      <short value="Genomic region actually studied by the analysis event (BED file)"/>
-      <definition value="Genomic region actually studied by the analysis event (BED file)."/>
+    <element id="GenomicStudy.analysis.regionsCalled">
+      <path value="GenomicStudy.analysis.regionsCalled"/>
+      <short value="Genomic regions actually called in the analysis event (BED file)"/>
+      <definition value="Genomic regions actually called in the analysis event (BED file)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -449,8 +392,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.input">
-      <path value="GenomicStudy.analysisEvent.input"/>
+    <element id="GenomicStudy.analysis.input">
+      <path value="GenomicStudy.analysis.input"/>
       <short value="Inputs for the analysis event"/>
       <definition value="Inputs for the analysis event."/>
       <min value="0"/>
@@ -459,8 +402,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.input.file">
-      <path value="GenomicStudy.analysisEvent.input.file"/>
+    <element id="GenomicStudy.analysis.input.file">
+      <path value="GenomicStudy.analysis.input.file"/>
       <short value="File containing input data"/>
       <definition value="File containing input data."/>
       <min value="0"/>
@@ -470,8 +413,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.input.type">
-      <path value="GenomicStudy.analysisEvent.input.type"/>
+    <element id="GenomicStudy.analysis.input.type">
+      <path value="GenomicStudy.analysis.input.type"/>
       <short value="Type of input data"/>
       <definition value="Type input data."/>
       <min value="0"/>
@@ -480,8 +423,8 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.input.generatedBy[x]">
-      <path value="GenomicStudy.analysisEvent.input.generatedBy[x]"/>
+    <element id="GenomicStudy.analysis.input.generatedBy[x]">
+      <path value="GenomicStudy.analysis.input.generatedBy[x]"/>
       <short value="The analysis event or other GenomicStudy that generated this input file"/>
       <definition value="The analysis event or other GenomicStudy that generated this input file."/>
       <min value="0"/>
@@ -494,8 +437,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.input.subject">
-      <path value="GenomicStudy.analysisEvent.input.subject"/>
+    <element id="GenomicStudy.analysis.input.subject">
+      <path value="GenomicStudy.analysis.input.subject"/>
       <short value="The subject of the input data"/>
       <definition value="The subject of the input data."/>
       <min value="0"/>
@@ -505,8 +448,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.input.role">
-      <path value="GenomicStudy.analysisEvent.input.role"/>
+    <element id="GenomicStudy.analysis.input.role">
+      <path value="GenomicStudy.analysis.input.role"/>
       <short value="Role of the subject for this input"/>
       <definition value="Role of the subject for this input."/>
       <min value="0"/>
@@ -515,8 +458,8 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.output">
-      <path value="GenomicStudy.analysisEvent.output"/>
+    <element id="GenomicStudy.analysis.output">
+      <path value="GenomicStudy.analysis.output"/>
       <short value="Outputs for the analysis event"/>
       <definition value="Outputs for the analysis event."/>
       <min value="0"/>
@@ -525,8 +468,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.output.file">
-      <path value="GenomicStudy.analysisEvent.output.file"/>
+    <element id="GenomicStudy.analysis.output.file">
+      <path value="GenomicStudy.analysis.output.file"/>
       <short value="File containing output data"/>
       <definition value="File containing output data."/>
       <min value="0"/>
@@ -536,19 +479,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysis.output.regionCalled">
-      <path value="GenomicStudy.analysis.output.regionCalled"/>
-      <short value="Genomic region called by the analysis"/>
-      <definition value="Genomic region called by the analysis."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
-      </type>
-    </element>
-    <element id="GenomicStudy.analysisEvent.output.type">
-      <path value="GenomicStudy.analysisEvent.output.type"/>
+    <element id="GenomicStudy.analysis.output.type">
+      <path value="GenomicStudy.analysis.output.type"/>
       <short value="Type of output data"/>
       <definition value="Type output data."/>
       <min value="0"/>
@@ -557,8 +489,8 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.performer">
-      <path value="GenomicStudy.analysisEvent.performer"/>
+    <element id="GenomicStudy.analysis.performer">
+      <path value="GenomicStudy.analysis.performer"/>
       <short value="Performer for the analysis event"/>
       <definition value="Performer for the analysis event."/>
       <min value="0"/>
@@ -567,8 +499,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.performer.actor">
-      <path value="GenomicStudy.analysisEvent.performer.actor"/>
+    <element id="GenomicStudy.analysis.performer.actor">
+      <path value="GenomicStudy.analysis.performer.actor"/>
       <short value="The organization, healthcare professional, or others who participated in performing this analysis"/>
       <definition value="The organization, healthcare professional, or others who participated in performing this analysis."/>
       <min value="0"/>
@@ -581,8 +513,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.performer.role">
-      <path value="GenomicStudy.analysisEvent.performer.role"/>
+    <element id="GenomicStudy.analysis.performer.role">
+      <path value="GenomicStudy.analysis.performer.role"/>
       <short value="Role of the actor for this analysis"/>
       <definition value="Role of the actor for this analysis."/>
       <min value="0"/>
@@ -591,8 +523,8 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.device">
-      <path value="GenomicStudy.analysisEvent.device"/>
+    <element id="GenomicStudy.analysis.device">
+      <path value="GenomicStudy.analysis.device"/>
       <short value="Devices used for the analysis (e.g., instruments, software), with settings and parameters"/>
       <definition value="Devices used for the analysis (e.g., instruments, software), with settings and parameters."/>
       <min value="0"/>
@@ -601,8 +533,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.device.device">
-      <path value="GenomicStudy.analysisEvent.device.device"/>
+    <element id="GenomicStudy.analysis.device.device">
+      <path value="GenomicStudy.analysis.device.device"/>
       <short value="Device used for the analysis"/>
       <definition value="Device used for the analysis."/>
       <min value="0"/>
@@ -612,8 +544,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysisEvent.device.function">
-      <path value="GenomicStudy.analysisEvent.device.function"/>
+    <element id="GenomicStudy.analysis.device.function">
+      <path value="GenomicStudy.analysis.device.function"/>
       <short value="Specific function for the device used for the analysis"/>
       <definition value="Specific function for the device used for the analysis."/>
       <min value="0"/>

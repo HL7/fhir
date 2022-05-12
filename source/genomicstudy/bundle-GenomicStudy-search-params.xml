@@ -91,14 +91,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="GenomicStudy.analysisEvent.subject"/>
+          <valueString value="GenomicStudy.analysis.subject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/GenomicStudy-analysis-patient"/>
         <description value="Who the analysis is about"/>
         <code value="analysis-patient"/>
         <type value="reference"/>
-        <expression value="GenomicStudy.analysisEvent.subject.where(resolve() is Patient)"/>
-        <xpath value="f:GenomicStudy/f:analysisEvent/f:subject"/>
+        <expression value="GenomicStudy.analysis.subject.where(resolve() is Patient)"/>
+        <xpath value="f:GenomicStudy/f:analysis/f:subject"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -111,14 +111,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="GenomicStudy.analysisEvent.subject"/>
+          <valueString value="GenomicStudy.analysis.subject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/GenomicStudy-analysis-subject"/>
         <description value="Who the analysis is about"/>
         <code value="analysis-subject"/>
         <type value="reference"/>
-        <expression value="GenomicStudy.analysisEvent.subject"/>
-        <xpath value="f:GenomicStudy/f:analysisEvent/f:subject"/>
+        <expression value="GenomicStudy.analysis.subject"/>
+        <xpath value="f:GenomicStudy/f:analysis/f:subject"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
