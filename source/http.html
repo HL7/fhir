@@ -405,9 +405,6 @@ The following parameters are defined for use with all of the interactions define
  <tr> <td><code>_summary</code></td> <td>Ask for a predefined short form of the resource in response - see <a href="search.html#summary">Search Summary</a></td> </tr>
  <tr> <td><code>_elements</code></td> <td>Ask for a particular set of elements to be returned - see <a href="search.html#elements">Search Elements</a></td> </tr>
 </table>
-<p>
-Note that the impact of _elements is not defined for interactions other than search where the response is a bundle that contains more than one type of resource.
-</p>
 
 <p><b>_format</b></p>
 <p>
@@ -437,6 +434,14 @@ GET [base]/Patient/example?_pretty=true
 Value values are <code>true</code> and <code>false</code>. Since pretty printed
 or not makes no difference to the content, this is only of interest for development
 tools, and servers MAY choose to support this parameter.
+</p>
+<p><b>_summary</b></p>
+<p>
+Indicates that the resource(s) in the response should only include the identified categoric subset of elements. See <code><a href="search.html#summary">Search Summary</a></code> for details.
+</p>
+<p><b>_elements</b></p>
+<p>
+Indicates that the resource(s) in the response should only include the enumerated elements (plus any mandatory or modifier elements). See <code><a href="search.html#elements">Search Elements</a></code> for details.
 </p>
 
 <a name="versions"></a>
