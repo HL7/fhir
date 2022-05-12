@@ -301,6 +301,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value="./playedRole[isNormalRole()]/participation[isNormalParticipation() and typeCode=&quot;SBJ&quot;]/act[isNormalAct and classCode=&quot;OBS&quot; and moodCode=&quot;EVN&quot;]"/>
