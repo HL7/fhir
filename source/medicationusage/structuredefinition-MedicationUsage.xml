@@ -232,7 +232,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PID-3-Patient ID List"/>
+        <map value="PID-3 Patient ID List"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -398,6 +398,22 @@
       <mapping>
         <identity value="rim"/>
         <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=&quot;annotation&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="MedicationUsage.relatedClinicalInformation">
+      <path value="MedicationUsage.relatedClinicalInformation"/>
+      <short value="Link to information relevant to the usage of a medication"/>
+      <definition value="Link to information that is relevant to a medication usage, for example, illicit drug use, gestational age, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="TBD"/>
       </mapping>
     </element>
     <element id="MedicationUsage.renderedDosageInstruction">
