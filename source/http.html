@@ -1563,12 +1563,16 @@ Notes:
 <p>
 In addition to the standard <code>_format</code> parameter, the parameters to this interaction may also include:
 </p>
-<table class="list">
-  <tr><td><code>_count</code> : <a href="search.html#number"><code>integer</code></a></td><td>The maximum number of search results on a page, excluding related resources included by _include or _revinclude or OperationOutcomes. The server is not bound to return the number requested, but cannot return more</td></tr>
-  <tr><td><code>_since</code> : <a href="search.html#date"><code>instant</code></a></td><td>Only include resource versions that were created at or after the given instant in time</td></tr>
-  <tr><td><code>_at</code> : <a href="search.html#date"><code>date(Time)</code></a></td><td>Only include resource versions that were current at some point during the time period specified in the date time value (see <a href="search.html#date">Search notes on date searching</a>)</td></tr>
-  <tr><td><code>_list</code> : <a href="search.html#reference"><code>reference</code></a></td><td>Only include resource versions that are referenced in the specified list (<a href="lifecycle.html#current">current list references</a> are allowed)</td></tr>
+<table class="grid">
+  <tr><th>Param Name</th><th>Param Type</th><th>Description</th></tr>
+  <tr><td><a href="search.html#count"><code>_count</code></a></td><td><a href="search.html#number"><code>integer</code></a></td><td>The maximum number of search results on a page, excluding related resources included by _include or _revinclude or OperationOutcomes. The server is not bound to return the number requested, but cannot return more</td></tr>
+  <tr><td><code>_since</code></td><td><a href="search.html#date"><code>instant</code></a></td><td>Only include resource versions that were created at or after the given instant in time</td></tr>
+  <tr><td><code>_at</code></td><td><a href="search.html#date"><code>date(Time)</code></a></td><td>Only include resource versions that were current at some point during the time period specified in the date time value (see <a href="search.html#date">Search notes on date searching</a>)</td></tr>
+  <tr><td><a href="search.html#list"><code>_list</code></a></td><td><a href="search.html#reference"><code>reference</code></a></td><td>Only include resource versions that are referenced in the specified list (<a href="lifecycle.html#current">current list references</a> are allowed)</td></tr>
 </table>
+<p>
+There are no prefixes or modifiers allowed on any of the History interaction parameters.
+</p>
 <p>
 Each of these parameters SHALL NOT appear more than once.
 </p>
