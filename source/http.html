@@ -209,7 +209,6 @@ Notes:
  <li>The <code>Last-Modified</code> header should come from <code><a href="resource-definitions.html#Meta.lastUpdated">.meta.lastUpdated</a></code> which is a FHIR <code><a href="datatypes.html#instant">instant</a></code>, but the <code>Last-Modified</code> header has a different format. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified">Last-Modified</a> and <a href="https://tools.ietf.org/html/rfc7232#section-2.2">rfc7232#section-2.2</a></li>
  <li>The Version Id is considered a "weak" ETag and <code>ETag</code> headers should be prefixed with <code>W/</code> and enclosed in quotes, for example:</li>
 </ul>
-</p>
 <pre>
 ETag: W/"3141"
 </pre>
@@ -873,7 +872,7 @@ discretion of the server based on the policy and business rules that apply in it
 If the server refuses to delete resources of that type as a blanket policy, then it should return the <code>405</code>
 Method not allowed status code. If the server refuses to delete a resource because of reasons specific
 to that resource, such as referential integrity, it should return the <code>409</code> Conflict status code.
-Note that the servers MAY choose to enforce business rules regarding deletion of resources that are being referenced by other resources, but they also MAY NOT do so.
+Note that the servers MAY choose to enforce business rules regarding deletion of resources that are being referenced by other resources, but they also might not do so.
 Performing this interaction on a resource that is already deleted has no effect, and the server should return either a
 <code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload.
 Resources that have been deleted may be "brought back to life" by a subsequent <a href="#href"><code>update</code></a>
@@ -1692,9 +1691,8 @@ Notes:
  <li>A server MAY to choose to maintain the information that would be lost, but there is no defined way for a server to determine whether the client omitted the information because it wasn't supported (perhaps in this case) or whether it wishes to delete the information.</li>
  <li>If a server has changed the content of the resource from what was submitted before the records was stored, the server SHOULD either return the record (regardless of the <code>PREFER</code> response header) or omit the etag from the response.</li>
  <li>If a client receives a copy of the resource in the response body of a create, update or patch, it SHOULD use the returned content as the basis for subsequent update or patch requests.</li>
- <li>This behavior may not be strictly necessary if out-of-band agreements are in place to ensure data consistency is maintained.</li>
+ <li>This behavior might not be strictly necessary if out-of-band agreements are in place to ensure data consistency is maintained.</li>
 </ul>
-</p>
 <a name="conformance-rules"></a>
 <h4>Conformance</h4>
 <p>
@@ -1902,7 +1900,6 @@ Notes:
  <li>This table lists the status codes described here, but other status codes are possible as described by the HTTP specification. Additional codes that are likely are server errors and various codes associated with authentication protocols. The <a href="security.html">security page</a> notes several security related issues that may impact which codes to return.</li>
  <li>The returned status code <code>202</code> is applicable when <code>Prefer: respond-async</code> is supplied by the client.</li>
 </ul>
-</p>
 
 [%file newfooter%]
 </body>
