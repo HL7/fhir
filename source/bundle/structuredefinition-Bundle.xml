@@ -352,7 +352,7 @@
     <element id="Bundle.entry.resource">
       <path value="Bundle.entry.resource"/>
       <short value="A resource in the bundle"/>
-      <definition value="The Resource for the entry. The purpose/meaning of the resource is determined by the Bundle.type."/>
+      <definition value="The Resource for the entry. The purpose/meaning of the resource is determined by the Bundle.type. This is allowed to be a Parameters resource if and only if it is referenced by something else within the Bundle that provides context/meaning."/>
       <min value="0"/>
       <max value="1"/>
       <type>
