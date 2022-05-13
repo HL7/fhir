@@ -270,7 +270,6 @@
       <path value="Composition.category"/>
       <short value="Categorization of Composition"/>
       <definition value="A categorization for the type of the composition - helps for indexing and searching. This may be implied by or derived from the code specified in the Composition Type."/>
-      <comment value="This is a metadata field from [XDS/MHD](https://profiles.ihe.net/ITI/MHD/index.html)."/>
       <requirements value="Helps humans to assess whether the composition is of interest when viewing an index of compositions or documents."/>
       <min value="0"/>
       <max value="*"/>
