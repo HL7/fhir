@@ -456,8 +456,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="ExampleScenario.instance.resourceType">
-      <path value="ExampleScenario.instance.resourceType"/>
+    <element id="ExampleScenario.instance.type">
+      <path value="ExampleScenario.instance.type"/>
       <short value="The type of the resource"/>
       <definition value="The type of the resource."/>
       <min value="1"/>
