@@ -317,6 +317,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GroupCharacteristicKind"/>
@@ -352,6 +353,7 @@
       <type>
         <code value="Reference"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GroupCharacteristicValue"/>
@@ -375,6 +377,7 @@
       <type>
         <code value="boolean"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value="./valueNegationInd"/>
