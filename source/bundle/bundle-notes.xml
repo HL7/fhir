@@ -242,7 +242,7 @@ Bundles are treated as static resources on the /Bundle end-point (i.e. when a
 batch, transaction, or message is POSTed to /Bundle, it is stored as is, and 
 the content is not processed as batch, transaction, or message - instead, they
 are processed like normal resource, with indexing / auditing etc. Performing a 
-GET /Bundle/[location] will return the same resource.
+GET /[base]/Bundle/[location] will return the same resource.
 </p>
 <p>
 The Bundle end point does have two special search parameters - <code>composition</code> and <code>message</code>,
