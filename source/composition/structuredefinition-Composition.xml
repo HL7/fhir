@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Composition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -107,8 +107,8 @@
       <path value="Composition.url"/>
       <short value="Canonical identifier for this Composition, represented as a URI (globally unique)"/>
       <definition value="An absolute URI that is used to identify this Composition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this Composition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the Composition is stored on different servers."/>
-	  <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version."/>
-	  <requirements value="Allows the Composition to be referenced by a single globally unique identifier."/>
+      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version."/>
+      <requirements value="Allows the Composition to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -159,7 +159,7 @@
     <element id="Composition.version">
       <path value="Composition.version"/>
       <short value="An explicitly assigned identifer of a variation of the content in the Composition"/>
-      <comment value="While each resource, including the composition itself, has its own version identifier, this is a formal identifier for the logical version of the Composition as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example." />
+      <comment value="While each resource, including the composition itself, has its own version identifier, this is a formal identifier for the logical version of the Composition as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -170,7 +170,6 @@
         <identity value="cda"/>
         <map value=".versionNumber"/>
       </mapping>
-      <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Definition.version"/>
@@ -182,7 +181,7 @@
     </element>
     <element id="Composition.status">
       <path value="Composition.status"/>
-      <short value="preliminary | final | amended | entered-in-error | deprecated"/>
+      <short value="registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | deprecated | unknown"/>
       <definition value="The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document."/>
       <comment value="If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag &quot;entered-in-error&quot; is why this element is labeled as a modifier of other elements.   &#xA;&#xA;Some reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required."/>
       <requirements value="Need to be able to mark interim, amended, or withdrawn compositions or documents."/>
@@ -467,7 +466,7 @@
       <path value="Composition.name"/>
       <short value="Name for this Composition (computer friendly)"/>
       <definition value="A natural language name identifying the {{title}}. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-	  <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
       <requirements value="Support human navigation and code generation."/>
       <min value="0"/>
       <max value="1"/>
@@ -503,7 +502,7 @@
     <element id="Composition.note">
       <path value="Composition.note"/>
       <short value="For any additional notes"/>
-	  <comment value="A comment, general note or annotation not coded elsewhere."/>
+      <comment value="A comment, general note or annotation not coded elsewhere."/>
       <min value="0"/>
       <max value="*"/>
       <type>
