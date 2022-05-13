@@ -88,7 +88,7 @@
           
           <td>integer</td>
           
-          <td>The property value is a string (often used to assign ranking values to concepts for supporting score assessments).</td>
+          <td>The property value is an integer (often used to assign ranking values to concepts for supporting score assessments).</td>
         
         </tr>
         
@@ -194,7 +194,7 @@
   <concept>
     <code value="integer"/>
     <display value="integer"/>
-    <definition value="The property value is a string (often used to assign ranking values to concepts for supporting score assessments)."/>
+    <definition value="The property value is an integer (often used to assign ranking values to concepts for supporting score assessments)."/>
   </concept>
   <concept>
     <code value="boolean"/>
