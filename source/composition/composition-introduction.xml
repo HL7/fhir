@@ -88,7 +88,7 @@ Every composition has a status element, which describes the status of the conten
 <%codelist http://hl7.org/fhir/composition-status%>
 
 <p>
-Composition status generally only moves down through this list - it moves from <code>preliminary</code> to <code>final</code> and then it may progress to <code>amended</code>. 
+Composition status generally only moves down through this list - it moves from <code>registered</code> or <code>preliminary</code> to <code>final</code> and then it may progress to <code>amended</code>. 
 Note that in many workflows, only <code>final</code> compositions are made available and the <code>preliminary</code> status is not used. 
 </p>
 <p>
