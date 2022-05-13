@@ -130,7 +130,7 @@
       <definition value="A version-independent identifier for the Composition. This identifier stays constant as the composition is changed over time."/>
       <comment value="Similar to ClinicalDocument/setId in CDA. See discussion in resource definition for how these relate."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Identifier"/>
       </type>
