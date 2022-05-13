@@ -12,7 +12,7 @@
             </coding>
         </coordinateSystem>
         <reference>
-            <referenceSeqString value="ACGTAGTC"/>
+            <referenceSequenceString value="ACGTAGTC"/>
             <windowStart value="1"/>
             <windowEnd value="8"/>
             <strand value="watson"/>

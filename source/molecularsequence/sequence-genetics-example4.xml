@@ -12,13 +12,13 @@
     </species>
     <relative>
         <referenceSeq>
-            <referenceSeqId>
+            <referenceSequenceCodeableConcept>
                 <coding>
                     <system value="http://www.ncbi.nlm.nih.gov/nuccore/"/>
                     <code value="NC_000007.14"/>
                 </coding>
                 <text value="NC_000007.14"/>
-            </referenceSeqId>
+            </referenceSequenceCodeableConcept>
             <windowStart value="87627610"/>
             <windowEnd value="87627635"/>
         </referenceSeq>

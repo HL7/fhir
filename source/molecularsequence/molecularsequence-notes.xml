@@ -35,9 +35,9 @@
   <p>
     <code>MolecularSequence.relative.reference</code>: There are four optional ways to represent a starting sequence in MolecularSequence resource:
     <ol>
-      <li><code>MolecularSequence.relative.reference.referenceSeqId</code>: Reference sequence id in public database;</li>
-      <li><code>MolecularSequence.relative.reference.referenceSeqString</code>: Reference sequence string; </li>
-      <li><code>MolecularSequence.relative.reference.referenceSeqPointer</code>: Reference to observed sequence stored in another sequence entity; </li>
+      <li><code>MolecularSequence.relative.reference.referenceSequenceCodeableConcept</code>: Reference sequence id in public database;</li>
+      <li><code>MolecularSequence.relative.reference.referenceSequenceString</code>: Reference sequence string; </li>
+      <li><code>MolecularSequence.relative.reference.referenceSequenceReference</code>: Reference to observed sequence stored in another sequence entity; </li>
       <li><code>MolecularSequence.relative.reference.referenceSequenceAssembly</code>, <code>MolecularSequence.relative.reference.chromosome</code>: The combination of reference assembly and chromosome. </li>
     </ol>
   </p>
@@ -91,7 +91,7 @@
 <p>
   There are attributes where the sequence is represented as a string of characters.
     <ul>
-      <li><code>relative.reference.referenceSeqString</code></li>
+      <li><code>relative.reference.referenceSequenceString</code></li>
       <li><code>relative.edit.observedAllele</code></li>
       <li><code>relative.edit.referenceAllele</code></li>
       <li><code>literal</code></li>

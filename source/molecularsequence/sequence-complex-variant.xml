@@ -26,12 +26,12 @@
           </coding>
       </coordinateSystem>
       <reference>
-          <referenceSeqId>
+          <referenceSequenceCodeableConcept>
             <coding>
               <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
               <code value="NC_000002.12"/>
             </coding>
-          </referenceSeqId>
+          </referenceSequenceCodeableConcept>
           <windowStart value="128273724"/>
           <windowEnd value="128273754"/>
           <strand value="watson"/>

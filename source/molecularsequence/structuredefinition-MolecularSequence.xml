@@ -20,7 +20,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cg"/>
   </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
@@ -176,9 +176,6 @@
       <isSummary value="true"/>
     </element>
     <element id="MolecularSequence.relative">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="up"/>
-      </extension>
       <path value="MolecularSequence.relative"/>
       <short value="A sequence defined relative to another sequence"/>
       <definition value="A sequence defined relative to another sequence."/>
@@ -209,9 +206,6 @@
       </binding>
     </element>
     <element id="MolecularSequence.relative.reference">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="up"/>
-      </extension>
       <path value="MolecularSequence.relative.reference"/>
       <short value="A sequence used as reference"/>
       <definition value="A sequence that is used as a reference to describe variants that are present in a sequence analyzed."/>
@@ -223,9 +217,9 @@
       <constraint>
         <key value="msq-6"/>
         <severity value="error"/>
-        <human value="Have and only have one of the following elements in referenceSeq : 1. referenceSequenceAssembly ; 2 referenceSeqId; 3. referenceSeqPointer;  4. referenceSeqString;"/>
-        <expression value="(referenceSequenceAssembly.count()+referenceSeqId.count()+ referenceSeqPointer.count()+ referenceSeqString.count()) = 1"/>
-        <xpath value="count(f:referenceSequenceAssembly)+count(f:referenceSeqId)+count(f:referenceSeqPointer)+count(f:referenceSeqString)=1"/>
+        <human value="Have and only have one of the following elements in referenceSeq : 1. referenceSequenceAssembly ; 2 referenceSequence"/>
+        <expression value="(referenceSequenceAssembly.count()+referenceSequenceCodeableConcept.count()+ referenceSequenceReference.count()+ referenceSequenceString.count()) = 1"/>
+        <xpath value="count(f:referenceSequenceAssembly)+count(f:referenceSequenceCodeableConcept)+count(f:referenceSequenceReference)+count(f:referenceSequenceString)=1"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </constraint>
       <constraint>
@@ -276,14 +270,22 @@
         <valueSet value="http://loinc.org/LL2938-0/"/>
       </binding>
     </element>
-    <element id="MolecularSequence.relative.reference.referenceSeqId">
-      <path value="MolecularSequence.relative.reference.referenceSeqId"/>
-      <short value="Reference identifier"/>
-      <definition value="This field carries the ID for the reference sequence. For this ID use either the NCBI genomic nucleotide RefSeq IDs with their version number (see: NCBI.NLM.NIH.Gov/RefSeq) or use the LRG identifiers when they become available. (See- Report sponsored by GEN2PHEN at the European Bioinformatics Institute at Hinxton UK April 24-25, 2008)."/>
+    <element id="MolecularSequence.relative.reference.referenceSequence[x]">
+      <path value="MolecularSequence.relative.reference.referenceSequence[x]"/>
+      <short value="The reference sequence that represents the starting sequence"/>
+      <definition value="The reference sequence that represents the starting sequence."/>
+      <comment value="A reference sequnce may be represented in one of three ways:&#xA;  1.  CodeableConcept, using NCBI, LRG or other appropriate code systems&#xA;  1.  a simple string of IUPAC codes&#xA;  1.  a reference to another MolecularSequence resource."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -293,29 +295,6 @@
         <strength value="example"/>
         <description value="Multiple bindings acceptable (NCBI or LRG)"/>
       </binding>
-    </element>
-    <element id="MolecularSequence.relative.reference.referenceSeqPointer">
-      <path value="MolecularSequence.relative.reference.referenceSeqPointer"/>
-      <short value="A pointer to another MolecularSequence entity as reference sequence"/>
-      <definition value="A pointer to another MolecularSequence entity as reference sequence."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.relative.reference.referenceSeqString">
-      <path value="MolecularSequence.relative.reference.referenceSeqString"/>
-      <short value="A string to represent reference sequence"/>
-      <definition value="A string like &quot;ACGT&quot;."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
     </element>
     <element id="MolecularSequence.relative.reference.windowStart">
       <path value="MolecularSequence.relative.reference.windowStart"/>
@@ -329,9 +308,6 @@
       <isSummary value="true"/>
     </element>
     <element id="MolecularSequence.relative.reference.windowEnd">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="right"/>
-      </extension>
       <path value="MolecularSequence.relative.reference.windowEnd"/>
       <short value="End position of the window on the reference sequence"/>
       <definition value="End position of the window on the reference sequence. This value should honor the rules of the  coordinateSystem."/>
@@ -416,7 +392,7 @@
     <element id="MolecularSequence.relative.edit.observedAllele">
       <path value="MolecularSequence.relative.edit.observedAllele"/>
       <short value="Allele that was observed"/>
-      <definition value="Allele that was observed. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed  sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end."/>
+      <definition value="Allele that was observed. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end."/>
       <min value="0"/>
       <max value="1"/>
       <type>
