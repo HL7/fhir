@@ -116,7 +116,7 @@ differences between CDA and the Composition resource:
  <li>A composition is a logical construct- its identifier matches to the CDA ClinicalDocument.setId. 
  Composition resources are wrapped into <a href="documents.html">Document</a> structures, for exchange
  of the whole package (the composition and its parts), and this wrapped, sealed entity is equivalent to a CDA document, 
- where the Bundle.id is equivalent in function to ClinicalDocument.id (but it is not identical when interconverting, since it's a transform between them).</li>
+ where the <code>Bundle.identifier</code> is equivalent to ClinicalDocument.id.</li>
  <li>The composition section defines a section (or sub-section) of the document, but unlike CDA, the section entries are 
    actually references to other <a href="resourcelist.html">resources</a> that hold the supporting data content for the section. 
    This design means that the data can be reused in many other ways. 
