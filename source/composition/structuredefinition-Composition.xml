@@ -378,8 +378,8 @@
       <path value="Composition.date"/>
       <short value="Composition editing time"/>
       <definition value="The composition editing time, when the composition was last logically changed by the author."/>
-      <comment value="The Last Modified Date on the composition may be after the date of the document was attested without being changed."/>
-      <requirements value="dateTime is used for tracking, organizing versions and searching. Note that this is the time of *authoring*. When packaged in a document, [Bundle.timestamp](bundle-definitions.html#Bundle.timestamp) is the date of packaging."/>
+      <comment value="The Last Modified Date on the composition may be after the date of the document was attested without being changed. This means that the date on an amended document is the date of the amendment, not the date of original authorship."/>
+      <requirements value="dateTime is used for tracking, organizing versions and searching. Note that this is the time of authoring this version of the Composition. When packaged in a document, [Bundle.timestamp](bundle-definitions.html#Bundle.timestamp) is the date of packaging."/>
       <min value="1"/>
       <max value="1"/>
       <type>
