@@ -3,431 +3,405 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="FHIR-version"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <lastUpdated value="2022-05-13T13:40:33.463-04:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
       <p>This code system http://hl7.org/fhir/FHIR-version defines the following codes:</p>
-      
       <table class="codes">
-        
         <tr>
-          
+          <td>
+            <b>Lvl</b>
+          </td>
           <td style="white-space:nowrap">
-            
             <b>Code</b>
-          
           </td>
-          
           <td>
-            
             <b>Display</b>
-          
           </td>
-          
           <td>
-            
             <b>Definition</b>
-          
           </td>
-        
         </tr>
-        
         <tr>
-          
+          <td>1</td>
           <td style="white-space:nowrap">0.01
-            
             <a name="FHIR-version-0.4601"> </a>
-          
           </td>
-          
           <td>0.01</td>
-          
           <td>Oldest archived version of FHIR.</td>
-        
         </tr>
-        
         <tr>
-          
+          <td>1</td>
           <td style="white-space:nowrap">0.05
-            
             <a name="FHIR-version-0.4605"> </a>
-          
           </td>
-          
           <td>0.05</td>
-          
           <td>1st Draft for Comment (Sept 2012 Ballot).</td>
-        
         </tr>
-        
         <tr>
-          
+          <td>1</td>
           <td style="white-space:nowrap">0.06
-            
             <a name="FHIR-version-0.4606"> </a>
-          
           </td>
-          
           <td>0.06</td>
-          
           <td>2nd Draft for Comment (January 2013 Ballot).</td>
-        
         </tr>
-        
         <tr>
-          
+          <td>1</td>
           <td style="white-space:nowrap">0.11
-            
             <a name="FHIR-version-0.4611"> </a>
-          
           </td>
-          
           <td>0.11</td>
-          
           <td>DSTU 1 Ballot version.</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">0.0.80
-            
+          <td>1</td>
+          <td style="white-space:nowrap">0.0
+            <a name="FHIR-version-0.460"> </a>
+          </td>
+          <td>0.0</td>
+          <td>DSTU 1 version.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  0.0.80
             <a name="FHIR-version-0.460.4680"> </a>
-          
           </td>
-          
           <td>0.0.80</td>
-          
           <td>DSTU 1 Official version.</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">0.0.81
-            
+          <td>2</td>
+          <td style="white-space:nowrap">  0.0.81
             <a name="FHIR-version-0.460.4681"> </a>
-          
           </td>
-          
           <td>0.0.81</td>
-          
           <td>DSTU 1 Official version Technical Errata #1.</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">0.0.82
-            
+          <td>2</td>
+          <td style="white-space:nowrap">  0.0.82
             <a name="FHIR-version-0.460.4682"> </a>
-          
           </td>
-          
           <td>0.0.82</td>
-          
           <td>DSTU 1 Official version Technical Errata #2.</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">0.4.0
-            
+          <td>1</td>
+          <td style="white-space:nowrap">0.4
+            <a name="FHIR-version-0.464"> </a>
+          </td>
+          <td>0.4</td>
+          <td>January 2015 Ballot.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  0.4.0
             <a name="FHIR-version-0.464.460"> </a>
-          
           </td>
-          
           <td>0.4.0</td>
-          
           <td>Draft For Comment (January 2015 Ballot).</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">0.5.0
-            
+          <td>1</td>
+          <td style="white-space:nowrap">0.5
+            <a name="FHIR-version-0.465"> </a>
+          </td>
+          <td>0.5</td>
+          <td>May 2015 Ballot.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  0.5.0
             <a name="FHIR-version-0.465.460"> </a>
-          
           </td>
-          
           <td>0.5.0</td>
-          
           <td>DSTU 2 Ballot version (May 2015 Ballot).</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">1.0.0
-            
+          <td>1</td>
+          <td style="white-space:nowrap">1.0
+            <a name="FHIR-version-1.460"> </a>
+          </td>
+          <td>1.0</td>
+          <td>DSTU 2 version.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  1.0.0
             <a name="FHIR-version-1.460.460"> </a>
-          
           </td>
-          
           <td>1.0.0</td>
-          
           <td>DSTU 2 QA Preview + CQIF Ballot (Sep 2015).</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">1.0.1
-            
+          <td>2</td>
+          <td style="white-space:nowrap">  1.0.1
             <a name="FHIR-version-1.460.461"> </a>
-          
           </td>
-          
           <td>1.0.1</td>
-          
           <td>DSTU 2 (Official version).</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">1.0.2
-            
+          <td>2</td>
+          <td style="white-space:nowrap">  1.0.2
             <a name="FHIR-version-1.460.462"> </a>
-          
           </td>
-          
           <td>1.0.2</td>
-          
           <td>DSTU 2 (Official version) with 1 technical errata.</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">1.1.0
-            
+          <td>1</td>
+          <td style="white-space:nowrap">1.1
+            <a name="FHIR-version-1.461"> </a>
+          </td>
+          <td>1.1</td>
+          <td>GAO Ballot version.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  1.1.0
             <a name="FHIR-version-1.461.460"> </a>
-          
           </td>
-          
           <td>1.1.0</td>
-          
           <td>GAO Ballot + draft changes to main FHIR standard.</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">1.4.0
-            
+          <td>1</td>
+          <td style="white-space:nowrap">1.4
+            <a name="FHIR-version-1.464"> </a>
+          </td>
+          <td>1.4</td>
+          <td>Connectathon 12 (Montreal) version.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  1.4.0
             <a name="FHIR-version-1.464.460"> </a>
-          
           </td>
-          
           <td>1.4.0</td>
-          
           <td>CQF on FHIR Ballot + Connectathon 12 (Montreal).</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">1.6.0
-            
+          <td>1</td>
+          <td style="white-space:nowrap">1.6
+            <a name="FHIR-version-1.466"> </a>
+          </td>
+          <td>1.6</td>
+          <td>Connectathon 13 (Baltimore) version.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  1.6.0
             <a name="FHIR-version-1.466.460"> </a>
-          
           </td>
-          
           <td>1.6.0</td>
-          
           <td>FHIR STU3 Ballot + Connectathon 13 (Baltimore).</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">1.8.0
-            
+          <td>1</td>
+          <td style="white-space:nowrap">1.8
+            <a name="FHIR-version-1.468"> </a>
+          </td>
+          <td>1.8</td>
+          <td>Connectathon 14 (San Antonio) version.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  1.8.0
             <a name="FHIR-version-1.468.460"> </a>
-          
           </td>
-          
           <td>1.8.0</td>
-          
           <td>FHIR STU3 Candidate + Connectathon 14 (San Antonio).</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">3.0.0
-            
+          <td>1</td>
+          <td style="white-space:nowrap">3.0
+            <a name="FHIR-version-3.460"> </a>
+          </td>
+          <td>3.0</td>
+          <td>STU3 version.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  3.0.0
             <a name="FHIR-version-3.460.460"> </a>
-          
           </td>
-          
           <td>3.0.0</td>
-          
           <td>FHIR Release 3 (STU).</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">3.0.1
-            
+          <td>2</td>
+          <td style="white-space:nowrap">  3.0.1
             <a name="FHIR-version-3.460.461"> </a>
-          
           </td>
-          
           <td>3.0.1</td>
-          
           <td>FHIR Release 3 (STU) with 1 technical errata.</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">3.0.2
-            
+          <td>2</td>
+          <td style="white-space:nowrap">  3.0.2
             <a name="FHIR-version-3.460.462"> </a>
-          
           </td>
-          
           <td>3.0.2</td>
-          
           <td>FHIR Release 3 (STU) with 2 technical errata.</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">3.3.0
-            
+          <td>1</td>
+          <td style="white-space:nowrap">3.3
+            <a name="FHIR-version-3.463"> </a>
+          </td>
+          <td>3.3</td>
+          <td>R4 Ballot #1 version.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  3.3.0
             <a name="FHIR-version-3.463.460"> </a>
-          
           </td>
-          
           <td>3.3.0</td>
-          
-          <td>R4 Ballot #1.</td>
-        
+          <td>R4 Ballot #1 + Connectaton 18 (Cologne).</td>
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">3.5.0
-            
+          <td>1</td>
+          <td style="white-space:nowrap">3.5
+            <a name="FHIR-version-3.465"> </a>
+          </td>
+          <td>3.5</td>
+          <td>R4 Ballot #2 version.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  3.5.0
             <a name="FHIR-version-3.465.460"> </a>
-          
           </td>
-          
           <td>3.5.0</td>
-          
-          <td>R4 Ballot #2.</td>
-        
+          <td>R4 Ballot #2 + Connectathon 19 (Baltimore).</td>
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">4.0.0
-            
+          <td>1</td>
+          <td style="white-space:nowrap">4.0
+            <a name="FHIR-version-4.460"> </a>
+          </td>
+          <td>4.0</td>
+          <td>R4 version.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  4.0.0
             <a name="FHIR-version-4.460.460"> </a>
-          
           </td>
-          
           <td>4.0.0</td>
-          
           <td>FHIR Release 4 (Normative + STU).</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">4.0.1
-            
+          <td>2</td>
+          <td style="white-space:nowrap">  4.0.1
             <a name="FHIR-version-4.460.461"> </a>
-          
           </td>
-          
           <td>4.0.1</td>
-          
           <td>FHIR Release 4 (Normative + STU) with 1 technical errata.</td>
-        
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">4.1.0
-            
+          <td>1</td>
+          <td style="white-space:nowrap">4.1
+            <a name="FHIR-version-4.461"> </a>
+          </td>
+          <td>4.1</td>
+          <td>R4B Ballot #1 version.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  4.1.0
             <a name="FHIR-version-4.461.460"> </a>
-          
           </td>
-          
           <td>4.1.0</td>
-          
-          <td>Interim Version.</td>
-        
+          <td>R4B Ballot #1 + Connectathon 27 (Virtual).</td>
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">4.2.0
-            
+          <td>1</td>
+          <td style="white-space:nowrap">4.2
+            <a name="FHIR-version-4.462"> </a>
+          </td>
+          <td>4.2</td>
+          <td>R5 Preview #1 version.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  4.2.0
             <a name="FHIR-version-4.462.460"> </a>
-          
           </td>
-          
           <td>4.2.0</td>
-          
-          <td>R5 Preview #1.</td>
-        
+          <td>R5 Preview #1 + Connectathon 23 (Sydney).</td>
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">4.4.0
-            
+          <td>1</td>
+          <td style="white-space:nowrap">4.3
+            <a name="FHIR-version-4.463"> </a>
+          </td>
+          <td>4.3</td>
+          <td>R4B version.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  4.3.0
+            <a name="FHIR-version-4.463.460"> </a>
+          </td>
+          <td>4.3.0</td>
+          <td>FHIR Release 4B (Normative + STU).</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td style="white-space:nowrap">4.4
+            <a name="FHIR-version-4.464"> </a>
+          </td>
+          <td>4.4</td>
+          <td>R5 Preview #2 version.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  4.4.0
             <a name="FHIR-version-4.464.460"> </a>
-          
           </td>
-          
           <td>4.4.0</td>
-          
-          <td>R5 Preview #2.</td>
-        
+          <td>R5 Preview #2 + Connectathon 24 (Virtual).</td>
         </tr>
-        
         <tr>
-          
-          <td style="white-space:nowrap">4.5.0
-            
+          <td>1</td>
+          <td style="white-space:nowrap">4.5
+            <a name="FHIR-version-4.465"> </a>
+          </td>
+          <td>4.5</td>
+          <td>R5 Preview #3 version.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  4.5.0
             <a name="FHIR-version-4.465.460"> </a>
-          
           </td>
-          
           <td>4.5.0</td>
-          
-          <td>R5 Preview #3.</td>
-        
+          <td>R5 Preview #3 + Connectathon 25 (Virtual).</td>
         </tr>
         <tr>
-          
-          <td style="white-space:nowrap">4.6.0
-            
-            <a name="FHIR-version-4.466.460"> </a>
-          
+          <td>1</td>
+          <td style="white-space:nowrap">4.6
+            <a name="FHIR-version-4.466"> </a>
           </td>
-          
+          <td>4.6</td>
+          <td>R5 Draft Ballot version.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="white-space:nowrap">  4.6.0
+            <a name="FHIR-version-4.466.460"> </a>
+          </td>
           <td>4.6.0</td>
-          
-          <td>R5 Draft Ballot.</td>
-        
-        </tr>      
+          <td>R5 Draft Ballot + Connectathon 27 (Virtual).</td>
+        </tr>
       </table>
-    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -452,10 +426,11 @@
   <title value="FHIRVersion"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
+  <date value="2022-05-13T13:40:33.463-04:00"/>
   <description value="All published FHIR Versions."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/FHIR-version"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="0.01"/>
@@ -478,118 +453,218 @@
     <definition value="DSTU 1 Ballot version."/>
   </concept>
   <concept>
-    <code value="0.0.80"/>
-    <display value="0.0.80"/>
-    <definition value="DSTU 1 Official version."/>
+    <code value="0.0"/>
+    <display value="0.0"/>
+    <definition value="DSTU 1 version."/>
+    <concept>
+      <code value="0.0.80"/>
+      <display value="0.0.80"/>
+      <definition value="DSTU 1 Official version."/>
+    </concept>
+    <concept>
+      <code value="0.0.81"/>
+      <display value="0.0.81"/>
+      <definition value="DSTU 1 Official version Technical Errata #1."/>
+    </concept>
+    <concept>
+      <code value="0.0.82"/>
+      <display value="0.0.82"/>
+      <definition value="DSTU 1 Official version Technical Errata #2."/>
+    </concept>
   </concept>
   <concept>
-    <code value="0.0.81"/>
-    <display value="0.0.81"/>
-    <definition value="DSTU 1 Official version Technical Errata #1."/>
+    <code value="0.4"/>
+    <display value="0.4"/>
+    <definition value="January 2015 Ballot."/>
+    <concept>
+      <code value="0.4.0"/>
+      <display value="0.4.0"/>
+      <definition value="Draft For Comment (January 2015 Ballot)."/>
+    </concept>
   </concept>
   <concept>
-    <code value="0.0.82"/>
-    <display value="0.0.82"/>
-    <definition value="DSTU 1 Official version Technical Errata #2."/>
+    <code value="0.5"/>
+    <display value="0.5"/>
+    <definition value="May 2015 Ballot."/>
+    <concept>
+      <code value="0.5.0"/>
+      <display value="0.5.0"/>
+      <definition value="DSTU 2 Ballot version (May 2015 Ballot)."/>
+    </concept>
   </concept>
   <concept>
-    <code value="0.4.0"/>
-    <display value="0.4.0"/>
-    <definition value="Draft For Comment (January 2015 Ballot)."/>
+    <code value="1.0"/>
+    <display value="1.0"/>
+    <definition value="DSTU 2 version."/>
+    <concept>
+      <code value="1.0.0"/>
+      <display value="1.0.0"/>
+      <definition value="DSTU 2 QA Preview + CQIF Ballot (Sep 2015)."/>
+    </concept>
+    <concept>
+      <code value="1.0.1"/>
+      <display value="1.0.1"/>
+      <definition value="DSTU 2 (Official version)."/>
+    </concept>
+    <concept>
+      <code value="1.0.2"/>
+      <display value="1.0.2"/>
+      <definition value="DSTU 2 (Official version) with 1 technical errata."/>
+    </concept>
   </concept>
   <concept>
-    <code value="0.5.0"/>
-    <display value="0.5.0"/>
-    <definition value="DSTU 2 Ballot version (May 2015 Ballot)."/>
+    <code value="1.1"/>
+    <display value="1.1"/>
+    <definition value="GAO Ballot version."/>
+    <concept>
+      <code value="1.1.0"/>
+      <display value="1.1.0"/>
+      <definition value="GAO Ballot + draft changes to main FHIR standard."/>
+    </concept>
   </concept>
   <concept>
-    <code value="1.0.0"/>
-    <display value="1.0.0"/>
-    <definition value="DSTU 2 QA Preview + CQIF Ballot (Sep 2015)."/>
+    <code value="1.4"/>
+    <display value="1.4"/>
+    <definition value="Connectathon 12 (Montreal) version."/>
+    <concept>
+      <code value="1.4.0"/>
+      <display value="1.4.0"/>
+      <definition value="CQF on FHIR Ballot + Connectathon 12 (Montreal)."/>
+    </concept>
   </concept>
   <concept>
-    <code value="1.0.1"/>
-    <display value="1.0.1"/>
-    <definition value="DSTU 2 (Official version)."/>
+    <code value="1.6"/>
+    <display value="1.6"/>
+    <definition value="Connectathon 13 (Baltimore) version."/>
+    <concept>
+      <code value="1.6.0"/>
+      <display value="1.6.0"/>
+      <definition value="FHIR STU3 Ballot + Connectathon 13 (Baltimore)."/>
+    </concept>
   </concept>
   <concept>
-    <code value="1.0.2"/>
-    <display value="1.0.2"/>
-    <definition value="DSTU 2 (Official version) with 1 technical errata."/>
+    <code value="1.8"/>
+    <display value="1.8"/>
+    <definition value="Connectathon 14 (San Antonio) version."/>
+    <concept>
+      <code value="1.8.0"/>
+      <display value="1.8.0"/>
+      <definition value="FHIR STU3 Candidate + Connectathon 14 (San Antonio)."/>
+    </concept>
   </concept>
   <concept>
-    <code value="1.1.0"/>
-    <display value="1.1.0"/>
-    <definition value="GAO Ballot + draft changes to main FHIR standard."/>
+    <code value="3.0"/>
+    <display value="3.0"/>
+    <definition value="STU3 version."/>
+    <concept>
+      <code value="3.0.0"/>
+      <display value="3.0.0"/>
+      <definition value="FHIR Release 3 (STU)."/>
+    </concept>
+    <concept>
+      <code value="3.0.1"/>
+      <display value="3.0.1"/>
+      <definition value="FHIR Release 3 (STU) with 1 technical errata."/>
+    </concept>
+    <concept>
+      <code value="3.0.2"/>
+      <display value="3.0.2"/>
+      <definition value="FHIR Release 3 (STU) with 2 technical errata."/>
+    </concept>
   </concept>
   <concept>
-    <code value="1.4.0"/>
-    <display value="1.4.0"/>
-    <definition value="CQF on FHIR Ballot + Connectathon 12 (Montreal)."/>
+    <code value="3.3"/>
+    <display value="3.3"/>
+    <definition value="R4 Ballot #1 version."/>
+    <concept>
+      <code value="3.3.0"/>
+      <display value="3.3.0"/>
+      <definition value="R4 Ballot #1 + Connectaton 18 (Cologne)."/>
+    </concept>
   </concept>
   <concept>
-    <code value="1.6.0"/>
-    <display value="1.6.0"/>
-    <definition value="FHIR STU3 Ballot + Connectathon 13 (Baltimore)."/>
+    <code value="3.5"/>
+    <display value="3.5"/>
+    <definition value="R4 Ballot #2 version."/>
+    <concept>
+      <code value="3.5.0"/>
+      <display value="3.5.0"/>
+      <definition value="R4 Ballot #2 + Connectathon 19 (Baltimore)."/>
+    </concept>
   </concept>
   <concept>
-    <code value="1.8.0"/>
-    <display value="1.8.0"/>
-    <definition value="FHIR STU3 Candidate + Connectathon 14 (San Antonio)."/>
+    <code value="4.0./>
+    <display value="4.0"/>
+    <definition value="R4 version."/>
+    <concept>
+      <code value="4.0.0"/>
+      <display value="4.0.0"/>
+      <definition value="FHIR Release 4 (Normative + STU)."/>
+    </concept>
+    <concept>
+      <code value="4.0.1"/>
+      <display value="4.0.1"/>
+      <definition value="FHIR Release 4 (Normative + STU) with 1 technical errata."/>
+    </concept>
   </concept>
   <concept>
-    <code value="3.0.0"/>
-    <display value="3.0.0"/>
-    <definition value="FHIR Release 3 (STU)."/>
+    <code value="4.1"/>
+    <display value="4.1"/>
+    <definition value="R4B Ballot #1 version."/>
+    <concept>
+      <code value="4.1.0"/>
+      <display value="4.1.0"/>
+      <definition value="R4B Ballot #1 + Connectathon 27 (Virtual)."/>
+    </concept>
   </concept>
   <concept>
-    <code value="3.0.1"/>
-    <display value="3.0.1"/>
-    <definition value="FHIR Release 3 (STU) with 1 technical errata."/>
+    <code value="4.2"/>
+    <display value="4.2"/>
+    <definition value="R5 Preview #1 version."/>
+    <concept>
+      <code value="4.2.0"/>
+      <display value="4.2.0"/>
+      <definition value="R5 Preview #1 + Connectathon 23 (Sydney)."/>
+    </concept>
   </concept>
   <concept>
-    <code value="3.0.2"/>
-    <display value="3.0.2"/>
-    <definition value="FHIR Release 3 (STU) with 2 technical errata."/>
+    <code value="4.3"/>
+    <display value="4.3"/>
+    <definition value="R4B version."/>
+    <concept>
+      <code value="4.3.0"/>
+      <display value="4.3.0"/>
+      <definition value="FHIR Release 4B (Normative + STU)."/>
+    </concept>
   </concept>
   <concept>
-    <code value="3.3.0"/>
-    <display value="3.3.0"/>
-    <definition value="R4 Ballot #1."/>
+    <code value="4.4"/>
+    <display value="4.4"/>
+    <definition value="R5 Preview #2 version."/>
+    <concept>
+      <code value="4.4.0"/>
+      <display value="4.4.0"/>
+      <definition value="R5 Preview #2 + Connectathon 24 (Virtual)."/>
+    </concept>
   </concept>
   <concept>
-    <code value="3.5.0"/>
-    <display value="3.5.0"/>
-    <definition value="R4 Ballot #2."/>
+    <code value="4.5"/>
+    <display value="4.5"/>
+    <definition value="R5 Preview #3 version."/>
+    <concept>
+      <code value="4.5.0"/>
+      <display value="4.5.0"/>
+      <definition value="R5 Preview #3 + Connectathon 25 (Virtual)."/>
+    </concept>
   </concept>
   <concept>
-    <code value="4.0.0"/>
-    <display value="4.0.0"/>
-    <definition value="FHIR Release 4 (Normative + STU)."/>
-  </concept>
-  <concept>
-    <code value="4.0.1"/>
-    <display value="4.0.1"/>
-    <definition value="FHIR Release 4 (Normative + STU) with 1 technical errata."/>
-  </concept>
-  <concept>
-    <code value="4.1.0"/>
-    <display value="4.1.0"/>
-    <definition value="Interim Version."/>
-  </concept>
-  <concept>
-    <code value="4.2.0"/>
-    <display value="4.2.0"/>
-    <definition value="R5 Preview #1."/>
-  </concept>
-  <concept>
-    <code value="4.4.0"/>
-    <display value="4.4.0"/>
-    <definition value="R5 Preview #2."/>
-  </concept>
-  <concept>
-    <code value="4.6.0"/>
-    <display value="4.6.0"/>
-    <definition value="R5 Preview #3."/>
+    <code value="4.6"/>
+    <display value="4.6"/>
+    <definition value="R5 Draft Ballot version."/>
+    <concept>
+      <code value="4.6.0"/>
+      <display value="4.6.0"/>
+      <definition value="R5 Draft Ballot + Connectathon 27 (Virtual)."/>
+    </concept>
   </concept>
 </CodeSystem>
