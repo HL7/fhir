@@ -38,7 +38,7 @@
       <li><code>MolecularSequence.relative.reference.referenceSeqId</code>: Reference sequence id in public database;</li>
       <li><code>MolecularSequence.relative.reference.referenceSeqString</code>: Reference sequence string; </li>
       <li><code>MolecularSequence.relative.reference.referenceSeqPointer</code>: Reference to observed sequence stored in another sequence entity; </li>
-      <li><code>MolecularSequence.relative.reference.referenceAssembly</code>, <code>MolecularSequence.relative.reference.chromosome</code>: The combination of reference assembly and chromosome. </li>
+      <li><code>MolecularSequence.relative.reference.referenceSequenceAssembly</code>, <code>MolecularSequence.relative.reference.chromosome</code>: The combination of reference assembly and chromosome. </li>
     </ol>
   </p>
   <p>

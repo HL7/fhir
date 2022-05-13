@@ -203,11 +203,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="LL5323-2"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Genomic coordinate system."/>
-        </extension>
         <strength value="extensible"/>
-        <description value="The chromosome containing the genetic finding"/>
+        <description value="Genomic coordinate system."/>
         <valueSet value="http://loinc.org/LL5323-2/"/>
       </binding>
     </element>
@@ -226,23 +223,23 @@
       <constraint>
         <key value="msq-6"/>
         <severity value="error"/>
-        <human value="Have and only have one of the following elements in referenceSeq : 1. referenceAssembly ; 2 referenceSeqId; 3. referenceSeqPointer;  4. referenceSeqString;"/>
-        <expression value="(referenceAssembly.count()+referenceSeqId.count()+ referenceSeqPointer.count()+ referenceSeqString.count()) = 1"/>
-        <xpath value="count(f:referenceAssembly)+count(f:referenceSeqId)+count(f:referenceSeqPointer)+count(f:referenceSeqString)=1"/>
+        <human value="Have and only have one of the following elements in referenceSeq : 1. referenceSequenceAssembly ; 2 referenceSeqId; 3. referenceSeqPointer;  4. referenceSeqString;"/>
+        <expression value="(referenceSequenceAssembly.count()+referenceSeqId.count()+ referenceSeqPointer.count()+ referenceSeqString.count()) = 1"/>
+        <xpath value="count(f:referenceSequenceAssembly)+count(f:referenceSeqId)+count(f:referenceSeqPointer)+count(f:referenceSeqString)=1"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </constraint>
       <constraint>
         <key value="msq-5"/>
         <severity value="error"/>
-        <human value="Both referenceAssembly and chromosome must be both contained if either one of them is contained"/>
-        <expression value="(chromosome.empty() and referenceAssembly.empty()) or (chromosome.exists() and referenceAssembly.exists())"/>
-        <xpath value="(exists(f:chromosome) and exists(f:referenceAssembly)) or (not(exists(f:chromosome)) and not(exists(f:referenceAssembly)))"/>
+        <human value="Both referenceSequenceAssembly and chromosome must be both contained if either one of them is contained"/>
+        <expression value="(chromosome.empty() and referenceSequenceAssembly.empty()) or (chromosome.exists() and referenceSequenceAssembly.exists())"/>
+        <xpath value="(exists(f:chromosome) and exists(f:referenceSequenceAssembly)) or (not(exists(f:chromosome)) and not(exists(f:referenceSequenceAssembly)))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </constraint>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.relative.reference.referenceAssembly">
-      <path value="MolecularSequence.relative.reference.referenceAssembly"/>
+    <element id="MolecularSequence.relative.reference.referenceSequenceAssembly">
+      <path value="MolecularSequence.relative.reference.referenceSequenceAssembly"/>
       <short value="The reference assembly used for reference, e.g. GRCh38"/>
       <definition value="The reference assembly used for reference, e.g. GRCh38."/>
       <min value="0"/>
@@ -254,9 +251,6 @@
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="LL1040-6"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="HumanRefSeqNCBIBuildId."/>
         </extension>
         <strength value="extensible"/>
         <description value="Human reference sequence NCBI build ID."/>
@@ -277,10 +271,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="LL2938-0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="List of human chromosomes."/>
-        </extension>
-        <strength value="example"/>
+        <strength value="required"/>
         <description value="The chromosome containing the sequence."/>
         <valueSet value="http://loinc.org/LL2938-0/"/>
       </binding>
@@ -298,9 +289,6 @@
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Multiple bindings acceptable (NCBI or LRG)"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Reference identifier."/>
         </extension>
         <strength value="example"/>
         <description value="Multiple bindings acceptable (NCBI or LRG)"/>
@@ -368,9 +356,6 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="orientationType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Type for orientation."/>
-        </extension>
         <strength value="required"/>
         <description value="Type for orientation"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/orientation-type"/>
@@ -389,9 +374,6 @@
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="strandType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Type for strand."/>
         </extension>
         <strength value="required"/>
         <description value="Type for strand"/>
