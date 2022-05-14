@@ -459,7 +459,6 @@
       <type>
         <code value="string"/>
       </type>
-      <condition value="spd-1"/>
     </element>
     <element id="SearchParameter.xpath">
       <path value="SearchParameter.xpath"/>
