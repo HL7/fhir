@@ -33,7 +33,7 @@
 	<actual value="true"/>
 	<characteristic>
 		<description value="Stroke Thrombolysis Trialists’ Collaborators Group collection used for individual patient data meta-analysis" />
-		<defByCombination>
+		<definitionByCombination>
 			<code value="any-of" />
 			<characteristic>
 				<definitionReference>
@@ -84,6 +84,6 @@
 					<display value="NINDS Trial Cohort"/>
 				</definitionReference>
 			</characteristic>
-		</defByCombination>
+		</definitionByCombination>
 	</characteristic>
 </EvidenceVariable>
