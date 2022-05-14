@@ -207,16 +207,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/valueset-compose-include-minimumMultiplicity"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/valueset-compose-include-maximumMultiplicity"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/valueset-compose-createdBy"/>
       </reference>
     </resource>
