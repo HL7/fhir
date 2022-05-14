@@ -630,7 +630,7 @@
     </element>
     <element id="ImplementationGuide.definition.resource.name">
       <path value="ImplementationGuide.definition.resource.name"/>
-      <short value="Human Name for the resource"/>
+      <short value="Human readable name for the resource"/>
       <definition value="A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name)."/>
       <min value="0"/>
       <max value="1"/>
