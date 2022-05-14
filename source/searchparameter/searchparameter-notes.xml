@@ -8,7 +8,8 @@
 <li>If the extension's context is scoped by a single resource, SearchParameter.base must be set to that resource,
 and there may be one or more <code>xpath</code> elements corresponding to the elements specified in the extension's context, e.g.
 "f:Patient/f:name/f:extension[@url='extension url']"</li> 
-<li>If the extension's context specifies multiple resources, <code>SearchParameter.base</code> must be set to "DomainResource".</li>
+<li>If the extension's context specifies multiple resources, this can be represented with multiple elements in the 
+<code>SearchParameter.base</code> array.</li>
 <li>You may use a single <code>xpath</code> element with the full URL of the Extension to indicate that the SearchParameter
 would search in all elements of the given <code>SearchParameter.base</code> resource for the given extension.</li>
 </ul>
