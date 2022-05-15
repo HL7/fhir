@@ -179,6 +179,18 @@
       <condition value="cnl-0"/>
       <isSummary value="true"/>
     </element>
+    <element id="SearchParameter.title">
+      <path value="SearchParameter.title"/>
+      <short value="Name for this search parameter (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the search parameter."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="SearchParameter.derivedFrom">
       <path value="SearchParameter.derivedFrom"/>
       <short value="Original definition for the search parameter"/>
