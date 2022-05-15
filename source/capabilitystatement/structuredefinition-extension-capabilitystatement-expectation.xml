@@ -71,6 +71,26 @@
      <type value="element"/>
      <expression value="CapabilityStatement.rest.resource.operation"/>
    </context>
+  <context>
+    <type value="element"/>
+    <expression value="SearchParameter.multipleOr"/>
+  </context> 
+  <context>
+    <type value="element"/>
+    <expression value="SearchParameter.multipleAnd"/>
+  </context> 
+  <context>
+    <type value="element"/>
+    <expression value="SearchParameter.comparator"/>
+  </context> 
+  <context>
+    <type value="element"/>
+    <expression value="SearchParameter.modifer"/>
+  </context> 
+  <context>
+    <type value="element"/>
+    <expression value="SearchParameter.chain"/>
+  </context> 
   <type value="Extension"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
   <derivation value="constraint"/>
