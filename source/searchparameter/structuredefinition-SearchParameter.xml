@@ -495,7 +495,7 @@
       <path value="SearchParameter.target"/>
       <short value="Types of resource (if a resource reference)"/>
       <definition value="Types of resource (if a resource is referenced)."/>
-      <comments value="In some cases, targets may exist for a search parameter that do not exist for the specified FHIRPath for all of the resources identified in SearchParameter.base.  For example, the core clinical-encounter search parameter allows both Encounter and EpisodeOfCare as targets, even though not all of the base resources have EpisodeOfCare as a valid target.&#xA;&#xA;However, the list of targets SHOULD cover all targets that might appear that are permitted by the specified FHIRPath."/>
+      <comment value="In some cases, targets may exist for a search parameter that do not exist for the specified FHIRPath for all of the resources identified in SearchParameter.base.  For example, the core clinical-encounter search parameter allows both Encounter and EpisodeOfCare as targets, even though not all of the base resources have EpisodeOfCare as a valid target.&#xA;&#xA;However, the list of targets SHOULD cover all targets that might appear that are permitted by the specified FHIRPath."/>
       <min value="0"/>
       <max value="*"/>
       <type>
