@@ -62,10 +62,10 @@
 		<end value="2017-06-01"/>
 	</period>
 	<created value="2016-01-01"/>
-	<author>
+	<custodian>
 		<reference value="Practitioner/example" />
 		<display value="Dr Adam Careful" />
-	</author>
+	</custodian>
 	<careTeam>
 		<reference value="CareTeam/example"/>
 	</careTeam>
