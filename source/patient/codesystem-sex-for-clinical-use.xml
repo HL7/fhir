@@ -22,17 +22,17 @@
   <concept>
     <code value="female"/>
     <display value="Female"/>
-    <definition value="Available data indicates diagnostic and treatment plans should consider best practices associated with female reference populations."/>
+    <definition value="Available data indicates that diagnostics, analytics, and treatments should consider best practices associated with female reference populations."/>
   </concept>
   <concept>
     <code value="male"/>
     <display value="Male"/>
-    <definition value="Available data indicates diagnostic and treatment plans should consider best practices associated with male reference populations."/>
+    <definition value="Available data indicates that diagnostics, analytics, and treatments should consider best practices associated with male reference populations."/>
   </concept>
   <concept>
     <code value="specified"/>
     <display value="Specified"/>
-    <definition value="Patient data indicates the clinical diagnostic and treatment best practices may be undefined or not aligned with existing sex-derived reference populations.  Individuals or systems providing care should either use default behavior that is safe for both male and female populations, individually review treatment options with the patient, or carefully inspect relevant observations in the chart before proceeding with treatment."/>
+    <definition value="Available data indicates that diagnostics, analytics, and treatment best practices may be undefined or not aligned with existing sex-derived reference populations.  Individuals or systems providing care should either use default behavior that is safe for both male and female populations, individually review treatment options with the patient, or carefully inspect relevant observations before proceeding with treatment."/>
   </concept>
   <concept>
     <code value="unknown"/>
