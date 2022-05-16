@@ -32,7 +32,7 @@
   <concept>
     <code value="specified"/>
     <display value="Specified"/>
-    <definition value="Patient data indicates the clinical diagnostic and treatment best practices may be ambiguous, undefined, or not aligned with existing sex-derived reference populations.  Individuals or systems providing care should either use default behavior that is safe for both male and female populations, individually review treatment options with the patient, or carefully inspect relevant observations in the chart before proceeding with treatment."/>
+    <definition value="Patient data indicates the clinical diagnostic and treatment best practices may be undefined or not aligned with existing sex-derived reference populations.  Individuals or systems providing care should either use default behavior that is safe for both male and female populations, individually review treatment options with the patient, or carefully inspect relevant observations in the chart before proceeding with treatment."/>
   </concept>
   <concept>
     <code value="unknown"/>

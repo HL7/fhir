@@ -38,7 +38,7 @@ For ease of interoperability, a patient’s sex for clinical use is constrained 
 &#xA;
 **Male** - Available data indicates diagnostic and treatment plans should consider best practices associated with male reference populations.&#xA;
 &#xA;
-**Specified** - Patient data indicates the clinical diagnostic and treatment best practices may be ambiguous, undefined, or not aligned with existing sex-derived reference populations. Individuals or systems providing care should either use default behavior that is safe for both male and female populations, individually review treatment options with the patient, or carefully inspect relevant observations in the chart before proceeding with treatment.&#xA;
+**Specified** - Patient data indicates the clinical diagnostic and treatment best practices may be undefined or not aligned with existing sex-derived reference populations. Individuals or systems providing care should either use default behavior that is safe for both male and female populations, individually review treatment options with the patient, or carefully inspect relevant observations in the chart before proceeding with treatment.&#xA;
 &#xA;
 **Unknown** - The sex for clinical use cannot be determined because there are no relevant evidence or documentation, or the evidence or documentation are not sufficient to determine a value.
 "/>
