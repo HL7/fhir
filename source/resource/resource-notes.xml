@@ -467,7 +467,6 @@ The version is often not stated explicitly in the resource; it is controlled by 
 
 
 <a name="tags"></a>
-<a name="tag"></a>
 <h3>Tags, Profiles, and Security Labels</h3>
 <p>
 These 3 metadata attributes are part of the resource, but are never used to keep information 
