@@ -179,6 +179,18 @@
       <condition value="cnl-0"/>
       <isSummary value="true"/>
     </element>
+    <element id="SearchParameter.title">
+      <path value="SearchParameter.title"/>
+      <short value="Name for this search parameter (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the search parameter."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="SearchParameter.derivedFrom">
       <path value="SearchParameter.derivedFrom"/>
       <short value="Original definition for the search parameter"/>
@@ -459,7 +471,6 @@
       <type>
         <code value="string"/>
       </type>
-      <condition value="spd-1"/>
     </element>
     <element id="SearchParameter.xpath">
       <path value="SearchParameter.xpath"/>
@@ -496,6 +507,7 @@
       <path value="SearchParameter.target"/>
       <short value="Types of resource (if a resource reference)"/>
       <definition value="Types of resource (if a resource is referenced)."/>
+      <comment value="In some cases, targets may exist for a search parameter that do not exist for the specified FHIRPath for all of the resources identified in SearchParameter.base.  For example, the core clinical-encounter search parameter allows both Encounter and EpisodeOfCare as targets, even though not all of the base resources have EpisodeOfCare as a valid target.&#xA;&#xA;However, the list of targets SHOULD cover all targets that might appear that are permitted by the specified FHIRPath."/>
       <min value="0"/>
       <max value="*"/>
       <type>
