@@ -184,20 +184,20 @@
 			<packageFor>
 				<reference value="#"/>
 			</packageFor>
-			<package>
-				<package>
+			<packaging>
+				<packaging>
 					<type>
 						<coding>
 							<code value="cardboard box (outer)"/>
 						</coding>
 					</type>
-					<package>
+					<packaging>
 						<type>
 							<coding>
 								<code value="cardboard box (inner)"/>
 							</coding>
 						</type>
-						<package>
+						<packaging>
 							<type>
 								<coding>
 									<code value="sachet"/>
@@ -216,8 +216,8 @@
 									<code value="g"/>
 								</amount>
 							</containedItem>
-						</package>
-						<package>
+						</packaging>
+						<packaging>
 							<type>
 								<coding>
 									<code value="bottle"/>
@@ -236,9 +236,9 @@
 									<code value="mL"/>
 								</amount>
 							</containedItem>
-						</package>
-					</package>
-					<package>
+						</packaging>
+					</packaging>
+					<packaging>
 						<type>
 							<coding>
 								<code value="foil bag"/>
@@ -254,9 +254,9 @@
 								<value value="1"/>
 							</amount>
 						</containedItem>
-					</package>
-				</package>
-			</package>
+					</packaging>
+				</packaging>
+			</packaging>
 		</PackagedProductDefinition>
 	</contained>
 	<contained>

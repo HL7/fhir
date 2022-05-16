@@ -7,7 +7,7 @@
 			<packageFor>
 				<reference value="#"/>
 			</packageFor>
-			<package>
+			<packaging>
 				<type>
 					<coding>
 						<code value="cardboard box"/>
@@ -24,7 +24,7 @@
 						<value value="20"/>
 					</amount> 
 				</containedItem>
-			</package>
+			</packaging>
 		</PackagedProductDefinition>
 	</contained>
 	<contained>

@@ -125,7 +125,7 @@
 			<packageFor>
 				<reference value="#"/>
 			</packageFor>
-			<package>
+			<packaging>
 				<!-- can be more details of the package here, but not necessary for this use case -->
 				<containedItem>
 					<item>
@@ -147,7 +147,7 @@
 						</reference>
 					</item>
 				</containedItem>
-			</package>
+			</packaging>
 		</PackagedProductDefinition>
 	</contained>
 	<contained>
