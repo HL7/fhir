@@ -230,7 +230,7 @@
     </element>
     <element id="Ingredient.manufacturer">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="160,280"/>
+        <valueCode value="160,300"/>
       </extension>
       <path value="Ingredient.manufacturer"/>
       <short value="An organization that manufactures this ingredient"/>
