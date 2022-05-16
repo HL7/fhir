@@ -36,15 +36,15 @@ In addition, FHIRPath is used in <a href="http://cds-hooks.hl7.org/ballots/2018M
 <h3>Using FHIRPath with Resources</h3>
 
 <p>
-In FHIRPath, like XPath, operations are expressed in terms of the logical content of hierarchical data models, and support traversal, 
+In FHIRPath, like XPath, operations are expressed in terms of the logical content of hierarchical data models, and support traversal,
 selection and filtering of data.
 </p>
 <p>
-FHIRPath uses a tree model that abstracts away the actual underlying data model of the 
-data being queried. For FHIR, this means that the contents of the resources and data 
-types as described in the Logical views (or the UML diagrams) are used as the model, 
-rather than the JSON and XML formats, so specific xml or json features are not 
-visible to the FHIRPath language (such as comments and the split representation 
+FHIRPath uses a tree model that abstracts away the actual underlying data model of the
+data being queried. For FHIR, this means that the contents of the resources and data
+types as described in the Logical views (or the UML diagrams) are used as the model,
+rather than the JSON and XML formats, so specific xml or json features are not
+visible to the FHIRPath language (such as comments and the split representation
 of primitives).
 </p>
 <p>More specifically:</p>
@@ -60,9 +60,9 @@ of primitives).
 <h4>Polymorphism in FHIR</h4>
 
 <p>
-For <a href="formats.html#choice">choice elements</a>, where elements can be one of multiple types, e.g. <code>Patient.deceased[x]</code>. 
-In actual instances these will be present as either <code>Patient.deceasedBoolean</code> or <code>Patient.deceasedDateTime</code>. 
-In FHIRPath, choice elements are labeled according to the name without the '[x]' suffix, and children can be explicitly treated 
+For <a href="formats.html#choice">choice elements</a>, where elements can be one of multiple types, e.g. <code>Patient.deceased[x]</code>.
+In actual instances these will be present as either <code>Patient.deceasedBoolean</code> or <code>Patient.deceasedDateTime</code>.
+In FHIRPath, choice elements are labeled according to the name without the '[x]' suffix, and children can be explicitly treated
 as a specific type using the <code>as</code> operation:</p>
 
 <pre class="fhirpath">
@@ -88,23 +88,23 @@ These statements apply to any resource that specializes <a href="domainresource.
 <a name="types"></a>
 <h4>Using FHIR types in expressions</h4>
 <p>
-The namespace for the types defined in FHIR (primitive data types, data types, resources) is 
-FHIR. So, for example: 
+The namespace for the types defined in FHIR (primitive data types, data types, resources) is
+FHIR. So, for example:
 </p>
 <pre>
 Patient.is(FHIR.Patient)
 </pre>
 <p>
-The first element - the type name - is not namespaced, but the parameter to the is() operation is. 
+The first element - the type name - is not namespaced, but the parameter to the is() operation is.
 </p>
 <p>
 Understanding the primitive types is critical: FHIR.string is a different type to System.String.
 The FHIR.string type specializes FHIR.Element, and has the properties id, extension, and also
-the implicit value property that is actually of type of System.String.  
+the implicit value property that is actually of type of System.String.
 </p>
 
 <p>
-The evaluation engine will automatically convert the value of FHIR types representing primitives 
+The evaluation engine will automatically convert the value of FHIR types representing primitives
 to FHIRPath types when they are used in expressions according to the following mapping:
 </p>
 
@@ -124,6 +124,10 @@ to FHIRPath types when they are used in expressions according to the following m
 <tr>
 <td>FHIR.integer, FHIR.unsignedInt, FHIR.positiveInt</td>
 <td>System.Integer</td>
+</tr>
+<tr>
+<td>FHIR.integer64</td>
+<td>System.Long</td>
 </tr>
 <tr>
 <td>FHIR.decimal</td>
@@ -150,7 +154,7 @@ Patient.name.given = 'Ewout'         // value of Patient.name.given as a string
 Patient.name.given.extension.first().value = true   // extension of the primitive value
 </pre>
 <p>
-The automatic conversion means that in most respects, a FHIR primitive can 
+The automatic conversion means that in most respects, a FHIR primitive can
 generally be treated as if it was the equivalent FHIRPath system type. The primary
 exception is the is() operation, where the difference is explicit:
 </p>
@@ -161,7 +165,7 @@ Patient.name.given.getValue().is(System.string);
 </pre>
 <p>
 As shown, all FHIR primitives have the operation <code>getValue()</code> defined (see below)
-for the few edge cases where the automatic conversion isn't appropriate. Note 
+for the few edge cases where the automatic conversion isn't appropriate. Note
 that as() does not have such restrictions - both of the following are valid:
 </p>
 <pre class="fhirpath">
@@ -174,8 +178,8 @@ Patient.name.given.as(System.string);
 <h4>Use of FHIR Quantity</h4>
 
 <p>
-The Mapping from FHIR Quantity to FHIRPath System.Quantity can only be applied if the FHIR Quantity has a UCUM code 
-- i.e. a system of <code>http://unitsofmeasure.org</code>, and a code is present. 
+The Mapping from FHIR Quantity to FHIRPath System.Quantity can only be applied if the FHIR Quantity has a UCUM code
+- i.e. a system of <code>http://unitsofmeasure.org</code>, and a code is present.
 </p>
 <p>
 As part of the mapping, time-valued UCUM units are mapped to the <a href="http://hl7.org/fhirpath/R2/index.html#time-valued-quantities">calendar duration units</a> defined in FHIRPath, according to the following map:
@@ -204,10 +208,10 @@ in any of the contexts above:
 %rootResource // the container resource for the resource identified by %resource
 </pre>
 <p>
-The resource is very often the context, such that %resource = %context. 
-When a DomainResource contains another resource, and that contained resource 
+The resource is very often the context, such that %resource = %context.
+When a DomainResource contains another resource, and that contained resource
 is the focus (%resource) then %rootResource refers to the container resource.
-Note that in most cases, the resource is not contained by another resource, and 
+Note that in most cases, the resource is not contained by another resource, and
 then %rootResource is the same as %resource.
 </p>
 
@@ -240,7 +244,7 @@ then %rootResource is the same as %resource.
 
   from
 
-"reference.startsWith('#').not() or 
+"reference.startsWith('#').not() or
   (%context.reference.substring(1).trace('url') in %resource.contained.id.trace('ids'))"
 </pre>
 <p>
@@ -311,7 +315,7 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 
 <p><b>htmlChecks : Boolean</b></p>
 
-<p>When invoked on an <a href="narrative.html#xhtml">xhtml</a> element returns true if the <a href="narrative.html#rules">rules around 
+<p>When invoked on an <a href="narrative.html#xhtml">xhtml</a> element returns true if the <a href="narrative.html#rules">rules around
 HTML usage</a> are met, and false if they are not. The return value is undefined (<code>null</code>) on any other kind of element.
 </p>
 
@@ -358,7 +362,7 @@ Implementation Guides are allowed to define their own externals, and implementer
 <h3>Restricted Subset ("Simple")</h3>
 
 <p>
-This page documents a restricted subset of the <a href="http://hl7.org/fhirpath">FHIRPath language</a> that 
+This page documents a restricted subset of the <a href="http://hl7.org/fhirpath">FHIRPath language</a> that
 is used in a few contexts in this specification. When the restricted
 FHIRPath language subset is in use, the following rules apply:
 </p>
@@ -391,13 +395,13 @@ The following locations use this restricted FHIRPath language:
 <h3>Terminology Service API</h3>
 
 <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Unlike this rest of this page, the FHIR Terminology service API is only draft (Maturity = 0). It will be advanced to a more 
+Unlike this rest of this page, the FHIR Terminology service API is only draft (Maturity = 0). It will be advanced to a more
 mature status following the usual <a href="versions.html#maturity">Maturity Model</a> for FHIR.
 </p>
 
 <p>
-In order to support terminological reasoning in FHIRPath statements, FHIR defines 
-a general %terminologies object that FHIRPath implementations should make available. 
+In order to support terminological reasoning in FHIRPath statements, FHIR defines
+a general %terminologies object that FHIRPath implementations should make available.
 Calls to this object are passed through a <a href="terminology-service.html">standard FHIR terminology service</a>.
 </p>
 <p>
