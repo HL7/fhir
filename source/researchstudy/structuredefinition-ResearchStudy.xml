@@ -195,7 +195,7 @@
     </element>
     <element id="ResearchStudy.label.type">
       <path value="ResearchStudy.label.type"/>
-      <short value="short | public | scientific"/>
+      <short value="primary | official | scientific | plain-language | subtitle | short-title | acronym | earlier-title | language | auto-translated | human-use | machine-use | duplicate-uid"/>
       <definition value="Kind of name."/>
       <min value="0"/>
       <max value="1"/>
@@ -204,11 +204,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchStudyLabelType"/>
+          <valueString value="TitleType"/>
         </extension>
         <strength value="extensible"/>
         <description value="desc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-label-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/title-type"/>
       </binding>
     </element>
     <element id="ResearchStudy.label.value">
@@ -862,8 +862,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchStudyPartyOrganizationType"/>
         </extension>
-        <strength value="extensible"/>
-        <description value="desc."/>
+        <strength value="example"/>
+        <description value="A characterization or type of the entity."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-org-type"/>
       </binding>
     </element>
