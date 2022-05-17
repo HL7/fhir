@@ -216,7 +216,7 @@
 			<display value="Lead Sponsor"/>
 		</concept>
 		<concept>
-			<code value="sponsor-investigatory"/>
+			<code value="sponsor-investigator"/>
 			<display value="Sponsor-Investigator"/>
 		</concept>
 		<concept>
