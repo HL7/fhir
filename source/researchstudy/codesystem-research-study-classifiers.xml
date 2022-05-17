@@ -434,6 +434,34 @@
 			<code value="exploratory"/>
 			<display value="Exploratory"/>
 			<definition value="Exploratory questions to be answered in the study."/>
+		</concept>		
+	</concept>
+	<concept>
+		<code value="research-study-arm-type"/>
+		<display value="Research Study Arm Type"/>
+		<concept>
+			<code value="active-comparator"/>
+			<display value="Active Comparator"/>
+		</concept>
+		<concept>
+			<code value="placebo-comparator"/>
+			<display value="Placebo Comparator"/>
+		</concept>
+		<concept>
+			<code value="sham-comparator"/>
+			<display value="Sham Comparator"/>
+		</concept>
+		<concept>
+			<code value="no-intervention"/>
+			<display value="No Intervention"/>
+		</concept>
+		<concept>
+			<code value="experimental"/>
+			<display value="Experimental"/>
+		</concept>
+		<concept>
+			<code value="other-arm-type"/>
+			<display value="Other Arm Type"/>
 		</concept>
 	</concept>
 </CodeSystem>
