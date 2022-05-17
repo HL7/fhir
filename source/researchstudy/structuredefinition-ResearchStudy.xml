@@ -204,7 +204,7 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchStudyTitleType"/>
+          <valueString value="ResearchStudyLabelType"/>
         </extension>
         <strength value="extensible"/>
         <description value="desc."/>
@@ -786,11 +786,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchStudyClassificationClassifier"/>
+          <valueString value="ResearchStudyClassifiers"/>
         </extension>
         <strength value="extensible"/>
         <description value="desc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-classification-classifier"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-classifiers"/>
       </binding>
     </element>
 
