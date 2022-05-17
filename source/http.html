@@ -854,6 +854,41 @@ Patch interactions may be performed as part of Batch or Transaction Operations u
 <p>
 Patch is not defined for all resources - see <a href="binary.html#patch">note about PATCH on Binary</a>.
 </p>
+<div class="draft-content">
+<a name="jsonpatch-transaction"></a>
+<h4>Patch Using JSON Patch (batch/transaction)</h4>
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+The behavior of using <i>JSON Patch in a batch/transaction interaction</i> is trial use until further
+experience is gained with its use. Implementer feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
+</p>
+<p>
+In addition, servers may support submitting the JSON Patch as a part of a FHIR batch or transaction interaction
+using a Binary resource as the payload in order to hold the contents.
+</p>
+<p>
+The following example shows a base64 encoded JSON Path content in a Binary resource applied to a Patient resource in a transaction Bundle:
+</p>
+<pre class="json" fragment="Bundle">
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "Patient/1",
+      "resource": {
+        "resourceType": "Binary",
+        "contentType": "application/json-patch+json",
+        "data": "WyB7ICJvcCI6InJlcGxhY2UiLCAicGF0aCI6Ii9hY3RpdmUiLCAidmFsdWUiOmZhbHNlIH0gXQ=="
+      },
+      "request": {
+        "method": "PATCH",
+        "url": "Patient/1"
+      }
+    }
+  ]
+}
+</pre>
+</div>
 <a name="delete"></a>
 <h3>delete</h3>
 <p>
