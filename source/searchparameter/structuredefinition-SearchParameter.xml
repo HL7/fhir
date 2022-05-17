@@ -486,7 +486,7 @@
     </element>
     <element id="SearchParameter.xpathUsage">
       <path value="SearchParameter.xpathUsage"/>
-      <short value="normal | phonetic | nearby | distance | other"/>
+      <short value="normal | phonetic | other"/>
       <definition value="How the search parameter relates to the set of elements returned by evaluating the xpath query."/>
       <min value="0"/>
       <max value="1"/>
