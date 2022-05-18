@@ -760,7 +760,7 @@
       <short value="Property value - as a code, quantity, boolean, string or attachmment"/>
       <definition value="Property value - can be a code, quantity, boolean, string or attachment."/>
       <comment value="The string is used for properties that are intrinsically text, such as warning text, or assemlby instructions. CodeableConcept.text also supports unencoded text but should be used where the characteristic is a concept that might be coded but there is no assigned code for the present value. For example, a security class can be a code like 'Class 1' but in some cases may contain a string like 'Depending on the settings' - in this case the property is normally coded but this is an exception"/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Quantity"/>
