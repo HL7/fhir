@@ -350,14 +350,14 @@
         <map value="FiveWs.status"/>
       </mapping>
     </element>
-    <element id="Device.biologicalSource">
+    <element id="Device.biologicalSourceEvent">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
-      <path value="Device.biologicalSource"/>
-      <short value="An identifier that supports traceability to the biological entity that is the source of biological material in the product"/>
-      <definition value="An identifier that supports traceability to the biological entity that is the source of biological material in the product."/>
-      <comment value="Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa.  The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device. For example, this applies to devices in the United States regulated under *Code of Federal Regulation 21CFR&#xA7;1271.290(c)*."/>
+      <path value="Device.biologicalSourceEvent"/>
+      <short value="An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled"/>
+      <definition value="An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled."/>
+      <comment value="Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa, while also satisfying donor anonymity requirements. The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device.  The identifier references an event that links to a single biological entity such as a blood donor, or to multiple biological entities (e.g. when the product is an embryo or a pooled platelet product).  A single biologicalSourceEvent identifier may appear on multiple products of many types derived from a single donation event or source extraction.  As an example, a single donation event may provide 2 kidneys and a liver for organ transplantation, 2 corneas for eye surgery, heart valves and arterial tissue for cardiovascular surgery, multiple skin grafts, tendons, multiple shaped bone grafts and a large number of bone putty/paste products; and each of them may be assigned to the same biological source event identifier."/>
       <alias value="Distinct Identification Code (DIC)"/>
       <min value="0"/>
       <max value="1"/>
