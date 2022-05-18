@@ -53,27 +53,6 @@
         <tr>
           
           
-          <td style="white-space:nowrap">in-progress
-            
-            
-            <a name="transport-status-in-progress"> </a>
-          
-          
-          </td>
-          
-          
-          <td>In Progress</td>
-          
-          
-          <td>Supply has been requested, but not delivered.</td>
-        
-        
-        </tr>
-        
-        
-        <tr>
-          
-          
           <td style="white-space:nowrap">completed
             
             
@@ -83,16 +62,77 @@
           </td>
           
           
-          <td>Delivered</td>
+          <td>Completed</td>
           
           
-          <td>Supply has been delivered (&quot;completed&quot;).</td>
+          <td>Transport has been completed.</td>
+        
+        
+        </tr>
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">abandoned
+            
+            
+            <a name="transport-status-abandonded"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Abandoned</td>
+          
+          
+          <td>Transport was started but not completed.</td>
         
         
         </tr>
         
    
         
+        <tr>
+          
+          
+          <td style="white-space:nowrap">cancelled
+            
+            
+            <a name="transport-status-cancelled"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Cancelled</td>
+          
+          
+          <td>Transport was cancelled before started.</td>
+        
+        
+        </tr>
+
+        <tr>
+          
+          
+          <td style="white-space:nowrap">planned
+            
+            
+            <a name="transport-status-planned"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Planned</td>
+          
+          
+          <td>Planned transport that is not yet requested.</td>
+        
+        
+        </tr>
+
         <tr>
           
           
@@ -112,189 +152,6 @@
         
         
         </tr>
-
-        <tr>
-          
-          
-          <td style="white-space:nowrap">ready
-            
-            
-            <a name="transport-status-ready"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Ready</td>
-          
-          
-          <td>The transport is ready.</td>
-        
-        
-        </tr>
-
-        <tr>
-          
-          
-          <td style="white-space:nowrap">cancelled
-            
-            
-            <a name="transport-status-cancelled"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Ready</td>
-          
-          
-          <td>The transport is cancelled.</td>
-        
-        
-        </tr>
-
-         <tr>
-          
-          
-          <td style="white-space:nowrap">failed
-            
-            
-            <a name="transport-status-failed"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Ready</td>
-          
-          
-          <td>The transport is failed.</td>
-        
-        
-        </tr>
-
-         <tr>
-          
-          
-          <td style="white-space:nowrap">on-hold
-            
-            
-            <a name="transport-status-on-hold"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Ready</td>
-          
-          
-          <td>The transport is on-hold.</td>
-        
-        
-        </tr>
-
-         <tr>
-          
-          
-          <td style="white-space:nowrap">accepted
-            
-            
-            <a name="transport-status-accepted"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Ready</td>
-          
-          
-          <td>The transport is accepted.</td>
-        
-        
-        </tr>
-
-         <tr>
-          
-          
-          <td style="white-space:nowrap">rejected
-            
-            
-            <a name="transport-status-rejected"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Ready</td>
-          
-          
-          <td>The transport is rejected.</td>
-        
-        
-        </tr>
-
-         <tr>
-          
-          
-          <td style="white-space:nowrap">received
-            
-            
-            <a name="transport-status-received"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Ready</td>
-          
-          
-          <td>The transport is received.</td>
-        
-        
-        </tr>
-
-         <tr>
-          
-          
-          <td style="white-space:nowrap">requested
-            
-            
-            <a name="transport-status-requested"></a>
-          
-          
-          </td>
-          
-          
-          <td>Ready</td>
-          
-          
-          <td>The transport is requested.</td>
-        
-        
-        </tr>
-
-        <tr>
-          
-          
-          <td style="white-space:nowrap">abandoned
-            
-            
-            <a name="transport-status-abandoned"></a>
-          
-          
-          </td>
-          
-          
-          <td>Abandoned</td>
-          
-          
-          <td>The transport has been abandoned.</td>
-        
-        
-        </tr>
-
-         
-
       </table>
     
     
@@ -338,21 +195,31 @@
   <concept>
     <code value="in-progress"/>
     <display value="In Progress"/>
-    <definition value="Transport has been requested, but not delivered."/>
+    <definition value="Transport has started but not completed."/>
   </concept>
   <concept>
     <code value="completed"/>
     <display value="Completed"/>
-    <definition value="Transport has been delivered (&quot;completed&quot;)."/>
-  </concept>
-  <concept>
-    <code value="entered-in-error"/>
-    <display value="Entered In Error"/>
-    <definition value="This transport record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;abandoned&quot; rather than &quot;entered-in-error&quot;.)."/>
+    <definition value="Transport has been completed."/>
   </concept>
   <concept>
     <code value="abandoned"/>
     <display value="Abandoned"/>
-    <definition value="This transport was abandoned."/>
+    <definition value="Transport was started but not completed."/>
+  </concept>
+  <concept>
+    <code value="cancelled"/>
+    <display value="Cancelled"/>
+    <definition value="Transport was cancelled before started."/>
+  </concept>
+  <concept>
+    <code value="planned"/>
+    <display value="Planned"/>
+    <definition value="Planned transport that is not yet requested."/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered In Error"/>
+    <definition value="This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;abandoned&quot; rather than &quot;entered-in-error&quot;.)."/>
   </concept>
 </CodeSystem>
