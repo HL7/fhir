@@ -1,1 +1,1 @@
-﻿Resource Examples failed instance validation
+Element manufacturer in DeviceDefinition has multiple types as a choice doesn't have a [x] in the element name

@@ -193,15 +193,12 @@
         <map value=".playedRole[typeCode=MANU].id"/>
       </mapping>
     </element>
-    <element id="DeviceDefinition.manufacturer[x]">
-      <path value="DeviceDefinition.manufacturer[x]"/>
+    <element id="DeviceDefinition.manufacturer">
+      <path value="DeviceDefinition.manufacturer"/>
       <short value="Name of device manufacturer"/>
       <definition value="A name of the manufacturer  or legal representative e.g. labeler. Whether this is the actual manufacturer or the labeler or responsible depends on implementation and jurisdiction."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
