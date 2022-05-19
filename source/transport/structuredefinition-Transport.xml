@@ -221,7 +221,7 @@
     </element>
     <element id="Transport.status">
       <path value="Transport.status"/>
-      <short value="The status of the transport"/>
+      <short value="in-progress | completed | abandoned | cancelled | planned | entered-in-error"/>
       <definition value="A code specifying the state of the transport event."/>
       <min value="0"/>
       <max value="1"/>
@@ -256,7 +256,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="coding"/>
       </type>
       <isSummary value="true"/>
       <binding>
