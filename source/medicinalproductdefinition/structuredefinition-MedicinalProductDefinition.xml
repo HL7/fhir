@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MedicinalProductDefinition"/>
   <meta>
@@ -423,6 +422,22 @@
         <description value="Types of medicinal product packs"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-package-type"/>
       </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Packaged Medicinal Product"/>
+      </mapping>
+    </element>
+    <element id="MedicinalProductDefinition.comprisedOf">
+      <path value="MedicinalProductDefinition.comprisedOf"/>
+      <short value="A medicinal manufactured item that this product consists of, such as a tablet or capsule"/>
+      <definition value="A medicinal manufactured item that this product consists of, such as a tablet or capsule. Used as a direct link when the item's packaging is not being recorded (see also PackagedProductDefinition.package.containedItem.item)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
+      </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
         <map value="Packaged Medicinal Product"/>
@@ -1008,14 +1023,23 @@
     <element id="MedicinalProductDefinition.characteristic.value[x]">
       <path value="MedicinalProductDefinition.characteristic.value[x]"/>
       <short value="A value for the characteristic"/>
-      <definition value="A value for the characteristic."/>
+      <definition value="A value for the characteristic.text."/>
+      <!--comment value="String is intended to be used only when the item cannot ever reasonably be coded. Otherwise, for cases where a code is not available, but is feasible, use CodeableConcept. The usage of CodeableConcept etc."/-->
+      <comment value="String is intended to be used only when the item cannot ever reasonably be coded. Otherwise, for cases where a code is not available, but is feasible, use CodeableConcept. (temporary text to make build work: The usage of CodeableConcept is for concepts that are normally coded but for which a code is not available - for example a device implant size that is not standardized. The property string is for text characteristics, e.g. long descriptions, warnings, etc.)."/>
+      <!--comment value="The usage of CodeableConcept is for concepts that are normally coded but for which a code is not available - for example a device implant size that is not standardized. The property string is for text characteristics, e.g. long descriptions, warnings, etc."/-->
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
       <type>
+        <code value="string"/>
+      </type>
+      <type>
         <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="integer"/>
       </type>
       <type>
         <code value="date"/>

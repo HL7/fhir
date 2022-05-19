@@ -2,7 +2,7 @@
 <ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/servicerequest.xsd">
 	<id value="HCTcollection-procedure"/>
 	<!-- insert contents here -->
-	<status value="completed"/>
+	<productStatus value="completed"/>
 	<intent value="order"/>
 	<category>
 		<coding>

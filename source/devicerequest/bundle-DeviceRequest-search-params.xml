@@ -259,6 +259,7 @@
         <expression value="DeviceRequest.subject.where(resolve() is Patient)"/>
         <xpath value="f:DeviceRequest/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -290,14 +291,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceRequest.priorRequest"/>
+          <valueString value="DeviceRequest.replaces"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-prior-request"/>
         <description value="Request takes the place of referenced completed or terminated requests"/>
         <code value="prior-request"/>
         <type value="reference"/>
-        <expression value="DeviceRequest.priorRequest"/>
-        <xpath value="f:DeviceRequest/f:priorRequest"/>
+        <expression value="DeviceRequest.replaces"/>
+        <xpath value="f:DeviceRequest/f:replaces"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

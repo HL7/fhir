@@ -18,7 +18,7 @@
             
             <code>http://hl7.org/fhir/transport-status</code>
           
-          </a>
+          </a> 
         
         </li>
       
@@ -57,11 +57,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Status of the supply delivery."/>
+  <description value="Status of the transport"/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/supplydelivery-status"/>
+      <system value="http://hl7.org/fhir/transport-status"/>
     </include>
   </compose>
 </ValueSet>

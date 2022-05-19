@@ -20,10 +20,12 @@
 		</coding>
 	</serviceCategory>
 	<serviceType>
-		<coding>
-			<code value="75"/>
-			<display value="Genetic Counselling" />
-		</coding>
+		<concept>
+			<coding>
+				<code value="75"/>
+				<display value="Genetic Counselling" />
+			</coding>
+		</concept>
 	</serviceType>
 	<specialty>
 		<coding>

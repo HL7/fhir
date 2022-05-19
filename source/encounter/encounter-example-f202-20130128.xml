@@ -9,10 +9,11 @@
 	<status value="completed"/>
 	<!--Encounter has finished-->
 	<class>
-		<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-		<code value="AMB"/>
-		<!-- outpatient encounter for chemotherapy -->
-		<display value="ambulatory"/>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+			<code value="AMB"/><!-- outpatient encounter for chemotherapy -->
+			<display value="ambulatory"/>
+		</coding>
 	</class>
 	<type>
 		<coding>

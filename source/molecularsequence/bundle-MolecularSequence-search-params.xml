@@ -10,14 +10,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MolecularSequence.referenceSeq.chromosome"/>
+          <valueString value="MolecularSequence.relative.reference.chromosome"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-chromosome"/>
         <description value="Chromosome number of the reference sequence"/>
         <code value="chromosome"/>
         <type value="token"/>
-        <expression value="MolecularSequence.referenceSeq.chromosome"/>
-        <xpath value="f:MolecularSequence/f:referenceSeq/f:chromosome"/>
+        <expression value="MolecularSequence.relative.reference.chromosome"/>
+        <xpath value="f:MolecularSequence/f:relative/f:reference/f:chromosome"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -25,26 +25,26 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="MolecularSequence-chromosome-variant-coordinate"/>
+        <id value="MolecularSequence-chromosome-edit-coordinate"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-chromosome-variant-coordinate"/>
-        <description value="Search parameter by chromosome and variant coordinate. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `chromosome-variant-coordinate=1$lt345$gt123`, this means it will search for the MolecularSequence resource with variants on chromosome 1 and with position &gt;123 and &lt;345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above."/>
-        <code value="chromosome-variant-coordinate"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-chromosome-edit-coordinate"/>
+        <description value="Search parameter by chromosome and edit coordinate. This will refer to part of a locus or part of a gene where search region will be represented in different coordinate systems, so please review."/>
+        <code value="chromosome-edit-coordinate"/>
         <type value="composite"/>
-        <expression value="MolecularSequence.variant"/>
+        <expression value="MolecularSequence.relative.edit"/>
         <xpathUsage value="normal"/>
         <component>
           <definition value="chromosome"/>
-          <expression value="%resource.referenceSeq.chromosome"/>
+          <expression value="%resource.relative.reference.chromosome"/>
         </component>
         <component>
-          <definition value="variant-start"/>
+          <definition value="edit-start"/>
           <expression value="start"/>
         </component>
         <component>
-          <definition value="variant-end"/>
+          <definition value="edit-end"/>
           <expression value="end"/>
         </component>
       </SearchParameter>
@@ -58,10 +58,10 @@
           <valueCode value="trial-use"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-chromosome-window-coordinate"/>
-        <description value="Search parameter by chromosome and window. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `chromosome-window-coordinate=1$lt345$gt123`, this means it will search for the MolecularSequence resource with a window on chromosome 1 and with position &gt;123 and &lt;345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above."/>
+        <description value="Search parameter by chromosome and window. This will refer to part of a locus or part of a gene where search region will be represented in different coordinate systems, so please review."/>
         <code value="chromosome-window-coordinate"/>
         <type value="composite"/>
-        <expression value="MolecularSequence.referenceSeq"/>
+        <expression value="MolecularSequence.relative.reference"/>
         <xpathUsage value="normal"/>
         <component>
           <definition value="chromosome"/>
@@ -126,14 +126,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MolecularSequence.referenceSeq.referenceSeqId"/>
+          <valueString value="MolecularSequence.relative.reference.referenceSeqId"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-referenceseqid"/>
         <description value="Reference Sequence of the sequence"/>
         <code value="referenceseqid"/>
         <type value="token"/>
-        <expression value="MolecularSequence.referenceSeq.referenceSeqId"/>
-        <xpath value="f:MolecularSequence/f:referenceSeq/f:referenceSeqId"/>
+        <expression value="MolecularSequence.relative.reference.referenceSeqId"/>
+        <xpath value="f:MolecularSequence/f:relative/f:reference/f:referenceSeqId"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -141,26 +141,26 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="MolecularSequence-referenceseqid-variant-coordinate"/>
+        <id value="MolecularSequence-referenceseqid-edit-coordinate"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-referenceseqid-variant-coordinate"/>
-        <description value="Search parameter by reference sequence and variant coordinate. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `referenceSeqId-variant-coordinate=NC_000001.11$lt345$gt123`, this means it will search for the MolecularSequence resource with variants on NC_000001.11 and with position &gt;123 and &lt;345, where in 1-based system resource, all strings within region NC_000001.11:124-344 will be revealed, while in 0-based system resource, all strings within region NC_000001.11:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above."/>
-        <code value="referenceseqid-variant-coordinate"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-referenceseqid-edit-coordinate"/>
+        <description value="Search parameter by reference sequence and edit coordinate. This will refer to part of a locus or part of a gene where search region will be represented in different coordinate systems, so please review."/>
+        <code value="referenceseqid-edit-coordinate"/>
         <type value="composite"/>
-        <expression value="MolecularSequence.variant"/>
+        <expression value="MolecularSequence.relative.edit"/>
         <xpathUsage value="normal"/>
         <component>
           <definition value="referenceseqid"/>
-          <expression value="%resource.referenceSeq.referenceSeqId"/>
+          <expression value="%resource.relative.reference.referenceSeqId"/>
         </component>
         <component>
-          <definition value="variant-start"/>
+          <definition value="edit-start"/>
           <expression value="start"/>
         </component>
         <component>
-          <definition value="variant-end"/>
+          <definition value="edit-end"/>
           <expression value="end"/>
         </component>
       </SearchParameter>
@@ -174,10 +174,10 @@
           <valueCode value="trial-use"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-referenceseqid-window-coordinate"/>
-        <description value="Search parameter by reference sequence and window. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `referenceSeqId-window-coordinate=NC_000001.11$lt345$gt123`, this means it will search for the MolecularSequence resource with a window on NC_000001.11 and with position &gt;123 and &lt;345, where in 1-based system resource, all strings within region NC_000001.11:124-344 will be revealed, while in 0-based system resource, all strings within region NC_000001.11:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above."/>
+        <description value="Search parameter by reference sequence and window. This will refer to part of a locus or part of a gene where search region will be represented in different coordinate systems, so please review."/>
         <code value="referenceseqid-window-coordinate"/>
         <type value="composite"/>
-        <expression value="MolecularSequence.referenceSeq"/>
+        <expression value="MolecularSequence.relative.reference"/>
         <xpathUsage value="normal"/>
         <component>
           <definition value="referenceseqid"/>
@@ -199,7 +199,7 @@
       <SearchParameter>
         <id value="MolecularSequence-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MolecularSequence.type"/>
@@ -217,19 +217,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="MolecularSequence-variant-end"/>
+        <id value="MolecularSequence-edit-end"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MolecularSequence.variant.end"/>
+          <valueString value="MolecularSequence.relative.edit.end"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-variant-end"/>
-        <description value="End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the variant."/>
-        <code value="variant-end"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-edit-end"/>
+        <description value="End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the change."/>
+        <code value="edit-end"/>
         <type value="number"/>
-        <expression value="MolecularSequence.variant.end"/>
-        <xpath value="f:MolecularSequence/f:variant/f:end"/>
+        <expression value="MolecularSequence.relative.edit.end"/>
+        <xpath value="f:MolecularSequence/f:edit/f:end"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -237,19 +237,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="MolecularSequence-variant-start"/>
+        <id value="MolecularSequence-edit-start"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MolecularSequence.variant.start"/>
+          <valueString value="MolecularSequence.relative.edit.start"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-variant-start"/>
-        <description value="Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the variant."/>
-        <code value="variant-start"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-edit-start"/>
+        <description value="Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the change."/>
+        <code value="edit-start"/>
         <type value="number"/>
-        <expression value="MolecularSequence.variant.start"/>
-        <xpath value="f:MolecularSequence/f:variant/f:start"/>
+        <expression value="MolecularSequence.relative.edit.start"/>
+        <xpath value="f:MolecularSequence/f:edit/f:start"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -259,17 +259,17 @@
       <SearchParameter>
         <id value="MolecularSequence-window-end"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MolecularSequence.referenceSeq.windowEnd"/>
+          <valueString value="MolecularSequence.relative.reference.windowEnd"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-window-end"/>
         <description value="End position (0-based exclusive, which menas the acid at this position will not be included, 1-based inclusive, which means the acid at this position will be included) of the reference sequence."/>
         <code value="window-end"/>
         <type value="number"/>
-        <expression value="MolecularSequence.referenceSeq.windowEnd"/>
-        <xpath value="f:MolecularSequence/f:referenceSeq/f:windowEnd"/>
+        <expression value="MolecularSequence.relative.reference.windowEnd"/>
+        <xpath value="f:MolecularSequence/f:relative/f:reference/f:windowEnd"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -279,17 +279,17 @@
       <SearchParameter>
         <id value="MolecularSequence-window-start"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MolecularSequence.referenceSeq.windowStart"/>
+          <valueString value="MolecularSequence.relative.reference.windowStart"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-window-start"/>
         <description value="Start position (0-based inclusive, 1-based inclusive, that means the nucleic acid or amino acid at this position will be included) of the reference sequence."/>
         <code value="window-start"/>
         <type value="number"/>
-        <expression value="MolecularSequence.referenceSeq.windowStart"/>
-        <xpath value="f:MolecularSequence/f:referenceSeq/f:windowStart"/>
+        <expression value="MolecularSequence.relative.reference.windowStart"/>
+        <xpath value="f:MolecularSequence/f:relative/f:reference/f:windowStart"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

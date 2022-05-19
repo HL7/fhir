@@ -84,13 +84,9 @@
 					<collectedDateTime value="2015-08-16T06:40:17Z"/>
 				</collection>
 				<container>
-					<type>
-						<coding>
-							<system value="http://acme.com/labs"/>
-							<code value="SST"/>
-							<display value="Serum Separator Tube"/>
-						</coding>
-					</type>
+				  <device>
+	                <reference value="Specimen/specimen-device-container-example-sst-vacutainer"/>
+	              </device>	
 				</container>
 			</Specimen>
 		</resource>
@@ -121,13 +117,9 @@
 					<collectedDateTime value="2015-08-16T06:40:17Z"/>
 				</collection>
 				<container>
-					<type>
-						<coding>
-							<system value="http://acme.com/labs"/>
-							<code value="LTT"/>
-							<display value="Lavender Top Tube"/>
-						</coding>
-					</type>
+					<device>
+	                <reference value="Specimen/specimen-device-container-example-lavender-vacutainer"/>
+	              </device>	
 				</container>
 			</Specimen>
 		</resource>
@@ -158,13 +150,9 @@
 					<collectedDateTime value="2015-08-16T06:40:17Z"/>
 				</collection>
 				<container>
-					<type>
-						<coding>
-							<system value="http://acme.com/labs"/>
-							<code value="UCUP"/>
-							<display value="100mL sterile cup"/>
-						</coding>
-					</type>
+					<device>
+	                <reference value="Specimen/specimen-device-container-example-polycup"/>
+	              </device>	
 				</container>
 			</Specimen>
 		</resource>

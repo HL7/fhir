@@ -14,7 +14,7 @@
   <actual value="false"/>
   <characteristic>
 	  <description value="Dead or functionally dependent at 90 days"/>
-	  <defByCombination>
+	  <definitionByCombination>
 		  <code value="any-of" />
 		  <characteristic>
 				<description value="functionally dependent at 90 days"/>
@@ -59,7 +59,7 @@
 					</quantity>
 				</timeFromEvent>
 		  </characteristic>
-	  </defByCombination>
+	  </definitionByCombination>
   </characteristic>
   <handling value="dichotomous"/>
 </EvidenceVariable>

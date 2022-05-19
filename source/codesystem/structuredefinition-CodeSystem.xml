@@ -96,7 +96,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </constraint>
@@ -208,7 +208,7 @@
     <element id="CodeSystem.status">
       <path value="CodeSystem.status"/>
       <short value="draft | active | retired | unknown"/>
-      <definition value="The date (and optionally time) when the code system resource was created or revised."/>
+      <definition value="The status of this code system. Enables tracking the life-cycle of the content."/>
       <comment value="Allows filtering of code systems that are appropriate for use versus not."/>
       <min value="1"/>
       <max value="1"/>
@@ -445,8 +445,8 @@
     <element id="CodeSystem.valueSet">
       <path value="CodeSystem.valueSet"/>
       <short value="Canonical reference to the value set with entire code system"/>
-      <definition value="Canonical reference to the value set that contains the entire code system."/>
-      <comment value="The definition of the value set SHALL include all codes from this code system and only codes from this code system, and it SHALL be immutable."/>
+      <definition value="Canonical reference to the value set that contains all codes in the code system independent of code status."/>
+      <comment value="The definition of the value set SHALL include all codes from this code system, independent of concept status, and only codes from this code system. It SHALL be immutable, and operations SHOULD support validation of any allowed code compositions."/>
       <min value="0"/>
       <max value="1"/>
       <type>

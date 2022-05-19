@@ -30,14 +30,9 @@
 		<collectedDateTime value="2017-11-14"/>
 	</collection>
 	<container>
-		<type>
-			<coding>
-				<system value="https://vetmed.iastate.edu/vdl"/>
-				<code value="RTT"/>
-				<display value="Red Top Tube"/>
-			</coding>
-			<text value="Red Top Blood Collection Tube"></text>
-		</type>
+	   <device>
+	      <reference value="Specimen/specimen-device-container-example-red-top-vacutainer"/>
+	   </device>
 	</container>
 	<note>
 		<text value="Pooled serum sample from 30 individuals"></text>
