@@ -16,6 +16,21 @@
       <display value="General"/>
     </item>
   </entry>
+
+ <!-- <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Vital Signs Monitor"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-ihe-pcd"/>
+    </extension>
+    <item>
+      <reference value="Device/example"/>
+      <display value="General"/>
+    </item>
+  </entry> -->
+
+
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Feeding Tube"/>
@@ -26,6 +41,18 @@
     <item>
       <reference value="Device/f001"/>
       <display value="device-example-f001-feedingtube.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="AND20601BPMonitor"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-AND20601BPMonitor"/>
+    </extension>
+    <item>
+      <reference value="Device/and20601bpmonitor"/>
+      <display value="device-example-AND20601BPMonitor.html"/>
     </item>
   </entry>
 </List>

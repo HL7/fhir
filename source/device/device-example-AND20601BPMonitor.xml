@@ -2,162 +2,164 @@
 <Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/device.xsd">
 	<id value="and20601bpmonitor"/>	
 <identifier>
-    <type>
+  <type>
       <coding>
-        <system value="http://hl7.org/fhir/uv/phd/CodeSystem/ContinuaDeviceIdentifiers"/>
+        <system value="http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers"/>
         <code value="SYSID"/>
         <display value="System Identifier"/>
       </coding>
-    </type>
-    <system value="urn:oid:1.2.840.10004.1.1.1.0.0.1.0.0.1.2680"/>
-    <value value="00-09-1F-FF-FE-80-07-3A"/>
-  </identifier>
-  <identifier>
-    <type>
+  </type>
+  <system value="urn:oid:1.2.840.10004.1.1.1.0.0.1.0.0.1.2680"/>
+  <value value="00-09-1F-FF-FE-80-07-3A"/>
+</identifier>
+ <identifier>
+   <type>
       <coding>
-        <system value="http://hl7.org/fhir/uv/phd/CodeSystem/ContinuaDeviceIdentifiers"/>
+        <system value="http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers"/>
         <code value="BTMAC"/>
         <display value="Bluetooth Address"/>
       </coding>
     </type>
-    <system>http://hl7.org/fhir/sid/eui-48</system>
-    <value>00-09-1F-80-07-3A</value>
-  </identifier>
+   <system value="http://hl7.org/fhir/sid/eui-48"/> 
+   <value value="00-09-1F-80-07-3A"/>
+  </identifier> 
   <udiCarrier>
-    <deviceIdentifier>39183189818</deviceIdentifier>
-    <issuer>http://hl7.org/fhir/NamingSystem/gs1-di</issuer>
-    <jurisdiction>http://hl7.org/fhir/NamingSystem/fda-udi</jurisdiction>
-    <carrierHRF>(01)39183189818(21)5091100966  </carrierHRF>
-    <entryType>unknown</entryType>
+    <deviceIdentifier value="39183189818" />
+    <issuer value="http://hl7.org/fhir/NamingSystem/gs1-di" />
+    <jurisdiction value="http://hl7.org/fhir/NamingSystem/fda-udi" />
+    <carrierHRF value="(01)39183189818(21)5091100966" />
+    <entryType value="unknown" />
   </udiCarrier>
-  <manufacturer>A&amp;D Medical </manufacturer>
-  <serialNumber>5091100966  </serialNumber>
+  <manufacturer value="A&amp;D Medical" />
+  <serialNumber value="5091100966" />
   <deviceName>
     <name value="AND BP UA-767PBT-C" />
     <type value="user-friendly-name"/>
   </deviceName>
-  <modelNumber>UA-767PBT-C </modelNumber>
+  <modelNumber value="UA-767PBT-C"/>
   <type>
     <coding>
-      <system>urn:iso:std:iso:11073:10101</system>
-      <code>65573</code>
-      <display>MDC_MOC_VMS_MDS_SIMP</display>
+      <system value="urn:iso:std:iso:11073:10101"/>
+      <code value="65573"/>
+      <display value="MDC_MOC_VMS_MDS_SIMP"/>
     </coding>
-    <text>MDC_MOC_VMS_MDS_SIMP: Personal Health Device</text>
+    <text value="MDC_MOC_VMS_MDS_SIMP: Personal Health Device"/>
   </type>
-  <specialization>
-    <systemType>
-      <coding>
-        <system>urn:iso:std:iso:11073:10101</system>
-        <code>528391</code>
-      </coding>
-      <text>MDC_DEV_SPEC_PROFILE_BP: Blood Pressure meter</text>
-    </systemType>
-    <version>1</version>
-  </specialization>
   <version>
     <type>
       <coding>
-        <system>urn:iso:std:iso:11073:10101</system>
-        <code>532352</code>
+        <system value="urn:iso:std:iso:11073:10101" />
+        <code value="532352" />
       </coding>
-      <text>MDC_REG_CERT_DATA_CONTINUA_VERSION: Continua version</text>
+      <text value="MDC_REG_CERT_DATA_CONTINUA_VERSION: Continua version" />
     </type>
-    <value>1.0</value>
+    <value value="1.0" />
   </version>
+  <specialization>
+    <systemType>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101" />
+        <code value="528391" />
+      </coding>
+      <text value="MDC_DEV_SPEC_PROFILE_BP: Blood Pressure meter" />
+    </systemType>
+    <version value="1" />
+  </specialization>
   <property>
     <type>
       <coding>
-        <system>urn:iso:std:iso:11073:10101</system>
-        <code>532353</code>
+        <system value="urn:iso:std:iso:11073:10101" />
+        <code value="532353" />
       </coding>
-      <text>MDC_REG_CERT_DATA_CONTINUA_CERT_DEV_LIST: Continua certified device list</text>
+      <text value="MDC_REG_CERT_DATA_CONTINUA_CERT_DEV_LIST: Continua certified device list" />
     </type>
-    <value>
+    <valueCodeableConcept>
       <coding>
-        <system>http://hl7.org/fhir/uv/phd/CodeSystem/ContinuaPAN</system>
-        <code>7</code>
+        <system value="http://terminology.hl7.org/CodeSystem/ContinuaPAN" />
+        <code value="7" />
       </coding>
-    </value>
+    </valueCodeableConcept>
   </property>
   <property>
     <type>
       <coding>
-        <system>http://hl7.org/fhir/uv/phd/CodeSystem/ASN1ToHL7</system>
-        <code>532354.0</code>
-        <display>regulation-status</display>
+        <system value="http://terminology.hl7.org/CodeSystem/ASN1ToHL7" />
+        <code value="532354.0" />
+        <display value="regulation-status" />
       </coding>
     </type>
-    <value>
+    <valueCodeableConcept>
       <coding>
-        <system>http://terminology.hl7.org/CodeSystem/v2-0136</system>
-        <code>N</code>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0136" />
+        <code value="N" />
       </coding>
-      <text>Device is Regulated</text>
-    </value>
+      <text value="Device is Regulated" />
+    </valueCodeableConcept>
   </property>
   <property>
     <type>
       <coding>
-        <system>urn:iso:std:iso:11073:10101</system>
-        <code>68220</code>
+        <system value="urn:iso:std:iso:11073:10101" />
+        <code value="68220" />
       </coding>
-      <text>MDC_TIME_SYNC_PROTOCOL: Time synchronization protocol</text>
+      <text value="MDC_TIME_SYNC_PROTOCOL: Time synchronization protocol" />
     </type>
-    <value>
+    <valueCodeableConcept>
       <coding>
-        <system>urn:iso:std:iso:11073:10101</system>
-        <code>532224</code>
+        <system value="urn:iso:std:iso:11073:10101" />
+        <code value="532224" />
       </coding>
-      <text>MDC_TIME_SYNC_NONE: No time synchronization</text>
-    </value>
+      <text value="MDC_TIME_SYNC_NONE: No time synchronization" />
+    </valueCodeableConcept>
   </property>
   <property>
     <type>
       <coding>
-        <system>http://hl7.org/fhir/uv/phd/CodeSystem/ASN1ToHL7</system>
-        <code>68219.0</code>
-        <display>mds-time-capab-real-time-clock</display>
+        <system value="http://terminology.hl7.org/CodeSystem/ASN1ToHL7" />
+        <code value="68219.0" />
       </coding>
+      <text value="mds-time-capab-real-time-clock" />
     </type>
-    <value>
+    <valueCodeableConcept>
       <coding>
-        <system>http://terminology.hl7.org/CodeSystem/v2-0136</system>
-        <code>Y</code>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0136" />
+        <code value="Y" />
       </coding>
-      <text>real time clock supported</text>
-    </value>
+      <text value="real time clock supported" />
+    </valueCodeableConcept>
   </property>
   <property>
     <type>
       <coding>
-        <system>http://hl7.org/fhir/uv/phd/CodeSystem/ASN1ToHL7</system>
-        <code>68219.1</code>
-        <display>mds-time-capab-set-clock</display>
+        <system value="http://terminology.hl7.org/CodeSystem/ASN1ToHL7" />
+        <code value="68219.1" />
       </coding>
+      <text value="mds-time-capab-set-clock" />
     </type>
-    <value>
+    <valueCodeableConcept>
       <coding>
-        <system>http://terminology.hl7.org/CodeSystem/v2-0136</system>
-        <code>Y</code>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0136" />
+        <code value="Y" />
       </coding>
-      <text>setting the time supported</text>
-    </value>
+      <text value="setting the time supported" />
+    </valueCodeableConcept>
   </property>
   <property>
     <type>
       <coding>
-        <system>http://hl7.org/fhir/uv/phd/CodeSystem/ASN1ToHL7</system>
-        <code>68219.11</code>
-        <display>mds-time-mgr-set-time</display>
+        <system value="http://terminology.hl7.org/CodeSystem/ASN1ToHL7" />
+        <code value="68219.11" />
       </coding>
+      <text value="mds-time-mgr-set-time" />
     </type>
-    <value>
+    <valueCodeableConcept>
       <coding>
-        <system>http://terminology.hl7.org/CodeSystem/v2-0136</system>
-        <code>Y</code>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0136" />
+        <code value="Y" />
       </coding>
-      <text>manager requested to set the time</text>
-    </value>
+      <text value="manager requested to set the time" />
+    </valueCodeableConcept>
   </property>
+
+
 </Device>
