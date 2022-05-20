@@ -627,6 +627,8 @@
       <path value="CodeSystem.property"/>
       <short value="Additional information supplied about each concept"/>
       <definition value="A property defines an additional slot through which additional information can be provided about a concept."/>
+	  <comment value="Multiple occurrences of CodeSystem.concept.property may occur for a CodeSystem.property where 
+	  CodeSystem.concept.property.code is the same and CodeSystem.concept.property.value differs. For example: multiple designations for a single concept."/>
       <min value="0"/>
       <max value="*"/>
       <type>
