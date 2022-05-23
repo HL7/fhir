@@ -939,7 +939,7 @@
         </extension>
         <strength value="example"/>
         <description value="Association status of a device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-associationstate"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-associationstatus"/>
       </binding>      
     </element>
     <element id="Device.associationState.statusReason">
