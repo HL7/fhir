@@ -192,10 +192,10 @@
       </coding>
       <text value="MDC_TIME_RES_REL: Resolution of relative time clock"/>
     </type>
-    <valueCodeableConcept>
+    <valueQuantity>
       <value value="1000000"/>
       <system value="http://unitsofmeasure.org"/>
       <code value="us"/>
-    </valueCodeableConcept>
+    </valueQuantity>
   </property>
   </Device>
