@@ -78,6 +78,30 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="KinsaThermometer"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-KinsaThermometer"/>
+    </extension>
+    <item>
+      <reference value="Device/KinsaThermometer"/>
+      <display value="device-example-KinsaThermometer.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Nonin20601PulseOx"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-Nonin20601PulseOx"/>
+    </extension>
+    <item>
+      <reference value="Device/Nonin20601PulseOx"/>
+      <display value="device-example-Nonin20601PulseOx.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="ihe-pcd"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
