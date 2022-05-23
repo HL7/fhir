@@ -102,6 +102,42 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="NoninBlePulseOx"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-NoninBlePulseOx"/>
+    </extension>
+    <item>
+      <reference value="Device/NoninBlePulseOx"/>
+      <display value="device-example-NoninBlePulseOx.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="PhilipsThermometer"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-PhilipsThermometer"/>
+    </extension>
+    <item>
+      <reference value="Device/PhilipsThermometer"/>
+      <display value="device-example-PhilipsThermometer.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="RocheGlucoseMonitor"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-RocheGlucoseMonitor"/>
+    </extension>
+    <item>
+      <reference value="Device/RocheGlucoseMonitor"/>
+      <display value="device-example-RocheGlucoseMonitor.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="ihe-pcd"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
