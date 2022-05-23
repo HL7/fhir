@@ -208,7 +208,7 @@
     <element id="CodeSystem.status">
       <path value="CodeSystem.status"/>
       <short value="draft | active | retired | unknown"/>
-      <definition value="The date (and optionally time) when the code system resource was created or revised."/>
+      <definition value="The status of this code system. Enables tracking the life-cycle of the content."/>
       <comment value="Allows filtering of code systems that are appropriate for use versus not."/>
       <min value="1"/>
       <max value="1"/>
@@ -445,8 +445,8 @@
     <element id="CodeSystem.valueSet">
       <path value="CodeSystem.valueSet"/>
       <short value="Canonical reference to the value set with entire code system"/>
-      <definition value="Canonical reference to the value set that contains the entire code system."/>
-      <comment value="The definition of the value set SHALL include all codes from this code system and only codes from this code system, and it SHALL be immutable."/>
+      <definition value="Canonical reference to the value set that contains all codes in the code system independent of code status."/>
+      <comment value="The definition of the value set SHALL include all codes from this code system, independent of concept status, and only codes from this code system. It SHALL be immutable, and operations SHOULD support validation of any allowed code compositions."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -627,6 +627,8 @@
       <path value="CodeSystem.property"/>
       <short value="Additional information supplied about each concept"/>
       <definition value="A property defines an additional slot through which additional information can be provided about a concept."/>
+	  <comment value="Multiple occurrences of CodeSystem.concept.property may occur for a CodeSystem.property where 
+	  CodeSystem.concept.property.code is the same and CodeSystem.concept.property.value differs. For example: multiple designations for a single concept."/>
       <min value="0"/>
       <max value="*"/>
       <type>

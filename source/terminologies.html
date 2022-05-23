@@ -113,17 +113,19 @@ no explicit differentiation between them; only the fact that a code happens to l
 LOINC code betrays its origin.
 </p>
 <p>
-For data exchange, on the other hand, explicitly tracking the source of the code is both important and necessary.
-In order to do this, each code system that defines codes is assigned a URL that identifies it, and all
-the codes it defines are actually a pair ("Code Pair":  a name with a namespace). So in the case of
-this mixed list example from the previous paragraph, there are two code systems: <a href="loinc.html">LOINC</a> (http://loinc.org)
-and a local one (let's say it has been given the URL: http://example.com/codesystems/additional-test-codes).
-The application table is a single value set (a set of Code Pairs) that includes codes from each of
-those two namespaces. The value set itself is given its own URL as an identifier (e.g. "http://example.com/fhir/ValueSet/test-codes").
-This identifies the set of Code Pairs, but is never used as the namespace in an actual code pair, or in an instance.
-In FHIR, Code Pairs are always represented as "code" and "system", except for the simple data type <a href="datatypes.html#code">code</a>
-where the namespace (e.g. the system element/property) is fixed in the schema and not
-represented explicitly.
+The code system identifier of the concept is necessary for interoperable data exchange.  
+Each code system is assigned a uri.  The combination of the code system identifier (uri) 
+and the concept identifier (e.g. code) is unique. Note that code system version may be 
+necessary to achieve uniqueness when the code system does not follow concept permanence rules. 
+</p>
+<p>
+In the case of the mixed list example from the previous paragraph, there are two code systems: <a href="loinc.html">LOINC</a> (http://loinc.org) 
+and a local one with the uri: http://example.com/codesystems/additional-test-codes. 
+The value set definition includes concept identifier (codes) from each of the two code systems. 
+The value set is given a uri as an identifier (e.g. "http://example.com/fhir/ValueSet/test-codes"). 
+The value set uri is not the same as the code system uri. Concepts are always identified by <code>code</code> and <code>system</code>, 
+except for the simple data type <a href="datatypes.html#code">code</a> where the code system is fixed in a specification 
+(e.g. core specification, implementation guide, profile) and not represented explicitly.
 </p>
 <p>
 Note that for some code systems, there is a single correct mechanism by which to represent
@@ -269,7 +271,7 @@ This example shows a SNOMED CT expression:
 }
 </pre>
 <p>
-Note that there is no display defined for SNOMED CT expressions.
+No display is provided in this example. See the discussion here: <a href="https://confluence.ihtsdotools.org/x/UwbJAQ">https://confluence.ihtsdotools.org/x/UwbJAQ</a>
 </p>
 </div>
 
