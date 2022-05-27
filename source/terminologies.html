@@ -523,67 +523,62 @@ may state rules on which codes can be used, including removing codes from allowe
 <a name="extensible"></a>
 <h4>Extensible Binding Strength</h4>
 <p>
-<i>To be conformant, codes in this element SHALL be from the specified value set if any of the codes within the value set
+<i>To be conformant, codes in this element SHALL be from the specified value set if any of the codes within the value set 
 can apply to the concept being communicated.</i>
 </p>
 <p>
-Note that it is the value set <b>binding</b> that is extensible, not the value set itself.
+Extensible bindings are used when there is consensus at the specification or profiling level about the coded values that 
+should be used, but it is impossible to create a bounded list of codes that are known to cover all use cases, including 
+ones that are yet to arise.
 </p>
 <p>
-If <b>there is no applicable concept</b> in  value set (based on human review), an alternate concept (either <code>system</code>/<code>code</code> 
-pair, or <code>text</code>) may be used instead. The alternate concept can have any level of specificity in an <code>is-a</code> hierarchy 
+Note that it is the value set <b>binding</b> that is extensible, not the value set itself. In the interests of brevity 
+and clarity, please consider all references to value set in the text below to refer to an evaluation of the content 
+logical definition (CLD) of the extensibly-bound value set unless the reference is explicitly noted to refer to a 
+value set definition. If the value set can be expanded, then a proper expansion is equivalent to the evaluation of the CLD.
+</p>
+<p>
+If <b>there is no applicable concept</b> in the value set (based on human review), an alternate concept (either <code>system</code>
+/<code>code</code> pair, <code>system</code>/<code>version</code>/<code>code</code> triplet, or <code>text</code>) may be 
+used instead. The alternate concept can have any level of specificity in an <code>is-a</code> hierarchy 
 (see <a href="terminologies-binding-examples.html#extensible.c2">Condition instance #2</a>).
 </p>
+<ol>
+ <li>If there is a concept that matches the meaning in the extensibly-bound value set then use that concept.</li>
+ <li>If there is not a concept that matches the meaning in the extensibly-bound value set and <b>there is at least one 
+ applicable concept</b> in the extensibly-bound value set with a meaning which includes but is more general than the 
+ meaning that is intended to be represented by the element in the resource instance, then:</li>
+  <ul>
+   <li>The code that is used in the instance SHALL be taken from one of the applicable concepts from the 
+   value set and SHOULD be the closest more general available match for the intended element instance meaning. 
+   If the data type is Coding then the only concept that can be sent is the applicable concept from the value set.</li>
+   <li>If the data type is CodeableConcept, a more specific code that is not in the extensibly bound value set 
+   that more completely represents the intended meaning <b>MAY</b> be included in the instance as an additional Coding, 
+   but it cannot be used <b>instead</b> of the code from the value set expansion. This helps ensure that systems know 
+   which codes they should expect to receive and build logic for, and it facilitates interoperability.</li>
+  </ul>
+ <li>Only if the above two cases do not apply then:</li>
+  <ul>
+   <li>Alternate code(s) from outside the value set may be used instead.</li>
+   <li>Text in CodeableConcept.text MAY be sent.</li>
+  </ul>
+</ol>
 <p>
-If <b>there is at least one applicable concept</b> in the extensibly-bound value set with a meaning which includes but is more 
-general than the meaning that is intended to be represented by the element in the resource instance, then the code that is 
-used in the instance SHALL be taken from the value set and should be the closest available match for the intended element 
-instance meaning (i.e. neither more general or more specific). However, a more specific code that more completely represents 
-the intended meaning <b>may also</b> be included in the instance as an additional Coding if the data type is CodeableConcept, 
-but it cannot be used <b>instead of</b> the code from the value set. This helps ensure that systems know which codes 
-they should expect to receive and build logic for and it facilitates interoperability.
+The same rules apply for the <code>concept</code> property of a <a href="references.html#CodeableReference">CodeableReference</a>.   
 </p>
 <p>
-When a code for an applicable concept in the extensibly-bound value set is used it should always be the closest available 
-match for the intended element instance meaning, regardless of hierarchical (i.e. "is-a") relationships in the 
-underlying code system(s) or hierarchical "level" of the concept.  However, as noted above, a code for a concept 
-that is <b>outside</b> of the extensibly-bound value set with a meaning which is "covered by" (i.e. is more specific than or 
-has an "is-a" relationship to) a concept that is included in the value set <b>cannot</b> be used.  In that case a code for a 
-concept that is in the extensibly-bound value set SHALL be used in the element instance and it should be the code for the 
-concept that most closely matches the intended element instance meaning.
+If an extensible binding is applied to an element with maximum cardinality &gt; 1, the binding applies to 
+all the element repetitions.
 </p>
 <p>
-If the data type is <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, then, as noted above, one of the Coding values 
-SHALL be from the specified extensibly-bound value set if a code in that value set applies, but if no applicable code exists in the 
-value set alternate code(s) from outside the value set may be used instead.  If no codes, including local codes, are available, then 
-text alone (in CodeableConcept.text) may be used. The same rules apply for the <code>concept</code> property of a <a href="references.html#CodeableReference">CodeableReference</a>.   
+For an extensibly-bound element, <a href="profiling.html">derived profiles</a> may state rules on which codes 
+can be used, but cannot select new or additional codes for these elements unless no codes with appropriate 
+meanings are found in the extensibly-bound value set in the parent profile. You can only constrain, not relax.
 </p>
 <p>
-If the data type is <a href="datatypes.html#Coding">Coding</a>, then the code/system SHALL be from the specified value set
-if a code applies, but if no suitable code exists in the value set, an alternate code may be provided in its place.
-</p>
-<p>
-If an extensible binding is applied to an element with maximum cardinality &gt; 1, the binding applies to
-all the elements.
-</p>
-<p>
-Identified gaps in value sets should be submitted to the organization administering the value
-set in order to improve interoperability in the future.
-</p>
-<p>
-Extensible bindings are used when there is consensus at the specification or profiling level about the coded values
-that should be used, but it is impossible to create a bounded list of codes that are known to cover all
-use cases, including ones that are yet to arise.
-</p>
-<p>
-When an element is extensibly-bound to a value set, <a href="profiling.html">derived profiles</a>
-may state rules on which codes can be used, but cannot select new or additional codes for these elements
-unless no codes with appropriate meanings are found in the base value set.
-</p>
-<p>
-Note that if the valueset-reference extension is being used and the code in the element instance is from outside the extensibly-bound
-value set, the extension must reference a different value set that the code was chosen from (or if no other value set 
-reference is available the extension cannot be used in that instance).
+Note that if the valueset-reference extension is being used and the code in the element instance is from 
+outside the extensibly-bound value set, the extension must reference a different value set definition that 
+the code was chosen from (or if no other value set reference is available the extension cannot be used in that instance).
 </p>
 <h5>Examples for Extensible Bindings</h5>
 <p>
