@@ -214,28 +214,18 @@ minimal, limited to necessary technical corrections or security alerts).
 </p>
 
 <p>
-Each FHIR version is identified by a string composed from 4 parts: publication.major.minor.revision.
+Each FHIR version is identified by a string composed from 4 parts: major.minor.revision(-label):
 </p>
 <table class="lines">
-  <tr>
-   <td valign="top">publication</td>
-   <td>
-     <ul>
-       <li>Incremented when HL7 publishes FHIR as an updated specification, e.g. a <i>Trial Use</i> or <i>Normative</i> version of FHIR</li>
-       <li>The first <i>Trial Use</i> was version 0</li>
-       <li>FHIR Release 2 (DSTU) was version 1</li>
-       <li>FHIR Release 3 (STU) is version 3 (skipped '2' to align the major numbers at implementer request)</li>
-     </ul>
-   </td>
-  </tr>
   <tr>
    <td valign="top">major</td>
    <td>
      <ul>
-       <li>Increments every time a breaking change is made (see <a href="#change">below</a>)</li>
-       <li>When a new publication is made, this is reset to 0 in the publication, and 1 in the development branch</li>
-       <li>Since HL7 does not make breaking changes as technical corrections to a published specification, these versions of FHIR always have a version number X.0.n.r</li>
-       <li>Because the development version is the subject of ongoing analysis, debate, ballot and repeated alterations, breaking changes are to be expected in STU content</li>
+       <li>Incremented when HL7 publishes FHIR as an updated specification, e.g. a <i>Trial Use</i> or <i>Normative</i> version of FHIR</li>
+       <li>The first <i>Trial Use</i> was version 0</li>
+       <li>FHIR Release 2 (DSTU) was version 1.0.x</li>
+       <li>FHIR Release 3 (STU) is version 3.0.x (skipped '2' to align the major numbers at implementer request)</li>
+       <li>FHIR Release 4 (Normative/STU) is version 4.x.x</li>
      </ul>
    </td>
   </tr>
@@ -243,20 +233,36 @@ Each FHIR version is identified by a string composed from 4 parts: publication.m
    <td valign="top">minor</td>
    <td>
      <ul>
-       <li>Increments every time an official snapshot release is generated that contains one or more substantive changes</li>
+       <li>Increments every time an updated release is made that contains one or more substantive changes (see <a href="#change">below</a>)</li>
        <li>Resets to 0 any time the major version changes</li>
-       <li>Snapshot releases are produced approximately 6 weeks in advance of the 3 annual HL7 working group meetings (and their associated connectathons), 
-       though they can also be produced for other major connectathons or to meet implementer requirements.</li>
+       <li>Sometimes breaking changes may be made to particular features of the specification and characterised as minor changes. 
+         E.g. FHIR Release 4B (STU) is version 4.3.x. 
+         When this happens, the specification will clearly indicate the grounds on which this is considered a minor update</li>
      </ul>
    </td>
   </tr>
   <tr>
-   <td valign="top">revision</td>
+    <td valign="top">revision</td>
+    <td>
+      <ul>
+        <li>Is set to 0 when a new release of FHIR is published</li>
+        <li>Increments when technical corrections and clarifications are made to an existing published specification</li>
+        <li>These changes are only made as technical corrections when it is agreed that they do not affect implementations</li>
+       </ul>
+    </td>
+   </tr>
+   <tr>
+   <td valign="top">label (optional)</td>
    <td>
-     <ul>
-       <li>The hash for the GIT version from which the specification was built, for tracing publication / tooling issues</li>
-       <li>For the current build, changes are made numerous times a day, generally driven by <a href="http://hl7.org/fhir-issues">change requests</a> submitted by the implementation community</li>
-       <li>The publication revision number only changes when technical corrections are made</li>
+    <ul>
+      <li>Labels are used to mark pre-releases of planned publications</li>
+      <li>Full publications have no label; the presence of a label automatically marks a version as work in progress</li>
+      <li>Common labels are <code>ballot[N]</code> for ballots, <code>draft[N]</code> for review publications, <code>snapshot[N]</code> 
+        for connectathon support versions. Snapshot releases are produced approximately 6 weeks in advance of the 3 annual HL7 working group meetings (and their associated connectathons), 
+        though they can also be produced for other major connectathons or to meet implementer requirements</li>
+      <li>The label <code>ci-build</code> is used to mark the continuous integration build. This is a rolling version; 
+        changes may be made numerous times a day, generally driven by <a href="http://hl7.org/fhir-issues">change requests</a> 
+        submitted by the implementation community</li>
      </ul>
    </td>
   </tr>
@@ -268,9 +274,6 @@ Additional notes:
 <ul>
  <li>Changes to a formally published specification (except for minor publishing corrections, such as correcting broken external links) are only made via announced technical corrections</li>
  <li>The reference implementations have 2 versions - the version of the specification that they implement and their own version. Consult the reference implementation documentation for policy regarding this version number</li>
- <li>The current build - published by the continuous integration service (<a href="http://build.fhir.org/">http://build.fhir.org/</a>) - does not conform to this version policy, in that the 
-   version is not updated as changes are made. To indicate this, the revision is always "cb" e.g. 3.1.cb immediately after the publication of Release 3</li>
- <li>The first DSTU was published prior to these rules being agreed as v0.80-2286. This has been updated to 0.0.81.2382 as a technical correction to align with this policy on 9-May 2014</li>
 </ul>
 
 
