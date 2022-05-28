@@ -3,17 +3,26 @@
 <h2>
 Notes
 </h2>
-  <ul>
+<ul>
   <li>
   There is no address on the PractitionerRole as the location that is defined here contains the address.<br/>
   This prevents having to duplicate the address values across multiple resources.
   </li>
-  </ul>
-</div>
+</ul>
+<a name="identifier"></a>
+<h3>
+Identifier Expectations
+</h3>
+<p>
+The question whether qualification.identifiers should be repeated in .identifier or not depends on the usage.<br/>
+Some systems will provide e.g. license numbers in Practitioner.identifier, others will provide them in Practitioner.qualification.identifier, and others might provide them in both. 
+The difference is that a license number in Practitioner.identifier doesn't convey anything about the status of the license, while qualification should (though it might not be up-to-date).
+</p>
+<a name="mult-locations"></a>
 <h2>
 Multiple Locations in a PractitionerRole
 </h2>
-<div>
+<p>
   As briefly noted in the boundaries and relationships section the PractitionerRole resource can be used
   to represent multiple locations in the one resource instance, however this should be done with care.
   When representing multiple locations in an instance, and/or multiple specialties, all details apply
@@ -26,4 +35,5 @@ Multiple Locations in a PractitionerRole
   For this reason we expect that it will be common to profile the location element down to a single location,
   simplifying overall usage, and the availabilities are clear that they apply to this location, and any
   referenced healthcare services.
+</p>
 </div>
