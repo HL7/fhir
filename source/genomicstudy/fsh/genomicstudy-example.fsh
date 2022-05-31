@@ -11,7 +11,7 @@ Description: "A genomic study resource that descriped a de novo mutation analysi
 * type = http://www.somesystemabc.net/CodeSystem#denovo 
     "De novo mutation analysis"
 * subject = Reference(denovoChild)
-
+* encounter = Reference(denovoEncounter)
 
 Instance: denovoChild
 InstanceOf: Patient
@@ -31,5 +31,17 @@ Description: "An instance of a patient resoruce representing a de novo mutation 
 * name[=].given[+] = "Junior"
 * gender = #unknown
 * birthDate = "2021-01-01"
+
+Instance: denovoEncounter
+InstanceOf: Encounter
+Usage: #example
+Title: "De novo mutation encounter"
+Description: "An encounter where a de novo mutation analysis was needed."
+Usage: #example
+* status = #in-progress
+* class.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ActCode"
+* class.coding.code = "IMP"
+* class.coding.display = "inpatient encounter"
+* subject = Reference(denovoChild)
 
 
