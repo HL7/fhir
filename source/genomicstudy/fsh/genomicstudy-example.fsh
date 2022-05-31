@@ -12,6 +12,8 @@ Description: "A genomic study resource that descriped a de novo mutation analysi
     "De novo mutation analysis"
 * subject = Reference(denovoChild)
 * encounter = Reference(denovoEncounter)
+* startDate = "2021-01-01"
+* basedOn = Reference(genomicServiceRequest)
 
 Instance: denovoChild
 InstanceOf: Patient
@@ -43,5 +45,19 @@ Usage: #example
 * class.coding.code = "IMP"
 * class.coding.display = "inpatient encounter"
 * subject = Reference(denovoChild)
+
+Instance: genomicServiceRequest
+InstanceOf: ServiceRequest
+Usage: #example
+Title: "A Request for a genomic study"
+Description: "A Request for a genomic study including a de novo mutation analysis."
+* identifier.type = http://terminology.hl7.org/CodeSystem/v2-0203#LACSN
+* identifier.type.text = "Laboratory Accession ID"
+* identifier.system = "http://www.somesystemabc.net/identifiers/serviceRequests"
+* identifier.value = "111111111"
+* status = #active
+* intent = #plan
+* code = http://snomed.info/sct#3981005 "Carrier detection, molecular genetics (procedure)"
+
 
 
