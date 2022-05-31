@@ -43,11 +43,8 @@ InstanceOf: Encounter
 Usage: #example
 Title: "De novo mutation encounter"
 Description: "An encounter where a de novo mutation analysis was needed."
-Usage: #example
 * status = #in-progress
-* class.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ActCode"
-* class.coding.code = "IMP"
-* class.coding.display = "inpatient encounter"
+* class = http://terminology.hl7.org/CodeSystem/v3-ActCode#IMP "inpatient encounter"
 * subject = Reference(denovoChild)
 
 Instance: genomicServiceRequest
