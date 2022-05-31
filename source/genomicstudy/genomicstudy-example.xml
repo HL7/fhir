@@ -1,6 +1,11 @@
 <GenomicStudy xmlns="http://hl7.org/fhir">
  <!-- from Resource: id, meta, implicitRules, and language -->
+ <id value="example"/>
  <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+ <text>
+  <status value=" additional"/>
+  <div xmlns="http://www.w3.org/1999/xhtml">A placeholder for the text representation of the example resource.</div>
+ </text>
  <identifier><!-- 0..* Identifier Identifiers for this genomic study --></identifier>
  <status><!-- 1..1 CodeableConcept The status of the genomic study --></status>
  <type><!-- 0..1 CodeableConcept The type of the study --></type>
