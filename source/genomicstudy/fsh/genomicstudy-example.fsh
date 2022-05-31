@@ -17,7 +17,8 @@ Description: "A genomic study resource that descriped a de novo mutation analysi
 * referrer = Reference(practitioner01)
 * interpreter = Reference(practitioner02)
 * reason = http://snomed.info/sct#267431006 "Disorder of lipid metabolism (disorder)"
-
+* note.text = "This de novo mutation is urgent and important for establishing the treatment plan."
+* description = "De novo mutation of the patient."
 Instance: denovoChild
 InstanceOf: Patient
 Usage: #example
