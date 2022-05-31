@@ -15,6 +15,8 @@ Description: "A genomic study resource that descriped a de novo mutation analysi
 * startDate = "2021-01-01"
 * basedOn = Reference(genomicServiceRequest)
 
+* reason = http://snomed.info/sct#267431006 "Disorder of lipid metabolism (disorder)"
+
 Instance: denovoChild
 InstanceOf: Patient
 Usage: #example
