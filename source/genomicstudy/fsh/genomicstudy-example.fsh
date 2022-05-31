@@ -58,6 +58,9 @@ Description: "A Request for a genomic study including a de novo mutation analysi
 * status = #active
 * intent = #plan
 * code = http://snomed.info/sct#3981005 "Carrier detection, molecular genetics (procedure)"
+* subject = Reference(denovoChild)
+* encounter = Reference(denovoEncounter)
+* reason = http://snomed.info/sct#267431006 "Disorder of lipid metabolism (disorder)"
 
 
 
