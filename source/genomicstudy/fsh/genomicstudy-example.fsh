@@ -14,7 +14,8 @@ Description: "A genomic study resource that descriped a de novo mutation analysi
 * encounter = Reference(denovoEncounter)
 * startDate = "2021-01-01"
 * basedOn = Reference(genomicServiceRequest)
-
+* referrer = Reference(practitioner01)
+* interpreter = Reference(practitioner02)
 * reason = http://snomed.info/sct#267431006 "Disorder of lipid metabolism (disorder)"
 
 Instance: denovoChild
@@ -23,7 +24,7 @@ Usage: #example
 Title: "De novo mutation child"
 Description: "An instance of a patient resoruce representing a de novo mutation proband."
 * identifier.use = #temp
-* identifier.type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
+* identifier.type = http://terminology.hl7.org/CodeSystem/v2-0203#MR "Medical record number"
 * identifier.system = "http://www.somesystemabc.net/identifiers/persons"
 * identifier.value = "11111"
 * identifier.period.start = "2021-01-01"
@@ -63,6 +64,39 @@ Description: "A Request for a genomic study including a de novo mutation analysi
 * subject = Reference(denovoChild)
 * encounter = Reference(denovoEncounter)
 * reason = http://snomed.info/sct#267431006 "Disorder of lipid metabolism (disorder)"
+
+Instance: practitioner01
+InstanceOf: Practitioner
+Usage: #example
+Title: "Referrer Practitioner Example #1"
+Description: "An instance of a practitioner resource to represent a referrer of a genomic study"
+* identifier.use = #temp
+* identifier.type = http://terminology.hl7.org/CodeSystem/v2-0203#PRN "Provider number"
+* identifier.system = "http://www.somesystemabc.net/identifiers/persons"
+* identifier.value = "11115"
+* identifier.period.start = "2021-01-01"
+* identifier.assigner.display = "Child Hospital"
+* active = true
+* name.family = "Doel"
+* name.given = "John"
+* name.prefix = "Dr"
+
+Instance: practitioner02
+InstanceOf: Practitioner
+Usage: #example
+Title: "Interpreter Practitioner Example #2"
+Description: "An instance of a practitioner resource to represent a interpreter of a genomic study"
+* identifier.use = #temp
+* identifier.type = http://terminology.hl7.org/CodeSystem/v2-0203#PRN "Provider number"
+* identifier.system = "http://www.somesystemabc.net/identifiers/persons"
+* identifier.value = "11116"
+* identifier.period.start = "2021-01-01"
+* identifier.assigner.display = "Child Hospital"
+* active = true
+* name.family = "Doel"
+* name.given = "Jane"
+* name.prefix = "Dr"
+
 
 
 
