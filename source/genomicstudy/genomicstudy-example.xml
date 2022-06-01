@@ -69,7 +69,7 @@
         <specimen>
             <reference value="Specimen/denovo-1"/>
         </specimen>
-        <date value="[dateTime]"/><!-- 0..1 The date of the analysis event -->
+        <date value="2021-01-01T01:01:10"/><!-- 0..1 The date of the analysis event -->
         <note><!-- 0..* Annotation Any notes capture with the analysis event --></note>
         <protocolPerformed><!-- 0..1 Reference(Procedure|Task) The protocol that was performed for the analysis event --></protocolPerformed>
         <regionsCalled><!-- 0..1 Reference(DocumentReference) Genomic regions actually called in the analysis event (BED file) --></regionsCalled>
@@ -108,7 +108,7 @@
         <specimen>
             <reference value="Specimen/denovo-2"/>
         </specimen>
-        <date value="[dateTime]"/><!-- 0..1 The date of the analysis event -->
+        <date value="2021-01-01T01:01:10"/><!-- 0..1 The date of the analysis event -->
         <note><!-- 0..* Annotation Any notes capture with the analysis event --></note>
         <protocolPerformed><!-- 0..1 Reference(Procedure|Task) The protocol that was performed for the analysis event --></protocolPerformed>
         <regionsCalled><!-- 0..1 Reference(DocumentReference) Genomic regions actually called in the analysis event (BED file) --></regionsCalled>
@@ -147,7 +147,7 @@
         <specimen>
             <reference value="Specimen/denovo-3"/>
         </specimen>
-        <date value="[dateTime]"/><!-- 0..1 The date of the analysis event -->
+        <date value="2021-01-01T01:01:10"/><!-- 0..1 The date of the analysis event -->
         <note><!-- 0..* Annotation Any notes capture with the analysis event --></note>
         <protocolPerformed><!-- 0..1 Reference(Procedure|Task) The protocol that was performed for the analysis event --></protocolPerformed>
         <regionsCalled><!-- 0..1 Reference(DocumentReference) Genomic regions actually called in the analysis event (BED file) --></regionsCalled>
