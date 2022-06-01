@@ -22,6 +22,14 @@
 		<display value="Mr. Belpit"/>
 	</patient>
 
+	<type>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/supplydelivery-supplyitem-type"/>
+			<code value="device"/>
+		</coding>
+		<text value="Home pump device"/>
+	</type>
+
 	<supplier>
 		<display value="ACME distribution"/>
 	</supplier>
