@@ -62,7 +62,7 @@
         </identifier>
         <instantiatesCanonical><!-- 0..1 canonical(PlanDefinition) The defined protocol that describes the analysis --></instantiatesCanonical>
         <instantiatesUri value="[uri]"/><!-- 0..1 The URL pointing to an externally maintained protocol that describes the analysis -->
-        <title value="[string]"/><!-- 0..1 Name of the analysis event (human friendly) -->
+        <title value="Proband Sequence Variation Detection"/><!-- 0..1 Name of the analysis event (human friendly) -->
         <subject><!-- 0..1 Reference(Patient) The subject of the analysis event --></subject>
         <specimen><!-- 0..1 Reference(Specimen) The specimen used in the analysis event --></specimen>
         <date value="[dateTime]"/><!-- 0..1 The date of the analysis event -->
@@ -97,7 +97,7 @@
         </identifier>
         <instantiatesCanonical><!-- 0..1 canonical(PlanDefinition) The defined protocol that describes the analysis --></instantiatesCanonical>
         <instantiatesUri value="[uri]"/><!-- 0..1 The URL pointing to an externally maintained protocol that describes the analysis -->
-        <title value="[string]"/><!-- 0..1 Name of the analysis event (human friendly) -->
+        <title value="Maternal Sequence Variation Detection"/><!-- 0..1 Name of the analysis event (human friendly) -->
         <subject><!-- 0..1 Reference(Patient) The subject of the analysis event --></subject>
         <specimen><!-- 0..1 Reference(Specimen) The specimen used in the analysis event --></specimen>
         <date value="[dateTime]"/><!-- 0..1 The date of the analysis event -->
@@ -131,8 +131,43 @@
             <use value="temp"/>
         </identifier>
         <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
-        <instantiatesUri value="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4544753/"/><!-- 0..1 The URL pointing to an externally maintained protocol that describes the analysis -->
-        <title value="[string]"/><!-- 0..1 Name of the analysis event (human friendly) -->
+        <instantiatesUri value="[uri]"/><!-- 0..1 The URL pointing to an externally maintained protocol that describes the analysis -->
+        <title value="Paternal Sequence Variation Detection"/>
+        <subject><!-- 0..1 Reference(Patient) The subject of the analysis event --></subject>
+        <specimen><!-- 0..1 Reference(Specimen) The specimen used in the analysis event --></specimen>
+        <date value="[dateTime]"/><!-- 0..1 The date of the analysis event -->
+        <note><!-- 0..* Annotation Any notes capture with the analysis event --></note>
+        <protocolPerformed><!-- 0..1 Reference(Procedure|Task) The protocol that was performed for the analysis event --></protocolPerformed>
+        <regionsCalled><!-- 0..1 Reference(DocumentReference) Genomic regions actually called in the analysis event (BED file) --></regionsCalled>
+        <input>  <!-- 0..* Inputs for the analysis event -->
+            <file><!-- 0..1 Reference(DocumentReference) File containing input data --></file>
+            <type><!-- 0..1 CodeableConcept Type of input data --></type>
+            <generatedBy[x]><!-- 0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file --></generatedBy[x]>
+            <subject><!-- 0..1 Reference(Patient) The subject of the input data --></subject>
+            <role><!-- 0..1 CodeableConcept Role of the subject for this input --></role>
+        </input>
+        <output>  <!-- 0..* Outputs for the analysis event -->
+            <file><!-- 0..1 Reference(DocumentReference) File containing output data --></file>
+            <type><!-- 0..1 CodeableConcept Type of output data --></type>
+        </output>
+        <performer>  <!-- 0..* Performer for the analysis event -->
+            <actor><!-- 0..1 Reference(Device|Organization|Practitioner|PractitionerRole) The organization, healthcare professional, or others who participated in performing this analysis --></actor>
+            <role><!-- 0..1 CodeableConcept Role of the actor for this analysis --></role>
+        </performer>
+        <device>  <!-- 0..* Devices used for the analysis (e.g., instruments, software), with settings and parameters -->
+            <device><!-- 0..1 Reference(Device) Device used for the analysis --></device>
+            <function><!-- 0..1 CodeableConcept Specific function for the device used for the analysis --></function>
+        </device>
+    </analysis>
+    <analysis>  <!-- 0..* De Novo Mutation Analysis -->
+        <identifier>
+            <system value="http://www.somesystemabc.net/identifiers/genomicAnalyses"/>
+            <value value="urn:uuid:1111-1111-1111-1114"/>
+            <use value="temp"/>
+        </identifier>
+        <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
+        <instantiatesUri value="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6885382/"/>
+        <title value="De Novo Mutation Detection and Interpretation"/>
         <subject><!-- 0..1 Reference(Patient) The subject of the analysis event --></subject>
         <specimen><!-- 0..1 Reference(Specimen) The specimen used in the analysis event --></specimen>
         <date value="[dateTime]"/><!-- 0..1 The date of the analysis event -->
