@@ -63,7 +63,9 @@
         <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
         <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
         <title value="Proband Sequence Variation Detection Using Next Generation Sequencing"/>
-        <subject><!-- 0..1 Reference(Patient) The subject of the analysis event --></subject>
+        <subject>
+            <reference value="Patient/denovoChild"/>
+        </subject>
         <specimen><!-- 0..1 Reference(Specimen) The specimen used in the analysis event --></specimen>
         <date value="[dateTime]"/><!-- 0..1 The date of the analysis event -->
         <note><!-- 0..* Annotation Any notes capture with the analysis event --></note>
@@ -95,10 +97,12 @@
             <value value="urn:uuid:1111-1111-1111-1112"/>
             <use value="temp"/>
         </identifier>
-        <instantiatesCanonical><!-- 0..1 canonical(PlanDefinition) The defined protocol that describes the analysis --></instantiatesCanonical>
-        <instantiatesUri value="[uri]"/><!-- 0..1 The URL pointing to an externally maintained protocol that describes the analysis -->
-        <title value="Maternal Sequence Variation Detection"/><!-- 0..1 Name of the analysis event (human friendly) -->
-        <subject><!-- 0..1 Reference(Patient) The subject of the analysis event --></subject>
+        <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
+        <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
+        <title value="Maternal Sequence Variation Detection Using Next Generation Sequencing"/><!-- 0..1 Name of the analysis event (human friendly) -->
+        <subject>
+            <reference value="Patient/denovoMother"/>
+        </subject>
         <specimen><!-- 0..1 Reference(Specimen) The specimen used in the analysis event --></specimen>
         <date value="[dateTime]"/><!-- 0..1 The date of the analysis event -->
         <note><!-- 0..* Annotation Any notes capture with the analysis event --></note>
@@ -131,9 +135,11 @@
             <use value="temp"/>
         </identifier>
         <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
-        <instantiatesUri value="[uri]"/><!-- 0..1 The URL pointing to an externally maintained protocol that describes the analysis -->
-        <title value="Paternal Sequence Variation Detection"/>
-        <subject><!-- 0..1 Reference(Patient) The subject of the analysis event --></subject>
+        <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
+        <title value="Paternal Sequence Variation Detection Using Next Generation Sequencing"/>
+        <subject>
+            <reference value="Patient/denovoFather"/>
+        </subject>
         <specimen><!-- 0..1 Reference(Specimen) The specimen used in the analysis event --></specimen>
         <date value="[dateTime]"/><!-- 0..1 The date of the analysis event -->
         <note><!-- 0..* Annotation Any notes capture with the analysis event --></note>
