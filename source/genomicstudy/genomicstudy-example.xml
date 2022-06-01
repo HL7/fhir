@@ -60,9 +60,9 @@
             <value value="urn:uuid:1111-1111-1111-1111"/>
             <use value="temp"/>
         </identifier>
-        <instantiatesCanonical><!-- 0..1 canonical(PlanDefinition) The defined protocol that describes the analysis --></instantiatesCanonical>
-        <instantiatesUri value="[uri]"/><!-- 0..1 The URL pointing to an externally maintained protocol that describes the analysis -->
-        <title value="Proband Sequence Variation Detection"/><!-- 0..1 Name of the analysis event (human friendly) -->
+        <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
+        <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
+        <title value="Proband Sequence Variation Detection Using Next Generation Sequencing"/>
         <subject><!-- 0..1 Reference(Patient) The subject of the analysis event --></subject>
         <specimen><!-- 0..1 Reference(Specimen) The specimen used in the analysis event --></specimen>
         <date value="[dateTime]"/><!-- 0..1 The date of the analysis event -->
