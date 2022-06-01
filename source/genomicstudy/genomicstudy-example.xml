@@ -18,9 +18,19 @@
             <display value="Unknown"/>
         </coding>
     </status>
-    <type><!-- 0..1 CodeableConcept The type of the study --></type>
-    <subject><!-- 1..1 Reference(Patient) The primary subject of the genomic study --></subject>
-    <encounter><!-- 0..1 Reference(Encounter) The healthcare event with which this genomics study is associated --></encounter>
+    <type>
+        <coding>
+            <system value="http://www.somesystemabc.net/CodeSystem"/>
+            <code value="denovo"/>
+            <display value="De Novo Mutation Analysis"/>
+        </coding>
+    </type>
+    <subject>
+        <reference value="Patient/denovoChild"/>
+    </subject>
+    <encounter>
+        <reference value="Encounter/denovoEncounter"/>
+    </encounter>
     <startDate value="[dateTime]"/><!-- 0..1 When the genomic study was started -->
     <basedOn><!-- 0..* Reference(ServiceRequest|Task) Event resources that the genomic study is based on --></basedOn>
     <referrer><!-- 0..1 Reference(Practitioner|PractitionerRole) Healthcare professional who requested or referred the genomic study --></referrer>
