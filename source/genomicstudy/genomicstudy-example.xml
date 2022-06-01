@@ -31,10 +31,16 @@
     <encounter>
         <reference value="Encounter/denovoEncounter"/>
     </encounter>
-    <startDate value="[dateTime]"/><!-- 0..1 When the genomic study was started -->
-    <basedOn><!-- 0..* Reference(ServiceRequest|Task) Event resources that the genomic study is based on --></basedOn>
-    <referrer><!-- 0..1 Reference(Practitioner|PractitionerRole) Healthcare professional who requested or referred the genomic study --></referrer>
-    <interpreter><!-- 0..* Reference(Practitioner|PractitionerRole) Healthcare professionals who interpreted the genomic study --></interpreter>
+    <startDate value="2021-01-01"/>
+    <basedOn>
+        <reference value="ServiceRequest/genomicServiceRequest"/>
+    </basedOn>
+    <referrer>
+        <reference value="Practitioner/practitioner01"/>
+    </referrer>
+    <interpreter>
+        <reference value="Practitioner/practitioner02"/>
+    </interpreter>
     <reason><!-- 0..* CodeableReference(Condition|Observation) Why the genomic study was performed --></reason>
     <note><!-- 0..* Annotation Comments related to the genomic study --></note>
     <description value="[string]"/><!-- 0..1 Description of the genomic study -->
