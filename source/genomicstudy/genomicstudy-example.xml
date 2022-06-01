@@ -41,9 +41,19 @@
     <interpreter>
         <reference value="Practitioner/practitioner02"/>
     </interpreter>
-    <reason><!-- 0..* CodeableReference(Condition|Observation) Why the genomic study was performed --></reason>
-    <note><!-- 0..* Annotation Comments related to the genomic study --></note>
-    <description value="[string]"/><!-- 0..1 Description of the genomic study -->
+    <reason>
+        <concept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="267431006"/>
+                <display value="Disorder of lipid metabolism (disorder)"/>
+            </coding>
+        </concept>
+    </reason>
+    <note>
+        <text value="This de novo mutation is urgent and important for establishing the treatment plan."/>
+    </note>
+    <description value="De novo mutation study of the patient."/>
     <analysis>  <!-- 0..* Genomic Analysis Event -->
         <identifier><!-- 0..* Identifier Identifiers for the analysis event --></identifier>
         <instantiatesCanonical><!-- 0..1 canonical(PlanDefinition) The defined protocol that describes the analysis --></instantiatesCanonical>
