@@ -40,9 +40,9 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 	<subject>
 		<reference value="Patient/xcda"/>
 	</subject>
-	<encounter>
+	<context>
 		<reference value="Encounter/xcda"/>
-	</encounter>
+	</context>
 	<event>
 	<concept>
 		<coding>

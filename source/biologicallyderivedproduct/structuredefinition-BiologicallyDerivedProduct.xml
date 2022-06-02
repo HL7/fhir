@@ -97,13 +97,13 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="Coding"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BiologicallyDerivedProductCategory"/>
         </extension>
-        <strength value="required"/>
+        <strength value="example"/>
         <description value="Biologically Derived Product Category."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/product-category"/>
       </binding>
@@ -115,20 +115,16 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="Coding"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ISBT 128 Code"/>
+          <valueString value="BiologicallyDerivedProductCodes"/>  
         </extension>
         <strength value="example"/>
-        <description value="ISBT 128 Code"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproduct-product-codes"/>
+        <description value="Biologically-derived Product Codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-codes"/>
       </binding>
-      <mapping>
-        <identity value="ISBT128Code"/>
-        <map value="Product Description Code. Required for ISBT 128 labeled products"/>
-      </mapping>
     </element>
      <element id="BiologicallyDerivedProduct.parent">
       <path value="BiologicallyDerivedProduct.parent"/>
@@ -237,22 +233,22 @@
          <map value="Division Identifier. Required for ISBT 128 labeled products"/>
      </mapping>
     </element>
-    <element id="BiologicallyDerivedProduct.status">
-      <path value="BiologicallyDerivedProduct.status"/>
+    <element id="BiologicallyDerivedProduct.productStatus">
+      <path value="BiologicallyDerivedProduct.productStatus"/>
       <short value="available | unavailable"/>
       <definition value="Whether the product is currently available."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="Coding"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BiologicallyDerivedProductStatus"/>
         </extension>
-        <strength value="required"/>
+        <strength value="example"/>
         <description value="Biologically Derived Product Status."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/biological-product-status"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-status"/>
       </binding>
     </element>
     <element id="BiologicallyDerivedProduct.expirationDate">
@@ -350,15 +346,15 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="Coding"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ISBT 128 Code"/>
+          <valueString value="BiologicallyDerivedProductPropertyTypeCodes"/>
         </extension>
         <strength value="example"/>
-        <description value="ISBT 128 Code"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproduct-property-type-codes"/>
+        <description value="Biologically Derived Product Property Type Codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-property-type-codes"/>
       </binding>
     </element>
     <element id="BiologicallyDerivedProduct.property.value[x]">

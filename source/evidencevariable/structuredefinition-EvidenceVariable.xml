@@ -87,7 +87,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </constraint>
@@ -637,7 +637,7 @@
     </element>
     <element id="EvidenceVariable.characteristic.defByCombination.code">
       <path value="EvidenceVariable.characteristic.defByCombination.code"/>
-      <short value="all-of | any-of | at-least | at-most | net-effect"/>
+      <short value="all-of | any-of | at-least | at-most | statistical | net-effect | dataset"/>
       <definition value="Used to specify if two or more characteristics are combined with OR or AND."/>
       <requirements value="If code is &quot;at-least&quot; or &quot;at-most&quot; then threshold SHALL be used. If code is neither &quot;at-least&quot; nor &quot;at-most&quot; then threshold SHALL NOT be used."/>
       <min value="1"/>

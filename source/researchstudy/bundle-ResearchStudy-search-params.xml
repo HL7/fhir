@@ -43,7 +43,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  
+
   <entry>
     <resource>
       <SearchParameter>
@@ -245,8 +245,8 @@
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
-  </entry>  
-  
+  </entry>
+
   <entry>
     <resource>
       <SearchParameter>
@@ -298,7 +298,7 @@
           <valueString value="ResearchStudy.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-status"/>
-        <description value="active | administratively-completed | approved | closed-to-accrual | closed-to-accrual-and-intervention | completed | disapproved | in-review | temporarily-closed-to-accrual | temporarily-closed-to-accrual-and-intervention | withdrawn"/>
+        <description value="active | active-but-not-recruiting | administratively-completed | approved | closed-to-accrual | closed-to-accrual-and-intervention | completed | disapproved | enrolling-by-invitation | in-review | not-yet-recruiting | recruiting | temporarily-closed-to-accrual | temporarily-closed-to-accrual-and-intervention | terminated | withdrawn"/>
         <code value="status"/>
         <type value="token"/>
         <expression value="ResearchStudy.status"/>

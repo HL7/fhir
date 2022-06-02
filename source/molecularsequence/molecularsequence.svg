@@ -244,10 +244,10 @@ quantity</a>
        y="396.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="molecularsequence-definitions.html#MolecularSequence.observedSeq"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.literal"
    id="n972"><title
    id="title65">Sequence that was observed. It is the result marked by referenceSeq along with variant records on referenceSeq. This shall start from referenceSeq.windowStart and end by referenceSeq.windowEnd</title>
-observedSeq</a>
+literal</a>
  : <a
    xlink:href="datatypes.html#string"
    id="n973">string</a>
@@ -490,7 +490,7 @@ windowEnd</a>
        y="548.6507"
        class="diagram-class-detail"
        style="fill:#000000"><a
-   xlink:href="molecularsequence-definitions.html#MolecularSequence.variant.start"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.edit.start"
    id="n1070"><title
    id="title143">Start position of the variant on the  reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive</title>
 start</a>
@@ -504,7 +504,7 @@ start</a>
        y="562.6507"
        class="diagram-class-detail"
        style="fill:#000000"><a
-   xlink:href="molecularsequence-definitions.html#MolecularSequence.variant.end"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.edit.end"
    id="n1076"><title
    id="title148">End position of the variant on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position</title>
 end</a>
@@ -518,7 +518,7 @@ end</a>
        y="576.6507"
        class="diagram-class-detail"
        style="fill:#000000"><a
-   xlink:href="molecularsequence-definitions.html#MolecularSequence.variant.observedAllele"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.edit.observedAllele"
    id="n1082"><title
    id="title153">An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)).  Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed  sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end</title>
 observedAllele</a>
@@ -532,7 +532,7 @@ observedAllele</a>
        y="590.6507"
        class="diagram-class-detail"
        style="fill:#000000"><a
-   xlink:href="molecularsequence-definitions.html#MolecularSequence.variant.referenceAllele"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.edit.referenceAllele"
    id="n1088"><title
    id="title158">An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end</title>
 referenceAllele</a>
@@ -546,7 +546,7 @@ referenceAllele</a>
        y="604.6507"
        class="diagram-class-detail"
        style="fill:#000000"><a
-   xlink:href="molecularsequence-definitions.html#MolecularSequence.variant.cigar"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.edit.cigar"
    id="n1094"><title
    id="title163">Extended CIGAR string for aligning the sequence with reference bases. See detailed documentation [here](http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm)</title>
 cigar</a>
@@ -560,7 +560,7 @@ cigar</a>
        y="618.6507"
        class="diagram-class-detail"
        style="fill:#000000"><a
-   xlink:href="molecularsequence-definitions.html#MolecularSequence.variant.variantPointer"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.edit.variantPointer"
    id="n1100"><title
    id="title168">A pointer to an Observation containing variant information</title>
 variantPointer</a>
@@ -1405,7 +1405,7 @@ quality</a>
     <a
        xlink:href="molecularsequence-definitions.html#MolecularSequence.repository"
        id="n1377"><title
-   id="title414">Configurations of the external repository. The repository shall store target's observedSeq or records related with target's observedSeq</title>
+   id="title414">Configurations of the external repository. The repository shall store target's literal or records related with target's literal</title>
 repository</a>
   </text>
   <text

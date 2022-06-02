@@ -44,7 +44,7 @@
   <concept>
     <code value="gateway"/>
     <display value="Gateway"/>
-    <definition value="Gateway."/>
+    <definition value="The linked device acting as a communication/data collector, translator or controller for the current device (e.g., mobile phone application that relays a blood pressure device's data)."/>
   </concept>
   <concept>
     <code value="container"/>

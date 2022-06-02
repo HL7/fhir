@@ -1106,6 +1106,57 @@
     <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">SecurityLabelDataExamples</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Example Data Security Labels from the Healthcare Privacy and Security Classification System.</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">valueset-security-label-data-examples</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:Index="9" ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">sec</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">4.0.0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">SecurityLabelEventExamples</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Example Event Security Labels from the Healthcare Privacy and Security Classification System.</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">valueset-security-label-event-examples</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:Index="9" ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">sec</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">4.0.0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">SecurityLabelExamples</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Example Security Labels from the Healthcare Privacy and Security Classification System.</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">valueset-security-label-examples</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:Index="9" ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">sec</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">4.0.0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">SecurityLabels</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Security Labels from the Healthcare Privacy and Security Classification System.</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">value set</Data></Cell>

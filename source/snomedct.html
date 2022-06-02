@@ -170,14 +170,16 @@ In addition to the <a href="terminology-service.html#standard-props">standard pr
 </p>
 <table class="grid">
 <tr><td nowrap><strong>Property Name</strong></td><td nowrap><strong>Data Type</strong></td><td><strong>Comments</strong></td></tr>
+<tr><td>effectiveTime</td><td>dateTime</td><td>This is the effectiveTime value from the RF2 concepts file (from the snapshot).</td></tr>
 <tr><td>inactive</td><td>boolean</td><td>Whether the code is active or not (defaults to false). This is derived from the active column in the Concept file of the RF2 Distribution (by inverting the value).</td></tr>
+<tr><td>moduleId</td><td>code</td><td>The SNOMED CT concept id of the module that the concept belongs to.</td></tr>
+<tr><td>normalForm</td><td>string</td><td>Generated Necessary Normal Form expression for the provided code or expression, with terms.  The normal form expressions are not suitable for use in subsumption testing.</td></tr>
+<tr><td>normalFormTerse</td><td>string</td><td>Generated Necessary Normal form expression for the provided code or expression, concept ids only.  The normal form expressions are not suitable for use in subsumption testing.</td></tr>
+<tr><td>semanticTag</td><td>code</td><td>The phrase inside the last set of brackets of its Fully Specified Name.</td></tr>
 <tr><td>sufficientlyDefined</td><td>boolean</td><td>True if the description logic definition of the concept
   includes sufficient conditions. This is derived from the definitionStatusId
   value in the Concept file of the RF2 distribution (i.e. If 900000000000073002
   |Sufficiently defined concept definition status| then true).</td></tr>
-<tr><td>moduleId</td><td>code</td><td>The SNOMED CT concept id of the module that the concept belongs to.</td></tr>
-<tr><td>normalForm</td><td>string</td><td>Generated Necessary Normal Form expression for the provided code or expression, with terms.  The normal form expressions are not suitable for use in subsumption testing.</td></tr>
-<tr><td>normalFormTerse</td><td>string</td><td>Generated Necessary Normal form expression for the provided code or expression, concept ids only.  The normal form expressions are not suitable for use in subsumption testing.</td></tr>
 </table>
 <p>
 SNOMED CT relationships, where the relationship

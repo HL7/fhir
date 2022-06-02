@@ -86,19 +86,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="GenomicStudy-assay-patient"/>
+        <id value="GenomicStudy-analysis-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="GenomicStudy.analysis.assay.subject"/>
+          <valueString value="GenomicStudy.analysis.subject"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/GenomicStudy-assay-patient"/>
-        <description value="Who the assay is about"/>
-        <code value="assay-patient"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/GenomicStudy-analysis-patient"/>
+        <description value="Who the analysis is about"/>
+        <code value="analysis-patient"/>
         <type value="reference"/>
-        <expression value="GenomicStudy.analysis.assay.subject.where(resolve() is Patient)"/>
-        <xpath value="f:GenomicStudy/f:analysis/f:assay/f:subject"/>
+        <expression value="GenomicStudy.analysis.subject.where(resolve() is Patient)"/>
+        <xpath value="f:GenomicStudy/f:analysis/f:subject"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -106,19 +106,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="GenomicStudy-assay-subject"/>
+        <id value="GenomicStudy-analysis-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="GenomicStudy.analysis.assay.subject"/>
+          <valueString value="GenomicStudy.analysis.subject"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/GenomicStudy-assay-subject"/>
-        <description value="Who the assay is about"/>
-        <code value="assay-subject"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/GenomicStudy-analysis-subject"/>
+        <description value="Who the analysis is about"/>
+        <code value="analysis-subject"/>
         <type value="reference"/>
-        <expression value="GenomicStudy.analysis.assay.subject"/>
-        <xpath value="f:GenomicStudy/f:analysis/f:assay/f:subject"/>
+        <expression value="GenomicStudy.analysis.subject"/>
+        <xpath value="f:GenomicStudy/f:analysis/f:subject"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

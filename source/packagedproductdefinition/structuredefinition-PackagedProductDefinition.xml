@@ -84,8 +84,8 @@
     </element>
     <element id="PackagedProductDefinition.identifier">
       <path value="PackagedProductDefinition.identifier"/>
-      <short value="A unique identifier for this package as whole"/>
-      <definition value="A unique identifier for this package as whole. Unique instance identifiers assigned to a package by manufacturers, regulators, drug catalogue custodians or other organizations."/>
+      <short value="A unique identifier for this package as whole - not for the content of the package"/>
+      <definition value="A unique identifier for this package as whole - not the the content of the package. Unique instance identifiers assigned to a package by manufacturers, regulators, drug catalogue custodians or other organizations."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -138,7 +138,7 @@
     <element id="PackagedProductDefinition.packageFor">
       <path value="PackagedProductDefinition.packageFor"/>
       <short value="The product that this is a pack for"/>
-      <definition value="The product that this is a pack for."/>
+      <definition value="The product this package model relates to, not the contents of the package (for which see package.containedItem)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -223,7 +223,7 @@
     </element>
     <element id="PackagedProductDefinition.legalStatusOfSupply">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,250"/> 
+        <valueCode value="27,270"/> 
       </extension>
       <path value="PackagedProductDefinition.legalStatusOfSupply"/>
       <short value="The legal status of supply of the packaged item as classified by the regulator"/>
@@ -326,8 +326,8 @@
     </element>
     <element id="PackagedProductDefinition.copackagedIndicator">
       <path value="PackagedProductDefinition.copackagedIndicator"/>
-      <short value="If the drug product is supplied with another item such as a diluent or adjuvant"/>
-      <definition value="States whether a drug product is supplied with another item such as a diluent or adjuvant."/>
+      <short value="Identifies if the drug product is supplied with another item such as a diluent or adjuvant"/>
+      <definition value="Identifies if the package contains different items, such as when a drug product is supplied with another item e.g. a diluent or adjuvant."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -374,7 +374,7 @@
     </element>
     <element id="PackagedProductDefinition.package">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="403,29"/>
+        <valueCode value="453,47"/>
       </extension>
       <path value="PackagedProductDefinition.package"/>
       <short value="A packaging item, as a container for medically related items, possibly with other packaging items within, or a packaging component, such as bottle cap"/>
@@ -393,7 +393,7 @@
     <element id="PackagedProductDefinition.package.identifier">
       <path value="PackagedProductDefinition.package.identifier"/>
       <short value="An identifier that is specific to this particular part of the packaging. Including possibly a Data Carrier Identifier"/>
-      <definition value="An identifier that is specific to this particular part of the packaging. Including possibly Data Carrier Identifier (a GS1 barcode)."/>
+      <definition value="A business identifier that is specific to this particular part of the packaging, often assigned by the manufacturer. Including possibly Data Carrier Identifier (a GS1 barcode)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -431,7 +431,7 @@
     <element id="PackagedProductDefinition.package.quantity">
       <path value="PackagedProductDefinition.package.quantity"/>
       <short value="The quantity of this level of packaging in the package that contains it (with the outermost level being 1)"/>
-      <definition value="The quantity of this level of packaging in the package that contains it. If specified, the outermost level is always 1."/>
+      <definition value="The quantity of packaging items contained at this layer of the package. This does not relate to the number of contained items but relates solely to the number of packaging items. When looking at the outermost layer it is always 1. If there are two boxes within, at the next layer it would be 2."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -506,8 +506,8 @@
     </element>
     <element id="PackagedProductDefinition.package.manufacturer">
       <path value="PackagedProductDefinition.package.manufacturer"/>
-      <short value="Manufacturer of this package Item (multiple means these are all possible manufacturers)"/>
-      <definition value="Manufacturer of this package Item. When there are multiple it means these are all possible manufacturers."/>
+      <short value="Manufacturer of this packaging item (multiple means these are all potential manufacturers)"/>
+      <definition value="Manufacturer of this packaging item. When there are multiple values each one is a potential manufacturer of this packaging item."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -522,7 +522,7 @@
     </element>
     <element id="PackagedProductDefinition.package.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="300,250"/>
+        <valueCode value="320,270"/>
       </extension>
       <path value="PackagedProductDefinition.package.property"/>
       <short value="General characteristics of this item"/>
@@ -590,7 +590,7 @@
     </element>
     <element id="PackagedProductDefinition.package.containedItem">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="610,250"/>
+        <valueCode value="630,270"/>
       </extension>
       <path value="PackagedProductDefinition.package.containedItem"/>
       <short value="The item(s) within the packaging"/>

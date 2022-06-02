@@ -15,7 +15,7 @@ using the facilities provided by the <a href="codesystem.html">code system</a>. 
  <li><b><code>valueSet</code>(s) only</b>: Codes are 'selected' for inclusion if they are in all the referenced value sets</li>
  <li>If a <b><code>System</code> only</b> is specified, the following rules apply: 
     <ul>
-     <li><b>no <code>concept</code> or <code>filter</code></b>: All codes in the system are included</li>
+     <li><b>no <code>concept</code> or <code>filter</code></b>: All codes defined by the code system, independent of code status, are included</li>
      <li><b><code>concept</code></b>: Only the enumerated codes are selected</li>
      <li><b><code>filter</code></b>: Any codes meeting the filter criteria are selected</li>
     </ul>
