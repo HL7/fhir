@@ -4,14 +4,12 @@
   <!-- <text>
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
-  </text> -->
-  <productCategory value="cells" />
+  </text> -->    
+  <productCategory>
+   <code value="cells" />
+  </productCategory>
   <productCode>
-    <coding>
-      <system value="https://www.isbt128.org/uri/ProductDescriptionCode" />
   		<code value="S1127" />
-	  	<display value="HPC, APHERESIS|6% HES + 5% DMSO|Cryopreserved|Mobilized" />
-    </coding>
   </productCode>
   <request>
     <reference value="BiologicallyDerivedProduct/HCTcollection-servicerequest" />
@@ -29,7 +27,9 @@
     <reference value="Organization/Example" />
   </processingFacility>
   <division value="A00000" />
-  <status value="available" />
+  <productStatus>
+       <code  value="available" />
+  </productStatus>
   <expirationDate value="2028-08-02T23:59:00-05:00"/>
   <collection>
     <source>
@@ -46,11 +46,7 @@
   </storageTempRequirements>
   <property>
     <type>
-      <coding>
-        <system value="https://www.isbt128.org/uri/"/>
-        <code value="ABORhD" />
-        <display value="ABORhD type" />
-      </coding>
+      <code value="62" />
     </type>
     <valueCodeableConcept>
       <coding>
@@ -62,11 +58,7 @@
   </property>
   <property>
     <type>
-      <coding>
-        <system value="https://www.isbt128.org/uri/"/>
         <code value="CollectionType"/>
-        <display value="Collection Type"/>			
-      </coding>
     </type>
     <valueCodeableConcept>
       <coding>
@@ -78,7 +70,7 @@
   </property>
   <property>
     <type>
-        <text value="Bag Volume" />			
+        <code value="BagVolume" />			
     </type>
     <valueQuantity>
       <value value="50" />
@@ -88,11 +80,7 @@
   </property>
   <property>
     <type>
-      <coding>
-        <system value="https://loinc.org/"/>
         <code value="74838-4"/>
-        <display value="CD34 cells /volume in Specimen"/>			
-      </coding>
     </type>
     <valueQuantity>
       <value value="2.6" />

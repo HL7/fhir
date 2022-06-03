@@ -1,328 +1,123 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 
 [%settitle Messaging using FHIR Resources%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-[%file newheader%]
-<style>
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 5px;
-}
-table tr:nth-child(even) {
-  background-color: #eee;
-}
-table tr:nth-child(odd) {
-  background-color: #fff;
-}
-table th {
-  background-color: black;
-  color: white;
-}
-</style>
-</head>
-<body>
-[%file newnavbar%]
+  <head>
+    [%file newheader%]
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
 
+      th,
+      td {
+        padding: 5px;
+      }
 
+      table tr:nth-child(even) {
+        background-color: #eee;
+      }
 
-  <h2>Genomics Implementation Guidance</h2>
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg cg%]">[%wgt cg%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 1</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+      table tr:nth-child(odd) {
+        background-color: #fff;
+      }
 
-  <p><b>Table of Contents</b></p>
+      table th {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
 
-    <ol>
-      <li><a href="#background">Background</a></li>
-      <li><a href="#overview">Overview</a></li>
-      <li><a href="#sequence">MolecularSequence Resource</a></li>
-      <li><a href="#resource_vs_profiles">Relationship among MolecularSequence resource and profiles</a></li>
-      <li><a href="#dam">HL7 Domain Analysis Model Use Cases</a></li>
-      <li><a href="#other_examples">Other Genomics Use Cases</a></li>
-      <li><a href="#apps">Clinical Genomics Apps</a></li>
-    </ol>
+  <body>
+    [%file newnavbar%]
 
-[%stu-note%]
-  <p>
-      The material on this page is currently undergoing work to be refactored in a future release as further analysis is done, for example as part of the <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">Genomics Reporting Implementation Guide</a>.
-  </p>
-[%end-note%]
-
-<a name="background"></a>
-  <h2>Background</h2>
-  <p>
-    Rapid advances in sequencing technologies, clinical genetics tests for whole
-    genome and exome sequencing are allowing sophisticated genetics testing to
-    be used by providers and patients in clinical decisions. Results from such
-    tests are used to identify distinct genetic variants that may contribute to
-    syndromes, conditions and/or predictive responses to treatments. The
-    implementation of precision medicine will depend upon having such data to
-    diagnose patients, choose medications, and predict the course of disease and
-    care, but will require standards and effective user interfaces.
-   </p>
-  <p>
-    A current technical challenge exists in interoperability, the
-    ability to access and share clinical and genetics data. The challenges of
-    interoperability includes collection, coding, and retrieval to scale. An
-    individual's genetic data set is large, complex and requires curation.
-    Unfortunately, incompatible systems and nomenclatures are already in use.
-    A standards-based ontology that could be adopted to integrate both genetic
-    data and clinical information systems will be crucial to accelerating the
-    integration of precision medicine and to make sense of genetic testing
-    results in a complete clinical context.</p>
-  <p>One approach for collecting, coding, and retrieving genetics data comes
-    from the <a href="http://genomicsandhealth.org">Global Alliance for Genomics and Health</a>
-    (<abbr title="Global Alliance for Genomics and Health">GA4GH</abbr>). The
-    GA4GH organization has built and is refining an API and data
-    model for the exchange of full sequence genomic information across multiple
-    research organizations and platforms. The GA4GH focuses on the needs of
-    researchers.
-  </p>
-  <p>
-    A second approach is evolving from <a href="http://hl7.org">HL7</a> through FHIR. FHIR is attractive because it is relatively easy to implement because it is comprised of a set of modular components called resources, which can be easily and incrementally assembled into working systems. The clinical requirements for genetics data is, relative to genomics research needs, utilitarian and reductive because it is about distilling and extracting particular genetics data produced by ever more sophisticated testing for use at the point-of-care. This has made FHIR a very functional framework to initiate an interoperable clinical genetics data standardization to which multiple stakeholders have contributed to this guide.
-  </p>
-  <p>
-    FHIR DSTU2 introduced a standard genetics profile that applies to the FHIR Observation resource. Using this profile, Observation payloads can return genetic testing results in a standardized manner. In STU3, a new resource to be called <strong>MolecularSequence</strong> was created allowing for increased granularity and less ambiguity.
-  </p>
-  <p>
-    In addition to the MolecularSequence, a new FHIR Implementation Guide <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">Genomics Reporting Implementation Guide</a> is being developed. At present, this implementation guide focuses solely on data structures - what data should be/might be present and how it should be organized. It does not address workflows around how reports are requested, created, approved, routed, delivered, amended, etc. The implementation guide is also paradigm-independent - the data structures presented here could be used in RESTful, messaging, documents or other mechanisms.
-  </p>
-
-<a name="overview"></a>
-  <h2>MolecularSequence Overview</h2>
-  <p>
-     This resource will be used to hold clinically relevant sequence data in a manner that is both efficient and versatile integrating new and as yet undefined types of genomic and other -omics data that will soon be commonly entered into health records for clinical use.  MolecularSequence will be leveraged by other FHIR resources, including Observation.  This is consistent with how all FHIR resources are designed and used.
-  </p>
-  <p>
-    With this resource and profiles found in the <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">Genomics Reporting Implementation Guide</a>, FHIR can support a large set of clinical use cases (see <a href="#dam">Section 9</a>, <a href="#other_examples">10</a> , and <a href="#apps">11</a>) and is thus positioned to address all emergent -omics use cases, including Next-Generation Sequencing (<abbr title="Next-Generation Sequencing">NGS</abbr>).
-    These tools are simple to implement, will optimize payload sizes, and help developers avoid redundant retrieval of data.
-  </p>
-  <p>
-    The September 2014 Informative Ballot (“HL7 Clinical Genomics, Domain Analysis Model: Clinical Sequencing Release 1”) provided guiding use cases,
-    which initially informed development of the initial Standard Genetics profile that is found in FHIR DSTU2. The same use cases also led to a
-    second Project to develop a MolecularSequence resource (“Develop FHIR sequence resource for Clinical Genomics”). A preliminary effort to address these issues has been explored and published in context of the <a href="http://smarthealthit.org/an-app-platform-for-healthcare/about/">Substitutable Medical Applications and Reusable Technologies</a> (<abbr title="Substitutable Medical Applications and Reusable Technologies">SMART</abbr>) Platforms Project and described in an article (“<a href="http://jamia.oxfordjournals.org/content/early/2015/07/21/jamia.ocv045.long">SMART on FHIR Genomics: Facilitating standardized clinico-genomic apps</a>”).
-  </p>
-
-<a name="sequence"></a>
-  <h2>MolecularSequence Resource</h2>
-
-  <h3>Structure Diagram</h3>
-
-[%resource-table MolecularSequence%]
-
-  <h3>Description</h3>
-  <p>
-    The <a href="molecularsequence.html">MolecularSequence resource</a> is designed for next-generation sequencing data. Patients’ observed sequences should be represented by recording reference sequence id/string and detected variants. To specify how it proceed, here is a picture below:
-  </p>
-
-
-<img src="genomics-image34.jpg" alt="" style="width:624px;height:468px"/>
-
-<p>
-  MolecularSequence.coordinateSystem: This element shall be constrained into only two possible values: 0 for 0-based system and 1 for 1-based system. Below is the picture that could explain what’s the difference between these two systems:
-</p>
-
-<img src="genomics-image11.png" alt="coordinateSystem" style="width:624px;height:412px;"/>
-
-<p>  Here are two examples that clarify the usage in both cases (they represent same segment part):
-  <ul>
-    <li>0-based example: <a href="coord-0base-example.html">here</a> Source:<a href="coord-0base-example.xml.html">XML</a>,<a href="coord-0base-example.json.html">JSON</a></li>
-    <li>1-based example: <a href="coord-1base-example.html">here</a> Source:<a href="coord-1base-example.xml.html">XML</a>,<a href="coord-1base-example.json.html">JSON</a></li>
-  </ul>
-</p>
-
-<p>
-  MolecularSequence.referenceSeq: Four optional ways are provided to represent reference sequence in MolecularSequence resource:
-  <ol>
-    <li>MolecularSequence.referenceSeq.referenceSeqId: Reference sequence id in public database;</li>
-    <li>MolecularSequence.referenceSeq.referenceSeqString: Reference sequence string; </li>
-    <li>MolecularSequence.referenceSeq.referenceSeqPointer: Reference to observed sequence stored in another sequence entity;  </li>
-    <li>MolecularSequence.referenceSeq.genomeBuild, MolecularSequence.reference.chromosome: The combination of genome build and chromosome. </li>
-  </ol>
-</p>
-
-<p>
-The window selects a range from the reference sequence (or genome) that is used to define building block of a current sequence (e.g. MolecularSequence resource instance 1).
-</p>
-<p>
-  MolecularSequence.referenceSeq.strand: Only two possible values can be made by strand, +1 for plus strand while -1 for minus strand. Since the directionality of the sequence string might be represented in different word in different omics scenario, below are simple example of how to map other expressions into its correlated value:
-</p>
-<table style="width:100%">
-    <tr>
-    <th>Map to +1</th>
-    <th>Map to -1</th>
-    </tr>
-    <tr>
-    <td>5′-to-3′ direction</td>
-    <td>3′-to-5′ direction</td>
-    </tr>
-    <tr>
-    <td>Watson</td>
-    <td>Crick</td>
-    </tr>
-    <tr>
-    <td>Sense</td>
-    <td>Antisense</td>
-  </tr>
-  <tr>
-    <td>Positive</td>
-    <td>Negative</td>
-  </tr>
-</table>
-
-<p>
-MolecularSequence.quality: Quality scores for bases in the sequence. It is intended to be compliant with emerging regulatory needs needs (eg: those found at <a href="https://precision.fda.gov">PrecisionFDA</a>).
-</p>
-<p>
-MolecularSequence.variant: This complex element is used for encoding sequence. When the information of reference sequence and variants are provided, the observed sequence will be derived.
-</p>
-
-<h4>Internal Pointers</h4>
-<p>
-MolecularSequence.patient: This element points to a Patient identifier to show that this sequence is related to the same patient.
-</p>
-<p>
-MolecularSequence.specimen: A pointer to specimen identifier, if needed.
-</p>
-<p>
-MolecularSequence.device: A pointer to Device identifier which is used for describing sequencing method (such as chip id,  chip manufacturer etc.)
-</p>
-<p>
-MolecularSequence.pointer: A pointer to a MolecularSequence instance for the next sequence block to build a sequence graph.
-</p>
-
-<h4>External Pointers</h4>
-<p>
-MolecularSequence.repository: This complex element is used to provide a clarifying structure, a base URL, and/or relevant IDs when referring to an external repository.
-</p>
-<p>
-GA4GH Repository Example. If the MolecularSequence resource refers to a GA4GH repository for read info, references to a GA4GH full sequence dataset should conform to GA4GH data models and accessed via the GA4GH API. The URL of a GA4GH repository, ids of a GA4GH variant and read group are contained in the MolecularSequence resource. The URL of a GA4GH repository is an api_base of a GA4GH server that could be called for sequence data. The GA4GH variant set is a collection of call sets and the GA4GH call set is a collection of variant calls, typically for one sample. A variant call represents a determination of genotype with respect to that variant.
-</p>
-<p>
-  VariantSet definition: A VariantSet is a collection of variants and variant calls intended to be analyzed together.
-</p>
-<p>
-  CallSet definition: A CallSet is a collection of calls that were generated by the same analysis of the same sample.
-</p>
-<p>
-  A read group is a collection of reads produced by a sequencer. A read group set typically models reads corresponding to one sample, sequenced one way, and aligned one way. The API reference of <a href="https://cloud.google.com/genomics/">Google Genomics</a> is a GA4GH repository built by Google and provides details of the data models, such as the resource representations.
-</p>
-
-<h3>Usage Examples</h3>
-
-<h4>Different way to represent sequence record with variations</h4>
-
-<p>
-We provide a detailed example to show how sequence resource can be used to represent record of observed sequence by different method.
-</p>
-<img src="genomics-image15.jpeg" alt="MolecularSequence Graph" style="width:624px;height:468px;"/>
-
-<p>The diagram above describes 4 optional ways provided in the MolecularSequence resource to encode sequencing data.
-Here are the corresponding examples
-<ul>
-    <li> <a href="sequence-graphic-example-1.html">By referenceSeqId</a> Source:<a href="sequence-graphic-example-1.xml.html">XML</a>,<a href="sequence-graphic-example-1.json.html">JSON</a>,<a href="sequence-graphic-example-1.ttl.html">TURTLE</a></li>
-    <li> <a href="sequence-graphic-example-2.html">By referenceSeqString</a> Source:<a href="sequence-graphic-example-2.xml.html">XML</a>,<a href="sequence-graphic-example-2.json.html">JSON</a>,<a href="sequence-graphic-example-2.ttl.html">TURTLE</a></li>
-    <li> <a href="sequence-graphic-example-3.html">By referenceSeqPointer</a> Source:<a href="sequence-graphic-example-3.xml.html">XML</a>,<a href="sequence-graphic-example-3.json.html">JSON</a>,<a href="sequence-graphic-example-3.ttl.html">TURTLE</a></li>
-    <li> <a href="sequence-graphic-example-4.html">By Genomebuild+chromosome</a> Source:<a href="sequence-graphic-example-4.xml.html">XML</a>,<a href="sequence-graphic-example-4.json.html">JSON</a>,<a href="sequence-graphic-example-4.json.html">TURTLE</a></li>
-</ul>
-</p>
-
-
-<h4>Example from precision FDA </h4>
-<p>
-We provide one <a href="sequence-example-fda.html">example</a> to show how precision FDA vcf data can be upload and comform FHIR specification, and how quality in sequence resource is represented by comparison between a reference sequence and the observed sequence.
-</p>
-<p>
-Source: <a href="sequence-example-fda.xml.html">XML</a>, <a href="sequence-example-fda.json.html">JSON</a>, <a href="sequence-example-fda.ttl.html">Turtle</a>.
-</p>
-
-<h4>Complex Variation example</h4>
-<p>
-We provide one <a href="sequence-complex-variant.html">example</a> to show how a complex variant can be represented with the help of cigar. The deletion, insertion and mutation is represented in characters along with the number of repetition.
-</p>
-<p>
-Source: <a href="sequence-complex-variant.xml.html">XML</a>, <a href="sequence-complex-variant.json.html">JSON</a>, <a href="sequence-complex-variant.ttl.html">Turtle</a>.
-</p>
-
-
-<a name="resource_vs_profiles"></a>
-<h2>Relationship among MolecularSequence resource and genetics profiles</h2>
-
-<img src="genomics-image20.png" alt="" style="width:624.00px; height:428.00px;"/>
-
-<h3>Pointers to MolecularSequence resource</h3>
-
-<p>
-  MolecularSequence resource is used to transmit and represent sequencing data. In FHIR Genomics, there are several genetics profiles containing internal pointers to MolecularSequence resource for genetic data reporting. Here is the summary:
-</p>
-<p>
-  MolecularSequence.pointer: A bundle of MolecularSequence instances can be connected by MolecularSequence.pointer to build sequence graph described in Section 3. MolecularSequence.pointer will point to the next sequence block.
-</p>
-<p>
-  MolecularSequence extension in Observation-genetics profile: Observation-genetics profile is used to report a genetic variant found in patients. MolecularSequence extension contains a pointer to MolecularSequence identifier which has related sequencing read info. It will provide reference/observed allele information and quality scores for each base/sequence block.
-</p>
-
-<h3>Pointer to Observation resource (based on genetics profile)</h3>
-
-<p>
-  Observation-genetics based Observation resource is used for interpretative genetic data.  MolecularSequence resource and genetics profiles will use internal pointers to Observation-genetics-profile based Observation instance for variant report.
-</p>
-<p>
-  MolecularSequence.observation: A pointer to genetics Observation instance which is used for interpretations of this sequence block. Interpretations are generally about genetic variant found in this sequence block.
-</p>
-<p>
-  FamilyMemberHistory:  A pointer to genetics Observation instance to report genetic test results of family member
-</p>
-
-
-<a name="other_examples"></a>
-<h2>Other Genomics Use Cases</h2>
-
-<p>
-  During the development of the FHIR Genomics design, CGWG participants have commented on the earlier use cases and/or proposed new use cases. In this section, we list describe of these new cases and demonstrate how the proposed design will address them.
-</p>
-
-<h3>Get a patient’s family members genetics report</h3>
-
-<p>
-  This example is proposed by Kevin Hughes. Family history is useful for clinicians to know more about the condition of the patient.
-</p>
-
-<pre class="http">
-Get /FamilyMemberHistory?
-    _profile=http://hl7.org/fhir/StructureDefinition/familymemberhistory-genetic&amp;
-    patient=123
-</pre>
-
-<br />
-
-<img alt="" src="genomics-image22.png" style="width: 624.00px; height: 292.00px;"/>
-
-<a name="apps"></a>
-<h2>Clinical Genomic Apps</h2>
-
-<p>
-  The idea for a MolecularSequence resource grew out, in part, the SMART Platforms Project, which explored creating clinical genomic apps to integrated traditional EMR clinical data and genomic data to show data visualization and analysis, including CDS that depended upon both types of data.  Below are a couple of examples.  Several apps have already been designed including Genomics Advisor, SMART Precision Cancer Medicine, and Diabetes Bear EMR.  Below, one of these apps will be described.  To include other apps in this section, please feel free to add a note on it and how it uses FHIR/Genomics calls.
-</p>
-
-<h3>Genomics Advisor</h3>
-
-<p>
-  The SMART on FHIR Genomics Advisor was an app incorporating genomics data to show risk of disease, drug susceptibility, and related conditions based upon genotype. Technically, this app was architected (see below) by combining data from independent data services, a SMART on FHIR clinical server for clinical information and one for a SMART on FHIR Genomics data server for genomic data.  The set of FHIR API calls that are necessary to support this app are shown below:
-</p>
-
-<img alt="" src="genomics-image26.png" style="width: 503.49px; height: 240.48px;"/>
-
-<p>
-  The presentation of the app looks like this:
-</p>
-
-<img alt="" src="genomics-image31.png" style="width: 542.46px; height: 312.63px;"/>
-
-[%file newfooter%]
-
-
-</body>
+    <h2>Genomics in FHIR</h2>
+    <table class="colstu">
+      <tr>
+        <td id="wg">
+          <a _target="blank" href="[%wg cg%]">[%wgt cg%]</a> Work Group
+        </td>
+        <td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 1</td>
+        <td id="ballot">
+          <a href="versions.html#std-process">Standards Status</a>:
+          <!--!ns!--><a href="versions.html#std-process">Trial Use</a>
+        </td>
+      </tr>
+    </table>
+    <p>
+      The era of precision medicine-- an emerging approach for disease treatment
+      and prevention that takes into account individual variability in genes,
+      environment, and lifestyle for each person-- is upon us.
+    </p>
+    <p>
+      Precision medicine is fueled by the amazing technological advancements in
+      genomics, making it possible (and feasible) to undertake broad genetic
+      testing on an individual in a clinically useful timeframe. Whereas not so
+      long ago genomics was primarily of concern to bioinformaticists
+      interacting with such artifacts as alignment (e.g. BAM, CRAM) and variant
+      calling (e.g. VCF) data files, we are now seeing tremendous interest
+      across the clinical community for integrating genomics findings and
+      recommendations into the EHR and into the care process. To that end, the
+      HL7 Clinical Genomics Work Group is developing a set of standards for
+      reporting structured genomic data using FHIR.
+    </p>
+    <p>
+      An individual's genetic data set is large and complex, and therefore
+      requires systems that can manage the size and make sense of the
+      complexity. Unfortunately, due to a lack of widely adopted standards,
+      these systems are often incompatible. A standards-based approach to data
+      exchange that could be adopted to integrate both genetic data and clinical
+      information systems will be crucial to accelerating the integration of
+      precision medicine and to make sense of genetic testing results in a
+      complete clinical context.
+    </p>
+    <p>
+      The
+      <a href="https://confluence.hl7.org/display/CGW">
+        Clinical Genomics Work Group
+      </a>
+      supports the HL7 mission to create and promote its standards by enabling
+      the semantically meaningful exchange of data between parties interested in
+      clinical, personal, and population genomic information and family health
+      history, which are required to support precision medicine. The committee's
+      work products include:
+    </p>
+    <ul>
+      <li>
+        <p>
+          <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">
+            Genomics Reporting
+          </a>
+          Implementation Guide: Standardizes the reporting of genomic variants,
+          haplotypes, genotypes, variant annotations, and more.
+        </p>
+      </li>
+      <li>
+        <p>
+          <a href="molecularsequence.html">MolecularSequence</a> Resource: A
+          resource representing a nucleotide or protein polymer. This resource
+          was created prior to the development of the Genomics Reporting
+          Implementation Guide. Because of this, there are currently
+          redundancies between the two which need to be reconciled (e.g.,
+          variants), and MolecularSequence will be refactored in the future to
+          reduce this redundancy as much as possible. Wherever possible, defer
+          to the Genomics Reporting IG to guide your approach reporting genomics
+          lab results.
+        </p>
+      </li>
+    </ul>
+    <p>
+      Uses of these FHIR artifacts and other genomic use cases can be found
+      <a
+        href="https://confluence.hl7.org/display/CGW/Clinical+Genomics+on+FHIR"
+      >
+        here
+      </a>
+    </p>
+    [%file newfooter%]
+  </body>
 </html>

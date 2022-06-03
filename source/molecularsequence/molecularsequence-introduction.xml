@@ -1,59 +1,35 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-<blockquote class="stu-note">
+  <div>
+  <h2>Scope and Usage</h2>
   <p>
-    The <a href="http://www.hl7.org/Special/committees/clingenomics/index.cfm">Clinical Genomics committee</a> has identified overlaps and redundancies between content in the MolecularSequence resource and content in Observation profiles in the evolving Implementation Guide for Clinical Genomics Reporting found <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">here</a>. The committee is considering options for modifying the resource and anticipates potential changes being brought forward in an upcoming ballot.
+    The MolecularSequence resource is designed for representing molecular sequencing data. It avoids large genomic payloads in a manner analogous to how the ImagingStudy resource references large images maintained in other systems.
   </p>
-</blockquote>
-<div>
-    
-<h2>Scope and Usage</h2>
-<p>
-    The MolecularSequence resource is designed to describe an atomic sequence which contains the alignment sequencing test result and multiple variations. Atomic sequences can be connected by link element and they will lead to sequence graph. By this method, a sequence can be reported. Complete genetic sequence information, of which specific genetic variations are a part, is reported by reference to the GA4GH repository.  Thus, the FHIR MolecularSequence resource avoids large genomic payloads in a manner analogous to how the FHIR ImagingStudy resource references large images maintained in other systems.
-    For use cases, details on how this resource interact with other Clinical Genomics resources or profiles, please refer to implementation guidance document <a href="genomics.html">here</a>.
-</p>
-<h3>Genetic Standards and Resources include:</h3>
-<ul>
-    <li>Variant Databases: <a href="http://www.ncbi.nlm.nih.gov/projects/SNP/snp_ref.cgi">dbSNP</a> , <a href="http://www.ncbi.nlm.nih.gov/clinvar/">ClinVar</a>, and <a href="http://cancer.sanger.ac.uk/cosmic/">COSMIC</a> </li>
-    <li>Reference Sequences: <a href="http://www.ncbi.nlm.nih.gov/refseq/">RefSeq</a> and <a href="http://www.ensembl.org/index.html">ENSEMBL</a> </li>
-</ul>
-<p>
-    This resource is designed to describe sequence variations with clinical significance with information such as:
-</p>
-    <ul>
-        <li>Name of the variation represented</li>
-        <li>Type of the variation</li>
-        <li>Gene region occupied by the variation</li>
-        <li>Tissue source used to determine genotype of the variation</li>
-	 <li>Quality of the result</li>
-    </ul>
-<p>
-    It is strongly encouraged to provide all available information in this resource for any reported variants, because receiving systems (e.g. discovery research, outcomes analysis, and public health reporting) may use this information to normalize variants over time or across sources.  However, these data should not be used to dynamically correct/change variant representations for clinical use outside of the laboratory, due to insufficient information.
-</p>
-<p>
-    Implementers should be aware that semantic equivalency of results of genetic variants cannot be guaranteed unless there is an agreed upon standard between sending and receiving systems.
-</p>
+  <p>
+    It is strongly encouraged to provide all available information in this resource for any reported sequences, because receiving systems (e.g. discovery research, outcomes analysis, and public health reporting) may use this information to normalize sequences over time or across sources.  However, these data should not be used to dynamically correct/change sequence representations for clinical use outside of the laboratory, due to insufficient information.
+  </p>
+  <p>
+    Implementers should be aware that semantic equivalency of sequences cannot be guaranteed unless there is an agreed upon standard between sending and receiving systems.
+  </p>
+  </div>
 
-</div>
+  <div>
+  <h2>Boundaries and Relationships</h2>
+  <p>
+    The MolecularSequence resource should only be used to capture a molecular sequence. It will not be used for other entities such as variant, variant annotations, genotypes, haplotypes, etc. Those concepts will be captured in <code>Observation</code> profiles found in the <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">Genomics Reporting Implementation Guide</a>. The sequence that was observed that led to the identification of those concepts can be delivered with this resource, and will be referenced by those observations.
+  </p>
+  <p>
+    MolecularSequence will not be used to capture data such as precise read of DNA sequences and sequence alignment are not included; such data may be accessible through references to <a href="http://ga4gh.org/#/">GA4GH</a> (Global Alliance for Genomics and Health) API, and may be referenced to by the <code>formatted</code> element.
+  </p>
 
-<div>
-<h2>Boundaries and Relationships</h2>
-
-<p>
-    Focus of the resource is to provide sequencing alignment data immediately relevant to what the interpretation on clinical decision-making originates from. Hence data such as precise read of DNA sequences and sequence alignment are not included; such data are nonetheless accessible through references to <a href="http://ga4gh.org/#/">GA4GH</a> (Global Alliance for Genomics and Health) API.
-    
-    The MolecularSequence resource will be referenced by <a href="observation.html">Observation</a> to provide variant information. As clinical assessments/diagnosis of a patient are typically captured in the <a href="condition.html">Condition</a> resource or the ClinicalImpression resource, the MolecularSequence resource can be referenced by the Condition resource to provide specific genetic data to support assertions. This is analogous to how Condition references other resources, such as <a href="allergyintolerance.html">AllergyIntolerance</a>, <a href="procedure.html">Procedure</a>, and <a href="questionnaire.html">Questionnaire</a> resources.
-</p>
-
-</div>
+  </div>
 
 <!-- (optional):
 <div>
 <h2>Background and Context</h2>
 <p>
+
 Provides additional detail on exactly how the resource is to be used
 </p>
 </div>
 -->
-
 </div>
-
