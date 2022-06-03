@@ -70,7 +70,9 @@
             <reference value="Specimen/denovo-1"/>
         </specimen>
         <date value="2021-01-01T01:01:10"/><!-- 0..1 The date of the analysis event -->
-        <note><!-- 0..* Annotation Any notes capture with the analysis event --></note>
+        <note>
+            <text value="This is a next generation sequencing analysis of a proband."/>
+        </note>
         <protocolPerformed><!-- 0..1 Reference(Procedure|Task) The protocol that was performed for the analysis event --></protocolPerformed>
         <regionsCalled><!-- 0..1 Reference(DocumentReference) Genomic regions actually called in the analysis event (BED file) --></regionsCalled>
         <input>  <!-- 0..* Inputs for the analysis event -->
@@ -109,7 +111,9 @@
             <reference value="Specimen/denovo-2"/>
         </specimen>
         <date value="2021-01-01T01:01:10"/><!-- 0..1 The date of the analysis event -->
-        <note><!-- 0..* Annotation Any notes capture with the analysis event --></note>
+        <note>
+            <text value="This is a next generation sequencing analysis of a mother of a proband."/>
+        </note>
         <protocolPerformed><!-- 0..1 Reference(Procedure|Task) The protocol that was performed for the analysis event --></protocolPerformed>
         <regionsCalled><!-- 0..1 Reference(DocumentReference) Genomic regions actually called in the analysis event (BED file) --></regionsCalled>
         <input>  <!-- 0..* Inputs for the analysis event -->
@@ -148,7 +152,9 @@
             <reference value="Specimen/denovo-3"/>
         </specimen>
         <date value="2021-01-01T01:01:10"/><!-- 0..1 The date of the analysis event -->
-        <note><!-- 0..* Annotation Any notes capture with the analysis event --></note>
+        <note>
+            <text value="This is a next generation sequencing analysis of a father of a proband."/>
+        </note>
         <protocolPerformed><!-- 0..1 Reference(Procedure|Task) The protocol that was performed for the analysis event --></protocolPerformed>
         <regionsCalled><!-- 0..1 Reference(DocumentReference) Genomic regions actually called in the analysis event (BED file) --></regionsCalled>
         <input>  <!-- 0..* Inputs for the analysis event -->
