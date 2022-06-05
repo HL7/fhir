@@ -677,6 +677,14 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <constraint>
+        <key value="cmd-6"/>
+        <severity value="error"/>
+        <human value="One of value[x] valueSet or must exist."/>
+        <expression value="value.exists() or valueSet.exists()"/>
+        <xpath value="exists(f:value) or exists(f:valueSet)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
+      </constraint>
     </element>
     <element id="ConceptMap2.group.element.target.dependsOn.property">
       <path value="ConceptMap2.group.element.target.dependsOn.property"/>
@@ -692,7 +700,7 @@
       <path value="ConceptMap2.group.element.target.dependsOn.value[x]"/>
       <short value="Value of the referenced property"/>
       <definition value="Property value that the map depends on."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
@@ -720,6 +728,17 @@
       </type>
       <type>
         <code value="id"/>
+      </type>
+    </element>
+    <element id="ConceptMap2.group.element.target.dependsOn.valueSet">
+      <path value="ConceptMap2.group.element.target.dependsOn.valueSet"/>
+      <short value="Identifies elements being mapped"/>
+      <definition value="The set of codes being mapped."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </type>
     </element>
     <element id="ConceptMap2.group.element.target.product">
