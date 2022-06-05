@@ -786,6 +786,14 @@
         <xpath value="(f:mode/@value != &#39;fixed&#39;) or (exists(f:code) and not(exists(f:valueSet))) or (not(exists(f:code)) and exists(f:valueSet))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
       </constraint>
+      <constraint>
+        <key value="cmd-8"/>
+        <severity value="error"/>
+        <human value="If the mode is not &#39;fixed&#39;, code, display and valueSet are not allowed"/>
+        <expression value="(mode != &#39;fixed&#39;) implies (code.empty() and display.empty() and valueSet.empty())"/>
+        <xpath value="(f:mode/@value = &#39;fixed&#39;) or not(exists(f:code) or exists(f:display) or exists(f:valueSet))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
+      </constraint>
     </element>
     <element id="ConceptMap2.group.unmapped.mode">
       <path value="ConceptMap2.group.unmapped.mode"/>
