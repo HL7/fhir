@@ -773,9 +773,9 @@
       <constraint>
         <key value="cmd-2"/>
         <severity value="error"/>
-        <human value="If the mode is &#39;fixed&#39;, a code or valueSet must be provided"/>
-        <expression value="(mode = &#39;fixed&#39;) implies (code.exists() or valueSet.exists())"/>
-        <xpath value="(f:mode/@value != &#39;fixed&#39;) or exists(f:code) or exists(f:valueSet)"/>
+        <human value="If the mode is &#39;fixed&#39;, either a code or valueSet must be provided, but not both."/>
+        <expression value="(mode = &#39;fixed&#39;) implies ((code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists()))"/>
+        <xpath value="(f:mode/@value != &#39;fixed&#39;) or (exists(f:code) and not(exists(f:valueSet))) or (not(exists(f:code)) and exists(f:valueSet))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
       </constraint>
     </element>
