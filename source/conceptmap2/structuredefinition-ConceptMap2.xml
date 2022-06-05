@@ -680,7 +680,7 @@
       <constraint>
         <key value="cmd-6"/>
         <severity value="error"/>
-        <human value="One of value[x] valueSet or must exist."/>
+        <human value="One of value[x] or valueSet must exist."/>
         <expression value="value.exists() or valueSet.exists()"/>
         <xpath value="exists(f:value) or exists(f:valueSet)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
@@ -732,8 +732,8 @@
     </element>
     <element id="ConceptMap2.group.element.target.dependsOn.valueSet">
       <path value="ConceptMap2.group.element.target.dependsOn.valueSet"/>
-      <short value="Identifies elements being mapped"/>
-      <definition value="The set of codes being mapped."/>
+      <short value="The mapping depends on a property with a value from this value set"/>
+      <definition value="This mapping applies if the property value is a code from this value set."/>
       <min value="0"/>
       <max value="1"/>
       <type>
