@@ -688,9 +688,9 @@
       <constraint>
         <key value="cmd-6"/>
         <severity value="error"/>
-        <human value="One of value[x] or valueSet must exist."/>
-        <expression value="value.exists() or valueSet.exists()"/>
-        <xpath value="exists(f:value) or exists(f:valueSet)"/>
+        <human value="One of value[x] or valueSet must exist, but not both."/>
+        <expression value="(value.exists() and valueSet.empty()) or (value.empty() and valueSet.exists())"/>
+        <xpath value="(exists(f:value) and not(exists(f:valueSet))) or (not(exists(f:value)) and exists(f:valueSet))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
       </constraint>
     </element>
