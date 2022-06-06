@@ -195,6 +195,10 @@
     <display value="Prednisone"/>
     <display value="Prednisone (substance)"/>
   </concept>
+  <concept id="1179448000" display="Ondansetron 4 mg oral lyophilisate">
+    <display value="Ondansetron 4 mg oral lyophilisate"/>
+    <display value="Product containing precisely ondansetron 4 milligram/1 each conventional release oral lyophilisate (clinical drug)"/>
+  </concept>
   <concept id="11830008" display="Delaware chicken">
     <display value="Delaware chicken"/>
     <display value="Delaware chicken (organism)"/>
