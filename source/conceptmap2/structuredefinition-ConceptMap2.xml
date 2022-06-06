@@ -414,11 +414,11 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="ConceptMap2.source[x]">
-      <path value="ConceptMap2.source[x]"/>
+    <element id="ConceptMap2.sourceScope[x]">
+      <path value="ConceptMap2.sourceScope[x]"/>
       <short value="The source value set that contains the concepts that are being mapped"/>
-      <definition value="Identifier for the source value set that contains the concepts that are being mapped and provides context for the mappings."/>
-      <comment value="Should be a version specific reference. URIs SHOULD be absolute. If there is no source or target value set, there is no specified context for the map (not recommended).  The source value set may select codes from either an explicit (standard or local) or implicit code system."/>
+      <definition value="Identifier for the source value set that contains the concepts that are being mapped and provides context for the mappings.  Limits the scope of the map to source codes (ConceptMap2.group.element code or valueSet) that are members of this value set."/>
+      <comment value="Should be a version specific reference. URIs SHOULD be absolute. If there is no sourceScope or targetScope value set, there is no specified context for the map (not recommended).  The sourceScope value set may select codes from either an explicit (standard or local) or implicit code system."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -430,11 +430,11 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="ConceptMap2.target[x]">
-      <path value="ConceptMap2.target[x]"/>
+    <element id="ConceptMap2.targetScope[x]">
+      <path value="ConceptMap2.targetScope[x]"/>
       <short value="The target value set which provides context for the mappings"/>
-      <definition value="The target value set provides context for the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made."/>
-      <comment value="Should be a version specific reference. URIs SHOULD be absolute. If there is no source or target value set, the is no specified context for the map."/>
+      <definition value="Identifier for the target value set that provides important context about how the mapping choices are made.  Limits the scope of the map to target codes (ConceptMap2.group.element.target code or valueSet) that are members of this value set."/>
+      <comment value="Should be a version specific reference. URIs SHOULD be absolute. If there is no sourceScope or targetScope value set, there is no specified context for the map (not recommended).  The targetScope value set may select codes from either an explicit (standard or local) or implicit code system."/>
       <min value="0"/>
       <max value="1"/>
       <type>
