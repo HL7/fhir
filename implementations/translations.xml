@@ -432,6 +432,9 @@
 		<translation lang="fr">Drapeau</translation>
 		<translation lang="zh">标记</translation>
 	</item>
+	<item id="FormularyItem">
+		<translation lang="en">FormularyItem</translation>
+	</item>
 	<item id="GeneExpression">
 		<translation lang="en">GeneExpression</translation>
 		<translation lang="zh">基因表达</translation>

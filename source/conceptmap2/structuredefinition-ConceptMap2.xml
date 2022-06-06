@@ -680,8 +680,8 @@
     </element>
     <element id="ConceptMap2.group.element.target.dependsOn.property">
       <path value="ConceptMap2.group.element.target.dependsOn.property"/>
-      <short value="Reference to property mapping depends on"/>
-      <definition value="A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somewhere that is labeled to correspond with a code system property."/>
+      <short value="A reference to a property that may be required to refine the mapping"/>
+      <definition value="A reference to a property that holds a value the map depends on. This value can be supplied to the $translate operation to select the appropriate targets."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -725,7 +725,7 @@
     <element id="ConceptMap2.group.element.target.product">
       <path value="ConceptMap2.group.element.target.product"/>
       <short value="Other concepts that this mapping also produces"/>
-      <definition value="A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the relationship (e.g., equivalent) cannot be relied on."/>
+      <definition value="Product is the output of a ConceptMap that provides additional values relevant to the interpretation of the mapping target."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#ConceptMap2.group.element.target.dependsOn"/>

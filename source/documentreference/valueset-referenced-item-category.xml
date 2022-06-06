@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
-	<id value="document-classcodes"/>
+	<id value="referenced-item-category"/>
 	<meta>
 		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
 	</meta>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
 		<valueCode value="oo"/>
 	</extension>
-	<url value="http://hl7.org/fhir/ValueSet/document-classcodes"/>
+	<url value="http://hl7.org/fhir/ValueSet/referenced-item-category"/>
 	<identifier>
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.3.88.12.80.46"/>
 	</identifier>
 	<version value="4.6.0"/>
-	<name value="DocumentClassValueSet"/>
-	<title value="Document Class Value Set"/>
+	<name value="ReferencedItemCategoryValueSet"/>
+	<title value="Referenced Item Category Value Set"/>
 	<status value="active"/>
 	<experimental value="false"/>
 	<publisher value="HL7"/>

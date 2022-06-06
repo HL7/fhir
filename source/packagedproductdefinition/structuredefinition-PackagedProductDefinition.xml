@@ -223,7 +223,7 @@
     </element>
     <element id="PackagedProductDefinition.legalStatusOfSupply">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,250"/> 
+        <valueCode value="27,270"/> 
       </extension>
       <path value="PackagedProductDefinition.legalStatusOfSupply"/>
       <short value="The legal status of supply of the packaged item as classified by the regulator"/>
@@ -372,11 +372,11 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package">
+    <element id="PackagedProductDefinition.packaging">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="403,29"/>
+        <valueCode value="453,47"/>
       </extension>
-      <path value="PackagedProductDefinition.package"/>
+      <path value="PackagedProductDefinition.packaging"/>
       <short value="A packaging item, as a container for medically related items, possibly with other packaging items within, or a packaging component, such as bottle cap"/>
       <definition value="A packaging item, as a container for medically related items, possibly with other packaging items within, or a packaging component, such as bottle cap (which is not a device or a medication manufactured item)."/>
       <min value="0"/>
@@ -390,8 +390,8 @@
         <map value="Packaged Medicinal Product.Package Item (Container), Package Item (Container).Package (Component)"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.identifier">
-      <path value="PackagedProductDefinition.package.identifier"/>
+    <element id="PackagedProductDefinition.packaging.identifier">
+      <path value="PackagedProductDefinition.packaging.identifier"/>
       <short value="An identifier that is specific to this particular part of the packaging. Including possibly a Data Carrier Identifier"/>
       <definition value="A business identifier that is specific to this particular part of the packaging, often assigned by the manufacturer. Including possibly Data Carrier Identifier (a GS1 barcode)."/>
       <min value="0"/>
@@ -405,8 +405,8 @@
         <map value="Package Item (Container).Data Carrier Identifier"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.type">
-      <path value="PackagedProductDefinition.package.type"/>
+    <element id="PackagedProductDefinition.packaging.type">
+      <path value="PackagedProductDefinition.packaging.type"/>
       <short value="The physical type of the container of the items"/>
       <definition value="The physical type of the container of the items."/>
       <min value="0"/>
@@ -428,8 +428,8 @@
         <map value="Package Item (Container).Package Item (Container) Type"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.quantity">
-      <path value="PackagedProductDefinition.package.quantity"/>
+    <element id="PackagedProductDefinition.packaging.quantity">
+      <path value="PackagedProductDefinition.packaging.quantity"/>
       <short value="The quantity of this level of packaging in the package that contains it (with the outermost level being 1)"/>
       <definition value="The quantity of packaging items contained at this layer of the package. This does not relate to the number of contained items but relates solely to the number of packaging items. When looking at the outermost layer it is always 1. If there are two boxes within, at the next layer it would be 2."/>
       <min value="0"/>
@@ -443,8 +443,8 @@
         <map value="Package Item (Container).Package Item (Container) Quantity"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.material">
-      <path value="PackagedProductDefinition.package.material"/>
+    <element id="PackagedProductDefinition.packaging.material">
+      <path value="PackagedProductDefinition.packaging.material"/>
       <short value="Material type of the package item"/>
       <definition value="Material type of the package item."/>
       <min value="0"/>
@@ -466,8 +466,8 @@
         <map value="Package Item (Container).Material"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.alternateMaterial">
-      <path value="PackagedProductDefinition.package.alternateMaterial"/>
+    <element id="PackagedProductDefinition.packaging.alternateMaterial">
+      <path value="PackagedProductDefinition.packaging.alternateMaterial"/>
       <short value="A possible alternate material for this part of the packaging, that is allowed to be used instead of the usual material"/>
       <definition value="A possible alternate material for this part of the packaging, that is allowed to be used instead of the usual material (e.g. different types of plastic for a blister sleeve)."/>
       <min value="0"/>
@@ -489,8 +489,8 @@
         <map value="Package Item (Container).Alternate Material"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.shelfLifeStorage">
-      <path value="PackagedProductDefinition.package.shelfLifeStorage"/>
+    <element id="PackagedProductDefinition.packaging.shelfLifeStorage">
+      <path value="PackagedProductDefinition.packaging.shelfLifeStorage"/>
       <short value="Shelf Life and storage information"/>
       <definition value="Shelf Life and storage information."/>
       <min value="0"/>
@@ -504,8 +504,8 @@
         <map value="Package Item (Container).Shelf Life / Storage"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.manufacturer">
-      <path value="PackagedProductDefinition.package.manufacturer"/>
+    <element id="PackagedProductDefinition.packaging.manufacturer">
+      <path value="PackagedProductDefinition.packaging.manufacturer"/>
       <short value="Manufacturer of this packaging item (multiple means these are all potential manufacturers)"/>
       <definition value="Manufacturer of this packaging item. When there are multiple values each one is a potential manufacturer of this packaging item."/>
       <min value="0"/>
@@ -520,11 +520,11 @@
         <map value="Package Item (Container).Manufacturer / Establishment (Organisation)"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.property">
+    <element id="PackagedProductDefinition.packaging.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="300,250"/>
+        <valueCode value="320,270"/>
       </extension>
-      <path value="PackagedProductDefinition.package.property"/>
+      <path value="PackagedProductDefinition.packaging.property"/>
       <short value="General characteristics of this item"/>
       <definition value="General characteristics of this item."/>
       <min value="0"/>
@@ -538,8 +538,8 @@
         <map value="Package Item (Container).Physical Characteristics"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.property.type">
-      <path value="PackagedProductDefinition.package.property.type"/>
+    <element id="PackagedProductDefinition.packaging.property.type">
+      <path value="PackagedProductDefinition.packaging.property.type"/>
       <short value="A code expressing the type of characteristic"/>
       <definition value="A code expressing the type of characteristic."/>
       <min value="1"/>
@@ -561,8 +561,8 @@
         <map value="Physical Characteristics, all attributes"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.property.value[x]">
-      <path value="PackagedProductDefinition.package.property.value[x]"/>
+    <element id="PackagedProductDefinition.packaging.property.value[x]">
+      <path value="PackagedProductDefinition.packaging.property.value[x]"/>
       <short value="A value for the characteristic"/>
       <definition value="A value for the characteristic."/>
       <min value="0"/>
@@ -588,11 +588,11 @@
         <map value="Physical Characteristics, attribute&#39;s value"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.containedItem">
+    <element id="PackagedProductDefinition.packaging.containedItem">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="610,250"/>
+        <valueCode value="630,270"/>
       </extension>
-      <path value="PackagedProductDefinition.package.containedItem"/>
+      <path value="PackagedProductDefinition.packaging.containedItem"/>
       <short value="The item(s) within the packaging"/>
       <definition value="The item(s) within the packaging."/>
       <min value="0"/>
@@ -606,10 +606,10 @@
         <map value="Package Item (Container).Manufactured Item, Package Item (Container).Device"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.containedItem.item">
-      <path value="PackagedProductDefinition.package.containedItem.item"/>
+    <element id="PackagedProductDefinition.packaging.containedItem.item">
+      <path value="PackagedProductDefinition.packaging.containedItem.item"/>
       <short value="The actual item(s) of medication, as manufactured, or a device, or other medically related item (food, biologicals, raw materials, medical fluids, gases etc.), as contained in the package"/>
-      <definition value="The actual item(s) of medication, as manufactured, or a device (typically, but not necessarily, a co-packaged one), or other medically related item (such as food, biologicals, raw materials, medical fluids, gases etc.), as contained in the package. This also allows another whole packaged product to be included, which is solely for the case where a package of other entire packages is wanted - such as a wholesale or distribution pack (for layers within one package, use PackagedProductDefinition.package.package)."/>
+      <definition value="The actual item(s) of medication, as manufactured, or a device (typically, but not necessarily, a co-packaged one), or other medically related item (such as food, biologicals, raw materials, medical fluids, gases etc.), as contained in the package. This also allows another whole packaged product to be included, which is solely for the case where a package of other entire packages is wanted - such as a wholesale or distribution pack (for layers within one package, use PackagedProductDefinition.packaging.packaging)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -626,8 +626,8 @@
         <map value="(the link to) Package Item (Container).Manufactured Item, Package Item (Container).Device"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.containedItem.amount">
-      <path value="PackagedProductDefinition.package.containedItem.amount"/>
+    <element id="PackagedProductDefinition.packaging.containedItem.amount">
+      <path value="PackagedProductDefinition.packaging.containedItem.amount"/>
       <short value="The number of this type of item within this packaging"/>
       <definition value="The number of this type of item within this packaging."/>
       <min value="0"/>
@@ -641,13 +641,13 @@
         <map value="Manufactured Item.Manufactured Item Quantity"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.package">
-      <path value="PackagedProductDefinition.package.package"/>
+    <element id="PackagedProductDefinition.packaging.packaging">
+      <path value="PackagedProductDefinition.packaging.packaging"/>
       <short value="Allows containers (and parts of containers) within containers, still a single packaged product"/>
-      <definition value="Allows containers (and parts of containers) parwithin containers, still a single packaged product.  See also PackagedProductDefinition.package.containedItem.item(PackagedProductDefinition)."/>
+      <definition value="Allows containers (and parts of containers) parwithin containers, still a single packaged product.  See also PackagedProductDefinition.packaging.containedItem.item(PackagedProductDefinition)."/>
       <min value="0"/>
       <max value="*"/>
-      <contentReference value="#PackagedProductDefinition.package"/>
+      <contentReference value="#PackagedProductDefinition.packaging"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
