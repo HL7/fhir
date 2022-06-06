@@ -359,7 +359,7 @@
       </part>
     </part>
     <part>
-      <name value="originalMap"/>
+      <name value="originMap"/>
       <use value="out"/>
       <min value="0"/>
       <max value="1"/>

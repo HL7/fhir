@@ -414,11 +414,11 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="ConceptMap2.source[x]">
-      <path value="ConceptMap2.source[x]"/>
+    <element id="ConceptMap2.sourceScope[x]">
+      <path value="ConceptMap2.sourceScope[x]"/>
       <short value="The source value set that contains the concepts that are being mapped"/>
-      <definition value="Identifier for the source value set that contains the concepts that are being mapped and provides context for the mappings."/>
-      <comment value="Should be a version specific reference. URIs SHOULD be absolute. If there is no source or target value set, there is no specified context for the map (not recommended).  The source value set may select codes from either an explicit (standard or local) or implicit code system."/>
+      <definition value="Identifier for the source value set that contains the concepts that are being mapped and provides context for the mappings.  Limits the scope of the map to source codes (ConceptMap2.group.element code or valueSet) that are members of this value set."/>
+      <comment value="Should be a version specific reference. URIs SHOULD be absolute. If there is no sourceScope or targetScope value set, there is no specified context for the map (not recommended).  The sourceScope value set may select codes from either an explicit (standard or local) or implicit code system."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -430,11 +430,11 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="ConceptMap2.target[x]">
-      <path value="ConceptMap2.target[x]"/>
+    <element id="ConceptMap2.targetScope[x]">
+      <path value="ConceptMap2.targetScope[x]"/>
       <short value="The target value set which provides context for the mappings"/>
-      <definition value="The target value set provides context for the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made."/>
-      <comment value="Should be a version specific reference. URIs SHOULD be absolute. If there is no source or target value set, the is no specified context for the map."/>
+      <definition value="Identifier for the target value set that provides important context about how the mapping choices are made.  Limits the scope of the map to target codes (ConceptMap2.group.element.target code or valueSet) that are members of this value set."/>
+      <comment value="Should be a version specific reference. URIs SHOULD be absolute. If there is no sourceScope or targetScope value set, there is no specified context for the map (not recommended).  The targetScope value set may select codes from either an explicit (standard or local) or implicit code system."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -688,9 +688,9 @@
       <constraint>
         <key value="cmd-6"/>
         <severity value="error"/>
-        <human value="One of value[x] or valueSet must exist."/>
-        <expression value="value.exists() or valueSet.exists()"/>
-        <xpath value="exists(f:value) or exists(f:valueSet)"/>
+        <human value="One of value[x] or valueSet must exist, but not both."/>
+        <expression value="(value.exists() and valueSet.empty()) or (value.empty() and valueSet.exists())"/>
+        <xpath value="(exists(f:value) and not(exists(f:valueSet))) or (not(exists(f:value)) and exists(f:valueSet))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
       </constraint>
     </element>
@@ -784,6 +784,14 @@
         <human value="If the mode is &#39;fixed&#39;, either a code or valueSet must be provided, but not both."/>
         <expression value="(mode = &#39;fixed&#39;) implies ((code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists()))"/>
         <xpath value="(f:mode/@value != &#39;fixed&#39;) or (exists(f:code) and not(exists(f:valueSet))) or (not(exists(f:code)) and exists(f:valueSet))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
+      </constraint>
+      <constraint>
+        <key value="cmd-8"/>
+        <severity value="error"/>
+        <human value="If the mode is not &#39;fixed&#39;, code, display and valueSet are not allowed"/>
+        <expression value="(mode != &#39;fixed&#39;) implies (code.empty() and display.empty() and valueSet.empty())"/>
+        <xpath value="(f:mode/@value = &#39;fixed&#39;) or not(exists(f:code) or exists(f:display) or exists(f:valueSet))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
       </constraint>
     </element>
