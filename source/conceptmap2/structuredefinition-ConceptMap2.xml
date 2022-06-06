@@ -588,6 +588,14 @@
         <xpath value="exists(f:comment) or (f:status/@value = draft) or not(exists(f:relationship)) or ((f:relationship/@value != &#39;source-is-broader-than-target&#39;) and (f:v/@value != &#39;not-related-to&#39;))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
       </constraint>
+      <constraint>
+        <key value="cmd-7"/>
+        <severity value="error"/>
+        <human value="Either code or valueSet SHALL be present but not both."/>
+        <expression value="(code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists())"/>
+        <xpath value="(exists(f:code) and not(exists(f:valueSet))) or (not(exists(f:code)) and exists(f:valueSet))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
+      </constraint>
     </element>
     <element id="ConceptMap2.group.element.target.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
@@ -616,7 +624,7 @@
     <element id="ConceptMap2.group.element.target.valueSet">
       <path value="ConceptMap2.group.element.target.valueSet"/>
       <short value="Identifies the set of target elements"/>
-      <definition value="The set of codes being that the map refers to."/>
+      <definition value="The set of codes that the map refers to."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -677,6 +685,14 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <constraint>
+        <key value="cmd-6"/>
+        <severity value="error"/>
+        <human value="One of value[x] or valueSet must exist."/>
+        <expression value="value.exists() or valueSet.exists()"/>
+        <xpath value="exists(f:value) or exists(f:valueSet)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
+      </constraint>
     </element>
     <element id="ConceptMap2.group.element.target.dependsOn.property">
       <path value="ConceptMap2.group.element.target.dependsOn.property"/>
@@ -692,7 +708,7 @@
       <path value="ConceptMap2.group.element.target.dependsOn.value[x]"/>
       <short value="Value of the referenced property"/>
       <definition value="Property value that the map depends on."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
@@ -720,6 +736,17 @@
       </type>
       <type>
         <code value="id"/>
+      </type>
+    </element>
+    <element id="ConceptMap2.group.element.target.dependsOn.valueSet">
+      <path value="ConceptMap2.group.element.target.dependsOn.valueSet"/>
+      <short value="The mapping depends on a property with a value from this value set"/>
+      <definition value="This mapping applies if the property value is a code from this value set."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </type>
     </element>
     <element id="ConceptMap2.group.element.target.product">
@@ -754,16 +781,16 @@
       <constraint>
         <key value="cmd-2"/>
         <severity value="error"/>
-        <human value="If the mode is &#39;fixed&#39;, a code or valueSet must be provided"/>
-        <expression value="(mode = &#39;fixed&#39;) implies (code.exists() or valueSet.exists())"/>
-        <xpath value="(f:mode/@value != &#39;fixed&#39;) or exists(f:code) or exists(f:valueSet)"/>
+        <human value="If the mode is &#39;fixed&#39;, either a code or valueSet must be provided, but not both."/>
+        <expression value="(mode = &#39;fixed&#39;) implies ((code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists()))"/>
+        <xpath value="(f:mode/@value != &#39;fixed&#39;) or (exists(f:code) and not(exists(f:valueSet))) or (not(exists(f:code)) and exists(f:valueSet))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
       </constraint>
     </element>
     <element id="ConceptMap2.group.unmapped.mode">
       <path value="ConceptMap2.group.unmapped.mode"/>
-      <short value="provided | fixed | other-map"/>
-      <definition value="Defines which action to take if there is no match for the source concept in the target system designated for the group. One of 3 actions are possible: use the unmapped code (this is useful when doing a mapping between versions, and only a few codes have changed), use a fixed code (a default code), or alternatively, a reference to a different concept map can be provided (by canonical URL)."/>
+      <short value="use-source-code | fixed | other-map"/>
+      <definition value="Defines which action to take if there is no match for the source concept in the target system designated for the group. One of 3 actions are possible: use the unmapped source code (this is useful when doing a mapping between versions, and only a few codes have changed), use a fixed code (a default code), or alternatively, a reference to a different concept map can be provided (by canonical URL)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -775,7 +802,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines which action to take if there is no match in the group."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap2-unmapped-mode|4.6.0"/>
       </binding>
     </element>
     <element id="ConceptMap2.group.unmapped.code">
@@ -805,7 +832,7 @@
     <element id="ConceptMap2.group.unmapped.valueSet">
       <path value="ConceptMap2.group.unmapped.valueSet"/>
       <short value="Fixed code set when mode = fixed"/>
-      <definition value="The set of fixed codes to use when the mode = &#39;fixed&#39;  - all unmapped codes are mapped to a each of the fixed codes."/>
+      <definition value="The set of fixed codes to use when the mode = &#39;fixed&#39;  - all unmapped codes are mapped to each of the fixed codes."/>
       <min value="0"/>
       <max value="1"/>
       <type>
