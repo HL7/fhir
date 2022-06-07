@@ -186,7 +186,9 @@
         <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
         <instantiatesUri value="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6885382/"/>
         <title value="De Novo Mutation Detection and Interpretation"/>
-        <subject><!-- 0..1 Reference(Patient) The subject of the analysis event --></subject>
+        <subject>
+            <reference value="Patient/denovoChild"/>
+        </subject>
         <specimen><!-- 0..1 Reference(Specimen) The specimen used in the analysis event --></specimen>
         <date value="[dateTime]"/><!-- 0..1 The date of the analysis event -->
         <note><!-- 0..* Annotation Any notes capture with the analysis event --></note>
@@ -208,7 +210,9 @@
             <role><!-- 0..1 CodeableConcept Role of the actor for this analysis --></role>
         </performer>
         <device>  <!-- 0..* Devices used for the analysis (e.g., instruments, software), with settings and parameters -->
-            <device><!-- 0..1 Reference(Device) Device used for the analysis --></device>
+            <device>
+                <reference value="Device/Triodenovo-SW"/>
+            </device>
             <function><!-- 0..1 CodeableConcept Specific function for the device used for the analysis --></function>
         </device>
     </analysis>
