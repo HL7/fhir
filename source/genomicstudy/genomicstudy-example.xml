@@ -102,7 +102,7 @@
             <device>
             </device>
                 <reference value="Device/NGS-device"/>
-            <function><!-- 0..1 CodeableConcept Specific function for the device used for the analysis --></function>
+            <!-- <function>0..1 CodeableConcept Specific function for the device used for the analysis</function> -->
         </device>
     </analysis>
     <analysis>  <!-- 0..* Genomic Analysis Event of mother -->
