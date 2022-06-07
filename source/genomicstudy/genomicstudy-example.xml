@@ -91,7 +91,9 @@
             <role><!-- 0..1 CodeableConcept Role of the actor for this analysis --></role>
         </performer>
         <device>  <!-- 0..* Devices used for the analysis (e.g., instruments, software), with settings and parameters -->
-            <device><!-- 0..1 Reference(Device) Device used for the analysis --></device>
+            <device>
+            </device>
+                <reference value="Device/NGS-device"/>
             <function><!-- 0..1 CodeableConcept Specific function for the device used for the analysis --></function>
         </device>
     </analysis>
@@ -132,7 +134,9 @@
             <role><!-- 0..1 CodeableConcept Role of the actor for this analysis --></role>
         </performer>
         <device>  <!-- 0..* Devices used for the analysis (e.g., instruments, software), with settings and parameters -->
-            <device><!-- 0..1 Reference(Device) Device used for the analysis --></device>
+            <device>
+                <reference value="Device/NGS-device"/>
+            </device>
             <function><!-- 0..1 CodeableConcept Specific function for the device used for the analysis --></function>
         </device>
     </analysis>
@@ -173,7 +177,9 @@
             <role><!-- 0..1 CodeableConcept Role of the actor for this analysis --></role>
         </performer>
         <device>  <!-- 0..* Devices used for the analysis (e.g., instruments, software), with settings and parameters -->
-            <device><!-- 0..1 Reference(Device) Device used for the analysis --></device>
+            <device>
+                <reference value="Device/NGS-device"/>
+            </device>
             <function><!-- 0..1 CodeableConcept Specific function for the device used for the analysis --></function>
         </device>
     </analysis>
