@@ -636,7 +636,7 @@
       </extension>
       <path value="DocumentReference.attester"/>
       <short value="Attests to accuracy of the document"/>
-      <definition value="A participant who has attested to the accuracy of the document."/>
+      <definition value="A participant who has authenticated the accuracy of the document."/>
       <comment value="Only list each attester once."/>
       <requirements value="Identifies responsibility for the accuracy of the document content."/>
       <min value="0"/>
