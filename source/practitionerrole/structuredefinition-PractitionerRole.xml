@@ -275,7 +275,8 @@
     <element id="PractitionerRole.specialty">
       <path value="PractitionerRole.specialty"/>
       <short value="Specific specialty of the practitioner"/>
-      <definition value="Specific specialty of the practitioner."/>
+      <definition value="A type of specialized or skilled care the practitioner is able to deliver in the context of this particular role."/>
+	  <comment value="General capabilities of the practitioner independent of role are reflected in Practitioner.qualification."/>
       <min value="0"/>
       <max value="*"/>
       <type>

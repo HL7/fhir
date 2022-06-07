@@ -490,6 +490,14 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+	  <constraint>
+        <key value="evv-1"/>
+        <severity value="error"/>
+        <human value="In a characteristic, at most one of these seven elements shall be used: definitionReference or definitionCanonical or definitionCodeableConcept or definitionExpression or definitionId or definitionByTypeAndValue or definitionByCombination"/>
+        <expression value="(definitionReference.count() + definitionCanonical.count() + definitionCodeableConcept.count() + definitionExpression.count() + definitionId.count() + definitionByTypeAndValue.count() + definitionByCombination.count())  &lt; 2"/>
+        <xpath value="count(f:definitionReference)+count(f:definitionCanonical)+count(f:definitionCodeableConcept)+count(f:definitionExpression)+count(f:definitionId)+count(f:definitionByTypeAndValue)+count(f:definitionByCombination)  &lt; 2"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+      </constraint>
       <isSummary value="true"/>
     </element>
     <element id="EvidenceVariable.characteristic.linkId">
@@ -537,44 +545,86 @@
       </type>
       <meaningWhenMissing value="False"/>
     </element>
-    <element id="EvidenceVariable.characteristic.definition[x]">
-      <path value="EvidenceVariable.characteristic.definition[x]"/>
-      <short value="Defines the characteristic (without using type and value)"/>
-      <definition value="Defines the characteristic using a single DataType element."/>
-      <requirements value="One and only one of these three elements shall be used: characteristic.definition[x] or characteristic.defByTypeAndValue or characteristic.defByCombination"/>
+    <element id="EvidenceVariable.characteristic.definitionReference">
+      <path value="EvidenceVariable.characteristic.definitionReference"/>
+      <short value="Defines the characteristic (without using type and value) by a Reference"/>
+      <definition value="Defines the characteristic using a Reference."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
       </type>
+	  <condition value="evv-1"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="EvidenceVariable.characteristic.definitionCanonical">
+      <path value="EvidenceVariable.characteristic.definitionCanonical"/>
+      <short value="Defines the characteristic (without using type and value) by a Canonical"/>
+      <definition value="Defines the characteristic using Canonical."/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
         <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
       </type>
+	  <condition value="evv-1"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="EvidenceVariable.characteristic.definitionCodeableConcept">
+      <path value="EvidenceVariable.characteristic.definitionCodeableConcept"/>
+      <short value="Defines the characteristic (without using type and value) by a CodeableConcept"/>
+      <definition value="Defines the characteristic using CodeableConcept."/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+	  <condition value="evv-1"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="EvidenceVariable.characteristic.definitionExpression">
+      <path value="EvidenceVariable.characteristic.definitionExpression"/>
+      <short value="Defines the characteristic (without using type and value) by a Expression"/>
+      <definition value="Defines the characteristic using Expression."/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
         <code value="Expression"/>
       </type>
+	  <condition value="evv-1"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="EvidenceVariable.characteristic.definitionId">
+      <path value="EvidenceVariable.characteristic.definitionId"/>
+      <short value="Defines the characteristic (without using type and value) by a id"/>
+      <definition value="Defines the characteristic using id."/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
         <code value="id"/>
       </type>
+	  <condition value="evv-1"/>
       <isSummary value="true"/>
     </element>
-    <element id="EvidenceVariable.characteristic.defByTypeAndValue">
-      <path value="EvidenceVariable.characteristic.defByTypeAndValue"/>
+    <element id="EvidenceVariable.characteristic.definitionByTypeAndValue">
+      <path value="EvidenceVariable.characteristic.definitionByTypeAndValue"/>
       <short value="Defines the characteristic using type and value"/>
       <definition value="Defines the characteristic using both a type[x] and value[x] elements."/>
-      <requirements value="One and only one of these three elements shall be used: characteristic.definition[x] or characteristic.defByTypeAndValue or characteristic.defByCombination"/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="BackboneElement"/>
       </type>
+	  <condition value="evv-1"/>
+      <isSummary value="true"/>
     </element>
-    <element id="EvidenceVariable.characteristic.defByTypeAndValue.type[x]">
-      <path value="EvidenceVariable.characteristic.defByTypeAndValue.type[x]"/>
+    <element id="EvidenceVariable.characteristic.definitionByTypeAndValue.type[x]">
+      <path value="EvidenceVariable.characteristic.definitionByTypeAndValue.type[x]"/>
       <short value="Expresses the type of characteristic"/>
       <definition value="Used to express the type of characteristic."/>
       <min value="1"/>
@@ -598,8 +648,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/usage-context-type"/>
       </binding>
     </element>
-    <element id="EvidenceVariable.characteristic.defByTypeAndValue.value[x]">
-      <path value="EvidenceVariable.characteristic.defByTypeAndValue.value[x]"/>
+    <element id="EvidenceVariable.characteristic.definitionByTypeAndValue.value[x]">
+      <path value="EvidenceVariable.characteristic.definitionByTypeAndValue.value[x]"/>
       <short value="Defines the characteristic when coupled with characteristic.type[x]"/>
       <definition value="Defines the characteristic when paired with characteristic.type[x]."/>
       <min value="1"/>
@@ -624,19 +674,19 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="EvidenceVariable.characteristic.defByCombination">
-      <path value="EvidenceVariable.characteristic.defByCombination"/>
+    <element id="EvidenceVariable.characteristic.definitionByCombination">
+      <path value="EvidenceVariable.characteristic.definitionByCombination"/>
       <short value="Used to specify how two or more characteristics are combined"/>
       <definition value="Defines the characteristic as a combination of two or more characteristics."/>
-      <requirements value="One and only one of these three elements shall be used: characteristic.definition[x] or characteristic.defByTypeAndValue or characteristic.defByCombination"/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="BackboneElement"/>
       </type>
+	  <condition value="evv-1"/>
     </element>
-    <element id="EvidenceVariable.characteristic.defByCombination.code">
-      <path value="EvidenceVariable.characteristic.defByCombination.code"/>
+    <element id="EvidenceVariable.characteristic.definitionByCombination.code">
+      <path value="EvidenceVariable.characteristic.definitionByCombination.code"/>
       <short value="all-of | any-of | at-least | at-most | statistical | net-effect | dataset"/>
       <definition value="Used to specify if two or more characteristics are combined with OR or AND."/>
       <requirements value="If code is &quot;at-least&quot; or &quot;at-most&quot; then threshold SHALL be used. If code is neither &quot;at-least&quot; nor &quot;at-most&quot; then threshold SHALL NOT be used."/>
@@ -653,8 +703,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/characteristic-combination"/>
       </binding>
     </element>
-    <element id="EvidenceVariable.characteristic.defByCombination.threshold">
-      <path value="EvidenceVariable.characteristic.defByCombination.threshold"/>
+    <element id="EvidenceVariable.characteristic.definitionByCombination.threshold">
+      <path value="EvidenceVariable.characteristic.definitionByCombination.threshold"/>
       <short value="Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used"/>
       <definition value="Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used."/>
       <min value="0"/>
@@ -663,8 +713,8 @@
         <code value="positiveInt"/>
       </type>
     </element>
-    <element id="EvidenceVariable.characteristic.defByCombination.characteristic">
-      <path value="EvidenceVariable.characteristic.defByCombination.characteristic"/>
+    <element id="EvidenceVariable.characteristic.definitionByCombination.characteristic">
+      <path value="EvidenceVariable.characteristic.definitionByCombination.characteristic"/>
       <short value="A defining factor of the characteristic"/>
       <definition value="A defining factor of the characteristic."/>
       <min value="1"/>

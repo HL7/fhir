@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="transport-status-reason"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      
+      <p>This code system http://hl7.org/fhir/transport-status-reason defines the following codes:</p>
+      
+      
+      <table class="codes">
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">
+            
+            
+            <b>Code</b>
+          
+          
+          </td>
+          
+          
+          <td>
+            
+            
+            <b>Display</b>
+          
+          
+          </td>
+          
+          
+          <td>
+            
+            
+            <b>Definition</b>
+          
+          
+          </td>
+        
+        
+        </tr>
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">declined-by-patient
+            
+            
+            <a name="transport-status-reason-declined-by-patient"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Declined by patient</td>
+          
+          
+          <td>Patient declined transport.</td>
+        
+        
+        </tr>
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">refused-by-recipient
+            
+            
+            <a name="transport-status-reason-refused-by-recipient"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Refused by recipient</td>
+          
+          
+          <td>Transport was refused by recipient.</td>
+        
+        
+        </tr>
+        
+   
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">patient-not-available
+            
+            
+            <a name="transport-status-reason-patient-not-available"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Patient not available</td>
+          
+          
+          <td>The patient was not available for transport.</td>
+        
+        
+        </tr>
+
+        <tr>
+          
+          
+          <td style="white-space:nowrap">specimen-not-available
+            
+            
+            <a name="transport-status-reason-specimen-not-available"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Specimen not available</td>
+          
+          
+          <td>The specimen was not available for transport.</td>
+        
+        
+        </tr>
+
+        <tr>
+          
+          
+          <td style="white-space:nowrap">wrong-request-data
+            
+            
+            <a name="transport-status-reason-wrong-request-data"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Wrong request data</td>
+          
+          
+          <td>Wrong data in the transport request.</td>
+        
+        
+        </tr>
+
+        <tr>
+          
+          
+          <td style="white-space:nowrap">in-route-accident
+            
+            
+            <a name="transport-status-reason-in-route-accident"> </a>
+          
+          
+          </td>
+          
+          
+          <td>In route accident</td>
+          
+          
+          <td>An accident has occurred in route.</td>
+        
+        
+        </tr>
+
+
+        <tr>
+          
+          
+          <td style="white-space:nowrap">request-not-acknowledged
+            
+            
+            <a name="transport-status-reason-request-not-acknowledged"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Request not acknowledged</td>
+          
+          
+          <td>The transport request was not acknowledged.</td>
+        
+        
+        </tr>
+        
+      </table>
+    
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/transport-status-reason"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="TransportStatus"/>
+  <title value="TransportStatus"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Status of transport."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/transport-status-reason"/>
+  <content value="complete"/>
+  <concept>
+    <code value="declined-by-patient"/>
+    <display value="Declined by patient"/>
+    <definition value="Patient declined transport."/>
+  </concept>
+  <concept>
+    <code value="refused-by-recipient"/>
+    <display value="Refused by recipient"/>
+    <definition value="Transport was refused by recipient."/>
+  </concept>
+  <concept>
+    <code value="patient-not-available"/>
+    <display value="Patient not available"/>
+    <definition value="The patient was not available for transport."/>
+  </concept>
+  <concept>
+    <code value="specimen-not-available"/>
+    <display value="Specimen not available"/>
+    <definition value="The specimen was not available for transport."/>
+  </concept>
+  <concept>
+    <code value="wrong-request-data"/>
+    <display value="Wrong request data"/>
+    <definition value="Wrong data in the transport request."/>
+  </concept>
+  <concept>
+    <code value="in-route-accident"/>
+    <display value="In route accident"/>
+    <definition value="An accident has occurred in route."/>
+  </concept>
+  <concept>
+    <code value="request-not-acknowledged"/>
+    <display value="Request not acknowledged"/>
+    <definition value="The transport request was not acknowledged."/>
+  </concept>
+</CodeSystem>

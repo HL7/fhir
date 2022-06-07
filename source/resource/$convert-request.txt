@@ -1,4 +1,4 @@
-// convert a Patient from XML to JSON
+// Convert a Patient from XML to JSON, and convert a Patient to a different version of FHIR (in this case, from 3 to 4)
 
 POST /base/$convert
 Accept: application/fhir+json
@@ -8,11 +8,10 @@ Content-Type: application/fhir+xml
 $include ../patient/patient-example.xml
 
 -------------------------------------------------
-// convert to a different version of FHIR (in this case, from 3 to 4
 
 POST /base/$convert
-Accept: application/fhir+json; fhirVersion=3.0
-Content-Type: application/fhir+json; fhirVersion=4.0
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=3.0
 [other headers]
 
 -- snip - R3 version of a resource --
