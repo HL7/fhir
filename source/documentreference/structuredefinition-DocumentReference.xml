@@ -282,7 +282,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DocumentType"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="example"/>
         <description value="Precise type of clinical document."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/doc-typecodes"/>
       </binding>
