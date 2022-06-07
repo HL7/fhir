@@ -1124,33 +1124,5 @@
         <map value="ClinicalDocument/recordTarget/"/>
       </mapping>
     </element>
-    <element id="DocumentReference.related">
-      <path value="DocumentReference.related"/>
-      <short value="Related identifiers or resources"/>
-      <definition value="Related identifiers or resources associated with the DocumentReference."/>
-      <comment value="May be identifiers or resources that caused the DocumentReference or referenced Document to be created."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-      <mapping>
-        <identity value="fhircomposition"/>
-        <map value="Composition.event.detail"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./outboundRelationship[typeCode=&quot;PERT&quot; and isNormalActRelationship()] / target[isNormalAct]"/>
-      </mapping>
-      <mapping>
-        <identity value="xds"/>
-        <map value="DocumentEntry.referenceIdList"/>
-      </mapping>
-      <mapping>
-        <identity value="cda"/>
-        <map value="ClinicalDocument/relatedDocument"/>
-      </mapping>
-    </element>
   </differential>
 </StructureDefinition>
