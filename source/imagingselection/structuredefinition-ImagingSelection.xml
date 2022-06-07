@@ -117,7 +117,7 @@
         <valueString value="dicom=http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.2.2.html"/>
       </extension>
       <path value="ImagingSelection.subject"/>
-      <short value="Subject of the selected instances and / or frames"/>
+      <short value="Subject of the selected instances"/>
       <definition value="The patient, or group of patients, location, device, organization, procedure or practitioner this imaging selection is about and into whose or what record the imaging selection is placed."/>
       <min value="0"/>
       <max value="1"/>
@@ -154,7 +154,7 @@
     </element>
     <element id="ImagingSelection.issued">
       <path value="ImagingSelection.issued"/>
-      <short value="Date / Time when the selection of instances was made"/>
+      <short value="Date / Time when this imaging selection was created"/>
       <definition value="The date and time this imaging selection was created."/>
       <min value="0"/>
       <max value="1"/>
@@ -169,8 +169,8 @@
     </element>
     <element id="ImagingSelection.performer">
       <path value="ImagingSelection.performer"/>
-      <short value="Author (human or machine)"/>
-      <definition value="Author – human or machine."/>
+      <short value="Selector of the instances (human or machine)"/>
+      <definition value="Selector of the instances – human or machine."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -271,20 +271,17 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ImagingSelectionCategory"/>
+          <valueString value="ImagingSelectionCode"/>
         </extension>
         <strength value="example"/>
-        <description value="Source image for segmentation."/>
+        <description value="Key Object Selection Document Title."/>
+        <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_7010.html"/>
       </binding>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="Concept Name Code Sequence (0040,A043)"/>
-      </mapping>
     </element>
     <element id="ImagingSelection.code">
       <path value="ImagingSelection.code"/>
-      <short value="Imaging Selection description text or code"/>
-      <definition value="Describes the imaging selection."/>
+      <short value="Imaging Selection purpose text or code"/>
+      <definition value="Reason for referencing the selected content."/>
       <comment value="*All* code-value and, if present, component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation."/>
       <requirements value="Knowing what kind of observation is being made is essential to understanding the observation."/>
       <alias value="Description"/>
