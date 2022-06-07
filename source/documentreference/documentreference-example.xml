@@ -78,7 +78,12 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 		<reference value="#a2"/>
 	</author>
 	<attester>
-		<mode value="official" />
+		<mode>
+			<coding>
+				<system value="http://hl7.org/fhir/composition-attestation-mode"/>
+				<code value="official"/>
+			</coding>
+		</mode>
 		<party>
 			<reference value="Organization/f001"/>
 		</party>

@@ -673,15 +673,15 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DocumentAttestationMode"/>
         </extension>
-        <strength value="required"/>
+        <strength value="preferred"/>
         <description value="The way in which a person authenticated a document."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/document-attestation-mode"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/composition-attestation-mode"/>
       </binding>
       <mapping>
         <identity value="fhircomposition"/>
