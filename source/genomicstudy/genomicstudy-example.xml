@@ -87,8 +87,16 @@
             <type><!-- 0..1 CodeableConcept Type of output data --></type>
         </output>
         <performer>  <!-- 0..* Performer for the analysis event -->
-            <actor><!-- 0..1 Reference(Device|Organization|Practitioner|PractitionerRole) The organization, healthcare professional, or others who participated in performing this analysis --></actor>
-            <role><!-- 0..1 CodeableConcept Role of the actor for this analysis --></role>
+            <actor>
+                <reference value="Practitioner/practitioner02"/>
+            </actor>
+            <role>
+                <coding>
+                    <system value="http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html"/>
+                    <code value="PRF"/>
+                    <display value="Performer"/>
+                </coding>
+            </role>
         </performer>
         <device>  <!-- 0..* Devices used for the analysis (e.g., instruments, software), with settings and parameters -->
             <device>
@@ -130,8 +138,16 @@
             <type><!-- 0..1 CodeableConcept Type of output data --></type>
         </output>
         <performer>  <!-- 0..* Performer for the analysis event -->
-            <actor><!-- 0..1 Reference(Device|Organization|Practitioner|PractitionerRole) The organization, healthcare professional, or others who participated in performing this analysis --></actor>
-            <role><!-- 0..1 CodeableConcept Role of the actor for this analysis --></role>
+            <actor>
+                <reference value="Practitioner/practitioner02"/>
+            </actor>
+            <role>
+                <coding>
+                    <system value="http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html"/>
+                    <code value="PRF"/>
+                    <display value="Performer"/>
+                </coding>
+            </role>
         </performer>
         <device>  <!-- 0..* Devices used for the analysis (e.g., instruments, software), with settings and parameters -->
             <device>
@@ -173,8 +189,16 @@
             <type><!-- 0..1 CodeableConcept Type of output data --></type>
         </output>
         <performer>  <!-- 0..* Performer for the analysis event -->
-            <actor><!-- 0..1 Reference(Device|Organization|Practitioner|PractitionerRole) The organization, healthcare professional, or others who participated in performing this analysis --></actor>
-            <role><!-- 0..1 CodeableConcept Role of the actor for this analysis --></role>
+            <actor>
+                <reference value="Practitioner/practitioner02"/>
+            </actor>
+            <role>
+                <coding>
+                    <system value="http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html"/>
+                    <code value="PRF"/>
+                    <display value="Performer"/>
+                </coding>
+            </role>
         </performer>
         <device>  <!-- 0..* Devices used for the analysis (e.g., instruments, software), with settings and parameters -->
             <device>
@@ -196,8 +220,10 @@
             <reference value="Patient/denovoChild"/>
         </subject>
         <specimen><!-- 0..1 Reference(Specimen) The specimen used in the analysis event --></specimen>
-        <date value="[dateTime]"/><!-- 0..1 The date of the analysis event -->
-        <note><!-- 0..* Annotation Any notes capture with the analysis event --></note>
+        <date value="2021-01-01T03:01:10"/><!-- 0..1 The date of the analysis event -->
+        <note>
+            <text value="This is a next generation sequencing analysis of the comparison analysis of proband and parents sequences."/>
+        </note>
         <protocolPerformed><!-- 0..1 Reference(Procedure|Task) The protocol that was performed for the analysis event --></protocolPerformed>
         <regionsCalled><!-- 0..1 Reference(DocumentReference) Genomic regions actually called in the analysis event (BED file) --></regionsCalled>
         <input>  <!-- 0..* Inputs for the analysis event -->
@@ -212,8 +238,16 @@
             <type><!-- 0..1 CodeableConcept Type of output data --></type>
         </output>
         <performer>  <!-- 0..* Performer for the analysis event -->
-            <actor><!-- 0..1 Reference(Device|Organization|Practitioner|PractitionerRole) The organization, healthcare professional, or others who participated in performing this analysis --></actor>
-            <role><!-- 0..1 CodeableConcept Role of the actor for this analysis --></role>
+            <actor>
+                <reference value="Practitioner/practitioner02"/>
+            </actor>
+            <role>
+                <coding>
+                    <system value="http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html"/>
+                    <code value="PRF"/>
+                    <display value="Performer"/>
+                </coding>
+            </role>
         </performer>
         <device>  <!-- 0..* Devices used for the analysis (e.g., instruments, software), with settings and parameters -->
             <device>
