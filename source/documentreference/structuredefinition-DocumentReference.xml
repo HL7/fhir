@@ -114,6 +114,10 @@
         <identity value="w5"/>
         <map value="infrastructure.documents"/>
       </mapping>
+	  <mapping>
+	    <identity value="xds"/>
+		<map value="DocumentEntry"/>
+	  </mapping>
     </element>
     <element id="DocumentReference.identifier">
       <path value="DocumentReference.identifier"/>
@@ -282,7 +286,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DocumentType"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Precise type of clinical document."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/doc-typecodes"/>
       </binding>
