@@ -114,6 +114,10 @@
         <identity value="w5"/>
         <map value="infrastructure.documents"/>
       </mapping>
+	  <mapping>
+	    <identity value="xds"/>
+		<map value="DocumentEntry"/>
+	  </mapping>
     </element>
     <element id="DocumentReference.identifier">
       <path value="DocumentReference.identifier"/>
@@ -636,7 +640,7 @@
       </extension>
       <path value="DocumentReference.attester"/>
       <short value="Attests to accuracy of the document"/>
-      <definition value="A participant who has attested to the accuracy of the document."/>
+      <definition value="A participant who has authenticated the accuracy of the document."/>
       <comment value="Only list each attester once."/>
       <requirements value="Identifies responsibility for the accuracy of the document content."/>
       <min value="0"/>
@@ -673,15 +677,15 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DocumentAttestationMode"/>
         </extension>
-        <strength value="required"/>
+        <strength value="preferred"/>
         <description value="The way in which a person authenticated a document."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/document-attestation-mode"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/composition-attestation-mode"/>
       </binding>
       <mapping>
         <identity value="fhircomposition"/>
@@ -1122,34 +1126,6 @@
       <mapping>
         <identity value="cda"/>
         <map value="ClinicalDocument/recordTarget/"/>
-      </mapping>
-    </element>
-    <element id="DocumentReference.related">
-      <path value="DocumentReference.related"/>
-      <short value="Related identifiers or resources"/>
-      <definition value="Related identifiers or resources associated with the DocumentReference."/>
-      <comment value="May be identifiers or resources that caused the DocumentReference or referenced Document to be created."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-      <mapping>
-        <identity value="fhircomposition"/>
-        <map value="Composition.event.detail"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./outboundRelationship[typeCode=&quot;PERT&quot; and isNormalActRelationship()] / target[isNormalAct]"/>
-      </mapping>
-      <mapping>
-        <identity value="xds"/>
-        <map value="DocumentEntry.referenceIdList"/>
-      </mapping>
-      <mapping>
-        <identity value="cda"/>
-        <map value="ClinicalDocument/relatedDocument"/>
       </mapping>
     </element>
   </differential>
