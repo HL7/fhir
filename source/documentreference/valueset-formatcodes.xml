@@ -20,7 +20,7 @@
   <status value="active"/>
   <experimental value="false"/>
   <publisher value="HL7"/>
-  <description value="The value set is defined to be the set of format codes defined by the IHE Technical Framework available https://profiles.ihe.net/fhir/ihe.formatcode.fhir/index.html, and also including additional format codes defined by the HL7.   The FormatCode vocabulary is the code specifying the technical format constraints of the document. Along with the mime type, and clinical type of document (usually LOINC), it should provide sufficient information to allow any potential document consumer to know if it will be able to process the document. The FormatCode code shall be sufficiently specific to ensure processing/display by identifying a document encoding, structure and template. This is an extensible valueSet."/>
+  <description value="The value set is defined to be the set of format codes defined  the code specifying the technical format constraints of the document. Along with the mime type, and clinical type of document (usually LOINC), it should provide sufficient information to allow any potential document consumer to know if it will be able to process the document. The FormatCode code shall be sufficiently specific to ensure processing/display by identifying a document encoding, structure and template. This is an extensible valueSet."/>
   <copyright value="Some content from IHE&#xAE; Copyright &#xA9; 2015 IHE International, Inc.    This content is from the IHE Technical Frameworks and Supplements, available for free download and use at https://profiles.ihe.net"/>
   <compose>
     <include>

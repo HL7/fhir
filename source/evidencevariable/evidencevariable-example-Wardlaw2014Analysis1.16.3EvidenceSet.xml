@@ -27,7 +27,7 @@
 	<actual value="true"/>
 	<characteristic>
 		<description value="'Wardlaw 2014 Analysis 1.16.3 Evidence set' is a grouping of six Evidence results used in a meta-analysis." />
-		<combination>
+		<definitionByCombination>
 			<code value="any-of" />
 			<characteristic>
 				<definitionReference>
@@ -65,7 +65,7 @@
 					<display value="IST3 2012"/>
 				</definitionReference>
 			</characteristic>
-		</combination>
+		</definitionByCombination>
 	</characteristic>
 	<handling value="dichotomous"/>
 </EvidenceVariable>

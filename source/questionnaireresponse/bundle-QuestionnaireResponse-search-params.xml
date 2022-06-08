@@ -139,6 +139,7 @@
         <expression value="QuestionnaireResponse.subject.where(resolve() is Patient)"/>
         <xpath value="f:QuestionnaireResponse/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

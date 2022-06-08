@@ -530,7 +530,7 @@
       <path value="Specimen.collection.bodySite"/>
       <short value="Anatomical collection site"/>
       <definition value="Anatomical location from which the specimen was collected (if subject is a patient). This is the target site.  This element is not used for environmental specimens."/>
-      <comment value="If the use case requires  BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [bodySite](extension-bodysite.html)."/>
+      <comment value="Reasons for using BodyStructure reference include: 1.) Need to identify a specific site instance (e.g. a specific mole), 2.) a single pre-coordinated coded concept for the body site does not exist, 3.) a desire to represent bodySite using multiple attributes (e.g. modifiers)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -694,37 +694,19 @@
         <map value=".player.scopingRole[classCode=CONT].scoper"/>
       </mapping>
     </element>
-    <element id="Specimen.container.identifier">
-      <path value="Specimen.container.identifier"/>
-      <short value="Id for the container"/>
-      <definition value="Id for container. There may be multiple; a manufacturer&#39;s bar code, lab assigned identifier, etc. The container ID may differ from the specimen id in some circumstances."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="v2"/>
-        <map value="SAC-3"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".id"/>
-      </mapping>
-    </element>
-    <element id="Specimen.container.description">
-      <path value="Specimen.container.description"/>
-      <short value="Textual description of the container"/>
-      <definition value="Textual description of the container."/>
-      <min value="0"/>
+    <element id="Specimen.container.device">
+       <path value="Specimen.container.device"/>
+      <short value="Device resource for the container"/>
+      <definition value="The device resource for the the container holding the specimen. If the container is in a holder then the referenced device will point to a parent device." />
+      <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".desc"/>
+        <map value="participation[typeCode=DEV]"/>
       </mapping>
     </element>
     <element id="Specimen.container.location">
@@ -746,51 +728,6 @@
         <map value=".participation[typeCode=LOC].role"/>
       </mapping>
     </element>
-    <element id="Specimen.container.type">
-      <path value="Specimen.container.type"/>
-      <short value="Kind of container directly associated with specimen"/>
-      <definition value="The type of container associated with the specimen (e.g. slide, aliquot, etc.)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SpecimenContainerType"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Type of specimen container."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/specimen-container-type"/>
-      </binding>
-      <mapping>
-        <identity value="v2"/>
-        <map value="SPM-27"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".code"/>
-      </mapping>
-    </element>
-    <element id="Specimen.container.capacity">
-      <path value="Specimen.container.capacity"/>
-      <short value="Container volume or size"/>
-      <definition value="The capacity (volume or other measure) the container may contain."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
-      </type>
-      <mapping>
-        <identity value="v2"/>
-        <map value="one of: SAC 16, SAC17 and SAC 20, or SAC 21 and SAC 20"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".quantity"/>
-      </mapping>
-    </element>
     <element id="Specimen.container.specimenQuantity">
       <path value="Specimen.container.specimenQuantity"/>
       <short value="Quantity of specimen within container"/>
@@ -808,39 +745,6 @@
       <mapping>
         <identity value="rim"/>
         <map value=".playedRole[classCode=CONT].quantity"/>
-      </mapping>
-    </element>
-    <element id="Specimen.container.additive[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="#3634."/>
-      </extension>
-      <path value="Specimen.container.additive[x]"/>
-      <short value="Additive associated with container"/>
-      <definition value="Introduced substance to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SpecimenContainerAdditive"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Substance added to specimen container."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/v2-0371"/>
-      </binding>
-      <mapping>
-        <identity value="v2"/>
-        <map value="SAC-27"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".scopesRole[classCode=ADTV].player"/>
       </mapping>
     </element>
     <element id="Specimen.condition">

@@ -5,6 +5,12 @@
 		<system value="http://acme.com/devices/pacemakers/octane/serial"/>
 		<value value="1234-5678-90AB-CDEF"/>
 	</identifier>
+	<manufacturer value="Acme Devices, Inc"/>
+	<lotNumber value="1234-5678"/>
+	<deviceName>
+      <name value="PM/Octane 2014"/>
+	  <type value="user-friendly-name" />
+	</deviceName>
 	<type>
 		<coding>
 			<system value="http://acme.com/devices"/>
@@ -12,12 +18,17 @@
 			<display value="Performance pace maker for high octane patients"/>
 		</coding>
 	</type>
-	<lotNumber value="1234-5678"/>
-	<manufacturer value="Acme Devices, Inc"/>
-	<model value="PM/Octane 2014"/>
-	<patient>
+	<associationState>
+	  <status> 
+	     <coding>
+		   <system value="http://terminology.hl7.org/CodeSystem/device-associationstatus" />
+           <code value="attached"/>
+		 </coding>
+	  </status>
+      <humanSubject>
 		<reference value="Patient/example"/>
-	</patient>
+	  </humanSubject>
+	</associationState>
 	<contact>
 		<system value="phone"/>
 		<value value="ext 4352"/>

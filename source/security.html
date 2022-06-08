@@ -307,7 +307,7 @@ The <a href="https://openid.net/wg/heart/">HEART Working Group</a> has developed
 set of privacy and security specifications that enable an individual to control the 
 authorization of access to RESTful health-related data sharing APIs, and to facilitate 
 the development of interoperable implementations of these specifications by others.
-IHE <a href="http://wiki.ihe.net/index.php/Internet_User_Authorization">IUA Profile</a> constrains OAuth token attributes to support Healthcare.
+IHE <a href="https://profiles.ihe.net/ITI/IUA">IUA Profile</a> constrains OAuth token attributes to support Healthcare.
 </p>
 <p>
 Another proposed model for managing and enforcing patient consents relies on an OAuth 2.0 server which uses the patient consents as the applicable authorization policies at the time of issuing a token. In this model, the authorization server (OAuth 2.0 or its <a href="https://docs.kantarainitiative.org/uma/ed/uma-core-2.0-01.html">User-Managed Access profile</a>) examines the patient consent to determine whether or not to issue a token to a requesting client and what scopes to grant. The main motivation behind this model is to have a separate consent management system in charge of collecting, storing, and maintaining patient consents, as well as responding to authorization requests based on these consents. This facilitates having third-party consent management services to which organizations can outsource their consent management functions. Further details about this model are discussed in <a href="https://confluence.hl7.org/display/SEC/Veterans+Health+Administration+Sponsored+Security+and+Privacy+Papers?preview=%2F66931686%2F66939024%2FUMA_Consent_Management_Service-2017-11-27.pdf">this report</a>.
@@ -362,7 +362,7 @@ This form of audit logging records as much detail as reasonable at the time the 
 When used to record security and privacy relevant events, the AuditEvent can then be 
 used by properly authorized applications to support audit reporting, alerting, filtering, 
 and forwarding. This model has been developed and used in healthcare for a decade as 
-<a href="http://wiki.ihe.net/index.php?title=Audit_Trail_and_Node_Authentication">IHE-ATNA profile</a>. 
+<a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-9.html">IHE-ATNA profile</a>. 
 ATNA log events can be automatically converted to AuditEvent resources, and from there,
 client applications are able to search the audit events, or subscribe to them.
 </p>

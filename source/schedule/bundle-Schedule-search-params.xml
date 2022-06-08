@@ -110,14 +110,34 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Schedule.serviceType"/>
+          <valueString value="Schedule.serviceType.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Schedule-service-type"/>
-        <description value="The type of appointments that can be booked into associated slot(s)"/>
+        <description value="The type (by coding) of appointments that can be booked into associated slot(s)"/>
         <code value="service-type"/>
         <type value="token"/>
-        <expression value="Schedule.serviceType"/>
-        <xpath value="f:Schedule/f:serviceType"/>
+        <expression value="Schedule.serviceType.concept"/>
+        <xpath value="f:Schedule/f:serviceType/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Schedule-service-type-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Schedule.serviceType.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Schedule-service-type-reference"/>
+        <description value="The type (by HealthcareService) of appointments that can be booked into associated slot(s)"/>
+        <code value="service-type-reference"/>
+        <type value="reference"/>
+        <expression value="Schedule.serviceType.reference"/>
+        <xpath value="f:Schedule/f:serviceType/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

@@ -14,6 +14,11 @@ single service and the list of locations it is available. Both are acceptable op
 Where availability, telecom, or other details are not the same across all healthcareservices, or locations 
 a seperate PractitionerRole instance should be created.
 </p>
+<p>
+For use cases where an organization has activities where a practitioner is not defined/pre-allocated for a specific role 
+(e.g. an un-named surgeon at XYZ Hospital), a PractitionerRole resource can be used with an empty Practitioner property, 
+and the other relevant role properties populated - i.e. code, organization.
+</p>
 </div>
 
 <div>
@@ -30,6 +35,10 @@ a seperate PractitionerRole instance should be created.
   of a <a href="patient.html">Patient</a>, or functional role (e.g. Crisis planning team). In contrast the PractitionerRole
   is used in a more general sense to cover all the places that the practitioner is allocated to work (and specific details
   relevant to that role - such as a specific contact number, or electronic services endpoint).
+</p>
+<p>
+When referencing a practitioner from clinical (or other) content where the organization and role are important to the context 
+of the reference to the practitioner, then a reference to the PractitionerRole should be used.
 </p>
 </div>
 

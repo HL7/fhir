@@ -4,15 +4,15 @@ HTTP/1.1 200 OK
 <Parameters xmlns="http://hl7.org/fhir">
   <parameter>
 		<name value="version"/>
-		<valueString value="3.0"/>
+		<valueCode value="3.0"/>
   </parameter>
 	<parameter>
 		<name value="version"/>
-		<valueString value="4.0"/>
+		<valueCode value="4.0"/>
 	</parameter>
 	<parameter>
 		<name value="default"/>
-		<valueString value="4.0"/>
+		<valueCode value="4.0"/>
 	</parameter>
 </Parameters>
 
@@ -22,12 +22,12 @@ or in JSON:
 	"resourceType": "Parameters",
 	"parameter": [{
   	"name": "version",
-  	"valueString": "3.0"
+  	"valueCode": "3.0"
 	}, {
 	  "name": "version",
-	  "valueString": "4.0"
+	  "valueCode": "4.0"
 	}, {
 	  "name": "default",
-	  "valueString": "4.0"
+	  "valueCode": "4.0"
 	}]
 }

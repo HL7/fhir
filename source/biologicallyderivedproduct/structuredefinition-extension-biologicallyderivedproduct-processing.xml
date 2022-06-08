@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/biologicallyderivedproduct-processing"/>
-  <version value="1.0.0"/>
+  <version value="4.6.0"/>
   <name value="processing"/>
   <title value="Processing"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="Extension for processing of a biologically dervied prodcut"/>
-  <fhirVersion value="5.0.0"/>
+  <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -41,28 +41,11 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="Any processing of the product during collection"/>
-      <definition value="ny processing of the product during collection that does not change the fundamental nature of the product. For example adding anti-coagulants during the collection of Peripheral Blood Stem Cells."/>
+      <definition value="Any processing of the product during collection that does not change the fundamental nature of the product. For example adding anti-coagulants during the collection of Peripheral Blood Stem Cells."/>
       <min value="0"/>
       <max value="*"/>
     </element>
-    <element id="Extension.extension">
-      <path value="Extension.extension"/>
-      <max value="0"/>
-    </element>
-    <element id="Extension.url">
-      <path value="Extension.url"/>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/biologicallyderivedproduct-processing"/>
-    </element>
-    <element id="Extension.value[x]">
-      <path value="Extension.value[x]"/>
-      <min value="0"/>
-      <max value="0"/>
-      <type>
-        <code value="integer"/>
-      </type>
-    </element>
-
-     <element id="Extension.extension:description">
+    <element id="Extension.extension:description">
       <path value="Extension.extension"/>
       <sliceName value="description"/>
       <short value="Processing of description"/>
@@ -99,8 +82,8 @@
     <element id="Extension.extension:procedure">
       <path value="Extension.extension"/>
       <sliceName value="procedure"/>
-      <short value="Procesing code"/>
-      <definition value="Coded representation of processing procedure."/>
+      <short value="Procesing procedure"/>
+      <definition value="The procedure used for processing."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -127,7 +110,8 @@
       <path value="Extension.extension.value[x]"/>
       <min value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
@@ -141,10 +125,69 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
       </binding>
     </element>
-
-
-
-
-
+    <element id="Extension.extension:additive">
+      <path value="Extension.extension"/>
+      <sliceName value="additive"/>
+      <short value="Substance added during processing"/>
+      <definition value="Substance added during processing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+    </element>
+    <element id="Extension.extension:additive.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:additive.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="additive"/>
+    </element>
+    <element id="Extension.extension:additive.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+      </type>
+    </element>
+    <element id="Extension.extension:time[x]">
+      <path value="Extension.extension"/>
+      <sliceName value="time[x]"/>
+      <short value="Time of processing"/>
+      <definition value="Time of processing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+    </element>
+    <element id="Extension.extension:time[x].extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:time[x].url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="time[x]"/>
+    </element>
+    <element id="Extension.extension:time[x].value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
   </differential>
 </StructureDefinition>

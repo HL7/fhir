@@ -88,7 +88,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
@@ -321,7 +321,7 @@
       <path value="ValueSet.description"/>
       <short value="Natural language description of the value set"/>
       <definition value="A free text natural language description of the value set from a consumer&#39;s perspective. The textual description specifies the span of meanings for concepts to be included within the Value Set Expansion, and also may specify the intended use and limitations of the Value Set."/>
-      <comment value="This description can be used to capture details such as why the value set was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the value set as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the value set is presumed to be the predominant language in the place the value set was created). The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes. A description should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a description."/>
+      <comment value="Description SHOULD contain instructions for clinical or administrative use and interpretation and information about misuse. Description SHOULD be populated unless the information is available from context. Description SHOULD be populated unless the value set is a contained resource (e.g. a value set defined solely in the context of a profile)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -695,7 +695,7 @@
       </extension>
       <path value="ValueSet.compose.include.filter"/>
       <short value="Select codes/concepts by their properties (including relationships)"/>
-      <definition value="Select concepts by specify a matching criterion based on the properties (including relationships) defined by the system, or on filters defined by the system. If multiple filters are specified, they SHALL all be true."/>
+      <definition value="Select concepts by specifying a matching criterion based on the properties (including relationships) defined by the system, or on filters defined by the system. If multiple filters are specified within the include, they SHALL all be true."/>
       <comment value="Selecting codes by specifying filters based on properties is only possible where the underlying code system defines appropriate properties. Note that in some cases, the underlying code system defines the logical concepts but not the literal codes for the concepts. In such cases, the literal definitions may be provided by a third party."/>
       <min value="0"/>
       <max value="*"/>
@@ -1170,27 +1170,13 @@
     </element>
     <element id="ValueSet.scope">
       <path value="ValueSet.scope"/>
-      <short value="Description of the semantic space the Value Set Expansion is intended to cover"/>
-      <definition value="Description of the semantic space the Value Set Expansion is intended to cover."/>
+      <short value="Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description"/>
+      <definition value="Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="BackboneElement"/>
       </type>
-    </element>
-    <element id="ValueSet.scope.focus">
-      <path value="ValueSet.scope.focus"/>
-      <short value="General focus of the Value Set as it relates to the intended semantic space"/>
-      <definition value="The general focus of the Value Set as it relates to the intended semantic space. This can be the information about clinical relevancy or the statement about the general focus of the Value Set, such as a description of types of messages, payment options, geographic locations, etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
     </element>
     <element id="ValueSet.scope.inclusionCriteria">
       <path value="ValueSet.scope.inclusionCriteria"/>
