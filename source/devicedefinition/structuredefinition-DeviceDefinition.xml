@@ -707,8 +707,8 @@
       </type>
     </element>
 -->
-    <element id="DeviceDefinition.link">
-      <path value="DeviceDefinition.link"/>
+    <element id="DeviceDefinition.gateway">
+      <path value="DeviceDefinition.gateway"/>
       <short value="An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device"/>
       <definition value="An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device."/>
       <min value="0"/>
@@ -717,8 +717,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="DeviceDefinition.link.relation">
-      <path value="DeviceDefinition.link.relation"/>
+    <element id="DeviceDefinition.gateway.relation">
+      <path value="DeviceDefinition.gateway.relation"/>
       <short value="The type indicates the relationship of the related device to the device instance"/>
       <definition value="The type indicates the relationship of the related device to the device instance."/>
       <min value="1"/>
@@ -735,8 +735,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-relationtype"/>
       </binding>
     </element>
-    <element id="DeviceDefinition.link.relatedDeviceDefinition">
-      <path value="DeviceDefinition.link.relatedDevice"/>
+    <element id="DeviceDefinition.gateway.relatedDeviceDefinition">
+      <path value="DeviceDefinition.gateway.relatedDevice"/>
       <short value="A reference to the linked device definition"/>
       <definition value="A reference to the linked device definition."/>
       <min value="1"/>
