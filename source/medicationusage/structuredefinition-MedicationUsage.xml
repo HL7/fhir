@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="MedicationUsage"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -111,6 +111,21 @@
       <mapping>
         <identity value="rim"/>
         <map value=".id"/>
+      </mapping>
+    </element>
+    <element id="MedicationUsage.partOf">
+      <path value="MedicationUsage.partOf"/>
+      <short value="Part of referenced event"/>
+      <definition value="A larger event of which this particular MedicationUsage is a component or step."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP]/target[classCode=SPLY or SBADM or PROC or OBS,moodCode=EVN]"/>
       </mapping>
     </element>
     <element id="MedicationUsage.status">
@@ -232,7 +247,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PID-3-Patient ID List"/>
+        <map value="PID-3 Patient ID List"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -398,6 +413,22 @@
       <mapping>
         <identity value="rim"/>
         <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=&quot;annotation&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="MedicationUsage.relatedClinicalInformation">
+      <path value="MedicationUsage.relatedClinicalInformation"/>
+      <short value="Link to information relevant to the usage of a medication"/>
+      <definition value="Link to information that is relevant to a medication usage, for example, illicit drug use, gestational age, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="TBD"/>
       </mapping>
     </element>
     <element id="MedicationUsage.renderedDosageInstruction">

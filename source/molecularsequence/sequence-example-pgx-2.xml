@@ -1,31 +1,34 @@
 <MolecularSequence xmlns="http://hl7.org/fhir">
     <id value="example-pgx-2"/>
     <type value="dna"/>
-    <coordinateSystem value="0"/>
     <patient>
         <reference value="Patient/example"/>
     </patient>
-    <referenceSeq>
-        <orientation value="sense"/>
-        <referenceSeqId>
+    <relative>
+      <coordinateSystem>
           <coding>
-            <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
-            <code value="NG_007726.3"/>
+              <system value="http://loinc.org"/>
+              <code value="LA30100-4"/>
+              <display value="0-based interval counting"/>
           </coding>
-        </referenceSeqId>
-        <strand value="watson"/>
-        <windowStart value="55227970"/>
-        <windowEnd value="55227980"/>
-    </referenceSeq>
-    <variant>
-        <start value="55227978"/>
-        <end value="55227979"/>
-        <observedAllele value="G"/>
-        <referenceAllele value="T"/>
-	 <variantPointer>
-          <reference value="Observation/example-haplotype2"/>
-          <display value="Target Haplotype Observation"/>
-        </variantPointer>
-
-    </variant>
+      </coordinateSystem>
+      <reference>
+          <referenceSequenceCodeableConcept>
+            <coding>
+              <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
+              <code value="NG_007726.3"/>
+            </coding>
+          </referenceSequenceCodeableConcept>
+          <windowStart value="55227970"/>
+          <windowEnd value="55227980"/>
+          <orientation value="sense"/>
+          <strand value="watson"/>
+      </reference>
+      <edit>
+          <start value="55227978"/>
+          <end value="55227979"/>
+          <observedAllele value="G"/>
+          <referenceAllele value="T"/>
+      </edit>
+    </relative>
 </MolecularSequence>

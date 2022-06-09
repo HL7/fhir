@@ -24,7 +24,7 @@
     <valueCode value="fhir"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value="Depends on the type: document - see for Composition; message - see for MessageHeader; transaction / transaction-response / history / searchset - not expected to be stored; collection: just delete it if it&#39;s stored, and in error"/>
+    <valueCode value="Depends on the type: document - see for Composition; message - see for MessageHeader; transaction / transaction-response / history / searchset - not expected to be stored; collection: just delete it if it's stored, and in error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
   <version value="4.6.0"/>
@@ -82,80 +82,88 @@
         <key value="bdl-7"/>
         <severity value="error"/>
         <human value="FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId (except in history bundles)"/>
-        <expression value="(type = &#39;history&#39;) or entry.where(fullUrl.exists()).select(fullUrl&amp;resource.meta.versionId).isDistinct()"/>
-        <xpath value="(f:type/@value = &#39;history&#39;) or (count(for $entry in f:entry[f:resource] return $entry[count(parent::f:Bundle/f:entry[f:fullUrl/@value=$entry/f:fullUrl/@value and ((not(f:resource/*/f:meta/f:versionId/@value) and not($entry/f:resource/*/f:meta/f:versionId/@value)) or f:resource/*/f:meta/f:versionId/@value=$entry/f:resource/*/f:meta/f:versionId/@value)])!=1])=0)"/>
+        <expression value="(type = 'history') or entry.where(fullUrl.exists()).select(fullUrl&amp;resource.meta.versionId).isDistinct()"/>
+        <xpath value="(f:type/@value = 'history') or (count(for $entry in f:entry[f:resource] return $entry[count(parent::f:Bundle/f:entry[f:fullUrl/@value=$entry/f:fullUrl/@value and ((not(f:resource/*/f:meta/f:versionId/@value) and not($entry/f:resource/*/f:meta/f:versionId/@value)) or f:resource/*/f:meta/f:versionId/@value=$entry/f:resource/*/f:meta/f:versionId/@value)])!=1])=0)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
         <key value="bdl-9"/>
         <severity value="error"/>
         <human value="A document must have an identifier with a system and a value"/>
-        <expression value="type = &#39;document&#39; implies (identifier.system.exists() and identifier.value.exists())"/>
-        <xpath value="not(f:type/@value = &#39;document&#39;) or exists(f:identifier/f:system) or exists(f:identifier/f:value)"/>
+        <expression value="type = 'document' implies (identifier.system.exists() and identifier.value.exists())"/>
+        <xpath value="not(f:type/@value = 'document') or exists(f:identifier/f:system) or exists(f:identifier/f:value)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
         <key value="bdl-3"/>
         <severity value="error"/>
         <human value="entry.request mandatory for batch/transaction/history, allowed for subscription-notification, otherwise prohibited"/>
-        <expression value="entry.all(request.exists() = (%resource.type = &#39;batch&#39; or %resource.type = &#39;transaction&#39; or %resource.type = &#39;history&#39;)) or (type=&#39;subscription-notification&#39;)"/>
-        <xpath value="not(f:entry/f:request) or (f:type/@value = &#39;batch&#39;) or (f:type/@value = &#39;transaction&#39;) or (f:type/@value = &#39;history&#39;) or (f:type/@value = &#39;subscription-notification)"/>
+        <expression value="entry.all(request.exists() = (%resource.type = 'batch' or %resource.type = 'transaction' or %resource.type = 'history')) or (type='subscription-notification')"/>
+        <xpath value="not(f:entry/f:request) or (f:type/@value = 'batch') or (f:type/@value = 'transaction') or (f:type/@value = 'history') or (f:type/@value = 'subscription-notification)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
         <key value="bdl-4"/>
         <severity value="error"/>
         <human value="entry.response mandatory for batch-response/transaction-response/history, allowed for subscription-notification, otherwise prohibited"/>
-        <expression value="entry.all(response.exists() = (%resource.type = &#39;batch-response&#39; or %resource.type = &#39;transaction-response&#39; or %resource.type = &#39;history&#39;)) or (type=&#39;subscription-notification&#39;)"/>
-        <xpath value="not(f:entry/f:response) or (f:type/@value = &#39;batch-response&#39;) or (f:type/@value = &#39;transaction-response&#39;) or (f:type/@value = &#39;history&#39;) or (f:type/@value = &#39;subscription-notification)"/>
+        <expression value="entry.all(response.exists() = (%resource.type = 'batch-response' or %resource.type = 'transaction-response' or %resource.type = 'history')) or (type='subscription-notification')"/>
+        <xpath value="not(f:entry/f:response) or (f:type/@value = 'batch-response') or (f:type/@value = 'transaction-response') or (f:type/@value = 'history') or (f:type/@value = 'subscription-notification)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
         <key value="bdl-13"/>
         <severity value="error"/>
         <human value="A subscription-notification must have a SubscriptionStatus as the first resource"/>
-        <expression value="type = &#39;subscription-notification&#39; implies entry.first().resource.is(SubscriptionStatus)"/>
-        <xpath value="not(f:type/@value=&#39;subscription-notification&#39;) or f:entry[1]/f:resource/f:SubscriptionStatus"/>
+        <expression value="type = 'subscription-notification' implies entry.first().resource.is(SubscriptionStatus)"/>
+        <xpath value="not(f:type/@value='subscription-notification') or f:entry[1]/f:resource/f:SubscriptionStatus"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
         <key value="bdl-12"/>
         <severity value="error"/>
         <human value="A message must have a MessageHeader as the first resource"/>
-        <expression value="type = &#39;message&#39; implies entry.first().resource.is(MessageHeader)"/>
-        <xpath value="not(f:type/@value=&#39;message&#39;) or f:entry[1]/f:resource/f:MessageHeader"/>
+        <expression value="type = 'message' implies entry.first().resource.is(MessageHeader)"/>
+        <xpath value="not(f:type/@value='message') or f:entry[1]/f:resource/f:MessageHeader"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
         <key value="bdl-1"/>
         <severity value="error"/>
         <human value="total only when a search or history"/>
-        <expression value="total.empty() or (type = &#39;searchset&#39;) or (type = &#39;history&#39;)"/>
-        <xpath value="not(f:total) or (f:type/@value = &#39;searchset&#39;) or (f:type/@value = &#39;history&#39;)"/>
+        <expression value="total.empty() or (type = 'searchset') or (type = 'history')"/>
+        <xpath value="not(f:total) or (f:type/@value = 'searchset') or (f:type/@value = 'history')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
         <key value="bdl-2"/>
         <severity value="error"/>
         <human value="entry.search only when a search"/>
-        <expression value="entry.search.empty() or (type = &#39;searchset&#39;)"/>
-        <xpath value="not(f:entry/f:search) or (f:type/@value = &#39;searchset&#39;)"/>
+        <expression value="entry.search.empty() or (type = 'searchset')"/>
+        <xpath value="not(f:entry/f:search) or (f:type/@value = 'searchset')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
         <key value="bdl-11"/>
         <severity value="error"/>
         <human value="A document must have a Composition as the first resource"/>
-        <expression value="type = &#39;document&#39; implies entry.first().resource.is(Composition)"/>
-        <xpath value="not(f:type/@value=&#39;document&#39;) or f:entry[1]/f:resource/f:Composition"/>
+        <expression value="type = 'document' implies entry.first().resource.is(Composition)"/>
+        <xpath value="not(f:type/@value='document') or f:entry[1]/f:resource/f:Composition"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
         <key value="bdl-10"/>
         <severity value="error"/>
         <human value="A document must have a date"/>
-        <expression value="type = &#39;document&#39; implies (timestamp.hasValue())"/>
-        <xpath value="not(f:type/@value = &#39;document&#39;) or exists(f:timestamp/f:value)"/>
+        <expression value="type = 'document' implies (timestamp.hasValue())"/>
+        <xpath value="not(f:type/@value = 'document') or exists(f:timestamp/f:value)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+      </constraint>
+      <constraint>
+        <key value="bdl-14"/>
+        <severity value="error"/>
+        <human value="entry.request.method PATCH not allowed for history"/>
+        <expression value="type = 'history' implies entry.request.method != 'PATCH'"/>
+        <xpath value="(f:type/@value = 'history') and not(f:entry/request/method/@value = 'PATCH')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <mapping>
@@ -178,7 +186,7 @@
     <element id="Bundle.identifier">
       <path value="Bundle.identifier"/>
       <short value="Persistent identifier for the bundle"/>
-      <definition value="A persistent identifier for the bundle that won&#39;t change as a bundle is copied from server to server."/>
+      <definition value="A persistent identifier for the bundle that won't change as a bundle is copied from server to server."/>
       <comment value="Persistent identity generally only matters for batches of type Document, Message, and Collection. It would not normally be populated for search and history results and servers ignore Bundle.identifier when processing batches and transactions. For Documents  the .identifier SHALL be populated such that the .identifier is globally unique."/>
       <min value="0"/>
       <max value="1"/>
@@ -199,7 +207,7 @@
       <path value="Bundle.type"/>
       <short value="document | message | transaction | transaction-response | batch | batch-response | history | searchset | collection | subscription-notification"/>
       <definition value="Indicates the purpose of this bundle - how it is intended to be used."/>
-      <comment value="It&#39;s possible to use a bundle for other purposes (e.g. a document can be accepted as a transaction). This is primarily defined so that there can be specific rules for some of the bundle types."/>
+      <comment value="It's possible to use a bundle for other purposes (e.g. a document can be accepted as a transaction). This is primarily defined so that there can be specific rules for some of the bundle types."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -242,7 +250,7 @@
     <element id="Bundle.total">
       <path value="Bundle.total"/>
       <short value="If search, the total number of matches"/>
-      <definition value="If a set of search matches, this is the total number of entries of type &#39;match&#39; across all pages in the search.  It does not include search.mode = &#39;include&#39; or &#39;outcome&#39; entries and it does not provide a count of the number of entries in the Bundle."/>
+      <definition value="If a set of search matches, this is the total number of entries of type 'match' across all pages in the search.  It does not include search.mode = 'include' or 'outcome' entries and it does not provide a count of the number of entries in the Bundle."/>
       <comment value="Only used if the bundle is a search result set. The total does not include resources such as OperationOutcome and included resources, only the total number of matching resources."/>
       <min value="0"/>
       <max value="1"/>
@@ -301,19 +309,19 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <orderMeaning value="For bundles of type &#39;document&#39; and &#39;message&#39;, the first resource is special (must be Composition or MessageHeader respectively). For all bundles, the meaning of the order of entries depends on the bundle type"/>
+      <orderMeaning value="For bundles of type 'document' and 'message', the first resource is special (must be Composition or MessageHeader respectively). For all bundles, the meaning of the order of entries depends on the bundle type"/>
       <constraint>
         <key value="bdl-8"/>
         <severity value="error"/>
         <human value="fullUrl cannot be a version specific reference"/>
-        <expression value="fullUrl.contains(&#39;/_history/&#39;).not()"/>
-        <xpath value="not(exists(f:fullUrl[contains(string(@value), &#39;/_history/&#39;)]))"/>
+        <expression value="fullUrl.exists() implies fullUrl.contains('/_history/').not()"/>
+        <xpath value="not(exists(f:fullUrl[contains(string(@value), '/_history/')]))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
         <key value="bdl-5"/>
         <severity value="error"/>
-        <human value="must be a resource unless there&#39;s a request or response"/>
+        <human value="must be a resource unless there's a request or response"/>
         <expression value="resource.exists() or request.exists() or response.exists()"/>
         <xpath value="exists(f:resource) or exists(f:request) or exists(f:response)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
@@ -333,7 +341,7 @@
       <path value="Bundle.entry.fullUrl"/>
       <short value="URI for resource (Absolute URL server address or URI for UUID/OID)"/>
       <definition value="The Absolute URL for the resource.  The fullUrl SHALL NOT disagree with the id in the resource - i.e. if the fullUrl is not a urn:uuid, the URL shall be version-independent URL consistent with the Resource.id. The fullUrl is a version independent reference to the resource. The fullUrl element SHALL have a value except that: &#xA;* fullUrl can be empty on a POST (although it does not need to when specifying a temporary id for reference in the bundle)&#xA;* Results from operations might involve resources that are not identified."/>
-      <comment value="fullUrl might not be [unique in the context of a resource](bundle.html#bundle-unique). Note that since [FHIR resources do not need to be served through the FHIR API](references.html), the fullURL might be a URN or an absolute URL that does not end with the logical id of the resource (Resource.id). However, but if the fullUrl does look like a RESTful server URL (e.g. meets the [regex](references.html#regex), then the &#39;id&#39; portion of the fullUrl SHALL end with the Resource.id.&#xA;&#xA;Note that the fullUrl is not the same as the canonical URL - it&#39;s an absolute url for an endpoint serving the resource (these will happen to have the same value on the canonical server for the resource with the canonical URL)."/>
+      <comment value="fullUrl might not be [unique in the context of a resource](bundle.html#bundle-unique). Note that since [FHIR resources do not need to be served through the FHIR API](references.html), the fullURL might be a URN or an absolute URL that does not end with the logical id of the resource (Resource.id). However, but if the fullUrl does look like a RESTful server URL (e.g. meets the [regex](references.html#regex), then the 'id' portion of the fullUrl SHALL end with the Resource.id.&#xA;&#xA;Note that the fullUrl is not the same as the canonical URL - it's an absolute url for an endpoint serving the resource (these will happen to have the same value on the canonical server for the resource with the canonical URL)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -370,8 +378,8 @@
     <element id="Bundle.entry.search.mode">
       <path value="Bundle.entry.search.mode"/>
       <short value="match | include | outcome - why this is in the result set"/>
-      <definition value="Why this entry is in the result set - whether it&#39;s included as a match or because of an _include requirement, or to convey information or warning information about the search process."/>
-      <comment value="There is only one mode. In some corner cases, a resource may be included because it is both a match and an include. In these circumstances, &#39;match&#39; takes precedence."/>
+      <definition value="Why this entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process."/>
+      <comment value="There is only one mode. In some corner cases, a resource may be included because it is both a match and an include. In these circumstances, 'match' takes precedence."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -383,14 +391,14 @@
           <valueString value="SearchEntryMode"/>
         </extension>
         <strength value="required"/>
-        <description value="Why an entry is in the result set - whether it&#39;s included as a match or because of an _include requirement, or to convey information or warning information about the search process."/>
+        <description value="Why an entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/search-entry-mode"/>
       </binding>
     </element>
     <element id="Bundle.entry.search.score">
       <path value="Bundle.entry.search.score"/>
       <short value="Search ranking (between 0 and 1)"/>
-      <definition value="When searching, the server&#39;s search ranking score for the entry."/>
+      <definition value="When searching, the server's search ranking score for the entry."/>
       <comment value="Servers are not required to return a ranking score. 1 is most relevant, and 0 is least relevant. Often, search results are sorted by score, but the client may specify a different sort order.&#xA;&#xA;See [Patient Match](patient-operation-match.html) for the EMPI search which relates to this element."/>
       <min value="0"/>
       <max value="1"/>
@@ -495,7 +503,7 @@
       </extension>
       <path value="Bundle.entry.response"/>
       <short value="Results of execution (transaction/batch/history)"/>
-      <definition value="Indicates the results of processing the corresponding &#39;request&#39; entry in the batch or transaction being responded to or what the results of an operation where when returning history."/>
+      <definition value="Indicates the results of processing the corresponding 'request' entry in the batch or transaction being responded to or what the results of an operation where when returning history."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -540,7 +548,7 @@
     </element>
     <element id="Bundle.entry.response.lastModified">
       <path value="Bundle.entry.response.lastModified"/>
-      <short value="Server&#39;s date time modified"/>
+      <short value="Server's date time modified"/>
       <definition value="The date/time that the resource was modified on the server."/>
       <comment value="This has to match the same time in the meta header (meta.lastUpdated) if a resource is included."/>
       <min value="0"/>
@@ -568,7 +576,7 @@
       </extension>
       <path value="Bundle.signature"/>
       <short value="Digital Signature"/>
-      <definition value="Digital Signature - base64 encoded. XML-DSig or a JWT."/>
+      <definition value="Digital Signature - base64 encoded. XML-DSig or a JWS."/>
       <comment value="The signature could be created by the &quot;author&quot; of the bundle or by the originating device.   Requirements around inclusion of a signature, verification of signatures and treatment of signed/non-signed bundles is implementation-environment specific."/>
       <requirements value="A Signature holds an electronic representation of a signature and its supporting context in a FHIR accessible form. The signature may either be a cryptographic type (XML DigSig or a JWS), which is able to provide non-repudiation proof, or it may be a graphical image that represents a signature or a signature process. This element allows capturing signatures on documents, messages, transactions or even search responses, to support content-authentication, non-repudiation or other business cases. This is primarily relevant where the bundle may travel through multiple hops or via other mechanisms where HTTPS non-repudiation is insufficient."/>
       <min value="0"/>

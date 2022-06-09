@@ -313,6 +313,9 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -375,6 +378,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <orderMeaning value="Order has no meaning unless specifically asserted by List.orderedBy, in which case the List SHALL be interpreted as being ordered as specified by List.orderedBy."/>
       <condition value="lst-1"/>
       <mapping>
         <identity value="rim"/>

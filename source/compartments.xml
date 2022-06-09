@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>Jose Costa Teixeira</LastAuthor>
@@ -62,7 +62,7 @@
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" ss:StyleID="s62" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s62" ss:Width="110.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="3" ss:StyleID="s62" ss:Width="131.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="209.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="487.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="254.0"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s63">
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -71,11 +71,11 @@
     <Cell><Data ss:Type="String">Identification</Data></Cell>
     <Cell><Data ss:Type="String">Inclusion</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell><Data ss:Type="String">Patient</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The set of resources associated with a particular patient</Data></Cell>
-    <Cell><Data ss:Type="String">There is an instance of the patient compartment for each patient resource, and the identity of the compartment is the same as the patient. When a patient is linked to another patient, all the records associated with the linked patient are in the compartment associated with the target of the link. </Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">There is an instance of the patient compartment for each patient resource, and the identity of the compartment is the same as the patient. When a patient is linked to another patient resource, the records associated with the linked patient resource will not be returned as part of the compartment search. Those records will be returned only with another compartment search using the "id" for the linked patient resource.&#10; &#10;In cases where two patients have been merged rather than linked, associated resources should be moved to the target patient as part of the merge process, so the patient compartment for the target patient would include all relevant data, and the patient compartment for the source patient would include only the linked Patient and possibly remnant resources like AuditEvent.</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The patient compartment includes any resources where the subject of  the resource is the patient, and some other resources that are directly linked  to resources in the patient compartment</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -232,9 +232,6 @@
     <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">performer</Data></Cell>
    </Row>
-   <!--Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ClinicalUseIssue</Data></Cell>
-   </Row-->
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ClinicalUseDefinition</Data></Cell>
    </Row>
@@ -348,7 +345,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
     <Cell><Data ss:Type="String">subject | author </Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">context</Data></Cell>
     <Cell><Data ss:Type="String">author </Data></Cell>
     <Cell><Data ss:Type="String">subject | author | attester</Data></Cell>
     <Cell><Data ss:Type="String">subject | author</Data></Cell>
@@ -794,7 +791,10 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceDispense</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Index="148">
+   <Row>
+    <Cell><Data ss:Type="String">FormularyItem</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Index="151">
@@ -832,7 +832,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>130</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

@@ -37,9 +37,12 @@
       <tr><th>Element</th><th>Optionality</th><th>Notes</th></tr>
       <tr><td>SubscriptionStatus.status</td><td>Recommended</td><td>Current status of the relevant subscription (e.g., <code>active</code>).</td></tr>
       <tr><td>SubscriptionStatus.type</td><td>Required</td><td>SHALL be <code>event-notification</code></td></tr>
-      <tr><td>SubscriptionStatus.eventsSinceSubscriptionStart</td><td>Recommended</td><td>Servers SHOULD include this value when sending event notifications in order to allow clients to detect missing events.<br/>This value is inclusive of this notification (e.g., the first event notification sent would include one (1) in this element).</td></tr>
-      <tr><td>SubscriptionStatus.eventsInNotification</td><td>Recommended</td><td>Servers SHOULD include this value when sending event notifications to ease client processing.</td></tr>
-      <tr><td>SubscriptionStatus.notificationEvent</td><td>Special</td><td>In general, filling out the <code>eventNumber</code> and <code>timestamp</code> is recommended. Links contained in the <code>focus</code> and <code>additionalContext</code> elements contain resource IDs and should mirror the payload level used in the subscription:<ul><li><code>empty</code>: SHOULD NOT be present</li><li><code>id-only</code>: SHOULD be present</li><li><code>full-resource</code>: SHOULD be present</li></ul></td></tr>
+      <tr><td>SubscriptionStatus.eventsSinceSubscriptionStart</td><td>Required</td><td>Servers SHALL include this value when sending event notifications in order to allow clients to detect missing events.<br/>This value is inclusive of this notification (e.g., the first event notification sent would include one (1) in this element).</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent</td><td>Required</td><td>For notifications that include events, this element SHALL be present. Details about specific elements within this structure are included in this table.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent.eventNumber</td><td>Required</td><td>This element is mandatory if a <code>notificationEvent</code> is present.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent.timestamp</td><td>Recommended</td><td>So that clients can discover when an event actually occurred, <code>timestamp</code> is recommended.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent.focus</td><td>Special</td><td>Links contained in the <code>focus</code> element contain resource IDs, so will or will not be present based on the payload level relevant to the notification:<ul><li><code>empty</code>: SHALL NOT be present</li><li><code>id-only</code>: SHALL be present</li><li><code>full-resource</code>: SHALL be present</li></ul></td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent.additionalContext</td><td>Special</td><td>Links contained in the <code>additionalContext</code> element contain resource IDs and MAY or MAY not exist.  Presence is determined based on the payload level relevant to the notification, if they are available:<ul><li><code>empty</code>: SHALL NOT be present</li><li><code>id-only</code>: SHOULD be present</li><li><code>full-resource</code>: SHOULD be present</li></ul></td></tr>
       <tr><td>SubscriptionStatus.topic</td><td>Optional</td><td>See <a href="#content-phi">Content and PHI</a>.</td></tr>
     </table>
 
@@ -62,8 +65,11 @@
       <tr><td>SubscriptionStatus.status</td><td>Recommended</td><td>Current status of the relevant subscription (e.g., <code>active</code>).</td></tr>
       <tr><td>SubscriptionStatus.type</td><td>Required</td><td>SHALL be <code>handshake</code></td></tr>
       <tr><td>SubscriptionStatus.eventsSinceSubscriptionStart</td><td>Optional</td><td>For a new Subscription, if this value is present it SHALL be zero (0).<br/>A sender MAY send a handshake with a non-zero number of events, for example as process for re-establishing communication after an error state.<br/>Note: this value SHALL NOT be incremented by sending a <code>handshake</code> notification.</td></tr>
-      <tr><td>SubscriptionStatus.eventsInNotification</td><td>Optional</td><td>If present, this value SHALL be zero (0).</td></tr>
-      <tr><td>SubscriptionStatus.notificationEvent</td><td>Prohibited</td><td>A <code>handshake</code> notification SHALL NOT contain any event information.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent</td><td>Special</td><td>A server MAY include historical events for a client with a <code>handshake</code>, if any exist.  For example, during a reconnection process, a server MAY opt to include all events since the last successful transmission to the client. Details about specific elements within this structure are included in this table.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent.eventNumber</td><td>Special</td><td>This element is mandatory if a <code>notificationEvent</code> is present.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent.timestamp</td><td>Special</td><td>If a server is including prior events, <code>timestamp</code> is recommended, so that clients can process historical events with proper context.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent.focus</td><td>Special</td><td>Links contained in the <code>focus</code> element contain resource IDs, so will or will not be present based on the payload level relevant to the notification:<ul><li><code>empty</code>: SHALL NOT be present</li><li><code>id-only</code>: SHALL be present if a <code>notificationEvent</code> is included</li><li><code>full-resource</code>: SHALL be present if a <code>notificationEvent</code> is present</li></ul></td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent.additionalContext</td><td>Special</td><td>Links contained in the <code>additionalContext</code> element contain resource IDs and MAY or MAY not exist.  Presence is determined based on the payload level relevant to the notification, if they are available:<ul><li><code>empty</code>: SHALL NOT be present</li><li><code>id-only</code>: SHOULD be present if a <code>notificationEvent</code> is present</li><li><code>full-resource</code>: SHOULD be present if a <code>notificationEvent</code> is present</li></ul></td></tr>
       <tr><td>SubscriptionStatus.topic</td><td>Optional</td><td>See <a href="#content-phi">Content and PHI</a>.</td></tr>
     </table>
 		<ul>
@@ -78,18 +84,21 @@
 		<a name="heartbeat-notification"/>
 		<h3>Heartbeat Notification</h3>
 		<p>
-			Servers MAY periodically send notifications across a channel to ensure that the connection is still alive and valid (e.g., in accordance with a client's requested heartbeat interval). A heartbeat notification is an empty subscription-notification Bundle sent without incrementing the subscription event count.
+			A heartbeat notification is a subscription-notification Bundle of type <code>heartbeat</code> sent without incrementing the subscription event count, though servers MAY include the most recent event in the notification.  For servers, heartbeat notifications allow systems to ensure  that the connection is still alive and valid.  For clients, heartbeat notifications serve as a method to detect errors in communication.  Note that a client is not required to take any action in receipt of a heartbeat beyond the channel-specific requirement for receiving an event notification (e.g., accepting the notification bundle with an HTTP 200).
 		</p>
-		<p>
-			A client SHOULD use a hearbeat notification to verify that no events have been missed (if possible). However, a client is not required to take any action in receipt of a heartbeat beyond the channel-specific requirement for receiving an event notification (e.g., accepting the notification bundle with an HTTP 200).
-		</p>
+    <p>
+      Heartbeat intervals are negotiated while creating a Subscription.  If accepted, servers SHOULD send one heartbeat per interval on the accepted subscription.
+    </p>
     <table class="grid">
       <tr><th>Element</th><th>Optionality</th><th>Notes</th></tr>
       <tr><td>SubscriptionStatus.status</td><td>Recommended</td><td>Current status of the relevant subscription (e.g., <code>active</code>).</td></tr>
       <tr><td>SubscriptionStatus.type</td><td>Required</td><td>SHALL be <code>heartbeat</code></td></tr>
       <tr><td>SubscriptionStatus.eventsSinceSubscriptionStart</td><td>Recommended</td><td>The presence of this value allows clients to detect missing notifications.<br/>Note: this value SHALL NOT be incremented by sending a <code>heartbeat</code> notification.</td></tr>
-      <tr><td>SubscriptionStatus.eventsInNotification</td><td>Optional</td><td>If present, this value SHALL be zero (0).</td></tr>
-      <tr><td>SubscriptionStatus.notificationEvent</td><td>Prohibited</td><td>A <code>heartbeat</code> notification SHALL NOT contain any event information.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent</td><td>Special</td><td>A server MAY include historical events for a client with a <code>heartbeat</code>, if any exist.  For example, a server MAY opt to include the most recent event since the last successful transmission to the client. Details about specific elements within this structure are included in this table.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent.eventNumber</td><td>Special</td><td>This element is mandatory if a <code>notificationEvent</code> is present.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent.timestamp</td><td>Special</td><td>If a server is including any prior events, <code>timestamp</code> is recommended, so that clients can process historical events with proper context.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent.focus</td><td>Special</td><td>Links contained in the <code>focus</code> element contain resource IDs, so will or will not be present based on the payload level relevant to the notification:<ul><li><code>empty</code>: SHALL NOT be present</li><li><code>id-only</code>: SHALL be present if a <code>notificationEvent</code> is included</li><li><code>full-resource</code>: SHALL be present if a <code>notificationEvent</code> is present</li></ul></td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent.additionalContext</td><td>Special</td><td>Links contained in the <code>additionalContext</code> element contain resource IDs and MAY or MAY not exist.  Presence is determined based on the payload level relevant to the notification, if they are available:<ul><li><code>empty</code>: SHALL NOT be present</li><li><code>id-only</code>: SHOULD be present if a <code>notificationEvent</code> is present</li><li><code>full-resource</code>: SHOULD be present if a <code>notificationEvent</code> is present</li></ul></td></tr>
       <tr><td>SubscriptionStatus.topic</td><td>Optional</td><td>See <a href="#content-phi">Content and PHI</a>.</td></tr>
     </table>
     <ul>
@@ -111,7 +120,6 @@
       <tr><td>SubscriptionStatus.status</td><td>Required</td><td>Current status of the relevant subscription (e.g., <code>active</code>).</td></tr>
       <tr><td>SubscriptionStatus.type</td><td>Required</td><td>SHALL be <code>query-status</code></td></tr>
       <tr><td>SubscriptionStatus.eventsSinceSubscriptionStart</td><td>Required</td><td>This value is required for clients to know if there are missing notifications.<br/>Note: this value SHALL NOT be incremented by sending a <code>query-status</code> notification.</td></tr>
-      <tr><td>SubscriptionStatus.eventsInNotification</td><td>Optional</td><td>If present, this value SHALL be zero (0).</td></tr>
       <tr><td>SubscriptionStatus.notificationEvent</td><td>Prohibited</td><td>A <code>query-status</code> notification SHALL NOT contain any event information.</td></tr>
       <tr><td>SubscriptionStatus.topic</td><td>Recommended</td><td>See <a href="#content-phi">Content and PHI</a>, but note that guidance will vary since there is an active user session.</td></tr>
     </table>
@@ -129,10 +137,13 @@
     <table class="grid">
       <tr><th>Element</th><th>Optionality</th><th>Notes</th></tr>
       <tr><td>SubscriptionStatus.status</td><td>Recommended</td><td>Current status of the relevant subscription (e.g., <code>active</code>).</td></tr>
-      <tr><td>SubscriptionStatus.type</td><td>Required</td><td>SHALL be <code>query-event</code></td></tr>
+      <tr><td>SubscriptionStatus.type</td><td>Required</td><td>SHALL be <code>query-event</code>.</td></tr>
       <tr><td>SubscriptionStatus.eventsSinceSubscriptionStart</td><td>Recommended</td><td>This value is allows clients to know if they are missing notifications.<br/>Note: this value SHALL NOT be incremented by sending a <code>query-event</code> bundle.</td></tr>
-      <tr><td>SubscriptionStatus.eventsInNotification</td><td>Required</td><td>The number of events actually returned by this operation request.</td></tr>
-      <tr><td>SubscriptionStatus.notificationEvent</td><td>Recommended</td><td>A <code>query-event</code> notification SHOULD contain as much event information as possible, to simplify client processing.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent</td><td>Required</td><td>For notifications that include events, this element SHALL be present. Details about specific elements within this structure are included in this table.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent.eventNumber</td><td>Required</td><td>This element is mandatory if a <code>notificationEvent</code> is present.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent.timestamp</td><td>Recommended</td><td>So that clients can discover when an event actually occurred, <code>timestamp</code> is recommended.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent.focus</td><td>Special</td><td>Links contained in the <code>focus</code> element contain resource IDs, so will or will not be present based on the payload level relevant to the notification:<ul><li><code>empty</code>: SHALL NOT be present</li><li><code>id-only</code>: SHALL be present</li><li><code>full-resource</code>: SHALL be present</li></ul></td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent.additionalContext</td><td>Special</td><td>Links contained in the <code>additionalContext</code> element contain resource IDs and MAY or MAY not exist.  Presence is determined based on the payload level relevant to the notification, if they are available:<ul><li><code>empty</code>: SHALL NOT be present</li><li><code>id-only</code>: SHOULD be present</li><li><code>full-resource</code>: SHOULD be present</li></ul></td></tr>
       <tr><td>SubscriptionStatus.topic</td><td>Recommended</td><td>See <a href="#content-phi">Content and PHI</a>, but note that guidance will vary since there is an active user session.</td></tr>
     </table>
 		<ul>
@@ -144,57 +155,6 @@
   <a name="errors"/>
   <h2>Notifications and Errors</h2>
   <p>
-    If a server encounters errors while sending a notification, the server may retry the notification a fixed number of times and/or refer errors to its own alert logs. If the notification fails, the server SHOULD set the status of the subscription to <code>error</code>. If the error would be useful to a client (e.g., notification failed because the destination SSL certificate expired), servers SHOULD track errors and provide details to the client.  If a notification retry attempt succeeds, the server SHOULD update the status to <code>active</code> and MAY remove any error codes. If a subscription fails consistently a server may choose set the subscription status to <code>off</code> and stop trying to send notifications.
+    The <code>SubscriptionStatus</code> resource is key in detecting various errors in communication and processing.  For more information, see <a href="subscriptions.html#errors">Managing Subscriptions and Errors</a> in the Subscriptions Framework page.
   </p>
-  <p>
-    Errors a server wishes to make accessible to clients are stored in <code>Subscription.error</code>. Servers should provide a mechanism for clearing errors (e.g., when resetting a <code>Subscription.status</code> back to <code>requested</code> after an error). Since <code>Subscription.error</code> represents server errors, a server SHOULD NOT allow clients to add errors.
-  </p>
-
-<a name="errors-delivery"/>
-<h3>Detecting Delivery Errors</h3>
-<p>
-  There are several mechanisms available to subscribers in order to understand the current state of notification delivery.  Below are some example error scenarios with details about how a subscriber can detect the problem state.
-</p>
-
-<a name="errors-missing-event"/>
-<h4>Missing Event</h4>
-<p>
-  The diagram below shows how a subscriber can use the <code>SubscriptionStatus.eventsSinceSubscriptionStart</code> parameter on received notifications to determine that an event has been missed.
-</p>
-<figure>
-  <img src="subscription-error-missing-event.svg" alt="Diagram showing a missed-event detection and recovery workflow"/>
-  <figcaption>Diagram showing a missed-event detection and recovery workflow</figcaption>
-</figure>
-<p>
-  In the above sequence, the subscriber tracks the <code>eventsSinceSubscriptionStart</code> of each received notification (per Subscription).  When the subscriber received event 23, the subscriber was aware that the last notification it received was a single notification for event 21.  The subscriber then waited an amount of time to ensure that event 22 was indeed missing (and not, for example, still being processed) and started a recovery process.  The recovery process itself will vary by subscriber, but should be a well-understood method for recovering in the event of errors.
-</p>
-
-<a name="errors-broken-communication"/>
-<h4>Broken Communication</h4>
-<p>
-  The diagram below show how a subscriber can use the <code>Subscription.heartbeatPeriod</code> to determine errors which prevent notifications from reaching the endpoint.
-</p>
-<figure>
-  <img src="subscription-error-missing-event.svg" alt="Diagram showing broken communication detection and recovery workflow" />
-  <figcaption>Diagram showing broken communication detection and recovery workflow</figcaption>
-</figure>
-<p>
-  In the above sequence, the subscriber is aware that the <code>heartbeatPeriod</code> has elapsed for a subscription without receiving any notifications.  The subscriber then asks the server for the <code>$status</code> of the subscription, and seeing an error, begins a recovery process.  As in the previous scenario, the recovery process itself will vary by subscriber, but should be a well-understood method for recovering in the event of errors.
-</p>
-
-<a name="recovering-from-errors"/>
-<h4>Recovering from Errors</h4>
-<p>
-  Clients are responsible for devising an appropriate method for recovering from errors.  Often, this process will include a series or batch of requests that allow a client to know the current state.  For example, an application may need to query all relevant resources for a patient in order to ensure nothing has been missed.  Once an application has returned to a functional state, it should request the subscription is reactivated by updating the <code>status</code> to either <code>requested</code> or <code>active</code> as appropriate.
-</p>
-
-<a name="using-events-operation"/>
-<h4>Using the <code>$events</code> operation</h4>
-<p>
-  Servers MAY choose to support the <code>$events</code> operation, as defined on the <code>Subscription</code> resource.  The <code>$events</code> operation allows clients to request events which have occurred in the past.  Servers which implement the operation MAY use implementation-specific criteria to restrict availability of events (e.g., most recent 10 events, events within the past 30 days, etc.).
-</p>
-<p>
-  During a recovery process, clients MAY try to retrieve missing events via the <code>$events</code> operation, which should allow processing to continue as normal.
-</p>
-
 </div>

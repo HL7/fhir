@@ -6,10 +6,6 @@
     <patient>
         <reference value="Patient/example"/>
     </patient>
-    <quantity>
-        <value value="23"/>
-        <unit value="Transcripts per million(TPM)"/>
-    </quantity>
     <species>
         <coding>
             <system value="http://snomed.info/sct"/>
@@ -17,22 +13,15 @@
         </coding>
         <text value="Homo sapiens"/>
     </species>
-    <referenceSeq>
-        <referenceSeqId>
-            <coding>
-                <system value="http://www.ncbi.nlm.nih.gov/nuccore/"/>
-                <code value="NM_000927.4"/>
-                <display value="Homo sapiens ATP-binding cassette, sub-family B (MDR/TAP), member 1 (ABCB1), mRNA"/>
-            </coding>
-        </referenceSeqId>
-    </referenceSeq>
-    <variation>
-        <variationID>
-            <coding>
-                <system value="http://www.ncbi.nlm.nih.gov/projects/SNP"/>
-                <code value="58238562"/>
-            </coding>
-            <text value="rs58238562"/>
-        </variationID>
-    </variation>
+    <relative>
+        <reference>
+            <referenceSequenceCodeableConcept>
+                <coding>
+                    <system value="http://www.ncbi.nlm.nih.gov/nuccore/"/>
+                    <code value="NM_000927.4"/>
+                    <display value="Homo sapiens ATP-binding cassette, sub-family B (MDR/TAP), member 1 (ABCB1), mRNA"/>
+                </coding>
+            </referenceSequenceCodeableConcept>
+        </reference>
+    </relative>
 </MolecularSequence>

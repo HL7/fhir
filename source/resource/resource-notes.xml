@@ -467,7 +467,6 @@ The version is often not stated explicitly in the resource; it is controlled by 
 
 
 <a name="tags"></a>
-<a name="tag"></a>
 <h3>Tags, Profiles, and Security Labels</h3>
 <p>
 These 3 metadata attributes are part of the resource, but are never used to keep information 
@@ -546,8 +545,9 @@ about the information in the resource. For further information, see
 <a href="security-labels.html">Security Labels</a>.
 </p>
 <p>
-The list of security labels on a resource is a set, where each tag is unique based on the 
-<code>system</code>+<code>code</code> combination.
+Note, it is valid to create two security labels with the same (<code>system</code>+<code>code</code>) but different
+<code>.display</code> or <code>.version</code>. Furthermore, <code>.display</code> or <code>.version</code> are not
+taken into account when evaluating security labels.
 </p>
 
 <a name="tag-updates"></a>

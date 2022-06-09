@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="EvidenceVariable"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -87,7 +87,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </constraint>
@@ -251,6 +251,16 @@
         <map value="FiveWs.status"/>
       </mapping>
     </element>
+    <element id="EvidenceVariable.experimental">
+      <path value="EvidenceVariable.experimental"/>
+      <short value="For testing purposes, not real usage"/>
+      <definition value="A Boolean value to indicate that this resource is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
     <element id="EvidenceVariable.date">
       <path value="EvidenceVariable.date"/>
       <short value="Date last changed"/>
@@ -270,6 +280,43 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="EvidenceVariable.publisher">
+      <path value="EvidenceVariable.publisher"/>
+      <short value="Name of the publisher (organization or individual)"/>
+      <definition value="The name of the organization or individual that published the evidence variable."/>
+      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the evidence variable is the organization or individual primarily responsible for the maintenance and upkeep of the evidence variable. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the evidence variable. This item SHOULD be populated unless the information is available from context."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the evidence variable.  May also allow for contact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.publisher"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.witness"/>
+      </mapping>
+    </element>
+    <element id="EvidenceVariable.contact">
+      <path value="EvidenceVariable.contact"/>
+      <short value="Contact details for the publisher"/>
+      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.contact"/>
       </mapping>
     </element>
     <element id="EvidenceVariable.description">
@@ -315,42 +362,45 @@
         <map value="Definition.useContext"/>
       </mapping>
     </element>
-    <element id="EvidenceVariable.publisher">
-      <path value="EvidenceVariable.publisher"/>
-      <short value="Name of the publisher (organization or individual)"/>
-      <definition value="The name of the organization or individual that published the evidence variable."/>
-      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the evidence variable is the organization or individual primarily responsible for the maintenance and upkeep of the evidence variable. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the evidence variable. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the evidence variable.  May also allow for contact."/>
+    <element id="EvidenceVariable.copyright">
+      <path value="EvidenceVariable.copyright"/>
+      <short value="Use and/or publishing restrictions"/>
+      <definition value="A copyright statement relating to the resource and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the resource."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.publisher"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.witness"/>
-      </mapping>
     </element>
-    <element id="EvidenceVariable.contact">
-      <path value="EvidenceVariable.contact"/>
-      <short value="Contact details for the publisher"/>
-      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
+    <element id="EvidenceVariable.approvalDate">
+      <path value="EvidenceVariable.approvalDate"/>
+      <short value="When the resource was approved by publisher"/>
+      <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
-        <code value="ContactDetail"/>
+        <code value="date"/>
       </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.contact"/>
-      </mapping>
+    </element>
+    <element id="EvidenceVariable.lastReviewDate">
+      <path value="EvidenceVariable.lastReviewDate"/>
+      <short value="When the resource was last reviewed"/>
+      <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+    </element>
+    <element id="EvidenceVariable.effectivePeriod">
+      <path value="EvidenceVariable.effectivePeriod"/>
+      <short value="When the resource is expected to be used"/>
+      <definition value="The period during which the resource content was or is planned to be in active use."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
     </element>
     <element id="EvidenceVariable.author">
       <path value="EvidenceVariable.author"/>
@@ -430,19 +480,214 @@
         <code value="boolean"/>
       </type>
     </element>
-    <element id="EvidenceVariable.characteristicCombination">
-      <path value="EvidenceVariable.characteristicCombination"/>
-      <short value="Used to specify how two or more characteristics are combined"/>
-      <definition value="Used to specify how two or more characteristics are combined."/>
+    <element id="EvidenceVariable.characteristic">
+      <path value="EvidenceVariable.characteristic"/>
+      <short value="A defining factor of the EvidenceVariable"/>
+      <definition value="A defining factor of the EvidenceVariable. Multiple characteristics are applied with &quot;and&quot; semantics."/>
+      <comment value="Characteristics can be defined flexibly to accommodate different use cases for membership criteria, ranging from simple codes, all the way to using an expression language to express the criteria."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+	  <constraint>
+        <key value="evv-1"/>
+        <severity value="error"/>
+        <human value="In a characteristic, at most one of these seven elements shall be used: definitionReference or definitionCanonical or definitionCodeableConcept or definitionExpression or definitionId or definitionByTypeAndValue or definitionByCombination"/>
+        <expression value="(definitionReference.count() + definitionCanonical.count() + definitionCodeableConcept.count() + definitionExpression.count() + definitionId.count() + definitionByTypeAndValue.count() + definitionByCombination.count())  &lt; 2"/>
+        <xpath value="count(f:definitionReference)+count(f:definitionCanonical)+count(f:definitionCodeableConcept)+count(f:definitionExpression)+count(f:definitionId)+count(f:definitionByTypeAndValue)+count(f:definitionByCombination)  &lt; 2"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+      </constraint>
+      <isSummary value="true"/>
+    </element>
+    <element id="EvidenceVariable.characteristic.linkId">
+      <path value="EvidenceVariable.characteristic.linkId"/>
+      <short value="Label for internal linking"/>
+      <definition value="Label used for when a characteristic refers to another characteristic."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
+      </type>
+    </element>
+    <element id="EvidenceVariable.characteristic.description">
+      <path value="EvidenceVariable.characteristic.description"/>
+      <short value="Natural language description of the characteristic"/>
+      <definition value="A short, natural language description of the characteristic that could be used to communicate the criteria to an end-user."/>
+      <requirements value="Need to be able to describe characteristics in natural language so that end users can understand the criteria."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="EvidenceVariable.characteristic.note">
+      <path value="EvidenceVariable.characteristic.note"/>
+      <short value="Used for footnotes or explanatory notes"/>
+      <definition value="A human-readable string to clarify or explain concepts about the characteristic."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+    </element>
+    <element id="EvidenceVariable.characteristic.exclude">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="This was called &quot;inclusiveness&quot; with a code list of &quot;presence, absence&quot;. Changed to &quot;exclude&quot; boolean to simplify representation and to align with Group characteristic expression."/>
+      </extension>
+      <path value="EvidenceVariable.characteristic.exclude"/>
+      <short value="Whether the characteristic includes or excludes members"/>
+      <definition value="When true, members with this characteristic are excluded from the element."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="False"/>
+    </element>
+    <element id="EvidenceVariable.characteristic.definitionReference">
+      <path value="EvidenceVariable.characteristic.definitionReference"/>
+      <short value="Defines the characteristic (without using type and value) by a Reference"/>
+      <definition value="Defines the characteristic using a Reference."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
+      </type>
+	  <condition value="evv-1"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="EvidenceVariable.characteristic.definitionCanonical">
+      <path value="EvidenceVariable.characteristic.definitionCanonical"/>
+      <short value="Defines the characteristic (without using type and value) by a Canonical"/>
+      <definition value="Defines the characteristic using Canonical."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
+      </type>
+	  <condition value="evv-1"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="EvidenceVariable.characteristic.definitionCodeableConcept">
+      <path value="EvidenceVariable.characteristic.definitionCodeableConcept"/>
+      <short value="Defines the characteristic (without using type and value) by a CodeableConcept"/>
+      <definition value="Defines the characteristic using CodeableConcept."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+	  <condition value="evv-1"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="EvidenceVariable.characteristic.definitionExpression">
+      <path value="EvidenceVariable.characteristic.definitionExpression"/>
+      <short value="Defines the characteristic (without using type and value) by a Expression"/>
+      <definition value="Defines the characteristic using Expression."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Expression"/>
+      </type>
+	  <condition value="evv-1"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="EvidenceVariable.characteristic.definitionId">
+      <path value="EvidenceVariable.characteristic.definitionId"/>
+      <short value="Defines the characteristic (without using type and value) by a id"/>
+      <definition value="Defines the characteristic using id."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
+      </type>
+	  <condition value="evv-1"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="EvidenceVariable.characteristic.definitionByTypeAndValue">
+      <path value="EvidenceVariable.characteristic.definitionByTypeAndValue"/>
+      <short value="Defines the characteristic using type and value"/>
+      <definition value="Defines the characteristic using both a type[x] and value[x] elements."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="BackboneElement"/>
       </type>
+	  <condition value="evv-1"/>
+      <isSummary value="true"/>
     </element>
-    <element id="EvidenceVariable.characteristicCombination.code">
-      <path value="EvidenceVariable.characteristicCombination.code"/>
-      <short value="all-of | any-of | at-least | at-most | net-effect"/>
+    <element id="EvidenceVariable.characteristic.definitionByTypeAndValue.type[x]">
+      <path value="EvidenceVariable.characteristic.definitionByTypeAndValue.type[x]"/>
+      <short value="Expresses the type of characteristic"/>
+      <definition value="Used to express the type of characteristic."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+      </type>
+      <type>
+        <code value="id"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="UsageContextType"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/usage-context-type"/>
+      </binding>
+    </element>
+    <element id="EvidenceVariable.characteristic.definitionByTypeAndValue.value[x]">
+      <path value="EvidenceVariable.characteristic.definitionByTypeAndValue.value[x]"/>
+      <short value="Defines the characteristic when coupled with characteristic.type[x]"/>
+      <definition value="Defines the characteristic when paired with characteristic.type[x]."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+      </type>
+      <type>
+        <code value="id"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="EvidenceVariable.characteristic.definitionByCombination">
+      <path value="EvidenceVariable.characteristic.definitionByCombination"/>
+      <short value="Used to specify how two or more characteristics are combined"/>
+      <definition value="Defines the characteristic as a combination of two or more characteristics."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+	  <condition value="evv-1"/>
+    </element>
+    <element id="EvidenceVariable.characteristic.definitionByCombination.code">
+      <path value="EvidenceVariable.characteristic.definitionByCombination.code"/>
+      <short value="all-of | any-of | at-least | at-most | statistical | net-effect | dataset"/>
       <definition value="Used to specify if two or more characteristics are combined with OR or AND."/>
       <requirements value="If code is &quot;at-least&quot; or &quot;at-most&quot; then threshold SHALL be used. If code is neither &quot;at-least&quot; nor &quot;at-most&quot; then threshold SHALL NOT be used."/>
       <min value="1"/>
@@ -458,8 +703,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/characteristic-combination"/>
       </binding>
     </element>
-    <element id="EvidenceVariable.characteristicCombination.threshold">
-      <path value="EvidenceVariable.characteristicCombination.threshold"/>
+    <element id="EvidenceVariable.characteristic.definitionByCombination.threshold">
+      <path value="EvidenceVariable.characteristic.definitionByCombination.threshold"/>
       <short value="Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used"/>
       <definition value="Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used."/>
       <min value="0"/>
@@ -468,69 +713,13 @@
         <code value="positiveInt"/>
       </type>
     </element>
-    <element id="EvidenceVariable.characteristic">
-      <path value="EvidenceVariable.characteristic"/>
-      <short value="What defines the members of the evidence element"/>
-      <definition value="A characteristic that defines the members of the evidence element. Multiple characteristics are applied with &quot;and&quot; semantics."/>
-      <comment value="Characteristics can be defined flexibly to accommodate different use cases for membership criteria, ranging from simple codes, all the way to using an expression language to express the criteria."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="EvidenceVariable.characteristic.description">
-      <path value="EvidenceVariable.characteristic.description"/>
-      <short value="Natural language description of the characteristic"/>
-      <definition value="A short, natural language description of the characteristic that could be used to communicate the criteria to an end-user."/>
-      <requirements value="Need to be able to describe characteristics in natural language so that end users can understand the criteria."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="EvidenceVariable.characteristic.type">
-      <path value="EvidenceVariable.characteristic.type"/>
-      <short value="Expresses the type of characteristic"/>
-      <definition value="Used to expressing the type of characteristic."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="UsageContextType"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/usage-context-type"/>
-      </binding>
-    </element>
-    <element id="EvidenceVariable.characteristic.definition[x]">
-      <path value="EvidenceVariable.characteristic.definition[x]"/>
-      <short value="What code or expression defines members?"/>
-      <definition value="Define members of the evidence element using Codes (such as condition, medication, or observation), Expressions ( using an expression language such as FHIRPath or CQL) or DataRequirements (such as Diabetes diagnosis onset in the last year)."/>
-      <requirements value="Need to be able to define members in simple codes when the membership aligns well with terminology, with common criteria such as observations in a value set or lab tests within a year, or with expression language to support criteria that do not fit in the above."/>
+    <element id="EvidenceVariable.characteristic.definitionByCombination.characteristic">
+      <path value="EvidenceVariable.characteristic.definitionByCombination.characteristic"/>
+      <short value="A defining factor of the characteristic"/>
+      <definition value="A defining factor of the characteristic."/>
       <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
-      </type>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Expression"/>
-      </type>
-      <isSummary value="true"/>
+      <max value="*"/>
+      <contentReference value="#EvidenceVariable.characteristic"/>
     </element>
     <element id="EvidenceVariable.characteristic.method">
       <path value="EvidenceVariable.characteristic.method"/>
@@ -562,23 +751,27 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceMetric"/>
       </type>
     </element>
-    <element id="EvidenceVariable.characteristic.exclude">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="This was called &quot;inclusiveness&quot; with a code list of &quot;presence, absence&quot;. Changed to &quot;exclude&quot; boolean to simplify representation and to align with Group characteristic expression."/>
-      </extension>
-      <path value="EvidenceVariable.characteristic.exclude"/>
-      <short value="Whether the characteristic includes or excludes members"/>
-      <definition value="When true, members with this characteristic are excluded from the element."/>
+    <element id="EvidenceVariable.characteristic.offset">
+      <path value="EvidenceVariable.characteristic.offset"/>
+      <short value="Reference point for characteristic.valueQuantity"/>
+      <definition value="Defines the reference point for comparison when characteristic.valueQuantity is not compared to zero."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="boolean"/>
+        <code value="CodeableConcept"/>
       </type>
-      <meaningWhenMissing value="False"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CharacteristicOffset"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/characteristic-offset"/>
+      </binding>
     </element>
     <element id="EvidenceVariable.characteristic.timeFromEvent">
       <path value="EvidenceVariable.characteristic.timeFromEvent"/>
       <short value="Observation time from study specified event"/>
+      <definition value="Observation time from study specified event."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -588,19 +781,40 @@
     <element id="EvidenceVariable.characteristic.timeFromEvent.description">
       <path value="EvidenceVariable.characteristic.timeFromEvent.description"/>
       <short value="Human readable description"/>
+      <definition value="Human readable description."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
     </element>
-    <element id="EvidenceVariable.characteristic.timeFromEvent.event">
-      <path value="EvidenceVariable.characteristic.timeFromEvent.event"/>
+    <element id="EvidenceVariable.characteristic.timeFromEvent.note">
+      <path value="EvidenceVariable.characteristic.timeFromEvent.note"/>
+      <short value="Used for footnotes or explanatory notes"/>
+      <definition value="A human-readable string to clarify or explain concepts about the timeFromEvent."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+    </element>
+    <element id="EvidenceVariable.characteristic.timeFromEvent.event[x]">
+      <path value="EvidenceVariable.characteristic.timeFromEvent.event[x]"/>
       <short value="The event used as a base point (reference point) in time"/>
+      <definition value="The event used as a base point (reference point) in time."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="id"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -613,6 +827,7 @@
     <element id="EvidenceVariable.characteristic.timeFromEvent.quantity">
       <path value="EvidenceVariable.characteristic.timeFromEvent.quantity"/>
       <short value="Used to express the observation at a defined amount of time after the study start"/>
+      <definition value="Used to express the observation at a defined amount of time after the study start."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -622,20 +837,11 @@
     <element id="EvidenceVariable.characteristic.timeFromEvent.range">
       <path value="EvidenceVariable.characteristic.timeFromEvent.range"/>
       <short value="Used to express the observation within a period after the study start"/>
+      <definition value="Used to express the observation within a period after the study start."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Range"/>
-      </type>
-    </element>
-    <element id="EvidenceVariable.characteristic.timeFromEvent.note">
-      <path value="EvidenceVariable.characteristic.timeFromEvent.note"/>
-      <short value="Used for footnotes or explanatory notes"/>
-      <definition value="A human-readable string to clarify or explain concepts about the resource."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Annotation"/>
       </type>
     </element>
     <element id="EvidenceVariable.characteristic.groupMeasure">
@@ -658,6 +864,7 @@
     <element id="EvidenceVariable.handling">
       <path value="EvidenceVariable.handling"/>
       <short value="continuous | dichotomous | ordinal | polychotomous"/>
+      <definition value="The method of handling in statistical analysis."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -674,6 +881,7 @@
     <element id="EvidenceVariable.category">
       <path value="EvidenceVariable.category"/>
       <short value="A grouping for ordinal or polychotomous variables"/>
+      <definition value="A grouping for ordinal or polychotomous variables."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -683,6 +891,7 @@
     <element id="EvidenceVariable.category.name">
       <path value="EvidenceVariable.category.name"/>
       <short value="Description of the grouping"/>
+      <definition value="Description of the grouping."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -692,6 +901,7 @@
     <element id="EvidenceVariable.category.value[x]">
       <path value="EvidenceVariable.category.value[x]"/>
       <short value="Definition of the grouping"/>
+      <definition value="Definition of the grouping."/>
       <min value="0"/>
       <max value="1"/>
       <type>

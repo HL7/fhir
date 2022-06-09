@@ -243,93 +243,19 @@
       <isSummary value="true"/>
     </element>
     <element id="InsurancePlan.contact">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="right"/>
-      </extension>
       <path value="InsurancePlan.contact"/>
-      <short value="Contact for the product"/>
-      <definition value="The contact for the health insurance product for a certain purpose."/>
-      <comment value="Where multiple contacts for the same purpose are provided there is a standard extension that can be used to determine which one is the preferred contact to use."/>
-      <requirements value="Need to keep track of assigned contact points within bigger organization."/>
+      <short value="Official contact details relevant to the health insurance plan/product"/>
+      <definition value="The contact details of communication devices available relevant to the specific Insurance Plan/Product. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
+      <requirements value="Need to keep track of both simple contact details and also assigned contacts within larger organizations."/>
+      <comment value="The address/telecom use code &#39;home&#39; are not to be used."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
+        <code value="ExtendedContactDetail"/>
       </type>
       <mapping>
         <identity value="rim"/>
         <map value=".contactParty"/>
-      </mapping>
-    </element>
-    <element id="InsurancePlan.contact.purpose">
-      <path value="InsurancePlan.contact.purpose"/>
-      <short value="The type of contact"/>
-      <definition value="Indicates a purpose for which the contact can be reached."/>
-      <requirements value="Need to distinguish between multiple contact persons."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ContactPartyType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The purpose for which you would contact a contact party."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/contactentity-type"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./type"/>
-      </mapping>
-    </element>
-    <element id="InsurancePlan.contact.name">
-      <path value="InsurancePlan.contact.name"/>
-      <short value="A name associated with the contact"/>
-      <definition value="A name associated with the contact."/>
-      <requirements value="Need to be able to track the person by name."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="HumanName"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./name"/>
-      </mapping>
-    </element>
-    <element id="InsurancePlan.contact.telecom">
-      <path value="InsurancePlan.contact.telecom"/>
-      <short value="Contact details (telephone, email, etc.)  for a contact"/>
-      <definition value="A contact detail (e.g. a telephone number or an email address) by which the party may be contacted."/>
-      <requirements value="People have (primary) ways to contact them in some way such as phone, email."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactPoint"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./telecom"/>
-      </mapping>
-    </element>
-    <element id="InsurancePlan.contact.address">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Why would I want an address on the product/plan? Reference the location that it is applicable to?"/>
-      </extension>
-      <path value="InsurancePlan.contact.address"/>
-      <short value="Visiting or postal addresses for the contact"/>
-      <definition value="Visiting or postal addresses for the contact."/>
-      <requirements value="May need to keep track of a contact party&#39;s address for contacting, billing or reporting requirements."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Address"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./addr"/>
       </mapping>
     </element>
     <element id="InsurancePlan.endpoint">

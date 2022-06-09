@@ -70,7 +70,7 @@
           
           <td>Revision</td>
           
-          <td>The record resulting from this event is a new version updated from this entity.</td>
+          <td>An entity that is used by the activity to produce a new version of that entity.</td>
         
         </tr>
         
@@ -86,7 +86,7 @@
           
           <td>Quotation</td>
           
-          <td>The record resulting from this event repeats some or all of the data in this entity, such as by a different author than the author of this entity.</td>
+          <td>An entity that is copied in full or part by an agent that is not the author of the entity.</td>
         
         </tr>
         
@@ -102,7 +102,7 @@
           
           <td>Source</td>
           
-          <td>The record resulting from this event is constructed using the information in this source entity.</td>
+          <td>An entity that is used as input to the activity that produced the target.</td>
         
         </tr>
         
@@ -134,7 +134,7 @@
           
           <td>Removal</td>
           
-          <td>The record resulting from this event is no longer accessible, usually through the use of the Delete operation. </td>
+          <td>An entity that is removed from accessibility, usually through the DELETE operator.</td>
         
         </tr>
       
@@ -178,24 +178,20 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/provenance-entity-role"/>
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
-  <concept>
-    <code value="derivation"/>
-    <display value="Derivation"/>
-    <definition value="A transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."/>
     <concept>
       <code value="revision"/>
       <display value="Revision"/>
-      <definition value="The record resulting from this event is a new version updated from this entity."/>
+      <definition value="An entity that is used by the activity to produce a new version of that entity."/>
     </concept>
     <concept>
       <code value="quotation"/>
       <display value="Quotation"/>
-      <definition value="The record resulting from this event repeats some or all of the data in this entity, such as by a different author than the author of this entity."/>
+      <definition value="An entity that is copied in full or part by an agent that is not the author of the entity."/>
     </concept>
     <concept>
       <code value="source"/>
       <display value="Source"/>
-      <definition value="The record resulting from this event is constructed using the information in this source entity."/>
+      <definition value="An entity that is used as input to the activity that produced the target."/>
     </concept>
     <concept>
       <code value="instantiates"/>
@@ -205,7 +201,6 @@
     <concept>
       <code value="removal"/>
       <display value="Removal"/>
-      <definition value="The record resulting from this event is no longer accessible, usually through the use of the Delete operation. "/>
+      <definition value="An entity that is removed from accessibility, usually through the DELETE operator."/>
     </concept>
-  </concept>
 </CodeSystem>

@@ -90,8 +90,8 @@
 				<key value="cnl-0"/>
 				<severity value="warning"/>
 				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-				<expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+				<expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){0,254}')"/>
+				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){0,254}')"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>
@@ -420,8 +420,8 @@
 		<element id="Questionnaire.description">
 			<path value="Questionnaire.description"/>
 			<short value="Natural language description of the questionnaire"/>
-			<definition value="A free text natural language description of the questionnaire from a consumer&#39;s perspective."/>
-			<comment value="This description can be used to capture details such as why the questionnaire was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the questionnaire as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the questionnaire is presumed to be the predominant language in the place the questionnaire was created)."/>
+			<definition value="A free text natural language description of the questionnaire from a consumer's perspective."/>
+			<comment value="This description can be used to capture details such as why the questionnaire was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the questionnaire as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the questionnaire is presumed to be the predominant language in the place the questionnaire was created)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -495,7 +495,7 @@
 			<path value="Questionnaire.purpose"/>
 			<short value="Why this questionnaire is defined"/>
 			<definition value="Explanation of why this questionnaire is needed and why it has been designed as it has."/>
-			<comment value="This element does not describe the usage of the questionnaire. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this questionnaire."/>
+			<comment value="This element does not describe the usage of the questionnaire. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this questionnaire."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -547,7 +547,7 @@
 			<path value="Questionnaire.approvalDate"/>
 			<short value="When the questionnaire was approved by publisher"/>
 			<definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-			<comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+			<comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -619,7 +619,7 @@
 			<path value="Questionnaire.code"/>
 			<short value="Concept that represents the overall questionnaire"/>
 			<definition value="An identifier for this question or group of questions in a particular terminology such as LOINC."/>
-			<requirements value="Allows linking of the complete Questionnaire resources to formal terminologies.  It&#39;s common for &quot;panels&quot; of questions to be identified by a code."/>
+			<requirements value="Allows linking of the complete Questionnaire resources to formal terminologies.  It's common for &quot;panels&quot; of questions to be identified by a code."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -656,33 +656,33 @@
 			<constraint>
 				<key value="que-9"/>
 				<severity value="error"/>
-				<human value="Read-only can&#39;t be specified for &quot;display&quot; items"/>
-				<expression value="type!=&#39;display&#39; or readOnly.empty()"/>
-				<xpath value="not(f:type/@value=(&#39;group&#39;, &#39;display&#39;) and f:*[starts-with(local-name(.), &#39;initial&#39;)])"/>
+				<human value="Read-only can't be specified for &quot;display&quot; items"/>
+				<expression value="type!='display' or readOnly.empty()"/>
+				<xpath value="not(f:type/@value=('group', 'display') and f:*[starts-with(local-name(.), 'initial')])"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>
 				<key value="que-8"/>
 				<severity value="error"/>
-				<human value="Initial values can&#39;t be specified for groups or display items"/>
-				<expression value="(type!=&#39;group&#39; and type!=&#39;display&#39;) or initial.empty()"/>
-				<xpath value="not(f:type/@value=(&#39;group&#39;, &#39;display&#39;) and f:*[starts-with(local-name(.), &#39;initial&#39;)])"/>
+				<human value="Initial values can't be specified for groups or display items"/>
+				<expression value="(type!='group' and type!='display') or initial.empty()"/>
+				<xpath value="not(f:type/@value=('group', 'display') and f:*[starts-with(local-name(.), 'initial')])"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>
 				<key value="que-6"/>
 				<severity value="error"/>
-				<human value="Required and repeat aren&#39;t permitted for display items"/>
-				<expression value="type!=&#39;display&#39; or (required.empty() and repeats.empty())"/>
-				<xpath value="not(f:type/@value=&#39;display&#39; and (f:required or f:repeats))"/>
+				<human value="Required and repeat aren't permitted for display items"/>
+				<expression value="type!='display' or (required.empty() and repeats.empty())"/>
+				<xpath value="not(f:type/@value='display' and (f:required or f:repeats))"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>
 				<key value="que-5"/>
 				<severity value="error"/>
 				<human value="Only coding, decimal, integer, date, dateTime, time, string or quantity  items can have answerOption or answerValueSet"/>
-				<expression value="(type=&#39;coding&#39; or type = &#39;decimal&#39; or type = &#39;integer&#39; or type = &#39;date&#39; or type = &#39;dateTime&#39; or type = &#39;time&#39; or type = &#39;string&#39; or type = &#39;quantity&#39;) or (answerValueSet.empty() and answerOption.empty())"/>
-				<xpath value="f:type/@value=(&#39;coding&#39;,&#39;decimal&#39;,&#39;integer&#39;,&#39;date&#39;,&#39;dateTime&#39;,&#39;time&#39;,&#39;string&#39;,&#39;quantity&#39;,&#39;) or not(f:answerOption or f:answerValueSet)"/>
+				<expression value="(type='coding' or type = 'decimal' or type = 'integer' or type = 'date' or type = 'dateTime' or type = 'time' or type = 'string' or type = 'quantity') or (answerValueSet.empty() and answerOption.empty())"/>
+				<xpath value="f:type/@value=('coding','decimal','integer','date','dateTime','time','string','quantity') or not(f:answerOption or f:answerValueSet)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>
@@ -697,32 +697,45 @@
 				<key value="que-3"/>
 				<severity value="error"/>
 				<human value="Display items cannot have a &quot;code&quot; asserted"/>
-				<expression value="type!=&#39;display&#39; or code.empty()"/>
-				<xpath value="not(f:type/@value=&#39;display&#39; and f:code)"/>
+				<expression value="type!='display' or code.empty()"/>
+				<xpath value="not(f:type/@value='display' and f:code)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>
 				<key value="que-10"/>
 				<severity value="error"/>
 				<human value="Maximum length can only be declared for simple question types"/>
-				<expression value="(type in (&#39;boolean&#39; | &#39;decimal&#39; | &#39;integer&#39; | &#39;string&#39; | &#39;text&#39; | &#39;url&#39;)) or answerConstraint='optionOrString' or maxLength.empty()"/>
-				<xpath value="f:type/@value=(&#39;boolean&#39;, &#39;decimal&#39;, &#39;integer&#39;, &#39;string&#39;, &#39;text&#39;, &#39;url&#39;) or f:answerConstraint/@value='openOrString' or not(f:maxLength)"/>
+				<expression value="(type in ('boolean' | 'decimal' | 'integer' | 'string' | 'text' | 'url')) or answerConstraint='optionOrString' or maxLength.empty()"/>
+				<xpath value="f:type/@value=('boolean', 'decimal', 'integer', 'string', 'text', 'url') or f:answerConstraint/@value='openOrString' or not(f:maxLength)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
-			<constraint>
-				<key value="que-1"/>
-				<severity value="error"/>
-				<human value="Group items must have nested items, display items cannot have nested items"/>
-				<expression value="(type=&#39;group&#39; implies item.empty().not()) and (type.trace(&#39;type&#39;)=&#39;display&#39; implies item.trace(&#39;item&#39;).empty())"/>
-				<xpath value="not((f:type/@value=&#39;group&#39; and not(f:item)) or (f:type/@value=&#39;display&#39; and f:item))"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
+      <constraint>
+        <key value="que-1a"/>
+        <severity value="error"/>
+        <human value="Group items must have nested items when Questionanire is complete"/>
+        <expression value="(type='group' and %resource.status='complete') implies item.empty().not()"/>
+        <xpath value="not(f:type/@value='group' and ancestor::f:Questionnaire/f:status/@value='complete' and not(exists(f:item)))"/>
+      </constraint>
+      <constraint>
+        <key value="que-1b"/>
+        <severity value="warning"/>
+        <human value="Groups should have items"/>
+        <expression value="type='group' implies item.empty().not()"/>
+        <xpath value="not(f:type/@value='group' and not(exists(f:item)))"/>
+      </constraint>
+      <constraint>
+        <key value="que-1c"/>
+        <severity value="error"/>
+        <human value="Display items cannot have child items"/>
+        <expression value="type='display' implies item.empty()"/>
+        <xpath value="not(f:type/@value='display' and exists(f:item))"/>
+      </constraint>
 			<constraint>
 				<key value="que-13"/>
 				<severity value="error"/>
 				<human value="Can only have multiple initial values for repeating items"/>
 				<expression value="repeats=true or initial.count() &lt;= 1"/>
-				<xpath value="f:repeats/@value=&#39;true&#39; or count(f:initial)&lt;=1"/>
+				<xpath value="f:repeats/@value='true' or count(f:initial)&lt;=1"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>
@@ -730,15 +743,15 @@
 				<severity value="error"/>
 				<human value="If one or more answerOption is present, initial cannot be present.  Use answerOption.initialSelected instead"/>
 				<expression value="answerOption.empty() or initial.empty()"/>
-				<xpath value="not(f:answerOption) or not(count(f:*[starts-with(local-name(.), &#39;initial&#39;)]))"/>
+				<xpath value="not(f:answerOption) or not(count(f:*[starts-with(local-name(.), 'initial')]))"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>
 				<key value="que-12"/>
 				<severity value="error"/>
 				<human value="If there are more than one enableWhen, enableBehavior must be specified"/>
-				<expression value="enableWhen.count() &gt; 2 implies enableBehavior.exists()"/>
-				<xpath value="not(f:answerOption) or not(count(f:*[starts-with(local-name(.), &#39;initial&#39;)]))"/>
+				<expression value="enableWhen.count() &gt; 1 implies enableBehavior.exists()"/>
+				<xpath value="not(count(f:enableWhen) &gt; 1) or exists(f:enableBehavior)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>
@@ -758,7 +771,7 @@
 			<path value="Questionnaire.item.linkId"/>
 			<short value="Unique id for item in questionnaire"/>
 			<definition value="An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource."/>
-			<comment value="This &#39;&#39;can&#39;&#39; be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here."/>
+			<comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here."/>
 			<requirements value="[QuestionnaireResponse](questionnaireresponse.html#) does not require omitted items to be included and may have some items that repeat, so linkage based on position alone is not sufficient."/>
 			<min value="1"/>
 			<max value="1"/>
@@ -816,8 +829,8 @@
 			<path value="Questionnaire.item.prefix"/>
 			<short value="E.g. &quot;1(a)&quot;, &quot;2.5.3&quot;"/>
 			<definition value="A short label for a particular group, question or set of display text within the questionnaire used for reference by the individual completing the questionnaire."/>
-			<comment value="These are generally unique within a questionnaire, though this is not guaranteed. Some questionnaires may have multiple questions with the same label with logic to control which gets exposed.  Typically, these won&#39;t be used for &quot;display&quot; items, though such use is not prohibited.  Systems SHOULD NOT generate their own prefixes if prefixes are defined for any items within a Questionnaire."/>
-			<requirements value="Separating the label from the question text allows improved rendering.  Also, instructions will often refer to specific prefixes, so there&#39;s a need for the questionnaire design to have control over what labels are used."/>
+			<comment value="These are generally unique within a questionnaire, though this is not guaranteed. Some questionnaires may have multiple questions with the same label with logic to control which gets exposed.  Typically, these won't be used for &quot;display&quot; items, though such use is not prohibited.  Systems SHOULD NOT generate their own prefixes if prefixes are defined for any items within a Questionnaire."/>
+			<requirements value="Separating the label from the question text allows improved rendering.  Also, instructions will often refer to specific prefixes, so there's a need for the questionnaire design to have control over what labels are used."/>
 			<alias value="label"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -888,13 +901,13 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 			<constraint>
 				<key value="que-7"/>
 				<severity value="error"/>
-				<human value="If the operator is &#39;exists&#39;, the value must be a boolean"/>
-				<expression value="operator = &#39;exists&#39; implies (answer is Boolean)"/>
-				<xpath value="f:operator/@value != &#39;exists&#39; or exists(f:answerBoolean)"/>
+				<human value="If the operator is 'exists', the value must be a boolean"/>
+				<expression value="operator = 'exists' implies (answer is Boolean)"/>
+				<xpath value="f:operator/@value != 'exists' or exists(f:answerBoolean)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<isModifier value="true"/>
-			<isModifierReason value="If enableWhen is present and the condition evaluates to false, then the Questionnaire behaves as though the elements weren&#39;t actually present"/>
+			<isModifierReason value="If enableWhen is present and the condition evaluates to false, then the Questionnaire behaves as though the elements weren't actually present"/>
 			<mapping>
 				<identity value="rim"/>
 				<map value="N/A - MIF rather than RIM level"/>
@@ -1056,7 +1069,7 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 			<path value="Questionnaire.item.repeats"/>
 			<short value="Whether the item may repeat"/>
 			<definition value="An indication, if true, that the item may occur multiple times in the response, collecting multiple answers for questions or multiple sets of answers for groups."/>
-			<comment value="If a question is marked as repeats=true, then multiple answers can be provided for the question in the corresponding QuestionnaireResponse.  When rendering the questionnaire, it is up to the rendering software whether to render the question text for each answer repetition (i.e. &quot;repeat the question&quot;) or to simply allow entry/selection of multiple answers for the question (repeat the answers).  Which is most appropriate visually may depend on the type of answer as well as whether there are nested items.&#xA;&#xA;The resulting QuestionnaireResponse will be populated the same way regardless of rendering - one &#39;question&#39; item with multiple answer values.&#xA;&#xA; The value may come from the ElementDefinition referred to by .definition."/>
+			<comment value="If a question is marked as repeats=true, then multiple answers can be provided for the question in the corresponding QuestionnaireResponse.  When rendering the questionnaire, it is up to the rendering software whether to render the question text for each answer repetition (i.e. &quot;repeat the question&quot;) or to simply allow entry/selection of multiple answers for the question (repeat the answers).  Which is most appropriate visually may depend on the type of answer as well as whether there are nested items.&#xA;&#xA;The resulting QuestionnaireResponse will be populated the same way regardless of rendering - one 'question' item with multiple answer values.&#xA;&#xA; The value may come from the ElementDefinition referred to by .definition."/>
 			<requirements value="Items may be used to create set of (related) questions that can be repeated to give multiple answers to such a set."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1072,7 +1085,7 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 		</element>
 		<element id="Questionnaire.item.readOnly">
 			<path value="Questionnaire.item.readOnly"/>
-			<short value="Don&#39;t allow human editing"/>
+			<short value="Don't allow human editing"/>
 			<definition value="An indication, when true, that the value cannot be changed by a human respondent to the Questionnaire."/>
 			<comment value="If specified on a 'group', then all items beneath the specified group are read only.  For questions, this only marks the answer associated with the specific item read only.  Descendant questions are not impacted.  The value of readOnly elements can be established by asserting extensions for defaultValues, linkages that support pre-population and/or extensions that support calculation based on other answers."/>
 			<requirements value="Allows certain information to be phrased (and rendered) as a question and an answer, while keeping users from changing it.  May also be useful for preventing changes to pre-populated portions of a questionnaire, for calculated values, etc."/>
@@ -1173,7 +1186,7 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 		<element id="Questionnaire.item.answerOption.value[x]">
 			<path value="Questionnaire.item.answerOption.value[x]"/>
 			<short value="Answer value"/>
-			<definition value="A potential answer that&#39;s allowed as the answer to this question."/>
+			<definition value="A potential answer that's allowed as the answer to this question."/>
 			<comment value="The data type of the value must agree with the item.type."/>
 			<min value="1"/>
 			<max value="1"/>
@@ -1231,7 +1244,7 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 			<path value="Questionnaire.item.initial"/>
 			<short value="Initial value(s) when item is first rendered"/>
 			<definition value="One or more values that should be pre-populated in the answer when initially rendering the questionnaire for user input."/>
-			<comment value="The user is allowed to change the value and override the default (unless marked as read-only). If the user doesn&#39;t change the value, then this initial value will be persisted when the QuestionnaireResponse is initially created.  Note that initial values can influence results.  The data type of initial.answer[x] must agree with the item.type, and only repeating items can have more then one initial value."/>
+			<comment value="The user is allowed to change the value and override the default (unless marked as read-only). If the user doesn't change the value, then this initial value will be persisted when the QuestionnaireResponse is initially created.  Note that initial values can influence results.  The data type of initial.answer[x] must agree with the item.type, and only repeating items can have more then one initial value."/>
 			<requirements value="In some workflows, having defaults saves time."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -1315,7 +1328,9 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 			<min value="0"/>
 			<max value="*"/>
 			<contentReference value="#Questionnaire.item"/>
-			<condition value="que-1"/>
+			<condition value="que-1a"/>
+			<condition value="que-1b"/>
+			<condition value="que-1c"/>
 			<mapping>
 				<identity value="rim"/>
 				<map value=".outboundRelationship[typeCode=COMP].target"/>

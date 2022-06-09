@@ -35,18 +35,18 @@
   <imageRegion>
       <regionType value="ELLIPSE"/>
       <coordinateType value="3d"/>
-      <coordinates value="-50.0"/>
-      <coordinates value="-50.0"/>
-      <coordinates value="-50.0"/>
-      <coordinates value="50.0"/>
-      <coordinates value="50.0"/>
-      <coordinates value="50.0"/>
-      <coordinates value="25.0"/>
-      <coordinates value="-25.0"/>
-      <coordinates value="0.0"/>
-      <coordinates value="-25.0"/>
-      <coordinates value="25.0"/>
-      <coordinates value="0.0"/>
+      <coordinate value="-50.0"/>
+      <coordinate value="-50.0"/>
+      <coordinate value="-50.0"/>
+      <coordinate value="50.0"/>
+      <coordinate value="50.0"/>
+      <coordinate value="50.0"/>
+      <coordinate value="25.0"/>
+      <coordinate value="-25.0"/>
+      <coordinate value="0.0"/>
+      <coordinate value="-25.0"/>
+      <coordinate value="25.0"/>
+      <coordinate value="0.0"/>
     </imageRegion>
 
 </ImagingSelection>

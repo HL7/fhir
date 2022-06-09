@@ -30,14 +30,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ImagingStudy.series.bodySite"/>
+          <valueString value="ImagingStudy.series.bodySite.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-bodysite"/>
         <description value="The body site studied"/>
         <code value="bodysite"/>
         <type value="token"/>
-        <expression value="ImagingStudy.series.bodySite"/>
-        <xpath value="f:ImagingStudy/f:series/f:bodySite"/>
+        <expression value="ImagingStudy.series.bodySite.concept"/>
+        <xpath value="f:ImagingStudy/f:series/f:bodySite/f:concept"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -199,6 +199,7 @@
         <expression value="ImagingStudy.subject.where(resolve() is Patient)"/>
         <xpath value="f:ImagingStudy/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

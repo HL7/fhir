@@ -316,9 +316,24 @@
         <map value=".actrelationship[typeCode=SBJ].observation.value"/>
       </mapping>
     </element>
+    <element id="HealthcareService.contact">
+      <path value="HealthcareService.contact"/>
+      <short value="Official contact details for the HealthcareService"/>
+      <definition value="The contact details of communication devices available relevant to the specific HealthcareService. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
+      <requirements value="Need to keep track of both simple contact details and also assigned contacts within larger organizations."/>
+      <comment value="The address/telecom use code &#39;home&#39; are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the HealthcareService itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc.&#xA;&#xA;If this is empty (or the type of interest is empty), refer to the location&#39;s contacts."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ExtendedContactDetail"/>
+      </type>
+    </element>
     <element id="HealthcareService.telecom">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="deprecated"/>
+      </extension>
       <path value="HealthcareService.telecom"/>
-      <short value="Contacts related to the healthcare service"/>
+      <short value="Deprecated - use contact.telecom"/>
       <definition value="List of contacts related to this specific healthcare service."/>
       <comment value="If this is empty, then refer to the location&#39;s contacts."/>
       <min value="0"/>
@@ -570,8 +585,8 @@
     </element>
     <element id="HealthcareService.availableTime.allDay">
       <path value="HealthcareService.availableTime.allDay"/>
-      <short value="Always available? e.g. 24 hour service"/>
-      <definition value="Is this always available? (hence times are irrelevant) e.g. 24 hour service."/>
+      <short value="Always available? i.e. 24 hour service"/>
+      <definition value="Is this always available? (hence times are irrelevant) i.e. 24 hour service."/>
       <min value="0"/>
       <max value="1"/>
       <type>

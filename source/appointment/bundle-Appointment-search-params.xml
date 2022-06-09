@@ -119,6 +119,7 @@
         <expression value="Appointment.participant.actor.where(resolve() is Location)"/>
         <xpath value="f:Appointment/f:participant/f:actor"/>
         <xpathUsage value="normal"/>
+        <target value="Location"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -179,6 +180,7 @@
         <expression value="Appointment.participant.actor.where(resolve() is Patient) | Appointment.subject.where(resolve() is Patient)"/>
         <xpath value="f:Appointment/f:participant/f:actor"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -199,6 +201,7 @@
         <expression value="Appointment.participant.actor.where(resolve() is Group) | Appointment.subject.where(resolve() is Group)"/>
         <xpath value="f:Appointment/f:participant/f:actor"/>
         <xpathUsage value="normal"/>
+        <target value="Group"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -219,6 +222,7 @@
         <expression value="Appointment.participant.actor.where(resolve() is Practitioner)"/>
         <xpath value="f:Appointment/f:participant/f:actor"/>
         <xpathUsage value="normal"/>
+        <target value="Practitioner"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -290,14 +294,34 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Appointment.serviceType"/>
+          <valueString value="Appointment.serviceType.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Appointment-service-type"/>
-        <description value="The specific service that is to be performed during this appointment"/>
+        <description value="The specific service (by coding) that is to be performed during this appointment"/>
         <code value="service-type"/>
         <type value="token"/>
-        <expression value="Appointment.serviceType"/>
-        <xpath value="f:Appointment/f:serviceType"/>
+        <expression value="Appointment.serviceType.concept"/>
+        <xpath value="f:Appointment/f:serviceType/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Appointment-service-type-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Appointment.serviceType.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Appointment-service-type-reference"/>
+        <description value="The specific service (by HealthcareService) that is to be performed during this appointment"/>
+        <code value="service-type-reference"/>
+        <type value="reference"/>
+        <expression value="Appointment.serviceType.reference"/>
+        <xpath value="f:Appointment/f:serviceType/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

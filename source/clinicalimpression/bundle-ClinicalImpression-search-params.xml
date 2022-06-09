@@ -119,6 +119,7 @@
         <expression value="ClinicalImpression.subject.where(resolve() is Patient)"/>
         <xpath value="f:ClinicalImpression/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

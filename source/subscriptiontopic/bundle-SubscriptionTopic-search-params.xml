@@ -25,7 +25,7 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="SubscriptionTopic-derived-or-self"/>
+        <id value="SubscriptionTopic-compatible-with"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
         </extension>

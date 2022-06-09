@@ -611,7 +611,10 @@
       </mapping>
     </element>
     <element id="Condition.stage">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="370,0"/>
       </extension>
       <path value="Condition.stage"/>
@@ -713,6 +716,9 @@
       </mapping>
     </element>
     <element id="Condition.evidence">
+	  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="J#32481"/>
       </extension>

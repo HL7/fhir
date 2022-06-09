@@ -100,7 +100,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="n/a"/>
+        <map value="PhPID"/>
       </mapping>
     </element>
     <element id="AdministrableProductDefinition.status">

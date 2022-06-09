@@ -1538,9 +1538,9 @@ Signature
 See also <a href="datatypes-examples.html#Signature">Examples</a>, <a href="datatypes-definitions.html#Signature">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Signature">Mappings</a>, <a href="datatypes-extras.html#Signature">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Signature">R3 Conversions</a>.
 </p>
 <p>
-A Signature holds an electronic representation of a signature and its supporting context in a FHIR accessible form.
+A <a href="signatures.html">Signature</a> holds an electronic representation of a signature and its supporting context in a FHIR accessible form.
 The signature may either be a cryptographic type (XML DigSig or a JWS), which is able to provide non-repudiation proof, or
-it may be a graphical image that represents a signature or a signature process.
+it may be a graphical image that represents a signature or a digital-signature process.
 </p>
 [%dt Signature 14%]
 <div class="use">
@@ -1552,7 +1552,9 @@ it may be a graphical image that represents a signature or a signature process.
 Notes:
 </p>
 <ul>
- <li>One consequence of signing the document is that URLs, identifiers and internal references are frozen and
+ <li>The Signature datatype can be used to hold a digital-signature, but may also be used to hold electronic-signatures.</li>
+ <li>Electronic-Signatures, such as image of ink signature, do not protect the signed content from change, but do carry details about who signed, when signature happened, and what the signature means.</li>
+ <li>One consequence of digital-signature on an Resource (document) is that URLs, identifiers and internal references are frozen and
 cannot be changed. This might be a desired feature, but it may also cripple interoperability between closed
 ecosystems where <a href="managing.html">re-identification</a> frequently occurs. For this reason, it is
 recommended that systems consider carefully the impact of any signature processes. The impact of signatures
@@ -1575,7 +1577,7 @@ When the signature is an XML Digital Signature (contentType = application/signat
 <ul>
  <li>The Signature.data is base64 encoded XML-Signature</li>
  <li>The XML-Signature is a <a href="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/#def-SignatureDetached">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
- <li>The Signature SHOULD conform to XAdES-X-L for support of Long Term signatures. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
+ <li>The Signature SHOULD conform to <a href="https://www.w3.org/TR/XAdES/">XAdES-X-L</a> for support of <a href="https://www.w3.org/TR/XAdES/#Syntax_forXAdES-X-L_form">Long Term signatures</a>. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
  <li>When FHIR Resources are signed, the signature is across the <a href="xml.html#canonical">Canonical XML form</a> of the resource(s)</li>
  <li>The Signature SHOULD use the hashing algorithm SHA-256. Signature validation policy will apply to the signature and determine acceptability</li>
  <li>The Signature SHALL include a "CommitmentTypeIndication" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The <code>Signature.type</code> shall contain the same values as the CommitmentTypeIndication element.</li>

@@ -65,6 +65,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="ServiceRequest-body-structure"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ServiceRequest.bodyStructure"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-body-structure"/>
+        <description value="Body structure Where procedure is going to be done"/>
+        <code value="body-structure"/>
+        <type value="reference"/>
+        <expression value="ServiceRequest.bodyStructure"/>
+        <xpath value="f:ServiceRequest/f:bodyStructure"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="ServiceRequest-category"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -239,6 +259,7 @@
         <expression value="ServiceRequest.subject.where(resolve() is Patient)"/>
         <xpath value="f:ServiceRequest/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
