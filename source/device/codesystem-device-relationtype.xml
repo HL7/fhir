@@ -46,11 +46,11 @@
     <display value="Gateway"/>
     <definition value="The linked device acting as a communication/data collector, translator or controller for the current device (e.g., mobile phone application that relays a blood pressure device's data)."/>
   </concept>
-  <concept>
+  <!-- <concept>
     <code value="container"/>
     <display value="container"/>
     <definition value="The linked device is a container for the current device."/>
-  </concept>
+  </concept> -->
   <concept>
     <code value="replaces"/>
     <display value="Replaces"/>
@@ -61,9 +61,9 @@
     <display value="Previous"/>
     <definition value="The current device is a previous device and has been replaced by the linked device."/>
   </concept>
-  <concept>
+  <!-- <concept>
     <code value="connected"/>
     <display value="Connected"/>
     <definition value="The linked device is connected to the current device."/>
-  </concept>
+  </concept> -->
 </CodeSystem>

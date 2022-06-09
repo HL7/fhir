@@ -720,10 +720,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-relationtype"/>
       </binding>
     </element>
-    <element id="DeviceDefinition.link.relatedDevice">
+    <element id="DeviceDefinition.link.relatedDeviceDefinition">
       <path value="DeviceDefinition.link.relatedDevice"/>
-      <short value="A reference to the linked device"/>
-      <definition value="A reference to the linked device."/>
+      <short value="A reference to the linked device definition"/>
+      <definition value="A reference to the linked device definition."/>
       <min value="1"/>
       <max value="1"/>
       <type>
