@@ -18,8 +18,8 @@
   </contact>
   <description value="An example mapping"/>
   <purpose value="To illustrate mapping features"/>
-  <sourceUri value="http://example.org/fhir/example1"/>
-  <targetUri value="http://example.org/fhir/example2"/>
+  <sourceScopeUri value="http://example.org/fhir/example1"/>
+  <targetScopeUri value="http://example.org/fhir/example2"/>
   <group>
     <source value="http://example.org/fhir/example1"/>
     <target value="http://example.org/fhir/example2"/>
@@ -45,7 +45,7 @@
     <!-- for all other codes, see another map -->
     <unmapped>
       <mode value="other-map"/>
-      <url value="http://example.org/fhir/ConceptMap/map2"/>
+      <otherMap value="http://example.org/fhir/ConceptMap/map2"/>
     </unmapped>
   </group>
 </ConceptMap2>
