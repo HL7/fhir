@@ -1167,6 +1167,13 @@
         <identity value="rim"/>
         <map value="NA"/>
       </mapping>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Safety"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-safety"/>
+      </binding>
     </element>
     <element id="Device.parent">
       <path value="Device.parent"/>
