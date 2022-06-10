@@ -3,7 +3,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="DocumentReference"/>
   <meta>
-    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+    <lastUpdated value="2022-06-09T08:58:31.578+11:00"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
     <valueString value="Clinical.Diagnostics"/>
@@ -27,7 +27,7 @@
   <version value="4.6.0"/>
   <name value="DocumentReference"/>
   <status value="draft"/>
-  <date value="2021-01-02T08:58:31+11:00"/>
+  <date value="2022-06-09T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
   <contact>
     <telecom>
@@ -121,8 +121,10 @@
     </element>
     <element id="DocumentReference.identifier">
       <path value="DocumentReference.identifier"/>
-      <short value="Other identifiers for the document"/>
-      <definition value="Other identifiers associated with the document, including version independent identifiers."/>
+      <short value="Business identifiers for the document"/>
+      <definition value="Other business identifiers associated with the document, including version independent identifiers."/>
+      <requirements value="Document identifiers usually assigned by the source of the document, or other business identifiers such as XDS DocumentEntry.uniqueId and DocumentEntry.entryUUID. These identifiers are specific to this instance of the document."/>
+      <comment value="The structure and format of this identifier would be consistent with the specification corresponding to the format of the document. (e.g. for a DICOM standard document, a 64-character numeric UID; for an HL7 CDA format, the CDA Document Id root and extension)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -138,8 +140,12 @@
         <map value="FiveWs.identifier"/>
       </mapping>
       <mapping>
+        <identity value="fhircomposition"/>
+        <map value="Composition.identifier"/>
+      </mapping>
+      <mapping>
         <identity value="v2"/>
-        <map value="TXA-16?"/>
+        <map value="TXA-12"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -147,7 +153,11 @@
       </mapping>
       <mapping>
         <identity value="xds"/>
-        <map value="DocumentEntry.entryUUID"/>
+        <map value="DocumentEntry.entryUUID, DocumentEntry.uniqueId"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="ClinicalDocument/id"/>
       </mapping>
     </element>
     <element id="DocumentReference.basedOn">
@@ -1058,47 +1068,6 @@
       <mapping>
         <identity value="cda"/>
         <map value="derived from the IHE Profile or Implementation Guide templateID"/>
-      </mapping>
-    </element>
-    <element id="DocumentReference.content.identifier">
-      <path value="DocumentReference.content.identifier"/>
-      <short value="Identifier of the attachment binary"/>
-      <definition value="Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document."/>
-      <comment value="CDA Document Id extension and root."/>
-      <requirements value="The structure and format of this Id shall be consistent with the specification corresponding to the formatCode attribute. (e.g. for a DICOM standard document a 64-character numeric UID, for an HL7 CDA format a serialization of the CDA Document Id extension and root in the form &quot;oid^extension&quot;, where OID is a 64 digits max, and the Id is a 16 UTF-8 char max. If the OID is coded without the extension then the &#39;^&#39; character shall not be included.)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="fhircomposition"/>
-        <map value="Composition.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="TXA-12"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".id"/>
-      </mapping>
-      <mapping>
-        <identity value="xds"/>
-        <map value="DocumentEntry.uniqueId"/>
-      </mapping>
-      <mapping>
-        <identity value="cda"/>
-        <map value="ClinicalDocument/id"/>
       </mapping>
     </element>
     <element id="DocumentReference.sourcePatientInfo">
