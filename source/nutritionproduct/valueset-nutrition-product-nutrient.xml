@@ -29,8 +29,8 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-        <property value="parent"/>
-        <op value="="/>
+        <property value="concept"/>
+        <op value="is-a"/>
         <value value="226355009"/>
       </filter>
     </include>

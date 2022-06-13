@@ -1,26 +1,33 @@
 <MolecularSequence xmlns="http://hl7.org/fhir">
     <id value="example-TPMT-two"/>
     <type value="dna"/>
-    <coordinateSystem value="1"/>
     <patient>
         <reference value="Patient/example"/>
     </patient>
-    <referenceSeq>
-        <referenceSeqId>
+    <relative>
+      <coordinateSystem>
           <coding>
-            <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
-            <code value="NT_007592.15"/>
+              <system value="http://loinc.org"/>
+              <code value="LA30102-0"/>
+              <display value="1-based character counting"/>
           </coding>
-        </referenceSeqId>
-        <strand value="watson"/>
-        <windowStart value="18130918"/>
-        <windowEnd value="18143955"/>
-    </referenceSeq>
-    <variant>
-        <start value="18131012"/>
-        <end value="18131012"/>
-        <observedAllele value="T"/>
-        <referenceAllele value="C"/>
-    </variant>
-    <observedSeq value="T-C-T-C-G-C-C-C"/>
+      </coordinateSystem>
+      <reference>
+          <referenceSequenceCodeableConcept>
+            <coding>
+              <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
+              <code value="NT_007592.15"/>
+            </coding>
+          </referenceSequenceCodeableConcept>
+          <windowStart value="18130918"/>
+          <windowEnd value="18143955"/>
+          <strand value="watson"/>
+      </reference>
+      <edit>
+          <start value="18131012"/>
+          <end value="18131012"/>
+          <observedAllele value="T"/>
+          <referenceAllele value="C"/>
+      </edit>
+    </relative>
 </MolecularSequence>

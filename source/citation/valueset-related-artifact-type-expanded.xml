@@ -9,13 +9,21 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <ul>
+        
         <li>Include all codes defined in 
+          
           <a href="codesystem-related-artifact-type-expanded.html">
+            
             <code>http://terminology.hl7.org/CodeSystem/related-artifact-type-expanded</code>
+          
           </a>
+        
         </li>
+      
       </ul>
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -30,7 +38,7 @@
   <url value="http://hl7.org/fhir/ValueSet/related-artifact-type-expanded"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1505"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
   </identifier>
   <version value="4.6.0"/>
   <name value="RelatedArtifactTypeExpanded"/>

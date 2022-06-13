@@ -833,7 +833,7 @@
       <path value="Observation.bodySite"/>
       <short value="Observed body part"/>
       <definition value="Indicates the site on the subject&#39;s body where the observation was made (i.e. the target site)."/>
-      <comment value="Only used if not implicit in code found in Observation.code.  In many systems, this may be represented as a related observation instead of an inline component.   &#xA;&#xA;If the use case requires BodySite to be handled as a separate resource (e.g. to identify and track separately) then use the standard extension[ bodySite](extension-bodysite.html)."/>
+      <comment value="Only used if not implicit in code found in Observation.code.  In many systems, this may be represented as a related observation instead of an inline component."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -869,6 +869,30 @@
         <identity value="sct-attr"/>
         <map value="718497002 |Inherent location|"/>
       </mapping>
+    </element>
+    <element id="Observation.bodyStructure">
+      <path value="Observation.bodyStructure"/>
+      <short value="Observed body structure"/>
+      <definition value="Indicates the body structure on the subject&#39;s body where the observation was made (i.e. the target site)."/>
+      <comment value="Only used if not implicit in code found in Observation.code or bodySite is used. In many systems, this may be represented as a related observation instead of an inline component."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="targetSiteCode"/>
+      </mapping>
+      <constraint>
+        <key value="obs-8"/>
+        <severity value="error"/>
+        <human value="bodyStructure SHALL only be present if Observation.bodySite is not present"/>
+        <expression value="bodyStructure.empty() or bodySite.empty()"/>
+        <xpath value="not(exists(f:bodyStructure)) or (not(exists(f:bodyStructure)))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </constraint>
     </element>
     <element id="Observation.method">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -1038,6 +1062,33 @@
         <map value="value:IVL_PQ.high"/>
       </mapping>
     </element>
+    <element id="Observation.referenceRange.normalValue">
+      <path value="Observation.referenceRange.normalValue"/>
+      <short value="Normal value, if relevant"/>
+      <definition value="The value of the normal value of the reference range."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+     <condition value="obs-3"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value:IVL_PQ.normal"/>
+      </mapping>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationReferenceRangeNormalValue"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Codes identifying the normal value of the observation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-referencerange-normalvalue"/>
+    </binding>
+    </element>
     <element id="Observation.referenceRange.type">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[$8941][1115]."/>
@@ -1175,7 +1226,7 @@
         <valueString value="[#10118]."/>
       </extension>
       <path value="Observation.derivedFrom"/>
-      <short value="Related measurements the observation is made from"/>
+      <short value="Related resource from which the observation is made"/>
       <definition value="The target resource that represents a measurement from which this observation value is derived. For example, a calculated anion gap or a fetal measurement based on an ultrasound image."/>
       <comment value="All the reference choices that are listed in this element can represent clinical observations and other measurements that may be the source for a derived value.  The most common reference will be another Observation.  For a discussion on the ways Observations can assembled in groups together, see [Notes](observation.html#obsgrouping) below."/>
       <min value="0"/>
@@ -1184,6 +1235,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>

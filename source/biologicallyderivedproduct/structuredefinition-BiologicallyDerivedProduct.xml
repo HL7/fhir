@@ -97,13 +97,13 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="Coding"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BiologicallyDerivedProductCategory"/>
         </extension>
-        <strength value="required"/>
+        <strength value="example"/>
         <description value="Biologically Derived Product Category."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/product-category"/>
       </binding>
@@ -111,24 +111,20 @@
     <element id="BiologicallyDerivedProduct.productCode">
       <path value="BiologicallyDerivedProduct.productCode"/>
       <short value="A code that identifies the kind of this biologically derived product"/>
-      <definition value="A code that identifies the kind of this biologically derived product. Should reference a standard terminology, for example ISBT 128 Product."/>
+      <definition value="A codified value that systematically supports characterization and classification of medical products of human origin inclusive of processing conditions such as additives, volumes and handling conditions."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="Coding"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ISBT 128 Code"/>
+          <valueString value="BiologicallyDerivedProductCodes"/>  
         </extension>
         <strength value="example"/>
-        <description value="ISBT 128 Code"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproduct-product-codes"/>
+        <description value="Biologically-derived Product Codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-codes"/>
       </binding>
-      <mapping>
-        <identity value="ISBT128Code"/>
-        <map value="Product Description Code. Required for ISBT 128 labeled products"/>
-      </mapping>
     </element>
      <element id="BiologicallyDerivedProduct.parent">
       <path value="BiologicallyDerivedProduct.parent"/>
@@ -181,10 +177,11 @@
         <map value="MPHO Unique Identifier. Required for ISBT 128 labeled products"/>
       </mapping>
     </element>
-    <element id="BiologicallyDerivedProduct.biologicalSource">
-      <path value="BiologicallyDerivedProduct.biologicalSource"/>
-      <short value="An identifier that supports traceability to the biological entity or entities that is/are the source of the biological material in the product"/>
-      <definition value="An identifier that supports traceability to the biological entity or entities that is/are the source of the biological material in the product.  Where multiple biological entities are involved, the biologicalSource should provide a link to the pooling event records where linkage to individual entities are maintained."/>
+    <element id="BiologicallyDerivedProduct.biologicalSourceEvent">
+      <path value="BiologicallyDerivedProduct.biologicalSourceEvent"/>
+      <short value="An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled"/>
+      <definition value="An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled."/>
+      <comment value="Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa, while also satisfying donor anonymity requirements. The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device.  The identifier references an event that links to a single biological entity such as a blood donor, or to multiple biological entities (e.g. when the product is an embryo or a pooled platelet product).  A single biologicalSourceEvent identifier may appear on multiple products of many types derived from a single donation event or source extraction.  As an example, a single donation event may provide 2 kidneys and a liver for organ transplantation, 2 corneas for eye surgery, heart valves and arterial tissue for cardiovascular surgery, multiple skin grafts, tendons, multiple shaped bone grafts and a large number of bone putty/paste products; and each of them may be assigned to the same biological source event identifier."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -237,22 +234,22 @@
          <map value="Division Identifier. Required for ISBT 128 labeled products"/>
      </mapping>
     </element>
-    <element id="BiologicallyDerivedProduct.status">
-      <path value="BiologicallyDerivedProduct.status"/>
+    <element id="BiologicallyDerivedProduct.productStatus">
+      <path value="BiologicallyDerivedProduct.productStatus"/>
       <short value="available | unavailable"/>
       <definition value="Whether the product is currently available."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="Coding"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BiologicallyDerivedProductStatus"/>
         </extension>
-        <strength value="required"/>
+        <strength value="example"/>
         <description value="Biologically Derived Product Status."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/biological-product-status"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-status"/>
       </binding>
     </element>
     <element id="BiologicallyDerivedProduct.expirationDate">
@@ -293,7 +290,7 @@
     </element>
     <element id="BiologicallyDerivedProduct.collection.source">
       <path value="BiologicallyDerivedProduct.collection.source"/>
-      <short value="Who is product from"/>
+      <short value="The patient or entity providing the product"/>
       <definition value="The patient or entity, such as a hospital or vendor in the case of a processed/manipulated/manufactured product, providing the product."/>
       <min value="0"/>
       <max value="1"/>
@@ -350,15 +347,15 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="Coding"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ISBT 128 Code"/>
+          <valueString value="BiologicallyDerivedProductPropertyTypeCodes"/>
         </extension>
         <strength value="example"/>
-        <description value="ISBT 128 Code"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproduct-property-type-codes"/>
+        <description value="Biologically Derived Product Property Type Codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-property-type-codes"/>
       </binding>
     </element>
     <element id="BiologicallyDerivedProduct.property.value[x]">

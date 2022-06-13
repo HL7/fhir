@@ -148,7 +148,7 @@ the <a href="operationoutcome.html">OperationOutcome</a> from that FHIR interact
 This is done by placing the OperationOutcome into an AuditEvent.entity. 
 Likely as a <a href="references.html#contained">contained</a> resource, given that OperationOutcome resources often are not persisted.</p>
 	<p>
-		<code>entity.who</code> is the OperationOutcome -- Likely <a href="references.html#contained">contained</a>
+		<code>entity.what</code> is the OperationOutcome -- Likely <a href="references.html#contained">contained</a>
 	</p>
 	<p>
 		<code>entity.type</code> is code <code>

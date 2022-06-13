@@ -259,6 +259,7 @@
         <expression value="ServiceRequest.subject.where(resolve() is Patient)"/>
         <xpath value="f:ServiceRequest/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

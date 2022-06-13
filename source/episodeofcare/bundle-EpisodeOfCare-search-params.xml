@@ -19,6 +19,7 @@
         <expression value="EpisodeOfCare.careManager.where(resolve() is Practitioner)"/>
         <xpath value="f:EpisodeOfCare/f:careManager"/>
         <xpathUsage value="normal"/>
+        <target value="Practitioner"/>
       </SearchParameter>
     </resource>
   </entry>

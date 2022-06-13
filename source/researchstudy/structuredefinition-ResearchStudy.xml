@@ -195,7 +195,7 @@
     </element>
     <element id="ResearchStudy.label.type">
       <path value="ResearchStudy.label.type"/>
-      <short value="short | public | scientific"/>
+      <short value="primary | official | scientific | plain-language | subtitle | short-title | acronym | earlier-title | language | auto-translated | human-use | machine-use | duplicate-uid"/>
       <definition value="Kind of name."/>
       <min value="0"/>
       <max value="1"/>
@@ -204,11 +204,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchStudyTitleType"/>
+          <valueString value="TitleType"/>
         </extension>
         <strength value="extensible"/>
         <description value="desc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-label-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/title-type"/>
       </binding>
     </element>
     <element id="ResearchStudy.label.value">
@@ -267,7 +267,7 @@
         <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"/>
       </mapping>
     </element>
-   
+
     <element id="ResearchStudy.relatedArtifact">
       <path value="ResearchStudy.relatedArtifact"/>
       <short value="References and dependencies"/>
@@ -405,7 +405,7 @@
         <map value="InterventionalStudyProtocolVersion; InterventionalStudyProtocol.allocationCode; InterventionalStudyProtocol.blindedRoleCode; InterventionalStudyProtocol.blindingSchemaCode; InterventionalStudyProtocol.controlTypeCode"/>
       </mapping>
     </element>
-    
+
     <!-- Focus -->
     <element id="ResearchStudy.focus">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -513,7 +513,7 @@
         <map value="StudyCondition.code"/>
       </mapping>
     </element>
-    
+
     <element id="ResearchStudy.keyword">
       <path value="ResearchStudy.keyword"/>
       <short value="Used to search for the study"/>
@@ -786,14 +786,14 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchStudyClassificationClassifier"/>
+          <valueString value="ResearchStudyClassifiers"/>
         </extension>
         <strength value="extensible"/>
         <description value="desc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-classification-classifier"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-classifiers"/>
       </binding>
     </element>
-    
+
     <!--Association -->
     <element id="ResearchStudy.associatedParty">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -822,7 +822,7 @@
     </element>
     <element id="ResearchStudy.associatedParty.role">
       <path value="ResearchStudy.associatedParty.role"/>
-      <short value="sponsor | sponsor-investigator | primary-investigator | collaborator | funding-source | recruitment-contact | sub-investigator | study-director | study-chair"/>
+      <short value="sponsor | lead-sponsor | sponsor-investigator | primary-investigator | collaborator | funding-source | recruitment-contact | sub-investigator | study-director | study-chair"/>
       <definition value="Type of association."/>
       <min value="1"/>
       <max value="1"/>
@@ -832,11 +832,22 @@
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchStudyPartyRole"/>
-        </extension>        
+        </extension>
         <strength value="extensible"/>
         <description value="desc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-role"/>
-      </binding>
+      </binding>	  
+    </element>
+    <element id="ResearchStudy.associatedParty.period">
+      <path value="ResearchStudy.associatedParty.period"/>
+      <short value="When active in the role"/>
+      <definition value="Identifies the start date and the end date of the associated party in the role."/>
+	  <comment value="The cardinality is 0..* due to the fact that an associated party may be intermittently active in a given role over multiple time periods." />
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Period"/>
+      </type>
     </element>
     <element id="ResearchStudy.associatedParty.classifier">
       <path value="ResearchStudy.associatedParty.classifier"/>
@@ -851,8 +862,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchStudyPartyOrganizationType"/>
         </extension>
-        <strength value="extensible"/>
-        <description value="desc."/>
+        <strength value="example"/>
+        <description value="A characterization or type of the entity."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-org-type"/>
       </binding>
     </element>
@@ -874,7 +885,7 @@
     <!-- State -->
     <element id="ResearchStudy.currentState">
       <path value="ResearchStudy.currentState"/>
-      <short value="active | administratively-completed | approved | closed-to-accrual | closed-to-accrual-and-intervention | completed | disapproved | in-review | temporarily-closed-to-accrual | temporarily-closed-to-accrual-and-intervention | withdrawn"/>
+      <short value="active | active-but-not-recruiting | administratively-completed | approved | closed-to-accrual | closed-to-accrual-and-intervention | completed | disapproved | enrolling-by-invitation | in-review | not-yet-recruiting | recruiting | temporarily-closed-to-accrual | temporarily-closed-to-accrual-and-intervention | terminated | withdrawn"/>
       <definition value="Current status of the study."/>
       <min value="0"/>
       <max value="*"/>
@@ -890,8 +901,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-status"/>
       </binding>
     </element>
-    
-    <!-- Progress -->  
+
+    <!-- Progress -->
     <element id="ResearchStudy.statusDate">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="40,410"/>
@@ -1039,6 +1050,7 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </type>
     </element>
     <element id="ResearchStudy.recruitment.actualGroup">
@@ -1263,7 +1275,7 @@
         <code value="markdown"/>
       </type>
     </element>
-    
+
     <!-- Results -->
     <element id="ResearchStudy.outcomeMeasure">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
