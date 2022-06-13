@@ -19,6 +19,12 @@
   <description value="This code System defines a set of codes that can be used to indicate a patient&#39;s sex for clinical use."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
+  <property> 
+    <code value="usage-note"/>
+	<uri value="http://hl7.org/fhir/sex-for-clinical-use/property/usage-note"/>
+    <description value="Usage notes for the concept."/> 
+    <type value="string"/> 
+  </property> 
   <concept>
     <code value="female"/>
     <display value="Female"/>
@@ -32,12 +38,20 @@
   <concept>
     <code value="specified"/>
     <display value="Specified"/>
-    <definition value="Available data indicates that diagnostics, analytics, and treatment best practices may be undefined or not aligned with existing sex-derived reference populations.  Individuals or systems providing care should either use default behavior that is safe for both male and female populations, individually review treatment options with the patient, or carefully inspect relevant observations before proceeding with treatment."/>
+    <definition value="Available data indicates that diagnostics, analytics, and treatment best practices may be undefined or not aligned with sex-derived reference populations.  Additional information (usually, but not always, in the form of comments and/or observations) is available, but does not align with male sex for clinical use or female sex for clinical use. "/>
+	<property>   
+      <code value="usage-note"/> 
+      <valueString value="Individuals or systems providing care should either use default behavior that is safe for both male and female populations, individually review treatment options with the patient, or carefully inspect comments and relevant observations before proceeding with treatment. Systems that are unable to review additional information that may be associated with an SFCU value may manage a SPECIFIED and an UNKNOWN value in the same way."/> 
+    </property>
   </concept>
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
     <definition value="The sex for clinical use cannot be determined because there are no relevant evidence or documentation, or the
 evidence or documentation are not sufficient to determine a value."/>
+	<property>   
+      <code value="usage-note"/> 
+      <valueString value="Systems that are unable to review additional information that may be associated with an SFCU value may manage a SPECIFIED and an UNKNOWN value in the same way."/> 
+    </property>
   </concept>  
 </CodeSystem>
