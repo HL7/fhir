@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+ xmlns="http://hl7.org/fhir">
+    <id value="medrx0343b"/>
+    <contained>
+        <Medication>
+            <id value="med0343b"/>
+            <code>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="782032003"/>
+                    <display value="Product containing precisely ondansetron (as ondansetron hydrochloride) 2 milligram/1 milliliter conventional release solution for injection (clinical drug)"/>
+                </coding>
+            </code>
+        </Medication>
+    </contained>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="98765"/>
+    </identifier>
+    <groupIdentifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="9898"/>
+    </groupIdentifier>
+    <status value="active"/>
+    <intent value="option"/>
+    <medication>
+        <reference>
+        <reference value="#med0343b"/>
+        <display value="Ondansetron 2mg/ml Injection"/>
+        </reference>
+    </medication>
+    <subject>
+        <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>   
+    </subject>
+    <authoredOn value="2015-01-15"/>
+    <requester>
+        <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+        </requester>
+<dose>
+    <dosageInstruction>
+        <sequence value="1"/>
+        <text
+            value="4mg IM twice daily as needed for nausea"/>
+        <timing>
+            <repeat>
+                <frequency value="2"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+            </repeat>
+        </timing>
+        <asNeededFor>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="16932000"/>
+                <display value="Nausea and Vomiting"/>
+            </coding>
+        </asNeededFor>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="78421000"/>
+                <display value="Intramuscular Route"/>
+            </coding>
+        </route>
+        <doseAndRate>
+            <doseQuantity>
+                <value value="4"/>
+                <unit value="mg"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="mg"/>
+            </doseQuantity>
+        </doseAndRate>
+          
+    </dosageInstruction>
+</dose>
+</MedicationRequest>

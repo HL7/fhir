@@ -3,27 +3,25 @@
 <h2>
 Notes
 </h2>
-  <ul>
+<ul>
   <li>
   There is no address on the PractitionerRole as the location that is defined here contains the address.<br/>
   This prevents having to duplicate the address values across multiple resources.
   </li>
-  </ul>
-</div>
-<h2>
-Multiple Locations in a PractitionerRole
-</h2>
-<div>
-  As briefly noted in the boundaries and relationships section the PractitionerRole resource can be used
-  to represent multiple locations in the one resource instance, however this should be done with care.
-  When representing multiple locations in an instance, and/or multiple specialties, all details apply
-  to all locations. Using that approach you cannot differentiate a different contact number, different
-  availabilities, or different services at each location.<br/>
-  Hence maintaining these records needs to ensure that when changing a value, such as availability, 
-  it applies to all locations. If different values are required for the different locations, then a new 
-  instance will need to be created, and then split as appropriate. Existing resources referencing the
-  original PractitionerRole instance will need to be updated to refer to the appropriate record.<br/>
-  For this reason we expect that it will be common to profile the location element down to a single location,
-  simplifying overall usage, and the availabilities are clear that they apply to this location, and any
-  referenced healthcare services.
+  <li>
+    <a name="mult-locations"></a>
+    As briefly noted in the boundaries and relationships section the PractitionerRole resource can be used
+    to represent multiple locations in the one resource instance, however this should be done with care.
+    When representing multiple locations in an instance, and/or multiple specialties, all details apply
+    to all locations. Using that approach you cannot differentiate a different contact number, different
+    availabilities, or different services at each location.<br/>
+    Hence maintaining these records needs to ensure that when changing a value, such as availability, 
+    it applies to all locations. If different values are required for the different locations, then a new 
+    instance will need to be created, and then split as appropriate. Existing resources referencing the
+    original PractitionerRole instance will need to be updated to refer to the appropriate record.<br/>
+    For this reason we expect that it will be common to profile the location element down to a single location,
+    simplifying overall usage, and the availabilities are clear that they apply to this location, and any
+    referenced healthcare services.
+  </li>
+</ul>
 </div>

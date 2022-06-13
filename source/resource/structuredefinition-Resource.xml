@@ -63,7 +63,7 @@
       <path value="Resource.id"/>
       <short value="Logical id of this artifact"/>
       <definition value="The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes."/>
-      <comment value="Typically, the resource has an id except for cases like the create operation, conditional updates."/>
+      <comment value="Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case."/>
       <min value="0"/>
       <max value="1"/>
       <type>

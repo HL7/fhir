@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Device xmlns="http://hl7.org/fhir">
+<id value="Nonin20601PulseOx"/> 
+<identifier>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers"/>
+        <code value="SYSID"/>
+        <display value="System Identifier"/>
+      </coding>
+    </type>
+    <system value="urn:oid:1.2.840.10004.1.1.1.0.0.1.0.0.1.2680"/>
+    <value value="00-1C-05-04-00-00-78-25"/>
+  </identifier>
+  <identifier>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers"/>
+        <code value="BTMAC"/>
+        <display value="Bluetooth Address"/>
+      </coding>
+    </type>
+    <system value="http://hl7.org/fhir/sid/eui-48"/>
+    <value value="00-1C-05-00-78-25"/>
+  </identifier>
+  <udiCarrier>
+    <deviceIdentifier value="120343001125"/>
+    <issuer value="http://hl7.org/fhir/NamingSystem/gs1-di"/>
+    <jurisdiction value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
+    <carrierHRF value="(01)120343001125(21)0400007825"/>
+    <entryType value="unknown"/>
+  </udiCarrier>
+  <manufacturer value="Nonin Medical, Inc."/>
+  <serialNumber value="0400007825"/>
+  <deviceName>
+    <name value="Nonin_Medical_Inc._323552"/>
+    <type value="user-friendly-name"/>
+  </deviceName>
+  <modelNumber value="Model 3150"/>
+  <type>
+    <coding>
+      <system value="urn:iso:std:iso:11073:10101"/>
+      <code value="65573"/>
+      <display value="MDC_MOC_VMS_MDS_SIMP"/>
+    </coding>
+    <text value="MDC_MOC_VMS_MDS_SIMP: Personal Health Device"/>
+  </type>
+  <version>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="531976"/>
+      </coding>
+      <text value="MDC_ID_PROD_SPEC_FW: Firmware revision"/>
+    </type>
+    <value value="0.9C"/>
+  </version>
+  <version>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="532352"/>
+      </coding>
+      <text value="MDC_REG_CERT_DATA_CONTINUA_VERSION: Continua version"/>
+    </type>
+    <value value="1.0"/>
+  </version>
+  <specialization>
+    <systemType>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="528388"/>
+      </coding>
+      <text value="MDC_DEV_SPEC_PROFILE_PULS_OXIM: Pulse Oximeter"/>
+    </systemType>
+    <version value="1"/>
+  </specialization>
+  <property>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="532353"/>
+      </coding>
+      <text value="MDC_REG_CERT_DATA_CONTINUA_CERT_DEV_LIST: Continua certified device list"/>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ContinuaPAN"/>
+        <code value="4"/>
+      </coding>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ASN1ToHL7"/>
+        <code value="532354.0"/>
+      </coding>
+      <text value="regulation-status"/>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0136"/>
+        <code value="N"/>
+      </coding>
+      <text value="Device is Regulated"/>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="68220"/>
+      </coding>
+      <text value="MDC_TIME_SYNC_PROTOCOL: Time synchronization protocol"/>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="532224"/>
+      </coding>
+      <text value="MDC_TIME_SYNC_NONE: No time synchronization"/>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ASN1ToHL7"/>
+        <code value="68219.0"/>
+      </coding>
+      <text value="mds-time-capab-real-time-clock"/>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0136"/>
+        <code value="Y"/>
+      </coding>
+      <text value="real time clock supported"/>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ASN1ToHL7"/>
+        <code value="68219.2"/>
+      </coding>
+      <text value="mds-time-capab-set-clock"/>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0136"/>
+        <code value="Y"/>
+      </coding>
+      <text value="setting the time supported"/>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ASN1ToHL7"/>
+        <code value="68219.2"/>
+      </coding>
+      <text value="mds-time-capab-relative-time"/>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0136"/>
+        <code value="Y"/>
+      </coding>
+      <text value="relative time supported"/>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="68222"/>
+      </coding>
+      <text value="MDC_TIME_RES_ABS: Resolution of absolute time clock"/>
+    </type>
+    <valueQuantity>
+      <value value="1000000"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="us"/>    
+    </valueQuantity>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="68222"/>
+      </coding>
+      <text value="MDC_TIME_RES_REL: Resolution of relative time clock"/>
+    </type>
+    <valueQuantity>
+      <value value="1000000"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="us"/>
+    </valueQuantity>
+  </property>
+  </Device>

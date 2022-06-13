@@ -8,7 +8,7 @@ This is the corresponding supply delivery from the supplye request example
 business identifier - in this case the same as the request id
 -->
 	<identifier>
-		<value value="Order10284"/>
+		<value value="Transport1234"/>
 	</identifier>
 	<basedOn>
 		<reference value="SupplyRequest/simpleorder"/>
@@ -17,29 +17,13 @@ business identifier - in this case the same as the request id
 		<display value="Central Supply Restock"/>
 	</partOf>
 	<status value="completed"/>
-	<type>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/supply-item-type"/>
-			<code value="device"/>
-		</coding>
-		<text value="Blood collect tubes blue cap"/>
-	</type>
-	<suppliedItem>
-		<quantity>
-			<value value="10"/>
-		</quantity>
-		<itemCodeableConcept>
-			<coding>
-				<code value="BlueTubes"/>
-				<display value="Blood collect tubes blue cap"/>
-			</coding>
-		</itemCodeableConcept>
-	</suppliedItem>
-	<occurrenceDateTime value="2016-12-31"/>
-	<supplier>
-		<display value="Vendor1"/>
-	</supplier>
-	<destination>
-		<display value="Location 1"/>
-	</destination>
+	<intent value="order"/>
+	<requestedLocation>
+             <reference value="Transport/location-hospitalLab" />
+			 <display value="Requested location for item at City Hospital Lab"/>  
+	</requestedLocation>	
+	<currentLocation>
+             <reference value="Transport/location-labA" />
+			 <display value="Current location for item at Lab A"/>  
+	</currentLocation>	
 </Transport>

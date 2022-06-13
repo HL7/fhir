@@ -5,15 +5,15 @@
 <h2>Scope and Usage</h2>
 <p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.  It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow  pattern for <a href="workflow.html"><em>event</em> resources</a>.</strong></p>
 <p>
-The Nutrition Intake resource in conjunction with the Nutrition Product resource will be utilized to capture details about the consumption of foods, fluids, and enteral nutrition. In addition to these uses, it can also be used to capture the event of food being delivered to a patient in an inpatient setting so that a second event can record the actual consumption; thus, a dietitian and other clinicians can use the data to calculate how much nutrition a patient has taken in. Nutrition Intake represents the event of consuming food, fluid, etc. and Nutrition Product represents the actual food items.
+The NutritionIntake resource, in conjunction with the NutritionProduct resource, is utilized to capture details about the consumption of foods, fluids, and enteral nutrition. Dietitians and other clinicians use the data to calculate how much nutrition a patient has taken in. NutritionIntake represents the event of consuming food, fluid, etc. and NutritionProduct represents the actual food items.
 </p>
 <p>
-Nutrition Intake can also be used to record a person’s intake through uses of food tracking apps (e.g.MyFitnessPal), SNAP or any grocery store purchases, or a student’s meal purchases and consumption in a school district. Because recipes are a combination of nutrition products and Nutrition Intake represents that combination, Nutrition Intake can also be used to share menus across facilities (hospitals, long term care, etc.). On a larger scale, the data from the Nutrition Intake resource could be used for public health/research needs, similar to NHANES.</p>
+NutritionIntake can also be used to record a person’s intake through uses of food tracking apps (e.g.MyFitnessPal), any grocery store purchases, or a student’s meal consumption in a school district.</p>
 <p>
-Nutrition Intake can be utilized in many environments where food is served, consumed or purchased: hospitals/acute care, meal tracking systems, school districts, grocery stores, outpatient settings, LTC, etc. Nutrition Intake should be general enough to capture intake regardless of country or region.
+NutritionIntake can be utilized in many environments where food is served, consumed or purchased: hospitals/acute care, meal tracking systems, school districts, grocery stores, outpatient settings, LTC, etc. NutritionIntake should be general enough to capture intake regardless of country or region.
 </p>
 <p>
-Parenteral nutrition is out of scope as this ordering is handled through MedicationRequest, thusadministration should also be captured through Medication Administration.
+Parenteral nutrition is out of scope as this ordering is handled through MedicationRequest, thus administration of parenteral nutrition should also be captured through MedicationAdministration.
 </p>
 </div>
 
@@ -32,7 +32,7 @@ Parenteral nutrition is out of scope as this ordering is handled through Medicat
 <div>
 <h2>Background and Context</h2>
 <p>
-As a dietitian, it is important to be able to know what a person is consuming and assess the adequacy of the patient’s diet. Capturing a patient’s intake is important to establish a baseline, determine care, track trends, and see improvement of that patient. Dietitians might use intake data to see patterns, such as when a   diabetic patient’s blood glucose is consistently high due to over consumption of carbohydrates.Other clinicians have the need to monitor intake as well; for example, a nurse might need to know intake for administering insulin prior to meals or a physician may need to ensure a patient on a fluid restriction is following orders.
+As a dietitian, it is important to be able to know what a person is consuming and assess the adequacy of the patient’s diet. Capturing a patient’s intake is important to establish a baseline, determine care, track trends, and see improvement of that patient. Dietitians might use intake data to see patterns, such as when a diabetic patient’s blood glucose is consistently high due to over consumption of carbohydrates.  Other clinicians have the need to monitor intake as well; for example, a nurse might need to know intake for administering insulin prior to meals or a physician may need to ensure a patient on a fluid restriction is following orders.
 </p>
 <p>
 Having intake documented within its own resource allows for consistency in documentation acrossmultiple disciplines and settings. In some instances, the Observation resource has been extended to capture intake; while this allows for a quick way to document intake, the Observation resource does not provide all the detail necessary, such as capturing all the nutrients (  including calories, vitamins, minerals, carbohydrates, etc.). Previous implementation attempts of using the Observation resourcehave noted this is cumbersome and has required too many extensions without being able to documentall the necessary details tied to ingredients in food and fluid products.

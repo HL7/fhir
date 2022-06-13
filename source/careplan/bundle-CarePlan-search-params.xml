@@ -165,6 +165,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="CarePlan-custodian"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.custodian"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-custodian"/>
+        <description value="Who is the designated responsible party"/>
+        <code value="custodian"/>
+        <type value="reference"/>
+        <expression value="CarePlan.custodian"/>
+        <xpath value="f:CarePlan/f:custodian"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="CarePlan-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -339,6 +359,7 @@
         <expression value="CarePlan.subject.where(resolve() is Patient)"/>
         <xpath value="f:CarePlan/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

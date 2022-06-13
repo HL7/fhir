@@ -199,6 +199,7 @@
         <expression value="CommunicationRequest.subject.where(resolve() is Patient)"/>
         <xpath value="f:CommunicationRequest/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

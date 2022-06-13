@@ -356,7 +356,7 @@
         </extension>
         <strength value="example"/>
         <description value="The timeliness with which processing is required: stat, normal, deferred."/>
-        <valueSet value="http://terminology.hl7.org/CodeSystem/processpriority"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/process-priority"/>
       </binding>
       <mapping>
         <identity value="v2"/>

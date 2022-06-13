@@ -23,6 +23,13 @@
 						<a href="http://localhost:9556/svc/fhir/Binary/1e404af3-077f-4bee-b7a6-a9be97e1ce32">Document: urn:oid:129.6.58.92.88336</a>undefined, created 24/12/2005
 					</div>
 				</text>
+				<identifier>
+					<type>
+						<text value="uniqueId"/>
+					</type>
+					<system value="urn:ietf:rfc:3986"/>
+					<value value="urn:oid:129.6.58.92.88336"/>
+				</identifier>
 				<status value="current"/>
 				<type>
 					<coding>
@@ -82,10 +89,7 @@
 						<code value="urn:ihe:pcc:handp:2008"/>
 						</valueCoding>
 					</profile>
-					<identifier>
-						<system value="urn:ietf:rfc:3986"/>
-						<value value="urn:oid:129.6.58.92.88336"/>
-					</identifier>
+
 				</content>
 			</DocumentReference>
 		</resource>

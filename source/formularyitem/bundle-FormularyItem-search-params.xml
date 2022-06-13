@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="FormularyItem-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="FormularyItem-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="FormularyItem.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/FormularyItem-code"/>
+        <description value="Returns formulary items for a specific code"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="FormularyItem.code"/>
+        <xpath value="f:FormularyItem/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="FormularyItem-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="FormularyItem.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/FormularyItem-identifier"/>
+        <description value="Returns formulary items with this external identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="FormularyItem.identifier"/>
+        <xpath value="f:FormularyItem/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>
