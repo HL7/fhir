@@ -5,8 +5,23 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="227507002"/>
+		</coding>
+	</code>
 	<status value = "active"/>
-
-  <!-- insert contents here -->
-  
+  <category>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="227313005"/>
+		</coding>
+	</category>
+	<instance>
+		<identifier>
+			<system value="http://example.org/foodserials"/>
+			<value value="77239487"/>
+		</identifier>
+	</instance>
 </NutritionProduct>

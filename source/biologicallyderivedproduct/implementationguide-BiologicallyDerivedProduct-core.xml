@@ -19,5 +19,10 @@
         <reference value="StructureDefinition/biologicallyderivedproduct-manipulation"/>
       </reference>
     </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/biologicallyderivedproduct-collection-procedure"/>
+      </reference>
+    </resource>
   </definition>
 </ImplementationGuide>

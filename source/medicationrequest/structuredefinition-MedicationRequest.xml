@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="MedicationRequest"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -462,7 +462,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXE-2-Give Code / RXO-1-Requested Give Code / RXC-2-Component Code"/>
+        <map value="RXE-2-Give Code / RXO-1 Requested Give Code / RXC-2 Component Code"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -496,7 +496,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PID-3-Patient ID List"/>
+        <map value="PID-3 Patient ID List"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -551,7 +551,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PV1-19-Visit Number"/>
+        <map value="PV1-19 Visit Number"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -606,7 +606,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXE-32-Original Order Date/Time / ORC-9-Date/Time of Transaction"/>
+        <map value="RXE-32 Original Order Date/Time / ORC-9-Date Time of Transaction"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -691,7 +691,7 @@
       <short value="Intended performer of administration"/>
       <definition value="The specified desired performer of the medication treatment (e.g. the performer of the medication administration)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
@@ -711,6 +711,21 @@
         <identity value="w5"/>
         <map value="FiveWs.actor"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"/>
+      </mapping>
+    </element>
+    <element id="MedicationRequest.device">
+      <path value="MedicationRequest.device"/>
+      <short value="Intended type of device for the administration"/>
+      <definition value="The intended type of device that is to be used for the administration of the medication (for example, PCA Pump)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+      </type>
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"/>
@@ -770,7 +785,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC-16-Order Control Code Reason /RXE-27-Give Indication/RXO-20-Indication / RXD-21-Indication / RXG-22-Indication / RXA-19-Indication"/>
+        <map value="ORC-16 Order Control Code Reason /RXE-27 Give Indication/RXO-20-Indication / RXD-21 Indication / RXG-22 Indication / RXA-19 Indication"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1015,7 +1030,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXE-12-Number of Refills"/>
+        <map value="RXE-12 Number of Refills"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1038,7 +1053,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system"/>
+        <map value="RXD-4 Actual Dispense Amount / RXD-5.1 Actual Dispense Units.code / RXD-5.3 Actual Dispense Units.name of coding system"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1166,7 +1181,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXO-9-Allow Substitutions / RXE-9-Substitution Status"/>
+        <map value="RXO-9 Allow Substitutions / RXE-9 Substitution Status"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

@@ -1,0 +1,14 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="scope"></a>
+<h2>Scope and Usage</h2>
+<p>
+A FormularyItem is a product or service that is available through a program and includes the conditions and constraints of availability, eg. amount limits, categorization, cost limits, and other requirements for use.  This resource describes the program-specific information for a product or service.  This information is specific to the inclusion of the item in the formulary and is not inherent to the item itself.
+</p>
+<img src="formularyitemscope.png"/>
+<p>
+This diagram was created for the PDEX US Drug Formulary Implementation Guide but it shows where FormularyItem would fit in a drug context.  If you abstract that to generic Insurance Plans to the left and to a set of resources that can be referenced to the right, that is the concept behind the FormularyItem resource.
+</p>
+</div>    
+</div>

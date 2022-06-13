@@ -2,18 +2,24 @@
 <!--The use case illustrates the use of Example of ICCBBA UDI for blood bags -->
 <Device xmlns="http://hl7.org/fhir">
 	<id value="example-udi4"/>
-	<udi>
-		<!-- This is  US FDA example -->
-		<jurisdiction value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
-		<!--  The Human readable form here  which is FDA GS-1 format of the udi  -->
-		<carrierHRF value="=)1TE123456A&amp;)RZ12345678"/>
-		<!--Orgnanizations accredited by the FDA to operate a system to issue UDIS for device  currently the FDA has accredited three issuing agencies.  GS1, HIBCC, and ICCBBA -->
+	<udiCarrier>
+	<deviceIdentifier value="A4599XQZ990T0474"/>
 		<issuer value="http://hl7.org/fhir/NamingSystem/iccbba-blood"/>
-	</udi>
+		<jurisdiction value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
+		<carrierHRF value="=)1TE123456A&amp;)RZ12345678"/>
+	</udiCarrier>
 	<status value="inactive"/>
-	<lotNumber value="RZ12345678"/>
 	<manufacturer value="GlobalMed, Inc"/>
-	<patient>
+	<lotNumber value="RZ12345678"/>
+	<associationState>
+	  <status> 
+	     <coding>
+		   <system value="http://terminology.hl7.org/CodeSystem/device-associationstatus" />
+           <code value="attached"/>
+		 </coding>
+	  </status>
+      <humanSubject>
 		<reference value="Patient/example"/>
-	</patient>
+	  </humanSubject>
+	</associationState>
 </Device>

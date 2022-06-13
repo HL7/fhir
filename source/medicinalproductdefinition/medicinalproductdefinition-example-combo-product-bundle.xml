@@ -201,13 +201,13 @@
 				<packageFor>
 					<reference value="MedicinalProductDefinition/drug-combo-product-bundle-mp"/>
 				</packageFor>
-				<package>
+				<packaging>
 					<type>
 						<coding>
 							<code value="Box"/>
 						</coding>
 					</type>
-					<package>
+					<packaging>
 						<type>
 							<coding>
 								<code value="blister pack"/>
@@ -223,8 +223,8 @@
 								<value value="1"/>
 							</amount>
 						</containedItem>
-					</package>
-					<package>
+					</packaging>
+					<packaging>
 						<type>
 							<coding>
 								<code value="tube"/>
@@ -240,8 +240,8 @@
 								<value value="1"/>
 							</amount>
 						</containedItem>
-					</package>
-				</package>
+					</packaging>
+				</packaging>
 			</PackagedProductDefinition>
 		</resource>
 	</entry>
