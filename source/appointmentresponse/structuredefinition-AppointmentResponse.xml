@@ -331,5 +331,20 @@
         <map value="COMMENT"/>
       </mapping>
     </element>
+	<element id="AppointmentResponse.recurring">
+      <path value="AppointmentResponse.recurring"/>
+      <short value="The response is for all occurenences in a series"/>
+      <definition value="Indicates that this AppointmentResponse applies to all occurrences in a series of appointments."/>
+      <comment value="When a recurring appointment is requested, the participant may choose to respond to each individual occurrence, in which case AppointmentResponse.recurring should be false.  If the participant chooses to respond the same way for all occurrences, they may instead use a single AppointmentResponse with recurring set to true.  These may be combined as the participant chooses.  For example, they may accept all occurrences of a series (recurring = true), but then send a decline for a specific occurrence (recurring=false)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+	  <mapping>
+		<identity value="rim"/>
+		<map value="N/A"/> 
+	  </mapping>
+    </element>
   </differential>
 </StructureDefinition>
