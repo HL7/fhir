@@ -504,7 +504,47 @@
         <map value="ATTACH"/>
       </mapping>
     </element>
-    <element id="Appointment.start">
+	<element id="Appointment.previousAppointment">
+      <path value="Appointment.previousAppointment"/>
+      <short value="The previous appointment in a series"/>
+      <definition value="The previous appointment in a series of related appointments."/>
+	  <comment value="This property is intended for use when representing a series of related appointments.  For example, in a nuclear medicine procedure, where there is an appointment for the injection of the isotopes, and then a subsequent appointment for the scan, the scan appointment would refer to the injection appointment via Appointment.previousAppointment.  For representing recurring appointments, see the guidance on recurring vs. series appointments."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+	  <mapping>
+		<identity value="rim"/>
+		<map value="N/A"/> 
+	  </mapping>
+    </element>
+	<element id="Appointment.originatingAppointment">
+      <path value="Appointment.originatingAppointment"/>
+      <short value="The originating appointment in a recurring set of appointments"/>
+      <definition value="The originating appointment in a recurring set of related appointments."/>
+	  <comment value="This property is intended for use when representing a recurring set of related appointments.  For example, a patient undergoing physical therapy may have a recurring appointment every Tuesday and Thursday.  Each occurrence of the set will refer to the originating appointment, which will include information about the overall recurrence.  For representing appointment series, see the guidance on recurring vs. series appointments."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+	  <mapping>
+		<identity value="rim"/>
+		<map value="N/A"/> 
+	  </mapping>
+    </element>
+	<element id="Appointment.start">
       <path value="Appointment.start"/>
       <short value="When appointment is to take place"/>
       <definition value="Date/Time that the appointment is to take place."/>
@@ -938,46 +978,6 @@
         <identity value="rim"/>
         <map value=".activityTime[@xsi:type = (&#39;SXPR_TS&#39;, &#39;PIVL_TS&#39;)]"/>
       </mapping>
-    </element>
-	<element id="Appointment.previousAppointment">
-      <path value="Appointment.previousAppointment"/>
-      <short value="The previous appointment in a series"/>
-      <definition value="The previous appointment in a series of related appointments."/>
-	  <comment value="This property is intended for use when representing a series of related appointments.  For example, in a nuclear medicine procedure, where there is an appointment for the injection of the isotopes, and then a subsequent appointment for the scan, the scan appointment would refer to the injection appointment via Appointment.previousAppointment.  For representing recurring appointments, see the guidance on recurring vs. series appointments."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.context"/>
-      </mapping>
-	  <mapping>
-		<identity value="rim"/>
-		<map value="N/A"/> 
-	  </mapping>
-    </element>
-	<element id="Appointment.originatingAppointment">
-      <path value="Appointment.originatingAppointment"/>
-      <short value="The originating appointment in a recurring set of appointments"/>
-      <definition value="The originating appointment in a recurring set of related appointments."/>
-	  <comment value="This property is intended for use when representing a recurring set of related appointments.  For example, a patient undergoing physical therapy may have a recurring appointment every Tuesday and Thursday.  Each occurrence of the set will refer to the originating appointment, which will include information about the overall recurrence.  For representing appointment series, see the guidance on recurring vs. series appointments."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.context"/>
-      </mapping>
-	  <mapping>
-		<identity value="rim"/>
-		<map value="N/A"/> 
-	  </mapping>
     </element>
 	<element id="Appointment.recurrenceId">
       <path value="Appointment.recurrenceId"/>
