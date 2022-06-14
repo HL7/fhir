@@ -555,24 +555,14 @@
       </type>
     </element>
 <!-- New added elements -->
-  <element id="GenomicStudy.genomeBuild"> <!-- Genome build -->
-    <path value="GenomicStudy.genomeBuild"/>
-    <short value="Genome build that is used in this study."/>
-    <definition value="The reference genome build that is used in this GenomicStudy."/>
-    <min value="0"/>
-    <max value="1"/>
-    <type>
-      <code value="CodeableConcept"/>
-    </type>
-  </element>
-  <element id="GenomicStudy.variantType"> <!-- Variant types -->
-    <path value="GenomicStudy.variantType"/>
-    <short value="Types of variants involved in this study."/>
-    <definition value="The types of variants involved in this GenomicStudy."/>
+  <element id="GenomicStudy.testCatalog"> <!-- Test Catalog ID -->
+    <path value="GenomicStudy.testCatalog"/>
+    <short value="Test catalog ID relevant to this study."/>
+    <definition value="The catalog ID relevant to this GenomicStudy."/>
     <min value="0"/>
     <max value="*"/>
     <type>
-      <code value="CodeableConcept"/>
+      <code value="Identifier"/>
     </type>
   </element>
   <element id="GenomicStudy.methodology"> <!-- Methodologies -->
@@ -595,7 +585,7 @@
         <code value="string"/>
       </type>
   </element>
-    <element id="GenomicStudy.methodology.link"> <!-- Methodologies Description -->
+  <element id="GenomicStudy.methodology.link"> <!-- Methodologies Description -->
       <path value="GenomicStudy.methodology.link"/>
       <short value="A link of the used methodology"/>
       <definition value="A link of the methodology involved in this GenomicStudy, e.g., Those listed by eMERGE."/>
@@ -605,5 +595,26 @@
         <code value="url"/>
       </type>
   </element>
+  <element id="GenomicStudy.genomeBuild"> <!-- Genome build -->
+    <path value="GenomicStudy.genomeBuild"/>
+    <short value="Genome build that is used in this study."/>
+    <definition value="The reference genome build that is used in this GenomicStudy."/>
+    <min value="0"/>
+    <max value="1"/>
+    <type>
+      <code value="CodeableConcept"/>
+    </type>
+  </element>
+  <element id="GenomicStudy.variantType"> <!-- Variant types -->
+    <path value="GenomicStudy.variantType"/>
+    <short value="Types of variants involved in this study."/>
+    <definition value="The types of variants involved in this GenomicStudy."/>
+    <min value="0"/>
+    <max value="*"/>
+    <type>
+      <code value="CodeableConcept"/>
+    </type>
+  </element>
+
   </differential>
 </StructureDefinition>
