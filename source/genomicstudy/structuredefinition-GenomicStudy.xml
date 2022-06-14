@@ -554,8 +554,8 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <!-- New added elements -->
-  <element id="GenomicStudy.genomeBuild"> <!-- /* */Genome build -->
+<!-- New added elements -->
+  <element id="GenomicStudy.genomeBuild"> <!-- Genome build -->
     <path value="GenomicStudy.genomeBuild"/>
     <short value="Genome build that is used in this study."/>
     <definition value="The reference genome build that is used in this GenomicStudy."/>
@@ -565,7 +565,7 @@
       <code value="CodeableConcept"/>
     </type>
   </element>
-    <element id="GenomicStudy.variantType"> <!-- /* */Variant types -->
+  <element id="GenomicStudy.variantType"> <!-- Variant types -->
     <path value="GenomicStudy.variantType"/>
     <short value="Types of variants involved in this study."/>
     <definition value="The types of variants involved in this GenomicStudy."/>
@@ -574,6 +574,36 @@
     <type>
       <code value="CodeableConcept"/>
     </type>
+  </element>
+  <element id="GenomicStudy.methodology"> <!-- Methodologies -->
+      <path value="GenomicStudy.methodology"/>
+      <short value="Methodologies involved in this study"/>
+      <definition value="The methodolgies involved in this GenomicStudy."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+  </element>
+  <element id="GenomicStudy.methodology.description"> <!-- Methodologies Description -->
+      <path value="GenomicStudy.methodology.description"/>
+      <short value="Human freindly description of the used methodology"/>
+      <definition value="A human-freindly descritption of the methodology involved in this GenomicStudy, e.g., Those listed by eMERGE."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+  </element>
+    <element id="GenomicStudy.methodology.link"> <!-- Methodologies Description -->
+      <path value="GenomicStudy.methodology.link"/>
+      <short value="A link of the used methodology"/>
+      <definition value="A link of the methodology involved in this GenomicStudy, e.g., Those listed by eMERGE."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="url"/>
+      </type>
   </element>
   </differential>
 </StructureDefinition>
