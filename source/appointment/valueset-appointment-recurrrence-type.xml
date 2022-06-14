@@ -42,6 +42,7 @@
     </telecom>
   </contact>
   <description value="The recurrence type of a recurring appointment."/>
+  <copyright value="The UCUM codes, UCUM table (regardless of format), and UCUM Specification are copyright © 1999-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved."/>
   <immutable value="true"/>
   <compose>
     <include>
