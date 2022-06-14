@@ -988,6 +988,10 @@
       <type>
         <code value="positiveInt"/>
       </type>
+	  <mapping>
+		<identity value="rim"/>
+		<map value="N/A"/> 
+	  </mapping>
     </element>
 	<element id="Appointment.occurrenceChanged">
       <path value="Appointment.occurrenceChanged"/>
@@ -999,6 +1003,10 @@
       <type>
         <code value="boolean"/>
       </type>
+	  <mapping>
+		<identity value="rim"/>
+		<map value="N/A"/> 
+	  </mapping>
     </element>
 	<element id="Appointment.recurrenceTemplateInformation ">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
@@ -1024,7 +1032,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
 	  <binding> 
         <extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
@@ -1215,6 +1223,14 @@
       <type>
         <code value="Coding"/>
       </type>
+	  <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="WeekOfMonth"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The set of weeks in a month."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/week-of-month"/>
+      </binding>
     </element>
 	<element id="Appointment.recurrenceTemplateInformation.monthlyInformation.dayOfWeek">
       <path value="Appointment.recurrenceTemplateInformation.monthlyInformation.dayOfWeek"/>
@@ -1226,6 +1242,14 @@
       <type>
         <code value="Coding"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DaysOfWeek"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The days of the week."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/days-of-week"/>
+      </binding>
     </element>
 	<element id="Appointment.recurrenceTemplateInformation.yearlyInformation">
       <path value="Appointment.recurrenceTemplateInformation.yearlyInformation"/>
