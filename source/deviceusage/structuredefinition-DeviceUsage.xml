@@ -336,7 +336,6 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-
     <element id="DeviceUsage.adherence">
       <path value="DeviceUsage.adherence"/>
       <short value="How device is being used"/>
@@ -346,7 +345,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <isSummary value="true"/>
     </element>
     <element id="DeviceUsage.adherence.code">
       <path value="DeviceUsage.adherence.code"/>
