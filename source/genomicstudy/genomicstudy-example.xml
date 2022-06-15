@@ -105,9 +105,13 @@
         </performer>
         <device>  <!-- 0..* Devices used for the analysis (e.g., instruments, software), with settings and parameters -->
             <device>
-            </device>
                 <reference value="Device/NGS-device"/>
-            <!-- <function>0..1 CodeableConcept Specific function for the device used for the analysis</function> -->
+            </device>
+            <function>
+                <coding>
+                    <display value="Next Generation Sequencing"/>
+                </coding>
+            </function>
         </device>
     </analysis>
     <analysis>  <!-- 0..* Genomic Analysis Event of mother -->
