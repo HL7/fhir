@@ -7,9 +7,9 @@
         <div xmlns="http://www.w3.org/1999/xhtml">A placeholder for the text representation of the example resource.</div>
     </text>
     <identifier>
+        <use value="temp"/>
         <system value="http://www.somesystemabc.net/identifiers/genomicstudies"/>
         <value value="urn:uuid:1111-1111-1111-1111"/>
-        <use value="temp"/>
     </identifier>
     <status>
         <coding>
@@ -56,9 +56,9 @@
     <description value="De novo mutation study of the patient."/>
     <analysis>  <!-- 0..* Genomic Analysis Event of proband -->
         <identifier>
+            <use value="temp"/>
             <system value="http://www.somesystemabc.net/identifiers/genomicAnalyses"/>
             <value value="urn:uuid:1111-1111-1111-1111"/>
-            <use value="temp"/>
         </identifier>
         <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
         <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
@@ -69,7 +69,7 @@
         <specimen>
             <reference value="Specimen/denovo-1"/>
         </specimen>
-        <date value="2021-01-01T01:01:10"/><!-- 0..1 The date of the analysis event -->
+        <date value="2021-01-01T01:01:10-06:00"/><!-- 0..1 The date of the analysis event -->
         <note>
             <text value="This is a next generation sequencing analysis of a proband."/>
         </note>
@@ -112,9 +112,9 @@
     </analysis>
     <analysis>  <!-- 0..* Genomic Analysis Event of mother -->
         <identifier>
+            <use value="temp"/>
             <system value="http://www.somesystemabc.net/identifiers/genomicAnalyses"/>
             <value value="urn:uuid:1111-1111-1111-1112"/>
-            <use value="temp"/>
         </identifier>
         <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
         <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
@@ -166,9 +166,9 @@
     </analysis>
     <analysis>  <!-- 0..* Genomic Analysis Event of father -->
         <identifier>
+            <use value="temp"/>
             <system value="http://www.somesystemabc.net/identifiers/genomicAnalyses"/>
             <value value="urn:uuid:1111-1111-1111-1113"/>
-            <use value="temp"/>
         </identifier>
         <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
         <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
@@ -220,9 +220,9 @@
     </analysis>
     <analysis>  <!-- 0..* De Novo Mutation Analysis -->
         <identifier>
+            <use value="temp"/>
             <system value="http://www.somesystemabc.net/identifiers/genomicAnalyses"/>
             <value value="urn:uuid:1111-1111-1111-1114"/>
-            <use value="temp"/>
         </identifier>
         <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
         <instantiatesUri value="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6885382/"/>
