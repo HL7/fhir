@@ -51,10 +51,16 @@
             </coding>
         </concept>
     </reason>
-    <note><!-- 0..* Annotation Comments related to the genomic study --></note>
-    <description value="[string]"/><!-- 0..1 Description of the genomic study -->
+    <note>
+        <text value="For technical reasons, PIK3CB was deemed uncallable."/>
+    </note>
+    <description value="This genomic study aims in identifying SNVs, MNV, or indels relevant to an observed lung mass."/><!-- 0..1 Description of the genomic study -->
     <analysis>  <!-- 0..* Genomic Analysis Event -->
-        <identifier><!-- 0..* Identifier Identifiers for the analysis event --></identifier>
+        <identifier>
+            <use value="official"/>
+            <system value="http://www.somesystemabc.net/identifiers/genomicAnalyses"/>
+            <value value="urn:uuid:1111-1111-1111-1112"/>
+        </identifier>
         <methodType><!-- 0..* CodeableConcept Type of the methods used in the analysis --></methodType>
         <genomeBuild><!-- 0..1 CodeableConcept Genome build that is used in this analysis --></genomeBuild>
         <instantiatesCanonical><!-- 0..1 canonical(PlanDefinition) The defined protocol that describes the analysis --></instantiatesCanonical>
