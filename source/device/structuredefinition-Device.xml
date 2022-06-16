@@ -923,6 +923,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+       <isSummary value="true"/>
     </element>
     <element id="Device.association.status">
       <path value="Device.association.status"/>
@@ -965,8 +966,8 @@
     </element>
     <element id="Device.association.bodyStructure">
       <path value="Device.association.bodyStructure"/>
-      <short value="current anatomical location of device in/on humanSubject"/>
-      <definition value="current anatomical location of device in/on humanSubject."/>
+      <short value="Current anatomical location of device in/on humanSubject"/>
+      <definition value="The current anatomical location of the device in/on the humanSubject where it is attached or placed. "/>
       <min value="0"/>
       <max value="1"/>
       <type>
