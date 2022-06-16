@@ -1,40 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="document-attestation-mode"/>
+  <id value="research-study-classification-type"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <text>
-    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <ul>
-        <li>Include all codes defined in 
-          <a href="codesystem-document-attestation-mode.html">
-            <code>http://hl7.org/fhir/document-attestation-mode</code>
-          </a>
-        </li>
-      </ul>
+      <p>Hello world</p>
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="oo"/>
+    <valueCode value="brr"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
+    <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/document-attestation-mode"/>
+  <url value="http://hl7.org/fhir/ValueSet/research-study-classification-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.830"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="DocumentAttestationMode"/>
-  <title value="DocumentAttestationMode"/>
+  <name value="ResearchStudyClassificationType"/>
+  <title value="ResearchStudyClassificationType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -49,11 +42,16 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The way in which a person authenticated a document."/>
+  <description value="Codes for the main intent of the study."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/document-attestation-mode"/>
+      <system value="http://hl7.org/fhir/research-study-classifiers"/>
+      <filter>
+	    <property value="concept"/>
+	    <op value="descendent-of"/>
+	    <value value="research-study-classification-type"/>
+	  </filter>
     </include>
   </compose>
 </ValueSet>

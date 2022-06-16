@@ -152,16 +152,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/valueset-expand-rules"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/valueset-expand-group"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/valueset-deprecated"/>
       </reference>
     </resource>
@@ -203,16 +193,6 @@
     <resource>
       <reference>
         <reference value="StructureDefinition/valueset-systemName"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/valueset-compose-include-minimumMultiplicity"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/valueset-compose-include-maximumMultiplicity"/>
       </reference>
     </resource>
     <resource>
