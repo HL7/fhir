@@ -16,4 +16,16 @@
       <display value="General"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Lung mass - simple variants"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="genomicstudy-Lung mass SNVs"/>
+    </extension>
+    <item>
+      <reference value="GenomicStudy/example-lungSNV"/>
+      <display value="General"/>
+    </item>
+  </entry>
 </List>
