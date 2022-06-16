@@ -78,13 +78,23 @@
                 <display value=" Whole Exome Sequencing (WES)"/>
             </coding>
         </methodType>
-        <genomeBuild><!-- 0..1 CodeableConcept Genome build that is used in this analysis --></genomeBuild>
+        <genomeBuild>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="LA26806-2"/>
+                <display value="GRCh38"/>
+            </coding>
+        </genomeBuild>
         <instantiatesCanonical><!-- 0..1 canonical(PlanDefinition) The defined protocol that describes the analysis --></instantiatesCanonical>
         <instantiatesUri value="[uri]"/><!-- 0..1 The URL pointing to an externally maintained protocol that describes the analysis -->
-        <title value="[string]"/><!-- 0..1 Name of the analysis event (human friendly) -->
-        <subject><!-- 0..1 Reference(Patient) The subject of the analysis event --></subject>
-        <specimen><!-- 0..1 Reference(Specimen) The specimen used in the analysis event --></specimen>
-        <date value="[dateTime]"/><!-- 0..1 The date of the analysis event -->
+        <title value="Single Nucleaotide Variation (SNV) detection"/><!-- 0..1 Name of the analysis event (human friendly) -->
+        <subject>
+            <reference value="Patient/genomicPatient"/>
+        </subject>
+        <specimen>
+            <reference value="Specimen/genomicSpecimen"/>
+        </specimen>
+        <date value="2019-03-01T01:01:10-06:00"/>"/><!-- 0..1 The date of the analysis event -->
         <note><!-- 0..* Annotation Any notes capture with the analysis event --></note>
         <protocolPerformed><!-- 0..1 Reference(Procedure|Task) The protocol that was performed for the analysis event --></protocolPerformed>
         <regionStudied><!-- 0..* Reference(DocumentReference) The genomic regions to be studied in the analysis (BED file) --></regionStudied>
