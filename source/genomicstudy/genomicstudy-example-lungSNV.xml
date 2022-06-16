@@ -54,14 +54,30 @@
     <note>
         <text value="For technical reasons, PIK3CB was deemed uncallable."/>
     </note>
-    <description value="This genomic study aims in identifying SNVs, MNV, or indels relevant to an observed lung mass."/><!-- 0..1 Description of the genomic study -->
+    <description value="WES of a 300 gene panel is performed on the biopsy specimen, and analyzed for simple variants (SNV, MNV, InDel)."/><!-- 0..1 Description of the genomic study -->
     <analysis>  <!-- 0..* Genomic Analysis Event -->
         <identifier>
             <use value="official"/>
             <system value="http://www.somesystemabc.net/identifiers/genomicAnalyses"/>
             <value value="urn:uuid:1111-1111-1111-1112"/>
         </identifier>
-        <methodType><!-- 0..* CodeableConcept Type of the methods used in the analysis --></methodType>
+        <methodType>
+            <coding>
+                <system value="http://www.somesystemabc.net/identifiers/genomicstudyMethods"/>
+                <code value="SNV"/>
+                <display value="Single Nucleaotide Variation (SNV) detection"/>
+            </coding>
+                        <coding>
+                <system value="http://www.somesystemabc.net/identifiers/genomicstudyMethods"/>
+                <code value="MNV"/>
+                <display value="Multiple Nucleaotide Variation (MNV) detection"/>
+            </coding>
+            <coding>
+                <system value="http://www.somesystemabc.net/identifiers/genomicstudyMethods"/>
+                <code value="WES"/>
+                <display value=" Whole Exome Sequencing (WES)"/>
+            </coding>
+        </methodType>
         <genomeBuild><!-- 0..1 CodeableConcept Genome build that is used in this analysis --></genomeBuild>
         <instantiatesCanonical><!-- 0..1 canonical(PlanDefinition) The defined protocol that describes the analysis --></instantiatesCanonical>
         <instantiatesUri value="[uri]"/><!-- 0..1 The URL pointing to an externally maintained protocol that describes the analysis -->
