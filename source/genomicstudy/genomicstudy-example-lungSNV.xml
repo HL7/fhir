@@ -95,28 +95,55 @@
             <reference value="Specimen/genomicSpecimen"/>
         </specimen>
         <date value="2019-03-01T01:01:10-06:00"/>"/><!-- 0..1 The date of the analysis event -->
-        <note><!-- 0..* Annotation Any notes capture with the analysis event --></note>
-        <protocolPerformed><!-- 0..1 Reference(Procedure|Task) The protocol that was performed for the analysis event --></protocolPerformed>
-        <regionStudied><!-- 0..* Reference(DocumentReference) The genomic regions to be studied in the analysis (BED file) --></regionStudied>
-        <regionsCalled><!-- 0..1 Reference(DocumentReference) Genomic regions actually called in the analysis event (BED file) --></regionsCalled>
+        <note>
+            <text value="For technical reasons, PIK3CB was deemed uncallable using this method."/>
+        </note>
+        <!-- <protocolPerformed></protocolPerformed> -->
+        <!-- <regionStudied></regionStudied> -->
+        <regionsCalled>
+            <reference value="DocumentReference/genomicBEDfile"/>
+        </regionsCalled>
         <input>  <!-- 0..* Inputs for the analysis event -->
-            <file><!-- 0..1 Reference(DocumentReference) File containing input data --></file>
-            <type><!-- 0..1 CodeableConcept Type of input data --></type>
-            <generatedBy[x]><!-- 0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file --></generatedBy[x]>
-            <subject><!-- 0..1 Reference(Patient) The subject of the input data --></subject>
-            <role><!-- 0..1 CodeableConcept Role of the subject for this input --></role>
+            <file>
+                <reference value="DocumentReference/genomicVCFfile"/>
+            </file>
+            <type>
+                <coding>
+                    <code value="vcf"/>
+                    <display value="VCF"/>
+                 </coding>
+            </type>
+            <!-- <generatedBy[x]></generatedBy[x]> -->
+            <subject>
+                <reference value="Patient/genomicPatient"/>
+            </subject>
+            <!-- <role></role> -->
         </input>
-        <output>  <!-- 0..* Outputs for the analysis event -->
-            <file><!-- 0..1 Reference(DocumentReference) File containing output data --></file>
-            <type><!-- 0..1 CodeableConcept Type of output data --></type>
-        </output>
+<!--         <output>
+            <file></file>
+            <type></type>
+        </output> -->
         <performer>  <!-- 0..* Performer for the analysis event -->
-            <actor><!-- 0..1 Reference(Device|Organization|Practitioner|PractitionerRole) The organization, healthcare professional, or others who participated in performing this analysis --></actor>
-            <role><!-- 0..1 CodeableConcept Role of the actor for this analysis --></role>
+            <actor>
+                <reference value="Practitioner/practitioner02"/>
+            </actor>
+            <role>
+                <coding>
+                    <system value="http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html"/>
+                    <code value="PRF"/>
+                    <display value="Performer"/>
+                </coding>
+            </role>
         </performer>
         <device>  <!-- 0..* Devices used for the analysis (e.g., instruments, software), with settings and parameters -->
-            <device><!-- 0..1 Reference(Device) Device used for the analysis --></device>
-            <function><!-- 0..1 CodeableConcept Specific function for the device used for the analysis --></function>
+            <device>
+                <reference value="Device/NGS-device"/>
+            </device>
+            <function>
+                <coding>
+                    <display value="Next Generation Sequencing"/>
+                </coding>
+            </function>
         </device>
     </analysis>
 </GenomicStudy>
