@@ -13,16 +13,16 @@
           </coding>
       </coordinateSystem>
       <reference>
-          <orientation value="sense"/>
-          <referenceSeqId>
+          <referenceSequenceCodeableConcept>
             <coding>
               <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
               <code value="NG_007726.3"/>
             </coding>
-          </referenceSeqId>
-          <strand value="watson"/>
+          </referenceSequenceCodeableConcept>
           <windowStart value="55227970"/>
           <windowEnd value="55227980"/>
+          <orientation value="sense"/>
+          <strand value="watson"/>
       </reference>
       <edit>
           <start value="55227976"/>

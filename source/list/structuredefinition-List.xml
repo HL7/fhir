@@ -378,6 +378,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <orderMeaning value="Order has no meaning unless specifically asserted by List.orderedBy, in which case the List SHALL be interpreted as being ordered as specified by List.orderedBy."/>
       <condition value="lst-1"/>
       <mapping>
         <identity value="rim"/>

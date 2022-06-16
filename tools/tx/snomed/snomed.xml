@@ -195,6 +195,10 @@
     <display value="Prednisone"/>
     <display value="Prednisone (substance)"/>
   </concept>
+  <concept id="1179448000" display="Ondansetron 4 mg oral lyophilisate">
+    <display value="Ondansetron 4 mg oral lyophilisate"/>
+    <display value="Product containing precisely ondansetron 4 milligram/1 each conventional release oral lyophilisate (clinical drug)"/>
+  </concept>
   <concept id="11830008" display="Delaware chicken">
     <display value="Delaware chicken"/>
     <display value="Delaware chicken (organism)"/>
@@ -10943,6 +10947,12 @@
     <display value="Computed tomography of chest (procedure)"/>
     <display value="Computed tomography of chest"/>
   </concept>
+  <concept id="16932000" display="Nausea and vomiting">
+    <display value="Nausea and vomiting"/>
+    <display value="Nausea and vomiting (disorder)"/>
+    <display value="N&amp;V - Nausea and vomiting"/>
+    <display value="N+V - Nausea and vomiting"/>
+  </concept>
   <concept id="169895004" display="Apgar at 1 minute">
     <display value="Apgar at 1 minute"/>
     <display value="Apgar score at 1 minute (observable entity)"/>
@@ -16552,9 +16562,21 @@
     <display value="Malay chicken"/>
     <display value="Malay chicken (organism)"/>
   </concept>
+  <concept id="782032003" display="Ondansetron (as ondansetron hydrochloride) 2 mg/mL solution for injection">
+    <display value="Ondansetron (as ondansetron hydrochloride) 2 mg/mL solution for injection"/>
+    <display value="Product containing precisely ondansetron (as ondansetron hydrochloride) 2 milligram/1 milliliter conventional release solution for injection (clinical drug)"/>
+  </concept>
   <concept id="78375007" display="Andalusian chicken">
     <display value="Andalusian chicken"/>
     <display value="Andalusian chicken (organism)"/>
+  </concept>
+  <concept id="78421000" display="Intramuscular route">
+    <display value="Intramuscular route"/>
+    <display value="Intramuscular route (qualifier value)"/>
+    <display value="Intramuscular use"/>
+    <display value="IM route"/>
+    <display value="IM use"/>
+    <display value="A route that begins within a muscle."/>
   </concept>
   <concept id="7843000" display="Horned Hereford">
     <display value="Horned Hereford"/>

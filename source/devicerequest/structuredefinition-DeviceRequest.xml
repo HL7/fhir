@@ -221,8 +221,8 @@
         <map value="Proposal.prnReason.reason"/>
       </mapping>
     </element>
-    <element id="DeviceRequest.priorRequest">
-      <path value="DeviceRequest.priorRequest"/>
+    <element id="DeviceRequest.replaces">
+      <path value="DeviceRequest.replaces"/>
       <short value="What request replaces"/>
       <definition value="The request takes the place of the referenced completed or terminated request(s)."/>
       <min value="0"/>

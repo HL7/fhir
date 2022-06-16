@@ -2,31 +2,34 @@
 <!--The use case illustrates the use of an HCT/P (Human Cells and Tissues Product), which UDI is built with ISBT 128 (ICCBBA) and includes traceability to the donor.-->
 <Device xmlns="http://hl7.org/fhir">
 	<id value="example-udi2"/>
-	<extension url="http://hl7.org/fhir/StructureDefinition/device-din">
-		<!-- from Element: extension -->
-		<valueIdentifier>
-			<system value="http://hl7.org/fhir/NamingSystem/iccbba-din"/>
-			<!--  If the content is from an ICCBBA-encoded UDI, this is the URI to use for the system -->
-			<value value="A99971312345600"/>
-			<!--  this is the donation identification number -->
-		</valueIdentifier>
-	</extension>
-	<udi>
-		<!--  The Device Identifier (DI) here so you can look up - in this case using the GUDID database -->
+	<identifier>
+	   <type>
+	     <coding>
+     	     <system value="http://hl7.org/fhir/NamingSystem/iccbba-din"/>
+		  </coding>
+	   </type>
+	   <value value="A99971312345600"/>
+	</identifier>
+	<udiCarrier>
 		<deviceIdentifier value="A9999XYZ100T0474"/>
-		<name value="Bone,Putty Demineralized"/>
-		<!-- This is  US FDA example -->
-		<jurisdiction value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
-		<!--  If the content is from an ICCBBA-encoded UDI, this is the URI to use for the system -->
 		<issuer value="http://hl7.org/fhir/NamingSystem/iccbba-other"/>
-	</udi>
+		<jurisdiction value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
+	</udiCarrier>
 	<status value="inactive"/>
 	<manufacturer value="Acme Devices, Inc"/>
 	<manufactureDate value="2013-02-01"/>
 	<!--	013032 = this is the manufacturing date expressed in YYYDDD (three digit year, three digit day number)-->
 	<expirationDate value="2014-02-01"/>
 	<!--014032 = this is the expiration date expressed in YYYDDD (three digit year, three digit day number)-->
-	<patient>
+	<associationState>
+	  <status> 
+	     <coding>
+		   <system value="http://terminology.hl7.org/CodeSystem/device-associationstatus" />
+           <code value="attached"/>
+		 </coding>
+	  </status>
+      <humanSubject>
 		<reference value="Patient/example"/>
-	</patient>
+	  </humanSubject>
+	</associationState>
 </Device>
