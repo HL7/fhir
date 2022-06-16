@@ -276,6 +276,62 @@
       </type>
     </element>
 -->
+
+<!--   <element id="GenomicStudy.testCatalog">
+    <path value="GenomicStudy.testCatalog"/>
+    <short value="Test catalog ID relevant to this study"/>
+    <definition value="The catalog ID relevant to this GenomicStudy."/>
+    <min value="0"/>
+    <max value="*"/>
+    <type>
+      <code value="Identifier"/>
+    </type>
+  </element> -->
+
+<!--   <element id="GenomicStudy.methodology">
+      <path value="GenomicStudy.methodology"/>
+      <short value="Methodologies involved in this study"/>
+      <definition value="The methodolgies involved in this GenomicStudy."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+  </element> -->
+
+<!--   <element id="GenomicStudy.methodology.description">
+      <path value="GenomicStudy.methodology.description"/>
+      <short value="Human freindly description of the used methodology"/>
+      <definition value="A human-freindly descritption of the methodology involved in this GenomicStudy, e.g., Those listed by eMERGE."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+  </element> -->
+
+<!--   <element id="GenomicStudy.methodology.link">
+      <path value="GenomicStudy.methodology.link"/>
+      <short value="A link of the used methodology"/>
+      <definition value="A link of the methodology involved in this GenomicStudy, e.g., Those listed by eMERGE."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="url"/>
+      </type>
+  </element> -->
+
+<!--   <element id="GenomicStudy.variantType">
+    <path value="GenomicStudy.variantType"/>
+    <short value="Types of variants involved in this study"/>
+    <definition value="The types of variants involved in this GenomicStudy."/>
+    <min value="0"/>
+    <max value="*"/>
+    <type>
+      <code value="CodeableConcept"/>
+    </type>
+  </element> -->
+
     <element id="GenomicStudy.analysis">
       <path value="GenomicStudy.analysis"/>
       <short value="Genomic Analysis Event"/>
@@ -296,6 +352,26 @@
         <code value="Identifier"/>
       </type>
     </element>
+    <element id="GenomicStudy.analysis.methodType">
+      <path value="GenomicStudy.analysis.methodType"/>
+      <short value="Type of the methods used in the analysis"/>
+      <definition value="Type of the methods used in the analysis."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="GenomicStudy.analysis.genomeBuild"> <!-- Genome build -->
+    <path value="GenomicStudy.analysis.genomeBuild"/>
+    <short value="Genome build that is used in this analysis"/>
+    <definition value="The reference genome build that is used in this analysis."/>
+    <min value="0"/>
+    <max value="1"/>
+    <type>
+      <code value="CodeableConcept"/>
+    </type>
+  </element>
     <element id="GenomicStudy.analysis.instantiatesCanonical">
       <path value="GenomicStudy.analysis.instantiatesCanonical"/>
       <short value="The defined protocol that describes the analysis"/>
@@ -379,6 +455,17 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
+      </type>
+    </element>
+    <element id="GenomicStudy.analysis.regionStudied">
+      <path value="GenomicStudy.analysis.regionStudied"/>
+      <short value="The genomic regions to be studied in the analysis (BED file)"/>
+      <definition value="The genomic regions to be studied in the analysis (BED file)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
     </element>
     <element id="GenomicStudy.analysis.regionsCalled">
@@ -554,5 +641,19 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
+
+
+<!--   <element id="GenomicStudy.analysis.uncallableRegions">
+    <path value="GenomicStudy.analysis.uncallableRegions"/>
+    <short value="Genomic regions uncallable by the analysis event (BED file)"/>
+    <definition value="Genomic regions uncallable by the analysis event (BED file)."/>
+    <min value="0"/>
+    <max value="1"/>
+    <type>
+      <code value="Reference"/>
+      <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+    </type>
+   </element> -->
+
   </differential>
 </StructureDefinition>
