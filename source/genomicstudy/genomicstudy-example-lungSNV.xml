@@ -5,7 +5,7 @@
     <!-- from DomainResource: text, contained, extension, and modifierExtension -->
     <text>
         <status value="additional"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">This is a genomic study that involves a de novo mutation analysis of a proband, mother, and father. The analysis involves the use use of NGS device and a specilized analysis platform.</div>
+        <div xmlns="http://www.w3.org/1999/xhtml">In March 2019, a patient HG00403 was found to have lung mass on chest x-ray (CXR), and undergoes lung biopsy. a whole exome sequencing (WES) study of a 300 gene panel is performed on the biopsy specimen, and analyzed for simple variants (SNV, MNV, InDel). For technical reasons, PIK3CB was deemed uncallable.</div>
     </text>
     <identifier><!-- 0..* Identifier Identifiers for this genomic study --></identifier>
     <status><!-- 1..1 CodeableConcept The status of the genomic study --></status>
