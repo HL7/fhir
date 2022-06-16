@@ -12085,6 +12085,11 @@
     <display value="Lactose malabsorption"/>
     <display value="Lactose intolerance (disorder)"/>
   </concept>
+  <concept id="267431006" display="Disorder of lipid metabolism">
+    <display value="Disorder of lipid metabolism"/>
+    <display value="Disorder of lipid metabolism (disorder)"/>
+    <display value="Lipid metabolism disorder"/>
+  </concept>
   <concept id="26837006" display="American cream horse">
     <display value="American cream horse"/>
     <display value="American cream horse (organism)"/>
