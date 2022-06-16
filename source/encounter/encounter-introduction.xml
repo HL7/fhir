@@ -40,7 +40,7 @@ encounter instance should be used to capture this information as a partOf this e
 <p>
 The Procedure and encounter have references to each other, and these should be to different procedures;
 one for the procedure that was performed during the encounter (stored in Procedure.encounter), and another for cases
-where an encounter is a result of another procedure (stored in Encounter.indication) such as a follow-up encounter to
+where an encounter is a result of another procedure (stored in Encounter.reason) such as a follow-up encounter to
 resolve complications from an earlier procedure.
 </p>
 
@@ -63,7 +63,7 @@ presence of the hospitalization sub-component entered.
 <p>
 The "on leave" status might or might not be a part of the admission, for example if the patient 
 was permitted to go home for a weekend or some other form of external event.<br/>
-The location is also likely to be filled in with a location status of "present".<br/>
+The location is also likely to be filled in with a location status of "active".<br/>
 For other examples such as an outpatient visit (day procedure - colonoscopy), the patient could also be 
 considered to be admitted, hence the encounter doesn't have a fixed definition of admitted.
 At a minimum, we do believe that a patient IS admitted when the status is in-progress.
