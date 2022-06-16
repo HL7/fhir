@@ -784,31 +784,6 @@
         <code value="Attachment"/>
       </type>
     </element>
-    <element id="Device.subject">
-      <path value="Device.subject"/>
-      <short value="Patient to whom Device is affixed"/>
-      <definition value="Patient information, if the device is affixed to, or associated to a patient for their specific use, irrespective of the procedure, use, observation, or other activity that the device is involved in. The use of Patient is also appropriate for the use of devices outside a healthcare setting, such as a fitness tracker."/>
-      <requirements value="If the device is implanted, or otherwise in use by the patient (e.g., wheelchair, oxygen tank), without further describing its specific use, then the device needs to be associated to the patient."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".playedRole[typeCode=USED].scoper.playedRole[typeCode=PAT]"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
-    </element>
     <element id="Device.operationalState">
       <path value="Device.operationalState"/>
       <short value="The status of the device itself - whether it is switched on, or activated, etc"/>
