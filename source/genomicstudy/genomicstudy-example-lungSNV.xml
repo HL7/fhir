@@ -33,9 +33,15 @@
         <reference value="Encounter/genomicEncounter"/>
     </encounter>
     <startDate value="2019-03-01"/>
-    <basedOn><!-- 0..* Reference(ServiceRequest|Task) Event resources that the genomic study is based on --></basedOn>
-    <referrer><!-- 0..1 Reference(Practitioner|PractitionerRole) Healthcare professional who requested or referred the genomic study --></referrer>
-    <interpreter><!-- 0..* Reference(Practitioner|PractitionerRole) Healthcare professionals who interpreted the genomic study --></interpreter>
+    <basedOn>
+        <reference value="ServiceRequest/genomicServiceRequest2"/>
+    </basedOn>
+    <referrer>
+        <reference value="Practitioner/practitioner01"/>
+    </referrer>
+    <interpreter>
+        <reference value="Practitioner/practitioner02"/>
+    </interpreter>
     <reason>
         <concept>
             <coding>
