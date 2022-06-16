@@ -7,8 +7,18 @@
         <status value="additional"/>
         <div xmlns="http://www.w3.org/1999/xhtml">In March 2019, a patient HG00403 was found to have lung mass on chest x-ray (CXR), and undergoes lung biopsy. a whole exome sequencing (WES) study of a 300 gene panel is performed on the biopsy specimen, and analyzed for simple variants (SNV, MNV, InDel). For technical reasons, PIK3CB was deemed uncallable.</div>
     </text>
-    <identifier><!-- 0..* Identifier Identifiers for this genomic study --></identifier>
-    <status><!-- 1..1 CodeableConcept The status of the genomic study --></status>
+    <identifier>
+        <use value="temp"/>
+        <system value="http://www.somesystemabc.net/identifiers/genomicstudies"/>
+        <value value="urn:uuid:1111-1111-1111-1112"/>
+    </identifier>
+    <status>
+        <coding>
+            <system value="http://hl7.org/fhir/genomicstudy-status"/>
+            <code value="registered"/>
+            <display value="Registered"/>
+        </coding>
+    </status>
     <type><!-- 0..1 CodeableConcept The type of the study --></type>
     <subject><!-- 1..1 Reference(Patient) The primary subject of the genomic study --></subject>
     <encounter><!-- 0..1 Reference(Encounter) The healthcare event with which this genomics study is associated --></encounter>
