@@ -4,12 +4,12 @@
   <id value="GenomicStudy-examples"/>
   <status value="current"/>
   <mode value="working"/>
-    <entry>
+  <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Trio study - De novo mutation"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="genomicstudy-example"/>
+      <valueString value="genomicstudy-Trio"/>
     </extension>
     <item>
       <reference value="GenomicStudy/example"/>
