@@ -19,14 +19,28 @@
             <display value="Registered"/>
         </coding>
     </status>
-    <type><!-- 0..1 CodeableConcept The type of the study --></type>
+    <type>
+        <coding>
+            <system value="http://www.somesystemabc.net/CodeSystem"/>
+            <code value="SNV"/>
+            <display value="Single Nucleotide Variation Detection"/>
+        </coding>
+    </type>
     <subject><!-- 1..1 Reference(Patient) The primary subject of the genomic study --></subject>
     <encounter><!-- 0..1 Reference(Encounter) The healthcare event with which this genomics study is associated --></encounter>
     <startDate value="[dateTime]"/><!-- 0..1 When the genomic study was started -->
     <basedOn><!-- 0..* Reference(ServiceRequest|Task) Event resources that the genomic study is based on --></basedOn>
     <referrer><!-- 0..1 Reference(Practitioner|PractitionerRole) Healthcare professional who requested or referred the genomic study --></referrer>
     <interpreter><!-- 0..* Reference(Practitioner|PractitionerRole) Healthcare professionals who interpreted the genomic study --></interpreter>
-    <reason><!-- 0..* CodeableReference(Condition|Observation) Why the genomic study was performed --></reason>
+    <reason>
+        <concept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="309529002"/>
+                <display value="Lung mass (finding) "/>
+            </coding>
+        </concept>
+    </reason>
     <note><!-- 0..* Annotation Comments related to the genomic study --></note>
     <description value="[string]"/><!-- 0..1 Description of the genomic study -->
     <analysis>  <!-- 0..* Genomic Analysis Event -->
