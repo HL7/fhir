@@ -6,7 +6,7 @@
   <mode value="working"/>
     <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of genomicstudy"/>
+      <valueString value="Trio study - De novo mutation"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="genomicstudy-example"/>
