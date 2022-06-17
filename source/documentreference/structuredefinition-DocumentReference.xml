@@ -3,7 +3,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="DocumentReference"/>
   <meta>
-    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+    <lastUpdated value="2022-06-09T08:58:31.578+11:00"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
     <valueString value="Clinical.Diagnostics"/>
@@ -27,7 +27,7 @@
   <version value="4.6.0"/>
   <name value="DocumentReference"/>
   <status value="draft"/>
-  <date value="2021-01-02T08:58:31+11:00"/>
+  <date value="2022-06-09T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
   <contact>
     <telecom>
@@ -114,11 +114,17 @@
         <identity value="w5"/>
         <map value="infrastructure.documents"/>
       </mapping>
+	  <mapping>
+	    <identity value="xds"/>
+		<map value="DocumentEntry"/>
+	  </mapping>
     </element>
     <element id="DocumentReference.identifier">
       <path value="DocumentReference.identifier"/>
-      <short value="Other identifiers for the document"/>
-      <definition value="Other identifiers associated with the document, including version independent identifiers."/>
+      <short value="Business identifiers for the document"/>
+      <definition value="Other business identifiers associated with the document, including version independent identifiers."/>
+      <requirements value="Document identifiers usually assigned by the source of the document, or other business identifiers such as XDS DocumentEntry.uniqueId and DocumentEntry.entryUUID. These identifiers are specific to this instance of the document."/>
+      <comment value="The structure and format of this identifier would be consistent with the specification corresponding to the format of the document. (e.g. for a DICOM standard document, a 64-character numeric UID; for an HL7 CDA format, the CDA Document Id root and extension)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -134,8 +140,12 @@
         <map value="FiveWs.identifier"/>
       </mapping>
       <mapping>
+        <identity value="fhircomposition"/>
+        <map value="Composition.identifier"/>
+      </mapping>
+      <mapping>
         <identity value="v2"/>
-        <map value="TXA-16?"/>
+        <map value="TXA-12"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -143,7 +153,11 @@
       </mapping>
       <mapping>
         <identity value="xds"/>
-        <map value="DocumentEntry.entryUUID"/>
+        <map value="DocumentEntry.entryUUID, DocumentEntry.uniqueId"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="ClinicalDocument/id"/>
       </mapping>
     </element>
     <element id="DocumentReference.basedOn">
@@ -636,7 +650,7 @@
       </extension>
       <path value="DocumentReference.attester"/>
       <short value="Attests to accuracy of the document"/>
-      <definition value="A participant who has attested to the accuracy of the document."/>
+      <definition value="A participant who has authenticated the accuracy of the document."/>
       <comment value="Only list each attester once."/>
       <requirements value="Identifies responsibility for the accuracy of the document content."/>
       <min value="0"/>
@@ -673,15 +687,15 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DocumentAttestationMode"/>
         </extension>
-        <strength value="required"/>
+        <strength value="preferred"/>
         <description value="The way in which a person authenticated a document."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/document-attestation-mode"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/composition-attestation-mode"/>
       </binding>
       <mapping>
         <identity value="fhircomposition"/>
@@ -1056,47 +1070,6 @@
         <map value="derived from the IHE Profile or Implementation Guide templateID"/>
       </mapping>
     </element>
-    <element id="DocumentReference.content.identifier">
-      <path value="DocumentReference.content.identifier"/>
-      <short value="Identifier of the attachment binary"/>
-      <definition value="Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document."/>
-      <comment value="CDA Document Id extension and root."/>
-      <requirements value="The structure and format of this Id shall be consistent with the specification corresponding to the formatCode attribute. (e.g. for a DICOM standard document a 64-character numeric UID, for an HL7 CDA format a serialization of the CDA Document Id extension and root in the form &quot;oid^extension&quot;, where OID is a 64 digits max, and the Id is a 16 UTF-8 char max. If the OID is coded without the extension then the &#39;^&#39; character shall not be included.)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="fhircomposition"/>
-        <map value="Composition.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="TXA-12"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".id"/>
-      </mapping>
-      <mapping>
-        <identity value="xds"/>
-        <map value="DocumentEntry.uniqueId"/>
-      </mapping>
-      <mapping>
-        <identity value="cda"/>
-        <map value="ClinicalDocument/id"/>
-      </mapping>
-    </element>
     <element id="DocumentReference.sourcePatientInfo">
       <path value="DocumentReference.sourcePatientInfo"/>
       <short value="Patient demographics from source"/>
@@ -1122,34 +1095,6 @@
       <mapping>
         <identity value="cda"/>
         <map value="ClinicalDocument/recordTarget/"/>
-      </mapping>
-    </element>
-    <element id="DocumentReference.related">
-      <path value="DocumentReference.related"/>
-      <short value="Related identifiers or resources"/>
-      <definition value="Related identifiers or resources associated with the DocumentReference."/>
-      <comment value="May be identifiers or resources that caused the DocumentReference or referenced Document to be created."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-      <mapping>
-        <identity value="fhircomposition"/>
-        <map value="Composition.event.detail"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./outboundRelationship[typeCode=&quot;PERT&quot; and isNormalActRelationship()] / target[isNormalAct]"/>
-      </mapping>
-      <mapping>
-        <identity value="xds"/>
-        <map value="DocumentEntry.referenceIdList"/>
-      </mapping>
-      <mapping>
-        <identity value="cda"/>
-        <map value="ClinicalDocument/relatedDocument"/>
       </mapping>
     </element>
   </differential>
