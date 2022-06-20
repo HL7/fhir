@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="international-civil-aviation-organization"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/international-civil-aviation-organization"/>
+  <name value="InternationalCivilAviationOrganization"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="The complete set of concepts used for exchange of the 'sex' value as represented in international travel documents as defined by Doc 9303: Machine Readable Travel Documents, Part 7: Machine Readable Visas published by the International Civil Aviation Organization (ICAO). Initially aligned with the Eighth Edition (2021). "/>
+  <copyright value="ICAO 2021"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/international-civil-aviation-organization"/>
+    </include>
+  </compose>
+</ValueSet>
