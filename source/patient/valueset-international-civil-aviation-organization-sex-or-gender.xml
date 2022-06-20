@@ -8,8 +8,8 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/international-civil-aviation-organization"/>
-  <name value="InternationalCivilAviationOrganization"/>
+  <url value="http://hl7.org/fhir/ValueSet/international-civil-aviation-organization-sex-or-gender"/>
+  <name value="International Civil Aviation Organization Sex Or Gender"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -22,7 +22,7 @@
   <copyright value="ICAO 2021"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/international-civil-aviation-organization"/>
+      <system value="http://hl7.org/fhir/international-civil-aviation-organization-sex-or-gender"/>
     </include>
   </compose>
 </ValueSet>
