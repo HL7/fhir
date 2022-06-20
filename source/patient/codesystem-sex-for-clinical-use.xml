@@ -47,8 +47,7 @@
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="The sex for clinical use cannot be determined because there are no relevant evidence or documentation, or the
-evidence or documentation are not sufficient to determine a value."/>
+    <definition value="No information can be provided."/>
 	<property>   
       <code value="usage-note"/> 
       <valueString value="Systems that are unable to review additional information that may be associated with an SFCU value may manage a SPECIFIED and an UNKNOWN value in the same way."/> 
