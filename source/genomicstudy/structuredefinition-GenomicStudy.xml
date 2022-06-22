@@ -362,6 +362,16 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
+    <element id="GenomicStudy.analysis.changeType">
+      <path value="GenomicStudy.analysis.changeType"/>
+      <short value="Type of the genomic changes studied in the analysis"/>
+      <definition value="Type of the genomic changes studied in the analysis such as insertion, inversion, or deletion."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
     <element id="GenomicStudy.analysis.genomeBuild"> <!-- Genome build -->
     <path value="GenomicStudy.analysis.genomeBuild"/>
     <short value="Genome build that is used in this analysis"/>

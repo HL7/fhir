@@ -12525,6 +12525,10 @@
     <display value="Fetus specimen (specimen)"/>
     <display value="Foetus specimen"/>
   </concept>
+  <concept id="309529002" display="Lung mass">
+    <display value="Lung mass"/>
+    <display value="Lung mass (finding)"/>
+  </concept>
   <concept id="309898008" display="Psychogeriatric day hospital">
     <display value="Psychogeriatric day hospital"/>
     <display value="Psychogeriatric day hospital (environment)"/>

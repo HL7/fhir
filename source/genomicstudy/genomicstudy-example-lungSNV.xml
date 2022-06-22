@@ -55,7 +55,7 @@
         <text value="For technical reasons, PIK3CB was deemed uncallable."/>
     </note>
     <description value="WES of a 300 gene panel is performed on the biopsy specimen, and analyzed for simple variants (SNV, MNV, InDel)."/><!-- 0..1 Description of the genomic study -->
-    <analysis>  <!-- 0..* Genomic Analysis Event -->
+    <analysis>
         <identifier>
             <use value="official"/>
             <system value="http://www.somesystemabc.net/identifiers/genomicAnalyses"/>
@@ -67,7 +67,7 @@
                 <code value="SNV"/>
                 <display value="Single Nucleaotide Variation (SNV) detection"/>
             </coding>
-                        <coding>
+            <coding>
                 <system value="http://www.somesystemabc.net/identifiers/genomicstudyMethods"/>
                 <code value="MNV"/>
                 <display value="Multiple Nucleaotide Variation (MNV) detection"/>
@@ -85,8 +85,6 @@
                 <display value="GRCh38"/>
             </coding>
         </genomeBuild>
-        <instantiatesCanonical><!-- 0..1 canonical(PlanDefinition) The defined protocol that describes the analysis --></instantiatesCanonical>
-        <instantiatesUri value="[uri]"/><!-- 0..1 The URL pointing to an externally maintained protocol that describes the analysis -->
         <title value="Single Nucleaotide Variation (SNV) detection"/><!-- 0..1 Name of the analysis event (human friendly) -->
         <subject>
             <reference value="Patient/genomicPatient"/>
@@ -94,12 +92,10 @@
         <specimen>
             <reference value="Specimen/genomicSpecimen"/>
         </specimen>
-        <date value="2019-03-01T01:01:10-06:00"/>"/><!-- 0..1 The date of the analysis event -->
+        <date value="2019-03-01T01:01:10-06:00"/><!-- 0..1 The date of the analysis event -->
         <note>
             <text value="For technical reasons, PIK3CB was deemed uncallable using this method."/>
         </note>
-        <!-- <protocolPerformed></protocolPerformed> -->
-        <!-- <regionStudied></regionStudied> -->
         <regionsCalled>
             <reference value="DocumentReference/genomicBEDfile"/>
         </regionsCalled>
@@ -111,7 +107,7 @@
                 <coding>
                     <code value="vcf"/>
                     <display value="VCF"/>
-                 </coding>
+                </coding>
             </type>
             <!-- <generatedBy[x]></generatedBy[x]> -->
             <subject>
@@ -119,10 +115,6 @@
             </subject>
             <!-- <role></role> -->
         </input>
-<!--         <output>
-            <file></file>
-            <type></type>
-        </output> -->
         <performer>  <!-- 0..* Performer for the analysis event -->
             <actor>
                 <reference value="Practitioner/practitioner02"/>

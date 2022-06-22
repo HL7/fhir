@@ -9,7 +9,7 @@
       <valueString value="Trio study - De novo mutation"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="genomicstudy-Trio"/>
+      <valueString value="genomicstudy-example"/>
     </extension>
     <item>
       <reference value="GenomicStudy/example"/>
@@ -21,7 +21,7 @@
       <valueString value="Lung mass - simple variants"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="genomicstudy-Lung mass SNVs"/>
+      <valueString value="genomicstudy-example-lungSNV"/>
     </extension>
     <item>
       <reference value="GenomicStudy/example-lungSNV"/>
