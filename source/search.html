@@ -604,14 +604,15 @@ GET [base]/[type]?param1=value&amp;...{&amp;_format=[mime-type]}
 <a name="messaging"></a>
 <h4>Search via Messaging</h4>
 <p>
-  Servers MAY support FHIR <a href="messaging.html">Messaging</a>.  The mapping of seach requests into messages is described in more detail in the section <a href="messaging.html#search">Invoking Search via Messages</a>.
+  Servers MAY support FHIR <a href="messaging.html">Messaging</a>.  The mapping of seach requests into messages is described in more detail in 
+  the section <a href="messaging.html#search">Invoking Search via Messages</a>.
 </p>
 
 <a name="ptypes"></a>
 <h3>Search Parameters</h3>
 <p>
-  Search parameters are often transmitted in encoded strings (e.g., in URL-Encoded POST or GET HTTP parameters).  However,
-  FHIR is modeled with a rich set of primitives to cover the many data types encountered in healthcare.  To provide consistent
+  While search parameters are typically transmitted as URL-Encoded strings (e.g., HTTP Parameters or <code>x-www-form-urlencoded</code> body content),
+  FHIR is modeled with a rich set of primitive and complex data types to describe the data encountered in healthcare.  To provide consistent
   mapping between the two formats, each search parameter is defined by a type that specifies how the search parameter
   behaves.  These are the defined parameter types:
 </p>
