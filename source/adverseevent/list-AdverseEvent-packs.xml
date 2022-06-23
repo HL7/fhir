@@ -4,9 +4,4 @@
   <id value="AdverseEvent-packs"/>
   <status value="current"/>
   <mode value="working"/>
-  <entry>
-    <item>
-      <reference value="ImplementationGuide/AdverseEvent-uses"/>
-    </item>
-  </entry>
 </List>
