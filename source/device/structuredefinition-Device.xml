@@ -914,18 +914,19 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-operational-state-mode"/>
       </binding>
     </element>
-    <element id="Device.associationState">
-      <path value="Device.associationState"/>
-      <short value="Current state of the device"/>
+    <element id="Device.association">
+      <path value="Device.association"/>
+      <short value="Current association of the device"/>
       <definition value="The details about the device when it is affixed or inside of a patient."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
+       <isSummary value="true"/>
     </element>
-    <element id="Device.associationState.status">
-      <path value="Device.associationState.status"/>
+    <element id="Device.association.status">
+      <path value="Device.association.status"/>
       <short value="Device useage state"/>
       <definition value="The state of the usage or application of the device."/>
       <min value="1"/>
@@ -933,17 +934,18 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceAssociationState"/>
+          <valueString value="DeviceAssociationStatus"/>
         </extension>
         <strength value="example"/>
         <description value="Association status of a device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-associationstatus"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-association-status"/>
       </binding>      
     </element>
-    <element id="Device.associationState.statusReason">
-      <path value="Device.associationState.statusReason"/>
+    <element id="Device.association.statusReason">
+      <path value="Device.association.statusReason"/>
       <short value="The reasons given for the current association status"/>
       <definition value="The reasons given for the current association status - i.e. why is the device explanted, or attached to the patient, etc."/>
       <min value="0"/>
@@ -952,8 +954,8 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="Device.associationState.humanSubject">
-      <path value="Device.associationState.humanSubject"/>
+    <element id="Device.association.humanSubject">
+      <path value="Device.association.humanSubject"/>
       <short value="The individual associated with the device"/>
       <definition value="The individual to whom the device is affixed or inserted in their body."/>
       <min value="0"/>
@@ -962,6 +964,22 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
       </type>
+    </element>
+    <element id="Device.association.bodyStructure">
+      <path value="Device.association.bodyStructure"/>
+      <short value="Current anatomical location of device in/on humanSubject"/>
+      <definition value="The current anatomical location of the device in/on the humanSubject where it is attached or placed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.where[x]"/>
+      </mapping>
     </element>
     <element id="Device.owner">
       <path value="Device.owner"/>
