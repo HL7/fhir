@@ -238,14 +238,14 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ConceptMap2.group.unmapped.url"/>
+          <valueString value="ConceptMap2.group.unmapped.otherMap"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap2-other"/>
         <description value="canonical reference to an additional ConceptMap2 to use for mapping if the source concept is unmapped"/>
         <code value="other"/>
         <type value="reference"/>
-        <expression value="ConceptMap2.group.unmapped.url"/>
-        <xpath value="f:ConceptMap2/f:group/f:unmapped/f:url"/>
+        <expression value="ConceptMap2.group.unmapped.otherMap"/>
+        <xpath value="f:ConceptMap2/f:group/f:unmapped/f:otherMap"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

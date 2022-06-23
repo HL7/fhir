@@ -85,11 +85,12 @@
                 <comment value="In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there's no simple equivalent of flagging an address as old"/>
             </target>
         </element>
-        <!-- for all other codes, we map to 'temp'. This is a silly thing to do in reality, but it serves the purpose here -->
+        <!-- for all other codes, we map to 'temp' and specify that the relationaship between source code and 'temp' is 'related-to'. This is a silly thing to do in reality, but it serves the purpose here -->
         <unmapped>
             <mode value="fixed"/>
             <code value="temp"/>
             <display value="temp"/>
+            <relationship value="related-to"/>
         </unmapped>
     </group>
 </ConceptMap2>

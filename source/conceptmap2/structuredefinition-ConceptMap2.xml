@@ -773,9 +773,9 @@
       <constraint>
         <key value="cmd-3"/>
         <severity value="error"/>
-        <human value="If the mode is &#39;other-map&#39;, a url must be provided"/>
-        <expression value="(mode = &#39;other-map&#39;) implies url.exists()"/>
-        <xpath value="(f:mode/@value != &#39;other-map&#39;) or exists(f:url)"/>
+        <human value="If the mode is &#39;other-map&#39;, a url for the other map must be provided"/>
+        <expression value="(mode = &#39;other-map&#39;) implies otherMap.exists()"/>
+        <xpath value="(f:mode/@value != &#39;other-map&#39;) or exists(f:otherMap)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
       </constraint>
       <constraint>
@@ -792,6 +792,22 @@
         <human value="If the mode is not &#39;fixed&#39;, code, display and valueSet are not allowed"/>
         <expression value="(mode != &#39;fixed&#39;) implies (code.empty() and display.empty() and valueSet.empty())"/>
         <xpath value="(f:mode/@value = &#39;fixed&#39;) or not(exists(f:code) or exists(f:display) or exists(f:valueSet))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
+      </constraint>
+      <constraint>
+        <key value="cmd-9"/>
+        <severity value="error"/>
+        <human value="If the mode is not &#39;other-map&#39;, relationship must be provided"/>
+        <expression value="(mode != &#39;other-map&#39;) implies relationship.exists()"/>
+        <xpath value="(f:mode/@value = &#39;other-map&#39;) or exists(f:relationship)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
+      </constraint>
+      <constraint>
+        <key value="cmd-10"/>
+        <severity value="error"/>
+        <human value="If the mode is not &#39;other-map&#39;, otherMap is not allowed"/>
+        <expression value="(mode != &#39;other-map&#39;) implies otherMap.empty()"/>
+        <xpath value="(f:mode/@value = &#39;other-map&#39;) or not(exists(f:otherMap))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap2"/>
       </constraint>
     </element>
@@ -848,8 +864,32 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </type>
     </element>
-    <element id="ConceptMap2.group.unmapped.url">
-      <path value="ConceptMap2.group.unmapped.url"/>
+    <element id="ConceptMap2.group.unmapped.relationship">
+      <path value="ConceptMap2.group.unmapped.relationship"/>
+      <short value="related-to | equivalent | source-is-narrower-than-target | source-is-broader-than-target | not-related-to"/>
+      <definition value="The default relationship value to apply between the source and target concepts when the source code is unmapped and the mode is 'fixed' or 'use-source-code'."/>
+      <comment value="This element is labeled as a modifier because it may indicate that there is no mapping."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="The &#39;not-related-to&#39; relationship means that there is no mapping from the source to the target, and the mapping cannot be interpreted without knowing this value as it could mean the elements are equivalent, totally mismatched or anything in between"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="UnmappedConceptMapRelationship"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The default relationship value to apply between the source and target concepts when no concept mapping is specified."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/concept-map-relationship|4.6.0"/>
+      </binding>
+    </element>
+    <element id="ConceptMap2.group.unmapped.otherMap">
+      <path value="ConceptMap2.group.unmapped.otherMap"/>
       <short value="canonical reference to an additional ConceptMap2 to use for mapping if the source concept is unmapped"/>
       <definition value="The canonical reference to an additional ConceptMap2 resource instance to use for mapping if this ConceptMap2 resource contains no matching mapping for the source concept."/>
       <min value="0"/>
