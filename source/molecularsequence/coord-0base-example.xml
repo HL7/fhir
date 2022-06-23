@@ -12,31 +12,28 @@
             </coding>
         </coordinateSystem>
         <reference>
-            <referenceSeqString value="ACGTAGTC"/>
-            <strand value="watson"/>
+            <referenceSequenceString value="ACGTAGTC"/>
             <windowStart value="0"/>
             <windowEnd value="8"/>
+            <strand value="watson"/>
         </reference>
         <edit>
             <start value="2"/>
             <end value="2"/>
             <observedAllele value="ATG"/>
             <referenceAllele value="-"/>
-            <cigar value="3I"/>
         </edit>
         <edit>
             <start value="4"/>
             <end value="5"/>
             <observedAllele value="T"/>
             <referenceAllele value="A"/>
-            <cigar value="1M"/>
         </edit>
         <edit>
             <start value="6"/>
             <end value="7"/>
             <observedAllele value="-"/>
             <referenceAllele value="T"/>
-            <cigar value="1D"/>
         </edit> 
     </relative>
 </MolecularSequence>

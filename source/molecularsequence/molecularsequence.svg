@@ -334,10 +334,10 @@ chromosome-human</a>
        y="56.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="molecularsequence-definitions.html#MolecularSequence.referenceSeq.genomeBuild"
+   xlink:href="molecularsequence-definitions.html#MolecularSequence.referenceSeq.referenceSequenceAssembly"
    id="n1005"><title
    id="title92">The Genome Build used for reference, following GRCh build versions e.g. 'GRCh 37'.  Version number must be included if a versioned release of a primary build was used</title>
-genomeBuild</a>
+referenceSequenceAssembly</a>
  : <a
    xlink:href="datatypes.html#string"
    id="n1006">string</a>

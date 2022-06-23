@@ -427,19 +427,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Device-biological-source"/>
+        <id value="Device-biological-source-event"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Device.biologicalSource"/>
+          <valueString value="Device.biologicalSourceEvent"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Device-biological-source"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-biological-source-event"/>
         <description value="The biological source for the device"/>
-        <code value="biological-source"/>
+        <code value="biological-source-event"/>
         <type value="token"/>
-        <expression value="Device.biologicalSource"/>
-        <xpath value="f:Device/f:biologicalSource"/>
+        <expression value="Device.biologicalSourceEvent"/>
+        <xpath value="f:Device/f:biologicalSourceEvent"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

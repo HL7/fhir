@@ -350,14 +350,14 @@
         <map value="FiveWs.status"/>
       </mapping>
     </element>
-    <element id="Device.biologicalSource">
+    <element id="Device.biologicalSourceEvent">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
-      <path value="Device.biologicalSource"/>
-      <short value="An identifier that supports traceability to the biological entity that is the source of biological material in the product"/>
-      <definition value="An identifier that supports traceability to the biological entity that is the source of biological material in the product."/>
-      <comment value="Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa.  The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device. For example, this applies to devices in the United States regulated under *Code of Federal Regulation 21CFR&#xA7;1271.290(c)*."/>
+      <path value="Device.biologicalSourceEvent"/>
+      <short value="An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled"/>
+      <definition value="An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled."/>
+      <comment value="Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa, while also satisfying donor anonymity requirements. The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device.  The identifier references an event that links to a single biological entity such as a blood donor, or to multiple biological entities (e.g. when the product is an embryo or a pooled platelet product).  A single biologicalSourceEvent identifier may appear on multiple products of many types derived from a single donation event or source extraction.  As an example, a single donation event may provide 2 kidneys and a liver for organ transplantation, 2 corneas for eye surgery, heart valves and arterial tissue for cardiovascular surgery, multiple skin grafts, tendons, multiple shaped bone grafts and a large number of bone putty/paste products; and each of them may be assigned to the same biological source event identifier."/>
       <alias value="Distinct Identification Code (DIC)"/>
       <min value="0"/>
       <max value="1"/>
@@ -760,7 +760,7 @@
       <short value="Property value - as a code, quantity, boolean, string or attachmment"/>
       <definition value="Property value - can be a code, quantity, boolean, string or attachment."/>
       <comment value="The string is used for properties that are intrinsically text, such as warning text, or assemlby instructions. CodeableConcept.text also supports unencoded text but should be used where the characteristic is a concept that might be coded but there is no assigned code for the present value. For example, a security class can be a code like 'Class 1' but in some cases may contain a string like 'Depending on the settings' - in this case the property is normally coded but this is an exception"/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Quantity"/>
@@ -914,18 +914,19 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-operational-state-mode"/>
       </binding>
     </element>
-    <element id="Device.associationState">
-      <path value="Device.associationState"/>
-      <short value="Current state of the device"/>
+    <element id="Device.association">
+      <path value="Device.association"/>
+      <short value="Current association of the device"/>
       <definition value="The details about the device when it is affixed or inside of a patient."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
+       <isSummary value="true"/>
     </element>
-    <element id="Device.associationState.status">
-      <path value="Device.associationState.status"/>
+    <element id="Device.association.status">
+      <path value="Device.association.status"/>
       <short value="Device useage state"/>
       <definition value="The state of the usage or application of the device."/>
       <min value="1"/>
@@ -933,17 +934,18 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceAssociationState"/>
+          <valueString value="DeviceAssociationStatus"/>
         </extension>
         <strength value="example"/>
         <description value="Association status of a device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-associationstate"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-association-status"/>
       </binding>      
     </element>
-    <element id="Device.associationState.statusReason">
-      <path value="Device.associationState.statusReason"/>
+    <element id="Device.association.statusReason">
+      <path value="Device.association.statusReason"/>
       <short value="The reasons given for the current association status"/>
       <definition value="The reasons given for the current association status - i.e. why is the device explanted, or attached to the patient, etc."/>
       <min value="0"/>
@@ -952,8 +954,8 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="Device.associationState.humanSubject">
-      <path value="Device.associationState.humanSubject"/>
+    <element id="Device.association.humanSubject">
+      <path value="Device.association.humanSubject"/>
       <short value="The individual associated with the device"/>
       <definition value="The individual to whom the device is affixed or inserted in their body."/>
       <min value="0"/>
@@ -962,6 +964,22 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
       </type>
+    </element>
+    <element id="Device.association.bodyStructure">
+      <path value="Device.association.bodyStructure"/>
+      <short value="Current anatomical location of device in/on humanSubject"/>
+      <definition value="The current anatomical location of the device in/on the humanSubject where it is attached or placed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.where[x]"/>
+      </mapping>
     </element>
     <element id="Device.owner">
       <path value="Device.owner"/>

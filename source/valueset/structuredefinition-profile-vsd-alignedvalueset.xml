@@ -336,28 +336,6 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/valueset-systemTitle" />
       </type>
     </element>
-    <element id="ValueSet.compose.include.extension:valueset-compose-include-minimumMultiplicity">
-      <path value="ValueSet.compose.include.extension" />
-      <sliceName value="valueset-compose-include-minimumMultiplicity" />
-	  <definition value="Minimum number of concept representations to return for each concept in the Value Set Expansion." />
-      <comment value="In VSD, this identifies the minimum Concept Representations to be populated in the Value Set Expansion when multiple Concept Representations are available. Example: 2-character and 3-character representations for one concept in a single Code System. Without constriant, all representations will be returned.  The parameter name is defined by the CodeSystem." />
-		  <type>
-	        <code value="Extension" />
-	        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-compose-include-minimumMultiplicity" />
-	      </type>
-	  <mustSupport value="true"/>
-    </element>
-    <element id="ValueSet.compose.include.extension:valueset-compose-include-maximumMultiplicity">
-      <path value="ValueSet.compose.include.extension" />
-      <sliceName value="valueset-compose-include-maximumMultiplicity" />
-	  <definition value="Maximum number of concept representations to return for each concept in the Value Set Expansion." />
-      <comment value="In VSD, this identifies constraints on the Concept Representations to be populated in the Value Set Expansion when multiple Concept Representations are available. Example: 2-character and 3-character representations for one concept in a single Code System. Without definition, zero representations may be returned.  The parameter name is defined by the CodeSystem." />
-		  <type>
-	        <code value="Extension" />
-	        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-compose-include-maximumMultiplicity" />
-	      </type>
-	  <mustSupport value="true"/>
-    </element>
     <element id="ValueSet.compose.include.system">
       <path value="ValueSet.compose.include.system" />
       <comment value="Fragments cannot contain any codes, concepts or properties that would not be found in a complete representation of the code system. Implementers should note that a &quot;complete representation&quot; of the code system might not exist in a single authoritative publication (e.g., SNOMED International with all modules/extensions)" />
