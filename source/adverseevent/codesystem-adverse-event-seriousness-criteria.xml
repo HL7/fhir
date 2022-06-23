@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="adverse-event-seriousness-criteria"/>
+  <meta>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>This code system http://hl7.org/fhir/CodeSystem/seriousness-criteria defines the following codes:</p>
+      <table class="codes">
+        <tr>
+          <td style="white-space:nowrap">
+            <b>Code</b>
+          </td>
+          <td>
+            <b>Display</b>
+          </td>
+          <td>
+            <b>Definition</b>
+          </td>
+        </tr>
+        <tr>
+          <td style="white-space:nowrap">resultsInDeath
+            <a name="seriousness-criteria-cs-resultsInDeath"> </a>
+          </td>
+          <td>Resulted in Death</td>
+          <td>Adverse event resulted in death</td>
+        </tr>
+        <tr>
+          <td style="white-space:nowrap">lifeThreatening
+            <a name="seriousness-criteria-cs-lifeThreatening"> </a>
+          </td>
+          <td>Life Threatening</td>
+          <td>Life Threatening</td>
+        </tr>
+        <tr>
+          <td style="white-space:nowrap">resultsinHospitalization
+            <a name="seriousness-criteria-cs-resultsinHospitalization"> </a>
+          </td>
+          <td>Resulted in Hospitalization</td>
+          <td>Resulted in Hospitalization</td>
+        </tr>
+        <tr>
+          <td style="white-space:nowrap">resultsInDisabliity
+            <a name="seriousness-criteria-cs-resultsInDisabliity"> </a>
+          </td>
+          <td>Resulted in Disability</td>
+          <td>Resulted in Disability</td>
+        </tr>
+        <tr>
+          <td style="white-space:nowrap">isBirthDefect
+            <a name="seriousness-criteria-cs-isBirthDefect"> </a>
+          </td>
+          <td>Resulted in Birth defect</td>
+          <td>Resulted in Birth Defect</td>
+        </tr>
+        <tr>
+          <td style="white-space:nowrap">requiresPreventImpairment
+            <a name="seriousness-criteria-cs-requiresPreventImpairment"> </a>
+          </td>
+          <td>Required Intervention</td>
+          <td>Required Intervention to Prevent Permanent Impairment or Damage</td>
+        </tr>
+      </table>
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/adverse-event-seriousness-criteria"/>
+
+  <version value="4.6.0"/>
+  <name value="SeriousnessCriteriaCS"/>
+  <title value="Seriousness Criteria Code System"/>
+  <status value="active"/>
+  <date value="2022-06-14T10:06:34-06:00"/>
+  <publisher value="Vulcan Accelerator"/>
+  <contact>
+    <name value="Vulcan Accelerator"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir/example-publisher"/>
+    </telecom>
+  </contact>
+  <description value="Action criteria usually associated with serious events that pose a threat to a patient&#39;s life or functioning"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/seriousness-criteria"/>
+  <content value="complete"/>
+  <concept>
+    <code value="resultsInDeath"/>
+    <display value="Resulted in Death"/>
+    <definition value="Adverse event resulted in death"/>
+  </concept>
+  <concept>
+    <code value="lifeThreatening"/>
+    <display value="Life Threatening"/>
+    <definition value="Life Threatening"/>
+  </concept>
+  <concept>
+    <code value="resultsinHospitalization"/>
+    <display value="Resulted in Hospitalization"/>
+    <definition value="Resulted in Hospitalization"/>
+  </concept>
+  <concept>
+    <code value="resultsInDisabliity"/>
+    <display value="Resulted in Disability"/>
+    <definition value="Resulted in Disability"/>
+  </concept>
+  <concept>
+    <code value="isBirthDefect"/>
+    <display value="Resulted in Birth defect"/>
+    <definition value="Resulted in Birth Defect"/>
+  </concept>
+  <concept>
+    <code value="requiresPreventImpairment"/>
+    <display value="Required Intervention"/>
+    <definition value="Required Intervention to Prevent Permanent Impairment or Damage"/>
+  </concept>
+</CodeSystem>
