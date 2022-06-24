@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/ImplementationGuide.xsd">
+  <id value="AdverseEvent-core"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="PC"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/introduction">
+    <valueString value="adverseevent-uses-profile-introduction.xml"/>
+  </extension>
+  <version value="0.01"/>
+  <name value="AdverseEvent Profiles"/>
+  <title value="AdverseEvent Profiles for Clinical and Clinical Research Use"/>
+  <status value="draft"/>
+  <date value="2018-08-11T08:17:46.560"/>
+  <publisher value="Health Level Seven International (Patient Care Workgroup)"/>
+  <description value="Defines constraints and extensions on the Adverse Events Resource for use in Clinical Care and Clinical Research."/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/AdverseEvent-clinical-research"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/study-info-associated-with-AE"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/study-associated"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/seriousness"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/severity-or-grade"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>
