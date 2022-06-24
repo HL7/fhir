@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="international-civil-aviation-organization"/>
+  <id value="international-civil-aviation-organization-sex-or-gender"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
-  <url value="http://hl7.org/fhir/international-civil-aviation-organization"/>
-  <name value="International Civil Aviation Organization"/>
+  <url value="http://hl7.org/fhir/international-civil-aviation-organization-sex-or-gender"/>
+  <name value="International Civil Aviation Organization Sex or Gender"/>
   <status value="draft"/>
   <experimental value="true"/>
   <description value="The complete set of concepts used for exchange of the 'sex' value as represented in international travel documents as defined by Doc 9303: Machine Readable Travel Documents, Part 7: Machine Readable Visas published by the International Civil Aviation Organization (ICAO). Initially aligned with the Eighth Edition (2021)."/>
@@ -23,7 +23,7 @@
   <concept>
     <code value="M"/>
     <display value="Male"/>
-    <definition value="A value which corresponds to female ('M') has been recorded in some context.A value which corresponds to 'X' (any non-M or non-F value) has been recorded or the value is unspecified."/>
+    <definition value="A value which corresponds to female ('M') has been recorded in some context. A value which corresponds to 'X' (any non-M or non-F value) has been recorded or the value is unspecified."/>
   </concept>
   <concept>
     <code value="&lt;"/>
