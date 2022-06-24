@@ -77,7 +77,8 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://terminology.hl7.org/CodeSystem/adverse-event-seriousness"/>
+  <!--url value="http://terminology.hl7.org/CodeSystem/adverse-event-seriousness"/-->
+  <url value="http://hl7.org/fhir/CodeSystem/adverse-event-seriousness"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1253"/>
@@ -103,6 +104,11 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-seriousness"/>
   <content value="complete"/>
+  <concept>
+    <code value="brandnew"/>
+    <display value="brand-new"/>
+    <definition value="new code"/>
+  </concept>
   <concept>
     <code value="non-serious"/>
     <display value="Non-serious"/>
