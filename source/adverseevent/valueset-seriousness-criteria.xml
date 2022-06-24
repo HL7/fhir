@@ -51,7 +51,7 @@
     <include>
       <!--system value="http://terminology.hl7.org/CodeSystem/seriousness-criteria-cs"/-->
 	  <!--system value="http://hl7.org/fhir/CodeSystem/seriousness-criteria"/-->
-	  <!--system value="http://hl7.org/fhir/CodeSystem/adverse-event-seriousness-criteria"/-->
+	  <!--system value="http://hl7.org/fhir/adverseevent-seriousness-criteria"/-->
 	  <system value="http://terminology.hl7.org/CodeSystem/adverse-event-causality-assess"/>
 	  <!--system value="http://hl7.org/fhir/CodeSystem/adverse-event-causality-assess"/-->
     </include>
