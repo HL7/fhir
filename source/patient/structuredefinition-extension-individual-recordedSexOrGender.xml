@@ -119,7 +119,7 @@
 			<valueString value="recordedSexOrGender"/>
 		  </extension>
 		  <strength value="extensible"/>
-		  <valueSet value="http://hl7.org/fhir/ValueSet/international-civil-aviation-organization"/>
+		  <valueSet value="http://hl7.org/fhir/ValueSet/international-civil-aviation-organization-sex-or-gender"/>
 	  </binding>
     </element>	
 	<element id="Extension.extension:type">
