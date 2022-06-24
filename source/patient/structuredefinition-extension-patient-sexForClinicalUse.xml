@@ -100,7 +100,7 @@ In the context of ordering workflows, systems may use Ask at Order Entry (AOE) q
 		  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 			<valueString value="sexForClinicalUse"/>
 		  </extension>
-		  <strength value="example"/>
+		  <strength value="required"/>
 		  <valueSet value="http://hl7.org/fhir/ValueSet/sex-for-clinical-use"/>
 	  </binding>
     </element>
