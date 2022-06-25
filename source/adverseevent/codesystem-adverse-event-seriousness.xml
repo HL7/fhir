@@ -6,68 +6,6 @@
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/adverse-event-seriousness defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">non-serious
-            
-            <a name="adverse-event-seriousness-non-serious"> </a>
-          
-          </td>
-          
-          <td>Non-serious</td>
-          
-          <td>This event is considered not to have the potential for persistent or costly injury or consequence.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">serious
-            
-            <a name="adverse-event-seriousness-serious"> </a>
-          
-          </td>
-          
-          <td>Serious</td>
-          
-          <td>This event is considered to have the potential for persistent or costly injury or consequence.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
   </extension>
@@ -77,8 +15,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <!--url value="http://terminology.hl7.org/CodeSystem/adverse-event-seriousness"/-->
-  <url value="http://hl7.org/fhir/CodeSystem/adverse-event-seriousness"/>
+  <url value="http://terminology.hl7.org/CodeSystem/adverse-event-seriousness"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1253"/>
@@ -104,11 +41,6 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-seriousness"/>
   <content value="complete"/>
-  <concept>
-    <code value="brandnew"/>
-    <display value="brand-new"/>
-    <definition value="new code"/>
-  </concept>
   <concept>
     <code value="non-serious"/>
     <display value="Non-serious"/>
