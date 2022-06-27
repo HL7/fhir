@@ -24,24 +24,9 @@
         <reference value="StructureDefinition/AdverseEvent-clinical-research"/>
       </reference>
     </resource>
-    <resource>
+	<resource>
       <reference>
-        <reference value="StructureDefinition/study-info-associated-with-AE"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/study-associated"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/seriousness"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/severity-or-grade"/>
+        <reference value="StructureDefinition/AdverseEvent-clinical-use"/>
       </reference>
     </resource>
   </definition>

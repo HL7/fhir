@@ -3,21 +3,54 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="adverse-event-severity"/>
   <meta>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <url value="http://hl7.org/fhir/adverse-event-severity"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/adverse-event-severity"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.845"/>
+  </identifier>
   <version value="4.6.0"/>
-  <name value="AdverseEventSeverity"/>
+  <name value="AdverseEventSeverityCS"/>
+  <title value="AdverseEventSeverity CodeSystem"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2022-06-14T10:06:34-06:00"/>
+  <publisher value="Vulcan Accelerator"/>
+  <contact>
+    <name value="Vulcan Accelerator"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir/example-publisher"/>
+    </telecom>
+  </contact>
+  <description value="Adverse Event Severity"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-severity"/>
+  <content value="complete"/>
   <concept>
     <code value="mild"/>
     <display value="Mild"/>
+	<definition value="A type of adverse event that is usually transient and may require only minimal treatment or therapeutic intervention. The event does not generally interfere with usual activities of daily living."/>
   </concept>
   <concept>
     <code value="moderate"/>
     <display value="Moderate"/>
+	<definition value="A type of adverse event that is usually alleviated with additional specific therapeutic intervention. The event interferes with usual activities of daily living, causing discomfort but poses no significant or permanent risk of harm to the research participant."/>
   </concept>
   <concept>
     <code value="severe"/>
     <display value="Severe"/>
+	<definition value="A type of adverse event that interrupts usual activities of daily living, or significantly affects clinical status, or may require intensive therapeutic intervention."/>
   </concept>
 </CodeSystem>

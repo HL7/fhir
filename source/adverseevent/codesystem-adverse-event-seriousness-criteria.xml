@@ -34,7 +34,17 @@
       <value value="http://hl7.org/fhir/example-publisher"/>
     </telecom>
   </contact>
-  <description value="Action criteria usually associated with serious events that pose a threat to a patient&#39;s life or functioning"/>
+  <description value="Adverse Events criteria to expand on the seriousness of the adverse event. Typically used in reporting for Clinical Research, post-market surveillance (e.g. Medwatch forms). This list comes from ICH E2B R3 (https://database.ich.org/sites/default/files/E2D_Guideline.pdf
+	). 
+	
+	Include these codes as defined in urn:oid:2.16.840.1.113883.3.989.2.1.1.19
+	Code	Display
+	34	resultsInDeath
+	21	isLifeThreatening
+	33	requiresInpatientHospitalization
+	35	resultsInPersistentOrSignificantDisability
+	12	congenitalAnomalyBirthDefect
+	26	otherMedicallyImportantCondition"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/seriousness-criteria"/>
   <content value="complete"/>

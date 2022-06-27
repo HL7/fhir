@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="adverse-event-outcome"/>
+  <meta>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/adverse-event-outcome"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="AdverseEventOutcomeCS"/>
+  <title value="AdverseEventOutcome CodeSystem"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2022-06-14T10:06:34-06:00"/>
+  <publisher value="Vulcan Accelerator"/>
+  <contact>
+    <name value="Vulcan Accelerator"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir/example-publisher"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes codes that describe the type of outcome from the adverse event as used in Clinical Research Adverse Event Reporting. Based on terms from https://ich.org/page/e2br3-individual-case-safety-report-icsr-specification-and-related-files. With consult of BRIDG AE outcome result terms and CDISC SDTM AE outcome terms."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-outcome-res"/>
+  <content value="complete"/>
+  <concept>
+    <code value="recovered-resolved"/>
+    <display value="recovered/resolved"/>
+    <definition value="The subject has recovered and problems associated with the adverse event are resolved."/>
+  </concept>
+  <concept>
+    <code value="recovering-resolving"/>
+    <display value="recovering/resolving"/>
+    <definition value="The subject is recovering and issues related to the adverse event are resolving."/>
+  </concept>
+  <concept>
+    <code value="not-recovered-not-resolved-ongoing"/>
+    <display value="not recovered/not resolved/ongoing"/>
+    <definition value="Subject has not recovered and issues are ongoing"/>
+  </concept>
+  <concept>
+    <code value="recovered-resolved-with-sequelae"/>
+    <display value="recovered/resolved with sequelae"/>
+    <definition value="The subject recovered but resolved with sequelae."/>
+  </concept>
+  <concept>
+    <code value="fatal"/>
+    <display value="fatal"/>
+    <definition value="Fatal"/>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="unknown"/>
+    <definition value="The outcome is not known."/>
+  </concept>
+</CodeSystem>

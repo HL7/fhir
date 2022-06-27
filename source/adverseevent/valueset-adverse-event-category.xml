@@ -53,7 +53,8 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/adverse-event-category"/>
+      <!--system value="http://terminology.hl7.org/CodeSystem/adverse-event-category"/-->
+	  <system value="http://hl7.org/fhir/CodeSystem/adverse-event-category"/>
     </include>
   </compose>
 </ValueSet>

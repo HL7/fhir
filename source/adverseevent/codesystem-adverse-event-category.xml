@@ -6,138 +6,6 @@
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/adverse-event-category defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">wrong-patient
-            
-            <a name="adverse-event-category-wrong-patient"> </a>
-          
-          </td>
-          
-          <td>Wrong Patient</td>
-          
-          <td>The adverse event pertains to an event involving the wrong patient, who was not the intended subject.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">procedure-mishap
-            
-            <a name="adverse-event-category-procedure-mishap"> </a>
-          
-          </td>
-          
-          <td>Procedure Mishap</td>
-          
-          <td>The adverse event pertains to a procedure mishap.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">medication-mishap
-            
-            <a name="adverse-event-category-medication-mishap"> </a>
-          
-          </td>
-          
-          <td>Medication Mishap</td>
-          
-          <td>The adverse event pertains to a medication mishap, such as wrong dose, route, rate, or duration of administration.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">device
-            
-            <a name="adverse-event-category-device"> </a>
-          
-          </td>
-          
-          <td>Device</td>
-          
-          <td>The adverse event pertains to a device.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">unsafe-physical-environment
-            
-            <a name="adverse-event-category-unsafe-physical-environment"> </a>
-          
-          </td>
-          
-          <td>Unsafe Physical Environment</td>
-          
-          <td>The adverse event pertains to an unsafe physical environment.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">hospital-aquired-infection
-            
-            <a name="adverse-event-category-hospital-aquired-infection"> </a>
-          
-          </td>
-          
-          <td>Hospital Acquired Infection</td>
-          
-          <td>The adverse event pertains to a hospital acquired infection.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">wrong-body-site
-            
-            <a name="adverse-event-category-wrong-body-site"> </a>
-          
-          </td>
-          
-          <td>Wrong Body Site</td>
-          
-          <td>The adverse event pertains to the wrong body site.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
   </extension>
@@ -147,7 +15,8 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://terminology.hl7.org/CodeSystem/adverse-event-category"/>
+  <!--url value="http://terminology.hl7.org/CodeSystem/adverse-event-category"/-->
+  <url value="http://hl7.org/fhir/CodeSystem/adverse-event-category"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1251"/>
@@ -174,38 +43,53 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-category"/>
   <content value="complete"/>
   <concept>
-    <code value="wrong-patient"/>
-    <display value="Wrong Patient"/>
-    <definition value="The adverse event pertains to an event involving the wrong patient, who was not the intended subject."/>
+      <code value="descriptors"/>
+	  <display value="Descriptors of event"/>
+	  <definition value="Highlevel catagory of the event."/>
+	  <concept>
+		<code value="wrong-patient"/>
+		<display value="Wrong Patient"/>
+		<definition value="The adverse event pertains to an event involving the wrong patient, who was not the intended subject."/>
+	  </concept>
+	  <concept>
+		<code value="procedure-mishap"/>
+		<display value="Procedure Mishap"/>
+		<definition value="The adverse event pertains to a procedure mishap."/>
+	  </concept>
+	  <concept>
+		<code value="medication-mishap"/>
+		<display value="Medication Mishap"/>
+		<definition value="The adverse event pertains to a medication mishap, such as wrong dose, route, rate, or duration of administration."/>
+	  </concept>
+	  <concept>
+		<code value="device"/>
+		<display value="Device"/>
+		<definition value="The adverse event pertains to a device."/>
+	  </concept>
+	  <concept>
+		<code value="unsafe-physical-environment"/>
+		<display value="Unsafe Physical Environment"/>
+		<definition value="The adverse event pertains to an unsafe physical environment."/>
+	  </concept>
+	  <concept>
+		<code value="hospital-aquired-infection"/>
+		<display value="Hospital Acquired Infection"/>
+		<definition value="The adverse event pertains to a hospital acquired infection."/>
+	  </concept>
+	  <concept>
+		<code value="wrong-body-site"/>
+		<display value="Wrong Body Site"/>
+		<definition value="The adverse event pertains to the wrong body site."/>
+	  </concept>
   </concept>
   <concept>
-    <code value="procedure-mishap"/>
-    <display value="Procedure Mishap"/>
-    <definition value="The adverse event pertains to a procedure mishap."/>
-  </concept>
-  <concept>
-    <code value="medication-mishap"/>
-    <display value="Medication Mishap"/>
-    <definition value="The adverse event pertains to a medication mishap, such as wrong dose, route, rate, or duration of administration."/>
-  </concept>
-  <concept>
-    <code value="device"/>
-    <display value="Device"/>
-    <definition value="The adverse event pertains to a device."/>
-  </concept>
-  <concept>
-    <code value="unsafe-physical-environment"/>
-    <display value="Unsafe Physical Environment"/>
-    <definition value="The adverse event pertains to an unsafe physical environment."/>
-  </concept>
-  <concept>
-    <code value="hospital-aquired-infection"/>
-    <display value="Hospital Acquired Infection"/>
-    <definition value="The adverse event pertains to a hospital acquired infection."/>
-  </concept>
-  <concept>
-    <code value="wrong-body-site"/>
-    <display value="Wrong Body Site"/>
-    <definition value="The adverse event pertains to the wrong body site."/>
+      <code value="clinical-research-reporting-code"/>
+	  <display value="Clinical Research Reporting Code"/>
+	  <definition value="Indicates clinical research reporting adverse event, as determination of an adverse event differs from typical clinical use."/>
+	  <concept>
+		<code value="clinical-research-reporting"/>
+		<display value="Clinical Research Reporting"/>
+		<definition value="The adverse event is being reported as part of reporting in Clinical Research."/>
+	  </concept>
   </concept>
 </CodeSystem>

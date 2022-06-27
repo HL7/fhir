@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="AdverseEvent-clinical-use"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Summary"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/AdverseEvent-clinical-use"/>
+  <version value="0.1.0"/>
+  <name value="AdverseEventClinicalUse"/>
+  <title value="Adverse Event Clinical Use"/>
+  <status value="active"/>
+  <date value="2022-06-14T10:06:34-06:00"/>
+  <publisher value="Vulcan Accelerator"/>
+  <contact>
+    <name value="Vulcan Accelerator"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://example.org/example-publisher"/>
+    </telecom>
+  </contact>
+  <description value="A profile of AdverseEvent for Clinical use."/>
+  <fhirVersion value="5.0.0-snapshot1"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="AdverseEvent"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/AdverseEvent"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="AdverseEvent">
+      <path value="AdverseEvent"/>
+    </element>
+    <element id="AdverseEvent.extension">
+      <path value="AdverseEvent.extension"/>
+      <slicing>
+        <discriminator>
+          <type value="value"/>
+          <path value="url"/>
+        </discriminator>
+        <ordered value="false"/>
+        <rules value="open"/>
+      </slicing>
+    </element>
+    <element id="AdverseEvent.serious">
+      <path value="AdverseEvent.serious"/>
+      <max value="0"/>
+    </element>
+	<element id="AdverseEvent.seriousnesCriteria">
+      <path value="AdverseEvent.seriousnesCriteria"/>
+      <max value="0"/>
+    </element>
+	<element id="AdverseEvent.study">
+      <path value="AdverseEvent.study"/>
+      <max value="0"/>
+    </element>
+	<element id="AdverseEvent.clin-res-severity-or-grade">
+      <path value="AdverseEvent.clin-res-severity-or-grade"/>
+      <max value="0"/>
+    </element>
+  </differential>
+</StructureDefinition>
