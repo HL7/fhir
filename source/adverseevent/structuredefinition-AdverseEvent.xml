@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="AdverseEvent"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -170,7 +170,7 @@
         <valueString value="FHIR-25396."/>
       </extension>
       <path value="AdverseEvent.category"/>
-      <short value="wrong-patient | procedure-mishap | medication-mishap | device | unsafe-physical-environment | hospital-aquired-infection | wrong-body-site"/>
+      <short value="wrong-patient | procedure-mishap | medication-mishap | device | unsafe-physical-environment | hospital-aquired-infection | wrong-body-site | clinical-research-reporting"/>
       <definition value="The overall type of event, intended for search and filtering purposes."/>
       <min value="0"/>
       <max value="*"/>
@@ -392,6 +392,70 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-seriousness"/>
       </binding>
     </element>
+
+    <element id="AdverseEvent.serious">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Need to add JIRA NUMBER."/>
+      </extension>
+      <path value="AdverseEvent.serious"/>
+      <short value="Was the adverse event serious or not."/>
+      <definition value="Assessment whether this event, or averted event, was of serious importance. Clinical incident reporting and Clincial Research reporting may use distinct criteria."/>
+      <comment value="Using an example, a rash can have an AdverseEvent.resultingCondition.severity = severe, yet an AdverseEvent.serious = false.  Alternatively, a medication given with the wrong dose (chemotherapy given with too low of a dose) can have an AdverseEvent.resultingCondition.severity = mild, yet a AdverseEvent.serious = true.  Another example would be a beta blocker clinical trial where patients with asthma should be excluded, yet a patient with asthma was included and had an asthmatic episode where  AdverseEvent.resultingCondition.severity = mild, yet a AdverseEvent.serious = true, in the context of the clincial research trial."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+	  <isSummary value="true"/>
+    </element>
+	<element id="AdverseEvent.seriousnesCriteria">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Need to add JIRA NUMBER."/>
+      </extension>
+      <path value="AdverseEvent.seriousnesCriteria"/>
+      <short value="Action criteria usually associated with events that pose a threat to a patient's life or functioning."/>
+      <definition value="Clinical incident reporting and Clincial Research reporting may use distinct criteria."/>
+      <comment value="Using an example, a rash can have an AdverseEvent.resultingCondition.severity = severe, yet an AdverseEvent.serious = false.  Alternatively, a medication given with the wrong dose (chemotherapy given with too low of a dose) can have an AdverseEvent.resultingCondition.severity = mild, yet a AdverseEvent.serious = true.  Another example would be a beta blocker clinical trial where patients with asthma should be excluded, yet a patient with asthma was included and had an asthmatic episode where  AdverseEvent.resultingCondition.severity = mild, yet a AdverseEvent.serious = true, in the context of the clincial research trial."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdverseEventSeriousnessCriteria"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Overall seriousness of this event for the patient."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-seriousness-criteria"/>
+      </binding>
+    </element>
+	
+	<element id="AdverseEvent.clin-res-severity-or-grade">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Need to add JIRA NUMBER."/>
+      </extension>
+      <path value="AdverseEvent.clin-res-severity-or-grade"/>
+      <short value="Severity or Grade"/>
+      <definition value="Not used in Clinical incident reporting.  Describes the severity of the adverse event, in relation to the subject not the resulting condition. In the context of clinical research, it is the investigator's assessment of severity. For cancer related trials, severity is represented as a grade. Severity or grade as used in the context of reporting adverse events in clinical trials, optionally used. An AdverseEvent.resultingCondition might have mild severity clinically, but a Research Investigator may determine that for the context of the clinical trial the adverseEvent.clin-res-severity-or-grade is severe."/>
+      <comment value="Clinical Research Trial Adverse Event Reporting specific"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdverseEventSeriousnessCriteria"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Overall severity of the Adverse Event itself, not resulting conditions."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-severity"/>
+      </binding>
+    </element>
+	
     <element id="AdverseEvent.outcome">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="J#27784."/>
@@ -511,7 +575,19 @@
         <map value=".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"/>
       </mapping>
     </element>
-	<element id="AdverseEvent.expectedInResearchStudy">
+	<element id="AdverseEvent.study">
+      <path value="AdverseEvent.study"/>
+      <short value="Research study that the subject is enrolled in, and to which the report is being directed."/>
+      <definition value="The research study that the subject is enrolled in, and to which the report is being directed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchStudy"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="AdverseEvent.expectedInResearchStudy">
       <path value="AdverseEvent.expectedInResearchStudy"/>
       <short value="Considered likely or probable or anticipated in the research study"/>
       <definition value="Considered likely or probable or anticipated in the research study.  Whether the reported event matches any of the outcomes for the patient that are considered by the study as known or likely."/>
@@ -521,6 +597,17 @@
         <code value="boolean"/>
       </type>
     </element>
+	<element id="AdverseEvent.causedStudyDiscontinuation">
+      <path value="AdverseEvent.causedStudyDiscontinuation"/>
+      <short value="Was the study discontinued by the Adverse Event"/>
+      <definition value="If a study is referenced, then this indicates if the study was discontinued due to the adverse event being reported. If no study is referenced, then true indicates that any/some study was discontinued due to the adverse event."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+	
     <element id="AdverseEvent.suspectEntity">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,0"/>
@@ -558,7 +645,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchStudy"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchStudy"/>
       </type>
       <isSummary value="true"/>
     </element>
@@ -670,6 +757,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
       </type>
       <type>
         <code value="CodeableConcept"/>
@@ -803,6 +892,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
       </type>
       <type>
         <code value="CodeableConcept"/>
@@ -816,18 +907,6 @@
         <description value="Codes describing the supporting information relevant to the event."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-supporting-info"/>
       </binding>
-    </element>
-    <element id="AdverseEvent.study">
-      <path value="AdverseEvent.study"/>
-      <short value="Research study that the subject is enrolled in"/>
-      <definition value="The research study that the subject is enrolled in."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchStudy"/>
-      </type>
-      <isSummary value="true"/>
     </element>
   </differential>
 </StructureDefinition>
