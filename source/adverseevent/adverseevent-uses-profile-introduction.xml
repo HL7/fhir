@@ -6,7 +6,7 @@
 		<a name="dstu"></a>
 		<p>Adverse event tracking in clinical settings and clinical research can differ. In the former case the event is tracked to meet business safety concerns and there is a strong interest in how the event was resolved. In the clinical research setting, the event is additionally tracked to be considered as a concern for the study procedure, either as a potential confounder or as a potential side-effect of the study treatment. The Vulcan accelerator project suggests two profiles for the use the Adverse Event Resource in Clinical use or Clinical Research use.</p>
 	</div>
-	<div>
+	<!--div>
 		<a name="bnc"></a>
 		<h2>Scope and Usage</h2>
 		<p>
@@ -14,7 +14,7 @@
 		</p>
 		<p>The following are example usage scenarios for this profile:</p>
 		<ul>
-			<li>Query for vital signs of a particular patient</li>
+			<li>To be done</li>
 		</ul>
 		<h5>Mandatory Data Elements and Terminology</h5>
 		<p>The following data-elements are mandatory (i.e. data SHALL be present). These are presented below in a simple human-readable explanation.  Profile-specific guidance and valid examples are provided as well. Note that many of the examples capture more than the minimum required. The links to the <a href="#content">
@@ -32,9 +32,9 @@
 				</ul>
 			</li>
 			<li>a patient</li>
-			<li>a time indicating when the measurement was taken</li>
+			<li>a final thing</li>
 
 		</ol>
-	</div>
+	</div-->
 	
 </div>

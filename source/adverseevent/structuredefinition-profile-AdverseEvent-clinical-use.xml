@@ -63,8 +63,8 @@
       <path value="AdverseEvent.serious"/>
       <max value="0"/>
     </element>
-	<element id="AdverseEvent.seriousnesCriteria">
-      <path value="AdverseEvent.seriousnesCriteria"/>
+	<element id="AdverseEvent.seriousnessCriteria">
+      <path value="AdverseEvent.seriousnessCriteria"/>
       <max value="0"/>
     </element>
 	<element id="AdverseEvent.study">
@@ -75,5 +75,13 @@
       <path value="AdverseEvent.clinResSeverityOrGrade"/>
       <max value="0"/>
     </element>
+	<element id="AdverseEvent.expectedInResearchStudy">
+      <path value="AdverseEvent.expectedInResearchStudy"/>
+      <max value="0"/>
+    </element>
+	<element id="AdverseEvent.causedStudyDiscontinuation">
+      <path value="AdverseEvent.causedStudyDiscontinuation"/>
+	  <max value="0"/>
+	</element>
   </differential>
 </StructureDefinition>

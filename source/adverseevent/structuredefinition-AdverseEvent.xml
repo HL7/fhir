@@ -408,11 +408,11 @@
       </type>
 	  <isSummary value="true"/>
     </element>
-	<element id="AdverseEvent.seriousnesCriteria">
+	<element id="AdverseEvent.seriousnessCriteria">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Need to add JIRA NUMBER."/>
       </extension>
-      <path value="AdverseEvent.seriousnesCriteria"/>
+      <path value="AdverseEvent.seriousnessCriteria"/>
       <short value="Action criteria usually associated with events that pose a threat to a patient's life or functioning"/>
       <definition value="Clinical incident reporting and Clincial Research reporting may use distinct criteria."/>
       <comment value="Using an example, a rash can have an AdverseEvent.resultingCondition.severity = severe, yet an AdverseEvent.serious = false.  Alternatively, a medication given with the wrong dose (chemotherapy given with too low of a dose) can have an AdverseEvent.resultingCondition.severity = mild, yet a AdverseEvent.serious = true.  Another example would be a beta blocker clinical trial where patients with asthma should be excluded, yet a patient with asthma was included and had an asthmatic episode where  AdverseEvent.resultingCondition.severity = mild, yet a AdverseEvent.serious = true, in the context of the clincial research trial."/>
@@ -599,8 +599,8 @@
     </element>
 	<element id="AdverseEvent.causedStudyDiscontinuation">
       <path value="AdverseEvent.causedStudyDiscontinuation"/>
-      <short value="Was the study discontinued by the Adverse Event"/>
-      <definition value="If a study is referenced, then this indicates if the study was discontinued due to the adverse event being reported. If no study is referenced, then true indicates that any/some study was discontinued due to the adverse event."/>
+      <short value="Subject discontinued study due to adverse event"/>
+      <definition value="Indicates if the subject discontinued syudy due to the adverse event being reported."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -758,7 +758,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
       </type>
       <type>
         <code value="CodeableConcept"/>
@@ -893,7 +893,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
       </type>
       <type>
         <code value="CodeableConcept"/>
@@ -907,6 +907,20 @@
         <description value="Codes describing the supporting information relevant to the event."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-supporting-info"/>
       </binding>
+    </element>
+	<element id="AdverseEvent.supportingInfo.note">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#20593."/>
+      </extension>
+      <path value="AdverseEvent.supportingInfo.note"/>
+      <short value="Comment"/>
+      <definition value="Comment relevant to the event, typically supporting information."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <isSummary value="true"/>
     </element>
   </differential>
 </StructureDefinition>

@@ -177,6 +177,7 @@
         <valueString value="J#27784."/>
       </extension>
       <path value="AdverseEvent.outcome"/>
+	  <min value="1"/>
       <short value="Type of outcome from the adverse event"/>
       <definition value="Describes the type of outcome from the adverse event, such as resolved, recovering, ongoing, resolved-with-sequelae, or fatal."/>
       <binding>
