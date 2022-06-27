@@ -398,7 +398,7 @@
         <valueString value="Need to add JIRA NUMBER."/>
       </extension>
       <path value="AdverseEvent.serious"/>
-      <short value="Was the adverse event serious or not."/>
+      <short value="Was the adverse event serious or not"/>
       <definition value="Assessment whether this event, or averted event, was of serious importance. Clinical incident reporting and Clincial Research reporting may use distinct criteria."/>
       <comment value="Using an example, a rash can have an AdverseEvent.resultingCondition.severity = severe, yet an AdverseEvent.serious = false.  Alternatively, a medication given with the wrong dose (chemotherapy given with too low of a dose) can have an AdverseEvent.resultingCondition.severity = mild, yet a AdverseEvent.serious = true.  Another example would be a beta blocker clinical trial where patients with asthma should be excluded, yet a patient with asthma was included and had an asthmatic episode where  AdverseEvent.resultingCondition.severity = mild, yet a AdverseEvent.serious = true, in the context of the clincial research trial."/>
       <min value="0"/>
@@ -413,7 +413,7 @@
         <valueString value="Need to add JIRA NUMBER."/>
       </extension>
       <path value="AdverseEvent.seriousnesCriteria"/>
-      <short value="Action criteria usually associated with events that pose a threat to a patient's life or functioning."/>
+      <short value="Action criteria usually associated with events that pose a threat to a patient's life or functioning"/>
       <definition value="Clinical incident reporting and Clincial Research reporting may use distinct criteria."/>
       <comment value="Using an example, a rash can have an AdverseEvent.resultingCondition.severity = severe, yet an AdverseEvent.serious = false.  Alternatively, a medication given with the wrong dose (chemotherapy given with too low of a dose) can have an AdverseEvent.resultingCondition.severity = mild, yet a AdverseEvent.serious = true.  Another example would be a beta blocker clinical trial where patients with asthma should be excluded, yet a patient with asthma was included and had an asthmatic episode where  AdverseEvent.resultingCondition.severity = mild, yet a AdverseEvent.serious = true, in the context of the clincial research trial."/>
       <min value="0"/>
@@ -432,13 +432,13 @@
       </binding>
     </element>
 	
-	<element id="AdverseEvent.clin-res-severity-or-grade">
+	<element id="AdverseEvent.clinResSeverityOrGrade">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Need to add JIRA NUMBER."/>
       </extension>
-      <path value="AdverseEvent.clin-res-severity-or-grade"/>
+      <path value="AdverseEvent.clinResSeverityOrGrade"/>
       <short value="Severity or Grade"/>
-      <definition value="Not used in Clinical incident reporting.  Describes the severity of the adverse event, in relation to the subject not the resulting condition. In the context of clinical research, it is the investigator's assessment of severity. For cancer related trials, severity is represented as a grade. Severity or grade as used in the context of reporting adverse events in clinical trials, optionally used. An AdverseEvent.resultingCondition might have mild severity clinically, but a Research Investigator may determine that for the context of the clinical trial the adverseEvent.clin-res-severity-or-grade is severe."/>
+      <definition value="Not used in Clinical incident reporting.  Describes the severity of the adverse event, in relation to the subject not the resulting condition. In the context of clinical research, it is the investigator's assessment of severity. For cancer related trials, severity is represented as a grade. Severity or grade as used in the context of reporting adverse events in clinical trials, optionally used. An AdverseEvent.resultingCondition might have mild severity clinically, but a Research Investigator may determine that for the context of the clinical trial the adverseEvent.clinResSeverityOrGrade is severe."/>
       <comment value="Clinical Research Trial Adverse Event Reporting specific"/>
       <min value="0"/>
       <max value="1"/>
@@ -577,7 +577,7 @@
     </element>
 	<element id="AdverseEvent.study">
       <path value="AdverseEvent.study"/>
-      <short value="Research study that the subject is enrolled in, and to which the report is being directed."/>
+      <short value="Research study that the subject is enrolled in, and to which the report is being directed"/>
       <definition value="The research study that the subject is enrolled in, and to which the report is being directed."/>
       <min value="0"/>
       <max value="1"/>

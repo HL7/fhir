@@ -71,8 +71,8 @@
       <path value="AdverseEvent.study"/>
       <max value="0"/>
     </element>
-	<element id="AdverseEvent.clin-res-severity-or-grade">
-      <path value="AdverseEvent.clin-res-severity-or-grade"/>
+	<element id="AdverseEvent.clinResSeverityOrGrade">
+      <path value="AdverseEvent.clinResSeverityOrGrade"/>
       <max value="0"/>
     </element>
   </differential>
