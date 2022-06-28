@@ -59,6 +59,16 @@
         <rules value="open"/>
       </slicing>
     </element>
+	<element id="AdverseEvent.subject">
+      <path value="AdverseEvent.subject"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+    </element>
     <element id="AdverseEvent.serious">
       <path value="AdverseEvent.serious"/>
       <max value="0"/>

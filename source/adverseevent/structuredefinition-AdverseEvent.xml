@@ -236,6 +236,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -415,9 +416,9 @@
       <path value="AdverseEvent.seriousnessCriteria"/>
       <short value="Action criteria usually associated with events that pose a threat to a patient's life or functioning"/>
       <definition value="Clinical incident reporting and Clincial Research reporting may use distinct criteria."/>
-      <comment value="Using an example, a rash can have an AdverseEvent.resultingCondition.severity = severe, yet an AdverseEvent.serious = false.  Alternatively, a medication given with the wrong dose (chemotherapy given with too low of a dose) can have an AdverseEvent.resultingCondition.severity = mild, yet a AdverseEvent.serious = true.  Another example would be a beta blocker clinical trial where patients with asthma should be excluded, yet a patient with asthma was included and had an asthmatic episode where  AdverseEvent.resultingCondition.severity = mild, yet a AdverseEvent.serious = true, in the context of the clincial research trial."/>
+      <comment value="Criteria to provide more granularity."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>

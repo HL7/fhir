@@ -110,6 +110,13 @@
       <path value="AdverseEvent.seriousness"/>
       <max value="0"/>
     </element>
+	<element id="AdverseEvent.serious">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Need to add JIRA NUMBER."/>
+      </extension>
+      <path value="AdverseEvent.serious"/>
+      <min value="1"/>
+    </element>
     <!--element id="AdverseEvent.suspectEntity.extension">
       <path value="AdverseEvent.suspectEntity.extension"/>
       <slicing>
@@ -178,6 +185,7 @@
       </extension>
       <path value="AdverseEvent.outcome"/>
 	  <min value="1"/>
+	  <max value="1"/>
       <short value="Type of outcome from the adverse event"/>
       <definition value="Describes the type of outcome from the adverse event, such as resolved, recovering, ongoing, resolved-with-sequelae, or fatal."/>
       <binding>
