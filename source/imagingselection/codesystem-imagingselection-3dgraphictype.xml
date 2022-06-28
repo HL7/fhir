@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="imagingselection-3dgraphictype"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/imagingselection-3dgraphictype defines the following codes:</p>
+     
+      <p> http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html#sect_C.18.9.1.2</p>
+	 
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="ii"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="ii"/>
+  </extension>
+  <url value="http://hl7.org/fhir/imagingselection-3dgraphictype"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ImagingSelection3DGraphicType"/>
+  <title value="ImagingSelection3DGraphicType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The type of coordinates describing an image region."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-3dgraphictype"/>
+  <content value="complete"/>
+  <concept>
+    <code value="POINT"/>
+    <display value="POINT"/>
+    <definition value="A single location denoted by a single (x,y,z) triplet."/>
+  </concept>
+  <concept>
+    <code value="MULTIPOINT"/>
+    <display value="MULTIPOINT"/>
+    <definition value="multiple locations each denoted by an (x,y,z) triplet; the points need not be coplanar."/>
+  </concept>
+  <concept>
+    <code value="POLYLINE"/>
+    <display value="POLYLINE"/>
+    <definition value="a series of connected line segments with ordered vertices denoted by (x,y,z) triplets; the points need not be coplanar."/>
+  </concept>
+  <concept>
+    <code value="POLYGON"/>
+    <display value="POLYGON"/>
+    <definition value="a series of connected line segments with ordered vertices denoted by (x,y,z) triplets, where the first and last vertices shall be the same forming a polygon; the points shall be coplanar."/>
+  </concept>
+  <concept>
+    <code value="ELLIPSE"/>
+    <display value="ELLIPSE"/>
+    <definition value="an ellipse defined by four (x,y,z) triplets, the first two triplets specifying the endpoints of the major axis and the second two triplets specifying the endpoints of the minor axis."/>
+  </concept>
+  <concept>
+    <code value="ELLIPSOID"/>
+    <display value="ELLIPSOID"/>
+    <definition value="a three-dimensional geometric surface whose plane sections are either ellipses or circles and contains three intersecting orthogonal axes, &quot;a&quot;, &quot;b&quot;, and &quot;c&quot;; the ellipsoid is defined by six (x,y,z) triplets, the first and second triplets specifying the endpoints of axis &quot;a&quot;, the third and fourth triplets specifying the endpoints of axis &quot;b&quot;, and the fifth and sixth triplets specifying the endpoints of axis &quot;c&quot;."/>
+  </concept>
+</CodeSystem>

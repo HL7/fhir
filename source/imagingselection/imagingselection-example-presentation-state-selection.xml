@@ -3,7 +3,7 @@
   <id value="example-presentation-state-selection"/>
   <identifier>
     <system value="urn:dicom:uid"/>
-    <value value="urn:oid:1.2.840.113747.20080222.104120739293836151289003163903631439818.2.1"/>
+    <value value="urn:oid:1.2.840.113747.20080222.104120739293836151163903631439818.2.1"/>
   </identifier>
   <subject>
     <type value="Patient"/>
@@ -15,18 +15,18 @@
   <code>
     <text value="Referenced DICOM Grayscale Softcopy Presentation State"/>
   </code>
-  <studyUid value="urn:oid:1.2.840.113747.20080222.104120739293836151289003163903631439818"/>
+  <studyUid value="1.2.840.113747.20080222.104120739293836153163903631439818"/>
   <derivedFrom>
     <type value="ImagingStudy"/>
     <identifier>
       <system value="urn:dicom:uid"/>
-      <value value="urn:oid:1.2.840.113747.20080222.104120739293836151289003163903631439818"/>
+      <value value="urn:oid:1.2.840.113747.20080222.104120739291289003163903631439818"/>
     </identifier>
   </derivedFrom>
-  <seriesUid value="urn:oid:1.2.840.113747.20080222.104120739293836151289003163903631439818.1"/>
-  <frameOfReferenceUid value="urn:oid:1.2.840.113747.20080222.104120739293836151289003163903631439818.0"/>
+  <seriesUid value="1.2.840.113747.20080222.104120739293836151283903631439818.1"/>
+  <frameOfReferenceUid value="1.2.840.113747.20080222.104120739293289003163903631439818.0"/>
   <instance>
-    <uid value="urn:oid:1.2.840.113747.20080222.104120739293836151289003163903631439818.1.0"/>
+    <uid value="1.2.840.113747.20080222.104120739293836151289903631439818.1.0"/>
     <sopClass>
       <system value="urn:ietf:rfc:3986"/>
       <code value="urn:oid:1.2.840.10008.5.1.4.1.1.11.1"/>

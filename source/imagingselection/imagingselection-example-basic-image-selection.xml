@@ -3,7 +3,7 @@
   <id value="example-basic-image-selection"/>
   <identifier>
     <system value="urn:dicom:uid"/>
-    <value value="urn:oid:1.2.840.113747.20080222.35738167368358372924306270412538783781.2.1"/>
+    <value value="urn:oid:1.2.840.113747.20080222.35738167372924306270412538783781.2.1"/>
   </identifier>
   <subject>
     <type value="Patient"/>
@@ -15,25 +15,25 @@
   <code>
     <text value="Key Images"/>
   </code>
-  <studyUid value="urn:oid:1.2.840.113747.20080222.35738167368358372924306270412538783781"/>
+  <studyUid value="1.2.840.113747.20080222.35738167368354306270412538783781"/>
   <derivedFrom>
     <type value="ImagingStudy"/>
     <identifier>
       <system value="urn:dicom:uid"/>
-      <value value="urn:oid:1.2.840.113747.20080222.35738167368358372924306270412538783781"/>
+      <value value="urn:oid:1.2.840.113747.20080222.35738358372924306270412538783781"/>
     </identifier>
   </derivedFrom>
-  <seriesUid value="urn:oid:1.2.840.113747.20080222.35738167368358372924306270412538783781.1"/>
-  <frameOfReferenceUid value="urn:oid:1.2.840.113747.20080222.35738167368358372924306270412538783781.0"/>
+  <seriesUid value="1.2.840.113747.20080222.35738167368358376270412538783781.1"/>
+  <frameOfReferenceUid value="1.2.840.113747.20080222.35738168372924306270412538783781.0"/>
   <instance>
-    <uid value="urn:oid:1.2.840.113747.20080222.35738167368358372924306270412538783781.1.0"/>
+    <uid value="1.2.840.113747.20080222.35738167368358372924412538783781.1.0"/>
     <sopClass>
       <system value="urn:ietf:rfc:3986"/>
       <code value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
     </sopClass>
   </instance>
   <instance>
-    <uid value="urn:oid:1.2.840.113747.20080222.35738167368358372924306270412538783781.1.1"/>
+    <uid value="1.2.840.113747.20080222.35738167368358372920412538783781.1.1"/>
     <sopClass>
       <system value="urn:ietf:rfc:3986"/>
       <code value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
