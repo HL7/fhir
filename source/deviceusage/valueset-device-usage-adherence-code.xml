@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="device-associationstatus"/>
+  <id value="device-usage-adherence-code"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -9,21 +9,13 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
       <ul>
-        
         <li>Include all codes defined in 
-          
-          <a href="codesystem-device-associationstatus.html">
-            
-            <code>http://hl7.org/fhir/device-status</code>
-          
+          <a href="codesystem-device-usage-adherence-code.html">
+            <code>http://hl7.org/fhir/device-usage-adherence-code</code>
           </a>
-        
         </li>
-      
       </ul>
-    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -33,16 +25,12 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/device-associationstatus"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/ValueSet/device-usage-adherence-code"/>
   <version value="4.6.0"/>
-  <name value="FHIRDeviceAssociationStatus"/>
-  <title value="FHIRDeviceAssociationStatus"/>
+  <name value="DeviceUsageAdherenceCode"/>
+  <title value="DeviceUsageAdherenceCode"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -57,11 +45,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The association status of the device."/>
+  <description value="A coded concept indicating the adherence of device usage."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/device-associationstatus"/>
+      <system value="http://hl7.org/fhir/device-usage-adherence-code"/>
     </include>
   </compose>
 </ValueSet>
