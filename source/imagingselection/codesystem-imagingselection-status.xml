@@ -3,82 +3,118 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="imagingselection-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <lastUpdated value="2022-06-29T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <p>This code system http://hl7.org/fhir/imagingselection-status defines the following codes:</p>
 
+      
       <table class="codes">
         
+        
         <tr>
+          
           
           <td style="white-space:nowrap">
             
+            
             <b>Code</b>
+          
           
           </td>
           
+          
           <td>
+            
             
             <b>Display</b>
           
+          
           </td>
+          
           
           <td>
             
+            
             <b>Definition</b>
+          
           
           </td>
         
+        
         </tr>
 
+        
         <tr>
+          
           
           <td style="white-space:nowrap">available
             
+            
             <a name="imagingselection-status-available"> </a>
           
+          
           </td>
+          
           
           <td>Available</td>
           
+          
           <td>The selected resources are available.</td>
+        
         
         </tr>
 
+        
         <tr>
+          
           
           <td style="white-space:nowrap">entered-in-error
             
+            
             <a name="imagingselection-status-entered-in-error"> </a>
           
+          
           </td>
+          
           
           <td>Entered in Error</td>
           
+          
           <td>The imaging selection has been withdrawn following a previous release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;cancelled&quot; rather than &quot;entered-in-error&quot;.).</td>
         
+        
         </tr>
+        
         
         <tr>
           
+          
           <td style="white-space:nowrap">unknown
+            
             
             <a name="imagingselection-status-unknown"> </a>
           
+          
           </td>
+          
           
           <td>Unknown</td>
           
+          
           <td>The system does not know which of the status values currently applies for this request. Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it&#39;s just not known which one.</td>
+        
         
         </tr>
       
+      
       </table>
+    
     
     </div>
   </text>
@@ -94,14 +130,14 @@
   <url value="http://hl7.org/fhir/imagingselection-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.XXX"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
   <version value="4.6.0"/>
   <name value="ImagingSelectionStatus"/>
   <title value="ImagingSelectionStatus"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
+  <date value="2022-06-29T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>

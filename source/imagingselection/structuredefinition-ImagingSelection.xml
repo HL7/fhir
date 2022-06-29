@@ -109,8 +109,8 @@
         <map value="FiveWs.identifier"/>
       </mapping>
     </element>
-    <element id="ImagingStudy.status">
-      <path value="ImagingStudy.status"/>
+    <element id="ImagingSelection.status">
+      <path value="ImagingSelection.status"/>
       <short value="available | entered-in-error | unknown"/>
       <definition value="The current state of the ImagingSelection resource. This is not the status of any ImagingStudy, ServiceRequest, or Task resources associated with the ImagingSelection."/>
       <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
