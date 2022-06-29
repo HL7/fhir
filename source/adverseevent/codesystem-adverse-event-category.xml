@@ -41,6 +41,11 @@
   <description value="Overall categorization of the event, e.g. product-related or situational."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-category"/>
+  <!--hierarchyMeaning>
+      <system value="http://hl7.org/fhir/codesystem-hierarchy-meaning"/>
+      <code value="grouped-by"/>  
+      <display value="Grouped By"/>
+  </hierarchyMeaning-->
   <content value="complete"/>
   <concept>
       <code value="descriptors"/>

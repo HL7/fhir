@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Procedure xmlns="http://hl7.org/fhir">
+  <id value="endoscopySAE1exampleCauterize"/> 
+  <!--text> 
+    <status value="generated"/> 
+    <div xmlns="http://www.w3.org/1999/xhtml">The site was cauterized</div> 
+  </text--> 
+  <identifier> 
+       <value value="12345"/> 
+  </identifier> 
+  <partOf> 
+  <reference value="AdverseEvent/endoscopySAE1example"/> 
+    <display value="Endoscopy"/> 
+  </partOf> 
+  <status value="completed"/> 
+  <code> 
+    <coding> 
+      <system value="http://snomed.info/sct"/> 
+      <code value="27411008"/> 
+      <display value="Cauterization (procedure) "/> 
+    </coding> 
+    <text value="Cauterization"/> 
+  </code> 
+  <subject> 
+    <reference value="AdverseEvent/patientSAE1example"/> 
+  </subject> 
+  <encounter>
+    <reference value="AdverseEvent/encounterSAE1example"/>
+  </encounter>
+  <occurrenceDateTime value="2021-12-02"/> 
+  <performer> 
+  <actor> 
+    <reference value="Practitioner/example"/> 
+    <display value="Dr Adam Careful"/> 
+  </actor> 
+  </performer> 
+  <location> 
+    <reference value="Location/1"/> 
+  <display value="Burgers University Medical Center, South Wing, second floor"/> 
+  </location> 
+
+  <outcome> 
+      <text value="The site was cauterized, and the patient had no further bleeding after the procedure. "/> 
+  </outcome> 
+</Procedure> 

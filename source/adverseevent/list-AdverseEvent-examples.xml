@@ -16,4 +16,112 @@
       <display value="General"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Study MedicationAdministration for SAE1 example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="adverseevent-medicationSAE1example"/>
+    </extension>
+    <item>
+      <reference value="AdverseEvent/medicationSAE1example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Procedure Endoscopy for SAE1 example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="adverseevent-endoscopySAE1example"/>
+    </extension>
+    <item>
+      <reference value="AdverseEvent/endoscopySAE1example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Procedure Cauterize for SAE1 example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="adverseevent-endoscopySAE1exampleCauterize"/>
+    </extension>
+    <item>
+      <reference value="AdverseEvent/endoscopySAE1exampleCauterize"/>
+      <display value="General"/>
+    </item> 
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Procedure PBRCs for SAE1 example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="adverseevent-PRBCunitsSAE1example"/>
+    </extension>
+    <item>
+      <reference value="AdverseEvent/PRBCunitsSAE1example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ResearchStudy for SAE1 example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="adverseevent-resStudySAE1example"/>
+    </extension>
+    <item>
+      <reference value="AdverseEvent/resStudySAE1example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ResearchSubject for SAE1 example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="adverseevent-resSubjectSAE1example"/>
+    </extension>
+    <item>
+      <reference value="AdverseEvent/resSubjectSAE1example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patient for SAE1 example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="adverseevent-patientSAE1example"/>
+    </extension>
+    <item>
+      <reference value="AdverseEvent/patientSAE1example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Encounter for SAE1 example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="adverseevent-encounterSAE1example"/>
+    </extension>
+    <item>
+      <reference value="AdverseEvent/encounterSAE1example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="AdverseEvent for SAE1 example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="adverseevent-resSAE1example"/>
+    </extension>
+    <item>
+      <reference value="AdverseEvent/resSAE1example"/>
+      <display value="General"/>
+    </item>
+  </entry>
 </List>

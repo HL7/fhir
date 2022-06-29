@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="06054d95-34be-4448-b8cd-3051e7bec8c7"/>
+  <meta>
+    <lastUpdated value="2022-06-14T10:06:34.311-06:00"/>
+  </meta>
+  <type value="collection"/>
+  <entry>
+    <fullUrl value="http://example.org/ValueSet/seriousness-criteria-vs"/>
+    <resource>
+      <ValueSet>
+        <id value="seriousness-criteria-vs"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>This value set contains 6 concepts</p>
+            <p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px">Expansion based on 
+              <a href="CodeSystem-seriousness-criteria-cs.html">Seriousness Criteria Code System v0.1.0 (CodeSystem)</a>
+            </p>
+            <p>All codes in this table are from the system 
+              <a href="CodeSystem-seriousness-criteria-cs.html">
+                <code>http://example.org/CodeSystem/seriousness-criteria-cs</code>
+              </a>
+            </p>
+            <table class="codes">
+              <tr>
+                <td style="white-space:nowrap">
+                  <b>Code</b>
+                </td>
+                <td>
+                  <b>Display</b>
+                </td>
+                <td>
+                  <b>Definition</b>
+                </td>
+              </tr>
+              <tr>
+                <td style="white-space:nowrap">
+                  <a name="http---example.org-CodeSystem-seriousness-criteria-cs-resultsInDeath"> </a>  
+                  <a href="CodeSystem-seriousness-criteria-cs.html#seriousness-criteria-cs-resultsInDeath">resultsInDeath</a>
+                </td>
+                <td>Resulted in Death</td>
+                <td>Adverse event resulted in death</td>
+              </tr>
+              <tr>
+                <td style="white-space:nowrap">
+                  <a name="http---example.org-CodeSystem-seriousness-criteria-cs-lifeThreatening"> </a>  
+                  <a href="CodeSystem-seriousness-criteria-cs.html#seriousness-criteria-cs-lifeThreatening">lifeThreatening</a>
+                </td>
+                <td>Life Threatening</td>
+                <td>Life Threatening</td>
+              </tr>
+              <tr>
+                <td style="white-space:nowrap">
+                  <a name="http---example.org-CodeSystem-seriousness-criteria-cs-resultsinHospitalization"> </a>  
+                  <a href="CodeSystem-seriousness-criteria-cs.html#seriousness-criteria-cs-resultsinHospitalization">resultsinHospitalization</a>
+                </td>
+                <td>Resulted in Hospitalization</td>
+                <td>Resulted in Hospitalization</td>
+              </tr>
+              <tr>
+                <td style="white-space:nowrap">
+                  <a name="http---example.org-CodeSystem-seriousness-criteria-cs-resultsInDisabliity"> </a>  
+                  <a href="CodeSystem-seriousness-criteria-cs.html#seriousness-criteria-cs-resultsInDisabliity">resultsInDisabliity</a>
+                </td>
+                <td>Resulted in Disability</td>
+                <td>Resulted in Disability</td>
+              </tr>
+              <tr>
+                <td style="white-space:nowrap">
+                  <a name="http---example.org-CodeSystem-seriousness-criteria-cs-isBirthDefect"> </a>  
+                  <a href="CodeSystem-seriousness-criteria-cs.html#seriousness-criteria-cs-isBirthDefect">isBirthDefect</a>
+                </td>
+                <td>Resulted in Birth defect</td>
+                <td>Resulted in Birth Defect</td>
+              </tr>
+              <tr>
+                <td style="white-space:nowrap">
+                  <a name="http---example.org-CodeSystem-seriousness-criteria-cs-requiresPreventImpairment"> </a>  
+                  <a href="CodeSystem-seriousness-criteria-cs.html#seriousness-criteria-cs-requiresPreventImpairment">requiresPreventImpairment</a>
+                </td>
+                <td>Required Intervention</td>
+                <td>Required Intervention to Prevent Permanent Impairment or Damage</td>
+              </tr>
+            </table>
+          </div>
+        </text>
+        <url value="http://example.org/ValueSet/seriousness-criteria-vs"/>
+        <version value="0.1.0"/>
+        <name value="SeriousnessCriteriaVS"/>
+        <title value="Seriousness Criteria"/>
+        <status value="active"/>
+        <date value="2022-06-14T10:06:34-06:00"/>
+        <publisher value="Vulcan Accelerator"/>
+        <contact>
+          <name value="Vulcan Accelerator"/>
+          <telecom>
+            <system value="url"/>
+            <value value="http://example.org/example-publisher"/>
+          </telecom>
+        </contact>
+        <description value="Action criteria usually associated with serious events that pose a threat to a patient's life or functioning"/>
+        <expansion>
+          <identifier value="urn:uuid:95dc076d-cd4b-458d-b556-8a09c2c2657a"/>
+          <timestamp value="2022-06-14T10:06:52-06:00"/>
+          <total value="6"/>
+          <parameter>
+            <name value="excludeNested"/>
+            <valueBoolean value="false"/>
+          </parameter>
+          <parameter>
+            <name value="version"/>
+            <valueUri value="http://example.org/CodeSystem/seriousness-criteria-cs|0.1.0"/>
+          </parameter>
+          <contains>
+            <system value="http://example.org/CodeSystem/seriousness-criteria-cs"/>
+            <code value="resultsInDeath"/>
+            <display value="Resulted in Death"/>
+          </contains>
+          <contains>
+            <system value="http://example.org/CodeSystem/seriousness-criteria-cs"/>
+            <code value="lifeThreatening"/>
+            <display value="Life Threatening"/>
+          </contains>
+          <contains>
+            <system value="http://example.org/CodeSystem/seriousness-criteria-cs"/>
+            <code value="resultsinHospitalization"/>
+            <display value="Resulted in Hospitalization"/>
+          </contains>
+          <contains>
+            <system value="http://example.org/CodeSystem/seriousness-criteria-cs"/>
+            <code value="resultsInDisabliity"/>
+            <display value="Resulted in Disability"/>
+          </contains>
+          <contains>
+            <system value="http://example.org/CodeSystem/seriousness-criteria-cs"/>
+            <code value="isBirthDefect"/>
+            <display value="Resulted in Birth defect"/>
+          </contains>
+          <contains>
+            <system value="http://example.org/CodeSystem/seriousness-criteria-cs"/>
+            <code value="requiresPreventImpairment"/>
+            <display value="Required Intervention"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </entry>
+</Bundle>

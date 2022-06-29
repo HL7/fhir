@@ -4,7 +4,7 @@
 			<span class="mw-headline" id="Introduction">Introduction</span>
 		</h2>
 		<a name="dstu"></a>
-		<p>Adverse event tracking in clinical care and clinical research settings can differ. In the former case, the event is tracked to meet business safety concerns and incident reporting. There is a strong interest in how the event was resolved. In the clinical research setting, the event is additionally tracked to be considered as a concern for participation in the research study, since the occurrence of an adverse event may surface as a potential confounder or as a potential side-effect of the study treatment. The Vulcan accelerator project suggests two profiles for the use the AdverseEvent Resource in Clinical Care or Clinical Research.</p>
+		<p>Adverse event tracking in clinical care and clinical research settings can differ. In the former case, the event is tracked to meet business safety concerns and incident reporting. There is a strong interest in how the event was resolved. In the clinical research setting, the event is additionally tracked to be considered as a concern for participation in the research study, since the occurrence of an adverse event may surface a potential confounder or a potential side-effect of the study treatment. For Clinical Care or Clincial Research, the Vulcan accelerator project suggests two profiles on AdverseEvent Resource.</p>
 	</div>
 	<!--div>
 		<a name="bnc"></a>
