@@ -22,7 +22,7 @@
       <value value="http://example.org/example-publisher"/>
     </telecom>
   </contact>
-  <description value="An example profile of AdverseEvent for Research reporting."/>
+  <description value="A profile of AdverseEvent for Clinical Research reporting."/>
   <fhirVersion value="5.0.0-snapshot1"/>
   <mapping>
     <identity value="rim"/>
