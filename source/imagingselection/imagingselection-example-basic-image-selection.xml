@@ -5,6 +5,7 @@
     <system value="urn:dicom:uid"/>
     <value value="urn:oid:1.2.840.113747.20080222.35738167372924306270412538783781.2.1"/>
   </identifier>
+ <status value="available"/> 
   <subject>
     <type value="Patient"/>
     <identifier>

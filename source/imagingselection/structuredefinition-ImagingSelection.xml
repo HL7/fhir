@@ -24,7 +24,7 @@
   <version value="4.6.0"/>
   <name value="ImagingSelection"/>
   <status value="draft"/>
-  <date value="2021-01-02T08:58:31+11:00"/>
+  <date value="2022-06-29T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Imaging Integration)"/>
   <contact>
     <telecom>
@@ -137,14 +137,6 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.status"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="Varies by domain"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".status"/>
       </mapping>
     </element>
     <element id="ImagingSelection.subject">
