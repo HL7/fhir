@@ -205,6 +205,28 @@
         <valueSet value="http://loinc.org/LL5323-2/"/>
       </binding>
     </element>
+    <element id="MolecularSequence.relative.ordinalPosition">
+      <path value="MolecularSequence.relative.ordinalPosition"/>
+      <short value="Indicates the order in which the sequence should be considered when putting multiple 'relative' elements together"/>
+      <definition value="Indicates the order in which the sequence should be considered when putting multiple 'relative' elements together."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularSequence.relative.sequenceRange">
+      <path value="MolecularSequence.relative.sequenceRange"/>
+      <short value="Indicates the nucleotide range in the composed sequence when multiple 'relative' elements are used together"/>
+      <definition value="Indicates the nucleotide range in the composed sequence when multiple 'relative' elements are used together."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Range"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
     <element id="MolecularSequence.relative.reference">
       <path value="MolecularSequence.relative.reference"/>
       <short value="A sequence used as reference"/>
