@@ -1,5 +1,5 @@
 <Procedure xmlns="http://hl7.org/fhir">
-  <id value="PRBCunitsSAE1example"/>
+  <id value="prbcunitssae1example"/>
   <meta>
     <profile
              value="http://hl7.org/fhir/us/icsr-ae-reporting/StructureDefinition/icsr-transfusion"/>
@@ -25,10 +25,10 @@
     </coding>
   </code>
   <subject>
-    <reference value="AdverseEvent/patientSAE1example"/>
+    <reference value="AdverseEvent/patientsae1example"/>
   </subject>
   <encounter>
-    <reference value="AdverseEvent/encounterSAE1example"/>
+    <reference value="AdverseEvent/encountersae1example"/>
   </encounter>
   
   <!--performedDateTime value="2002-01-09"/-->

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <MedicationAdministration xmlns="http://hl7.org/fhir"> 
-  <id value="medicationSAE1example"/> 
+  <id value="medicationsae1example"/> 
   <status value="completed"/> 
   <medication>     
   <reference> 
@@ -9,7 +9,7 @@
   </reference> 
   </medication> 
  <subject> 
-    <reference value="AdverseEvent/patientSAE1example"/> 
+    <reference value="AdverseEvent/patientsae1example"/> 
   </subject>  
  <occurencePeriod> 
   <start value="2021-11-30T04:30:00+01:00"/> 
@@ -24,7 +24,7 @@
       </coding> 
     </function> 
     <actor> 
-    <reference value="AdverseEvent/patientSAE1example"/>
+    <reference value="AdverseEvent/patientsae1example"/>
     <display value="the patient"/> 
     </actor> 
   </performer>  

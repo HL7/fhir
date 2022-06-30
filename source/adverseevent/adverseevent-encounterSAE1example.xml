@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Encounter xmlns="http://hl7.org/fhir">
-  <id value="encounterSAE1example"/> 
+  <id value="encountersae1example"/> 
   <!--text> 
     <status value="generated"/> 
     <div xmlns="http://www.w3.org/1999/xhtml">Emergency visit that escalated into inpatient patient @example</div> 
@@ -65,7 +65,7 @@
     </period> 
   </classHistory> 
   <subject> 
-    <reference value="AdverseEvent/patientSAE1example"/> 
+    <reference value="AdverseEvent/patientsae1example"/> 
 	<!-- SCHJO -->
   </subject> 
   <actualPeriod> 

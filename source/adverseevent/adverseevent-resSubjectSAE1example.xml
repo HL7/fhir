@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ResearchSubject xmlns="http://hl7.org/fhir">
-  <id value="resSubjectSAE1example"/> 
+  <id value="ressubjectsae1example"/> 
   <!--text> 
     <status value="generated"/> 
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div> 
@@ -42,9 +42,9 @@
     <startDate value="2021-06-14"/> 
   </progress> 
   <study> 
-    <reference value="AdverseEvent/resStudySAE1example"/> 
+    <reference value="AdverseEvent/resstudysae1example"/> 
   </study> 
   <subject> 
-    <reference value="AdverseEvent/patientSAE1example"/> 
+    <reference value="AdverseEvent/patientsae1example"/> 
   </subject> 
 </ResearchSubject> 

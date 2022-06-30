@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Patient xmlns="http://hl7.org/fhir">
-  <id value="patientSAE1example"/> 
+  <id value="patientsae1example"/> 
   <text> 
     <status value="generated"/> 
     <div xmlns="http://www.w3.org/1999/xhtml">

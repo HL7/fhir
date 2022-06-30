@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Procedure xmlns="http://hl7.org/fhir">
-  <id value="endoscopySAE1exampleCauterize"/> 
+  <id value="endoscopysae1examplecauterize"/> 
   <!--text> 
     <status value="generated"/> 
     <div xmlns="http://www.w3.org/1999/xhtml">The site was cauterized</div> 
@@ -10,7 +10,7 @@
        <value value="12345"/> 
   </identifier> 
   <partOf> 
-  <reference value="AdverseEvent/endoscopySAE1example"/> 
+  <reference value="AdverseEvent/endoscopysae1example"/> 
     <display value="Endoscopy"/> 
   </partOf> 
   <status value="completed"/> 
@@ -23,10 +23,10 @@
     <text value="Cauterization"/> 
   </code> 
   <subject> 
-    <reference value="AdverseEvent/patientSAE1example"/> 
+    <reference value="AdverseEvent/patientsae1example"/> 
   </subject> 
   <encounter>
-    <reference value="AdverseEvent/encounterSAE1example"/>
+    <reference value="AdverseEvent/encountersae1example"/>
   </encounter>
   <occurrenceDateTime value="2021-12-02"/> 
   <performer> 
