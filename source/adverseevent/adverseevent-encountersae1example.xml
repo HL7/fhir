@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Encounter xmlns="http://hl7.org/fhir">
+  <id value="encountersae1example"/> 
+  <!--text> 
+    <status value="generated"/> 
+    <div xmlns="http://www.w3.org/1999/xhtml">Emergency visit that escalated into inpatient patient @example</div> 
+  </text--> 
+  <status value="completed"/> 
+  <statusHistory> 
+    <status value="planned"/> 
+    <period> 
+      <start value="2021-12-02T07:15:00+10:00"/> 
+      <end value="2021-12-02T08:45:00+10:00"/> 
+    </period> 
+  </statusHistory> 
+  <statusHistory> 
+    <status value="in-progress"/> 
+    <period> 
+      <start value="2021-12-02T08:45:00+10:00"/> 
+      <end value="2021-12-02T12:15:00+10:00"/> 
+    </period> 
+  </statusHistory> 
+  <statusHistory> 
+    <status value="onhold"/> 
+    <period> 
+      <start value="2021-12-02T12:15:00+10:00"/> 
+      <end value="2021-12-02T12:45:00+10:00"/> 
+    </period> 
+  </statusHistory> 
+  <statusHistory> 
+    <status value="in-progress"/> 
+    <period> 
+      <start value="2021-12-02T08:45:00+10:00"/> 
+	  <end value="2021-12-09T09:27:00+10:00"/>
+    </period> 
+  </statusHistory> 
+  <class> 
+    <coding> 
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/> 
+      <code value="IMP"/> 
+      <display value="inpatient encounter"/> 
+    </coding> 
+  </class> 
+  <classHistory> 
+    <class> 
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/> 
+      <code value="EMER"/> 
+      <display value="emergency"/> 
+    </class> 
+    <period> 
+      <start value="2021-12-02T07:15:00+10:00"/> 
+      <end value="2021-12-02T09:27:00+10:00"/> 
+    </period> 
+  </classHistory> 
+  <classHistory> 
+    <class> 
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/> 
+      <code value="IMP"/> 
+      <display value="inpatient encounter"/> 
+    </class> 
+    <period> 
+      <start value="2021-12-02T09:27:00+10:00"/> 
+	  <end value="2021-12-09T09:27:00+10:00"/>
+    </period> 
+  </classHistory> 
+  <subject> 
+    <reference value="AdverseEvent/patientsae1example"/> 
+	<!-- SCHJO -->
+  </subject> 
+  <actualPeriod> 
+    <start value="2021-12-02T07:15:00+10:00"/> 
+	<end value="2021-12-09T09:27:00+10:00"/>
+  </actualPeriod> 
+  
+  <reason>
+	<reference>
+		<display value="condition - GI bleed"/>
+	</reference>
+  </reason>
+  <!--reason>
+    <reference>
+        <reference value="AdverseEvent/endoscopySAE1example"/>
+    </reference>
+  </reason>
+  <reason>
+    <reference>
+        <reference value="AdverseEvent/endoscopySAE1example"/>
+    </reference>
+  </reason>
+  <reason>
+	<reference>
+        <reference value="AdverseEvent/endoscopySAE1example"/>
+    </reference>
+  </reason-->
+
+  <hospitalization> 
+    <admitSource> 
+      <coding> 
+        <system value="http://terminology.hl7.org/CodeSystem/admit-source"/> 
+        <code value="emd"/> 
+        <display value="From accident/emergency department"/> 
+      </coding> 
+    </admitSource>
+    <dischargeDisposition> 
+      <coding> 
+        <system value="http://snomed.info/sct"/> 
+        <code value="306689006"/> 
+        <display value="Discharge to home"/> 
+      </coding> 
+    </dischargeDisposition>
+  </hospitalization> 
+  <location> 
+    <location> 
+      <display value="Emergency Waiting Room"/> 
+    </location> 
+    <status value="active"/> 
+    <period> 
+      <start value="2021-12-02T07:15:00+10:00"/> 
+      <end value="2021-12-02T08:45:00+10:00"/> 
+    </period> 
+  </location> 
+  <location> 
+    <location> 
+      <display value="Emergency"/> 
+    </location> 
+    <status value="active"/> 
+    <period> 
+      <start value="2021-12-02T08:45:00+10:00"/> 
+      <end value="2021-12-02T09:27:00+10:00"/> 
+    </period> 
+  </location> 
+  <location> 
+    <location> 
+      <display value="Ward 1, Room 42, Bed 1"/> 
+    </location> 
+    <status value="active"/> 
+    <period> 
+      <start value="2021-12-02T09:27:00+10:00"/> 
+      <end value="2021-12-02T12:15:00+10:00"/> 
+    </period> 
+  </location> 
+  <location> 
+    <location> 
+      <display value="Ward 1, Room 42, Bed 1"/> 
+    </location> 
+    <status value="reserved"/> 
+    <period> 
+      <start value="2021-12-02T12:15:00+10:00"/> 
+      <end value="2021-12-02T12:45:00+10:00"/> 
+    </period> 
+  </location> 
+  <location> 
+    <location> 
+      <display value="Ward 1, Room 42, Bed 1"/> 
+    </location> 
+    <status value="completed"/> 
+    <period> 
+      <start value="2021-12-02T12:45:00+10:00"/> 
+	  <end value="2021-12-09T12:45:00+10:00"/> 
+    </period> 
+  </location> 
+</Encounter>

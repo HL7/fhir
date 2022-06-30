@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<MedicationAdministration xmlns="http://hl7.org/fhir"> 
+  <id value="medicationsae1example"/> 
+  <status value="completed"/> 
+  <medication>     
+  <reference> 
+    <display value="Study Medication ABC"/>  
+  </reference> 
+  </medication> 
+ <subject> 
+    <reference value="AdverseEvent/patientsae1example"/> 
+  </subject>  
+ <occurencePeriod> 
+  <start value="2021-11-30T04:30:00+01:00"/> 
+  <end value="2021-11-30T04:30:00+01:00"/> 
+</occurencePeriod> 
+  <performer> 
+    <function> 
+      <coding> 
+        <system value="http://terminology.hl7.org/CodeSystem/med-admin-perform-function"/> 
+        <code value="performer"/> 
+        <display value="Performer"/> 
+      </coding> 
+    </function> 
+    <actor> 
+    <reference value="AdverseEvent/patientsae1example"/>
+    <display value="the patient"/> 
+    </actor> 
+  </performer>  
+  <dosage> 
+    <text value="Ordered as 10 mg given orally daily every morning. This is the MedicationAdministration so it is a single instant (i.e. one dose that was given)"/> 
+    <route> 
+      <coding> 
+        <system value="http://snomed.info/sct"/> 
+        <code value="26643006"/> 
+        <display value="Oral Route"/> 
+      </coding> 
+    </route> 
+    <method> 
+      <coding> 
+        <system value="http://snomed.info/sct"/> 
+        <code value="421521009"/> 
+        <display value="Swallow - dosing instruction imperative (qualifier value)"/> 
+      </coding> 
+    </method> 
+    <dose> 
+      <value value="10"/> 
+      <unit value="mg"/> 
+      <system value="http://unitsofmeasure.org"/> 
+      <code value="mg"/> 
+    </dose> 
+  </dosage> 
+</MedicationAdministration> 

@@ -1,0 +1,53 @@
+<Procedure xmlns="http://hl7.org/fhir">
+  <id value="prbcunitssae1example"/>
+  <meta>
+    <profile
+             value="http://hl7.org/fhir/us/icsr-ae-reporting/StructureDefinition/icsr-transfusion"/>
+  </meta>
+  <!--text>
+    <status value="extensions"/>
+    <div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative</b></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource "FAERSExampleTransfusion" </p><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-icsr-transfusion.html">ICSR Transfusion</a></p></div><p><b>UsedProductAmount</b>: 1 unit<span style="background: LightGoldenRodYellow"> (Details: UCUM code {unit} = '{unit}')</span></p><p><b>status</b>: completed</p><p><b>code</b>: 36430 <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="http://terminology.hl7.org/3.0.0/CodeSystem-CPT.html">Current Procedural Terminology (CPT&reg;)</a>#36430)</span></p><p><b>subject</b>: <a href="Patient-BESTPatient.html">Patient/BESTPatient</a> " CM"</p><p><b>performed</b>: 2002-01-09</p><p><b>usedReference</b>: <span>: Apheresis PLATELETS|ACD-A&gt;PAS-C/XX/20-24C|ResLeu:&lt;5E6|2nd container</span></p></div>
+  </text-->
+  <extension
+             url="http://hl7.org/fhir/us/icsr-ae-reporting/StructureDefinition/icsr-ext-usedproductamount">
+    <valueQuantity>
+      <value value="2"/>
+      <unit value="unit"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="{unit}"/>
+    </valueQuantity>
+  </extension>
+  <status value="completed"/>
+  <code>
+    <coding>
+      <system value="http://www.ama-assn.org/go/cpt"/>
+      <code value="36430"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="AdverseEvent/patientsae1example"/>
+  </subject>
+  <encounter>
+    <reference value="AdverseEvent/encountersae1example"/>
+  </encounter>
+  
+  <!--performedDateTime value="2002-01-09"/-->
+  <occurrenceDateTime value="2021-12-02"/> 
+  <reason>
+      <concept>
+        <text value="The patient’s hemoglobin dropped to 6.5 grams per dL"/>
+	  </concept>
+	  <!--reference>
+		<display value="The patient’s hemoglobin dropped to 6.5 g/dL"/>
+	  </reference-->
+  </reason>
+  <used>
+  	<!--concept>
+     <text value="2 units PRBCs"/>
+	</concept-->
+    <reference>
+        <reference value="BiologicallyDerivedProduct/FAERSBloodProduct"/>
+		<display value="2 units PRBCs"/>
+    </reference>
+  </used>
+</Procedure>
