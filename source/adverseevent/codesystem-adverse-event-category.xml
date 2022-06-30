@@ -90,7 +90,7 @@
   <concept>
       <code value="clinical-research-reporting-code"/>
 	  <display value="Clinical Research Reporting Code"/>
-	  <definition value="Indicates clinical research reporting adverse event, as determination of an adverse event differs from typical clinical use."/>
+	  <definition value="Indicates clinical research reporting adverse event, as determination of an adverse event differs from typical clinical care."/>
 	  <concept>
 		<code value="clinical-research-reporting"/>
 		<display value="Clinical Research Reporting"/>

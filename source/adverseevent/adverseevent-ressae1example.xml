@@ -12,13 +12,13 @@
   <actuality value="actual"/>
 
   <!-- high level categorizion. The "event" below will say more -->
-  <category> 
+  <!--category> 
     <coding> 
       <system value="http://hl7.org/fhir/CodeSystem/adverse-event-category"/> 
       <code value="medication-mishap"/> 
       <display value="Medication Mishap"/>
     </coding> 
-  </category> 
+  </category--> 
   <category> 
     <coding> 
       <system value="http://hl7.org/fhir/CodeSystem/adverse-event-category"/> 

@@ -34,7 +34,7 @@
       <value value="http://hl7.org/fhir/example-publisher"/>
     </telecom>
   </contact>
-  <description value="This value set includes codes that describe the type of outcome from the adverse event as used in Clinical Research Adverse Event Reporting. Based on terms from the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use implementation guide (https://ich.org/page/e2br3-individual-case-safety-report-icsr-specification-and-related-files). With consult of BRIDG AE outcome result terms and CDISC SDTM AE outcome terms (https://evs.nci.nih.gov/ftp1/CDISC/SDTM/SDTM%20Terminology.html#CL.C66768.OUT)."/>
+  <description value="This value set includes codes that describe the type of outcome from the adverse event as used in Clinical Research Adverse Event Reporting. Based on terms from the International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use implementation guide (https://ich.org/page/e2br3-individual-case-safety-report-icsr-specification-and-related-files). With consult of BRIDG AE outcome result terms, CDISC SDTM AE outcome terms (https://evs.nci.nih.gov/ftp1/CDISC/SDTM/SDTM%20Terminology.html#CL.C66768.OUT) and FDA additional guidance (https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e2br3-electronic-transmission-individual-case-safety-reports-implementation-guide-data-elements-and)."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-outcome-res"/>
   <content value="complete"/>

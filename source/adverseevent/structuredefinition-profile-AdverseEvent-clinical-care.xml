@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="AdverseEvent-clinical-use"/>
+  <id value="AdverseEvent-clinical-care"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
     <valueString value="Clinical.Summary"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="patient"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/AdverseEvent-clinical-use"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/AdverseEvent-clinical-care"/>
   <version value="0.1.0"/>
   <name value="AdverseEventClinicalUse"/>
-  <title value="Adverse Event Clinical Use"/>
+  <title value="Adverse Event Clinical Care"/>
   <status value="active"/>
   <date value="2022-06-14T10:06:34-06:00"/>
   <publisher value="Vulcan Accelerator"/>
@@ -22,7 +22,7 @@
       <value value="http://example.org/example-publisher"/>
     </telecom>
   </contact>
-  <description value="A profile of AdverseEvent for Clinical use, such as in incident reporting."/>
+  <description value="A profile of AdverseEvent for Clinical care, such as in incident reporting."/>
   <fhirVersion value="5.0.0-snapshot1"/>
   <mapping>
     <identity value="rim"/>

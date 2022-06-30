@@ -26,7 +26,7 @@
     </resource>
 	<resource>
       <reference>
-        <reference value="StructureDefinition/AdverseEvent-clinical-use"/>
+        <reference value="StructureDefinition/AdverseEvent-clinical-care"/>
       </reference>
     </resource>
   </definition>
