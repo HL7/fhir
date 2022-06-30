@@ -10,7 +10,7 @@
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/AdverseEvent-clinical-care"/>
   <version value="0.1.0"/>
-  <name value="AdverseEventClinicalUse"/>
+  <name value="AdverseEventClinicalCare"/>
   <title value="Adverse Event Clinical Care"/>
   <status value="active"/>
   <date value="2022-06-14T10:06:34-06:00"/>
