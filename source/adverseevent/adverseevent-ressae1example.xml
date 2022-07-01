@@ -162,7 +162,7 @@
   </mitigatingAction>
   <mitigatingAction>
         <itemReference>
-		 <reference value="AdverseEvent/pbrcunitssae1example"/>
+		 <reference value="AdverseEvent/prbcunitssae1example"/><!--Procedure/-->
 		 <display value="Procedure PBRCs for SAE1 example"/>
 		</itemReference>
   </mitigatingAction>

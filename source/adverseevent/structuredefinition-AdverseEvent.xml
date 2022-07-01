@@ -909,13 +909,13 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-supporting-info"/>
       </binding>
     </element>
-	<element id="AdverseEvent.supportingInfo.note">
+	<element id="AdverseEvent.note">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#20593."/>
+        <valueString value="need to add jira"/>
       </extension>
-      <path value="AdverseEvent.supportingInfo.note"/>
+      <path value="AdverseEvent.note"/>
       <short value="Comment"/>
-      <definition value="Comment relevant to the event, typically supporting information."/>
+      <definition value="Comment relevant to the event."/>
       <min value="0"/>
       <max value="1"/>
       <type>
