@@ -20,11 +20,20 @@ In clinical use, the study interpreters use all the results of these various ana
 <div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
-<p> 
-GenomicStudy is used for genomic relevant information where result files are represented as <a href="documentreference.html">DocumentReferences</a> that include relevant metadata in addition to links to actual files or as attachments.
+<p>
+A main function of GenomicStudy is to provide additional metadata for one or more clinical genomic analysis pipelines where <a href="documentreference.html">DocumentReference</a> instances are used to track inputs and outputs of those pipelines. Device is used to represent both hardware and software used in the sequencing and in the analyses.
 </p>
 <p>
-This resource could be referenced by Genomic Diagnostic Report or genomic observations, e.g., Variant, or Genotype.
+It is intended that this resource be referenced by <a href="observation.html">Observation</a> and <a href="documentreference.html">DocumentReference</a> similarly to how ImagingStudy is currently referenced on those resources. Of note, the results of the study would be captured in Observations and referenced on a DiagnosticReport.
+</p>
+<p>
+Important contextual references include Patient, Specimen, Encounter, ServiceRequest, Practitioner, and Organization.
+</p>
+<p>
+<a href="observation.html">Observation</a> or <a href="condition.html">Condition</a> instances may also be referenced from genomic study to designate a given reason for performing the study
+</p>
+<p>
+GenomicStudy can support the event-definition workflow pattern by referencing PlanDefinition(s) via the instantiatesCanonical relationship when implementers wish to describe more specifics of the pipelines and devices used in the analysis.
 </p>
 </div>
 </div>
