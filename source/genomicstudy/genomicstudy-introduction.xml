@@ -4,7 +4,7 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-GenomicStudy resource aims at delineating relevant information of a genomic study. A genomic study might comprise one or more analyses, each serve a specific purpose.  These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, or devices used.  The assays in a genomic study may vary in region studied, specimen, or even subject.
+GenomicStudy resource aims at delineating relevant information of a genomic study. A genomic study might comprise one or more analyses, each serve a specific purpose.  These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted.
 </p>
 <p>
 GenomicStudy describes relevant information including the reasons, purpose, and performers of the study. It also provides technical endpoints to access these data. It could be a logical aggregator for complex genomic analyses.
@@ -14,6 +14,12 @@ A genomic study might be based on one or more service requests or care plans. Th
 </p>
 <p>
 In clinical use, the study interpreters use all the results of these various analyses to provide diagnostic and therapeutic insights for the patient. Where performers are listed according to their participation in each genomic analysis and included assays. Each analysis may base on a set of defined protocols that may differ from the performed protocols.
+</p>
+<p>
+The regionStudied and regionCalled elements can refer to DocumentReference instances carrying BED files. Other types of files used in an analysis can be provided similarly, and listed either as inputs or outputs.
+</p>
+<p>
+Detailed information about the results of the analyses may be represented by Observations and gathered in a DiagnosticReport. Both resources may refer back to the originating GenomicStudy to allow navigation.
 </p>
 </div>
 
