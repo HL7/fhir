@@ -242,95 +242,6 @@
         <code value="string"/>
       </type>
     </element>
-<!--
-  still need a plan to address these attributes
-    <element id="GenomicStudy.analysisDefinition.methodType">
-      <path value="GenomicStudy.analysisDefinition.methodType"/>
-      <short value="Type of the methods used in the analysis"/>
-      <definition value="Type of the methods used in the analysis."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-    </element>
-    <element id="GenomicStudy.analysisDefinition.variationTypeDetected">
-      <path value="GenomicStudy.analysisDefinition.variationTypeDetected"/>
-      <short value="Types of variations that can be detected in the analysis"/>
-      <definition value="Types of variations that can be detected in the analysis."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-    </element>
-    <element id="GenomicStudy.analysisDefinition.regionStudied">
-      <path value="GenomicStudy.analysisDefinition.regionStudied"/>
-      <short value="The genomic regions to be studied in the analysis (BED file)"/>
-      <definition value="The genomic regions to be studied in the analysis (BED file)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
-      </type>
-    </element>
--->
-
-<!--   <element id="GenomicStudy.testCatalog">
-    <path value="GenomicStudy.testCatalog"/>
-    <short value="Test catalog ID relevant to this study"/>
-    <definition value="The catalog ID relevant to this GenomicStudy."/>
-    <min value="0"/>
-    <max value="*"/>
-    <type>
-      <code value="Identifier"/>
-    </type>
-  </element> -->
-
-<!--   <element id="GenomicStudy.methodology">
-      <path value="GenomicStudy.methodology"/>
-      <short value="Methodologies involved in this study"/>
-      <definition value="The methodolgies involved in this GenomicStudy."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-  </element> -->
-
-<!--   <element id="GenomicStudy.methodology.description">
-      <path value="GenomicStudy.methodology.description"/>
-      <short value="Human freindly description of the used methodology"/>
-      <definition value="A human-freindly descritption of the methodology involved in this GenomicStudy, e.g., Those listed by eMERGE."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="string"/>
-      </type>
-  </element> -->
-
-<!--   <element id="GenomicStudy.methodology.link">
-      <path value="GenomicStudy.methodology.link"/>
-      <short value="A link of the used methodology"/>
-      <definition value="A link of the methodology involved in this GenomicStudy, e.g., Those listed by eMERGE."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="url"/>
-      </type>
-  </element> -->
-
-<!--   <element id="GenomicStudy.variantType">
-    <path value="GenomicStudy.variantType"/>
-    <short value="Types of variants involved in this study"/>
-    <definition value="The types of variants involved in this GenomicStudy."/>
-    <min value="0"/>
-    <max value="*"/>
-    <type>
-      <code value="CodeableConcept"/>
-    </type>
-  </element> -->
 
     <element id="GenomicStudy.analysis">
       <path value="GenomicStudy.analysis"/>
@@ -467,8 +378,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysis.regionStudied">
-      <path value="GenomicStudy.analysis.regionStudied"/>
+    <element id="GenomicStudy.analysis.regionsStudied">
+      <path value="GenomicStudy.analysis.regionsStudied"/>
       <short value="The genomic regions to be studied in the analysis (BED file)"/>
       <definition value="The genomic regions to be studied in the analysis (BED file)."/>
       <min value="0"/>
@@ -483,7 +394,7 @@
       <short value="Genomic regions actually called in the analysis event (BED file)"/>
       <definition value="Genomic regions actually called in the analysis event (BED file)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
