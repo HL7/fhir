@@ -4,19 +4,16 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-GenomicStudy aims at delineating relevant information of a genomic study of specific reasons or use cases. Where one study could comprise one or more analyses that in turn could include one or more assays. Analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, used devices. While, assays may vary in regions studied, specimen, or even subject.
+GenomicStudy resource aims at delineating relevant information of a genomic study. A genomic study might comprise one or more analyses, each serve a specific purpose.  These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, or devices used.  The assays in a genomic study may vary in region studied, specimen, or even subject.
 </p>
 <p>
-GenomicStudy describes relevant information including, reasons, purpose, and performers. It also provides technical endpoints to access these data. It could be a logical aggregator for complex genomic analyses, where each analysis may carry out various genomic assays of diverse methods.
+GenomicStudy describes relevant information including the reasons, purpose, and performers of the study. It also provides technical endpoints to access these data. It could be a logical aggregator for complex genomic analyses.
 </p>
 <p>
-It could be based on one or more care plans or service requests. The reasons of performing this genomic study could be <a href="condition.html">Conditions</a>, <a href="observation.html">Observations</a>, or as a simple CodeableConcept that represent these reasons. Although the genomics study subject is the focus of the study, the assay-level subject could be used to list different subject, e.g., in trio testing, and de novo mutation detection.
+A genomic study might be based on one or more service requests or care plans. The reasons for performing a genomic study might be driven by specific <a href="condition.html">Conditions</a> or <a href="observation.html">Observations</a>. Although the genomic study subject is the focus of the study, the assay-level subject could be used to specify other relevant subjects. For example, trio testing may involve three subjects: the proband, and both parents. The proband would be the subject listed directly under the genomic study, while each of the analyses could represent proband, mother, and father genomic assays.
 </p>
 <p>
-The study interpreters use all the results of these various analyses to provide diagnostic and therapeutic insights. Where performers are listed according to their participation in each genomic analysis and included assays. Each analysis may base on a set of defined protocols that may differ from the performed protocols.
-</p>
-<p>
-The result files could be listed either on the analysis-level or assay-level based on their nature.
+In clinical use, the study interpreters use all the results of these various analyses to provide diagnostic and therapeutic insights for the patient. Where performers are listed according to their participation in each genomic analysis and included assays. Each analysis may base on a set of defined protocols that may differ from the performed protocols.
 </p>
 </div>
 
