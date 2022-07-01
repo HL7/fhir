@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="imagingselection-graphictype"/>
+  <id value="imagingselection-3dgraphictype"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -10,7 +10,7 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
-      <p>This code system http://hl7.org/fhir/imagingselection-graphictype defines the following codes:</p>
+      <p>This code system http://hl7.org/fhir/imagingselection-3dgraphictype defines the following codes:</p>
      
       <p> http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html#sect_C.18.9.1.2</p>
 	 
@@ -28,14 +28,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="ii"/>
   </extension>
-  <url value="http://hl7.org/fhir/imagingselection-graphictype"/>
+  <url value="http://hl7.org/fhir/imagingselection-3dgraphictype"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="ImagingSelectionGraphicType"/>
-  <title value="ImagingSelectionGraphicType"/>
+  <name value="ImagingSelection3DGraphicType"/>
+  <title value="ImagingSelection3DGraphicType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -52,7 +52,7 @@
   </contact>
   <description value="The type of coordinates describing an image region."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-graphictype"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-3dgraphictype"/>
   <content value="complete"/>
   <concept>
     <code value="POINT"/>
