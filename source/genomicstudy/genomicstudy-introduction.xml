@@ -4,30 +4,42 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-GenomicStudy aims at delineating relevant information of a genomic study of specific reasons or use cases. Where one study could comprise one or more analyses that in turn could include one or more assays. Analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, used devices. While, assays may vary in region studied, specimen, or even subject.
+GenomicStudy resource aims at delineating relevant information of a genomic study. A genomic study might comprise one or more analyses, each serve a specific purpose.  These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted.
 </p>
 <p>
-GenomicStudy describes relevant information including, reasons, purpose, and performers. It also provides technical endpoints to access these data. It could be a logical aggregator for complex genomic analyses, where each analysis may carry out various genomic assays of diverse methods.
+GenomicStudy describes relevant information including the reasons, purpose, and performers of the study. It also provides technical endpoints to access these data. It could be a logical aggregator for complex genomic analyses.
 </p>
 <p>
-It could be based on one or more care plans or service requests. The reasons of performing this genomic study could be <a href="condition.html">Conditions</a>, <a href="observation.html">Observations</a>, or as a simple CodeableConcept that represent these reasons. Although the genomics study subject is the focus of the study, the assay-level subject could be used to list different subject, e.g., in trio testing, and de novo mutation detection.
+A genomic study might be based on one or more service requests or care plans. The reasons for performing a genomic study might be driven by specific <a href="condition.html">Conditions</a> or <a href="observation.html">Observations</a>. Although the genomic study subject is the focus of the study, the analysis-level subject could be used to specify other relevant subjects or specimens. For example, trio testing may involve three subjects: the proband, and both parents. The proband would be the subject listed directly under the genomic study, while each of the analyses could represent proband, mother, and father genomic analyses.
 </p>
 <p>
-The study interpreters use all the results of these various analyses to provide diagnostic and therapeutic insights. Where performers are listed according to their participation in each genomic analysis and included assays. Each analysis may base on a set of defined protocols that may differ from the performed protocols.
+In clinical use, the study interpreters use all the results of these various analyses to provide diagnostic and therapeutic insights for the patient. Where performers are listed according to their participation in each genomic analysis. Each analysis may base on a set of defined protocols that may differ from the performed protocols.
 </p>
 <p>
-The result files could be listed either on the analysis-level or assay-level based on their nature.
+The regionStudied and regionCalled elements can refer to DocumentReference instances carrying BED files. Other types of files used in an analysis can be provided similarly, and listed either as inputs or outputs.
+</p>
+<p>
+Detailed information about the results of the analyses may be represented by Observations and gathered in a DiagnosticReport. Both resources may refer back to the originating GenomicStudy to allow navigation.
 </p>
 </div>
 
 <div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
-<p> 
-GenomicStudy is used for genomic relevant information where result files are represented as <a href="documentreference.html">DocumentReferences</a> that include relevant metadata in addition to links to actual files or as attachments.
+<p>
+A main function of GenomicStudy is to provide additional metadata for one or more clinical genomic analysis pipelines where <a href="documentreference.html">DocumentReference</a> instances are used to track inputs and outputs of those pipelines. Device is used to represent both hardware and software used in the sequencing and in the analyses.
 </p>
 <p>
-This resource could be referenced by Genomic Diagnostic Report or genomic observations, e.g., Variant, or Genotype.
+It is intended that this resource be referenced by <a href="observation.html">Observation</a> and <a href="documentreference.html">DocumentReference</a> similarly to how ImagingStudy is currently referenced on those resources. Of note, the results of the study would be captured in Observations and referenced on a DiagnosticReport.
+</p>
+<p>
+Important contextual references include Patient, Specimen, Encounter, ServiceRequest, Practitioner, and Organization.
+</p>
+<p>
+<a href="observation.html">Observation</a> or <a href="condition.html">Condition</a> instances may also be referenced from genomic study to designate a given reason for performing the study
+</p>
+<p>
+GenomicStudy can support the event-definition workflow pattern by referencing PlanDefinition(s) via the instantiatesCanonical relationship when implementers wish to describe more specifics of the pipelines and devices used in the analysis.
 </p>
 </div>
 </div>
