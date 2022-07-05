@@ -773,7 +773,7 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
     <td><code>in</code></td>
     <td><a href="search.html#reference">reference</a>, <a href="search.html#token">token</a></td>
     <td>
-      <b>Short:</b> The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified value set..<br/>
+      <b>Short:</b>The search parameter tests whether a coding is in the specified value set or a reference is a member of a List or Group.<br/>
       <a href="search.html#modifieridentifier">Details</a>
     </td>
   </tr>
@@ -852,7 +852,7 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
   <h5>above</h5>
   <p>
     The <code>above</code> modifier allows clients to search hierarchies of data based on relationships.  The <code>above</code> modifier is only
-    allowed on search parameters of <a href="search.html#reference">reference</a>, <a href="search.html#token">token</a>, and <a href="search.html#uri">uri</a>.
+    allowed on search parameters of type <a href="search.html#reference">reference</a>, <a href="search.html#token">token</a>, and <a href="search.html#uri">uri</a>.
     The exact semantics for use vary depending on the type of search parameter:
   </p>
 
@@ -941,12 +941,12 @@ url:above=http://acme.org/fhir/ValueSet/123/_history/5</span>
     </span>
     will match any ValueSet resources with a url of:
     <ul>
-      <li><code>http://acme.org/fhir/ValueSet/123/_history/5</code></li>
-      <li><code>http://acme.org/fhir/ValueSet/123/_history</code></li>
-      <li><code>http://acme.org/fhir/ValueSet/123</code></li>
-      <li><code>http://acme.org/fhir/ValueSet</code></li>
-      <li><code>http://acme.org/fhir</code></li>
-      <li><code>http://acme.org/</code></li>
+      <li><code>http://acme.org/fhir/ValueSet/123/_history/5</code> - full match</li>
+      <li><code>http://acme.org/fhir/ValueSet/123/_history</code> - parent of requested URI</li>
+      <li><code>http://acme.org/fhir/ValueSet/123</code> - ancestor of requested URI</li>
+      <li><code>http://acme.org/fhir/ValueSet</code> - ancestor of requested URI</li>
+      <li><code>http://acme.org/fhir</code> - ancestor of requested URI</li>
+      <li><code>http://acme.org/</code> - ancestor of requested URI</li>
     </ul>
   </p>
   
@@ -955,7 +955,7 @@ url:above=http://acme.org/fhir/ValueSet/123/_history/5</span>
   <h5>below</h5>
   <p>
     The <code>below</code> modifier allows clients to search hierarchies of data based on relationships.  The <code>below</code> modifier is only
-    allowed on search parameters of <a href="search.html#reference">reference</a>, <a href="search.html#token">token</a>, and <a href="search.html#uri">uri</a>.
+    allowed on search parameters of type <a href="search.html#reference">reference</a>, <a href="search.html#token">token</a>, and <a href="search.html#uri">uri</a>.
     The exact semantics for use vary depending on the type of search parameter:
   </p>
 
@@ -1070,11 +1070,11 @@ url:above=http://acme.org/fhir</span>
     </span>
     will match any ValueSet resources with a url of:
     <ul>
-      <li><code>http://acme.org/fhir</code></li>
-      <li><code>http://acme.org/fhir/ValueSet</code></li>
-      <li><code>http://acme.org/fhir/ValueSet/123</code></li>
-      <li><code>http://acme.org/fhir/ValueSet/123/_history</code></li>
-      <li><code>http://acme.org/fhir/ValueSet/123/_history/1</code></li>
+      <li><code>http://acme.org/fhir</code> - full match</li>
+      <li><code>http://acme.org/fhir/ValueSet</code> - child of requested URI</li>
+      <li><code>http://acme.org/fhir/ValueSet/123</code> - descendant of requested URI</li>
+      <li><code>http://acme.org/fhir/ValueSet/123/_history</code> - descendant of requested URI</li>
+      <li><code>http://acme.org/fhir/ValueSet/123/_history/1</code> - descendant of requested URI</li>
       <li>...</li>
     </ul>
   </p>
@@ -1106,10 +1106,10 @@ language:code-text=EN</span>
     </span>
     for patients with a communication language of 'EN' (English) will match any Patient resources with a communication language of:
     <ul>
-      <li><code>en</code></li>
-      <li><code>en-AU</code></li>
-      <li><code>en-CA</code></li>
-      <li><code>en-GB</code></li>
+      <li><code>en</code> - requested code text (case-insensitive)</li>
+      <li><code>en-AU</code> - starts with requested code text (case-insensitive)</li>
+      <li><code>en-CA</code> - starts with requested code text (case-insensitive)</li>
+      <li><code>en-GB</code> - starts with requested code text (case-insensitive)</li>
       <li>...</li>
     </ul>
   </p>
@@ -1140,10 +1140,10 @@ family:contains=son</span>
     </span>
     for patients with a family name containing 'son' would match any Patient resources with a family names of:
     <ul>
-      <li><code>Son</code></li>
-      <li><code>Erikson</code></li>
-      <li><code>Samsonite</code></li>
-      <li><code>Sonder</code></li>
+      <li><code>Son</code> - requested string (case-insensitive)</li>
+      <li><code>Sonder</code> - begins with requested string (case-insensitive)</li>
+      <li><code>Erikson</code> - ends with requested string (case-insensitive)</li>
+      <li><code>Samsonite</code> - contains requeste string (case-insensitive)</li>
       <li>...</li>
     </ul>
   </p>
@@ -1175,7 +1175,7 @@ family:exact=Son</span>
     </span>
     for patients with a family name exactly 'Son' would <em>only</em> match Patient resources with a family name of:
     <ul>
-      <li><code>Son</code></li>
+      <li><code>Son</code> - requested string (case-sensitive)</li>
     </ul>
   </p>
 
@@ -1208,8 +1208,7 @@ subject:identifier=http://example.org/fhir/mrn|12345</span>
     <span class="fhir-example">
       <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
       <span class="example-format-display">
-        <span class="example-format-display-json">
-"Observation": {
+        <span class="example-format-display-json">"Observation": {
   "subject": {
     "reference": "Patient/abc",
     "identifier": {
@@ -1217,8 +1216,7 @@ subject:identifier=http://example.org/fhir/mrn|12345</span>
       "value": "12345"
     }
   }
-}
-        </span>
+}</span>
         <span class="example-format-display-xml">
 &lt;Observation&gt;
   &lt;subject&gt;
@@ -1236,13 +1234,11 @@ subject:identifier=http://example.org/fhir/mrn|12345</span>
     <span class="fhir-example">
       <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
       <span class="example-format-display">
-        <span class="example-format-display-json">
-"Observation": {
+        <span class="example-format-display-json">"Observation": {
   "subject": {
     "reference": "Patient/abc"
   }
-}
-        </span>
+}</span>
         <span class="example-format-display-xml">
 &lt;Observation&gt;
   &lt;subject&gt;
@@ -1254,10 +1250,82 @@ subject:identifier=http://example.org/fhir/mrn|12345</span>
     </span>
     even if the Patient resource for <code>Patient/abc</code> contains the requested identifier.
   </p>
+  <p>
+    For more details about the difference between the <code>identifier</code> modifier and chained-searches on the 
+    identifier element, see <a href="#specialidentifiers">Searching with Identifiers</a>.
+  </p>
 
   <a name="modifierin"></a>
   <h5>in</h5>
+  <p>
+    The <code>in</code> modifier is used to filter based on value membership, either for codes in Value Sets or for
+    references based on List or Group resources.  The <code>in</code> modifier is only allowed on search parameters of type 
+    <a href="#reference">reference</a> and <a href="#token">token</a>.  The exact semantics for use vary depending 
+    on the type of search parameter:
+  </p>
 
+  <h6>in (reference)</h6>
+  <p>
+    When the <code>in</code> modifier is used with a <a href="#reference">reference</a> search parameter, the search
+    is based on the contents of a List or Group instead of a reference to those resources directly.  The parameter is intended
+    to be used with explicit references (e.g., <code>List.entry.item</code> and <code>Group.member.entity</code>).  If a Group
+    used in a search has both characteristics and enumerated members, the expectation is that the test will be against the
+    enumeration, not the characteristics.  If a group has <em>only</em> characteristics, the server may either: determine
+    the candidates that meet the critieria and match (provided it can match all criteria), or treat the parameter as a 
+    non-supported parameter (remove the parameter or raise an error, as is appropriate).
+  </p>
+  <p>
+    When using the <code>in</code> modifier on a reference, only references to <a href="list.html">List</a> and 
+    <a href="group.html">Group</a> resources are allowed.
+  </p>
+  <p>
+    For example, the search:
+    <span class="http-search-example">
+      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+      <span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Encounter?patient:in=Group/123</span>
+        <span class="http-verb-display-post">POST [base]/Encounter/_search
+Content-Type: application/x-www-form-urlencoded
+patient:in=Group/123</span>
+      </span>
+    </span>
+    for encounters of patients in group '123' match any Encounters with Patients enumerated by Group '123'.
+  </p>
+
+  <h6>in (token)</h6>
+  <p>
+    When the <code>in</code> modifier is used with a <a href="#token">token</a> search parameter, the input is
+    a <a href="#uri">uri</a>  (relative or absolute) that identifies a value set, and the search parameter 
+    tests whether the coding is in the specified value set. The reference may be literal (to an address where 
+    the value set can be found) or logical (a reference to <code>ValueSet.url</code>). If the server can treat 
+    the reference as a literal URL, it does, else it tries to match known logical ValueSet.url values.  Note 
+    that the URI need not point to the root value set, <code>http://snomed.info/sct?fhir_vs=isa/235862008</code>
+    is a valid reference to a subset of SNOMED CT 'Hepatitis due to infection', but the parameter value will
+    need to be URL Encoded in order to be a valid parameter.
+  </p>
+  <p>
+    When using the <code>in</code> modifier on a token, only tokens targeting value sets are allowed (e.g., 
+    a boolean token parameter target is not allowed).
+  </p>
+  <p>
+    For example, the search:
+    <span class="http-search-example">
+      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+      <span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Condition?code:in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
+        <span class="http-verb-display-post">POST [base]/Condition/_search
+Content-Type: application/x-www-form-urlencoded
+code:in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
+      </span>
+    </span>
+    for conditions that contain a code from 'http://snomed.info/sct?fhir_vs=isa/235862008' would match any Condition containing:
+    <ul>
+      <li><code>http://snomed.info/sct#235862008</code> - Hepatitis due to infection (this code)</li>
+      <li><code>http://snomed.info/sct#773113008</code> - Acute infectious hepatitis (is-a 235862008)</li>
+      <li><code>http://snomed.info/sct#95897009</code> - Amebic hepatitis (is-a 235862008)</li>
+      <li>...</li>
+    </ul>
+  </p>
 
   <a name="modifiermissing"></a>
   <h5>missing</h5>
@@ -1276,60 +1344,255 @@ subject:identifier=http://example.org/fhir/mrn|12345</span>
     or where the element is present with extensions, but no <code>value</code> is specified.
   </p>
   <p>
+    For example, the search:
+    <span class="http-search-example">
+      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+      <span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Patient?given:missing=true</span>
+        <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+given:missing=true</span>
+      </span>
+    </span>
+    for patients missing a given name would match any Patient records that do not have <em>any</em> value in <code>Patient.name</code> that contains a value for <code>given</code>,
+    even if a patient contains a <code>Patient.name</code> that has a <code>given</code> with an extension and no value (e.g., a Data Absent Reason).
+  </p>
+  <p>
     Searching for <code>[parameter]:missing=false</code> requests all resources that <b>do</b> have a value in the matching element.
   </p>
+  <p>
+    For example, the search:
+    <span class="http-search-example">
+      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+      <span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Patient?given:missing=false</span>
+        <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+given:missing=false</span>
+      </span>
+    </span>
+    for patients NOT missing a given name would match any Patient records that have <em>any</em> value in <code>Patient.name</code> that contains a value for <code>given</code>.
+  </p>
+
 
   <a name="modifiernot"></a>
   <h5>not</h5>
   <p>
-    The <code>not</code> modifier allows clients to filter based on whether resources do not contain a specified value based on the 
+    The <code>not</code> modifier allows clients to filter based on whether resources do not contain a specified token based on the 
     search parameter input.
   </p>
   <p>
-    <code>missing</code> is allowed on search parameter types that represent single-elements: <a href="search.html#date">date</a>, 
-    <a href="search.html#number">number</a>, <a href="search.html#quantity">quantity</a>, <a href="search.html#reference">reference</a>, 
-    <a href="search.html#string">string</a>, <a href="search.html#token">token</a>, <a href="search.html#uri">uri</a>. When using the 'missing' modifier,
-    the only valid input values are the literals <code>true</code> and <code>false</code>.
+    <code>not</code> is only allowed on search parameters of type <a href="search.html#token">token</a>. When using the 'not' modifier,
+    all typically-valid search parameter token inputs are allowed.
   </p>
   <p>
-    Searching for <code>[parameter]:missing=true</code> requests all resources that <b>do not</b> have a value in the matching element
-    or where the element is present with extensions, but no <code>value</code> is specified.
+    Searching for <code>[parameter]:not=[value]</code> requests all resources that <b>do not</b> have any matching value in the searched element(s).
   </p>
   <p>
-    Searching for <code>[parameter]:missing=false</code> requests all resources that <b>do</b> have a value in the matching element.
+    For example, the search:
+    <span class="http-search-example">
+      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+      <span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Patient?gender:not=male</span>
+        <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+gender:not=male</span>
+      </span>
+    </span>
+    for patients that are not male would match any Patient records that do not have <code>male</code> as the value in <code>Patient.gender</code>.  This includes:
+    <ul>
+      <li><code>female</code> - <a href="valueset-administrative-gender.html">Administrative Gender</a> that is not 'male'</li>
+      <li><code>other</code> - <a href="valueset-administrative-gender.html">Administrative Gender</a> that is not 'male'</li>
+      <li><code>unknown</code> - <a href="valueset-administrative-gender.html">Administrative Gender</a> that is not 'male'</li>
+      <li>records without a <code>Patient.gender</code> value (even if a record has extensions, such as a Data Absent Reason)</li>
+    </ul>
+  </p>
+  <p>
+    Similarly, the search:
+    <span class="http-search-example">
+      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+      <span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Composition?section:not=48765-2</span>
+        <span class="http-verb-display-post">POST [base]/Composition/_search
+Content-Type: application/x-www-form-urlencoded
+Composition?section:not=48765-2</span>
+      </span>
+    </span>
+    for documents without an "Allergies and adverse reaction" section (<a href="https://loinc.org/48765-2/">LOINC 48765-2</a>) would return
+    all Composition records that <em>do not contain</em> a section with a code of '48765-2'.  This search <em>does not</em> return 
+    "any document that has a section that is not an Allergies and adverse reaction section".  In the presence of multiple possible matches, 
+    the negation applies to the set and not each individual entry.
   </p>
 
 
-<p>
-  Search Parameters are defined for one or more resources.  
-  The kinds of modifiers available 
-  depend on the type of the search parameter.
-</p>
-<p>
-  Parameters are defined per resource.  Parameter names may specify a modifier as a suffix.  The modifiers are separated from the parameter name by a colon. Modifiers are:
-</p>
-<ul>
- <li>For all parameters (except combination): <code>:missing</code>; e.g. gender:missing=true (or false).
-  Searching for <code>gender:missing=true</code> will return all the resources that don't have a value for the gender parameter (which usually
-  equates to not having the relevant element in the resource). Searching for <code>gender:missing=false</code>
-  will return all the resources that have a value for the <code>gender</code> parameter.
-  For simple data type elements, :missing=true will match on all elements where either the underlying element is omitted or where the element is present with extensions but no @value is specified
-  </li>
- <li>For string: <code>:exact</code> returns results that match the entire supplied parameter, including casing and combining characters.
-    Note that the handling of (extended) <a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">grapheme clusters</a> is within
-		the discretion of the server, i.e. the server decides if a string search parameter matches on canonically equivalent characters, or matches on
-		the actual used Unicode code points, or <code>:contains</code> (case insensitive and combining character-insensitive, search text matched anywhere in the string), instead of the default behavior (case insensitive and accent-insensitive, partial matches at the start of the string).</li>
- <li>For token: <code>:text</code> (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes. Other defined modifiers are <code>:in</code>, <code>:below</code>, <code>:above</code> and <code>:not-in</code> which are described below.</li>
- <li>For reference: <code>:[type]</code> where [type] is the name of a type of resource, :identifier, and, for some parameters, :above and :below</li>
- <li>For uri: <code>:below</code>, <code>:above</code> indicate that instead of an exact match, either the search term left-matches the value, or vice-versa.</li>
-</ul>
-<p>
-Server SHALL reject any search request that contains is suffixed by a modifier that the
-server does <b>not</b> support for that parameter. For example, if the server supports
-the <code>name</code> search parameter, but not the <code>:exact</code> modifier on the name, it should reject a
-search with the parameter <code>name:exact=Bill</code>, using an HTTP <code>400</code> error with
-an <a href="OperationOutcome.html">OperationOutcome</a> with a <a href="operationoutcome-example-searchfail.html">clear error message</a>.
-</p>
+  <a name="modifiernotin"></a>
+  <h5>not-in</h5>
+  <p>
+    The <code>not-in</code> modifier is used to filter based on value exclusions, either for codes of Value Sets or for
+    references based on List or Group resources.  The <code>not-in</code> modifier is only allowed on search parameters of type 
+    <a href="#reference">reference</a> and <a href="#token">token</a>.  The exact semantics for use vary depending 
+    on the type of search parameter:
+  </p>
+
+  <h6>not-in (reference)</h6>
+  <p>
+    When the <code>not-in</code> modifier is used with a <a href="#reference">reference</a> search parameter, the search
+    is based on exclusion of the contents of a List or Group.  The parameter is intended
+    to be used with explicit references (e.g., <code>List.entry.item</code> and <code>Group.member.entity</code>).  If a Group
+    used in a search has both characteristics and enumerated members, the expectation is that the test will be against the
+    enumeration, not the characteristics.  If a group has <em>only</em> characteristics, the server may either: determine
+    the candidates that meet the critieria and match (provided it can match all criteria), or treat the parameter as a 
+    non-supported parameter (remove the parameter or raise an error, as is appropriate).
+  </p>
+  <p>
+    When using the <code>not-in</code> modifier on a reference, only references to <a href="list.html">List</a> and 
+    <a href="group.html">Group</a> resources are allowed.
+  </p>
+  <p>
+    For example, the search:
+    <span class="http-search-example">
+      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+      <span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Encounter?patient:not-in=Group/123</span>
+        <span class="http-verb-display-post">POST [base]/Encounter/_search
+Content-Type: application/x-www-form-urlencoded
+patient:not-in=Group/123</span>
+      </span>
+    </span>
+    for encounters of patients not in group '123' match any Encounters with Patients not enumerated by Group '123'.
+  </p>
+
+  <h6>not-in (token)</h6>
+  <p>
+    When the <code>not-in</code> modifier is used with a <a href="#token">token</a> search parameter, the input is
+    a <a href="#uri">uri</a> (relative or absolute) that identifies a value set, and the search parameter 
+    tests whether the coding is not in the specified value set. The reference may be literal (to an address where 
+    the value set can be found) or logical (a reference to <code>ValueSet.url</code>). If the server can treat 
+    the reference as a literal URL, it does, else it tries to match known logical ValueSet.url values.  Note 
+    that the URI need not point to the root value set, <code>http://snomed.info/sct?fhir_vs=isa/235862008</code>
+    is a valid reference to a subset of SNOMED CT 'Hepatitis due to infection', but the parameter value will
+    need to be URL Encoded in order to be a valid parameter.
+  </p>
+  <p>
+    When using the <code>not-in</code> modifier on a token, only tokens targeting value sets are allowed (e.g., 
+    a boolean token parameter target is not allowed).
+  </p>
+  <p>
+    For example, the search:
+    <span class="http-search-example">
+      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+      <span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Condition?code:not-in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
+        <span class="http-verb-display-post">POST [base]/Condition/_search
+Content-Type: application/x-www-form-urlencoded
+code:not-in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
+      </span>
+    </span>
+    for conditions that do not contain a code from 'http://snomed.info/sct?fhir_vs=isa/235862008' would match any Condition except those containing:
+    <ul>
+      <li><code>http://snomed.info/sct#235862008</code> - Hepatitis due to infection (this code)</li>
+      <li><code>http://snomed.info/sct#773113008</code> - Acute infectious hepatitis (is-a 235862008)</li>
+      <li><code>http://snomed.info/sct#95897009</code> - Amebic hepatitis (is-a 235862008)</li>
+      <li>...</li>
+    </ul>
+  </p>
+
+
+  <a name="modifieroftype"></a>
+  <h5>of-type</h5>
+  <p>
+    The <code>of-type</code> modifier allows clients to filter for resource <a href="datatypes.html#Identifier">Identifier</a>, based on the 
+    <code>Identifier.type.coding.system</code>, <code>Identifier.type.coding.code</code> and <code>Identifier.value</code>.  This allows searches
+    for specific values only within a specific identifier code system.  The format when using 'of-type' is <code>[system]|[code]|[value]</code>.
+    All three parts must be present.
+  </p>
+  <p>
+    <code>of-type</code> is only allowed on search parameters of type <a href="search.html#token">token</a>, and further restricted to parameters
+    targeting the <a href="datatypes.html#Identifier">Identifier</a> type.  When using the 'of-type' modifier, all typically-valid token values
+    are valid for the <code>system</code> and <code>code</code> segments, and all typically-valid string values are valid for the <code>value</code>
+    segment.  Note that input values MAY need to escaped in order to be processed correctly (e.g., if the 'value' contains a vertical pipe character).
+  </p>
+  <p>
+    For example, the search:
+    <span class="http-search-example">
+      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+      <span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Patient?identifier:of-type=http://example.org/CodeSystem/national-identifiers|US|12345</span>
+        <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+identifier:of-type=http://example.org/CodeSystem/national-identifiers|US|12345</span>
+      </span>
+    </span>
+    for patients that contain an identifier that has a type coding of <code>http://example.org/CodeSystem/national-identifiers#US</code> and a value
+    of <code>12345</code> will return records such as:
+    <span class="fhir-example">
+      <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
+      <span class="example-format-display">
+        <span class="example-format-display-json">"Patient": {
+  "identifier": [{
+    "type": {
+      "coding" : {
+        "system": "http://example.org/CodeSystem/national-identifiers",
+        "code": "US"
+      }
+    }
+    "system": "http://example.org/sid/a-local-code-sytem",
+    "value": "12345"
+  }]
+}</span>
+        <span class="example-format-display-xml">
+&lt;Patient&gt;
+  &lt;identifier&gt;
+    &lt;type&gt;
+      &lt;coding&gt;
+        &lt;system value="http://example.org/CodeSystem/national-identifiers"/&gt;
+        &lt;value value="US"/&gt;
+      &lt;/coding&gt;
+    &lt;/type&gt;
+    &lt;system value="http://example.org/sid/a-local-code-sytem"/&gt;
+    &lt;value value="12345"/&gt;
+  &lt;/identifier&gt;
+&lt;/Patient&gt;
+        </span>
+      </span>
+    </span>
+
+    This can be used to disambiguate between data sets that contain collisions.  For example, the above search will NOT return values such as:
+    <span class="fhir-example">
+      <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
+      <span class="example-format-display">
+        <span class="example-format-display-json">"Patient": {
+  "identifier": [{
+    "type": {
+      "coding" : {
+        "system": "http://example.org/CodeSystem/national-identifiers",
+        "code": "CA"
+      }
+    }
+    "system": "http://example.org/sid/another-local-code-sytemm",
+    "value": "12345"
+  }]
+}</span>
+        <span class="example-format-display-xml">
+&lt;Patient&gt;
+  &lt;identifier&gt;
+    &lt;type&gt;
+      &lt;coding&gt;
+        &lt;system value="http://example.org/CodeSystem/national-identifiers"/&gt;
+        &lt;value value="CA"/&gt;
+      &lt;/coding&gt;
+    &lt;/type&gt;
+    &lt;system value="http://example.org/sid/another-local-code-sytem"/&gt;
+    &lt;value value="12345"/&gt;
+  &lt;/identifier&gt;
+&lt;/Patient&gt;
+        </span>
+      </span>
+    </span>
+  </p>
+
+
+
 
 <a name="prefix"></a>
 <h4>Prefixes</h4>
@@ -2531,7 +2794,8 @@ context-type-value=focus$http://snomed.info/sct|408934002</span>
 <a name="specialidentifiers"></a>
 <h4>Searching with Identifiers</h4>
 <p>
-  Need to discuss the nuances of :identifier vs. chained searches, etc.
+  Need to discuss the nuances of :identifier vs. chained searches, etc.  See <a href="https://jira.hl7.org/browse/FHIR-37424">FHIR-37424</a>
+  and <a href="https://jira.hl7.org/browse/FHIR-29410">FHIR-29410</a>.
 </p>
 
 <a name="versions"></a>
