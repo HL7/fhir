@@ -851,8 +851,9 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
   <a name="modifierabove"></a>
   <h5>above</h5>
   <p>
-    The <code>above</code> modifier allows clients to search hierarchies of data based on relationships.  The exact semantics for use vary 
-    depending on the type of search parameter:
+    The <code>above</code> modifier allows clients to search hierarchies of data based on relationships.  The <code>above</code> modifier is only
+    allowed on search parameters of <a href="search.html#reference">reference</a>, <a href="search.html#token">token</a>, and <a href="search.html#uri">uri</a>.
+    The exact semantics for use vary depending on the type of search parameter:
   </p>
 
   <h6>above : reference</h6>
@@ -860,7 +861,11 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
     When the <code>above</code> modifier is used with a <a href="search.html#reference">reference</a> type search parameter, the search is interpreted
     as a hierarchical search on linked resources of the same type, including exact matches and all parents of those matches.  The <code>above</code> 
     modifier is only valid for <a href="references.html#circular">circular</a> references - that is, references that point to another instance of the 
-    same type of resource (e.g., a hierarchy of Location resources).
+    same type of resource (e.g., a hierarchy of Location resources).  Further discussion about the requirements and uses for this type of search can
+    be found in the section <a href="#recursive">Searching Hierarchies</a>.
+  </p>
+  <p>
+    When using the <code>above</code> modifier on a reference, all typically-valid search parameter reference inputs are allowed.
   </p>
   <p>
     For example, the search:
@@ -886,6 +891,9 @@ location:above=A101</span>
     When the <code>above</code> modifer is used with a <a href="search.html#token">token</a> type search parameter, the supplied token is a concept with the
     form <code>[system]|[code]</code> and the intention is to test whether the coding in a resource <a href="CodeSystem.html#subsumption">subsumes</a> the 
     specified search code.  Matches to the input token concept have an is-a relationship with the coding in the resource, and this includes the coding itself.
+  </p>
+  <p>
+    When using the <code>above</code> modifier on a token, all typically-valid search parameter token inputs are allowed.
   </p>
   <p>
     For example, the search:
@@ -918,6 +926,9 @@ code:above=http://snomed.info/sct|3738000</span>
     be used with URNs such as OIDs.  Note that there are not many use cases where <code>above</code> is useful compared to a <code>below</code> search.
   </p>
   <p>
+    When using the <code>above</code> modifier on a uri, all typically-valid search parameter uri inputs are allowed.
+  </p>
+  <p>
     For example, the search:
     <span class="http-search-example">
       <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
@@ -940,12 +951,12 @@ url:above=http://acme.org/fhir/ValueSet/123/_history/5</span>
   </p>
   
 
-
   <a name="modifierbelow"></a>
   <h5>below</h5>
   <p>
-    The <code>below</code> modifier allows clients to search hierarchies of data based on relationships.  The exact semantics for use vary 
-    depending on the type of search parameter:
+    The <code>below</code> modifier allows clients to search hierarchies of data based on relationships.  The <code>below</code> modifier is only
+    allowed on search parameters of <a href="search.html#reference">reference</a>, <a href="search.html#token">token</a>, and <a href="search.html#uri">uri</a>.
+    The exact semantics for use vary depending on the type of search parameter:
   </p>
 
   <h6>below : reference (hierarchical)</h6>
@@ -953,7 +964,11 @@ url:above=http://acme.org/fhir/ValueSet/123/_history/5</span>
     When the <code>below</code> modifier is used with a <a href="search.html#reference">reference</a> type search parameter, the search is interpreted
     as a hierarchical search on linked resources of the same type, including exact matches and all children of those matches.  The <code>below</code> 
     modifier is only valid for <a href="references.html#circular">circular</a> references - that is, references that point to another instance of the 
-    same type of resource (e.g., a hierarchy of Location resources).
+    same type of resource (e.g., a hierarchy of Location resources).  Further discussion about the requirements and uses for this type of search can
+    be found in the section <a href="#recursive">Searching Hierarchies</a>.
+  </p>
+  <p>
+    When using the <code>below</code> modifier on a hierarchial reference, all typically-valid search parameter reference inputs are allowed.
   </p>
   <p>
     For example, the search:
@@ -979,7 +994,22 @@ location:below=BuildingA</span>
 
   <h6>below : reference (canonical versions)</h6>
   <p>
-    ... need content from <a href="versions">References and Versions</a> or link to it.
+    When the <code>below</code> modifier is used with a <a href="search.html#reference">reference</a> against a <a href="datatypes.html#canonical">canonical</a>
+    reference, the search is interpreted as a version search against the canonical resource.  The format of the parameter is either 
+    <b><code>[url]</code></b> or <b><code>[url]|[version]</code></b>.
+    <br/>
+    Description of behavior pending resolution of <a href="https://jira.hl7.org/browse/FHIR-37679">FHIR-37679</a> ...
+    <br/>
+    Further discussion about the requirements and uses for this type of search can
+    be found in the section <a href="#versions">References and Versions</a>.
+  </p>
+  <p>
+    When using the <code>below</code> modifier on a canonical reference, all typically-valid search parameter token inputs are allowed.  Note that any
+    vertical pipe (<code>|</code>) characters that are part of the URL must be escaped (<code>%7C</code>) - the character is used as the separator between
+    the URL and version components of the parameter.
+  </p>
+  <p>
+    Example pending resolution of <a href="https://jira.hl7.org/browse/FHIR-37679">FHIR-37679</a> ...
   </p>
 
   <h6>below : token</h6>
@@ -987,6 +1017,9 @@ location:below=BuildingA</span>
     When the <code>below</code> modifer is used with a <a href="search.html#token">token</a> type search parameter, the supplied token is a concept with the
     form <code>[system]|[code]</code> and the intention is to test whether the coding in a resource <a href="CodeSystem.html#subsumption">is subsumed by</a> the 
     specified search code.  Matches include resources that have a coding that has an is-a relationship with the input concept, and this includes the coding itself.
+  </p>
+  <p>
+    When using the <code>below</code> modifier on a token, all typically-valid search parameter token inputs are allowed.
   </p>
   <p>
     For example, the search:
@@ -1022,6 +1055,9 @@ code:below=http://snomed.info/sct|235862008</span>
     be used with URNs such as OIDs.
   </p>
   <p>
+    When using the <code>below</code> modifier on a uri, all typically-valid search parameter uri inputs are allowed.
+  </p>
+  <p>
     For example, the search:
     <span class="http-search-example">
       <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
@@ -1042,9 +1078,41 @@ url:above=http://acme.org/fhir</span>
       <li>...</li>
     </ul>
   </p>
-  
 
-
+  <a name="modifiercodetext"></a>
+  <h5>code-text</h5>
+  <p>
+    The <code>code-text</code> modifier allows clients to indicate that a supplied <code>string</code> input should be matched
+    as a case-insensitive and combining-character insensitive match against the start of target string.  This modifier is used
+    to do a 'standard' string search against code values.  Note that the handling of extended 
+    <a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">grapheme clusters</a> is within the discretion of 
+    the server, i.e. the server decides if a search parameter matches on canonically equivalent characters or matches on
+		the actual used Unicode code points.
+  </p>
+  <p>
+    <code>code-text</code> is only allowed on <a href="search.html#reference">reference</a> and <a href="search.html#token">token</a>
+    type search parameters. When using the 'code-text' modifier, all typically-valid search parameter string inputs are allowed.
+  </p>
+  <p>
+    For example, the search:
+    <span class="http-search-example">
+      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+      <span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Patient?language:code-text=en</span>
+        <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+language:code-text=EN</span>
+      </span>
+    </span>
+    for patients with a communication language of 'EN' (English) will match any Patient resources with a communication language of:
+    <ul>
+      <li><code>en</code></li>
+      <li><code>en-AU</code></li>
+      <li><code>en-CA</code></li>
+      <li><code>en-GB</code></li>
+      <li>...</li>
+    </ul>
+  </p>
 
   <a name="modifiercontains"></a>
   <h5>contains</h5>
@@ -1056,9 +1124,30 @@ url:above=http://acme.org/fhir</span>
 		the actual used Unicode code points.
   </p>
   <p>
-    <code>contains</code> is only allowed on <a href="search.html#string">string</a> type search parameters. When using the 'contains' modifier,
-    all typically-valid search parameter string inputs are allowed.
+    <code>contains</code> is allowed on <a href="search.html#string">string</a> and <a href="search.html">uri</a> type search 
+    parameters. When using the 'contains' modifier, all typically-valid search parameter string inputs are allowed.
   </p>
+  <p>
+    For example, the search:
+    <span class="http-search-example">
+      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+      <span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Patient?family:contains=son</span>
+        <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+family:contains=son</span>
+      </span>
+    </span>
+    for patients with a family name containing 'son' would match any Patient resources with a family names of:
+    <ul>
+      <li><code>Son</code></li>
+      <li><code>Erikson</code></li>
+      <li><code>Samsonite</code></li>
+      <li><code>Sonder</code></li>
+      <li>...</li>
+    </ul>
+  </p>
+
 
   <a name="modifierexact"></a>
   <h5>exact</h5>
@@ -1073,6 +1162,102 @@ url:above=http://acme.org/fhir</span>
     <code>exact</code> is only allowed on <a href="search.html#string">string</a> type search parameters. When using the 'exact' modifier,
     all typically-valid search parameter string inputs are allowed.
   </p>
+  <p>
+    For example, the search:
+    <span class="http-search-example">
+      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+      <span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Patient?family:exact=Son</span>
+        <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+family:exact=Son</span>
+      </span>
+    </span>
+    for patients with a family name exactly 'Son' would <em>only</em> match Patient resources with a family name of:
+    <ul>
+      <li><code>Son</code></li>
+    </ul>
+  </p>
+
+
+  <a name="modifieridentifier"></a>
+  <h5>identifier</h5>
+  <p>
+    The <code>identifier</code> modifier allows clients to indicate that a supplied <code>token</code> should be used to
+    match against the <a href="references-definitions.html#Reference.identifier">identifier</a> element of a reference instead
+    of the <a href="references-definitions.html#Reference.reference">reference</a> element.  The format of the parameter is
+    <b><code>[system]|[code]</code></b>.  Note that chaining is not supported when using the <code>identifier</code> modifier 
+    and the modifier is not supported on canonical elements since they do not have an identifier separate from the reference itself.
+  </p>
+  <p>
+    <code>identifier</code> is only allowed on <a href="search.html#reference">reference</a> type search parameters. When using the 'identifier' modifier,
+    all typically-valid search parameter token inputs are allowed.
+  </p>
+  <p>
+    For example, the search:
+    <span class="http-search-example">
+      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+      <span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Observation?subject:identifier=http://example.org/fhir/mrn|12345</span>
+        <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+subject:identifier=http://example.org/fhir/mrn|12345</span>
+      </span>
+    </span>
+    for observations with a subject containing the identifier 'http://example.org/fhir/mrn|12345' would match Observation resources such as:
+    <span class="fhir-example">
+      <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
+      <span class="example-format-display">
+        <span class="example-format-display-json">
+"Observation": {
+  "subject": {
+    "reference": "Patient/abc",
+    "identifier": {
+      "system": "http://example.org/fhir/mrn",
+      "value": "12345"
+    }
+  }
+}
+        </span>
+        <span class="example-format-display-xml">
+&lt;Observation&gt;
+  &lt;subject&gt;
+    &lt;reference value="Patient/abc"/&gt;
+    &lt;identifier&gt;
+      &lt;system value="http://example.org/fhir/mrn"/&gt;
+      &lt;value value="12345"/&gt;
+    &lt;/identifier&gt;
+  &lt;/subject&gt;
+&lt;/Observation&gt;
+        </span>
+      </span>
+    </span>
+    but <b>will not</b> match:
+    <span class="fhir-example">
+      <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
+      <span class="example-format-display">
+        <span class="example-format-display-json">
+"Observation": {
+  "subject": {
+    "reference": "Patient/abc"
+  }
+}
+        </span>
+        <span class="example-format-display-xml">
+&lt;Observation&gt;
+  &lt;subject&gt;
+    &lt;reference value="Patient/abc"/&gt;
+  &lt;/subject&gt;
+&lt;/Observation&gt;
+        </span>
+      </span>
+    </span>
+    even if the Patient resource for <code>Patient/abc</code> contains the requested identifier.
+  </p>
+
+  <a name="modifierin"></a>
+  <h5>in</h5>
+
 
   <a name="modifiermissing"></a>
   <h5>missing</h5>
@@ -1682,9 +1867,9 @@ For example, if the search parameter value is Patient/123, then this will find r
 }
     </span>
     <span class="example-format-display-xml">
-&lt;patient&gt;
+&lt;Patient&gt;
   &lt;reference value="Patient/123"/&gt;
-&lt;/patient&gt;
+&lt;/Patient&gt;
     </span>
   </span>
 </span>
@@ -1702,9 +1887,9 @@ references like this:
 }
     </span>
     <span class="example-format-display-xml">
-&lt;patient&gt;
+&lt;Patient&gt;
   &lt;reference value="http://example.org/fhir/Patient/123"/&gt;
-&lt;/patient&gt;
+&lt;/Patient&gt;
     </span>
   </span>
 </span>
@@ -2341,6 +2526,12 @@ context-type-value=focus$http://snomed.info/sct|408934002</span>
 <h3>Special Search Conditions</h3>
 <p>
   ...
+</p>
+
+<a name="specialidentifiers"></a>
+<h4>Searching with Identifiers</h4>
+<p>
+  Need to discuss the nuances of :identifier vs. chained searches, etc.
 </p>
 
 <a name="versions"></a>
