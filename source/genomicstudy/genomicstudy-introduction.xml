@@ -4,7 +4,7 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-GenomicStudy resource aims at delineating relevant information of a genomic study. A genomic study might comprise one or more analyses, each serve a specific purpose.  These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted.
+GenomicStudy resource aims at delineating relevant information of a genomic study. A genomic study might comprise one or more analyses, each serving a specific purpose. These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted.
 </p>
 <p>
 GenomicStudy describes relevant information including the reasons, purpose, and performers of the study. It also provides technical endpoints to access these data. It could be a logical aggregator for complex genomic analyses.
@@ -13,7 +13,7 @@ GenomicStudy describes relevant information including the reasons, purpose, and 
 A genomic study might be based on one or more service requests or care plans. The reasons for performing a genomic study might be driven by specific <a href="condition.html">Conditions</a> or <a href="observation.html">Observations</a>. Although the genomic study subject is the focus of the study, the analysis-level subject could be used to specify other relevant subjects or specimens. For example, trio testing may involve three subjects: the proband, and both parents. The proband would be the subject listed directly under the genomic study, while each of the analyses could represent proband, mother, and father genomic analyses.
 </p>
 <p>
-In clinical use, the study interpreters use all the results of these various analyses to provide diagnostic and therapeutic insights for the patient. Where performers are listed according to their participation in each genomic analysis. Each analysis may base on a set of defined protocols that may differ from the performed protocols.
+In clinical use, the study interpreters use all the results of these various analyses to provide diagnostic and therapeutic insights for the patient. Where performers are listed according to their participation in each genomic analysis. Each analysis may be based on a set of defined protocols that may differ from the performed protocols.
 </p>
 <p>
 The regionStudied and regionCalled elements can refer to DocumentReference instances carrying BED files. Other types of files used in an analysis can be provided similarly, and listed either as inputs or outputs.
