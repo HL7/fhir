@@ -14,8 +14,8 @@
     <status>
         <coding>
             <system value="http://hl7.org/fhir/genomicstudy-status"/>
-            <code value="unknown"/>
-            <display value="Unknown"/>
+            <code value="available"/>
+            <display value="Available"/>
         </coding>
     </status>
     <type>
@@ -31,9 +31,15 @@
     <encounter>
         <reference value="Encounter/denovoEncounter"/>
     </encounter>
-    <startDate value="2021-01-01"/>
+    <startDate value="2022-05-01"/>
     <basedOn>
         <reference value="ServiceRequest/genomicServiceRequest"/>
+    </basedOn>
+        <basedOn>
+        <reference value="ServiceRequest/genomicServiceRequest3"/>
+    </basedOn>
+    <basedOn>
+        <reference value="ServiceRequest/genomicServiceRequest4"/>
     </basedOn>
     <referrer>
         <reference value="Practitioner/practitioner01"/>
