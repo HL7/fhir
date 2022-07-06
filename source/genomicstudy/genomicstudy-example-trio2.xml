@@ -191,8 +191,8 @@
             </file>
             <type>
                 <coding>
-                    <code value="vcf"/>
-                    <display value="VCF"/>
+                    <code value="bed"/>
+                    <display value="BED"/>
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
