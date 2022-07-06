@@ -3,8 +3,9 @@
   <id value="example-2d-image-region-selection"/>
   <identifier>
     <system value="urn:dicom:uid"/>
-    <value value="urn:oid:1.2.840.113747.20080222.324856729726823100954657132726086516575.2.1"/>
+    <value value="urn:oid:1.2.840.113747.20080222.3248567223100954657132726086516575.2.1"/>
   </identifier>
+ <status value="available"/> 
   <subject>
     <type value="Patient"/>
     <identifier>
@@ -15,26 +16,24 @@
   <code>
     <text value="Region selected from image"/>
   </code>
-  <studyUid value="urn:oid:1.2.840.113747.20080222.324856729726823100954657132726086516575"/>
+  <studyUid value="1.2.840.113747.20080222.324856729726854657132726086516575"/>
   <derivedFrom>
     <type value="ImagingStudy"/>
     <identifier>
       <system value="urn:dicom:uid"/>
-      <value value="urn:oid:1.2.840.113747.20080222.324856729726823100954657132726086516575"/>
+      <value value="1.2.840.113747.20080222.324856729726954657132726086516575"/>
     </identifier>
   </derivedFrom>
-  <seriesUid value="urn:oid:1.2.840.113747.20080222.324856729726823100954657132726086516575.1"/>
-  <frameOfReferenceUid value="urn:oid:1.2.840.113747.20080222.324856729726823100954657132726086516575.0"/>
+  <seriesUid value="1.2.840.113747.20080222.324856729726954657132726086516575.1"/>
+  <frameOfReferenceUid value="1.2.840.113747.20080222.324856823100954657132726086516575.0"/>
   <instance>
-    <uid value="urn:oid:1.2.840.113747.20080222.324856729726823100954657132726086516575.1.0"/>
+    <uid value="1.2.840.113747.20080222.324856729726823100132726086516575.1.0"/>
     <sopClass>
       <system value="urn:ietf:rfc:3986"/>
       <code value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
     </sopClass>
-  </instance>
-  <imageRegion>
-      <regionType value="POLYGON"/>
-      <coordinateType value="2d"/>
+    <imageRegion>
+      <regionType value="POLYLINE"/>
       <coordinate value="0.25"/>
       <coordinate value="0.25"/>
       <coordinate value="0.75"/>
@@ -44,5 +43,6 @@
       <coordinate value="0.25"/>
       <coordinate value="0.75"/>
     </imageRegion>
+  </instance>
 
 </ImagingSelection>
