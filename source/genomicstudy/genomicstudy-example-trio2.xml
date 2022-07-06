@@ -237,7 +237,12 @@
             <file>
                 <reference value="DocumentReference/genomicVCFfile"/>
             </file>
-            <type><!-- 0..1 CodeableConcept Type of output data --></type>
+            <type>
+                <coding>
+                    <code value="vcf"/>
+                    <display value="VCF"/>
+                </coding>
+            </type>
         </output>
         <performer>  <!-- 0..* Performer for the analysis event -->
             <actor>
