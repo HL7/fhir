@@ -9,7 +9,7 @@
     <identifier>
         <use value="temp"/>
         <system value="http://www.somesystemabc.net/identifiers/genomicstudies"/>
-        <value value="urn:uuid:1111-1111-1111-1111"/>
+        <value value="urn:uuid:1111-1111-1111-1113"/>
     </identifier>
     <status>
         <coding>
