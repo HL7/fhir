@@ -18,6 +18,18 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Trio study - De novo mutation 2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="genomicstudy-example-trio2"/>
+    </extension>
+    <item>
+      <reference value="GenomicStudy/example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Lung mass - simple variants"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
