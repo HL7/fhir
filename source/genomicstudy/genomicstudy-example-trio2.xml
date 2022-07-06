@@ -60,66 +60,6 @@
         <text value="This de novo mutation is urgent and important for establishing the treatment plan."/>
     </note>
     <description value="De novo mutation study of the patient. The Prenatal Trio Whole Exome Sequencing (Prenatal Trio WES) test is ordered by a physician and must be accompanied with a consent form and detailed clinical information. In general, the test is used when prenatal imaging detects an anomaly that strongly suggests that there is an underlying genetic etiology. Prenatal Trio WES is often considered only after fetal chromosome microarray analysis has been non-diagnostic."/>
-    <analysis>  <!-- 0..* Genomic Analysis Event of proband -->
-        <identifier>
-            <use value="temp"/>
-            <system value="http://www.somesystemabc.net/identifiers/genomicAnalyses"/>
-            <value value="urn:uuid:1111-1111-1111-1111"/>
-        </identifier>
-        <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
-        <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
-        <title value="Proband Sequence Variation Detection Using Next Generation Sequencing"/>
-        <subject>
-            <reference value="Patient/denovoChild"/>
-        </subject>
-        <specimen>
-            <reference value="Specimen/denovo-1"/>
-        </specimen>
-        <date value="2021-01-01T01:01:10-06:00"/><!-- 0..1 The date of the analysis event -->
-        <note>
-            <text value="This is a next generation sequencing analysis of a proband."/>
-        </note>
-        <!-- <protocolPerformed>0..1 Reference(Procedure|Task) The protocol that was performed for the analysis event</protocolPerformed> -->
-        <!-- <regionsCalled>0..1 Reference(DocumentReference) Genomic regions actually called in the analysis event (BED file)</regionsCalled> -->
-        <input>  <!-- 0..* Inputs for the analysis event of Child-->
-            <file>
-                <reference value="DocumentReference/genomicFile1"/>
-            </file>
-            <type>
-                <coding>
-                    <code value="vcf"/>
-                    <display value="VCF"/>
-                 </coding>
-            </type>
-            <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoChild"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
-        </input>
-        <performer>  <!-- 0..* Performer for the analysis event -->
-            <actor>
-                <reference value="Practitioner/practitioner02"/>
-            </actor>
-            <role>
-                <coding>
-                    <system value="http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html"/>
-                    <code value="PRF"/>
-                    <display value="Performer"/>
-                </coding>
-            </role>
-        </performer>
-        <device>  <!-- 0..* Devices used for the analysis (e.g., instruments, software), with settings and parameters -->
-            <device>
-                <reference value="Device/NGS-device"/>
-            </device>
-            <function>
-                <coding>
-                    <display value="Next Generation Sequencing"/>
-                </coding>
-            </function>
-        </device>
-    </analysis>
     <analysis>  <!-- 0..* Genomic Analysis Event of mother -->
         <identifier>
             <use value="temp"/>
