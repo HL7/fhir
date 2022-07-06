@@ -51,8 +51,8 @@
         <concept>
             <coding>
                 <system value="http://snomed.info/sct"/>
-                <code value="267431006"/>
-                <display value="Disorder of lipid metabolism (disorder)"/>
+                <code value="67799006"/>
+                <display value="Cystic fibrosis, prenatal detection (procedure) |"/>
             </coding>
         </concept>
     </reason>
