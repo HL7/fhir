@@ -59,7 +59,7 @@
     <note>
         <text value="This de novo mutation is urgent and important for establishing the treatment plan."/>
     </note>
-    <description value="De novo mutation study of the patient."/>
+    <description value="De novo mutation study of the patient. The Prenatal Trio Whole Exome Sequencing (Prenatal Trio WES) test is ordered by a physician and must be accompanied with a consent form and detailed clinical information. In general, the test is used when prenatal imaging detects an anomaly that strongly suggests that there is an underlying genetic etiology. Prenatal Trio WES is often considered only after fetal chromosome microarray analysis has been non-diagnostic."/>
     <analysis>  <!-- 0..* Genomic Analysis Event of proband -->
         <identifier>
             <use value="temp"/>
