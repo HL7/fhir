@@ -14,8 +14,8 @@
     <status>
         <coding>
             <system value="http://hl7.org/fhir/genomicstudy-status"/>
-            <code value="unknown"/>
-            <display value="Unknown"/>
+            <code value="available"/>
+            <display value="Available"/>
         </coding>
     </status>
     <type>
