@@ -5,19 +5,30 @@
     <p>This resource is an <a href="workflow.html#event">
       <em>event resource</em>
     </a> from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</p>
-    <p>A selection of DICOM SOP instances and/or frames within a single Study and Series which might include additional specifics such as region or other DICOM UIDs, for example, ObservationUID, TrackingUID or SegmentationUID, allowing linkage to an <a href="observation.html">Observation</a> or transferring this information along with the <a href="imagingstudy.html">ImagingStudy</a>.</p>
-    <p><b>Note:</b> DICOM SOP Instances can include images, videos, waveforms or documents.</p>
+    <p>A selection of data from an ImagingStudy. The selection may be:</p>
+    <ul>
+      <li>All DICOM SOP Instances in a single DICOM Series</li>
+      <li>A set of DICOM SOP Instances within a single DICOM Series</li>
+      <li>A set of frames within one or more DICOM multiframe image SOP Instances</li>
+      <li>A set of segments within one or more DICOM segmentation SOP Instances</li>
+      <li>A set of content items within one or more DICOM Structured Report SOP Instances</li>
+      <li>...</li>
+    </ul>
+    <p>May also represent regions within the <a href="imagingstudy.html">ImagingStudy</a> frame of reference, including:</p>
+    <ul>
+      <li>A 2D region within one or more DICOM image SOP Instances</li>
+      <li>A 3D region within a DICOM Frame of Reference</li>
+    </ul>
     <p>Uses for ImagingSelection resources include:</p>
     <ul>
-      <li>Referencing a specific image, frame or region in an <a href="observation.html">Observation</a></li>
-      <li>Referencing the set of images, frames or segments constituting a volume in an <a href="observation.html">Observation</a></li>
-      <li>Referencing the set of image coordinates that relate to a measurement in an <a href="observation.html">Observation</a></li>
-      <li>Linking a node in a DICOM Structured Report SOP Instance to an <a href="observation.html">Observation</a></li>
-      <li>Referencing key images selected from an <a href="imagingstudy.html">ImagingStudy</a></li>
-      <li>Referencing presentation states to be applied to a set of images from an <a href="imagingstudy.html">ImagingStudy</a></li>
-      <li>Referencing the set of loaded images or frames from a study that are "in context" in a context-sharing environment</li>
+      <li>Identifying a specific set of images or frames as the focus of an <a href="observation.html">Observation</a></li>
+      <li>Identifying a spatial region or volume as the focus of an <a href="observation.html">Observation</a></li>
+      <li>Identifying the set of image coordinates as the focus of a measurement represented by an <a href="observation.html">Observation</a></li>
+      <li>Identifying a node in a DICOM Structured Report SOP Instance from which an <a href="observation.html">Observation</a> is derived</li>
+      <li>Identifying images, frames or presentation states selected as part of shared application context in a context-sharing environment</li>
+      <li>Identifying a specific set of images, frames or presentation states to be presented</li>
     </ul>
-    <p>All DICOM SOP Instances referenced shall be part of the same DICOM Series (and therefore also the same DICOM Study). In order to reference SOP Instances in multiple Studies or Series it is necessary to create multiple ImagingSelection resources.</p>
+    <p>All DICOM SOP Instances referenced in a single ImagingSelection resource shall be part of the same DICOM Series (and therefore also the same DICOM Study). In order to reference SOP Instances in multiple Studies or Series it is necessary to create multiple ImagingSelection resources.</p>
   </div>
   <div>
     <a name="bnr"></a>
