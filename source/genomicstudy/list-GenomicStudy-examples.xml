@@ -24,7 +24,7 @@
       <valueString value="genomicstudy-example-trio2"/>
     </extension>
     <item>
-      <reference value="GenomicStudy/example"/>
+      <reference value="GenomicStudy/example-trio2"/>
       <display value="General"/>
     </item>
   </entry>
