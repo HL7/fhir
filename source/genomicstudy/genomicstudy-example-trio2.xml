@@ -233,6 +233,12 @@
             </subject>
             <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
         </input>
+        <output>  <!-- 0..* Outputs for the analysis event -->
+            <file>
+                <reference value="DocumentReference/genomicVCFfile"/>
+            </file>
+            <type><!-- 0..1 CodeableConcept Type of output data --></type>
+        </output>
         <performer>  <!-- 0..* Performer for the analysis event -->
             <actor>
                 <reference value="Practitioner/practitioner02"/>
