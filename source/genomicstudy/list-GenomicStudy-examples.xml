@@ -30,13 +30,13 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Lung mass - simple variants"/>
+      <valueString value="Lung mass - sequencing analysis"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="genomicstudy-example-lungSNV"/>
+      <valueString value="genomicstudy-example-lungMass"/>
     </extension>
     <item>
-      <reference value="GenomicStudy/example-lungSNV"/>
+      <reference value="GenomicStudy/example-lungMass"/>
       <display value="General"/>
     </item>
   </entry>
