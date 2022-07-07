@@ -68,6 +68,27 @@
                 <display value="Nucleic acid sequencing (procedure)"/>
             </coding>
         </methodType>
+        <changeType>
+            <coding>
+                <system value="http://sequenceontology.org"/>
+                <code value="SO:0001483"/>
+                <display value="SNV"/>
+            </coding>
+        </changeType>
+        <changeType>
+            <coding>
+                <system value="http://sequenceontology.org"/>
+                <code value="SO:0002007"/>
+                <display value="MNV"/>
+            </coding>
+        </changeType>
+        <changeType>
+            <coding>
+                <system value="http://sequenceontology.org"/>
+                <code value="SO:1000032"/>
+                <display value="delins"/>
+            </coding>
+        </changeType>
         <genomeBuild>
             <coding>
                 <system value="http://loinc.org"/>
