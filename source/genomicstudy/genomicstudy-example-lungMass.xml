@@ -63,23 +63,9 @@
         </identifier>
         <methodType>
             <coding>
-                <system value="http://www.somesystemabc.net/identifiers/genomicstudyMethods"/>
-                <code value="SNV"/>
-                <display value="Single Nucleaotide Variation (SNV) detection"/>
-            </coding>
-        </methodType>
-        <methodType>
-            <coding>
-                <system value="http://www.somesystemabc.net/identifiers/genomicstudyMethods"/>
-                <code value="MNV"/>
-                <display value="Multiple Nucleaotide Variation (MNV) detection"/>
-            </coding>
-        </methodType>
-        <methodType>
-            <coding>
-                <system value="http://www.somesystemabc.net/identifiers/genomicstudyMethods"/>
-                <code value="WES"/>
-                <display value=" Whole Exome Sequencing (WES)"/>
+                <system value="http://snomed.info/sct"/>
+                <code value="117040002"/>
+                <display value="Nucleic acid sequencing (procedure)"/>
             </coding>
         </methodType>
         <genomeBuild>
