@@ -103,7 +103,7 @@
         <regionsCalled>
             <reference value="DocumentReference/genomicBEDfile"/>
         </regionsCalled>
-        <input>  <!-- 0..* Inputs for the analysis event -->
+        <output>  <!-- 0..* Inputs for the analysis event -->
             <file>
                 <reference value="DocumentReference/genomicVCFfile"/>
             </file>
@@ -113,12 +113,7 @@
                     <display value="VCF"/>
                 </coding>
             </type>
-            <!-- <generatedBy[x]></generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/genomicPatient"/>
-            </subject>
-            <!-- <role></role> -->
-        </input>
+        </output>
         <performer>  <!-- 0..* Performer for the analysis event -->
             <actor>
                 <reference value="Practitioner/practitioner02"/>
