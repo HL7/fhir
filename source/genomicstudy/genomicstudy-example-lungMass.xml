@@ -5,7 +5,7 @@
     <!-- from DomainResource: text, contained, extension, and modifierExtension -->
     <text>
         <status value="additional"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">In March 2019, a patient HG00403 was found to have lung mass on chest x-ray (CXR), and undergoes lung biopsy. a whole exome sequencing (WES) study of a 300 gene panel is performed on the biopsy specimen, and analyzed for simple variants (SNV, MNV, InDel). For technical reasons, PIK3CB was deemed uncallable.</div>
+        <div xmlns="http://www.w3.org/1999/xhtml">Whole exome sequencing of lung biopsy. 300 genes are examined for simple variants (SNV, MNV, InDel), and 170 genes are also examined for CNVs. For technical reasons, PIK3CB was deemed uncallable.</div>
     </text>
     <identifier>
         <use value="temp"/>
@@ -21,9 +21,9 @@
     </status>
     <type>
         <coding>
-            <system value="http://www.somesystemabc.net/CodeSystem"/>
-            <code value="SNV"/>
-            <display value="Single Nucleotide Variation Detection"/>
+            <system value="http://snomed.info/sct"/>
+            <code value="443968007"/>
+            <display value="Whole Exome Sequencing - Sequencing of entire coding region of gene (procedure)"/>
         </coding>
     </type>
     <subject>
