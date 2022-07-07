@@ -71,6 +71,7 @@ complexity that they require for their implementations.
 
   <li><a href="#specialconditions">Special Search Conditions</a>
     <ul>
+      <li><a href="#specialidentifiers">Searching with Identifiers</a></li>
       <li><a href="#versions">References and Versions</a></li>
       <li><a href="#recursive">Searching Hierarchies</a></li>
 	    <li><a href="#mimetype">Searching MIME Types</a></li>
@@ -120,6 +121,7 @@ complexity that they require for their implementations.
   <li><a href="#conformance">Server Conformance</a></li>
   <li><a href="#advanced">Advanced Search</a></li>
   <li><a href="#currency">Search Result Currency</a></li>
+  <li><a href="#conformancesummary">Conformance Summary</a></li>
   <li><a href="#summary">Summary Tables</a></li>
 </ul>
 
@@ -138,7 +140,7 @@ complexity that they require for their implementations.
   entries in such a bundle. Note that the <code>_format</code>
   parameter works for search <a href="http.html#mime-type">like for other interactions</a>.  More information
   about returned contents and elements can be found in 
-  <a href="search.html#return">Managing Returned Resources</a>
+  <a href="#return">Managing Returned Resources</a>
 </p>
 <p>
   There are safety issues associated with the implementation of searching that implementers should always keep in mind. Implementers SHOULD review the <a href="safety.html#search">safety checklist</a>.
@@ -158,12 +160,12 @@ complexity that they require for their implementations.
   Input to search operations are referred to as <code>Search Parameters</code>.  A search parameter can be:
 </p>
 <ul>
-  <li>a filter across <a href="search.html#all">all resources</a> (e.g., <code>_id</code>, which is 
+  <li>a filter across <a href="#all">all resources</a> (e.g., <code>_id</code>, which is 
     present on every resource),</li>
-  <li>a filter on a <a href="search.html#parameters">specific resource</a> 
+  <li>a filter on a <a href="#parameters">specific resource</a> 
     (e.g., <code>Patient.birthDate</code>, which applies to the Patient resource,)</li>
-  <li>a <a href="search.html#content">textual search</a> across a resource, or</li>
-  <li>a parameter that affects <a href="search.html#return">search results</a>.</li>
+  <li>a <a href="#content">textual search</a> across a resource, or</li>
+  <li>a parameter that affects <a href="#return">search results</a>.</li>
 </ul>
 <p>
   There is a single page that lists <a href="searchparameter-registry.html">all the search parameters</a>.
@@ -315,7 +317,7 @@ parameter(s)</span>
 <p>
   Clients SHOULD review the returned parameters in the self link to ensure proper processing of results.
   Generally, ignored parameters will result in clients receiving more results than intended.  In those
-  situation, clients SHOULD filter received records to account for additional data.
+  situations, clients SHOULD filter received records to account for additional data.
 </p>
 
 <a name="paginglinks"></a>
@@ -511,7 +513,7 @@ Servers SHOULD honor the client's request, but are not required to do so.
 <a name="transportprotocols"></a>
 <h3>Transport Protocols</h3>
 <p>
-  FHIR Search is available over a 
+  FHIR Search is available over a ...
 </p>
 <p>
   FHIR Search operations can be performed either via HTTP <code>POST</code> or <code>GET</code>.
@@ -713,7 +715,7 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
 </p>
 <p>
   While support for modifiers is applied per search parameter, modifiers are generally defined according to search parameter type.  
-  The exception is the search parameters type <a href="search.html#special">special</a>, which inherits <b>no</b> modifiers by
+  The exception is the search parameters type <a href="#special">special</a>, which inherits <b>no</b> modifiers by
   default but MAY include any modifier.  A search parameter defined with the 'speical' type SHALL define any modifiers allowed 
   on that search parameter.
 </p>
@@ -722,112 +724,112 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
 </p>
 <table class="grid">
   <tr>
-    <td><code><a href="search.html#modifierabove">above</a></code></td>
-    <td><a href="search.html#reference">reference</a>, <a href="search.html#token">token</a>, <a href="search.html#uri">uri</a></td>
+    <td><code><a href="#modifierabove">above</a></code></td>
+    <td><a href="#reference">reference</a>, <a href="#token">token</a>, <a href="#uri">uri</a></td>
     <td>
       The search parameter tests whether the value in a resource is or subsumes the specified value (is-a, or hierarchical relationships).
     </td>
   </tr>
   <tr>
-    <td><code><a href="search.html#modifierbelow">below</a></code></td>
-    <td><a href="search.html#reference">reference</a>, <a href="search.html#token">token</a>, <a href="search.html#uri">uri</a></td>
+    <td><code><a href="#modifierbelow">below</a></code></td>
+    <td><a href="#reference">reference</a>, <a href="#token">token</a>, <a href="#uri">uri</a></td>
     <td>
       The search parameter tests whether the value in a resource is or is subsumed by the specified value (is-a, or hierarchical relationships).
     </td>
   </tr>
   <tr>
-    <td><code><a href="search.html#modifiercodetext">code-text</a></code></td>
-    <td><a href="search.html#reference">reference</a>, <a href="search.html#token">token</a></td>
+    <td><code><a href="#modifiercodetext">code-text</a></code></td>
+    <td><a href="#reference">reference</a>, <a href="#token">token</a></td>
     <td>
       The search parameter is processed as input to a search with advanced text handling that searches a code/value - e.g., <code>Coding.code</code>.
     </td>
   </tr>
   <tr>
-    <td><code><a href="search.html#modifiercontains">contains</a></code></td>
-    <td><a href="search.html#string">string</a>, <a href="search.html#uri">uri</a></td>
+    <td><code><a href="#modifiercontains">contains</a></code></td>
+    <td><a href="#string">string</a>, <a href="#uri">uri</a></td>
     <td>
       The search parameter returns resources that include the supplied parameter value anywhere within the field being searched.
     </td>
   </tr>
   <tr>
-    <td><code><a href="search.html#modifierexact">exact</a></code></td>
-    <td><a href="search.html#string">string</a></td>
+    <td><code><a href="#modifierexact">exact</a></code></td>
+    <td><a href="#string">string</a></td>
     <td>
       The search parameter returns resources that have a value that exactly matches the supplied parameter (the whole string, including casing and accents).
     </td>
   </tr>
   <tr>
-    <td><code><a href="search.html#modifieridentifier">identifier</a></code></td>
-    <td><a href="search.html#reference">reference</a></td>
+    <td><code><a href="#modifieridentifier">identifier</a></code></td>
+    <td><a href="#reference">reference</a></td>
     <td>
       The search parameter applies to the identifier on the resource, not the reference.
     </td>
   </tr>
   <tr>
-    <td><code><a href="search.html#modifieridentifier">in</a></code></td>
-    <td><a href="search.html#reference">reference</a>, <a href="search.html#token">token</a></td>
+    <td><code><a href="#modifieridentifier">in</a></code></td>
+    <td><a href="#reference">reference</a>, <a href="#token">token</a></td>
     <td>
       The search parameter tests whether a coding is in the specified value set or a reference is a member of a List or Group.
     </td>
   </tr>
   <tr>
-    <td><code><a href="search.html#modifiermissing">missing</a></code></td>
+    <td><code><a href="#modifiermissing">missing</a></code></td>
     <td>
-      <a href="search.html#date">date</a>, <a href="search.html#number">number</a>, <a href="search.html#quantity">quantity</a>, 
-      <a href="search.html#reference">reference</a>, <a href="search.html#string">string</a>, <a href="search.html#token">token</a>, 
-      <a href="search.html#uri">uri</a>
+      <a href="#date">date</a>, <a href="#number">number</a>, <a href="#quantity">quantity</a>, 
+      <a href="#reference">reference</a>, <a href="#string">string</a>, <a href="#token">token</a>, 
+      <a href="#uri">uri</a>
     </td>
     <td>
       Modify the search parameter to a <code>token</code> (boolean - true|false) that tests whether resources have a value or not in the requested element.
     </td>
    </tr>
    <tr>
-    <td><code><a href="search.html#modifiernot">not</a></code></td>
-    <td><a href="search.html#token">token</a></td>
+    <td><code><a href="#modifiernot">not</a></code></td>
+    <td><a href="#token">token</a></td>
     <td>
       The search parameter returns resources that do not contain a match to the specified value.
     </td>
    </tr>
    <tr>
-    <td><code><a href="search.html#modifiernotin">not-in</a></code></td>
-    <td><a href="search.html#reference">reference</a>, <a href="search.html#token">token</a></td>
+    <td><code><a href="#modifiernotin">not-in</a></code></td>
+    <td><a href="#reference">reference</a>, <a href="#token">token</a></td>
     <td>
       The search parameter returns resources that do not contain the requested value (e.g., test for a Value Set <i>not</i> containing a particular code).
     </td>
    </tr>
    <tr>
-    <td><code><a href="search.html#modifieroftype">of-type</a></code></td>
-    <td><a href="search.html#token">token</a> (only <a href="datatypes.html#Identifier">Identifier</a>)</td>
+    <td><code><a href="#modifieroftype">of-type</a></code></td>
+    <td><a href="#token">token</a> (only <a href="datatypes.html#Identifier">Identifier</a>)</td>
     <td>
       The search parameter tests to see if an <code>Identifier</code> has a matching <code>value</code> and <code>type</code>.
     </td>
    </tr>
    <tr>
-    <td><code><a href="search.html#modifiertexttoken">text</a></code></td>
-    <td><a href="search.html#reference">reference</a>, <a href="search.html#token">token</a></td>
+    <td><code><a href="#modifiertexttoken">text</a></code></td>
+    <td><a href="#reference">reference</a>, <a href="#token">token</a></td>
     <td>
       The search parameter is processed as a string that searches text associated with the code/value - either <code>CodeableConcept.text</code>, 
       <code>Coding.display</code>, or <code>Identifier.type.text</code>.
     </td>
    </tr>
    <tr>
-    <td><code><a href="search.html#modifiertextstring">text</a></code></td>
-    <td><a href="search.html#string">string</a></td>
+    <td><code><a href="#modifiertextstring">text</a></code></td>
+    <td><a href="#string">string</a></td>
     <td>
       The search parameter value should be processed as input to a search with advanced text handling.
     </td>
    </tr>
    <tr>
-    <td><code><a href="search.html#modifiertextadvanced">text-advanced</a></code></td>
-    <td><a href="search.html#reference">reference</a>, <a href="search.html#token">token</a></td>
+    <td><code><a href="#modifiertextadvanced">text-advanced</a></code></td>
+    <td><a href="#reference">reference</a>, <a href="#token">token</a></td>
     <td>
       The search parameter is processed as input to a search with advanced text handling that searches text associated with the code/value - either
       <code>CodeableConcept.text</code>, <code>Coding.display</code>, or <code>Identifier.type.text</code>.
     </td>
    </tr>
    <tr>
-    <td><code><a href="search.html#modifiertype">[type]</a></code></td>
-    <td><a href="search.html#reference">reference</a></td>
+    <td><code><a href="#modifiertype">[type]</a></code></td>
+    <td><a href="#reference">reference</a></td>
     <td>
       The search parameter only applies to the Resource Type specified as a modifier (e.g. the modifier is not actually <code>:type</code>, but <code>:Patient</code> etc.).
     </td>
@@ -838,13 +840,13 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
   <h5>above</h5>
   <p>
     The <code>above</code> modifier allows clients to search hierarchies of data based on relationships.  The <code>above</code> modifier is only
-    allowed on search parameters of type <a href="search.html#reference">reference</a>, <a href="search.html#token">token</a>, and <a href="search.html#uri">uri</a>.
+    allowed on search parameters of type <a href="#reference">reference</a>, <a href="#token">token</a>, and <a href="#uri">uri</a>.
     The exact semantics for use vary depending on the type of search parameter:
   </p>
 
   <h6>above : reference</h6>
   <p>
-    When the <code>above</code> modifier is used with a <a href="search.html#reference">reference</a> type search parameter, the search is interpreted
+    When the <code>above</code> modifier is used with a <a href="#reference">reference</a> type search parameter, the search is interpreted
     as a hierarchical search on linked resources of the same type, including exact matches and all parents of those matches.  The <code>above</code> 
     modifier is only valid for <a href="references.html#circular">circular</a> references - that is, references that point to another instance of the 
     same type of resource (e.g., a hierarchy of Location resources).  Further discussion about the requirements and uses for this type of search can
@@ -874,7 +876,7 @@ location:above=A101</span>
 
   <h6>above : token</h6>
   <p>
-    When the <code>above</code> modifer is used with a <a href="search.html#token">token</a> type search parameter, the supplied token is a concept with the
+    When the <code>above</code> modifer is used with a <a href="#token">token</a> type search parameter, the supplied token is a concept with the
     form <code>[system]|[code]</code> and the intention is to test whether the coding in a resource <a href="CodeSystem.html#subsumption">subsumes</a> the 
     specified search code.  Matches to the input token concept have an is-a relationship with the coding in the resource, and this includes the coding itself.
   </p>
@@ -907,7 +909,7 @@ code:above=http://snomed.info/sct|3738000</span>
 
   <h6>above : uri</h6>
   <p>
-    When the <code>above</code> modifier is used with a <a href="search.html#uri">uri</a> type search parameter, the value is used for partial matching
+    When the <code>above</code> modifier is used with a <a href="#uri">uri</a> type search parameter, the value is used for partial matching
     based on URL path segments.  Because of the hierarchical behavior of <code>above</code>, the modifier only applies to URIs that are URLs and cannot
     be used with URNs such as OIDs.  Note that there are not many use cases where <code>above</code> is useful compared to a <code>below</code> search.
   </p>
@@ -940,13 +942,13 @@ url:above=http://acme.org/fhir/ValueSet/123/_history/5</span>
   <h5>below</h5>
   <p>
     The <code>below</code> modifier allows clients to search hierarchies of data based on relationships.  The <code>below</code> modifier is only
-    allowed on search parameters of type <a href="search.html#reference">reference</a>, <a href="search.html#token">token</a>, and <a href="search.html#uri">uri</a>.
+    allowed on search parameters of type <a href="#reference">reference</a>, <a href="#token">token</a>, and <a href="#uri">uri</a>.
     The exact semantics for use vary depending on the type of search parameter:
   </p>
 
   <h6>below : reference (hierarchical)</h6>
   <p>
-    When the <code>below</code> modifier is used with a <a href="search.html#reference">reference</a> type search parameter, the search is interpreted
+    When the <code>below</code> modifier is used with a <a href="#reference">reference</a> type search parameter, the search is interpreted
     as a hierarchical search on linked resources of the same type, including exact matches and all children of those matches.  The <code>below</code> 
     modifier is only valid for <a href="references.html#circular">circular</a> references - that is, references that point to another instance of the 
     same type of resource (e.g., a hierarchy of Location resources).  Further discussion about the requirements and uses for this type of search can
@@ -979,7 +981,7 @@ location:below=BuildingA</span>
 
   <h6>below : reference (canonical versions)</h6>
   <p>
-    When the <code>below</code> modifier is used with a <a href="search.html#reference">reference</a> against a <a href="datatypes.html#canonical">canonical</a>
+    When the <code>below</code> modifier is used with a <a href="#reference">reference</a> against a <a href="datatypes.html#canonical">canonical</a>
     reference, the search is interpreted as a version search against the canonical resource.  The format of the parameter is either 
     <b><code>[url]</code></b> or <b><code>[url]|[version]</code></b>.
     <br/>
@@ -999,7 +1001,7 @@ location:below=BuildingA</span>
 
   <h6>below : token</h6>
   <p>
-    When the <code>below</code> modifer is used with a <a href="search.html#token">token</a> type search parameter, the supplied token is a concept with the
+    When the <code>below</code> modifer is used with a <a href="#token">token</a> type search parameter, the supplied token is a concept with the
     form <code>[system]|[code]</code> and the intention is to test whether the coding in a resource <a href="CodeSystem.html#subsumption">is subsumed by</a> the 
     specified search code.  Matches include resources that have a coding that has an is-a relationship with the input concept, and this includes the coding itself.
   </p>
@@ -1034,7 +1036,7 @@ code:below=http://snomed.info/sct|235862008</span>
 
   <h6>below : uri</h6>
   <p>
-    When the <code>below</code> modifier is used with a <a href="search.html#uri">uri</a> type search parameter, the value is used for partial matching
+    When the <code>below</code> modifier is used with a <a href="#uri">uri</a> type search parameter, the value is used for partial matching
     based on URL path segments.  Because of the hierarchical behavior of <code>below</code>, the modifier only applies to URIs that are URLs and cannot
     be used with URNs such as OIDs.
   </p>
@@ -1074,7 +1076,7 @@ url:above=http://acme.org/fhir</span>
 		the actual used Unicode code points.
   </p>
   <p>
-    <code>code-text</code> is only allowed on <a href="search.html#reference">reference</a> and <a href="search.html#token">token</a>
+    <code>code-text</code> is only allowed on <a href="#reference">reference</a> and <a href="#token">token</a>
     type search parameters. When using the 'code-text' modifier, all typically-valid search parameter string inputs are allowed.
   </p>
   <p>
@@ -1108,7 +1110,7 @@ language:code-text=EN</span>
 		the actual used Unicode code points.
   </p>
   <p>
-    <code>contains</code> is allowed on <a href="search.html#string">string</a> and <a href="search.html">uri</a> type search 
+    <code>contains</code> is allowed on <a href="#string">string</a> and <a href="search.html">uri</a> type search 
     parameters. When using the 'contains' modifier, all typically-valid search parameter string inputs are allowed.
   </p>
   <p>
@@ -1142,7 +1144,7 @@ family:contains=son</span>
 		the actual used Unicode code points.
   </p>
   <p>
-    <code>exact</code> is only allowed on <a href="search.html#string">string</a> type search parameters. When using the 'exact' modifier,
+    <code>exact</code> is only allowed on <a href="#string">string</a> type search parameters. When using the 'exact' modifier,
     all typically-valid search parameter string inputs are allowed.
   </p>
   <p>
@@ -1172,7 +1174,7 @@ family:exact=Son</span>
     and the modifier is not supported on canonical elements since they do not have an identifier separate from the reference itself.
   </p>
   <p>
-    <code>identifier</code> is only allowed on <a href="search.html#reference">reference</a> type search parameters. When using the 'identifier' modifier,
+    <code>identifier</code> is only allowed on <a href="#reference">reference</a> type search parameters. When using the 'identifier' modifier,
     all typically-valid search parameter token inputs are allowed.
   </p>
   <p>
@@ -1316,9 +1318,9 @@ code:in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
     a search parameter.  Usually, this equates to testing if a resource has an element or not.
   </p>
   <p>
-    <code>missing</code> is allowed on search parameter types that represent single-elements: <a href="search.html#date">date</a>, 
-    <a href="search.html#number">number</a>, <a href="search.html#quantity">quantity</a>, <a href="search.html#reference">reference</a>, 
-    <a href="search.html#string">string</a>, <a href="search.html#token">token</a>, <a href="search.html#uri">uri</a>. When using the 'missing' modifier,
+    <code>missing</code> is allowed on search parameter types that represent single-elements: <a href="#date">date</a>, 
+    <a href="#number">number</a>, <a href="#quantity">quantity</a>, <a href="#reference">reference</a>, 
+    <a href="#string">string</a>, <a href="#token">token</a>, <a href="#uri">uri</a>. When using the 'missing' modifier,
     the only valid input values are the literals <code>true</code> and <code>false</code>.
   </p>
   <p>
@@ -1363,7 +1365,7 @@ given:missing=false</span>
     search parameter input.
   </p>
   <p>
-    <code>not</code> is only allowed on search parameters of type <a href="search.html#token">token</a>. When using the 'not' modifier,
+    <code>not</code> is only allowed on search parameters of type <a href="#token">token</a>. When using the 'not' modifier,
     all typically-valid search parameter token inputs are allowed.
   </p>
   <p>
@@ -1486,7 +1488,7 @@ code:not-in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
     All three parts must be present.
   </p>
   <p>
-    <code>of-type</code> is only allowed on search parameters of type <a href="search.html#token">token</a>, and further restricted to parameters
+    <code>of-type</code> is only allowed on search parameters of type <a href="#token">token</a>, and further restricted to parameters
     targeting the <a href="datatypes.html#Identifier">Identifier</a> type.  When using the 'of-type' modifier, all typically-valid token values
     are valid for the <code>system</code> and <code>code</code> segments, and all typically-valid string values are valid for the <code>value</code>
     segment.  Note that input values MAY need to escaped in order to be processed correctly (e.g., if the 'value' contains a vertical pipe character).
@@ -1574,13 +1576,13 @@ identifier:of-type=http://example.org/CodeSystem/national-identifiers|US|12345</
   <a name="modifiertexttoken"></a>
   <h5>text : reference, token</h5>
   <p>
-    The <code>text</code> modifier on search parameters of type <a href="search.html#reference">reference</a> and <a href="search.html#token">token</a>
+    The <code>text</code> modifier on search parameters of type <a href="#reference">reference</a> and <a href="#token">token</a>
     allows clients to indicate that a supplied <code>string</code> should be used to perform a string-search against the text
     associated with a code or value.  For example, <code>CodeableConcept.text</code>, <code>Coding.display</code>, or 
     <code>Identifer.type.text</code>.
   </p>
   <p>
-    In this context, the <code>text</code> modifer is only allowed on <a href="search.html#reference">reference</a> and <a href="search.html#token">token</a>
+    In this context, the <code>text</code> modifer is only allowed on <a href="#reference">reference</a> and <a href="#token">token</a>
     type search parameters. When using the 'text' modifier, all typically-valid search parameter string inputs are allowed.
   </p>
   <p>
@@ -1603,7 +1605,7 @@ code:text=headache</span>
     </ul>
     Note that the search is <em>not</em> expected to return results such as <code>http://snomed.info/sct#735938006</code>, since
     the code text of 'Acute headache' does not match a default string search of the term headache (case-insensitive, begins with or equals).
-    For advanced searching of related text, see the <a href="search.html#modifiertextadvanced">text-advanced</a> search modifier.
+    For advanced searching of related text, see the <a href="#modifiertextadvanced">text-advanced</a> search modifier.
   </p>
   <p>
     For more details about the difference between the <code>identifier</code> modifier and chained-searches on the 
@@ -1625,7 +1627,7 @@ code:text=headache</span>
     Typical implementations would use Lucene, Solr, an SQL-based full text search, or some similar indexing service.
   </p>
   <p>
-    <code>text</code> is only allowed on search parameters of type <a href="search.html#string">string</a>. When using the 'text' modifier,
+    <code>text</code> is only allowed on search parameters of type <a href="#string">string</a>. When using the 'text' modifier,
     all typically-valid search parameter string inputs are allowed.
   </p>
   <p>
@@ -1654,7 +1656,7 @@ section-text=(bone OR liver) and metastases</span>
     and logical operations such as AND, OR, etc..
   </p>
   <p>
-    <code>text-advanced</code> is allowed on search parameters of type <a href="search.html#reference">reference</a> and <a href="search.html#token">token</a>.
+    <code>text-advanced</code> is allowed on search parameters of type <a href="#reference">reference</a> and <a href="#token">token</a>.
     When using the 'text-advanced' modifier, all typically-valid search parameter string inputs are allowed.
   </p>
   <p>
@@ -1675,7 +1677,7 @@ code:text-ad=headache</span>
       <li><code>http://snomed.info/sct#230480006</code> - Headache following myelography (disorder)</li>
       <li>etc.</li>
     </ul>
-    just as the <a href="search.html#modifiertexttoken">text</a> modifier.  However, it would also be expected to return Conditions such as:
+    just as the <a href="#modifiertexttoken">text</a> modifier.  However, it would also be expected to return Conditions such as:
     <ul>
       <li><code>http://snomed.info/sct#735938006</code> - Acute headache</li>
       <li><code>http://snomed.info/sct#95660002</code> - Thunderclap headache</li>
@@ -1699,7 +1701,7 @@ code:text-ad=headache</span>
     what type that resource has. However, since these are absolute references, there can be no ambiguity about the type.
   </p>
   <p>
-    <code>[type]</code> is only allowed on <a href="search.html#reference">reference</a> type search parameters. When using the '[type]' modifier,
+    <code>[type]</code> is only allowed on <a href="#reference">reference</a> type search parameters. When using the '[type]' modifier,
     all typically-valid search parameter reference inputs are allowed, but the value format is restricted to only <code>[id]</code>.
   </p>
   <p>
@@ -1733,7 +1735,7 @@ Content-Type: application/x-www-form-urlencoded
 patient=23</span>
       </span>
     </span>
-    However, the modifier becomes more useful when used with <a href="search.html#chaining">Chaining</a> and <a href="search.html#has">Reverse Chaining</a>
+    However, the modifier becomes more useful when used with <a href="#chaining">Chaining</a> and <a href="#has">Reverse Chaining</a>
     of search parameters.
   </p>
 
@@ -4235,7 +4237,7 @@ Servers are not required to implement any of the standard search parameters
 <p>
 The special text search parameters, <code>_text</code> and <code>_content</code>, search
 on the narrative of the resource, and the entire content of the resource respectively.
-Just like string parameters using the <a href="search.html#modifiers"><code>:text</code></a> modifier, these parameters SHOULD support a sophisticated search functionality of the type
+Just like string parameters using the <a href="#modifiers"><code>:text</code></a> modifier, these parameters SHOULD support a sophisticated search functionality of the type
 offered by typical text indexing services.
 The value of the parameter is a text-based search, which may involve searching
 multiple words with thesaurus and proximity considerations, and logical operations
@@ -4367,8 +4369,106 @@ auditing the search itself.
 </p>
 
 
-
-
+<a name="conformancesummary"></a>
+<h3>Conformance Summary</h3>
+<table class="grid">
+  <tr>
+    <td><a href="#searchinputs">Search Inputs</a></td>
+    <td>
+      Clients SHOULD use correct case, and servers SHALL
+      not define additional parameters with different meanings with names that only differ in case.
+    </td>
+  </tr>
+  <tr>
+    <td><a href="#searchcontexts">Search Contexts</a></td>
+    <td>
+      Note that if the <code>_type</code> parameter is included, all other search parameters SHALL be 
+      common to all provided types, and if <code>_type</code> is not included, all parameters SHALL be 
+      common to all resource types.
+    </td>
+  </tr>
+  <tr>
+    <td><a href="#selflink">Self Link</a></td>
+    <td>
+      In order to allow the client to be confident about what search parameters
+      were used as criteria by a server, servers SHALL return the parameters
+      that were actually used to process a search.
+    </td>
+  </tr>
+  <tr>
+    <td><a href="#selflink">Self Link</a></td>
+    <td>
+      Applications processing search results SHALL check these returned values where necessary.
+    </td>
+  </tr>
+  <tr>
+    <td><a href="#selflink">Self Link</a></td>
+    <td>
+      Self links SHALL be expressed as an HTTP GET-based search with the relevant parameters included as query
+      parameters, because of the semantics around the link types.
+    </td>
+  </tr>
+  <tr>
+    <td><a href="#selflink">Self Link</a></td>
+    <td>
+      Self links MAY be returned as absolute URIs or URIs relative to the base URL of a server, and MAY or MAY NOT be resolvable.
+    </td>
+  </tr>
+  <tr>
+    <td><a href="#selflink">Self Link</a></td>
+    <td>
+      Clients SHOULD review the returned parameters in the self link to ensure proper processing of results.
+    </td>
+  </tr>
+  <tr>
+    <td><a href="#selflink">Self Link</a></td>
+    <td>
+      In those situations, clients SHOULD filter received records to account for additional data.
+    </td>
+  </tr>
+  <tr>
+    <td><a href="#paginglinks">Other Links - Paging</a></td>
+    <td>
+      As with the self link, all relevant paging links SHALL be expressed as GET requests.
+    </td>
+  </tr>
+  <tr>
+    <td><a href="#paginglinks">Other Links - Paging</a></td>
+    <td>
+      As with the self link, all relevant paging links SHALL be expressed as GET requests.
+    </td>
+  </tr>
+  <tr>
+    <td><a href="#paginglinks">Other Links - Paging</a></td>
+    <td>
+      Servers SHOULD NOT include content that is considered sensitive.
+    </td>
+  </tr>
+  <tr>
+    <td><a href="#transportprotocols">Transport Protocols</a></td>
+    <td>
+      FHIR Search operations can be performed either via HTTP <code>POST</code> or <code>GET</code>.
+      Servers SHALL support both modes of operation, though MAY return a <code>HTTP 405</code> (Method Not Allowed)
+      for <b>either</b> <code>POST</code> or <code>GET</code>, but not both.
+    </td>
+  </tr>
+  <tr>
+    <td><a href="#basicspost">HTTP POST</a></td>
+    <td>
+      While servers SHALL support search parameters encoded in the POST body (as shown above), servers MAY also support
+      including some or all parameters as query parameters on a POST request:
+    </td>
+  </tr>
+  <tr>
+    <td><a href="#getvspost">Choosing an HTTP Method</a></td>
+    <td>
+      As described above, servers that support search via REST SHALL support both the <code>GET</code> and <code>POST</code> methods.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">...</td>
+  </tr>
+</table>
 
 
 <hr/>
