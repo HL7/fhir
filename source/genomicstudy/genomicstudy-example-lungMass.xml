@@ -54,7 +54,7 @@
     <note>
         <text value="For technical reasons, PIK3CB was deemed uncallable."/>
     </note>
-    <description value="WES of a 300 gene panel is performed on the biopsy specimen, and analyzed for simple variants (SNV, MNV, InDel)."/><!-- 0..1 Description of the genomic study -->
+    <description value="Whole exome sequencing of lung biopsy. 300 genes are examined for simple variants (SNV, MNV, InDel), and 170 genes are also examined for CNVs. For technical reasons, PIK3CB was deemed uncallable."/> <!-- 0..1 Description of the genomic study -->
     <analysis>
         <identifier>
             <use value="official"/>
