@@ -115,7 +115,7 @@
         </regionsCalled>
         <output>  <!-- 0..* Inputs for the analysis event -->
             <file>
-                <reference value="DocumentReference/genomicVCFfile"/>
+                <reference value="DocumentReference/genomicVCFfile_simple"/>
             </file>
             <type>
                 <coding>
