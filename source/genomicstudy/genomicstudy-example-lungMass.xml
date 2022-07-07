@@ -1,7 +1,7 @@
 <GenomicStudy xmlns="http://hl7.org/fhir">
  <!-- from Resource: id, meta, implicitRules, and language -->
  <!-- from DomainResource: text, contained, extension, and modifierExtension -->
-    <id value="example-lungSNV"/>
+    <id value="example-lungMass"/>
     <!-- from DomainResource: text, contained, extension, and modifierExtension -->
     <text>
         <status value="additional"/>
