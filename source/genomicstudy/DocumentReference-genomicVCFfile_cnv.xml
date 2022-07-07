@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DocumentReference xmlns="http://hl7.org/fhir">
+  <id value="genomicVCFfile_cnv"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative</b></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource "genomicVCFfile_cnv" </p></div><p><b>identifier</b>: id: 11121</p><p><b>status</b>: current</p><p><b>docStatus</b>: preliminary</p><p><b>description</b>: A sample Document Reference instance representing a VCF file that may be used as input or output of a genomic analysis pipeline.</p><p><b>securityLabel</b>: Restricted <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="http://terminology.hl7.org/3.1.0/CodeSystem-v3-Confidentiality.html">Confidentiality</a>#R)</span></p><blockquote><p><b>content</b></p></blockquote></div>
+  </text>
+  <identifier>
+    <system value="http://www.somesystemabc.net/identifiers/files"/>
+    <value value="11121"/>
+  </identifier>
+  <status value="current"/>
+  <docStatus value="preliminary"/>
+  <description value="genomicVCFfile_cnv: A sample Document Reference instance representing a VCF file that may be used as input or output of a genomic analysis pipeline."/>
+  <securityLabel>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
+      <code value="R"/>
+      <display value="Restricted"/>
+    </coding>
+  </securityLabel>
+  <content>
+    <attachment>
+      <url value="http://www.somesystemabc.net/identifiers/files/11114"/>
+      <title value="genomicVCFfile_cnv"/>
+      <creation value="2019-03-01T01:02:01+01:00"/>
+    </attachment>
+  </content>
+</DocumentReference>
