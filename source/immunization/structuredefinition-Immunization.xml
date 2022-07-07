@@ -978,13 +978,51 @@
     </element>
     <element id="Immunization.programEligibility">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="#5758."/>
+        <valueString value="#5758; #32397."/>
       </extension>
       <path value="Immunization.programEligibility"/>
-      <short value="Patient eligibility for a vaccination program"/>
+      <short value="Patient eligibility for a specific vaccination program"/>
       <definition value="Indicates a patient&#39;s eligibility for a funding program."/>
       <min value="0"/>
       <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-5 : OBX-3 = 64994-7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Immunization.programEligibility.program">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#32397."/>
+      </extension>
+      <path value="Immunization.programEligibility.program"/>
+      <short value="The program that eligibility is declared for"/>
+      <definition value="Indicates which program the patient had their eligility evaluated for."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Immunization.programEligibility.eligibility">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#32397."/>
+      </extension>
+      <path value="Immunization.programEligibility.eligibility"/>
+      <short value="The patient's eligibility for the program"/>
+      <definition value="Indicates the patient's eligility for for a specific payment program."/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -1000,12 +1038,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/immunization-program-eligibility"/>
       </binding>
       <mapping>
-        <identity value="v2"/>
-        <map value="OBX-5 : OBX-3 = 64994-7"/>
-      </mapping>
-      <mapping>
         <identity value="rim"/>
-        <map value="N/A"/>
+        <map value="n/a"/>
       </mapping>
     </element>
     <element id="Immunization.fundingSource">

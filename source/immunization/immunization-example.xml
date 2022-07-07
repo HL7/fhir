@@ -89,10 +89,15 @@
 		<presentationDate value="2013-01-10"/>
 	</education>
 	<programEligibility>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/immunization-program-eligibility"/>
-			<code value="ineligible"/>
-		</coding>
+		<program>
+			<text value="VFC"/>
+		</program>
+		<eligibility>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/immunization-program-eligibility"/>
+				<code value="uninsured"/>
+			</coding>
+		</eligibility>
 	</programEligibility>
 	<fundingSource>
 		<coding>
