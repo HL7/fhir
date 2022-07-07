@@ -103,7 +103,7 @@
         <regionsCalled>
             <reference value="DocumentReference/genomicBEDfile"/>
         </regionsCalled>
-        <output>  <!-- 0..* outputs for the analysis event -->
+        <output>  <!-- 0..* Inputs for the analysis event -->
             <file>
                 <reference value="DocumentReference/genomicVCFfile"/>
             </file>
