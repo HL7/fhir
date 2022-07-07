@@ -96,7 +96,7 @@
                 <display value="GRCh38"/>
             </coding>
         </genomeBuild>
-        <title value="Single Nucleaotide Variation (SNV) detection"/><!-- 0..1 Name of the analysis event (human friendly) -->
+        <title value="Simple variant analysis"/><!-- 0..1 Name of the analysis event (human friendly) -->
         <subject>
             <reference value="Patient/genomicPatient"/>
         </subject>
@@ -107,6 +107,9 @@
         <note>
             <text value="For technical reasons, PIK3CB was deemed uncallable using this method."/>
         </note>
+        <regionsStudied>
+            <reference value="DocumentReference/WES_FullSequencedRegion_GRCh38"/>
+        </regionsStudied>
         <regionsCalled>
             <reference value="DocumentReference/genomicBEDfile"/>
         </regionsCalled>
