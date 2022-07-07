@@ -111,7 +111,7 @@
             <reference value="DocumentReference/WES_FullSequencedRegion_GRCh38"/>
         </regionsStudied>
         <regionsCalled>
-            <reference value="DocumentReference/genomicBEDfile"/>
+            <reference value="DocumentReference/SimpleVariantAnalysis_called"/>
         </regionsCalled>
         <output>  <!-- 0..* Inputs for the analysis event -->
             <file>
