@@ -15,7 +15,9 @@
 		<text value="Hepatitis B"/>
 	</vaccineCode>
 	<manufacturer>
-		<reference value="Organization/hl7"/>
+		<reference>
+			<reference value="Organization/hl7"/>
+		</reference>
 	</manufacturer>
 	<lotNumber value="AAJN11K"/>
 	<expirationDate value="2015-02-28"/>

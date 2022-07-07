@@ -15,7 +15,9 @@
 		<text value="Twinrix (HepA/HepB)"/>
 	</vaccineCode>
 	<manufacturer>
-		<reference value="Organization/hl7"/>
+		<reference>
+			<reference value="Organization/hl7"/>
+		</reference>
 	</manufacturer>
 	<lotNumber value="PT123F"/>
 	<expirationDate value="2018-12-15"/>
