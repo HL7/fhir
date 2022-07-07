@@ -490,7 +490,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-	  <constraint>
+      <constraint>
         <key value="evv-1"/>
         <severity value="error"/>
         <human value="In a characteristic, at most one of these seven elements shall be used: definitionReference or definitionCanonical or definitionCodeableConcept or definitionExpression or definitionId or definitionByTypeAndValue or definitionByCombination"/>
@@ -557,7 +557,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
       </type>
-	  <condition value="evv-1"/>
+      <condition value="evv-1"/>
       <isSummary value="true"/>
     </element>
     <element id="EvidenceVariable.characteristic.definitionCanonical">
@@ -572,7 +572,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
       </type>
-	  <condition value="evv-1"/>
+      <condition value="evv-1"/>
       <isSummary value="true"/>
     </element>
     <element id="EvidenceVariable.characteristic.definitionCodeableConcept">
@@ -584,7 +584,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-	  <condition value="evv-1"/>
+      <condition value="evv-1"/>
       <isSummary value="true"/>
     </element>
     <element id="EvidenceVariable.characteristic.definitionExpression">
@@ -596,7 +596,7 @@
       <type>
         <code value="Expression"/>
       </type>
-	  <condition value="evv-1"/>
+      <condition value="evv-1"/>
       <isSummary value="true"/>
     </element>
     <element id="EvidenceVariable.characteristic.definitionId">
@@ -608,7 +608,7 @@
       <type>
         <code value="id"/>
       </type>
-	  <condition value="evv-1"/>
+      <condition value="evv-1"/>
       <isSummary value="true"/>
     </element>
     <element id="EvidenceVariable.characteristic.definitionByTypeAndValue">
@@ -620,7 +620,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-	  <condition value="evv-1"/>
+      <condition value="evv-1"/>
       <isSummary value="true"/>
     </element>
     <element id="EvidenceVariable.characteristic.definitionByTypeAndValue.type[x]">
@@ -674,6 +674,23 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="EvidenceVariable.characteristic.definitionByTypeAndValue.offset">
+      <path value="EvidenceVariable.characteristic.definitionByTypeAndValue.offset"/>
+      <short value="Reference point for valueQuantity"/>
+      <definition value="Defines the reference point for comparison when valueQuantity is not compared to zero."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CharacteristicOffset"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/characteristic-offset"/>
+      </binding>
+    </element>
     <element id="EvidenceVariable.characteristic.definitionByCombination">
       <path value="EvidenceVariable.characteristic.definitionByCombination"/>
       <short value="Used to specify how two or more characteristics are combined"/>
@@ -683,7 +700,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-	  <condition value="evv-1"/>
+      <condition value="evv-1"/>
     </element>
     <element id="EvidenceVariable.characteristic.definitionByCombination.code">
       <path value="EvidenceVariable.characteristic.definitionByCombination.code"/>
@@ -726,7 +743,7 @@
       <short value="Method used for describing characteristic"/>
       <definition value="Method used for describing characteristic."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -750,23 +767,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceMetric"/>
       </type>
-    </element>
-    <element id="EvidenceVariable.characteristic.offset">
-      <path value="EvidenceVariable.characteristic.offset"/>
-      <short value="Reference point for characteristic.valueQuantity"/>
-      <definition value="Defines the reference point for comparison when characteristic.valueQuantity is not compared to zero."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="CharacteristicOffset"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/characteristic-offset"/>
-      </binding>
     </element>
     <element id="EvidenceVariable.characteristic.timeFromEvent">
       <path value="EvidenceVariable.characteristic.timeFromEvent"/>
