@@ -21,7 +21,7 @@
   </securityLabel>
   <content>
     <attachment>
-      <url value="http://www.somesystemabc.net/identifiers/files/11119"/> <!-- This line may need to be changed later -->
+      <url value="https://chat.fhir.org/user_uploads/10155/gdL90-np7lJjGwUxeARapUHB/genomicVCFFile_simple.vcf"/> <!-- This line may need to be changed later -->
       <title value="genomicVCFfile_simple"/>
       <creation value="2019-03-01T01:02:01+01:00"/>
     </attachment>
