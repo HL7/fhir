@@ -3,8 +3,9 @@
   <id value="example-dicom-sr-selection"/>
   <identifier>
     <system value="urn:dicom:uid"/>
-    <value value="urn:oid:1.2.840.113747.20080222.95946058738699434572916364657859950275.2.1"/>
+    <value value="urn:oid:1.2.840.113747.20080222.95946059916364657859950275.2.1"/>
   </identifier>
+ <status value="available"/> 
   <subject>
     <type value="Patient"/>
     <identifier>
@@ -15,22 +16,22 @@
   <code>
     <text value="Observation within a DICOM SR"/>
   </code>
-  <studyUid value="urn:oid:1.2.840.113747.20080222.95946058738699434572916364657859950275"/>
+  <studyUid value="1.2.840.113747.20080222.95946058738694657859950275"/>
   <derivedFrom>
     <type value="ImagingStudy"/>
     <identifier>
       <system value="urn:dicom:uid"/>
-      <value value="urn:oid:1.2.840.113747.20080222.95946058738699434572916364657859950275"/>
+      <value value="urn:oid:1.2.840.113747.20080222.95946072916364657859950275"/>
     </identifier>
   </derivedFrom>
-  <seriesUid value="urn:oid:1.2.840.113747.20080222.95946058738699434572916364657859950275.1"/>
-  <frameOfReferenceUid value="urn:oid:1.2.840.113747.20080222.95946058738699434572916364657859950275.0"/>
+  <seriesUid value="1.2.840.113747.20080222.95946058738664657859950275.1"/>
+  <frameOfReferenceUid value="1.2.840.113747.20080222.95946058736364657859950275.0"/>
   <instance>
-    <uid value="urn:oid:1.2.840.113747.20080222.95946058738699434572916364657859950275.1.0"/>
+    <uid value="1.2.840.113747.20080222.95946058738699434359950275.1.0"/>
     <sopClass>
       <system value="urn:ietf:rfc:3986"/>
       <code value="urn:oid:1.2.840.10008.5.1.4.1.1.88.22"/>
     </sopClass>
-    <observationUid value="urn:oid:1.2.840.113747.20080222.95946058738699434572916364657859950275.10.1"/>
+    <subset value="1.2.840.113747.20080222.95946058738699434572916359950275.10.1"/>
   </instance>
 </ImagingSelection>

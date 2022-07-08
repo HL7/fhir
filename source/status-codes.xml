@@ -3774,6 +3774,12 @@
     <Cell ss:Index="26"><Data ss:Type="String">unavailable</Data></Cell>
    </Row>
    <Row>
+    <Cell><Data ss:Type="String">ImagingSelection.status</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">available</Data></Cell>
+    <Cell><Data ss:Type="String">unknown</Data></Cell>
+   </Row>
+   <Row>
     <Cell><Data ss:Type="String">ImagingStudy.status</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">registered</Data></Cell>

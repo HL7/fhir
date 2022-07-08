@@ -29,15 +29,15 @@
 	  <system value="http://snomed.info/sct"/>
       <concept>
         <code value="446141000124107"/>
-		<display value="Female"/>
+		<display value="Identifies as female gender (finding)"/>
       </concept>
       <concept>
         <code value="446151000124109"/>
-		<display value="Male"/>
+		<display value="Identifies as male gender (finding)"/>
       </concept>
       <concept>
         <code value="33791000087105"/>
-		<display value="Nonbinary"/>
+		<display value="Identifies as nonbinary gender (finding)"/>
       </concept>
 	</include>
 	<include>
