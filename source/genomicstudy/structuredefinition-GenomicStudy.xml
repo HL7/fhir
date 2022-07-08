@@ -292,6 +292,17 @@
     <type>
       <code value="CodeableConcept"/>
     </type>
+    <binding>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+        <valueString value="HumanRefSeqNCBIBuildId"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
+        <valueString value="Copyright © 2022 Regenstrief Institute, Inc. All Rights Reserved."/>
+      </extension>
+      <strength value="extensible"/>
+      <description value="Human reference sequence NCBI build ID"/>
+      <valueSet value="https://fhir.loinc.org/ValueSet/?url=http://loinc.org/vs/LL1040-6"/>
+     </binding>
   </element>
     <element id="GenomicStudy.analysis.instantiatesCanonical">
       <path value="GenomicStudy.analysis.instantiatesCanonical"/>
