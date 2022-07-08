@@ -301,7 +301,7 @@
       </extension>
       <strength value="extensible"/>
       <description value="Human reference sequence NCBI build ID"/>
-      <valueSet value="https://fhir.loinc.org/ValueSet/?url=http://loinc.org/vs/LL1040-6"/>
+      <valueSet value="http://loinc.org/vs/LL1040-6"/>
      </binding>
   </element>
     <element id="GenomicStudy.analysis.instantiatesCanonical">
