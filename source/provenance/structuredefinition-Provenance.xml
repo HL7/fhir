@@ -296,7 +296,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProvenanceActivity"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="The activity that took place."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/provenance-activity-type"/>
       </binding>

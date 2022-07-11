@@ -3,25 +3,33 @@
 <MolecularSequence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/molecularsequence.xsd">
     <id value="breastcancer"/>
     <type value="rna"/> 
-	<coordinateSystem value="0"/>
 	<patient>
         <reference value="Patient/brcapat"/>
     </patient>
-	<referenceSeq>
-        <referenceSeqId>
+    <relative>
+        <coordinateSystem>
             <coding>
-                <system value="http://www.ncbi.nlm.nih.gov/nuccore/"/>
-                <code value="NM_000059.3"/>
-                <display value="Homo sapiens BRCA2, DNA repair associated (BRCA2), mRNA"/>
+                <system value="http://loinc.org"/>
+                <code value="LA30100-4"/>
+                <display value="0-based interval counting"/>
             </coding>
-        </referenceSeqId>
-		<windowStart value="101488058"/>
-		<windowEnd value="101499444"/>
-    </referenceSeq>			
-    <variant>
-		<start value="32316186"/>
-		<end value="32316187"/>
-		<observedAllele value="A"/>
-		<referenceAllele value="C"/>
-	</variant>
+        </coordinateSystem>
+        <reference>
+            <referenceSequenceCodeableConcept>
+                <coding>
+                    <system value="http://www.ncbi.nlm.nih.gov/nuccore/"/>
+                    <code value="NM_000059.3"/>
+                    <display value="Homo sapiens BRCA2, DNA repair associated (BRCA2), mRNA"/>
+                </coding>
+            </referenceSequenceCodeableConcept>
+            <windowStart value="101488058"/>
+            <windowEnd value="101499444"/>
+        </reference>			
+        <edit>
+            <start value="32316186"/>
+            <end value="32316187"/>
+            <observedAllele value="A"/>
+            <referenceAllele value="C"/>
+        </edit>
+    </relative>
 </MolecularSequence>

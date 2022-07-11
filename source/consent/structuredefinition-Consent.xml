@@ -114,7 +114,7 @@
         </element>
         <element id="Consent.status">
             <path value="Consent.status" />
-            <short value="draft | active | inactive | entered-in-error | unknown" />
+            <short value="draft | active | inactive | not-done | entered-in-error | unknown" />
             <definition value="Indicates the current state of this Consent resource." />
             <comment value="This element is labeled as a modifier because the status contains the codes rejected and entered-in-error that mark the Consent as not currently valid." />
             <min value="1" />
@@ -576,6 +576,8 @@
                 <code value="code" />
             </type>
             <isSummary value="true" />
+            <isModifier value="true" />
+            <isModifierReason value="Sets context for the other values in .provision" />
             <binding>
                 <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
                     <valueString value="ConsentProvisionType" />
@@ -693,9 +695,9 @@
                 <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
                     <valueBoolean value="true" />
                 </extension>
-                <strength value="preferred" />
-                <description value="Security Labels from the Healthcare Privacy and Security Classification System." />
-                <valueSet value="http://hl7.org/fhir/ValueSet/security-labels" />
+                <strength value="example" />
+                <description value="Example Security Labels from the Healthcare Privacy and Security Classification System." />
+                <valueSet value="http://hl7.org/fhir/ValueSet/security-label-examples" />
             </binding>
         </element>
         <element id="Consent.provision.purpose">

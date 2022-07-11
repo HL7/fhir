@@ -270,6 +270,22 @@
         <map value=".name"/>
       </mapping>
     </element>
+	<element id="Organization.description">
+      <path value="Organization.description"/>
+      <short value="Additional details about the Organization that could be displayed as further information to identify the Organization beyond its name"/>
+      <definition value="Description of the organization, which helps provide additional general context on the organization to ensure that the correct organization is selected."/>
+      <requirements value="Humans need additional information to verify a correct Organization has been selected."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playingEntity[classCode=PLC determinerCode=INSTANCE].desc"/>
+      </mapping>
+    </element>
     <element id="Organization.contact">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>

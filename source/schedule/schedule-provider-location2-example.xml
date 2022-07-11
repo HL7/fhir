@@ -20,10 +20,12 @@
 		</coding>
 	</serviceCategory>
 	<serviceType>
-		<coding>
-			<code value="221"/>
-			<display value="Surgery - General" />
-		</coding>
+		<concept>
+			<coding>
+				<code value="221"/>
+				<display value="Surgery - General" />
+			</coding>
+		</concept>
 	</serviceType>
 	<specialty>
 		<coding>

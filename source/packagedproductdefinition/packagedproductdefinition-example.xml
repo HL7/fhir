@@ -7,7 +7,7 @@
 	</identifier>
 	<description value="ALU-PVC/PVDC BLISTERS. CARTONS OF 10 FILM-COATED TABLETS."/>
 	<!-- outer packaging -->
-	<package>
+	<packaging>
 		<type>
 			<coding>
 				<system value="http://ema.europa.eu/example/packageitemcontainertype"/>
@@ -65,7 +65,7 @@
 			</valueQuantity>
 		</property>
 		<!-- inner packaging -->
-		<package>
+		<packaging>
 			<type>
 				<coding>
 					<system value="http://ema.europa.eu/example/packageitemcontainertype"/>
@@ -151,6 +151,6 @@
 					<value value="10"/>
 				</amount>
 			</containedItem>
-		</package>
-	</package>
+		</packaging>
+	</packaging>
 </PackagedProductDefinition>
