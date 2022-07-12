@@ -14,13 +14,15 @@
 		</coding>
 		<text value="Twinrix (HepA/HepB)"/>
 	</vaccineCode>
-	<manufacturer>
-		<reference>
-			<reference value="Organization/hl7"/>
-		</reference>
-	</manufacturer>
-	<lotNumber value="PT123F"/>
-	<expirationDate value="2018-12-15"/>
+	<productDetails>
+		<manufacturer>
+			<reference>
+				<reference value="Organization/hl7"/>
+			</reference>
+		</manufacturer>
+		<lotNumber value="PT123F"/>
+		<expirationDate value="2018-12-15"/>
+	</productDetails>
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>

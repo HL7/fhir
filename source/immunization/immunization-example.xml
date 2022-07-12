@@ -10,17 +10,28 @@
 	<vaccineCode>
 		<coding>
 			<system value="urn:oid:1.2.36.1.2001.1005.17"/>
-			<code value="FLUVAX"/>
+			<code value="FLUCEL VAX"/>
 		</coding>
-		<text value="Fluvax	(Influenza)"/>
+		<text value="Flucelvax	(Influenza)"/>
 	</vaccineCode>
-	<manufacturer>
-		<reference>
-			<reference value="Organization/hl7"/>
-		</reference>
-	</manufacturer>
-	<lotNumber value="AAJN11K"/>
-	<expirationDate value="2015-02-15"/>
+	<administeredProduct>
+		<concept>
+			<coding>
+				<system value="urn:oid:2.16.840.1.113883.6.69"/>
+				<code value="70461-0321-03"/>
+			</coding>
+			<text value="Flucelvax	(Influenza, injectable, MDCK, preservative free, quadrivalent)"/>
+		</concept>
+	</administeredProduct>
+	<productDetails>
+		<manufacturer>
+			<reference>
+				<reference value="Organization/hl7"/>
+			</reference>
+		</manufacturer>
+		<lotNumber value="AAJN11K"/>
+		<expirationDate value="2015-02-15"/>
+	</productDetails>
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>

@@ -14,13 +14,15 @@
 		</coding>
 		<text value="Rabies - IM Diploid cell culture"/>
 	</vaccineCode>
-	<manufacturer>
-		<reference>
-			<reference value="Organization/hl7"/>
-		</reference>
-	</manufacturer>
-	<lotNumber value="PPL909K"/>
-	<expirationDate value="2023-01-21"/>
+	<productDetails>
+		<manufacturer>
+			<reference>
+				<reference value="Organization/hl7"/>
+			</reference>
+		</manufacturer>
+		<lotNumber value="PPL909K"/>
+		<expirationDate value="2023-01-21"/>
+	</productDetails>
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>
