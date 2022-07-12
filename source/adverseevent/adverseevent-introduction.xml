@@ -3,7 +3,10 @@
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
 		<p>
-			AdverseEvent is an event resource from a FHIR workflow perspective - see <a href="workflow.html#event">Workflow Event</a>.  A single Adverse Event may need to be reported in multiple ways.  The form of the reporting is left to implementation guides based upon appropriate workflow patterns.
+			AdverseEvent is an event resource from a FHIR workflow perspective - see <a href="workflow.html#event">Workflow Event</a>.  A single Adverse Event may need to be reported in multiple ways. Choosing the appropriate form of the reporting is dependent upon workflow patterns. In particular, the implementation guides for <a href="">Clinical Care adverse events</a> and <a href="">Clinical Research adverse events</a> provide important extensions, value-sets and examples for implementing AdverseEvent.
+		</p>
+		<p>
+			The guides reflect that adverse event tracking in clinical care and clinical research settings can differ. In the former case, the event is tracked to meet business safety concerns and incident reporting. There is a strong interest in how the event was resolved. In the clinical research setting, the event is additionally tracked to be considered as a concern for participation in the research study, since the occurrence of an adverse event may surface a potential confounder or a potential side-effect of the study treatment. For Clinical Care or Clincial Research, the Vulcan accelerator project suggests two profiles on AdverseEvent Resource.	
 		</p>
 		<p>
 			This resource applies to events that occur during the course of medical care or medical research which may impact an individual as the recipient of care or the participant in a research study.  There are also events that occur within a care setting that might or might not impact an individual but had the potential to cause an adverse event.  Health care organizations monitor and report both adverse events as well as events that had the potential to cause patient harm.  Data are often aggregated for reporting purposes.  
@@ -16,6 +19,16 @@
 		</p>
 		<p>
 			A potential adverse event may also be called a near miss or an error.  These are also events but because they were detected did not cause harm to a subject.  Examples of potential adverse events include a product problem such as a faulty pacemaker that is detected prior implantation, a doctor working simultaneously on two electronic health records realizing the order for a drug was entered on the incorrect patient and then canceling the order, or a patient with a peanut allergy notices that his hospital dinner tray includes peanuts, and he does not eat the peanuts.  
+		</p>
+	</div>
+	<div>
+		<a name="IG note"></a>
+		<h2>Important implementation guides for Clinical Care and Clinical Research</h2>
+		<p>
+			For examples and further guidance, it is strongly suggested that an implementer consult the <a href="">Clinical Care AdverseEvent Implementation Guide</a> and the <a href="">Clinical Research AdverseEvent Implementation Guide</a>
+			
+			They contain valuable extensions, value sets and, importantly, examples.
+			
 		</p>
 	</div>
 	<div>
