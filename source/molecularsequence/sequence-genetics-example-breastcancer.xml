@@ -15,13 +15,13 @@
             </coding>
         </coordinateSystem>
         <reference>
-            <referenceSeqId>
+            <referenceSequenceCodeableConcept>
                 <coding>
                     <system value="http://www.ncbi.nlm.nih.gov/nuccore/"/>
                     <code value="NM_000059.3"/>
                     <display value="Homo sapiens BRCA2, DNA repair associated (BRCA2), mRNA"/>
                 </coding>
-            </referenceSeqId>
+            </referenceSequenceCodeableConcept>
             <windowStart value="101488058"/>
             <windowEnd value="101499444"/>
         </reference>			

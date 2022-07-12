@@ -350,14 +350,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DocumentReference.content.identifier,DocumentReference.identifier"/>
+          <valueString value="DocumentReference.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-identifier"/>
         <description value="Identifier of the attachment binary"/>
         <code value="identifier"/>
         <type value="token"/>
-        <expression value="DocumentReference.content.identifier | DocumentReference.identifier"/>
-        <xpath value="f:DocumentReference/f:content/f:identifier | f:DocumentReference/f:identifier"/>
+        <expression value="DocumentReference.identifier"/>
+        <xpath value="f:DocumentReference/f:identifier"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -439,26 +439,6 @@
         <type value="date"/>
         <expression value="DocumentReference.period"/>
         <xpath value="f:DocumentReference/f:period"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="DocumentReference-related"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DocumentReference.related"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-related"/>
-        <description value="Related identifiers or resources"/>
-        <code value="related"/>
-        <type value="reference"/>
-        <expression value="DocumentReference.related"/>
-        <xpath value="f:DocumentReference/f:related"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

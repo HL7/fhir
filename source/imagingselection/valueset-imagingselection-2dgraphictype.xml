@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="imagingselection-regiontype"/>
+  <id value="imagingselection-2dgraphictype"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <ul>
-        <li>Include all codes defined in 
-          <a href="codesystem-imagingselection-regiontype.html">
-            <code>http://hl7.org/fhir/imagingselection-regiontype</code>
+        
+        <li>Include all codes defined in
+          
+          <a href="codesystem-imagingselection-2dgraphictype.html">
+            
+            <code>http://hl7.org/fhir/imagingselection-2dgraphictype</code>
+          
           </a>
+        
         </li>
+      
       </ul>
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -27,14 +36,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/imagingselection-regiontype"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="ii"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/imagingselection-2dgraphictype"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1560"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="ImagingSelectionRegionType"/>
-  <title value="ImagingSelectionRegionType"/>
+  <name value="ImagingSelection2DGraphicType"/>
+  <title value="ImagingSelection2DGraphicType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -49,11 +61,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The type of image region."/>
+  <description value="The type of 2D coordinates describing a 2D image region."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/imagingselection-regiontype"/>
+      <system value="http://hl7.org/fhir/imagingselection-2dgraphictype"/>
     </include>
   </compose>
 </ValueSet>

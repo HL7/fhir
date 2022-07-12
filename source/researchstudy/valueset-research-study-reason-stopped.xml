@@ -53,7 +53,12 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/research-study-reason-stopped"/>
+      <system value="http://hl7.org/fhir/research-study-classifiers"/>
+	  <filter>
+	    <property value="concept"/>
+	    <op value="descendent-of"/>
+	    <value value="research-study-reason-stopped"/>
+	  </filter>
     </include>
   </compose>
 </ValueSet>
