@@ -22,9 +22,7 @@
 		</p>
 		<p>
 			For examples and further guidance, it is strongly suggested that an implementer consult the <a href="https://confluence.hl7.org/display/VA/Adverse+Events">Clinical Care AdverseEvent Implementation Guide</a> and the <a href="https://confluence.hl7.org/display/VA/Adverse+Events">Clinical Research AdverseEvent Implementation Guide</a>
-			
 			They contain valuable extensions, value sets and, importantly, examples.
-			
 		</p>
 	</div>
 	<div>
