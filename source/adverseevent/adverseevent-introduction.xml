@@ -3,7 +3,7 @@
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
 		<p>
-			AdverseEvent is an event resource from a FHIR workflow perspective - see <a href="workflow.html#event">Workflow Event</a>.  A single Adverse Event may need to be reported in multiple ways. Choosing the appropriate form of the reporting is dependent upon workflow patterns. In particular, the implementation guides for <a href="">Clinical Care adverse events</a> and <a href="">Clinical Research adverse events</a> provide important extensions, value-sets and examples for implementing AdverseEvent.
+			AdverseEvent is an event resource from a FHIR workflow perspective - see <a href="workflow.html#event">Workflow Event</a>.  A single Adverse Event may need to be reported in multiple ways. Choosing the appropriate form of the reporting is dependent upon workflow patterns. In particular, the implementation guides for <a href="https://confluence.hl7.org/display/VA/Adverse+Events">Clinical Care adverse events</a> and <a href="https://confluence.hl7.org/display/VA/Adverse+Events">Clinical Research adverse events</a> provide important extensions, value-sets and examples for implementing AdverseEvent.
 		</p>
 		<p>
 			The guides reflect that adverse event tracking in clinical care and clinical research settings can differ. In the former case, the event is tracked to meet business safety concerns and incident reporting. There is a strong interest in how the event was resolved. In the clinical research setting, the event is additionally tracked to be considered as a concern for participation in the research study, since the occurrence of an adverse event may surface a potential confounder or a potential side-effect of the study treatment. For Clinical Care or Clincial Research, the Vulcan accelerator project suggests two profiles on AdverseEvent Resource.	
@@ -25,7 +25,7 @@
 		<a name="IG note"></a>
 		<h2>Important implementation guides for Clinical Care and Clinical Research</h2>
 		<p>
-			For examples and further guidance, it is strongly suggested that an implementer consult the <a href="">Clinical Care AdverseEvent Implementation Guide</a> and the <a href="">Clinical Research AdverseEvent Implementation Guide</a>
+			For examples and further guidance, it is strongly suggested that an implementer consult the <a href="https://confluence.hl7.org/display/VA/Adverse+Events">Clinical Care AdverseEvent Implementation Guide</a> and the <a href="https://confluence.hl7.org/display/VA/Adverse+Events">Clinical Research AdverseEvent Implementation Guide</a>
 			
 			They contain valuable extensions, value sets and, importantly, examples.
 			
