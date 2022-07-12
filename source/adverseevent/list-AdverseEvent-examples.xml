@@ -124,4 +124,77 @@
       <display value="General"/>
     </item>
   </entry>
+  
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="AdverseEvent Clinical Care example stage nurse initial report"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="adverseevent-clinicalcareexample1stage1"/>
+    </extension>
+    <item>
+      <reference value="AdverseEvent/clinicalcareexample1stage1"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="AdverseEvent Clinical Care example stage after physician review"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="adverseevent-clinicalcareexample1stage2"/>
+    </extension>
+    <item>
+      <reference value="AdverseEvent/clinicalcareexample1stage2"/>
+      <display value="General"/>
+    </item>
+  </entry>
+    <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="AdverseEvent Clinical Care example 2 patient wrong med"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="adverseevent-clinicalcareexample2patient"/>
+    </extension>
+    <item>
+      <reference value="AdverseEvent/clinicalcareexample2patient"/>
+      <display value="General"/>
+    </item>
+  </entry>
+    <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="AdverseEvent Clinical Care example 2 mother injury from patient agression due to wrong med"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="adverseevent-clinicalcareexample2mom"/>
+    </extension>
+    <item>
+      <reference value="AdverseEvent/clinicalcareexample2mom"/>
+      <display value="General"/>
+    </item>
+  </entry>
+    <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="AdverseEvent Clinical Care example 2 Phlebotomist injury from patient agression due to wrong med"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="adverseevent-clinicalcareexample2phlebotomist"/>
+    </extension>
+    <item>
+      <reference value="AdverseEvent/clinicalcareexample2phlebotomist"/>
+      <display value="General"/>
+    </item>
+  </entry>
+      <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="AdverseEvent Clinical Care example heart rate"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="adverseevent-heartrateobservation"/>
+    </extension>
+    <item>
+      <reference value="AdverseEvent/heartrateobservation"/>
+      <display value="General"/>
+    </item>
+  </entry>
 </List>

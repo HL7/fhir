@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AdverseEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/allergyintolerance.xsd">
+  <id value="clinicalcareexample2mom"/>
+  <meta>
+	<versionId value="2"/>
+	<lastUpdated value="2021-12-15T21:05:01.812+00:00"/>
+  </meta>
+  <!-- an identifier used for this allergic propensity (adverse reaction risk) -->
+  <identifier>
+    <system value="http://acme.com/ids/patients/risks"/>
+    <value value="002"/>
+  </identifier>
+  <status value = "completed"/>
+  <!-- this was an actual adverse event, not just a potential one -->
+  <actuality value="actual"/>
+
+  <!-- high level categorizion. The "event" below will say more -->
+  <!--category> 
+    <coding> 
+      <system value="http://hl7.org/fhir/CodeSystem/adverse-event-category"/> 
+      <code value="medication-mishap"/> 
+      <display value="Medication Mishap"/>
+    </coding> 
+  </category--> 
+  <category> 
+    <coding> 
+      <system value="http://hl7.org/fhir/CodeSystem/adverse-event-category"/> 
+      <code value="unsafe-physical-environment"/> 
+      <display value="Unsafe Physical Environment"/>
+    </coding> 
+  </category>
+  
+  <!-- more precise details of the event -->
+  <code>
+    <coding>
+      <!-- example uses SNOMED CT. Other likely possibilities include MedDRA -->
+      <system value="http://snomed.info/sct"/>
+      <code value="370927008"/>  
+      <display value="Death or significant injury of a patient or staff member resulting from a physical assault (i.e., battery) that occurs within or on the grounds of the healthcare facility (event)"/>
+    </coding>
+  </code>
+  <!-- the patient that actually had the adverse event -->
+  <!--subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <subject> 
+    <reference value="AdverseEvent/patientSAE1example"/> 
+  </subject--> 
+
+  <subject>
+	<type value="RelatedPerson"/>
+    <display value="mother"/>
+  </subject>
+  
+  <encounter>
+    <display value="Inpatient encounter of event that was initated with ER visit"/>
+  </encounter>
+  <!-- when the event happened --> 
+
+  <detected value="2021-12-10"/> 
+  <recordedDate value="2021-12-15"/> 
+  
+  <resultingCondition>
+	<display value="Condition with Diagnosis catagory, bruises to forehead, neck and both forearms"/>
+  </resultingCondition>
+  
+  <location>
+	<display value="Hospital, Inpatient"/>
+  </location>
+
+  <seriousness>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/adverse-event-seriousness"/>
+        <code value="serious"/>
+        <display value="Serious"/>
+    </coding>
+  </seriousness>
+
+
+  <outcome>
+    <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="398056004"/>
+        <display value="Transient abnormality with full recovery (finding)"/>
+    </coding>
+  </outcome>
+  
+  <!-- who made the record / last updated it -->
+  <recorder>
+    <display value="The person entering in the information"/>
+  </recorder>
+
+  <!-- may have been for cream to treat sunburn on that arm, reference to that medication -->
+  <suspectEntity>
+    <instanceReference>
+	  <type value="MedicationAdministration"/>
+      <display value="14 year-old patient had increase in Levetiracetam"/>
+    </instanceReference>
+	<causality>
+		<entityRelatedness>
+		  <coding>
+			<system value="http://terminology.hl7.org/CodeSystem/adverse-event-causality-assess"/>
+		    <code value="probably-likely"/>
+            <display value="Probably/Likely"/>
+			</coding>
+		</entityRelatedness>
+	</causality>
+  </suspectEntity>
+  
+  <mitigatingAction>
+        <itemReference>
+		 <type value="MedicationRequest"/>
+		 <display value="for 14 year-old patient dose reduced to preadmission dose for the remainder of his hospital stay."/>
+		</itemReference>
+  </mitigatingAction>
+
+  <note>
+	<authorString value="Practitioner"/>
+	<text value="There was no clinical or electrographic seizure episode or recurrence of fever since admission in the 14 year-old patient."/>
+  </note>
+  
+</AdverseEvent>

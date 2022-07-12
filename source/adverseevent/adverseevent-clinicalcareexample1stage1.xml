@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AdverseEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/allergyintolerance.xsd">
+  <id value="clinicalcareexample1stage1"/>
+  <meta>
+	<versionId value="1"/>
+	<lastUpdated value="2021-12-10T21:05:01.812+00:00"/>
+  </meta>
+  <!-- an identifier used for this allergic propensity (adverse reaction risk) -->
+  <identifier>
+    <system value="http://acme.com/ids/patients/risks"/>
+    <value value="001"/>
+  </identifier>
+  <status value = "in-progress"/>
+  <!-- this was an actual adverse event, not just a potential one -->
+  <actuality value="actual"/>
+
+  <!-- high level categorizion. The "event" below will say more -->
+  <!--category> 
+    <coding> 
+      <system value="http://hl7.org/fhir/CodeSystem/adverse-event-category"/> 
+      <code value="medication-mishap"/> 
+      <display value="Medication Mishap"/>
+    </coding> 
+  </category--> 
+  <category> 
+    <coding> 
+      <system value="http://hl7.org/fhir/CodeSystem/adverse-event-category"/> 
+      <code value="medication-mishap"/> 
+      <display value="Medication mishap"/>
+    </coding> 
+  </category>
+  
+  <!-- more precise details of the event -->
+  <code>
+    <coding>
+      <!-- example uses SNOMED CT. Other likely possibilities include MedDRA -->
+      <system value="http://snomed.info/sct"/>
+      <code value="62014003"/>  
+      <display value="Adverse reaction caused by drug (disorder)"/>
+    </coding>
+  </code>
+  <!-- the patient that actually had the adverse event -->
+  <!--subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <subject> 
+    <reference value="AdverseEvent/patientSAE1example"/> 
+  </subject--> 
+  <subject>
+    <display value="39 year-old male"/>
+  </subject>
+  <encounter>
+    <display value="encounter where nurse noticed the problem"/>
+  </encounter>
+  <!-- when the event happened --> 
+
+  <detected value="2021-12-10"/> 
+  
+  <!--resultingCondition>
+	<display value="Condition with problem-list-item catagory, 71782001 | Drowsy (finding)"/>
+  </resultingCondition>
+  <resultingCondition>
+	<display value="Condition with problem-list-item catagory, 102835006 | Difficulty passing urine (finding)"/>
+  </resultingCondition-->
+  
+  <location>
+	<display value="Pallative Care Agency"/>
+  </location>
+
+  <seriousness>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/adverse-event-seriousness"/>
+        <code value="serious"/>
+        <display value="Serious"/>
+    </coding>
+  </seriousness>
+
+
+  <outcome>
+    <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="398056004"/>
+        <display value="Transient abnormality with full recovery (finding)"/>
+    </coding>
+  </outcome>
+  
+  <!-- who made the record / last updated it -->
+  <recorder>
+    <display value="Pallative Care nurse"/>
+  </recorder>
+
+  <!-- may have been for cream to treat sunburn on that arm, reference to that medication -->
+  <suspectEntity>
+    <instanceReference>
+	  <type value="MedicationRequest"/>
+      <display value="A pancreatic enzyme capsule (Creon / Nutrizym / Pancrease / Pancrex) is the only other drug that this patient is prescribed and taking."/>
+    </instanceReference>
+	<causality>
+		<entityRelatedness>
+		  <coding>
+			<system value="http://terminology.hl7.org/CodeSystem/adverse-event-causality-assess"/>
+		    <code value="unlikely"/>
+            <display value="unlikely"/>
+			</coding>
+		</entityRelatedness>
+	</causality>
+  </suspectEntity>
+  
+  <suspectEntity>
+    <instanceReference>
+      <type value="MedicationAdministration"/>
+	  <display value="The nurse made an assessment that there was a temporal relationship between the adverse reactions and administration of this new batch of premixed morphine + hyoscine medication supply, recorded the S/S, the assessment."/>
+    </instanceReference>
+	<causality>
+		<entityRelatedness>
+		  <coding>
+			<system value="http://terminology.hl7.org/CodeSystem/adverse-event-causality-assess"/>
+		    <code value="probably-likely"/>
+            <display value="Probably/Likely"/>
+			</coding>
+		</entityRelatedness>
+	</causality>
+  </suspectEntity>
+  
+  <mitigatingAction>
+        <itemReference>
+		 <type value="MedicationAdministration"/>
+		 <display value="The nurse immediately stopped the syringe driver, initiated review all previous medication administration record to the moment adverse event was identified. There was no evidence of adverse reaction to the medications administration since the start of the morphine + hyoscine therapy."/>
+		</itemReference>
+  </mitigatingAction>
+  <mitigatingAction>
+        <itemReference>
+		 <type value="DocumentReference"/>
+		 <display value="The nurse reported the adverse event to the pharmacy for investigation."/>
+		</itemReference>
+  </mitigatingAction>
+
+  <supportingInfo>
+        <itemReference>
+		 <type value="DocumentReference"/>
+		 <display value="The pharmacy contacted the supplier to initiate an investigation, which revealed that a software error had occurred resulting in a wrong label (morphine 40 + hyoscine 80) being printed and attached to this batch of pre-mixed morphine + hyoscine with dose strength of 60 + 120."/>
+		</itemReference>
+  </supportingInfo>
+  
+  <supportingInfo>
+        <itemReference>
+		 <reference value="AdverseEvent/heartrateobservation"/> 
+		 <!--type value="Observation"/-->
+		 <display value="heart rate was 62/min. Patient Base line is 76-82/min. Observation has a referenceRange with type=Patient base-line, this is an addtional code, to indicate the base-line range for the patient"/>
+		</itemReference>
+  </supportingInfo>
+  <supportingInfo>
+        <itemReference>
+		 <type value="Observation"/>
+		 <display value="temperature = 38.7C"/>
+		</itemReference>
+  </supportingInfo>
+  
+  <supportingInfo>
+        <itemReference>
+		 <type value="Observation"/>
+		 <display value="Signs and Symptoms observation, 123640000 | Mucous membrane dryness (finding)"/>
+		</itemReference>
+  </supportingInfo>
+  <supportingInfo>
+        <itemReference>
+		 <type value="Observation"/>
+		 <display value="Signs and Symptoms observation, 16386004 | Dry skin (finding)"/>
+		</itemReference>
+  </supportingInfo>
+  <supportingInfo>
+        <itemReference>
+		 <type value="Observation"/>
+		 <display value="Signs and Symptoms observation, 37125009 | Dilated pupil (finding)"/>
+		</itemReference>
+  </supportingInfo>
+  <supportingInfo>
+        <itemReference>
+		 <type value="Observation"/>
+		 <display value="Signs and Symptoms observation, 102835006 | Difficulty passing urine (finding)"/>
+		</itemReference>
+  </supportingInfo>
+  <supportingInfo>
+        <itemReference>
+		 <type value="Observation"/>
+		 <display value="Signs and Symptoms observation, 71782001 | Drowsy (finding)"/>
+		</itemReference>
+  </supportingInfo>
+  
+  <note>
+	<authorString value="Nurse"/>
+	<text value="Use Case 8 - Adverse Event resulted from a separate prior breach
+A 39 yo male patient with terminal pancreatic cancer in a palliative care agency is prescribed morphine hydrochloride 40 mg/24 hours + hyoscine butylbromide 80 mg/24 hours by continuous subcutaneous infusion via syringe driver for symptomatic control of pain, respiratory secretion/rattles, and anxiety.
+Breakthrough doses of 5 mg q1h prn SC is also prescribed for incidental pain (related to care or ADL activities).
+Pre-mixed morphine hydrochloride 40 mg + hyoscine butylbromide solution 80 mg in 20 ml syringes are ordered by the pharmacy from a pharmaceutical supplier and delivered to the palliative care ward in 3-day supply batches.
+The medications are administered as continuous SC infusion using a syringe driver device. Each syringe containing the pre-mixed medications are double checked by two nurses, attached to the syringe driver, administration rate setting on the device checked, and start button pressed. The patient on average also receives 3-4 breakthrough doses per day 30 mins before certain care/ADL activities.
+In week 5, a new 3-day batch of supply was delivered by the pharmacy. In the morning of the third day, the nurse found that the patient appeared to be a bit drowsy. On observation, the heart rate was 62/min (patient’s baseline heart rate = 76-82/min), temperature = 38.7C (with no indicative signs of infection); dry skin and mucosa; bilateral increased pupil size; patient also complained of slight difficulty in urination.
+A pancreatic enzyme capsule (Creon / Nutrizym / Pancrease / Pancrex) is the only other drug that this patient is prescribed and taking.
+The nurse immediately stopped the syringe driver, initiated review all previous medication administration record to the moment adverse event was identified. There was no evidence of adverse reaction to the medications administration since the start of the morphine + hyoscine therapy.
+The nurse made an assessment that there was a temporal relationship between the adverse reactions and administration of this new batch of premixed morphine + hyoscine medication supply, recorded the S/S, the assessment. The nurse reported the adverse event to the pharmacy for investigation.
+The pharmacy contacted the supplier to initiate an investigation, which revealed that a software error had occurred resulting in a wrong label (morphine 40 + hyoscine 80) being printed and attached to this batch of pre-mixed morphine + hyoscine with dose strength of 60 + 120.
+NOTE - a use case in which the initial reporting of adverse event will not have a condition or diagnosis
+The nurses at palliative care agency are unlikely to have the clinical knowledge to determine that the S/S exhibited by the patient are those of morphine toxicity and anticholinergic syndrome resulted from drug overdose.
+It is more likely that the nurse will record the adverse reaction S/S
+The case will be reviewed by a physician and the diagnosis of morphine toxicity and anticholinergic syndrome caused by drug overdose will be determined and recorded
+(See also the Adverse Event and Consequences confluence page for another similar use case Drug overdose scenario)"/>
+  </note>
+  
+</AdverseEvent>

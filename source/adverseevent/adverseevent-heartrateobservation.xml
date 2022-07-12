@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="heartrateobservation"/>
+  <meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/instance-name">
+      <valueString value="Heart Rate for adverse event example"/>
+    </extension>
+    <extension
+               url="http://hl7.org/fhir/StructureDefinition/instance-description">
+      <valueMarkdown
+                     value="This is a heart rate example for AdverseEvent examples."/>
+    </extension>
+    <profile
+             value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-heart-rate"/>
+  </meta>
+
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="vital-signs"/>
+      <display value="Vital Signs"/>
+    </coding>
+    <text value="Vital Signs"/>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="8867-4"/>
+      <display value="Heart Rate"/>
+    </coding>
+    <text value="heart_rate"/>
+  </code>
+  <subject>
+    <!--reference value="Patient/example"/-->
+    <display value="39 year-old male"/>
+  </subject>
+  <encounter>
+    <display value="encounter where nurse noticed the problem"/>
+  </encounter>
+  <effectiveDateTime value="2021-12-10"/>
+  <valueQuantity>
+    <value value="62.0"/>
+    <unit value="beats/min"/>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="/min"/>
+  </valueQuantity>
+  <referenceRange>
+	<low>
+		<value value="76.0"/>
+		<unit value="beats/min"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="/min"/>
+	</low>
+	<high>
+		<value value="82.0"/>
+		<unit value="beats/min"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="/min"/>
+	</high>
+	<type>
+	  <coding>
+		  <system value="http://snomed.info/sct"/>
+		  <code value="128974000"/>
+		  <display value="Baseline state"/>
+	  </coding>
+    <text value="Patient's base-line range"/>
+	</type>
+  </referenceRange>
+</Observation>

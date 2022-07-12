@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AdverseEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/allergyintolerance.xsd">
+  <id value="clinicalcareexample1stage2"/>
+  <meta>
+	<versionId value="2"/>
+	<lastUpdated value="2021-12-15T21:05:01.812+00:00"/>
+  </meta>
+  <!-- an identifier used for this allergic propensity (adverse reaction risk) -->
+  <identifier>
+    <system value="http://acme.com/ids/patients/risks"/>
+    <value value="001"/>
+  </identifier>
+  <status value = "completed"/>
+  <!-- this was an actual adverse event, not just a potential one -->
+  <actuality value="actual"/>
+
+  <!-- high level categorizion. The "event" below will say more -->
+  <!--category> 
+    <coding> 
+      <system value="http://hl7.org/fhir/CodeSystem/adverse-event-category"/> 
+      <code value="medication-mishap"/> 
+      <display value="Medication Mishap"/>
+    </coding> 
+  </category--> 
+  <category> 
+    <coding> 
+      <system value="http://hl7.org/fhir/CodeSystem/adverse-event-category"/> 
+      <code value="medication-mishap"/> 
+      <display value="Medication mishap"/>
+    </coding> 
+  </category>
+  
+  <!-- more precise details of the event -->
+  <code>
+    <coding>
+      <!-- example uses SNOMED CT. Other likely possibilities include MedDRA -->
+      <system value="http://snomed.info/sct"/>
+      <code value="370910000"/>  
+      <display value="Patient death or serious disability associated with a medication error (event)"/>
+    </coding>
+  </code>
+  <!-- the patient that actually had the adverse event -->
+  <!--subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <subject> 
+    <reference value="AdverseEvent/patientSAE1example"/> 
+  </subject--> 
+  <subject>
+    <display value="39 year-old male"/>
+  </subject>
+  <encounter>
+    <display value="encounter where nurse noticed the problem"/>
+  </encounter>
+  <!-- when the event happened --> 
+
+  <detected value="2021-12-10"/> 
+  <recordedDate value="2021-12-15"/> 
+  
+  <resultingCondition>
+	<display value="Condition with Diagnosis catagory, 296393006 | Anticholinergic drug overdose (disorder)"/>
+  </resultingCondition>
+  <resultingCondition>
+	<display value="Condition with Diagnosis catagory, 292059002 | Morphine adverse reaction (disorder)"/>
+  </resultingCondition>
+  <resultingCondition>
+	<display value="Condition with Diagnosis catagory, 216468001 | Accidental poisoning caused by morphine (disorder)"/>
+  </resultingCondition>
+
+  
+  <location>
+	<display value="Pallative Care Agency"/>
+  </location>
+
+  <seriousness>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/adverse-event-seriousness"/>
+        <code value="serious"/>
+        <display value="Serious"/>
+    </coding>
+  </seriousness>
+
+
+  <outcome>
+    <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="398056004"/>
+        <display value="Transient abnormality with full recovery (finding)"/>
+    </coding>
+  </outcome>
+  
+  <!-- who made the record / last updated it -->
+  <recorder>
+    <display value="Physician reviewer giving diagnosis of morphine toxicity and anticholinergic syndrome caused by drug overdose"/>
+  </recorder>
+
+  <!-- may have been for cream to treat sunburn on that arm, reference to that medication -->
+  <suspectEntity>
+    <instanceReference>
+	  <type value="MedicationRequest"/>
+      <display value="A pancreatic enzyme capsule (Creon / Nutrizym / Pancrease / Pancrex) is the only other drug that this patient is prescribed and taking."/>
+    </instanceReference>
+	<causality>
+		<entityRelatedness>
+		  <coding>
+			<system value="http://terminology.hl7.org/CodeSystem/adverse-event-causality-assess"/>
+		    <code value="unlikely"/>
+            <display value="unlikely"/>
+			</coding>
+		</entityRelatedness>
+	</causality>
+  </suspectEntity>
+  
+  <suspectEntity>
+    <instanceReference>
+      <type value="MedicationAdministration"/>
+	  <display value="The nurse made an assessment that there was a temporal relationship between the adverse reactions and administration of this new batch of premixed morphine + hyoscine medication supply, recorded the S/S, the assessment."/>
+    </instanceReference>
+	<causality>
+		<entityRelatedness>
+		  <coding>
+			<system value="http://terminology.hl7.org/CodeSystem/adverse-event-causality-assess"/>
+		    <code value="probably-likely"/>
+            <display value="Probably/Likely"/>
+			</coding>
+		</entityRelatedness>
+	</causality>
+  </suspectEntity>
+  
+  <mitigatingAction>
+        <itemReference>
+		 <type value="MedicationAdministration"/>
+		 <display value="The nurse immediately stopped the syringe driver, initiated review all previous medication administration record to the moment adverse event was identified. There was no evidence of adverse reaction to the medications administration since the start of the morphine + hyoscine therapy."/>
+		</itemReference>
+  </mitigatingAction>
+  <mitigatingAction>
+        <itemReference>
+		 <type value="DocumentReference"/>
+		 <display value="The nurse reported the adverse event to the pharmacy for investigation."/>
+		</itemReference>
+  </mitigatingAction>
+
+  <supportingInfo>
+        <itemReference>
+		 <type value="DocumentReference"/>
+		 <display value="The pharmacy contacted the supplier to initiate an investigation, which revealed that a software error had occurred resulting in a wrong label (morphine 40 + hyoscine 80) being printed and attached to this batch of pre-mixed morphine + hyoscine with dose strength of 60 + 120."/>
+		</itemReference>
+  </supportingInfo>
+  
+  <supportingInfo>
+        <itemReference>
+		 <reference value="AdverseEvent/heartrateobservation"/> 
+		 <!--type value="Observation"/-->
+		 <display value="heart rate was 62/min. Patient Base line is 76-82/min. Observation has a referenceRange with type=Patient base-line, this is an addtional code, to indicate the base-line range for the patient"/>
+		</itemReference>
+  </supportingInfo>
+  <supportingInfo>
+        <itemReference>
+		 <type value="Observation"/>
+		 <display value="temperature = 38.7C"/>
+		</itemReference>
+  </supportingInfo>
+  
+  <supportingInfo>
+        <itemReference>
+		 <type value="Observation"/>
+		 <display value="Signs and Symptoms observation, 123640000 | Mucous membrane dryness (finding)"/>
+		</itemReference>
+  </supportingInfo>
+  <supportingInfo>
+        <itemReference>
+		 <type value="Observation"/>
+		 <display value="Signs and Symptoms observation, 16386004 | Dry skin (finding)"/>
+		</itemReference>
+  </supportingInfo>
+  <supportingInfo>
+        <itemReference>
+		 <type value="Observation"/>
+		 <display value="Signs and Symptoms observation, 37125009 | Dilated pupil (finding)"/>
+		</itemReference>
+  </supportingInfo>
+  <supportingInfo>
+        <itemReference>
+		 <type value="Observation"/>
+		 <display value="Signs and Symptoms observation, 102835006 | Difficulty passing urine (finding)"/>
+		</itemReference>
+  </supportingInfo>
+  <supportingInfo>
+        <itemReference>
+		 <type value="Observation"/>
+		 <display value="Signs and Symptoms observation, 71782001 | Drowsy (finding)"/>
+		</itemReference>
+  </supportingInfo>
+  
+  <note>
+	<authorString value="Nurse"/>
+	<text value="Use Case 8 - Adverse Event resulted from a separate prior breach
+The case will be reviewed by a physician and the diagnosis of morphine toxicity and anticholinergic syndrome caused by drug overdose will be determined and recorded
+(See also the Adverse Event and Consequences confluence page for another similar use case Drug overdose scenario)"/>
+  </note>
+  
+</AdverseEvent>
