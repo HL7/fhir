@@ -565,7 +565,7 @@ GET [base]/[type]?param1=value&amp;...{&amp;_format=[mime-type]}
 <h4>Choosing an HTTP Method</h4>
 <p>
   As described above, servers that support search via REST SHALL support both the <code>GET</code> and <code>POST</code>
-  methods. However, there are known use cases that prevent one or the other method from being desireable in production.
+  methods. However, there are known use cases that prevent one or the other method from being desirable in production.
   For example, in the case of a large set of Endpoint resources (e.g., FHIR servers), infrastructure could be 
   configured to take advantage of HTTP caching mechanisms that do not function correctly on HTTP POST requests.
   Conversely, an implementation might not be able to properly secure PHI that appears in request query parameters (e.g., 
@@ -688,36 +688,37 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
 <a name="modifiers"></a>
 <h4>Modifiers</h4>
 <p>
-  Generally, search parameters are used as input filters for one or more resource elements. For example, searching 
-  for patients that were born this year.  Sometimes it is necessary or desireable to use a search parameter with a 
+  Generally, search parameters are used as filters to refine search results based on one or more resource elements. 
+  For example, a query might find patients born in a certain year by using the <code>birthdate</code> search parameter,
+  which maps to the <code>Patient.birthDate</code> element.  Sometimes it is necessary or desirable to use a search parameter with a 
   different behavior, for example, searching for patients that do not have a birth date in their records.  Instead 
   of requiring many search parameters on an element to cover each type of use, this specification defines <b>modifiers</b> 
-  that can used to change the meaning of a search parameter while leaving element mappings intact.
+  that can be used to change the meaning of a search parameter while leaving element mappings intact.
 </p>
 <p>
-  Allowed search parameter modifiers are defined by the <a href="codesystem-search-modifier-code.html">search-modifier-code</a> 
-  code system. Search parameter definitions MAY include a list of modifiers allowed in the <code>SearchParameter.code</code> 
+  Search parameter modifiers are defined by the <a href="codesystem-search-modifier-code.html">search-modifier-code</a> 
+  code system. Search parameter definitions MAY include a list of allowed modifiers in the <code>SearchParameter.code</code> 
   element, which is bound to the <a href="valueset-search-modifier-code.html">search-modifier-code</a> value set.  Servers
-  MAY choose to support additional modifiers on search parameters that are not listed, but SHALL support any modifiers 
-  present in search parameters the server advertises support for.  Note that servers MAY support modifiers on types not defined
-  in this specification.
+  SHALL support any modifiers present in search parameters the server advertises support for.  Servers MAY choose to support
+  additional modifiers.  Note that servers MAY support modifiers on types not defined in this specification.
 </p>
 <p>
   In search requests, search modifiers are used by appending the modifier as a suffix to the search parameter name, with the syntax
-  of: <code>[name]:[modifier]</code>, such as <code>name:missing</code>.
+  of: <code>[name]:[modifier]</code>, such as <code>birthdate:missing</code>.
 </p>
 <p>
   Since modifiers change the meaning of a search parameter, a server SHALL reject any search request that contains a search 
   parameter with an unsupported modifier.  For example, if the server supports the <code>name</code> search parameter, 
-  but not the <code>:exact</code> modifier on the name, it should reject a search with the parameter <code>name:exact=Bill</code>, 
+  but not the <code>:exact</code> modifier on the name, it would reject a search with the parameter <code>name:exact=Bill</code>, 
   using an HTTP <code>400</code> error with an <a href="OperationOutcome.html">OperationOutcome</a> with a 
   <a href="operationoutcome-example-searchfail.html">clear error message</a>.
 </p>
 <p>
   While support for modifiers is applied per search parameter, modifiers are generally defined according to search parameter type.  
-  The exception is the search parameters type <a href="#special">special</a>, which inherits <b>no</b> modifiers by
-  default but MAY include any modifier.  A search parameter defined with the 'speical' type SHALL define any modifiers allowed 
-  on that search parameter.
+  For example, the ":exact" modifier has meaning when applied to string-type search parameters but has no meaning and cannot
+  be used with token-type search parameters.  The exception is the search parameters type <a href="#special">special</a>.  The
+  definition for any search parameter of type "special" SHALL explicitly list any allowed modifiers; this list MAY include any
+  value from the <a href="codesystem-search-modifier-code.html">search-modifier-code</a> code system.
 </p>
 <p>
   The modifiers defined by this specification are:
@@ -727,49 +728,51 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
     <td><code><a href="#modifierabove">above</a></code></td>
     <td><a href="#reference">reference</a>, <a href="#token">token</a>, <a href="#uri">uri</a></td>
     <td>
-      The search parameter tests whether the value in a resource is or subsumes the specified value (is-a, or hierarchical relationships).
+      Tests whether the value in a resource is or subsumes the supplied parameter value (is-a, or hierarchical relationships).
     </td>
   </tr>
   <tr>
     <td><code><a href="#modifierbelow">below</a></code></td>
     <td><a href="#reference">reference</a>, <a href="#token">token</a>, <a href="#uri">uri</a></td>
     <td>
-      The search parameter tests whether the value in a resource is or is subsumed by the specified value (is-a, or hierarchical relationships).
+      Tests whether the value in a resource is or is subsumed by the supplied parameter value (is-a, or hierarchical relationships).
     </td>
   </tr>
   <tr>
-    <td><code><a href="#modifiercodetext">code-text</a></code></td>
+    <td><code><a href="#modifiercodetext">code-text</a></code> <span class="stu">TU</span> </td>
     <td><a href="#reference">reference</a>, <a href="#token">token</a></td>
     <td>
-      The search parameter is processed as input to a search with advanced text handling that searches a code/value - e.g., <code>Coding.code</code>.
+      Tests whether the textual display value in a resource (e.g., <code>CodeableConcept.text</code>, <code>Coding.display</code>, 
+      or <code>Reference.display</code>) matches the supplied parameter value.
     </td>
   </tr>
   <tr>
     <td><code><a href="#modifiercontains">contains</a></code></td>
     <td><a href="#string">string</a>, <a href="#uri">uri</a></td>
     <td>
-      The search parameter returns resources that include the supplied parameter value anywhere within the field being searched.
+      Tests whether the value in a resource includes the supplied parameter value anywhere within the field being searched.
     </td>
   </tr>
   <tr>
     <td><code><a href="#modifierexact">exact</a></code></td>
     <td><a href="#string">string</a></td>
     <td>
-      The search parameter returns resources that have a value that exactly matches the supplied parameter (the whole string, including casing and accents).
+      Tests whether the value in a resource exactly matches the supplied parameter value (the whole string, including casing and accents).
     </td>
   </tr>
   <tr>
     <td><code><a href="#modifieridentifier">identifier</a></code></td>
     <td><a href="#reference">reference</a></td>
     <td>
-      The search parameter applies to the identifier on the resource, not the reference.
+      Tests whether the <code>Reference.identifier</code> in a resource (rather than the <code>Reference.reference</code>) matches
+      the supplied parameter value.
     </td>
   </tr>
   <tr>
-    <td><code><a href="#modifieridentifier">in</a></code></td>
-    <td><a href="#reference">reference</a>, <a href="#token">token</a></td>
+    <td><code><a href="#modifierin">in</a></code></td>
+    <td><a href="#reference">reference</a> <span class="stu">TU</span> , <a href="#token">token</a></td>
     <td>
-      The search parameter tests whether a coding is in the specified value set or a reference is a member of a List or Group.
+      Tests whether the value in a resource is a member of the supplied parameter ValueSet, List, or Group.
     </td>
   </tr>
   <tr>
@@ -780,36 +783,37 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
       <a href="#uri">uri</a>
     </td>
     <td>
-      Modify the search parameter to a <code>token</code> (boolean - true|false) that tests whether resources have a value or not in the requested element.
+      Tests whether the value in a resource is present (when the supplied parameter value is <code>true</code>) or
+      absent (when the supplied parameter value is <code>false</code>).
     </td>
    </tr>
    <tr>
     <td><code><a href="#modifiernot">not</a></code></td>
     <td><a href="#token">token</a></td>
     <td>
-      The search parameter returns resources that do not contain a match to the specified value.
+      Tests whether the value in a resource does not match the specified parameter value.
     </td>
    </tr>
    <tr>
     <td><code><a href="#modifiernotin">not-in</a></code></td>
-    <td><a href="#reference">reference</a>, <a href="#token">token</a></td>
+    <td><a href="#reference">reference</a> <span class="stu">TU</span> , <a href="#token">token</a></td>
     <td>
-      The search parameter returns resources that do not contain the requested value (e.g., test for a Value Set <i>not</i> containing a particular code).
+      Tests whether the value in a resource is not a member of the supplied parameter ValueSet, List, or Group.
     </td>
    </tr>
    <tr>
     <td><code><a href="#modifieroftype">of-type</a></code></td>
     <td><a href="#token">token</a> (only <a href="datatypes.html#Identifier">Identifier</a>)</td>
     <td>
-      The search parameter tests to see if an <code>Identifier</code> has a matching <code>value</code> and <code>type</code>.
+      Tests whether the <code>Identifier</code> value in a resource matches the supplied parameter value.
     </td>
    </tr>
    <tr>
     <td><code><a href="#modifiertexttoken">text</a></code></td>
-    <td><a href="#reference">reference</a>, <a href="#token">token</a></td>
+    <td><a href="#reference">reference</a> <span class="stu">TU</span> , <a href="#token">token</a></td>
     <td>
-      The search parameter is processed as a string that searches text associated with the code/value - either <code>CodeableConcept.text</code>, 
-      <code>Coding.display</code>, or <code>Identifier.type.text</code>.
+      Tests whether the textual value in a resource (e.g., <code>CodeableConcept.text</code>, <code>Coding.display</code>, 
+      <code>Identifier.type.text</code>, or <code>Reference.display</code>) matches the supplied parameter value.
     </td>
    </tr>
    <tr>
@@ -820,10 +824,11 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
     </td>
    </tr>
    <tr>
-    <td><code><a href="#modifiertextadvanced">text-advanced</a></code></td>
+    <td><code><a href="#modifiertextadvanced">text-advanced</a></code> <span class="stu">TU</span> </td>
     <td><a href="#reference">reference</a>, <a href="#token">token</a></td>
     <td>
-      The search parameter is processed as input to a search with advanced text handling that searches text associated with the code/value - either
+      Tests whether the value in a resource matches the supplied parameter value using advanced text handling that searches
+      text associated with the code/value - e.g.,
       <code>CodeableConcept.text</code>, <code>Coding.display</code>, or <code>Identifier.type.text</code>.
     </td>
    </tr>
@@ -831,7 +836,9 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
     <td><code><a href="#modifiertype">[type]</a></code></td>
     <td><a href="#reference">reference</a></td>
     <td>
-      The search parameter only applies to the Resource Type specified as a modifier (e.g. the modifier is not actually <code>:type</code>, but <code>:Patient</code> etc.).
+      Tests whether the value in a resource points to a resource of the supplied parameter type.
+      Note: a concrete <code>ResourceType</code> is specified as the modifier (e.g., not the literal <code>:[type]</code>,
+      but a value such as <code>:Patient</code>).
     </td>
    </tr>
   </table>
@@ -844,7 +851,7 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
     The exact semantics for use vary depending on the type of search parameter:
   </p>
 
-  <h6>above : reference</h6>
+  <h6>above with <em>reference</em> type search parameters</h6>
   <p>
     When the <code>above</code> modifier is used with a <a href="#reference">reference</a> type search parameter, the search is interpreted
     as a hierarchical search on linked resources of the same type, including exact matches and all parents of those matches.  The <code>above</code> 
@@ -866,17 +873,17 @@ Content-Type: application/x-www-form-urlencoded
 location:above=A101</span>
       </span>
     </span>
-    for Procedures with a location <code>above</code> 101 would match any Procedure resources with locations:
+    would match any Procedure resources with locations:
     <ul>
-      <li><code>A101</code> - this location by ID</li>
-      <li><code>A100</code> - parent of A101, representing the first floor (A101 - A199)</li>
-      <li><code>BuildingA</code> - parent of A100, representing the building 'A'</li>
+      <li><code>A101</code>, <code>Location/A101</code>, <code>https://example.org/Location/A101</code> - this location by ID</li>
+      <li><code>A100</code>, <code>Location/A100</code>, <code>https://example.org/Location/A100</code> - parent of A101, representing the first floor (A101 - A199)</li>
+      <li><code>BuildingA</code>, <code>Location/BuildingA</code>, <code>https://example.org/Location/BuildingA</code> - parent of A100, representing the building 'A'</li>
     </ul>
   </p>
 
-  <h6>above : token</h6>
+  <h6>above with <em>token</em> type search parameters</h6>
   <p>
-    When the <code>above</code> modifer is used with a <a href="#token">token</a> type search parameter, the supplied token is a concept with the
+    When the <code>above</code> modifier is used with a <a href="#token">token</a> type search parameter, the supplied token is a concept with the
     form <code>[system]|[code]</code> and the intention is to test whether the coding in a resource <a href="CodeSystem.html#subsumption">subsumes</a> the 
     specified search code.  Matches to the input token concept have an is-a relationship with the coding in the resource, and this includes the coding itself.
   </p>
@@ -894,20 +901,21 @@ Content-Type: application/x-www-form-urlencoded
 code:above=http://snomed.info/sct|3738000</span>
       </span>
     </span>
-    for Observations with a code <code>above</code> SNOMED 'Viral hepatitis (disorder)' will match any Observation resources with codes:
+    for Observations with a code <code>above</code> SNOMED 'Viral hepatitis (disorder)' will match any Observation resources with SNOMED codes:
     <ul>
-      <li><code>http://snomed.info/sct#3738000</code> - Viral hepatitis (this code)</li>
-      <li><code>http://snomed.info/sct#235862008</code> - Hepatitis due to infection (parent of 'Viral hepatitis')</li>
-      <li><code>http://snomed.info/sct#128241005</code> - Inflammatory disease of liver (parent of 'Hepatitis due to infection')</li>
-      <li>etc.</li>
-      <li><code>http://snomed.info/sct#312130009</code> - Viral infection by site (parent of 'Viral hepatitis')</li>
-      <li><code>http://snomed.info/sct#301810000</code> - Infection by site (parent of 'Viral infection by site')</li>
-      <li>etc.</li>
+      <li><code>3738000</code> - Viral hepatitis (this code)</li>
+      <li><code>235862008</code> - Hepatitis due to infection (parent of 'Viral hepatitis')</li>
+      <li><code>128241005</code> - Inflammatory disease of liver (parent of 'Hepatitis due to infection')</li>
+      <li>Etc.</li>
+      <li><code>312130009</code> - Viral infection by site (parent of 'Viral hepatitis')</li>
+      <li><code>301810000</code> - Infection by site (parent of 'Viral infection by site')</li>
+      <li>Etc.</li>
     </ul>
-    Note that there are two hierarchical parents to the requested code - parent matches traverse up each path.
+
+    Note that there are two hierarchical parents to the requested code and parent matches traverse up each path.
   </p>
 
-  <h6>above : uri</h6>
+  <h6>above with <em>uri</em> type search parameters</h6>
   <p>
     When the <code>above</code> modifier is used with a <a href="#uri">uri</a> type search parameter, the value is used for partial matching
     based on URL path segments.  Because of the hierarchical behavior of <code>above</code>, the modifier only applies to URIs that are URLs and cannot
@@ -927,7 +935,7 @@ Content-Type: application/x-www-form-urlencoded
 url:above=http://acme.org/fhir/ValueSet/123/_history/5</span>
       </span>
     </span>
-    will match any ValueSet resources with a url of:
+    would match any ValueSet resources with a url of:
     <ul>
       <li><code>http://acme.org/fhir/ValueSet/123/_history/5</code> - full match</li>
       <li><code>http://acme.org/fhir/ValueSet/123/_history</code> - parent of requested URI</li>
@@ -946,16 +954,16 @@ url:above=http://acme.org/fhir/ValueSet/123/_history/5</span>
     The exact semantics for use vary depending on the type of search parameter:
   </p>
 
-  <h6>below : reference (hierarchical)</h6>
+  <h6>below with <em>reference</em> type search parameters - hierarchical searches</h6>
   <p>
     When the <code>below</code> modifier is used with a <a href="#reference">reference</a> type search parameter, the search is interpreted
     as a hierarchical search on linked resources of the same type, including exact matches and all children of those matches.  The <code>below</code> 
-    modifier is only valid for <a href="references.html#circular">circular</a> references - that is, references that point to another instance of the 
+    modifier is only valid for <a href="references.html#circular">circular</a> <b>?? recursive instead of circular here ??</b> references - that is, references that point to another instance of the 
     same type of resource (e.g., a hierarchy of Location resources).  Further discussion about the requirements and uses for this type of search can
     be found in the section <a href="#recursive">Searching Hierarchies</a>.
   </p>
   <p>
-    When using the <code>below</code> modifier on a hierarchial reference, all typically-valid search parameter reference inputs are allowed.
+    When using the <code>below</code> modifier on a hierarchical reference, all typically-valid search parameter reference inputs are allowed.
   </p>
   <p>
     For example, the search:
@@ -970,16 +978,16 @@ location:below=BuildingA</span>
     </span>
     for Procedures with a location <code>below</code> BuildingA would match any Procedure resources with locations:
     <ul>
-      <li><code>BuildingA</code> - this location by ID</li>
-      <li><code>A100</code> - child of BuildingA, representing the first floor</li>
-      <li><code>A101</code> - child of A100, room 101</li>
-      <li><code>A1..</code> - child of A100, rooms on the first floow</li>
-      <li><code>A200</code> - child of BuildingA, representing the second floor</li>
-      <li>etc.</li>
+      <li><code>BuildingA</code>, <code>Location/BuildingA</code>, <code>https://example.org/Location/BuildingA</code> - this location by ID</li>
+      <li><code>A100</code>, <code>Location/A100</code>, <code>https://example.org/Location/A100</code> - child of BuildingA, representing the first floor</li>
+      <li><code>A101</code>, <code>Location/A101</code>, <code>https://example.org/Location/A101</code> - child of A100, room 101</li>
+      <li><code>A1..</code>, etc. - child of A100, rooms on the first floor</li>
+      <li><code>A200</code>, <code>Location/A200</code>, <code>https://example.org/Location/A200</code> - child of BuildingA, representing the second floor</li>
+      <li>Etc.</li>
     </ul>
   </p>
 
-  <h6>below : reference (canonical versions)</h6>
+  <h6>below with <em>reference</em> type search parameters - canonical versions searches</h6>
   <p>
     When the <code>below</code> modifier is used with a <a href="#reference">reference</a> against a <a href="datatypes.html#canonical">canonical</a>
     reference, the search is interpreted as a version search against the canonical resource.  The format of the parameter is either 
@@ -999,9 +1007,9 @@ location:below=BuildingA</span>
     Example pending resolution of <a href="https://jira.hl7.org/browse/FHIR-37679">FHIR-37679</a> ...
   </p>
 
-  <h6>below : token</h6>
+  <h6>below with <em>token</em> type search parameters</h6>
   <p>
-    When the <code>below</code> modifer is used with a <a href="#token">token</a> type search parameter, the supplied token is a concept with the
+    When the <code>below</code> modifier is used with a <a href="#token">token</a> type search parameter, the supplied token is a concept with the
     form <code>[system]|[code]</code> and the intention is to test whether the coding in a resource <a href="CodeSystem.html#subsumption">is subsumed by</a> the 
     specified search code.  Matches include resources that have a coding that has an is-a relationship with the input concept, and this includes the coding itself.
   </p>
@@ -1019,22 +1027,24 @@ Content-Type: application/x-www-form-urlencoded
 code:below=http://snomed.info/sct|235862008</span>
       </span>
     </span>
-    for Observations with a code <code>below</code> SNOMED 'Hepatitis due to infection' will match any Observation resources with codes:
+    for Observations with a code <code>below</code> SNOMED 'Hepatitis due to infection' would match any Observation resources with SNOMED codes:
     <ul>
-      <li><code>http://snomed.info/sct#235862008</code> - Hepatitis due to infection (this code)</li>
-      <li><code>http://snomed.info/sct#773113008</code> - Acute infectious hepatitis (child)</li>
-      <li><code>http://snomed.info/sct#95897009</code> - Amebic hepatitis (child)</li>
-      <li>etc.</li>
+      <li><code>235862008</code> - Hepatitis due to infection (this code)</li>
+      <li><code>773113008</code> - Acute infectious hepatitis (child)</li>
+      <li><code>95897009</code> - Amebic hepatitis (child)</li>
+      <li>Etc.</li>
     </ul>
+  </p>
+  <p>
     Note that there is no limit inherent to the referential search.  If child concepts contain child concepts of their own, the search
     continues down the tree in each path until reaching a terminal node.
   </p>
   <p>
-    Note that the <code>below</code> modifier is useful when trying to resolve MIME types.  Further documentation can be found in the
+    The <code>below</code> modifier is useful when trying to resolve MIME types.  Further documentation can be found in the
     <a href="#mimetype">Searching MIME Types</a> section of this page.
   </p>
 
-  <h6>below : uri</h6>
+  <h6>below with <em>uri</em> type search parameters</h6>
   <p>
     When the <code>below</code> modifier is used with a <a href="#uri">uri</a> type search parameter, the value is used for partial matching
     based on URL path segments.  Because of the hierarchical behavior of <code>below</code>, the modifier only applies to URIs that are URLs and cannot
@@ -1054,19 +1064,19 @@ Content-Type: application/x-www-form-urlencoded
 url:above=http://acme.org/fhir</span>
       </span>
     </span>
-    will match any ValueSet resources with a url of:
+    would match any ValueSet resources with a url of:
     <ul>
       <li><code>http://acme.org/fhir</code> - full match</li>
       <li><code>http://acme.org/fhir/ValueSet</code> - child of requested URI</li>
       <li><code>http://acme.org/fhir/ValueSet/123</code> - descendant of requested URI</li>
       <li><code>http://acme.org/fhir/ValueSet/123/_history</code> - descendant of requested URI</li>
       <li><code>http://acme.org/fhir/ValueSet/123/_history/1</code> - descendant of requested URI</li>
-      <li>etc.</li>
+      <li>Etc.</li>
     </ul>
   </p>
 
   <a name="modifiercodetext"></a>
-  <h5>code-text</h5>
+  <h5>code-text <span class="stu">TU</span></h5>
   <p>
     The <code>code-text</code> modifier allows clients to indicate that a supplied <code>string</code> input should be matched
     as a case-insensitive and combining-character insensitive match against the start of target string.  This modifier is used
@@ -1090,13 +1100,13 @@ Content-Type: application/x-www-form-urlencoded
 language:code-text=EN</span>
       </span>
     </span>
-    for patients with a communication language of 'EN' (English) will match any Patient resources with a communication language of:
+    would match any Patient resources with a communication language of:
     <ul>
       <li><code>en</code> - requested code text (case-insensitive)</li>
       <li><code>en-AU</code> - starts with requested code text (case-insensitive)</li>
       <li><code>en-CA</code> - starts with requested code text (case-insensitive)</li>
       <li><code>en-GB</code> - starts with requested code text (case-insensitive)</li>
-      <li>etc.</li>
+      <li>Etc.</li>
     </ul>
   </p>
 
@@ -1124,13 +1134,13 @@ Content-Type: application/x-www-form-urlencoded
 family:contains=son</span>
       </span>
     </span>
-    for patients with a family name containing 'son' would match any Patient resources with a family names of:
+    would match any Patient resources with a family names such as:
     <ul>
       <li><code>Son</code> - requested string (case-insensitive)</li>
       <li><code>Sonder</code> - begins with requested string (case-insensitive)</li>
       <li><code>Erikson</code> - ends with requested string (case-insensitive)</li>
-      <li><code>Samsonite</code> - contains requeste string (case-insensitive)</li>
-      <li>etc.</li>
+      <li><code>Samsonite</code> - contains requested string (case-insensitive)</li>
+      <li>Etc.</li>
     </ul>
   </p>
 
@@ -1158,7 +1168,7 @@ Content-Type: application/x-www-form-urlencoded
 family:exact=Son</span>
       </span>
     </span>
-    for patients with a family name exactly 'Son' would <em>only</em> match Patient resources with a family name of:
+    will <em>only</em> match Patient resources with a family name of:
     <ul>
       <li><code>Son</code> - requested string (case-sensitive)</li>
     </ul>
@@ -1232,7 +1242,8 @@ subject:identifier=http://example.org/fhir/mrn|12345</span>
         </span>
       </span>
     </span>
-    even if the Patient resource for <code>Patient/abc</code> contains the requested identifier.
+    even if the Patient resource for <code>Patient/abc</code> includes the requested identifier among its 
+    <code>Patient.identifier</code> values.
   </p>
   <p>
     For more details about the difference between the <code>identifier</code> modifier and chained-searches on the 
@@ -1248,14 +1259,14 @@ subject:identifier=http://example.org/fhir/mrn|12345</span>
     on the type of search parameter:
   </p>
 
-  <h6>in : reference</h6>
+  <h6>in with <em>reference</em> type search parameters <span class="stu">TU</span></h6>
   <p>
     When the <code>in</code> modifier is used with a <a href="#reference">reference</a> search parameter, the search
     is based on the contents of a List or Group instead of a reference to those resources directly.  The parameter is intended
     to be used with explicit references (e.g., <code>List.entry.item</code> and <code>Group.member.entity</code>).  If a Group
     used in a search has both characteristics and enumerated members, the expectation is that the test will be against the
     enumeration, not the characteristics.  If a group has <em>only</em> characteristics, the server may either: determine
-    the candidates that meet the critieria and match (provided it can match all criteria), or treat the parameter as a 
+    the candidates that meet the criteria and match (provided it can match all criteria), or treat the parameter as a 
     non-supported parameter (remove the parameter or raise an error, as is appropriate).
   </p>
   <p>
@@ -1276,7 +1287,7 @@ patient:in=Group/123</span>
     for encounters of patients in group '123' match any Encounters with Patients enumerated by Group '123'.
   </p>
 
-  <h6>in : token</h6>
+  <h6>in with <em>token</em> type search parameters</h6>
   <p>
     When the <code>in</code> modifier is used with a <a href="#token">token</a> search parameter, the input is
     a <a href="#uri">uri</a>  (relative or absolute) that identifies a value set, and the search parameter 
@@ -1302,12 +1313,12 @@ Content-Type: application/x-www-form-urlencoded
 code:in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
       </span>
     </span>
-    for conditions that contain a code from 'http://snomed.info/sct?fhir_vs=isa/235862008' would match any Condition containing:
+    for conditions that contain a code from 'http://snomed.info/sct?fhir_vs=isa/235862008' would match any Condition containing SNOMED codes:
     <ul>
-      <li><code>http://snomed.info/sct#235862008</code> - Hepatitis due to infection (this code)</li>
-      <li><code>http://snomed.info/sct#773113008</code> - Acute infectious hepatitis (is-a 235862008)</li>
-      <li><code>http://snomed.info/sct#95897009</code> - Amebic hepatitis (is-a 235862008)</li>
-      <li>etc.</li>
+      <li><code>235862008</code> - Hepatitis due to infection (this code)</li>
+      <li><code>773113008</code> - Acute infectious hepatitis (is-a 235862008)</li>
+      <li><code>95897009</code> - Amebic hepatitis (is-a 235862008)</li>
+      <li>Etc.</li>
     </ul>
   </p>
 
@@ -1338,7 +1349,7 @@ Content-Type: application/x-www-form-urlencoded
 given:missing=true</span>
       </span>
     </span>
-    for patients missing a given name would match any Patient records that do not have <em>any</em> value in <code>Patient.name</code> that contains a value for <code>given</code>,
+    would match any Patient records that do not have <em>any</em> value in <code>Patient.name</code> that contains a value for <code>given</code>,
     even if a patient contains a <code>Patient.name</code> that has a <code>given</code> with an extension and no value (e.g., a Data Absent Reason).
   </p>
   <p>
@@ -1355,7 +1366,7 @@ Content-Type: application/x-www-form-urlencoded
 given:missing=false</span>
       </span>
     </span>
-    for patients NOT missing a given name would match any Patient records that have <em>any</em> value in <code>Patient.name</code> that contains a value for <code>given</code>.
+    would match any Patient records that have <em>any</em> value in <code>Patient.name</code> that contains a value for <code>given</code>.
   </p>
 
   <a name="modifiernot"></a>
@@ -1382,7 +1393,7 @@ Content-Type: application/x-www-form-urlencoded
 gender:not=male</span>
       </span>
     </span>
-    for patients that are not male would match any Patient records that do not have <code>male</code> as the value in <code>Patient.gender</code>.  This includes:
+    would match any Patient records that do not have <code>male</code> as the value in <code>Patient.gender</code>.  This includes:
     <ul>
       <li><code>female</code> - <a href="valueset-administrative-gender.html">Administrative Gender</a> that is not 'male'</li>
       <li><code>other</code> - <a href="valueset-administrative-gender.html">Administrative Gender</a> that is not 'male'</li>
@@ -1402,7 +1413,7 @@ Composition?section:not=48765-2</span>
       </span>
     </span>
     for documents without an "Allergies and adverse reaction" section (<a href="https://loinc.org/48765-2/">LOINC 48765-2</a>) would return
-    all Composition records that <em>do not contain</em> a section with a code of '48765-2'.  This search <em>does not</em> return 
+    all Composition records that <em>do not contain</em> any section with a code of '48765-2'.  This search <em>does not</em> return 
     "any document that has a section that is not an Allergies and adverse reaction section".  In the presence of multiple possible matches, 
     the negation applies to the set and not each individual entry.
   </p>
@@ -1416,14 +1427,14 @@ Composition?section:not=48765-2</span>
     on the type of search parameter:
   </p>
 
-  <h6>not-in (reference)</h6>
+  <h6>not-in with <em>reference</em> type search parameters <span class="stu">TU</span></h6>
   <p>
     When the <code>not-in</code> modifier is used with a <a href="#reference">reference</a> search parameter, the search
     is based on exclusion of the contents of a List or Group.  The parameter is intended
     to be used with explicit references (e.g., <code>List.entry.item</code> and <code>Group.member.entity</code>).  If a Group
     used in a search has both characteristics and enumerated members, the expectation is that the test will be against the
     enumeration, not the characteristics.  If a group has <em>only</em> characteristics, the server may either: determine
-    the candidates that meet the critieria and match (provided it can match all criteria), or treat the parameter as a 
+    the candidates that meet the criteria and match (provided it can match all criteria), or treat the parameter as a 
     non-supported parameter (remove the parameter or raise an error, as is appropriate).
   </p>
   <p>
@@ -1441,10 +1452,10 @@ Content-Type: application/x-www-form-urlencoded
 patient:not-in=Group/123</span>
       </span>
     </span>
-    for encounters of patients not in group '123' match any Encounters with Patients not enumerated by Group '123'.
+    would match any Encounters with Patients not enumerated by Group '123'.
   </p>
 
-  <h6>not-in (token)</h6>
+  <h6>not-in with <em>token</em> type search parameters</h6>
   <p>
     When the <code>not-in</code> modifier is used with a <a href="#token">token</a> search parameter, the input is
     a <a href="#uri">uri</a> (relative or absolute) that identifies a value set, and the search parameter 
@@ -1470,12 +1481,12 @@ Content-Type: application/x-www-form-urlencoded
 code:not-in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
       </span>
     </span>
-    for conditions that do not contain a code from 'http://snomed.info/sct?fhir_vs=isa/235862008' would match any Condition except those containing:
+    would match Condition resources that do not contain <em>any</em> of the SNOMED codes:
     <ul>
-      <li><code>http://snomed.info/sct#235862008</code> - Hepatitis due to infection (this code)</li>
-      <li><code>http://snomed.info/sct#773113008</code> - Acute infectious hepatitis (is-a 235862008)</li>
-      <li><code>http://snomed.info/sct#95897009</code> - Amebic hepatitis (is-a 235862008)</li>
-      <li>etc.</li>
+      <li><code>235862008</code> - Hepatitis due to infection (this code)</li>
+      <li><code>773113008</code> - Acute infectious hepatitis (is-a 235862008)</li>
+      <li><code>95897009</code> - Amebic hepatitis (is-a 235862008)</li>
+      <li>Etc.</li>
     </ul>
   </p>
 
@@ -1574,15 +1585,15 @@ identifier:of-type=http://example.org/CodeSystem/national-identifiers|US|12345</
 
 
   <a name="modifiertexttoken"></a>
-  <h5>text : reference, token</h5>
+  <h5>text with <em>reference</em> <span class="stu">TU</span> or <em>token</em> type search parameters</h5>
   <p>
     The <code>text</code> modifier on search parameters of type <a href="#reference">reference</a> and <a href="#token">token</a>
     allows clients to indicate that a supplied <code>string</code> should be used to perform a string-search against the text
     associated with a code or value.  For example, <code>CodeableConcept.text</code>, <code>Coding.display</code>, or 
-    <code>Identifer.type.text</code>.
+    <code>Identifier.type.text</code>.
   </p>
   <p>
-    In this context, the <code>text</code> modifer is only allowed on <a href="#reference">reference</a> and <a href="#token">token</a>
+    In this context, the <code>text</code> modifier is only allowed on <a href="#reference">reference</a> and <a href="#token">token</a>
     type search parameters. When using the 'text' modifier, all typically-valid search parameter string inputs are allowed.
   </p>
   <p>
@@ -1596,14 +1607,16 @@ Content-Type: application/x-www-form-urlencoded
 code:text=headache</span>
       </span>
     </span>
-    for conditions with a code that contains the string 'headache' (case-insensitive) would match Condition resources with:
+    for conditions with a code that contains the string 'headache' (case-insensitive) would match Condition resources with SNOMED codes:
     <ul>
-      <li><code>http://snomed.info/sct#25064002</code> - Headache finding</li>
-      <li><code>http://snomed.info/sct#398987004</code> - Headache following lumbar puncture</li>
-      <li><code>http://snomed.info/sct#230480006</code> - Headache following myelography (disorder)</li>
-      <li>etc.</li>
+      <li><code>25064002</code> - Headache finding</li>
+      <li><code>398987004</code> - Headache following lumbar puncture</li>
+      <li><code>230480006</code> - Headache following myelography (disorder)</li>
+      <li>Etc.</li>
     </ul>
-    Note that the search is <em>not</em> expected to return results such as <code>http://snomed.info/sct#735938006</code>, since
+  </p>
+  <p>
+    Note that the search is <em>not</em> expected to return results with codes such as SNOMED <code>735938006</code>, since
     the code text of 'Acute headache' does not match a default string search of the term headache (case-insensitive, begins with or equals).
     For advanced searching of related text, see the <a href="#modifiertextadvanced">text-advanced</a> search modifier.
   </p>
@@ -1613,7 +1626,7 @@ code:text=headache</span>
   </p>
 
   <a name="modifiertextstring"></a>
-  <h5>text : string</h5>
+  <h5>text with <em>string</em> type search parameters</h5>
   <p>
     The <code>text</code> modifier allows clients to request matching based on 
     advanced string processing of the search parameter input.  Implementers of this modifier SHOULD support a sophisticated search functionality of 
@@ -1635,10 +1648,10 @@ code:text=headache</span>
     <span class="http-search-example">
       <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
       <span class="http-verb-display">
-        <span class="http-verb-display-get">GET [base]/Composition?section-text=(bone OR liver) and metastases</span>
+        <span class="http-verb-display-get">GET [base]/Composition?section:text=(bone OR liver) and metastases</span>
         <span class="http-verb-display-post">POST [base]/Composition/_search
 Content-Type: application/x-www-form-urlencoded
-section-text=(bone OR liver) and metastases</span>
+section:text=(bone OR liver) and metastases</span>
       </span>
     </span>
     for compositions about metastases in the bones or liver of subjects will search for those literals, but MAY also search for terms such
@@ -1646,11 +1659,11 @@ section-text=(bone OR liver) and metastases</span>
   </p>
 
   <a name="modifiertextadvanced"></a>
-  <h5>text-advanced</h5>
+  <h5>text-advanced <span class="stu">TU</span></h5>
   <p>
     The <code>text-advanced</code> modifier allows clients to request matching based on advanced string processing of the search parameter input
     against the text associated with a code or value.  For example, <code>CodeableConcept.text</code>, <code>Coding.display</code>, or 
-    <code>Identifer.type.text</code>.  Implementers of this modifier SHOULD support a sophisticated search functionality of 
+    <code>Identifier.type.text</code>.  Implementers of this modifier SHOULD support a sophisticated search functionality of 
     the type offered by typical text indexing services, but MAY support only basic search with minor additions (e.g., word-boundary recognition). 
     The value of the parameter is a text-based search, which may involve searching multiple words with thesaurus and proximity considerations, 
     and logical operations such as AND, OR, etc..
@@ -1664,31 +1677,38 @@ section-text=(bone OR liver) and metastases</span>
     <span class="http-search-example">
       <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
       <span class="http-verb-display">
-        <span class="http-verb-display-get">GET [base]/Condition?code:text-advanced=weight</span>
+        <span class="http-verb-display-get">GET [base]/Condition?code:text-advanced=headache</span>
         <span class="http-verb-display-post">POST [base]/Condition/_search
 Content-Type: application/x-www-form-urlencoded
 code:text-ad=headache</span>
       </span>
     </span>
-    for conditions with code text of 'headache' would match Condition resources with:
+    would match Condition resources containing codes with text that equals or begins with 'headache', 
+    case-insensitve (e.g., same as the <a href="#modifiertexttoken">text</a> modifier) such as the SNOMED codes:
     <ul>
-      <li><code>http://snomed.info/sct#25064002</code> - Headache finding</li>
-      <li><code>http://snomed.info/sct#398987004</code> - Headache following lumbar puncture</li>
-      <li><code>http://snomed.info/sct#230480006</code> - Headache following myelography (disorder)</li>
-      <li>etc.</li>
+      <li><code>25064002</code> - Headache finding</li>
+      <li><code>398987004</code> - Headache following lumbar puncture</li>
+      <li><code>230480006</code> - Headache following myelography (disorder)</li>
+      <li>Etc.</li>
     </ul>
-    just as the <a href="#modifiertexttoken">text</a> modifier.  However, it would also be expected to return Conditions such as:
+  </p>
+  <p>
+    However, it would also match Condition resources containing codes <em>containing</em> the word 'headache' such as
+    the SNOMED codes:
     <ul>
-      <li><code>http://snomed.info/sct#735938006</code> - Acute headache</li>
-      <li><code>http://snomed.info/sct#95660002</code> - Thunderclap headache</li>
-      <li><code>http://snomed.info/sct#4969004</code> - Sinus headache</li>
-      <li>etc.</li>
+      <li><code>735938006</code> - Acute headache</li>
+      <li><code>95660002</code> - Thunderclap headache</li>
+      <li><code>4969004</code> - Sinus headache</li>
+      <li>Etc.</li>
     </ul>
-    that <em>contain</em> the word 'headache'.  Additionally, a server MAY also return Conditions with codes containing synonymous text such as:
+  </p>
+  <p>
+    Additionally, a server MAY also return Condition resources with codes containing synonymous text such as conditions
+    with the SNOMED codes:
     <ul>
-      <li><code>http://snomed.info/sct#37796009</code> - Migraine</li>
-      <li><code>http://snomed.info/sct#49605003</code> - Ophthalmoplegic migraine (disorder)</li>
-      <li>etc.</li>
+      <li><code>37796009</code> - Migraine</li>
+      <li><code>49605003</code> - Ophthalmoplegic migraine (disorder)</li>
+      <li>Etc.</li>
     </ul>
   </p>
 
@@ -1696,7 +1716,7 @@ code:text-ad=headache</span>
   <h5>[type]</h5>
   <p>
     The <code>[type]</code> modifier allows clients to restrict the resource type of a reference.  The modifier does not use
-    the literal 'type' in any way, but rather the name of a resource - e.g., <code>Patient</code>, <code>Encounter</code>, etc..
+    the literal '[type]' in any way, but rather the name of a resource - e.g., <code>Patient</code>, <code>Encounter</code>, etc..
     Note that the modifier cannot be used with a reference to a resource found on another server, since the server would not usually know 
     what type that resource has. However, since these are absolute references, there can be no ambiguity about the type.
   </p>
@@ -3617,7 +3637,7 @@ resource will be retrieved when the user selects a resource.
 Servers are not obliged to return just a summary as requested. There are only
 a limited number of summary forms defined for resources in order to allow servers
 to store the summarized form(s) in advance. Servers SHOULD mark the resources with the
-tag <a href="v3/SecurityIntegrityObservationValue/cs.html#SUBSETTED"><code>SUBSETTED</code></a>
+tag <a href="https://terminology.hl7.org/CodeSystem-v3-ObservationValue.html"><code>SUBSETTED</code></a>
 to ensure that the incomplete resource is not accidentally used to overwrite
 a complete resource.
 </p>
@@ -3662,7 +3682,7 @@ does not apply to <a href="#include">included resources</a>.
 Servers are not obliged to return just the requested elements.
 Servers SHOULD always return mandatory elements whether they are
 requested or not. Servers SHOULD mark the resources with the
-tag <a href="v3/SecurityIntegrityObservationValue/cs.html#SUBSETTED"><code>SUBSETTED</code></a>
+tag <a href="https://terminology.hl7.org/CodeSystem-v3-ObservationValue.html"><code>SUBSETTED</code></a>
 to ensure that the incomplete resource is not actually used to overwrite
 a complete resource.
 </p>
@@ -4367,108 +4387,6 @@ resources on the server, with the exception of the creation
 of <a href="auditevent.html">Audit Event</a> resources
 auditing the search itself.
 </p>
-
-
-<a name="conformancesummary"></a>
-<h3>Conformance Summary</h3>
-<table class="grid">
-  <tr>
-    <td><a href="#searchinputs">Search Inputs</a></td>
-    <td>
-      Clients SHOULD use correct case, and servers SHALL
-      not define additional parameters with different meanings with names that only differ in case.
-    </td>
-  </tr>
-  <tr>
-    <td><a href="#searchcontexts">Search Contexts</a></td>
-    <td>
-      Note that if the <code>_type</code> parameter is included, all other search parameters SHALL be 
-      common to all provided types, and if <code>_type</code> is not included, all parameters SHALL be 
-      common to all resource types.
-    </td>
-  </tr>
-  <tr>
-    <td><a href="#selflink">Self Link</a></td>
-    <td>
-      In order to allow the client to be confident about what search parameters
-      were used as criteria by a server, servers SHALL return the parameters
-      that were actually used to process a search.
-    </td>
-  </tr>
-  <tr>
-    <td><a href="#selflink">Self Link</a></td>
-    <td>
-      Applications processing search results SHALL check these returned values where necessary.
-    </td>
-  </tr>
-  <tr>
-    <td><a href="#selflink">Self Link</a></td>
-    <td>
-      Self links SHALL be expressed as an HTTP GET-based search with the relevant parameters included as query
-      parameters, because of the semantics around the link types.
-    </td>
-  </tr>
-  <tr>
-    <td><a href="#selflink">Self Link</a></td>
-    <td>
-      Self links MAY be returned as absolute URIs or URIs relative to the base URL of a server, and MAY or MAY NOT be resolvable.
-    </td>
-  </tr>
-  <tr>
-    <td><a href="#selflink">Self Link</a></td>
-    <td>
-      Clients SHOULD review the returned parameters in the self link to ensure proper processing of results.
-    </td>
-  </tr>
-  <tr>
-    <td><a href="#selflink">Self Link</a></td>
-    <td>
-      In those situations, clients SHOULD filter received records to account for additional data.
-    </td>
-  </tr>
-  <tr>
-    <td><a href="#paginglinks">Other Links - Paging</a></td>
-    <td>
-      As with the self link, all relevant paging links SHALL be expressed as GET requests.
-    </td>
-  </tr>
-  <tr>
-    <td><a href="#paginglinks">Other Links - Paging</a></td>
-    <td>
-      As with the self link, all relevant paging links SHALL be expressed as GET requests.
-    </td>
-  </tr>
-  <tr>
-    <td><a href="#paginglinks">Other Links - Paging</a></td>
-    <td>
-      Servers SHOULD NOT include content that is considered sensitive.
-    </td>
-  </tr>
-  <tr>
-    <td><a href="#transportprotocols">Transport Protocols</a></td>
-    <td>
-      FHIR Search operations can be performed either via HTTP <code>POST</code> or <code>GET</code>.
-      Servers SHALL support both modes of operation, though MAY return a <code>HTTP 405</code> (Method Not Allowed)
-      for <b>either</b> <code>POST</code> or <code>GET</code>, but not both.
-    </td>
-  </tr>
-  <tr>
-    <td><a href="#basicspost">HTTP POST</a></td>
-    <td>
-      While servers SHALL support search parameters encoded in the POST body (as shown above), servers MAY also support
-      including some or all parameters as query parameters on a POST request:
-    </td>
-  </tr>
-  <tr>
-    <td><a href="#getvspost">Choosing an HTTP Method</a></td>
-    <td>
-      As described above, servers that support search via REST SHALL support both the <code>GET</code> and <code>POST</code> methods.
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2">...</td>
-  </tr>
-</table>
 
 
 <hr/>

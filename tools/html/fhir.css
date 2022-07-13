@@ -19,6 +19,15 @@ blockquote.stu-note {
   border-left-color: #ffa0ff;
 }
 
+span.stu {
+  padding-left: 3px;
+  padding-right: 3px;
+  border: 1px grey solid;
+  font-weight: bold;
+  color: black;
+  background-color: #fff5e6;
+}
+
 .watermark
 {
    background-image: url(watermark.png);
