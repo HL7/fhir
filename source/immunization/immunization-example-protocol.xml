@@ -14,15 +14,11 @@
 		</coding>
 		<text value="Twinrix (HepA/HepB)"/>
 	</vaccineCode>
-	<productDetails>
-		<manufacturer>
-			<reference>
-				<reference value="Organization/hl7"/>
-			</reference>
-		</manufacturer>
-		<lotNumber value="PT123F"/>
-		<expirationDate value="2018-12-15"/>
-	</productDetails>
+	<manufacturer>
+		<reference value="Organization/hl7"/>
+	</manufacturer>
+	<lotNumber value="PT123F"/>
+	<expirationDate value="2018-12-15"/>
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>
@@ -77,15 +73,10 @@
 	</performer>
 	<isSubpotent value="false"/>
 	<programEligibility>
-		<program>
-			<text value="VFC"/>
-		</program>
-		<eligibility>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/immunization-program-eligibility"/>
-				<code value="ineligible"/>
-			</coding>
-		</eligibility>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/immunization-program-eligibility"/>
+			<code value="ineligible"/>
+		</coding>
 	</programEligibility>
 	<fundingSource>
 		<coding>

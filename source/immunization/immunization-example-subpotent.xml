@@ -14,15 +14,11 @@
 		</coding>
 		<text value="Hepatitis B"/>
 	</vaccineCode>
-	<productDetails>
-		<manufacturer>
-			<reference>
-				<reference value="Organization/hl7"/>
-			</reference>
-		</manufacturer>
-		<lotNumber value="AAJN11K"/>
-		<expirationDate value="2015-02-28"/>
-	</productDetails>
+	<manufacturer>
+		<reference value="Organization/hl7"/>
+	</manufacturer>
+	<lotNumber value="AAJN11K"/>
+	<expirationDate value="2015-02-28"/>
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>
@@ -91,15 +87,10 @@
 		<presentationDate value="2013-01-10"/>
 	</education>
 	<programEligibility>
-		<program>
-			<text value="VFC"/>
-		</program>
-		<eligibility>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/immunization-program-eligibility"/>
-				<code value="ineligible"/>
-			</coding>
-		</eligibility>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/immunization-program-eligibility"/>
+			<code value="ineligible"/>
+		</coding>
 	</programEligibility>
 	<fundingSource>
 		<coding>
