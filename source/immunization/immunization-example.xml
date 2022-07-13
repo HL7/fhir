@@ -10,28 +10,15 @@
 	<vaccineCode>
 		<coding>
 			<system value="urn:oid:1.2.36.1.2001.1005.17"/>
-			<code value="FLUCEL VAX"/>
+			<code value="FLUVAX"/>
 		</coding>
-		<text value="Flucelvax	(Influenza)"/>
+		<text value="Fluvax	(Influenza)"/>
 	</vaccineCode>
-	<administeredProduct>
-		<concept>
-			<coding>
-				<system value="urn:oid:2.16.840.1.113883.6.69"/>
-				<code value="70461-0321-03"/>
-			</coding>
-			<text value="Flucelvax	(Influenza, injectable, MDCK, preservative free, quadrivalent)"/>
-		</concept>
-	</administeredProduct>
-	<productDetails>
-		<manufacturer>
-			<reference>
-				<reference value="Organization/hl7"/>
-			</reference>
-		</manufacturer>
-		<lotNumber value="AAJN11K"/>
-		<expirationDate value="2015-02-15"/>
-	</productDetails>
+	<manufacturer>
+		<reference value="Organization/hl7"/>
+	</manufacturer>
+	<lotNumber value="AAJN11K"/>
+	<expirationDate value="2015-02-15"/>
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>
@@ -102,15 +89,10 @@
 		<presentationDate value="2013-01-10"/>
 	</education>
 	<programEligibility>
-		<program>
-			<text value="VFC"/>
-		</program>
-		<eligibility>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/immunization-program-eligibility"/>
-				<code value="uninsured"/>
-			</coding>
-		</eligibility>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/immunization-program-eligibility"/>
+			<code value="ineligible"/>
+		</coding>
 	</programEligibility>
 	<fundingSource>
 		<coding>
