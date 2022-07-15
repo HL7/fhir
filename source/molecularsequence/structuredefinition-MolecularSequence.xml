@@ -320,7 +320,7 @@
     </element>
     <element id="MolecularSequence.relative.startingSequence.windowStart">
       <path value="MolecularSequence.relative.startingSequence.windowStart"/>
-      <short value="Start position of the window on the  starting sequence sequence"/>
+      <short value="Start position of the window on the starting sequence"/>
       <definition value="Start position of the window on the starting sequence. This value should honor the rules of the coordinateSystem."/>
       <min value="0"/>
       <max value="1"/>

@@ -126,4 +126,17 @@
       <display value="patient with breast cancer gene variant"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="MolecularSequence example for long fusion RNA molecule of FGFR and MET"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="sequence-example-ordinal"/>
+    </extension>
+    <item>
+      <reference value="MolecularSequence/seq-ordinal"/>
+      <display value="Long fusion of FGFR and MET"/>
+    </item>
+  </entry>
+
 </List>
