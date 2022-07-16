@@ -32,6 +32,10 @@
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </subject>
+    <serviceProvider>
+        <reference value="Organization/f001"/>
+        <display value="Burgers University Medical Center"/>
+    </serviceProvider>
     <participant>
         <actor>
             <reference value="Practitioner/f002"/>
@@ -86,8 +90,4 @@
             </coding>
         </dischargeDisposition>
     </hospitalization>
-    <serviceProvider>
-        <reference value="Organization/f001"/>
-        <display value="Burgers University Medical Center"/>
-    </serviceProvider>
 </Encounter>

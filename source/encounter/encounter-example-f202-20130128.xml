@@ -34,6 +34,9 @@
 		<reference value="Patient/f201"/>
 		<display value="Roel"/>
 	</subject>
+	<serviceProvider>
+		<reference value="Organization/f201"/>
+	</serviceProvider>
 	<participant>
 		<actor>
 			<reference value="Practitioner/f201"/>
@@ -78,7 +81,4 @@
 		<rank value="1"/>
 	</diagnosis>
 	<!--No hospitalization was deemed necessary-->
-	<serviceProvider>
-		<reference value="Organization/f201"/>
-	</serviceProvider>
 </Encounter>

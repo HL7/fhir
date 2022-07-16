@@ -32,6 +32,9 @@
 		<reference value="Patient/f001"/>
 		<display value="P. van de Heuvel"/>
 	</subject>
+	<serviceProvider>
+		<reference value="Organization/f001"/>
+	</serviceProvider>
 	<participant>
 		<actor>
 			<reference value="Practitioner/f001"/>
@@ -86,7 +89,4 @@
 			</coding>
 		</dischargeDisposition>
 	</hospitalization>
-	<serviceProvider>
-		<reference value="Organization/f001"/>
-	</serviceProvider>
 </Encounter>
