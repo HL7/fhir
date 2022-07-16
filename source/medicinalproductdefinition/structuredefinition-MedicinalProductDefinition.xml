@@ -505,13 +505,14 @@
     </element>
     <element id="MedicinalProductDefinition.comprisedOf">
       <path value="MedicinalProductDefinition.comprisedOf"/>
-      <short value="A medicinal manufactured item that this product consists of, such as a tablet or capsule"/>
-      <definition value="A medicinal manufactured item that this product consists of, such as a tablet or capsule. Used as a direct link when the item's packaging is not being recorded (see also PackagedProductDefinition.package.containedItem.item)."/>
+      <short value="Types of medicinal manufactured items and/or devices that this product consists of, such as tablets, capsule, or syringes"/>
+      <definition value="Types of medicinal manufactured items and/or devices that this product consists of, such as tablets, capsule, or syringes. Used as a direct link when the item's packaging is not being recorded (see also PackagedProductDefinition.package.containedItem.item)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
