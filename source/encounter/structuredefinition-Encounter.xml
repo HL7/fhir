@@ -730,9 +730,10 @@
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>        
       </type>
       <isSummary value="true"/>
       <binding>
