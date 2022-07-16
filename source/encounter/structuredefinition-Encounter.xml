@@ -75,7 +75,7 @@
       </extension>
       <path value="Encounter"/>
       <short value="An interaction during which services are provided to the patient"/>
-      <definition value="An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient."/>
+      <definition value="An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.  Encounter is primarily used to record information about the actual activities that occurred, where Appointment is used to record planned activities."/>
       <alias value="Visit"/>
       <min value="0"/>
       <max value="*"/>
