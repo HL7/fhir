@@ -163,8 +163,8 @@
     </element>
     <element id="ResearchStudy.title">
       <path value="ResearchStudy.title"/>
-      <short value="Name for this study (for computers)"/>
-      <definition value="A short, descriptive label for the study particularly for computer use."/>
+      <short value="Human readable name of the study"/>
+      <definition value="The human readable name of the research study."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -289,7 +289,7 @@
     <element id="ResearchStudy.date">
       <path value="ResearchStudy.date"/>
       <short value="Date the resource last changed"/>
-      <definition value="Date the resource last changed."/>
+      <definition value="The date (and optionally time) when the ResearchStudy Resource was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the ResearchStudy Resource changes."/>
       <min value="0"/>
       <max value="1"/>
       <type>
