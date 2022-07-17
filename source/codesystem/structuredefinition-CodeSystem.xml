@@ -72,7 +72,7 @@
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="CodeSystem"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
   <derivation value="specialization"/>
   <differential>
     <element id="CodeSystem">
