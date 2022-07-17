@@ -307,11 +307,11 @@
           <start value="2013-01-20T12:30:02Z"/>
           <end value="2013-02-01T12:30:02Z"/>
         </actualPeriod>
-        <hospitalization>
+        <admission>
           <dischargeDisposition>
             <text value="Discharged to care of GP"/>
           </dischargeDisposition>
-        </hospitalization>
+        </admission>
       </Encounter>
     </resource>
   </entry>

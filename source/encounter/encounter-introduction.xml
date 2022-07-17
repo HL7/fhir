@@ -11,7 +11,7 @@ During the encounter the patient may move from practitioner to practitioner and 
 </p>
 <p>
 Because of the broad scope of Encounter, not all elements will be relevant in all settings. For this reason, 
-admission/discharge related information is kept in a separate Hospitalization component within Encounter. 
+admission/discharge related information is kept in a separate admission component within Encounter. 
 The <i>class</i> element is used to distinguish between these settings, which will guide further validation and
 application of business rules.
 </p>
@@ -19,7 +19,7 @@ application of business rules.
 There is also substantial variance from organization to organization (and between jurisdictions and countries) 
 on which business events translate to the start of a new Encounter, or what level of aggregation is used for Encounter. For example, each
 single visit of a practitioner during a hospitalization may lead to a new instance of Encounter, but depending on
-local practice and the systems involved, it may well be that this is aggregated to a single instance for a whole hospitalization.
+local practice and the systems involved, it may well be that this is aggregated to a single instance for a whole admission.
 Even more aggregation may occur where jurisdictions introduce groups of Encounters for financial or other reasons.
 Encounters can be aggregated or grouped under other Encounters using the <i>partOf</i> element. 
 See <a href="#examples">below</a> for examples.
@@ -32,7 +32,7 @@ this case the <i>status</i> element is set to 'planned'.
 </p>
 
 <p>
-The Hospitalization component is intended to store the extended information relating to a hospitalization event.
+The admission component is intended to store the extended information relating to a admission event.
 It is always expected to be the same period as the encounter itself. Where the period is different, another
 encounter instance should be used to capture this information as a partOf this encounter instance.
 </p>
@@ -58,7 +58,7 @@ There is no direct indication purely by the status field as to whether an encoun
 The context of the encounter and business practices/policies/workflows/types can influence this definition.
 (e.g., acute care facility, aged care center, outpatient clinic, emergency department, community-based clinic).<br/>
 Statuses of "arrived", "triaged" or "in progress" could be considered the start of the admission, and also have the 
-presence of the hospitalization sub-component entered.
+presence of the admission sub-component entered.
 </p>
 <p>
 The "on leave" status might or might not be a part of the admission, for example if the patient 

@@ -869,14 +869,14 @@
         <map value=".pertains.A_Account"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization">
+    <element id="Encounter.admission">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="370,200"/>
       </extension>
-      <path value="Encounter.hospitalization"/>
+      <path value="Encounter.admission"/>
       <short value="Details about the admission to a healthcare service"/>
       <definition value="Details about the admission to a healthcare service."/>
-      <comment value="An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.&#xD;&#xD;The duration recorded in the period of this encounter covers the entire scope of this hospitalization record."/>
+      <comment value="An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.&#xD;&#xD;The duration recorded in the period of this encounter covers the entire scope of this admission record."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -887,8 +887,8 @@
         <map value=".outboundRelationship[typeCode=COMP].target[classCode=ENC, moodCode=EVN]"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.preAdmissionIdentifier">
-      <path value="Encounter.hospitalization.preAdmissionIdentifier"/>
+    <element id="Encounter.admission.preAdmissionIdentifier">
+      <path value="Encounter.admission.preAdmissionIdentifier"/>
       <short value="Pre-admission identifier"/>
       <definition value="Pre-admission identifier."/>
       <min value="0"/>
@@ -905,8 +905,8 @@
         <map value=".id"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.origin">
-      <path value="Encounter.hospitalization.origin"/>
+    <element id="Encounter.admission.origin">
+      <path value="Encounter.admission.origin"/>
       <short value="The location/organization from which the patient came before admission"/>
       <definition value="The location/organization from which the patient came before admission."/>
       <min value="0"/>
@@ -921,8 +921,8 @@
         <map value=".participation[typeCode=ORG].role"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.admitSource">
-      <path value="Encounter.hospitalization.admitSource"/>
+    <element id="Encounter.admission.admitSource">
+      <path value="Encounter.admission.admitSource"/>
       <short value="From where patient was admitted (physician referral, transfer)"/>
       <definition value="From where patient was admitted (physician referral, transfer)."/>
       <min value="0"/>
@@ -947,13 +947,13 @@
         <map value=".admissionReferralSourceCode"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.reAdmission">
+    <element id="Encounter.admission.reAdmission">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="This concept doesn&#x2019;t exist in v3 and since unlikely to start adopting v3 encounters, will leave until a direct request comes in."/>
       </extension>
-      <path value="Encounter.hospitalization.reAdmission"/>
-      <short value="The type of hospital re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission"/>
-      <definition value="Whether this hospitalization is a readmission and why if known."/>
+      <path value="Encounter.admission.reAdmission"/>
+      <short value="The type of re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission"/>
+      <definition value="Whether this admission is a readmission and why if known."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -964,7 +964,7 @@
           <valueString value="ReAdmissionType"/>
         </extension>
         <strength value="example"/>
-        <description value="The reason for re-admission of this hospitalization encounter."/>
+        <description value="The reason for re-admission of this admission encounter."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0092"/>
       </binding>
       <mapping>
@@ -976,8 +976,8 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.dietPreference">
-      <path value="Encounter.hospitalization.dietPreference"/>
+    <element id="Encounter.admission.dietPreference">
+      <path value="Encounter.admission.dietPreference"/>
       <short value="Diet preferences reported by the patient"/>
       <definition value="Diet preferences reported by the patient."/>
       <comment value="For example, a patient may request both a dairy-free and nut-free diet preference (not mutually exclusive)."/>
@@ -1004,8 +1004,8 @@
         <map value=".outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=EVN, code=&quot;diet&quot;]"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.specialCourtesy">
-      <path value="Encounter.hospitalization.specialCourtesy"/>
+    <element id="Encounter.admission.specialCourtesy">
+      <path value="Encounter.admission.specialCourtesy"/>
       <short value="Special courtesies (VIP, board member)"/>
       <definition value="Special courtesies (VIP, board member)."/>
       <min value="0"/>
@@ -1030,10 +1030,10 @@
         <map value=".specialCourtesiesCode"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.specialArrangement">
-      <path value="Encounter.hospitalization.specialArrangement"/>
+    <element id="Encounter.admission.specialArrangement">
+      <path value="Encounter.admission.specialArrangement"/>
       <short value="Wheelchair, translator, stretcher, etc."/>
-      <definition value="Any special requests that have been made for this hospitalization encounter, such as the provision of specific equipment or other things."/>
+      <definition value="Any special requests that have been made for this admission encounter, such as the provision of specific equipment or other things."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1056,8 +1056,8 @@
         <map value=".specialArrangementCode"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.destination">
-      <path value="Encounter.hospitalization.destination"/>
+    <element id="Encounter.admission.destination">
+      <path value="Encounter.admission.destination"/>
       <short value="Location/organization to which the patient is discharged"/>
       <definition value="Location/organization to which the patient is discharged."/>
       <min value="0"/>
@@ -1076,8 +1076,8 @@
         <map value=".participation[typeCode=DST]"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.dischargeDisposition">
-      <path value="Encounter.hospitalization.dischargeDisposition"/>
+    <element id="Encounter.admission.dischargeDisposition">
+      <path value="Encounter.admission.dischargeDisposition"/>
       <short value="Category or kind of location after discharge"/>
       <definition value="Category or kind of location after discharge."/>
       <min value="0"/>
