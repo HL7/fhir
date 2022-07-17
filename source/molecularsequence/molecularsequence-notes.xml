@@ -31,6 +31,20 @@
     <code>MolecularSequence.relative</code>: This complex element is used for encoding sequence. When the information of starting sequence and edits are provided, the observed sequence will be derived. Here is a picture below:
   </p>
   <img src="genomics-image34.jpg" alt="" style="width:624px;height:468px" />
+
+  <h5>Composing multiple relative sequences into one new sequence</h5>
+  <p>
+    <code>MolecularSequence.relative.ordinalPosition</code>: Indicates the order in which the sequence should be considered when putting multiple <code>relative</code> together.
+  </p>
+  <p>
+    <code>sequenceRange</code>: Indicates the nucleotide range in the composed sequence when multiple <code>relative</code> are used together
+  </p>
+  <p>
+    These attributes help to clarify what sequence is being representing with less computation/inference on the recipient side. Implementers SHOULD use <code>sequenceRange</code> first to determine order as the most reliable. If <code>sequenceRange</code> is not present then <code>ordinalPosition</code> SHOULD be used. Finally, if both <code>sequenceRange</code> and <code>ordinalPosition</code> are absent, then the order of the <code>relative</code> data elements SHOULD be used to calculate a composition. It is the responsibility of the data sender to ensure the message can be consistently understood. Additionally, gaps in <code>sequenceRange</code> are considered intentional (i.e. the composed sequence contains a sequence of N's, the placeholder nucleotide, for the gap range.
+  </p>
+  <p>
+    In a FGFR2:MET Fusion use case, where the fusion was uncovered through RNA sequencing, a partial representation can be found <a href="sequence-example-ordinal.html">here</a>.
+  </p>
   <h5>Representing the Starting Sequence</h5>
   <p>
     <code>MolecularSequence.relative.startingSequence</code>: There are four optional ways to represent a starting sequence in MolecularSequence resource:

@@ -43,7 +43,7 @@
                 <display value="1-based character counting"/>
             </coding>
         </coordinateSystem>
-        <ordinalPosition value="1"/>
+        <ordinalPosition value="2"/>
         <sequenceRange>
             <low>
                 <value value="2194"/>
