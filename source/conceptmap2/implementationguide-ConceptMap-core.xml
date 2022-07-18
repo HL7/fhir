@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
-  <id value="ConceptMap2-core"/>
+  <id value="ConceptMap-core"/>
   <version value="0.01"/>
-  <name value="ConceptMap2 HL7 Extensions"/>
-  <title value="ConceptMap2 HL7 Extensions"/>
+  <name value="ConceptMap HL7 Extensions"/>
+  <title value="ConceptMap HL7 Extensions"/>
   <status value="draft"/>
   <date value="1970-01-01T10:00:00+10:00"/>
   <publisher value="HL7"/>
