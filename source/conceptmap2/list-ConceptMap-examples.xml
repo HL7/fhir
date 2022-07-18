@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <List xmlns="http://hl7.org/fhir">
-  <id value="ConceptMap2-examples"/>
+  <id value="ConceptMap-examples"/>
   <status value="current"/>
   <mode value="working"/>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="General ConceptMap2 Example"/>
+      <valueString value="General ConceptMap Example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="conceptmap2-example"/>
+      <valueString value="conceptmap-example"/>
     </extension>
     <item>
-      <reference value="ConceptMap2/101"/>
+      <reference value="ConceptMap/101"/>
       <display value="General"/>
     </item>
   </entry>
@@ -21,10 +21,10 @@
       <valueString value="SNOMED CT / ICD-10 mapping example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="conceptmap2-103"/>
+      <valueString value="conceptmap-103"/>
     </extension>
     <item>
-      <reference value="ConceptMap2/103"/>
+      <reference value="ConceptMap/103"/>
       <display value="SCT / ICD 10"/>
     </item>
   </entry>
@@ -33,22 +33,22 @@
       <valueString value="Specimen Type v2 -&gt; SNOMED CT Mapping"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="conceptmap2-example-specimen-type"/>
+      <valueString value="conceptmap-example-specimen-type"/>
     </extension>
     <item>
-      <reference value="ConceptMap2/102"/>
+      <reference value="ConceptMap/102"/>
       <display value="Specimen Type"/>
     </item>
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Additional ConceptMap2 Example"/>
+      <valueString value="Additional ConceptMap Example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="conceptmap2-example-2"/>
+      <valueString value="conceptmap-example-2"/>
     </extension>
     <item>
-      <reference value="ConceptMap2/example2"/>
+      <reference value="ConceptMap/example2"/>
       <display value="2nd Example"/>
     </item>
   </entry>
@@ -57,10 +57,10 @@
       <valueString value="CDS Hooks Indicator mapping to Request Priority"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="conceptmap2-cdshooks-indicator"/>
+      <valueString value="conceptmap-cdshooks-indicator"/>
     </extension>
     <item>
-      <reference value="ConceptMap2/cdshooks-indicator"/>
+      <reference value="ConceptMap/cdshooks-indicator"/>
       <display value="CDS Hooks Indicator"/>
     </item>
   </entry>
