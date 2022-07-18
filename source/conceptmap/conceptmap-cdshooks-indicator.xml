@@ -7,8 +7,8 @@
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This concept map defines a mapping from CDS Hooks indicator to request priority."/>
-  <sourceCanonical value="http://cds-hooks.hl7.org/ValueSet/indicator"/>
-  <targetCanonical value="http://hl7.org/fhir/ValueSet/request-priority"/>
+  <sourceScopeCanonical value="http://cds-hooks.hl7.org/ValueSet/indicator"/>
+  <targetScopeCanonical value="http://hl7.org/fhir/ValueSet/request-priority"/>
   <group>
     <element>
       <code value="info"/>
