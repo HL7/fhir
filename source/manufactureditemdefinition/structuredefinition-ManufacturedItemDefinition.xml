@@ -285,8 +285,8 @@
         <valueCode value="275,180"/>
       </extension>
       <path value="ManufacturedItemDefinition.component"/>
-      <short value="A part of the manufacture item"/>
-      <definition value="A part of the manufacture item."/>
+      <short value="Physical parts of the manufactured item, that it is intrisically made from. This is distinct from the ingredients that are part of its chemical makeup"/>
+      <definition value="Physical parts of the manufactured item, that it is intrisically made from. This is distinct from the ingredients that are part of its chemical makeup."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -315,8 +315,8 @@
     </element>
     <element id="ManufacturedItemDefinition.component.function">
       <path value="ManufacturedItemDefinition.component.function"/>
-      <short value="The function of this component within the item"/>
-      <definition value="The function of this component within the item."/>
+      <short value="The function of this component within the item e.g. delivers active ingredient, masks taste"/>
+      <definition value="The function of this component within the item e.g. delivers active ingredient, masks taste."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -324,29 +324,13 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <!--element id="ManufacturedItemDefinition.component.manufacturer">
-      <path value="ManufacturedItemDefinition.component.manufacturer"/>
-      <short value="Manufacturer of the component, one of several possible"/>
-      <definition value="Manufacturer of the component, one of several possible."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Manufactured Item.Manufacturer / Establishment (Organisation)"/>
-      </mapping>
-    </element-->
     <element id="ManufacturedItemDefinition.component.ingredient">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="230,300"/>
       </extension>
       <path value="ManufacturedItemDefinition.component.ingredient"/>
-      <short value="An ingredient of the manufactured item component"/>
-      <definition value="A part of the manufactured item component."/>
+      <short value="A reference to an ingredient of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient)"/>
+      <definition value="A reference to an ingredient of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -356,10 +340,10 @@
     </element>
     <element id="ManufacturedItemDefinition.component.ingredient.amount">
       <path value="ManufacturedItemDefinition.component.ingredient.amount"/>
-      <short value="The single measurable amount of this ingredient in this component, expressable in different ways (e.g. mass or volume)"/>
-      <definition value="The single measurable amount of this ingredient in this component, expressable in different ways (e.g. mass or volume)."/>
+      <short value="The measurable amount of this ingredient in this component, expressable in different ways (e.g. by mass or volume)"/>
+      <definition value="The measurable amount of this ingredient in this component, expressable in different ways (e.g. by mass or volume)."/>
       <min value="0"/>
-      <max value="*"/> <!-- could be 0..2, but percent is not a mass or volume, so we may need a backbone -->
+      <max value="*"/>
       <type>
         <code value="Quantity"/>
       </type>
@@ -367,8 +351,8 @@
     </element>
     <element id="ManufacturedItemDefinition.component.ingredient.location">
       <path value="ManufacturedItemDefinition.component.ingredient.location"/>
-      <short value="The location of this ingredient within the component"/>
-      <definition value="The location of this ingredient within the component."/>
+      <short value="The type of location of the ingredient within this component e.g. intragranular, blend"/>
+      <definition value="The type of location of the ingredient within this component e.g. intragranular, blend."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -378,8 +362,8 @@
     </element>
     <element id="ManufacturedItemDefinition.component.ingredient.function">
       <path value="ManufacturedItemDefinition.component.ingredient.function"/>
-      <short value="The function of this ingredient within the component"/>
-      <definition value="The function of this ingredient within the component."/>
+      <short value="The function of this ingredient within the component e.g. binder"/>
+      <definition value="The function of this ingredient within the component e.g. binder."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -400,8 +384,8 @@
     </element-->
     <element id="ManufacturedItemDefinition.component.ingredient.locationForIngredient">
       <path value="ManufacturedItemDefinition.component.ingredient.locationForIngredient"/>
-      <short value="An ingredient that this component is the location of in this manufactured item. This component is physcally made of this ingredient"/>
-      <definition value="An ingredient that this component is the location for in this manufactured item. It is not a container for this ingredient, but is made of this physically made of this ingredient (and possibly others)."/>
+      <short value="An ingredient that this component is the location of in this manufactured item. The component is physically made of this ingredient (and possibly others), rather than just being a container for it"/>
+      <definition value="An ingredient that this component is the location for in this manufactured item. The component is physically made of this ingredient (and possibly others), rather than just being a container for it"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -410,22 +394,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <!--element id="ManufacturedItemDefinition.component.definition">
-      <path value="ManufacturedItemDefinition.component.definition"/>
-      <short value="A full item to represent this component"/>
-      <definition value="A full item to represent this component."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
-      </type>
-      <isSummary value="true"/>
-    </element-->
     <element id="ManufacturedItemDefinition.component.property">
       <path value="ManufacturedItemDefinition.component.property"/>
-      <short value="General characteristics of this item"/>
-      <definition value="General characteristics of this item."/>
+      <short value="General characteristics of this component"/>
+      <definition value="General characteristics of this component."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#ManufacturedItemDefinition.property"/>
@@ -433,8 +405,8 @@
     </element>
     <element id="ManufacturedItemDefinition.component.component">
       <path value="ManufacturedItemDefinition.component.component"/>
-      <short value="A component that this component contains"/>
-      <definition value="A component that this component contains."/>
+      <short value="A component that this component contains or is made from"/>
+      <definition value="A component that this component contains or is made from."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#ManufacturedItemDefinition.component"/>
