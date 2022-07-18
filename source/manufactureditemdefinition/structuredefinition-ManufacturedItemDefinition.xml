@@ -385,7 +385,7 @@
     <element id="ManufacturedItemDefinition.component.ingredient.locationForIngredient">
       <path value="ManufacturedItemDefinition.component.ingredient.locationForIngredient"/>
       <short value="An ingredient that this component is the location of in this manufactured item. The component is physically made of this ingredient (and possibly others), rather than just being a container for it"/>
-      <definition value="An ingredient that this component is the location for in this manufactured item. The component is physically made of this ingredient (and possibly others), rather than just being a container for it"/>
+      <definition value="An ingredient that this component is the location for in this manufactured item. The component is physically made of this ingredient (and possibly others), rather than just being a container for it."/>
       <min value="0"/>
       <max value="*"/>
       <type>
