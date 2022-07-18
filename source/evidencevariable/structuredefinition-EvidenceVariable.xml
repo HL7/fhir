@@ -623,21 +623,14 @@
       <condition value="evv-1"/>
       <isSummary value="true"/>
     </element>
-    <element id="EvidenceVariable.characteristic.definitionByTypeAndValue.type[x]">
-      <path value="EvidenceVariable.characteristic.definitionByTypeAndValue.type[x]"/>
+    <element id="EvidenceVariable.characteristic.definitionByTypeAndValue.type">
+      <path value="EvidenceVariable.characteristic.definitionByTypeAndValue.type"/>
       <short value="Expresses the type of characteristic"/>
       <definition value="Used to express the type of characteristic."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
-      </type>
-      <type>
-        <code value="id"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -647,6 +640,35 @@
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/usage-context-type"/>
       </binding>
+    </element>
+    <element id="EvidenceVariable.characteristic.definitionByTypeAndValue.method">
+      <path value="EvidenceVariable.characteristic.definitionByTypeAndValue.method"/>
+      <short value="Method for how the characteristic value was determined"/>
+      <definition value="Method for how the characteristic value was determined."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DefinitionMethod"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/definition-method"/>
+      </binding>
+    </element>
+    <element id="EvidenceVariable.characteristic.definitionByTypeAndValue.device">
+      <path value="EvidenceVariable.characteristic.definitionByTypeAndValue.device"/>
+      <short value="Device used for determining characteristic"/>
+      <definition value="Device used for determining characteristic."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceMetric"/>
+      </type>
     </element>
     <element id="EvidenceVariable.characteristic.definitionByTypeAndValue.value[x]">
       <path value="EvidenceVariable.characteristic.definitionByTypeAndValue.value[x]"/>
@@ -738,36 +760,6 @@
       <max value="*"/>
       <contentReference value="#EvidenceVariable.characteristic"/>
     </element>
-    <element id="EvidenceVariable.characteristic.method">
-      <path value="EvidenceVariable.characteristic.method"/>
-      <short value="Method used for describing characteristic"/>
-      <definition value="Method used for describing characteristic."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="CharacteristicMethod"/>
-        </extension>
-        <strength value="example"/>
-        <description value="The method used to determine the characteristic(s) of the variable."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/characteristic-method"/>
-      </binding>
-    </element>
-    <element id="EvidenceVariable.characteristic.device">
-      <path value="EvidenceVariable.characteristic.device"/>
-      <short value="Device used for determining characteristic"/>
-      <definition value="Device used for determining characteristic."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceMetric"/>
-      </type>
-    </element>
     <element id="EvidenceVariable.characteristic.timeFromEvent">
       <path value="EvidenceVariable.characteristic.timeFromEvent"/>
       <short value="Observation time from study specified event"/>
@@ -843,23 +835,6 @@
       <type>
         <code value="Range"/>
       </type>
-    </element>
-    <element id="EvidenceVariable.characteristic.groupMeasure">
-      <path value="EvidenceVariable.characteristic.groupMeasure"/>
-      <short value="mean | median | mean-of-mean | mean-of-median | median-of-mean | median-of-median"/>
-      <definition value="Value or set of values that define the grouping."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="GroupMeasure"/>
-        </extension>
-        <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/group-measure"/>
-      </binding>
     </element>
     <element id="EvidenceVariable.handling">
       <path value="EvidenceVariable.handling"/>

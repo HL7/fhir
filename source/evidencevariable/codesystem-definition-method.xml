@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="definition-method"/>
+  <meta>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/definition-method defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">systematic-assessment
+            
+            <a name="definition-method-systematic-assessment"> </a>
+          
+          </td>
+          
+          <td>Systematic Assessment</td>
+          
+          <td>Any method of routinely determining whether or not certain adverse events have occurred, for example through a standard questionnaire, regular investigator assessment, regular laboratory testing, or other method</td>
+        
+        </tr>
+
+        <tr>
+          
+          <td style="white-space:nowrap">non-systematic-assessment
+            
+            <a name="definition-method-non-systematic-assessment"> </a>
+          
+          </td>
+          
+          <td>Non-Systematic Assessment</td>
+          
+          <td>Any non-systematic method for determining whether or not adverse events have occurred, such as self-reporting by participants or occasional assessment/testing</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">mean
+            
+            <a name="definition-method-mean"> </a>
+          
+          </td>
+          
+          <td>Mean</td>
+          
+          <td>Aggregated using Mean of participant values.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">median
+            
+            <a name="definition-method-median"> </a>
+          
+          </td>
+          
+          <td>Median</td>
+          
+          <td>Aggregated using Median of participant values.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">mean-of-mean
+            
+            <a name="definition-method-mean-of-mean"> </a>
+          
+          </td>
+          
+          <td>Mean of Means</td>
+          
+          <td>Aggregated using mean of means (e.g. study mean values).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">mean-of-median
+            
+            <a name="definition-method-mean-of-median"> </a>
+          
+          </td>
+          
+          <td>Mean of Medins</td>
+          
+          <td>Aggregated using mean of medians (e.g. study median values).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">median-of-mean
+            
+            <a name="definition-method-median-of-mean"> </a>
+          
+          </td>
+          
+          <td>Median of Means</td>
+          
+          <td>Aggregated using median of means (e.g. study mean values).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">median-of-median
+            
+            <a name="definition-method-median-of-median"> </a>
+          
+          </td>
+          
+          <td>Median of Medians</td>
+          
+          <td>Aggregated using median of medians (e.g. study median values).</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/definition-method"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1453"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="DefinitionMethod"/>
+  <title value="DefinitionMethod"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The method used to define, describe, or determine a characteristic value."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/definition-method"/>
+  <content value="complete"/>
+  <concept>
+    <code value="systematic-assessment"/>
+    <display value="Systematic Assessment"/>
+    <definition value="Any method of routinely determining whether or not certain adverse events have occurred, for example through a standard questionnaire, regular investigator assessment, regular laboratory testing, or other method"/>
+  </concept>
+  <concept>
+    <code value="non-systematic-assessment"/>
+    <display value="Non-Systematic Assessment"/>
+    <definition value="Any non-systematic method for determining whether or not adverse events have occurred, such as self-reporting by participants or occasional assessment/testing"/>
+  </concept>
+  <concept>
+    <code value="mean"/>
+    <display value="Mean"/>
+    <definition value="Aggregated using mean of observed values."/>
+  </concept>
+  <concept>
+    <code value="median"/>
+    <display value="Median"/>
+    <definition value="Aggregated using median of observed values."/>
+  </concept>
+  <concept>
+    <code value="mean-of-mean"/>
+    <display value="Mean of Means"/>
+    <definition value="Aggregated using mean of means (e.g. study mean values)."/>
+  </concept>
+  <concept>
+    <code value="mean-of-median"/>
+    <display value="Mean of Medians"/>
+    <definition value="Aggregated using mean of medians (e.g. study median values)."/>
+  </concept>
+  <concept>
+    <code value="median-of-mean"/>
+    <display value="Median of Means"/>
+    <definition value="Aggregated using median of means (e.g. study mean values)."/>
+  </concept>
+  <concept>
+    <code value="median-of-median"/>
+    <display value="Median of Medians"/>
+    <definition value="Aggregated using median of medians (e.g. study median values)."/>
+  </concept>
+</CodeSystem>
