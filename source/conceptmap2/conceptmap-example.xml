@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ConceptMap2 xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <id value="101"/>
     <url value="http://hl7.org/fhir/ConceptMap/101"/>
     <identifier>
@@ -93,4 +93,4 @@
             <relationship value="related-to"/>
         </unmapped>
     </group>
-</ConceptMap2>
+</ConceptMap>
