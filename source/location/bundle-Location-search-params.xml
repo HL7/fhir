@@ -198,7 +198,7 @@
         <type value="special"/>
         <expression value="Location.position"/>
         <xpath value="f:Location/f:position"/>
-        <xpathUsage value="nearby"/>
+        <xpathUsage value="other"/>
       </SearchParameter>
     </resource>
   </entry>

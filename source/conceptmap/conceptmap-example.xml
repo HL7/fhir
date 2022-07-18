@@ -41,10 +41,10 @@
             <code value="US"/>
         </coding>
     </jurisdiction>
-    <purpose value="To help implementers map from HL7 v3/CDA to FHIR"/>
+    <purpose value="To help implementers map from FHIR to HL7 v3/CDA"/>
     <copyright value="Creative Commons 0"/>
-    <sourceUri value="http://hl7.org/fhir/ValueSet/address-use"/>
-    <targetUri value="http://terminology.hl7.org/ValueSet/v3-AddressUse"/>
+    <sourceScopeUri value="http://hl7.org/fhir/ValueSet/address-use"/>
+    <targetScopeUri value="http://terminology.hl7.org/ValueSet/v3-AddressUse"/>
     <group>
         <source value="http://hl7.org/fhir/address-use"/>
         <target value="http://terminology.hl7.org/CodeSystem/v3-AddressUse"/>
@@ -85,11 +85,12 @@
                 <comment value="In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there's no simple equivalent of flagging an address as old"/>
             </target>
         </element>
-        <!-- for all other codes, we map to 'temp'. This is a silly thing to do in reality, but it serves the purpose here -->
+        <!-- for all other codes, we map to 'temp' and specify that the relationaship between source code and 'temp' is 'related-to'. This is a silly thing to do in reality, but it serves the purpose here -->
         <unmapped>
             <mode value="fixed"/>
             <code value="temp"/>
             <display value="temp"/>
+            <relationship value="related-to"/>
         </unmapped>
     </group>
 </ConceptMap>
