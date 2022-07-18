@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ConceptMap2 xmlns="http://hl7.org/fhir">
+<ConceptMap xmlns="http://hl7.org/fhir">
   <id value="cdshooks-indicator"/>
   <url value="http://cds-hooks.hl7.org/ConceptMap/indicator-to-request-priority"/>
   <name value="IndicatorToRequestPriority"/>
@@ -32,4 +32,4 @@
       </target>
     </element>
   </group>
-</ConceptMap2>
+</ConceptMap>
