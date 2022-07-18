@@ -71,7 +71,7 @@ complexity that they require for their implementations.
 
   <li><a href="#specialconditions">Special Search Conditions</a>
     <ul>
-      <li><a href="#specialidentifiers">Searching with Identifiers</a></li>
+      <li><a href="#specialidentifiers">Searching Identifiers</a></li>
       <li><a href="#versions">References and Versions</a></li>
       <li><a href="#recursive">Searching Hierarchies</a></li>
 	    <li><a href="#mimetype">Searching MIME Types</a></li>
@@ -901,14 +901,14 @@ Content-Type: application/x-www-form-urlencoded
 code:above=http://snomed.info/sct|3738000</span>
       </span>
     </span>
-    for Observations with a code <code>above</code> SNOMED 'Viral hepatitis (disorder)' will match any Observation resources with SNOMED codes:
+    for Observations with a code <code>above</code> SNOMED 'Viral hepatitis (disorder)' will match any Observation resources with codes:
     <ul>
-      <li><code>3738000</code> - Viral hepatitis (this code)</li>
-      <li><code>235862008</code> - Hepatitis due to infection (parent of 'Viral hepatitis')</li>
-      <li><code>128241005</code> - Inflammatory disease of liver (parent of 'Hepatitis due to infection')</li>
+      <li>SNOMED <code>3738000</code> - Viral hepatitis (this code)</li>
+      <li>SNOMED <code>235862008</code> - Hepatitis due to infection (parent of 'Viral hepatitis')</li>
+      <li>SNOMED <code>128241005</code> - Inflammatory disease of liver (parent of 'Hepatitis due to infection')</li>
       <li>Etc.</li>
-      <li><code>312130009</code> - Viral infection by site (parent of 'Viral hepatitis')</li>
-      <li><code>301810000</code> - Infection by site (parent of 'Viral infection by site')</li>
+      <li>SNOMED <code>312130009</code> - Viral infection by site (parent of 'Viral hepatitis')</li>
+      <li>SNOMED <code>301810000</code> - Infection by site (parent of 'Viral infection by site')</li>
       <li>Etc.</li>
     </ul>
 
@@ -1027,11 +1027,11 @@ Content-Type: application/x-www-form-urlencoded
 code:below=http://snomed.info/sct|235862008</span>
       </span>
     </span>
-    for Observations with a code <code>below</code> SNOMED 'Hepatitis due to infection' would match any Observation resources with SNOMED codes:
+    for Observations with a code <code>below</code> SNOMED 'Hepatitis due to infection' would match any Observation resources with codes:
     <ul>
-      <li><code>235862008</code> - Hepatitis due to infection (this code)</li>
-      <li><code>773113008</code> - Acute infectious hepatitis (child)</li>
-      <li><code>95897009</code> - Amebic hepatitis (child)</li>
+      <li>SNOMED <code>235862008</code> - Hepatitis due to infection (this code)</li>
+      <li>SNOMED <code>773113008</code> - Acute infectious hepatitis (child)</li>
+      <li>SNOMED <code>95897009</code> - Amebic hepatitis (child)</li>
       <li>Etc.</li>
     </ul>
   </p>
@@ -1247,7 +1247,7 @@ subject:identifier=http://example.org/fhir/mrn|12345</span>
   </p>
   <p>
     For more details about the difference between the <code>identifier</code> modifier and chained-searches on the 
-    identifier element, see <a href="#specialidentifiers">Searching with Identifiers</a>.
+    identifier element, see <a href="#specialidentifiers">Searching Identifiers</a>.
   </p>
 
   <a name="modifierin"></a>
@@ -1313,11 +1313,11 @@ Content-Type: application/x-www-form-urlencoded
 code:in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
       </span>
     </span>
-    for conditions that contain a code from 'http://snomed.info/sct?fhir_vs=isa/235862008' would match any Condition containing SNOMED codes:
+    for conditions that contain a code from 'http://snomed.info/sct?fhir_vs=isa/235862008' would match any Condition containing codes:
     <ul>
-      <li><code>235862008</code> - Hepatitis due to infection (this code)</li>
-      <li><code>773113008</code> - Acute infectious hepatitis (is-a 235862008)</li>
-      <li><code>95897009</code> - Amebic hepatitis (is-a 235862008)</li>
+      <li>SNOMED <code>235862008</code> - Hepatitis due to infection (this code)</li>
+      <li>SNOMED <code>773113008</code> - Acute infectious hepatitis (is-a 235862008)</li>
+      <li>SNOMED <code>95897009</code> - Amebic hepatitis (is-a 235862008)</li>
       <li>Etc.</li>
     </ul>
   </p>
@@ -1481,11 +1481,11 @@ Content-Type: application/x-www-form-urlencoded
 code:not-in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
       </span>
     </span>
-    would match Condition resources that do not contain <em>any</em> of the SNOMED codes:
+    would match Condition resources that do not contain <em>any</em> of the codes:
     <ul>
-      <li><code>235862008</code> - Hepatitis due to infection (this code)</li>
-      <li><code>773113008</code> - Acute infectious hepatitis (is-a 235862008)</li>
-      <li><code>95897009</code> - Amebic hepatitis (is-a 235862008)</li>
+      <li>SNOMED <code>235862008</code> - Hepatitis due to infection (this code)</li>
+      <li>SNOMED <code>773113008</code> - Acute infectious hepatitis (is-a 235862008)</li>
+      <li>SNOMED <code>95897009</code> - Amebic hepatitis (is-a 235862008)</li>
       <li>Etc.</li>
     </ul>
   </p>
@@ -1607,11 +1607,14 @@ Content-Type: application/x-www-form-urlencoded
 code:text=headache</span>
       </span>
     </span>
-    for conditions with a code that contains the string 'headache' (case-insensitive) would match Condition resources with SNOMED codes:
+    would match Condition resources containing any codes that start with or equal the string 'headache' (case-insensitive), such as:
     <ul>
-      <li><code>25064002</code> - Headache finding</li>
-      <li><code>398987004</code> - Headache following lumbar puncture</li>
-      <li><code>230480006</code> - Headache following myelography (disorder)</li>
+      <li>SNOMED <code>25064002</code> - Headache finding</li>
+      <li>SNOMED <code>398987004</code> - Headache following lumbar puncture</li>
+      <li>SNOMED <code>230480006</code> - Headache following myelography (disorder)</li>
+      <li>ICD-10 <code>R51</code> - Headache</li>
+      <li>ICD-10 <code>R51.0</code> - Headache with orthostatic component, not elsewhere classified</li>
+      <li>ICD-10 <code>R51.9</code> - Headache, unspecified</li>
       <li>Etc.</li>
     </ul>
   </p>
@@ -1622,7 +1625,7 @@ code:text=headache</span>
   </p>
   <p>
     For more details about the difference between the <code>identifier</code> modifier and chained-searches on the 
-    identifier element, see <a href="#specialidentifiers">Searching with Identifiers</a>.
+    identifier element, see <a href="#specialidentifiers">Searching Identifiers</a>.
   </p>
 
   <a name="modifiertextstring"></a>
@@ -1684,30 +1687,36 @@ code:text-ad=headache</span>
       </span>
     </span>
     would match Condition resources containing codes with text that equals or begins with 'headache', 
-    case-insensitve (e.g., same as the <a href="#modifiertexttoken">text</a> modifier) such as the SNOMED codes:
+    case-insensitve (e.g., same as the <a href="#modifiertexttoken">text</a> modifier) such as:
     <ul>
-      <li><code>25064002</code> - Headache finding</li>
-      <li><code>398987004</code> - Headache following lumbar puncture</li>
-      <li><code>230480006</code> - Headache following myelography (disorder)</li>
+      <li>SNOMED <code>25064002</code> - Headache finding</li>
+      <li>SNOMED <code>398987004</code> - Headache following lumbar puncture</li>
+      <li>SNOMED <code>230480006</code> - Headache following myelography (disorder)</li>
+      <li>ICD-10 <code>R51</code> - Headache</li>
+      <li>ICD-10 <code>R51.0</code> - Headache with orthostatic component, not elsewhere classified</li>
+      <li>ICD-10 <code>R51.9</code> - Headache, unspecified</li>
       <li>Etc.</li>
     </ul>
   </p>
   <p>
-    However, it would also match Condition resources containing codes <em>containing</em> the word 'headache' such as
-    the SNOMED codes:
+    However, it would also match Condition resources containing codes with text <em>containing</em> the word 'headache' such as:
     <ul>
-      <li><code>735938006</code> - Acute headache</li>
-      <li><code>95660002</code> - Thunderclap headache</li>
-      <li><code>4969004</code> - Sinus headache</li>
+      <li>SNOMED <code>735938006</code> - Acute headache</li>
+      <li>SNOMED <code>95660002</code> - Thunderclap headache</li>
+      <li>SNOMED <code>4969004</code> - Sinus headache</li>
+      <li>ICD-10 <code>G44.019</code> - Episodic cluster headache, not intractable</li>
+      <li>ICD-10 <code>G44.81</code> - Hypnic headache</li>
       <li>Etc.</li>
     </ul>
   </p>
   <p>
     Additionally, a server MAY also return Condition resources with codes containing synonymous text such as conditions
-    with the SNOMED codes:
+    with the codes:
     <ul>
-      <li><code>37796009</code> - Migraine</li>
-      <li><code>49605003</code> - Ophthalmoplegic migraine (disorder)</li>
+      <li>SNOMED <code>37796009</code> - Migraine</li>
+      <li>SNOMED <code>49605003</code> - Ophthalmoplegic migraine (disorder)</li>
+      <li>ICD-10 <code>G43.4</code> - Hemiplegic migraine</li>
+      <li>ICD-10 <code>G43.B0</code> - Ophthalmoplegic migraine, not intractable</li>
       <li>Etc.</li>
     </ul>
   </p>
@@ -2958,7 +2967,7 @@ context-type-value=focus$http://snomed.info/sct|408934002</span>
 </p>
 
 <a name="specialidentifiers"></a>
-<h4>Searching with Identifiers</h4>
+<h4>Searching Identifiers</h4>
 <p>
   Need to discuss the nuances of :identifier vs. chained searches, etc.  See <a href="https://jira.hl7.org/browse/FHIR-37424">FHIR-37424</a>
   and <a href="https://jira.hl7.org/browse/FHIR-29410">FHIR-29410</a>.
