@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
+  <id value="ConceptMap-translate"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$translate-request.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$translate-response.txt"/>
+    </extension>
+  </extension>
+  <url value="http://hl7.org/fhir/build/OperationDefinition/ConceptMap-translate"/>
+  <version value="4.6.0"/>
+  <name value="translate"/>
+  <title value="Concept Translation"/>
+  <status value="draft"/>
+  <kind value="operation"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Translate a code from one value set to another, based on the specified ConceptMap resource. If no ConceptMap resource is specified, then other additional knowledge available to the server may be used. &#xD;&#xA;&#xD;&#xA; One (and only one) of the in parameters (sourceCode, sourceCoding, sourceCodeableConcept, targetCode, targetCoding, or targetCodeableConcept) SHALL be provided, to identify the code that is to be translated.  &#xD;&#xA;&#xD;&#xA; The operation returns a set of parameters including a &#39;result&#39; for whether there is an acceptable match, and a list of possible matches. Note that the list of matches may include notes of codes for which mapping is specifically excluded (i.e. &#39;not-related-to&#39;), so implementers have to check the target.relationship for each match. If a source* parameter is provided, the $translate operation will return all matches whereby the provided source concept is the source of a mapping relationship (in a specified ConceptMap or otherwise known to the server). If a target* parameter is provided, the $translate operation will return all matches whereby the provided target concept is the target of a mapping relationship (in a specified ConceptMap or otherwise known to the server). Note: The source value set is an optional parameter because in some cases, the client cannot know what the source value set is. However, without a source value set, the server may be unable to safely identify an applicable concept map, and would return an error. For this reason, a source value set SHOULD always be provided. Note that servers may be able to identify an appropriate concept map without a source value set if there is a full mapping for the entire code system in the concept map, or by manual intervention."/>
+  <affectsState value="false"/>
+  <code value="translate"/>
+  <resource value="ConceptMap"/>
+  <system value="false"/>
+  <type value="true"/>
+  <instance value="true"/>
+  <parameter>
+    <name value="url"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="A canonical URL for a concept map. The server must know the concept map (e.g. it is defined explicitly in the server&#39;s concept maps, or it is defined implicitly by some code system known to the server."/>
+    <type value="uri"/>
+  </parameter>
+  <parameter>
+    <name value="conceptMap"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The concept map is provided directly as part of the request. Servers may choose not to accept concept maps in this fashion."/>
+    <type value="ConceptMap"/>
+  </parameter>
+  <parameter>
+    <name value="conceptMapVersion"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The identifier that is used to identify a specific version of the concept map to be used for the translation. This is an arbitrary value managed by the concept map author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available."/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="sourceCode"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The code that is to be translated. If a code is provided, a system must be provided"/>
+    <type value="code"/>
+  </parameter>
+  <parameter>
+    <name value="system"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The system for the code that is to be translated"/>
+    <type value="uri"/>
+  </parameter>
+  <parameter>
+    <name value="version"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The version of the system, if one was provided in the source data"/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="sourceScope"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Limits the scope of the $translate operation to source codes (ConceptMap.group.element.code) that are members of this value set."/>
+    <type value="uri"/>
+  </parameter>
+  <parameter>
+    <name value="sourceCoding"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="A coding to translate"/>
+    <type value="Coding"/>
+  </parameter>
+  <parameter>
+    <name value="sourceCodeableConcept"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="A full codeableConcept to validate. The server can translate any of the coding values (e.g. existing translations) as it chooses"/>
+    <type value="CodeableConcept"/>
+  </parameter>
+  <parameter>
+    <name value="targetCode"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The target code that is to be translated to. If a code is provided, a system must be provided"/>
+    <type value="uri"/>
+  </parameter>
+  <parameter>
+    <name value="targetCoding"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="A target coding to translate to"/>
+    <type value="uri"/>
+  </parameter>
+  <parameter>
+    <name value="targetCodeableConcept"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="A full codeableConcept to validate. The server can translate any of the coding values (e.g. existing translations) as it chooses"/>
+    <type value="uri"/>
+  </parameter>
+  <parameter>
+    <name value="targetScope"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Limits the scope of the $translate operation to target codes (ConceptMap.group.element.target.code) that are members of this value set."/>
+    <type value="uri"/>
+  </parameter>
+  <parameter>
+    <name value="targetSystem"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="identifies a target code system in which a mapping is sought. This parameter is an alternative to the targetScope parameter - only one is required. Searching for any translation to a target code system irrespective of the context (e.g. target valueset) may lead to unsafe results, and it is at the discretion of the server to decide when to support this operation"/>
+    <type value="uri"/>
+  </parameter>
+  <parameter>
+    <name value="dependency"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Another element that may help produce the correct mapping"/>
+    <part>
+      <name value="element"/>
+      <use value="in"/>
+      <min value="0"/>
+      <max value="1"/>
+      <documentation value="The element for this dependency"/>
+      <type value="uri"/>
+    </part>
+    <part>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="code"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="Coding"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="string"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="integer"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="boolean"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="dateTime"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="decimal"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="uri"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+        <valueUri value="id"/>
+      </extension>
+      <name value="value"/>
+      <use value="in"/>
+      <min value="0"/>
+      <max value="1"/>
+      <documentation value="The value for this dependency"/>
+      <type value="Element"/>
+    </part>
+  </parameter>
+  <parameter>
+    <name value="result"/>
+    <use value="out"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="True if the concept could be translated successfully. The value can only be true if at least one returned match has a relationship other than &#39;not-related-to&#39;."/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <name value="message"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Error details, for display to a human. If this is provided when result = true, the message carries hints and warnings (e.g. a note that the matches could be improved by providing additional detail)"/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="match"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="A concept in the target value set with a relationship. Note that there may be multiple matches of equal or differing relationships, and the matches may include the &#39;not-related-to&#39; relationship value which means that there is no translation"/>
+    <part>
+      <name value="relationship"/>
+      <use value="out"/>
+      <min value="0"/>
+      <max value="1"/>
+      <documentation value="A code indicating the relationship (e.g., equivalent) of the translation, using values from [ConceptMapRelationship](valueset-concept-map-relationship.html)"/>
+      <type value="code"/>
+    </part>
+    <part>
+      <name value="concept"/>
+      <use value="out"/>
+      <min value="0"/>
+      <max value="1"/>
+      <documentation value="The translation outcome. Note that this would never have userSelected = true, since the process of translations implies that the user is not selecting the code (and only the client could know differently)"/>
+      <type value="Coding"/>
+    </part>
+    <part>
+      <name value="product"/>
+      <use value="out"/>
+      <min value="0"/>
+      <max value="*"/>
+      <documentation value="An element that is the product of this mapping"/>
+      <part>
+        <name value="property"/>
+        <use value="out"/>
+        <min value="1"/>
+        <max value="1"/>
+        <documentation value="The element for this product"/>
+        <type value="uri"/>
+      </part>
+      <part>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="code"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="Coding"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="string"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="integer"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="boolean"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="dateTime"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="decimal"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="uri"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="id"/>
+        </extension>
+        <name value="value"/>
+        <use value="out"/>
+        <min value="1"/>
+        <max value="1"/>
+        <documentation value="The value for this product"/>
+        <type value="Element"/>
+      </part>
+    </part>
+    <part>
+      <name value="dependsOn"/>
+      <use value="out"/>
+      <min value="0"/>
+      <max value="*"/>
+      <documentation value="An element that this mapping depends on"/>
+      <part>
+        <name value="property"/>
+        <use value="out"/>
+        <min value="1"/>
+        <max value="1"/>
+        <documentation value="The element for this product"/>
+        <type value="uri"/>
+      </part>
+      <part>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="code"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="Coding"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="string"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="integer"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="boolean"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="dateTime"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="decimal"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="uri"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="id"/>
+        </extension>
+        <name value="value"/>
+        <use value="out"/>
+        <min value="1"/>
+        <max value="1"/>
+        <documentation value="The value for this product"/>
+        <type value="Element"/>
+      </part>
+    </part>
+    <part>
+      <name value="originMap"/>
+      <use value="out"/>
+      <min value="0"/>
+      <max value="1"/>
+      <documentation value="The canonical reference to the concept map from which this mapping comes from"/>
+      <type value="uri"/>
+    </part>
+  </parameter>
+</OperationDefinition>

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <id value="101"/>
+    <url value="http://hl7.org/fhir/ConceptMap/101"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:uuid:53cd62ee-033e-414c-9f58-3ca97b5ffc3b"/>
+    </identifier>
+    <!--  for version, we are going to simply use the day of publication. This is also 
+    arbitrary - whatever is here is what people use to refer to the version. 
+    Could also be a UUID too  -->
+    <version value="20120613"/>
+    <!--  set of loinc codes for cholesterol for LONC 2.36  -->
+    <name value="FHIR-v3-Address-Use"/>
+    <title value="FHIR/v3 Address Use Mapping"/>
+    <status value="draft"/>
+    <experimental value="true"/>
+    <date value="2012-06-13"/>
+    <publisher value="HL7, Inc"/>
+    <contact>
+        <name value="FHIR project team (example)"/>
+        <telecom>
+            <system value="url"/>
+            <value value="http://hl7.org/fhir"/>
+        </telecom>
+    </contact>
+    <description value="A mapping between the FHIR and HL7 v3 AddressUse Code systems"/>
+    <useContext>
+        <code>
+            <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+            <code value="venue"/>
+            <!-- todo ... -->
+        </code>
+        <valueCodeableConcept>
+            <text value="for CCDA Usage"/>
+        </valueCodeableConcept>
+    </useContext>
+    <jurisdiction>
+        <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+        </coding>
+    </jurisdiction>
+    <purpose value="To help implementers map from FHIR to HL7 v3/CDA"/>
+    <copyright value="Creative Commons 0"/>
+    <sourceScopeUri value="http://hl7.org/fhir/ValueSet/address-use"/>
+    <targetScopeUri value="http://terminology.hl7.org/ValueSet/v3-AddressUse"/>
+    <group>
+        <source value="http://hl7.org/fhir/address-use"/>
+        <target value="http://terminology.hl7.org/CodeSystem/v3-AddressUse"/>
+        <element>
+            <code value="home"/>
+            <display value="home"/>
+            <target>
+                <code value="H"/>
+                <display value="home"/>
+                <relationship value="equivalent"/>
+            </target>
+        </element>
+        <element>
+            <code value="work"/>
+            <display value="work"/>
+            <target>
+                <code value="WP"/>
+                <display value="work place"/>
+                <relationship value="equivalent"/>
+            </target>
+        </element>
+        <element>
+            <code value="temp"/>
+            <display value="temp"/>
+            <target>
+                <code value="TMP"/>
+                <display value="temporary address"/>
+                <relationship value="equivalent"/>
+            </target>
+        </element>
+        <element>
+            <code value="old"/>
+            <display value="old"/>
+            <target>
+                <code value="BAD"/>
+                <display value="bad address"/>
+                <relationship value="not-related-to"/>
+                <comment value="In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there's no simple equivalent of flagging an address as old"/>
+            </target>
+        </element>
+        <!-- for all other codes, we map to 'temp' and specify that the relationaship between source code and 'temp' is 'related-to'. This is a silly thing to do in reality, but it serves the purpose here -->
+        <unmapped>
+            <mode value="fixed"/>
+            <code value="temp"/>
+            <display value="temp"/>
+            <relationship value="related-to"/>
+        </unmapped>
+    </group>
+</ConceptMap>
