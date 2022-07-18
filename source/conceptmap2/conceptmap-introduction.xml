@@ -5,7 +5,7 @@
 <h2>Scope and Usage</h2> 
 [%dragons-start%]
 <p class="warning">
-As a number of FHIR software components are dependent on the <a href="conceptmap.html">ConceptMap</a> resource in its current form, it is difficult to make significant changes to it without negatively affecting these components. For this reason, it has been agreed that all updates to the <a href="conceptmap.html">ConceptMap</a> resource will be applied to the <a href="conceptmap2.html">ConceptMap2</a> resource. At some point in the future the content of the <a href="conceptmap2.html">ConceptMap2</a> resource will replace the content of the <a href="conceptmap.html">ConceptMap</a> resource, impacts on depndent components will be resolved, and the <a href="conceptmap2.html">ConceptMap2</a> resource will be removed. 
+As a number of FHIR software components are dependent on the <a href="conceptmap.html">ConceptMap</a> resource in its current form, it is difficult to make significant changes to it without negatively affecting these components. For this reason, it has been agreed that all updates to the <a href="conceptmap.html">ConceptMap</a> resource will be applied to the <a href="conceptmap.html">ConceptMap</a> resource. At some point in the future the content of the <a href="conceptmap.html">ConceptMap</a> resource will replace the content of the <a href="conceptmap.html">ConceptMap</a> resource, impacts on depndent components will be resolved, and the <a href="conceptmap.html">ConceptMap</a> resource will be removed. 
 </p>
 [%dragons-end%]
 <p>

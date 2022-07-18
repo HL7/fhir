@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="conceptmap2-unmapped-mode"/>
+  <id value="conceptmap-unmapped-mode"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -11,7 +11,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       
       
-      <p>This code system http://hl7.org/fhir/conceptmap2-unmapped-mode defines the following codes:</p>
+      <p>This code system http://hl7.org/fhir/conceptmap-unmapped-mode defines the following codes:</p>
       
       
       <table class="codes">
@@ -127,7 +127,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/conceptmap2-unmapped-mode"/>
+  <url value="http://hl7.org/fhir/conceptmap-unmapped-mode"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
@@ -151,7 +151,7 @@
   </contact>
   <description value="Defines which action to take if there is no match in the group."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap2-unmapped-mode"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode"/>
   <content value="complete"/>
   <concept>
     <code value="use-source-code"/>
