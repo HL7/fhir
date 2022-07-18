@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <OperationDefinition xmlns="http://hl7.org/fhir">
-  <id value="ConceptMap2-translate"/>
+  <id value="ConceptMap-translate"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
   </meta>
@@ -33,7 +33,7 @@
       <valueString value="$translate-response.txt"/>
     </extension>
   </extension>
-  <url value="http://hl7.org/fhir/build/OperationDefinition/ConceptMap2-translate"/>
+  <url value="http://hl7.org/fhir/build/OperationDefinition/ConceptMap-translate"/>
   <version value="4.6.0"/>
   <name value="translate"/>
   <title value="Concept Translation"/>
@@ -111,7 +111,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Limits the scope of the $translate operation to source codes (ConceptMap2.group.element.code) that are members of this value set."/>
+    <documentation value="Limits the scope of the $translate operation to source codes (ConceptMap.group.element.code) that are members of this value set."/>
     <type value="uri"/>
   </parameter>
   <parameter>
@@ -159,7 +159,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Limits the scope of the $translate operation to target codes (ConceptMap2.group.element.target.code) that are members of this value set."/>
+    <documentation value="Limits the scope of the $translate operation to target codes (ConceptMap.group.element.target.code) that are members of this value set."/>
     <type value="uri"/>
   </parameter>
   <parameter>
