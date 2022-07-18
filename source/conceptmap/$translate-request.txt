@@ -1,4 +1,9 @@
+// Simple translate using specified ConceptMap
+GET [base]/ConceptMap/$translate?url=http://hl7.org/fhir/ConceptMap/102
+  &system=http://terminology.hl7.org/CodeSystem/v2-0487&code=ACNE
+
+--------------------------------------
+// General translate using any available map knowledge scoped by source and target ValueSets
 GET [base]/ConceptMap/$translate?system=http://hl7.org/fhir/composition-status
   &code=preliminary&sourceScope=http://hl7.org/fhir/ValueSet/composition-status
   &targetScope=http://hl7.org/fhir/ValueSet/v3-ActStatus
-  
