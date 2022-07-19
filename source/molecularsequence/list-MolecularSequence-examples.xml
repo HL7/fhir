@@ -138,5 +138,17 @@
       <display value="Long fusion of FGFR and MET"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="BCR-ABL1 fusion (COSMIC https://cancer.sanger.ac.uk/cosmic/fusion/summary?id=1755). 5-prime end comprised of BCR exons 1-14. 3-prime end comprised of ABL1 exons 2-11."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="sequence-example-fusion"/>
+    </extension>
+    <item>
+      <reference value="MolecularSequence/sequence-example-fusion"/>
+      <display value="BCR-ABL1 fusion"/>
+    </item>
+  </entry>
 
 </List>
