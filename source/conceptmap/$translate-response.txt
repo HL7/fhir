@@ -1,3 +1,40 @@
+// Successful translate with one match
+HTTP/1.1 200 OK
+[other headers]
+
+{
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "result",
+            "valueBoolean": true
+        },
+        {
+            "name": "match",
+            "part": [
+                {
+                    "name": "relationship",
+                    "valueCode": "equivalent"
+                },
+                {
+                    "name": "concept",
+                    "valueCoding": {
+                        "system": "http://snomed.info/sct",
+                        "code": "309068002",
+                        "display": "Skin lesion specimen"
+                    }
+                },
+                {
+                    "name": "originalMap",
+                    "valueString": "http://hl7.org/fhir/ConceptMap/102"
+                }
+            ]
+        }
+    ]
+}
+
+--------------------------------------
+// Successful translate with two matches, each indicating the source ConceptMap of the match
 HTTP/1.1 200 OK
 [other headers]
 
@@ -20,8 +57,33 @@ HTTP/1.1 200 OK
           "valueCoding": {
             "system": "http://hl7.org/fhir/v3/ActStatus",
             "code": "active",
-            "userSelected": false
+            "display": "active"
           }
+        },
+        {
+          "name": "originalMap",
+          "valueString": "http://hl7.org/fhir/ConceptMap/cm-composition-status-v3"
+        }
+      ]
+    },
+    {
+      "name": "match",
+      "part": [
+        {
+          "name": "relationship",
+          "valueCode": "equivalent"
+        },
+        {
+          "name": "concept",
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/resource-status",
+            "code": "draft",
+            "display": "draft"
+          }
+        },
+        {
+          "name": "source",
+          "valueString": "http://hl7.org/fhir/ConceptMap/sc-composition-status"
         }
       ]
     }
