@@ -34,10 +34,10 @@
 
   <h5>Composing multiple relative sequences into one new sequence</h5>
   <p>
-    <code>MolecularSequence.relative.ordinalPosition</code>: Indicates the order in which the sequence should be considered when putting multiple <code>relative</code> together.
+    <code>MolecularSequence.relative.ordinalPosition</code>: Indicates the order in which the sequence should be considered when putting multiple <code>relative</code> instances together.
   </p>
   <p>
-    <code>sequenceRange</code>: Indicates the nucleotide range in the composed sequence when multiple <code>relative</code> are used together
+    <code>MolecularSequence.relative.sequenceRange</code>: Indicates the nucleotide range in the composed sequence when multiple <code>relative</code> instances are used together.
   </p>
   <p>
     These attributes help to clarify what sequence is being representing with less computation/inference on the recipient side. Implementers SHOULD use <code>sequenceRange</code> first to determine order as the most reliable. If <code>sequenceRange</code> is not present then <code>ordinalPosition</code> SHOULD be used. Finally, if both <code>sequenceRange</code> and <code>ordinalPosition</code> are absent, then the order of the <code>relative</code> data elements SHOULD be used to calculate a composition. It is the responsibility of the data sender to ensure the message can be consistently understood. Additionally, gaps in <code>sequenceRange</code> are considered intentional (i.e. the composed sequence contains a sequence of N's, the placeholder nucleotide, for the gap range.
