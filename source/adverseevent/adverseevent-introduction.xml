@@ -20,6 +20,7 @@
 		<p>
 			A potential adverse event may also be called a near miss or an error.  These are also events but, since they were detected, did not cause harm to a subject.  Examples of potential adverse events include a product problem such as a faulty pacemaker that is detected prior implantation, a doctor working simultaneously on two electronic health records realizing the order for a drug was entered on the incorrect patient and then canceling the order, or a patient with a peanut allergy notices that his hospital dinner tray includes peanuts, and he does not eat the peanuts.  
 		</p>
+	
 		<div style="border: 1px solid maroon; padding: 10px; background-color: #fffbf7; min-height: 160px;">
 			<img src="assets/images/dragon.png" width="150" style="float:left; mix-blend-mode: multiply; margin-right: 10px;" title="Here Be Dragons!" height="150"/>
 			<p>
@@ -28,7 +29,7 @@
 				
 			</p>
 		</div>
-
+		<p></p>
 	</div>
 	<div>
 		<a name="bnr"></a>
