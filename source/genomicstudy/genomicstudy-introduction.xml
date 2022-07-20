@@ -27,7 +27,7 @@ Detailed information about the results of the analyses may be represented by Obs
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-A main function of GenomicStudy is to provide additional metadata for one or more clinical genomic analysis pipelines where <a href="documentreference.html">DocumentReference</a> instances are used to track inputs and outputs of those pipelines. Device is used to represent both hardware and software used in the sequencing and in the analyses.
+A main function of GenomicStudy is to provide additional metadata for one or more clinical genomic analysis pipelines where <a href="diagnosticreport.html">DiagnosticReport</a> instances are used to track inputs and outputs of those pipelines. Device is used to represent both hardware and software used in the sequencing and in the analyses.
 </p>
 <p>
 It is intended that this resource be referenced by <a href="observation.html">Observation</a> and <a href="diagnosticreport.html">DiagnosticReport</a> similarly to how ImagingStudy is currently referenced on those resources. Of note, the results of the study would be captured in Observations and referenced on a DiagnosticReport.
