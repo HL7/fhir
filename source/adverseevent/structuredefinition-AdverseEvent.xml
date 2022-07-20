@@ -843,7 +843,7 @@
         <valueString value="need to add jira"/>
       </extension>
       <path value="AdverseEvent.note"/>
-      <short value="Comment"/>
+      <short value="Comment on adverse event"/>
       <definition value="Comments made about the adverse event by the performer, subject or other participants."/>
       <min value="0"/>
       <max value="*"/>
