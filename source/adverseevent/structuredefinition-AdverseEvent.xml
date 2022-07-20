@@ -427,6 +427,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -497,6 +498,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -648,6 +650,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
       </type>
       <isSummary value="true"/>
     </element>
@@ -841,9 +844,9 @@
       </extension>
       <path value="AdverseEvent.note"/>
       <short value="Comment"/>
-      <definition value="Comment relevant to the event."/>
+      <definition value="Comments made about the adverse event by the performer, subject or other participants."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Annotation"/>
       </type>
