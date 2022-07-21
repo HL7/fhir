@@ -12,23 +12,23 @@
               <display value="0-based interval counting"/>
           </coding>
       </coordinateSystem>
-      <reference>
-          <referenceSequenceCodeableConcept>
+      <startingSequence>
+          <sequenceCodeableConcept>
             <coding>
               <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
               <code value="NG_007726.3"/>
             </coding>
-          </referenceSequenceCodeableConcept>
+          </sequenceCodeableConcept>
           <windowStart value="55227970"/>
           <windowEnd value="55227980"/>
           <orientation value="sense"/>
           <strand value="watson"/>
-      </reference>
+      </startingSequence>
       <edit>
           <start value="55227978"/>
           <end value="55227979"/>
-          <observedAllele value="G"/>
-          <referenceAllele value="T"/>
+          <replacementSequence value="G"/>
+          <replacedSequence value="T"/>
       </edit>
     </relative>
 </MolecularSequence>

@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<List xmlns="http://hl7.org/fhir">
+  <id value="GenomicStudy-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="GenomicStudy - Trio study - De novo mutation 1"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="genomicstudy-example"/>
+    </extension>
+    <item>
+      <reference value="GenomicStudy/example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="GenomicStudy - Trio study - De novo mutation 2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="genomicstudy-example-trio2"/>
+    </extension>
+    <item>
+      <reference value="GenomicStudy/example-trio2"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="GenomicStudy - Lung mass - sequencing analysis"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="genomicstudy-example-lungMass"/>
+    </extension>
+    <item>
+      <reference value="GenomicStudy/example-lungMass"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - CNV Analysis - called"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-CNVAnalysis_called"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/CNVAnalysis-called"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - Genomic BED File"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-genomicBEDfile"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/genomicBEDfile"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - Genomic File 1"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-genomicFile1"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/genomicFile1"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - Genomic File 2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-genomicFile2"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/genomicFile2"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - Genomic File 3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-genomicFile3"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/genomicFile3"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - Genomic File 4"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-genomicFile4"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/genomicFile4"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - Genomic VCF File - CNV"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-genomicVCFfile_cnv"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/genomicVCFfile-cnv"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - Genomic VCF File - Simple"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-genomicVCFfile_simple"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/genomicVCFfile-simple"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - Genomic VCF File"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-genomicVCFfile"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/genomicVCFfile"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - Simple Variant Analysis - Called"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-SimpleVariantAnalysis_called"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/SimpleVariantAnalysis-called"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - WES Full Sequenced Region - GRCh38"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-WES_FullSequencedRegion_GRCh38"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/WES-FullSequencedRegion-GRCh38"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Device - NGS Device"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Device-NGS-device"/>
+    </extension>
+    <item>
+      <reference value="Device/NGS-device"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Device - Triodenovo (Software)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Device-Triodenovo-SW"/>
+    </extension>
+    <item>
+      <reference value="Device/Triodenovo-SW"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Encounter - denovo"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Encounter-denovoEncounter"/>
+    </extension>
+    <item>
+      <reference value="Encounter/denovoEncounter"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Encounter - genomic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Encounter-genomicEncounter"/>
+    </extension>
+    <item>
+      <reference value="Encounter/genomicEncounter"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patient - denovoChild"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Patient-denovoChild"/>
+    </extension>
+    <item>
+      <reference value="Patient/denovoChild"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patient - denovoFather"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Patient-denovoFather"/>
+    </extension>
+    <item>
+      <reference value="Patient/denovoFather"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patient - denovoMother"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Patient-denovoMother"/>
+    </extension>
+    <item>
+      <reference value="Patient/denovoMother"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patient - Genomic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Patient-genomicPatient"/>
+    </extension>
+    <item>
+      <reference value="Patient/genomicPatient"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Practitioner - Example 1"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Practitioner-practitioner01"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/practitioner01"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Practitioner - Example 2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Practitioner-practitioner02"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/practitioner02"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ServiceRequest - Genomic Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="ServiceRequest-genomicServiceRequest"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/genomicServiceRequest"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ServiceRequest - Genomic Example 2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="ServiceRequest-genomicServiceRequest2"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/genomicServiceRequest2"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ServiceRequest - Genomic Example 3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="ServiceRequest-genomicServiceRequest3"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/genomicServiceRequest3"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ServiceRequest - Genomic Example 4"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="ServiceRequest-genomicServiceRequest4"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/genomicServiceRequest4"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Specimen - Denovo 1"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Specimen-denovo-1"/>
+    </extension>
+    <item>
+      <reference value="Specimen/denovo-1"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Specimen - Denovo 2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Specimen-denovo-2"/>
+    </extension>
+    <item>
+      <reference value="Specimen/denovo-2"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Specimen - Denovo 3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Specimen-denovo-3"/>
+    </extension>
+    <item>
+      <reference value="Specimen/denovo-3"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Specimen - Genomic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Specimen-genomicSpecimen"/>
+    </extension>
+    <item>
+      <reference value="Specimen/genomicSpecimen"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
+</List>

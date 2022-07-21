@@ -55,27 +55,27 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-2dgraphictype"/>
   <content value="complete"/>
   <concept>
-    <code value="POINT"/>
+    <code value="point"/>
     <display value="POINT"/>
     <definition value="A single location denoted by a single (x,y) pair."/>
   </concept>
   <concept>
-    <code value="POLYLINE"/>
+    <code value="polyline"/>
     <display value="POLYLINE"/>
     <definition value="A series of connected line segments with ordered vertices denoted by (x,y) triplets; the points need not be coplanar."/>
   </concept>
   <concept>
-    <code value="INTERPOLATED"/>
+    <code value="interpolated"/>
     <display value="INTERPOLATED"/>
     <definition value="An n-tuple list of (x,y) pair end points between which some form of implementation dependent curved lines are to be drawn. The rendered line shall pass through all the specified points."/>
   </concept>
   <concept>
-    <code value="CIRCLE"/>
+    <code value="circle"/>
     <display value="CIRCLE"/>
     <definition value="Two points shall be present; the first point is to be interpreted as the center and the second point as a point on the circumference of a circle, some form of implementation dependent representation of which is to be drawn."/>
   </concept>
   <concept>
-    <code value="ELLIPSE"/>
+    <code value="ellipse"/>
     <display value="ELLIPSE"/>
     <definition value="An ellipse defined by four (x,y) pairs, the first two pairs specifying the endpoints of the major axis and the second two pairs specifying the endpoints of the minor axis."/>
   </concept>
