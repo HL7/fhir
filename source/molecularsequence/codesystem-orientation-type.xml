@@ -44,9 +44,9 @@
           
           </td>
           
-          <td>Sense orientation of referenceSeq</td>
+          <td>Sense orientation of starting sequence</td>
           
-          <td>Sense orientation of reference sequence.</td>
+          <td>Sense orientation of starting sequence.</td>
         
         </tr>
         
@@ -58,9 +58,9 @@
           
           </td>
           
-          <td>Antisense orientation of referenceSeq</td>
+          <td>Antisense orientation of starting sequence</td>
           
-          <td>Antisense orientation of reference sequence.</td>
+          <td>Antisense orientation of starting sequence.</td>
         
         </tr>
       

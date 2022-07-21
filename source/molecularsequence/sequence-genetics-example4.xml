@@ -11,22 +11,22 @@
         <text value="Homo sapiens"/>
     </species>
     <relative>
-        <referenceSeq>
-            <referenceSequenceCodeableConcept>
+        <startingSequence>
+            <sequenceCodeableConcept>
                 <coding>
                     <system value="http://www.ncbi.nlm.nih.gov/nuccore/"/>
                     <code value="NC_000007.14"/>
                 </coding>
                 <text value="NC_000007.14"/>
-            </referenceSequenceCodeableConcept>
+            </sequenceCodeableConcept>
             <windowStart value="87627610"/>
             <windowEnd value="87627635"/>
-        </referenceSeq>
+        </startingSequence>
         <edit>
             <start value="87627621"/>
             <end value="87642522"/>
-            <observedAllele value="T"/>
-            <referenceAllele value="A"/>
+            <replacementSequence value="T"/>
+            <replacedSequence value="A"/>
         </edit>
     </relative>
 </MolecularSequence>

@@ -26,6 +26,9 @@
   </derivedFrom>
   <seriesUid value="1.2.840.113747.20080222.95946058738664657859950275.1"/>
   <frameOfReferenceUid value="1.2.840.113747.20080222.95946058736364657859950275.0"/>
+  <focus>
+    <reference value="ImagingSelection/example-basic-image-selection"/>
+  </focus>
   <instance>
     <uid value="1.2.840.113747.20080222.95946058738699434359950275.1.0"/>
     <sopClass>
