@@ -34,7 +34,7 @@
     </sopClass>
   </instance>
   <imageRegion>
-      <regionType value="ELLIPSE"/>
+      <regionType value="ellipse"/>
       <coordinate value="-50.0"/>
       <coordinate value="-50.0"/>
       <coordinate value="-50.0"/>
