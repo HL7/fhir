@@ -607,6 +607,20 @@
         <map value="outboundRelationship[typeCode=COMP].target[classsCode=DGIMG, moodCode=EVN]"/>
       </mapping>
     </element>
+
+    <element id="DiagnosticReport.genomicStudy">
+      <path value="DiagnosticReport.genomicStudy"/>
+      <short value="Reference to full details of genomic analysis associated with the diagnostic report"/>
+      <definition value="One or more links to full details of any genomic study performed during the diagnostic investigation. A GenomicStudy might comprise one or more analyses, each serving a specific purpose. These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted."/>
+      <comment value="GenomicStudy is use to provide additional metadata for the one or more clinical genomic analysis pipelines, where Observations and DiagnosticReport will still be used to represent the detailed information about the results of the analyses."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
+      </type>
+    </element>
+
     <element id="DiagnosticReport.media">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,125"/>
