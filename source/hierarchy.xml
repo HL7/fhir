@@ -201,7 +201,6 @@ signatures.html
       <page type="resource" resource="CodeSystem"/>
       <page type="resource" resource="ValueSet"/>
       <page type="resource" resource="ConceptMap"/>
-      <page type="resource" resource="ConceptMap2"/>
       <page type="resource" resource="NamingSystem"/>
       <page type="resource" resource="TerminologyCapabilities"/>
     </page>
@@ -325,6 +324,7 @@ signatures.html
       <page type="resource" resource="Observation"/>
       <page type="resource" resource="DocumentReference"/>
       <page type="resource" resource="DiagnosticReport"/>
+       <page type="resource" resource="GenomicStudy"/>
       <page type="resource" resource="ImagingStudy"/>
       <page type="resource" resource="ImagingSelection"/>
       <page type="resource" resource="MolecularSequence"/>

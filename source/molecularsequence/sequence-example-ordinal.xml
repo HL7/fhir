@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This describes a 4899 nucleotide long fusion RNA molecule of FGFR and MET -->
+
+<MolecularSequence xmlns="http://hl7.org/fhir">
+    <id value="seq-ordinal"/>
+    <type value="rna"/>
+    <relative>
+        <coordinateSystem>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="LA30102-0"/>
+                <display value="1-based character counting"/>
+            </coding>
+        </coordinateSystem>
+        <ordinalPosition value="1"/>
+        <sequenceRange>
+            <low>
+                <value value="1"/>
+            </low>
+            <high>
+                <value value="2194"/>
+            </high>
+        </sequenceRange>
+        <startingSequence>
+            <sequenceCodeableConcept>
+                <coding>
+                    <system value="http://www.ncbi.nlm.nih.gov/nuccore/"/>
+                    <code value="NM_000141.5"/>
+                </coding>
+            </sequenceCodeableConcept>
+            <windowStart value="1"/>
+            <windowEnd value="2194"/>
+        </startingSequence>
+
+        <!-- specific edits would be here -->
+    </relative>
+    <relative>
+        <coordinateSystem>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="LA30102-0"/>
+                <display value="1-based character counting"/>
+            </coding>
+        </coordinateSystem>
+        <ordinalPosition value="2"/>
+        <sequenceRange>
+            <low>
+                <value value="2194"/>
+            </low>
+            <high>
+                <value value="4899"/>
+            </high>
+        </sequenceRange>
+        <startingSequence>
+            <sequenceCodeableConcept>
+                <coding>
+                    <system value="http://www.ncbi.nlm.nih.gov/nuccore/"/>
+                    <code value="NM_000245.4"/>
+                </coding>
+            </sequenceCodeableConcept>
+            <windowStart value="1923"/>
+            <windowEnd value="6822"/>
+        </startingSequence>
+
+        <!-- specific edits would be here -->
+    </relative>
+</MolecularSequence>
