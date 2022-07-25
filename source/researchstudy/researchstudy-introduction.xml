@@ -41,9 +41,14 @@ draw the attention of reviewers and implementers to the following issue:
 <p>Some studies need to find sites according to specific criteria - for example site has a freezer capable of very low temperatures and a centrifuge.</p>
 
   <p>
+    <b>Extension: StudyRegistration</b>
+  </p>
+<p>Used to separate study registration activities from study progress status.</p>
+
+  <p>
     <b>Deprecated Extension: RelatesTo</b>
   </p>
-<p>Many clinical studies have a component sub-study and the partOf attribute should be used for this. There may also be documents such as a PDF of the protocol or consent forms or more complex relations to other studies people organizations or artefacts and these should be linked using relatedAretfact. 
+<p>Many clinical studies have a component sub-study and the partOf attribute should be used for this. There may also be documents such as a PDF of the protocol or consent forms or more complex relations to other studies people organizations or artefacts and these should be linked using relatedAretfact.
 
 In the May 2021 release the <a href="http://hl7.org/fhir/2021May/extension-researchstudy-relatesto.html">relatesTo</a> extension was created.  Since then the RelatesTo datatype has been enhanced and the relatedAretfact now provides all the functionality that was in the extension.  This extension has now been removed.  Since there are already (March 2022) some known uses of the extension a link to the previous definition is provided above for reference.  Implementers should now stop using the extension.</p>
 

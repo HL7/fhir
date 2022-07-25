@@ -898,8 +898,8 @@
     </element>
     <element id="ResearchStudy.progressStatus.state">
       <path value="ResearchStudy.progressStatus.state"/>
-      <short value="Record-Verification | Overall-Study | Primary-Outcome-Data-Collection | Registration-Submission | Registration-Submission-QC | Registration-Posting | Results-Submission | Results-Submission-QC | Results-Posting | Disposition-Submission | Disposition-Submission-QC | Disposition-Posting | Update-Submission | Update-Posting"/>
-      <definition value="Label for status or state."/>
+      <short value="Label for status or state (e.g. recruitment status)"/>
+      <definition value="Label for status or state (e.g. recruitment status)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
