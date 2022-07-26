@@ -917,7 +917,7 @@
     <element id="ResearchStudy.progressStatus.actual">
       <path value="ResearchStudy.progressStatus.actual"/>
       <short value="Actual if true else anticipated"/>
-      <definition value="Actual if true else anticipated."/>
+      <definition value="An indication of whether or not the date is a known date when the state changed or will change. A value of true indicates a known date. A value of false indicates an estimated date."/>
       <min value="0"/>
       <max value="1"/>
       <type>
