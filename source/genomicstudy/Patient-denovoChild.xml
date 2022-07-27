@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Patient xmlns="http://hl7.org/fhir">
+  <id value="denovoChild"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Child Junior Doe (OFFICIAL)</b> (no stated gender) 2021-01-01 ( Medical record number: 11111 (TEMP))</p></div>
+  </text>
+  <identifier>
+    <use value="temp"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+        <code value="MR"/>
+        <display value="Medical record number"/>
+      </coding>
+    </type>
+    <system value="http://www.somesystemabc.net/identifiers/persons"/>
+    <value value="11111"/>
+    <period>
+      <start value="2021-01-01"/>
+    </period>
+    <assigner>
+      <display value="Child Hospital"/>
+    </assigner>
+  </identifier>
+  <active value="true"/>
+  <name>
+    <use value="official"/>
+    <family value="Doe"/>
+    <given value="Child"/>
+    <given value="Junior"/>
+  </name>
+  <gender value="unknown"/>
+  <birthDate value="2021-01-01"/>
+</Patient>

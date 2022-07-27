@@ -1,0 +1,309 @@
+<GenomicStudy xmlns="http://hl7.org/fhir">
+    <!-- from Resource: id, meta, implicitRules, and language -->
+    <id value="example"/>
+    <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+    <text>
+        <status value="additional"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">This is a genomic study that involves a de novo mutation analysis of a proband, mother, and father. The analysis involves the use use of NGS device and a specilized analysis platform.</div>
+    </text>
+    <identifier>
+        <use value="temp"/>
+        <system value="http://www.somesystemabc.net/identifiers/genomicstudies"/>
+        <value value="urn:uuid:1111-1111-1111-1111"/>
+    </identifier>
+    <status>
+        <coding>
+            <system value="http://hl7.org/fhir/genomicstudy-status"/>
+            <code value="unknown"/>
+            <display value="Unknown"/>
+        </coding>
+    </status>
+    <type>
+        <coding>
+            <system value="http://www.somesystemabc.net/CodeSystem"/>
+            <code value="denovo"/>
+            <display value="De Novo Mutation Analysis"/>
+        </coding>
+    </type>
+    <subject>
+        <reference value="Patient/denovoChild"/>
+    </subject>
+    <encounter>
+        <reference value="Encounter/denovoEncounter"/>
+    </encounter>
+    <startDate value="2021-01-01"/>
+    <basedOn>
+        <reference value="ServiceRequest/genomicServiceRequest"/>
+    </basedOn>
+    <referrer>
+        <reference value="Practitioner/practitioner01"/>
+    </referrer>
+    <interpreter>
+        <reference value="Practitioner/practitioner02"/>
+    </interpreter>
+    <reason>
+        <concept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="267431006"/>
+                <display value="Disorder of lipid metabolism (disorder)"/>
+            </coding>
+        </concept>
+    </reason>
+    <note>
+        <text value="This de novo mutation is urgent and important for establishing the treatment plan."/>
+    </note>
+    <description value="De novo mutation study of the patient."/>
+    <analysis>  <!-- 0..* Genomic Analysis Event of proband -->
+        <identifier>
+            <use value="temp"/>
+            <system value="http://www.somesystemabc.net/identifiers/genomicAnalyses"/>
+            <value value="urn:uuid:1111-1111-1111-1111"/>
+        </identifier>
+        <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
+        <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
+        <title value="Proband Sequence Variation Detection Using Next Generation Sequencing"/>
+        <subject>
+            <reference value="Patient/denovoChild"/>
+        </subject>
+        <specimen>
+            <reference value="Specimen/denovo-1"/>
+        </specimen>
+        <date value="2021-01-01T01:01:10-06:00"/><!-- 0..1 The date of the analysis event -->
+        <note>
+            <text value="This is a next generation sequencing analysis of a proband."/>
+        </note>
+        <!-- <protocolPerformed>0..1 Reference(Procedure|Task) The protocol that was performed for the analysis event</protocolPerformed> -->
+        <!-- <regionsCalled>0..1 Reference(DocumentReference) Genomic regions actually called in the analysis event (BED file)</regionsCalled> -->
+        <input>  <!-- 0..* Inputs for the analysis event of Child-->
+            <file>
+                <reference value="DocumentReference/genomicFile1"/>
+            </file>
+            <type>
+                <coding>
+                    <code value="vcf"/>
+                    <display value="VCF"/>
+                 </coding>
+            </type>
+            <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
+            <subject>
+                <reference value="Patient/denovoChild"/>
+            </subject>
+            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
+        </input>
+        <performer>  <!-- 0..* Performer for the analysis event -->
+            <actor>
+                <reference value="Practitioner/practitioner02"/>
+            </actor>
+            <role>
+                <coding>
+                    <system value="http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html"/>
+                    <code value="PRF"/>
+                    <display value="Performer"/>
+                </coding>
+            </role>
+        </performer>
+        <device>  <!-- 0..* Devices used for the analysis (e.g., instruments, software), with settings and parameters -->
+            <device>
+                <reference value="Device/NGS-device"/>
+            </device>
+            <function>
+                <coding>
+                    <display value="Next Generation Sequencing"/>
+                </coding>
+            </function>
+        </device>
+    </analysis>
+    <analysis>  <!-- 0..* Genomic Analysis Event of mother -->
+        <identifier>
+            <use value="temp"/>
+            <system value="http://www.somesystemabc.net/identifiers/genomicAnalyses"/>
+            <value value="urn:uuid:1111-1111-1111-1112"/>
+        </identifier>
+        <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
+        <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
+        <title value="Maternal Sequence Variation Detection Using Next Generation Sequencing"/><!-- 0..1 Name of the analysis event (human friendly) -->
+        <subject>
+            <reference value="Patient/denovoMother"/>
+        </subject>
+        <specimen>
+            <reference value="Specimen/denovo-2"/>
+        </specimen>
+        <date value="2021-01-01T01:01:10-06:00"/><!-- 0..1 The date of the analysis event -->
+        <note>
+            <text value="This is a next generation sequencing analysis of a mother of a proband."/>
+        </note>
+        <input>  <!-- 0..* Inputs for the analysis event of Mother-->
+            <file>
+                <reference value="DocumentReference/genomicFile2"/>
+            </file>
+            <type>
+                <coding>
+                    <code value="vcf"/>
+                    <display value="VCF"/>
+                 </coding>
+            </type>
+            <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
+            <subject>
+                <reference value="Patient/denovoMother"/>
+            </subject>
+            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
+        </input>
+        <performer>  <!-- 0..* Performer for the analysis event -->
+            <actor>
+                <reference value="Practitioner/practitioner02"/>
+            </actor>
+            <role>
+                <coding>
+                    <system value="http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html"/>
+                    <code value="PRF"/>
+                    <display value="Performer"/>
+                </coding>
+            </role>
+        </performer>
+        <device>  <!-- 0..* Devices used for the analysis (e.g., instruments, software), with settings and parameters -->
+            <device>
+                <reference value="Device/NGS-device"/>
+            </device>
+            <!-- <function>0..1 CodeableConcept Specific function for the device used for the analysis</function> -->
+        </device>
+    </analysis>
+    <analysis>  <!-- 0..* Genomic Analysis Event of father -->
+        <identifier>
+            <use value="temp"/>
+            <system value="http://www.somesystemabc.net/identifiers/genomicAnalyses"/>
+            <value value="urn:uuid:1111-1111-1111-1113"/>
+        </identifier>
+        <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
+        <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
+        <title value="Paternal Sequence Variation Detection Using Next Generation Sequencing"/>
+        <subject>
+            <reference value="Patient/denovoFather"/>
+        </subject>
+        <specimen>
+            <reference value="Specimen/denovo-3"/>
+        </specimen>
+        <date value="2021-01-01T01:01:10-06:00"/><!-- 0..1 The date of the analysis event -->
+        <note>
+            <text value="This is a next generation sequencing analysis of a father of a proband."/>
+        </note>
+          <input>  <!-- 0..* Inputs for the analysis event -->
+            <file>
+                <reference value="DocumentReference/genomicFile3"/>
+            </file>
+            <type>
+                <coding>
+                    <code value="vcf"/>
+                    <display value="VCF"/>
+                 </coding>
+            </type>
+            <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
+            <subject>
+                <reference value="Patient/denovoFather"/>
+            </subject>
+            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
+        </input>
+        <performer>  <!-- 0..* Performer for the analysis event -->
+            <actor>
+                <reference value="Practitioner/practitioner02"/>
+            </actor>
+            <role>
+                <coding>
+                    <system value="http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html"/>
+                    <code value="PRF"/>
+                    <display value="Performer"/>
+                </coding>
+            </role>
+        </performer>
+        <device>  <!-- 0..* Devices used for the analysis (e.g., instruments, software), with settings and parameters -->
+            <device>
+                <reference value="Device/NGS-device"/>
+            </device>
+            <!-- <function>0..1 CodeableConcept Specific function for the device used for the analysis</function> -->
+        </device>
+    </analysis>
+    <analysis>  <!-- 0..* De Novo Mutation Analysis -->
+        <identifier>
+            <use value="temp"/>
+            <system value="http://www.somesystemabc.net/identifiers/genomicAnalyses"/>
+            <value value="urn:uuid:1111-1111-1111-1114"/>
+        </identifier>
+        <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
+        <instantiatesUri value="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6885382/"/>
+        <title value="De Novo Mutation Detection and Interpretation"/>
+        <subject>
+            <reference value="Patient/denovoChild"/>
+        </subject>
+        <specimen><!-- 0..1 Reference(Specimen) The specimen used in the analysis event --></specimen>
+        <date value="2021-01-01T03:01:10-06:00"/><!-- 0..1 The date of the analysis event -->
+        <note>
+            <text value="This is a next generation sequencing analysis of the comparison analysis of proband and parents sequences."/>
+        </note>
+        <input>  <!-- 0..* Inputs for the analysis event of Child-->
+            <file>
+                <reference value="DocumentReference/genomicFile1"/>
+            </file>
+            <type>
+                <coding>
+                    <code value="vcf"/>
+                    <display value="VCF"/>
+                 </coding>
+            </type>
+            <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
+            <subject>
+                <reference value="Patient/denovoChild"/>
+            </subject>
+            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
+        </input>
+        <input>  <!-- 0..* Inputs for the analysis event of Mother-->
+            <file>
+                <reference value="DocumentReference/genomicFile2"/>
+            </file>
+            <type>
+                <coding>
+                    <code value="vcf"/>
+                    <display value="VCF"/>
+                 </coding>
+            </type>
+            <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
+            <subject>
+                <reference value="Patient/denovoMother"/>
+            </subject>
+            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
+        </input>
+        <input>  <!-- 0..* Inputs for the analysis event of Father -->
+            <file>
+                <reference value="DocumentReference/genomicFile3"/>
+            </file>
+            <type>
+                <coding>
+                    <code value="vcf"/>
+                    <display value="VCF"/>
+                 </coding>
+            </type>
+            <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
+            <subject>
+                <reference value="Patient/denovoFather"/>
+            </subject>
+            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
+        </input>
+        <performer>  <!-- 0..* Performer for the analysis event -->
+            <actor>
+                <reference value="Practitioner/practitioner02"/>
+            </actor>
+            <role>
+                <coding>
+                    <system value="http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html"/>
+                    <code value="PRF"/>
+                    <display value="Performer"/>
+                </coding>
+            </role>
+        </performer>
+        <device>  <!-- 0..* Devices used for the analysis (e.g., instruments, software), with settings and parameters -->
+            <device>
+                <reference value="Device/Triodenovo-SW"/>
+            </device>
+            <!-- <function>0..1 CodeableConcept Specific function for the device used for the analysis</function> -->
+        </device>
+    </analysis>
+</GenomicStudy>
