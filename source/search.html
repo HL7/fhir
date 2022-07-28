@@ -2689,7 +2689,7 @@ Token search parameters are used for the following data types:
   <td><a href="datatypes.html#boolean">boolean</a></td>
   <td></td>
   <td>boolean</td>
-  <td>The implicit system for boolean values is <a href="valueset-special-values.html">http://hl7.org/fhir/special-values</a> but this is never actually used</td>
+  <td>The implicit system for boolean values is <a href="valueset-special-values.html">http://terminology.hl7.org/CodeSystem/special-values</a> but this is never actually used</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#id">id</a></td>
@@ -2714,7 +2714,7 @@ Token search parameters are used for the following data types:
 Note: The use of token search parameters for boolean fields: the boolean values "true" and "false" are also represented
 as formal codes in the <a href="valueset-special-values.html">Special Values</a> code system, which is useful when boolean values
 need to be represented in a <a href="datatypes.html#coding">Coding</a> data type. The namespace for these codes is
-http://hl7.org/fhir/special-values, though there is usually no reason to use this, as a simple true or false is sufficient.
+http://terminology.hl7.org/CodeSystem/special-values, though there is usually no reason to use this, as a simple true or false is sufficient.
 </p>
 
 <span class="todo">Remove original modifier table when satisfied with the updated one</span>
@@ -4682,7 +4682,7 @@ Cross-map between search parameter types and Data types:
   <td><%xcm boolean:quantity%></td> <!-- quantity -->
   <td><%xcm boolean:uri%></td> <!-- uri -->
   <td><%xcm boolean:string%></td> <!-- string -->
-  <td><%xcm boolean:token%>. true|false (System = http://hl7.org/fhir/special-values but not usually needed)</td> <!-- token -->
+  <td><%xcm boolean:token%>. true|false (System = http://terminology.hl7.org/CodeSystem/special-values but not usually needed)</td> <!-- token -->
  </tr>
  <tr>
   <td><a href="datatypes.html#canonical">canonical</a></td>
