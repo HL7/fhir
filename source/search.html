@@ -168,10 +168,11 @@ complexity that they require for their implementations.
   <li>a parameter that affects <a href="#return">search results</a>.</li>
 </ul>
 <p>
-  There is a single page that lists <a href="searchparameter-registry.html">all the search parameters</a>.
-  Note that search parameter names are case sensitive, though this specification never defines different
-  parameters with names that differ only in case. Clients SHOULD use correct case, and servers SHALL
-  not define additional parameters with different meanings with names that only differ in case.
+  There is a single page that lists <a href="searchparameter-registry.html">all the search parameters</a>
+  published with this specification.  Note that search parameter names are case sensitive, though this 
+  specification never defines different parameters with names that differ only in case. Clients SHOULD use 
+  correct case, and servers SHALL NOT define additional parameters with different meanings with names that 
+  only differ in case.
 </p>
 <p>
   Order of operations is not driven by order in the URL - with the exception of sort. First all filters are applied, 
@@ -226,7 +227,8 @@ parameter(s)
       </span>
     </span>
   </li>
-  <li>A specified <a href="compartmentdefinition.html">compartment</a>, perhaps with a specified resource type in that compartment:
+  <li>A specified <a href="compartmentdefinition.html">compartment</a>, perhaps with a specified resource type in that compartment.
+    For example, a search to the <a href="compartmentdefinition-patient.html">Patient Compartment</a> would be shaped like:
     <span class='http-search-example'>
       <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
       <span class='http-verb-display'>
@@ -275,8 +277,7 @@ parameter(s)</span>
 <span class="fhir-example">
   <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
   <span class="example-format-display">
-    <span class="example-format-display-json">
-{
+    <span class="example-format-display-json">{
   "resourceType": "Bundle",
   "type": "searchset",
   ...
@@ -285,10 +286,8 @@ parameter(s)</span>
     "url": "http://example.org/Patient?name=peter"
   }
   ...
-}
-    </span>
-    <span class="example-format-display-xml">
-&lt;Bundle&gt;
+}</span>
+    <span class="example-format-display-xml">&lt;Bundle&gt;
   &lt;type value="searchset"/&gt;
   ...
   &lt;link&gt;
@@ -296,28 +295,27 @@ parameter(s)</span>
     &lt;url value="http://example.org/Patient?name=peter"/&gt;
   &lt;/link&gt;
   ...
-&lt;/Bundle&gt;
-    </span>
+&lt;/Bundle&gt;</span>
   </span>
 </span>
 </p>
 <p>
   Self links SHALL be expressed as an HTTP GET-based search with the relevant parameters included as query
-  parameters, because of the semantics around the link types.  This means that the same self link is a 
+  parameters, because of the semantics around the link types<span class="stu">TU</span>.  This means that the same self link is a 
   valid respons for any equivalent search, regardless of how a search is performed (e.g., HTTP GET, HTTP POST, 
   Messsaging, etc.).
 </p>
 <p>
   Self links MAY be returned as absolute URIs or URIs relative to the base URL of a server, and 
-  MAY or MAY NOT be resolvable.  A server that does not support search via GET will return links
+  MAY or MAY NOT be resolvable<span class="stu">TU</span>.  A server that does not support search via GET will return links
   in the same style as a server that does not support search via POST.  Note that this makes the 
   <code>self</code> link special in the context of bundle links, as all other links are intended
   to be resolvable by a client.
 </p>
 <p>
-  Clients SHOULD review the returned parameters in the self link to ensure proper processing of results.
+  Clients SHALL review the returned parameters in the self link to ensure proper processing of results.
   Generally, ignored parameters will result in clients receiving more results than intended.  In those
-  situations, clients SHOULD filter received records to account for additional data.
+  situations, clients SHOULD filter received records to account for additional data<span class="stu">TU</span>.
 </p>
 
 <a name="paginglinks"></a>
@@ -328,8 +326,8 @@ parameter(s)</span>
   <code>next</code>, and <code>prev</code>.
 </p>
 <p>
-  As with the self link, all relevant paging links SHALL be expressed as GET requests.  Servers SHOULD NOT
-  include content that is considered sensitive.
+  As with the self link, all relevant paging links SHALL be expressed as GET requests<span class="stu">TU</span>.  
+  Servers SHOULD NOT include content that is considered sensitive in the URLs<span class="stu">TU</span>.
 </p>
 
 <a name="entries"></a>
@@ -340,7 +338,7 @@ parameter(s)</span>
   of the entry: <code>match</code>, <code>include</code>, or <code>outcome</code>.
 </p>
 <p>
-  Note that entries are unique (not allowed to repeat) and there is only one mode. In some corner cases, a resource
+  Note that entries are unique (not allowed to repeat) and there is only one mode per entry. In some corner cases, a resource
   may be included because it is both a <code>match</code> and an <code>include</code>. In these circumstances, 
   <code>match</code> takes precedence.
 </p>
@@ -360,19 +358,20 @@ parameter(s)</span>
 
 <h5>Outcome</h5>
 <p>
-  Entries marked with <code>outcome</code> in search results are <a href="OperationOutcome.html">OperationOutcome</a>
+  Entries marked with <code>outcome</code> in search results are <a href="operationoutcome.html">OperationOutcome</a>
   resources with information related to the processing of a search.  For example, a server MAY use an outcome record
-  to report to a client that a search was unacceptable.
+  to report to a client that a search was unacceptable<span class="stu">TU</span>.
 </p>
 
 <a name="errors"></a>
 <h4>Handling Errors</h4>
 <p>
-If a server is unable to execute a search request, it may return an error. A HTTP status code of 
+If a server is unable to execute a search request, it MAY either return an error for the request or return success
+with an <code>outcome</code> continaing details of the error<span class="stu">TU</span>. A HTTP status code of 
 <code>403</code> signifies that the server refused to perform the search,
 while other <code>4xx</code> and <code>5xx</code> codes signify that some sort of error has occurred. When
-the search fails, a server SHOULD return an <a href="OperationOutcome.html">OperationOutcome</a>
-detailing the cause of the failure. Note: An empty search result is not a failure.
+the search fails, a server SHOULD return an <a href="operationoutcome.html">OperationOutcome</a>
+detailing the cause of the failure. Note that an empty search result is not an error.
 </p>
 <p>
 In some cases, parameters may cause an error, or might not be able to match anything. For instance:
@@ -382,24 +381,24 @@ In some cases, parameters may cause an error, or might not be able to match anyt
   <table>
     <tr><td width="50%"><b>Issue</b></td><td><b>Search</b></td></tr>
     <tr>
-      <td>A parameter may refer to a non-existent resource, such as if no observation with id "101" exists</td>
+      <td>A parameter may refer to a non-existent resource, such as if no Observation with an id of "101" exists</td>
       <td>
         <span class="http-verb-display">
-          <span class="http-verb-display-get">GET [base]/Observation?subject=101</span>
+          <span class="http-verb-display-get">GET [base]/Observation?_id=101</span>
           <span class="http-verb-display-post">POST [base]/Observation/_search
 Content-Type: application/x-www-form-urlencoded
-subject=101</span>
+_id=101</span>
         </span>
       </td>
     </tr>
     <tr>
-      <td>A parameter may reference a non-existent resource, such as if no patient with MRN "123456" exists</td>
+      <td>A parameter may reference a non-existent resource, such as if no Patient with MRN "1234" exists</td>
       <td>
         <span class="http-verb-display">
-          <span class="http-verb-display-get">GET [base]/Observation?patient.identifier=http://example.com/fhir/identifier/mrn|123456</span>
+          <span class="http-verb-display-get">GET [base]/Observation?patient.identifier=http://example.com/fhir/mrn|1234</span>
           <span class="http-verb-display-post">POST [base]/Observation/_search
 Content-Type: application/x-www-form-urlencoded
-patient.identifier=http://example.com/fhir/identifier/mrn|123456</span>
+patient.identifier=http://example.com/fhir/mrn|1234</span>
         </span>
       </td>
     </tr>
@@ -470,11 +469,11 @@ SHOULD process the search, including processing the parameter - with the result 
 an empty search set, since the parameter cannot be satisfied.
 </p>
 <p>
-In such cases, the search process MAY include an <a href="OperationOutcome.html">OperationOutcome</a>
+In such cases, the search process MAY include an <a href="operationoutcome.html">OperationOutcome</a>
 in the search set that contains additional hints and warnings about the search process.
-This is included in the search results as an entry with <a href="bundle-definitions.html#Bundle.entry.search.mode">search mode</a> = <a href="valueset-search-entry-mode.html"><code>outcome</code></a>.
-Clients can use this information to improve future searches. If, for example, a client
-performed the following search:
+This is included in the search results as an entry with a <a href="bundle-definitions.html#Bundle.entry.search.mode">search mode</a> 
+of <a href="valueset-search-entry-mode.html"><code>outcome</code></a>. Clients can use this information to 
+improve future searches. If, for example, a client performed the following search:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
@@ -484,7 +483,8 @@ Content-Type: application/x-www-form-urlencoded
 patient.identifier=http://example.com/fhir/identifier/mrn|123456</span>
   </span>
 </span>
-and there is no patient for MRN 123456, the server would return <a href="bundle-search-warning.html">a bundle with a warning</a>.
+and there is no patient for MRN 123456, the server may return a bundle with no results and a warning outcome, such as
+<a href="bundle-search-warning.html">this</a>.
 </p>
 
 <p><b>Unknown and unsupported parameters</b></p>
@@ -499,7 +499,8 @@ for the following reasons:
  <li>The client can determine what parameters the server used by examining the self link in the return (see <a href="#conformance">below</a>)</li>
 </ul>
 <p>
-Clients can specify how the server should behave, by using the prefer header
+  <span class="todo">Filing ticket (Jira is down) request this in http.html and referred to here.</span>
+Clients can specify how the server should behave, by using the prefer header:
 </p>
 <ul>
  <li><code>Prefer: handling=strict</code>: Client requests that the server return an error for any unknown or unsupported parameter</li>
@@ -513,29 +514,63 @@ Servers SHOULD honor the client's request, but are not required to do so.
 <a name="transportprotocols"></a>
 <h3>Transport Protocols</h3>
 <p>
-  FHIR Search is available over a ...
-</p>
-<p>
-  FHIR Search operations can be performed either via HTTP <code>POST</code> or <code>GET</code>.
-  Servers SHALL support both modes of operation, though MAY return a <code>HTTP 405</code> (Method Not Allowed)
-  for <b>either</b> <code>POST</code> or <code>GET</code>, but not both.
+  This specification defines FHIR Search operations in both HTTP <code>POST</code> and <code>GET</code>.
+  Servers that support Search via HTTP SHALL support both modes of operation, though MAY return a 
+  <code>HTTP 405</code> (Method Not Allowed) for <b>either</b> <code>POST</code> or <code>GET</code>, 
+  but not both<span class="stu">TU</span>.
 </p>
 
 <a name="basicspost"></a>
 <h4>HTTP POST</h4>
 <p>
-  Basic POST-based search operations are performed by making an HTTP POST request to the <code>[type]/_search</code>
-  (resource) level of a FHIR server, with search parameters included as <code>x-www-form-urlencoded</code> content
-  for the POST:
-</p>
+  Clients perform searches via HTTP POST by making an HTTP POST request to the appropriate context, with 
+  search parameters included as <code>x-www-form-urlencoded</code> content for the post.  For example:
+  <table>
+    <tr>
+      <td>Server Root</td>
+      <td>
 <pre>
-POST [base]/[type]/_search
+POST [base]/_search
 Content-Type: application/x-www-form-urlencoded
 param1=value&amp;...{&amp;_format=[mime-type]}
 </pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Resource Type Search</td>
+      <td>
+<pre>
+POST [base]/[resource-type]/_search
+Content-Type: application/x-www-form-urlencoded
+param1=value&amp;...{&amp;_format=[mime-type]}
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Compartment Search</td>
+      <td>
+<pre>
+POST [base]/[compartment-type]/[compartment-id]/_search
+Content-Type: application/x-www-form-urlencoded
+param1=value&amp;...{&amp;_format=[mime-type]}
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Compartment and Resource Type Search</td>
+      <td>
+<pre>
+POST [base]/[compartment-type]/[compartment-id]/[resource-type]/_search
+Content-Type: application/x-www-form-urlencoded
+param1=value&amp;...{&amp;_format=[mime-type]}
+</pre>
+      </td>
+    </tr>
+  </table>
+</p>
 <p>
   While servers SHALL support search parameters encoded in the POST body (as shown above), servers MAY also support
-  including some or all parameters as query parameters on a POST request:
+  including some or all parameters as query parameters on a POST request <span class="stu">TU</span>, e.g.:
 </p>
 <pre>
 POST [base]/[type]/_search?param1=value&amp;...{&amp;_format=[mime-type]}
@@ -544,31 +579,55 @@ param2=value2&amp;...
 </pre>
 <p>
   Note that servers MAY impose restrictions on what parameters are allowed to be passed as query parameters on POST
-  requests.  For example, a server could allow <code>_format</code> but reject <code>Patient.name</code>.
+  requests <span class="stu">TU</span>.  For example, a server could allow the <code>_format</code> query parameter
+  but reject searches with a <code>Patient.name</code> query parameter.
 </p>
 
 <a name="basicsget"></a>
 <h4>HTTP GET</h4>
 <p>
-  Basic GET-based search operations are performed by making an HTTP GET request to the <code>[type]</code>
-  (resource) level of a FHIR server, with search parameters included as query parameters on the request:
-</p>
+  Clients perform searches via HTTP GET by making an HTTP GET request to the appropriate context, with 
+  search parameters included as HTTP Query Parameters.  For example:
+  <table>
+    <tr>
+      <td>Server Root</td>
+      <td>
 <pre>
-GET [base]/[type]?param1=value&amp;...{&amp;_format=[mime-type]}
+GET [base]?param1=value&amp;...{&amp;_format=[mime-type]}
 </pre>
-<p>
-  There is also a special search defined on the <code>[base]</code> of a FHIR server, which can be used to 
-  search across the entire server, if supported.
+      </td>
+    </tr>
+    <tr>
+      <td>Resource Type Search</td>
+      <td>
+<pre>
+GET [base]/[resource-type]/?param1=value&amp;...{&amp;_format=[mime-type]}
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td>Compartment Search</td>
+      <td>This search is not available because the search is indistinguishable from a READ operation.</td>
+    </tr>
+    <tr>
+      <td>Compartment and Resource Type Search</td>
+      <td>
+<pre>
+GET [base]/[compartment-type]/[compartment-id]/[resource-type]?param1=value&amp;...{&amp;_format=[mime-type]}
+</pre>
+      </td>
+    </tr>
+  </table>
 </p>
 
 <a name="getvspost"></a>
 <h4>Choosing an HTTP Method</h4>
 <p>
   As described above, servers that support search via REST SHALL support both the <code>GET</code> and <code>POST</code>
-  methods. However, there are known use cases that prevent one or the other method from being desirable in production.
+  methods <span class="stu">TU</span>. However, there are known use cases that prevent one or the other method from being desirable in production.
   For example, in the case of a large set of Endpoint resources (e.g., FHIR servers), infrastructure could be 
   configured to take advantage of HTTP caching mechanisms that do not function correctly on HTTP POST requests.
-  Conversely, an implementation might not be able to properly secure PHI that appears in request query parameters (e.g., 
+  Conversely, an implementation might not be able to properly secure Personal Health Information (PHI) that appears in request query parameters (e.g., 
   in HTTP logs made by infrastructure) and wants to require the use of HTTP POST for mitigation.
 </p>
 <p>
@@ -580,8 +639,9 @@ GET [base]/[type]?param1=value&amp;...{&amp;_format=[mime-type]}
 </p>
 <p>
   Given the above considerations, server implementers SHOULD be sure to test both <code>GET</code> and 
-  <code>POST</code> search operations to ensure they are correct on their servers.  For example, a read-only server
-  may prohibit the HTTP POST verb universally and must then ensure correct implementation of HTTP GET.
+  <code>POST</code> search operations to ensure they are correct on their servers <span class="stu">TU</span>.  For example, a read-only server
+  may prohibit the HTTP POST verb universally (returning a <code>405</code> - Method Not Allowed) and must then ensure 
+  correct implementation of HTTP GET.
 </p>
 <p>
   Search requests may include sensitive information in the search parameters.  Therefore,
@@ -591,16 +651,21 @@ GET [base]/[type]?param1=value&amp;...{&amp;_format=[mime-type]}
 <a name="batching"></a>
 <h4>Batching Search Requests</h4>
 <p>
-  Servers MAY support <a href="http.html#transaction">batching</a> multiple requests.  In the context of searching, this allows
-  several searches to be performed serially via a single request.  Note that each operation of a <code>batch</code> is independent,
+  Servers MAY support <a href="http.html#transaction">batching</a> multiple requests <span class="stu">TU</span>.  In the context of search, 
+  this allows several searches to be performed serially via a single request.  Note that each operation of a <code>batch</code> is independent,
   so it is not possible to use the results of one request as input to another in the same batch.
 </p>
 <p>
-  Note that when bundling requests via <code>batch</code> or <code>transaction</code>, HTTP verbs and the URLs for RESTful interfaces 
-  are used.  When requesting searches in a Bundle, systems SHOULD accept searches via GET, even if they do not typically accept GET-based 
-  searches.  There is no standard way to convey POST-based searches within a Bundle and the architectural differences when searching via
+  When submitting multiple requests via a batch or transaction, the returned bundle is for the batch or transaction as an operation.
+  Therefore, two search requests in a batch would return a bundle that <em>contains</em> at least two entries, each of which is 
+  the result of a search request (e.g., the batch result bundle will contain entries that are the search result bundles).
+</p>
+<p>
+  When bundling requests via <code>batch</code> or <code>transaction</code>, HTTP verbs and the URLs for RESTful interfaces 
+  are used.  When requesting searches in a bundle, systems SHOULD accept searches via GET, even if they do not typically accept GET-based 
+  searches <span class="stu">TU</span>.  There is no standard way to convey POST-based searches within a Bundle and the architectural differences when searching via
   GET or POST are not relevant within a Bundle.  Servers receiving searches within a Bundle SHOULD NOT impose any GET-specific limitations 
-  on search (i.e. restrictions not imposed on POST-based searches) that they would impose if the GET-based search had been received outside a Bundle.
+  on search (i.e. restrictions not imposed on POST-based searches) that they would impose if the GET-based search had been received outside a Bundle <span class="stu">TU</span>.
 </p>
 
 <a name="messaging"></a>
@@ -616,11 +681,11 @@ GET [base]/[type]?param1=value&amp;...{&amp;_format=[mime-type]}
   While search parameters are typically transmitted as URL-Encoded strings (e.g., HTTP Parameters or <code>x-www-form-urlencoded</code> body content),
   FHIR is modeled with a rich set of primitive and complex data types to describe the data encountered in healthcare.  To provide consistent
   mapping between the two formats, each search parameter is defined by a type that specifies how the search parameter
-  behaves.  These are the defined parameter types:
+  behaves.  These are the defined search parameter types:
 </p>
 <%linkcodelist http://hl7.org/fhir/search-param-type%>
 <p>
-  Individual search parameters MAY also define "modifiers" that control their behavior.  The kinds of modifiers available 
+  Individual search parameters MAY also allow "modifiers" that control their behavior.  The kinds of modifiers available 
   depend on the type of the search parameter.  More details can be found in the <a href="#modifiers">Modifiers</a> section
   of the search page.
 </p>
@@ -710,7 +775,7 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
   Since modifiers change the meaning of a search parameter, a server SHALL reject any search request that contains a search 
   parameter with an unsupported modifier.  For example, if the server supports the <code>name</code> search parameter, 
   but not the <code>:exact</code> modifier on the name, it would reject a search with the parameter <code>name:exact=Bill</code>, 
-  using an HTTP <code>400</code> error with an <a href="OperationOutcome.html">OperationOutcome</a> with a 
+  using an HTTP <code>400</code> error with an <a href="operationoutcome.html">OperationOutcome</a> with a 
   <a href="operationoutcome-example-searchfail.html">clear error message</a>.
 </p>
 <p>
@@ -884,7 +949,7 @@ location:above=A101</span>
   <h6>above with <em>token</em> type search parameters</h6>
   <p>
     When the <code>above</code> modifier is used with a <a href="#token">token</a> type search parameter, the supplied token is a concept with the
-    form <code>[system]|[code]</code> and the intention is to test whether the coding in a resource <a href="CodeSystem.html#subsumption">subsumes</a> the 
+    form <code>[system]|[code]</code> and the intention is to test whether the coding in a resource <a href="codesystem.html#subsumption">subsumes</a> the 
     specified search code.  Matches to the input token concept have an is-a relationship with the coding in the resource, and this includes the coding itself.
   </p>
   <p>
@@ -1010,7 +1075,7 @@ location:below=BuildingA</span>
   <h6>below with <em>token</em> type search parameters</h6>
   <p>
     When the <code>below</code> modifier is used with a <a href="#token">token</a> type search parameter, the supplied token is a concept with the
-    form <code>[system]|[code]</code> and the intention is to test whether the coding in a resource <a href="CodeSystem.html#subsumption">is subsumed by</a> the 
+    form <code>[system]|[code]</code> and the intention is to test whether the coding in a resource <a href="codesystem.html#subsumption">is subsumed by</a> the 
     specified search code.  Matches include resources that have a coding that has an is-a relationship with the input concept, and this includes the coding itself.
   </p>
   <p>
@@ -1211,8 +1276,7 @@ subject:identifier=http://example.org/fhir/mrn|12345</span>
     }
   }
 }</span>
-        <span class="example-format-display-xml">
-&lt;Observation&gt;
+        <span class="example-format-display-xml">&lt;Observation&gt;
   &lt;subject&gt;
     &lt;reference value="Patient/abc"/&gt;
     &lt;identifier&gt;
@@ -1220,8 +1284,7 @@ subject:identifier=http://example.org/fhir/mrn|12345</span>
       &lt;value value="12345"/&gt;
     &lt;/identifier&gt;
   &lt;/subject&gt;
-&lt;/Observation&gt;
-        </span>
+&lt;/Observation&gt;</span>
       </span>
     </span>
     but <b>will not</b> match:
@@ -1233,13 +1296,11 @@ subject:identifier=http://example.org/fhir/mrn|12345</span>
     "reference": "Patient/abc"
   }
 }</span>
-        <span class="example-format-display-xml">
-&lt;Observation&gt;
+        <span class="example-format-display-xml">&lt;Observation&gt;
   &lt;subject&gt;
     &lt;reference value="Patient/abc"/&gt;
   &lt;/subject&gt;
-&lt;/Observation&gt;
-        </span>
+&lt;/Observation&gt;</span>
       </span>
     </span>
     even if the Patient resource for <code>Patient/abc</code> includes the requested identifier among its 
@@ -1307,13 +1368,26 @@ patient:in=Group/123</span>
     <span class="http-search-example">
       <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
       <span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Condition?code:in=ValueSet/123</span>
+        <span class="http-verb-display-post">POST [base]/Condition/_search
+Content-Type: application/x-www-form-urlencoded
+code:in=ValueSet/123</span>
+      </span>
+    </span>
+    would match any conditions that contain any code from 'ValueSet/123'.
+  </p>
+  <p>
+    Similarly, the search:
+    <span class="http-search-example">
+      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+      <span class="http-verb-display">
         <span class="http-verb-display-get">GET [base]/Condition?code:in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
         <span class="http-verb-display-post">POST [base]/Condition/_search
 Content-Type: application/x-www-form-urlencoded
 code:in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
       </span>
     </span>
-    for conditions that contain a code from 'http://snomed.info/sct?fhir_vs=isa/235862008' would match any Condition containing codes:
+    would match any condiditons that contain any code from 'http://snomed.info/sct?fhir_vs=isa/235862008', e.g.:
     <ul>
       <li>SNOMED <code>235862008</code> - Hepatitis due to infection (this code)</li>
       <li>SNOMED <code>773113008</code> - Acute infectious hepatitis (is-a 235862008)</li>
@@ -1332,7 +1406,7 @@ code:in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
     <code>missing</code> is allowed on search parameter types that represent single-elements: <a href="#date">date</a>, 
     <a href="#number">number</a>, <a href="#quantity">quantity</a>, <a href="#reference">reference</a>, 
     <a href="#string">string</a>, <a href="#token">token</a>, <a href="#uri">uri</a>. When using the 'missing' modifier,
-    the only valid input values are the literals <code>true</code> and <code>false</code>.
+    the only valid input values are the literal values <code>true</code> and <code>false</code>.
   </p>
   <p>
     Searching for <code>[parameter]:missing=true</code> requests all resources that <b>do not</b> have a value in the matching element
@@ -1470,8 +1544,22 @@ patient:not-in=Group/123</span>
     When using the <code>not-in</code> modifier on a token, only tokens targeting value sets are allowed (e.g., 
     a boolean token parameter target is not allowed).
   </p>
+
   <p>
     For example, the search:
+    <span class="http-search-example">
+      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+      <span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Condition?code:not-in=ValueSet/123</span>
+        <span class="http-verb-display-post">POST [base]/Condition/_search
+Content-Type: application/x-www-form-urlencoded
+code:not-in=ValueSet/123</span>
+      </span>
+    </span>
+    would match any conditions that <em>do not</em> contain any code from 'ValueSet/123'.
+  </p>
+  <p>
+    Similarly, the search:
     <span class="http-search-example">
       <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
       <span class="http-verb-display">
@@ -1481,7 +1569,7 @@ Content-Type: application/x-www-form-urlencoded
 code:not-in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
       </span>
     </span>
-    would match Condition resources that do not contain <em>any</em> of the codes:
+    would match any condiditons that <em>do not</em> contain any code from 'http://snomed.info/sct?fhir_vs=isa/235862008', e.g.:
     <ul>
       <li>SNOMED <code>235862008</code> - Hepatitis due to infection (this code)</li>
       <li>SNOMED <code>773113008</code> - Acute infectious hepatitis (is-a 235862008)</li>
@@ -1509,14 +1597,14 @@ code:not-in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
     <span class="http-search-example">
       <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
       <span class="http-verb-display">
-        <span class="http-verb-display-get">GET [base]/Patient?identifier:of-type=http://example.org/CodeSystem/national-identifiers|US|12345</span>
+        <span class="http-verb-display-get">GET [base]/Patient?identifier:of-type=http://terminology.hl7.org/CodeSystem/v2-0203|MR|12345</span>
         <span class="http-verb-display-post">POST [base]/Patient/_search
 Content-Type: application/x-www-form-urlencoded
-identifier:of-type=http://example.org/CodeSystem/national-identifiers|US|12345</span>
+identifier:of-type=http://terminology.hl7.org/CodeSystem/v2-0203|MR|12345</span>
       </span>
     </span>
-    for patients that contain an identifier that has a type coding of <code>http://example.org/CodeSystem/national-identifiers#US</code> and a value
-    of <code>12345</code> will return records such as:
+    for patients that contain an identifier that has a type coding of with a system of <code>http://terminology.hl7.org/CodeSystem/v2-0203</code>, 
+    a code of <code>MR</code> (which identifies Medical Record Numbers), and a value of <code>12345</code> will return records such as:
     <span class="fhir-example">
       <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
       <span class="example-format-display">
@@ -1524,32 +1612,31 @@ identifier:of-type=http://example.org/CodeSystem/national-identifiers|US|12345</
   "identifier": [{
     "type": {
       "coding" : {
-        "system": "http://example.org/CodeSystem/national-identifiers",
-        "code": "US"
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code": "MR"
       }
     }
-    "system": "http://example.org/sid/a-local-code-sytem",
+    "system": "http://example.org/ehr-primary/",
     "value": "12345"
   }]
 }</span>
-        <span class="example-format-display-xml">
-&lt;Patient&gt;
+        <span class="example-format-display-xml">&lt;Patient&gt;
   &lt;identifier&gt;
     &lt;type&gt;
       &lt;coding&gt;
-        &lt;system value="http://example.org/CodeSystem/national-identifiers"/&gt;
-        &lt;value value="US"/&gt;
+        &lt;system value="http://terminology.hl7.org/CodeSystem/v2-0203"/&gt;
+        &lt;value value="MR"/&gt;
       &lt;/coding&gt;
     &lt;/type&gt;
-    &lt;system value="http://example.org/sid/a-local-code-sytem"/&gt;
+    &lt;system value="http://example.org/ehr-primary"/&gt;
     &lt;value value="12345"/&gt;
   &lt;/identifier&gt;
-&lt;/Patient&gt;
-        </span>
+&lt;/Patient&gt;</span>
       </span>
     </span>
 
-    This can be used to disambiguate between data sets that contain collisions.  For example, the above search will NOT return values such as:
+    This can be used to disambiguate between data sets that contain collisions.  For example, the above search will NOT return values 
+    with a different identifying type, such as:
     <span class="fhir-example">
       <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
       <span class="example-format-display">
@@ -1557,30 +1644,29 @@ identifier:of-type=http://example.org/CodeSystem/national-identifiers|US|12345</
   "identifier": [{
     "type": {
       "coding" : {
-        "system": "http://example.org/CodeSystem/national-identifiers",
-        "code": "CA"
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code": "MRT"
       }
     }
-    "system": "http://example.org/sid/another-local-code-sytemm",
+    "system": "http://example.org/ehr-er",
     "value": "12345"
   }]
 }</span>
-        <span class="example-format-display-xml">
-&lt;Patient&gt;
+        <span class="example-format-display-xml">&lt;Patient&gt;
   &lt;identifier&gt;
     &lt;type&gt;
       &lt;coding&gt;
-        &lt;system value="http://example.org/CodeSystem/national-identifiers"/&gt;
-        &lt;value value="CA"/&gt;
+        &lt;system value="http://terminology.hl7.org/CodeSystem/v2-0203"/&gt;
+        &lt;value value="MRT"/&gt;
       &lt;/coding&gt;
     &lt;/type&gt;
-    &lt;system value="http://example.org/sid/another-local-code-sytem"/&gt;
+    &lt;system value="http://example.org/ehr-er"/&gt;
     &lt;value value="12345"/&gt;
   &lt;/identifier&gt;
-&lt;/Patient&gt;
-        </span>
+&lt;/Patient&gt;</span>
       </span>
     </span>
+    which signifies that the identifier is a Temporary Medical Record Number.
   </p>
 
 
@@ -1657,7 +1743,7 @@ Content-Type: application/x-www-form-urlencoded
 section:text=(bone OR liver) and metastases</span>
       </span>
     </span>
-    for compositions about metastases in the bones or liver of subjects will search for those literals, but MAY also search for terms such
+    for compositions about metastases in the bones or liver of subjects will search for those literal values, but MAY also search for terms such
     as 'cancerous growth', 'tumor', etc..
   </p>
 
@@ -2295,49 +2381,64 @@ The interpretation of a <i>reference</i> parameter is either:
 </ul>
 <p>
 Note: A relative reference resolving to the same value as a specified absolute URL, or vice versa, qualifies as a match.
-For example, if the search parameter value is Patient/123, then this will find references like this:
-<span class="fhir-example">
-  <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
-  <span class="example-format-display">
-    <span class="example-format-display-json">
-"patient": {
-  "reference": "Patient/123"
-}
-    </span>
-    <span class="example-format-display-xml">
-&lt;Patient&gt;
-  &lt;reference value="Patient/123"/&gt;
-&lt;/Patient&gt;
+</p>
+<p>
+  For example, if the base URL of a server is http://example.org/fhir, the search:
+  <span class="http-search-example">
+    <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+    <span class="http-verb-display">
+      <span class="http-verb-display-get">GET http://example.org/fhir/Observation?subject=Patient/123</span>
+      <span class="http-verb-display-post">POST http://example.org/fhir/Observation/_search
+Content-Type: application/x-www-form-urlencoded
+subject=Patient/123</span>
     </span>
   </span>
-</span>
+  will match Observations with <code>subject.reference</code> values:
+  <ul>
+    <li><code>Patient/123</code> - exact match of search input</li>
+    <li><code>http://example.org/fhir/Patient/123</code> - search input with implicit resolution to the local server</li>
+  </ul>
 </p>
 <p>
-If the server base address is http://example.org/fhir, then the full URL for that reference is
-http://example.org/fhir/Patient/123, which means that the search term also matches patient
-references like this:
-<span class="fhir-example">
-  <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
-  <span class="example-format-display">
-    <span class="example-format-display-json">
-"patient": {
-  "reference": "http://example.org/fhir/Patient/123"
-}
-    </span>
-    <span class="example-format-display-xml">
-&lt;Patient&gt;
-  &lt;reference value="http://example.org/fhir/Patient/123"/&gt;
-&lt;/Patient&gt;
+  Similarly, the search:
+  <span class="http-search-example">
+    <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+    <span class="http-verb-display">
+      <span class="http-verb-display-get">GET http://example.org/fhir/Observation?subject=http://example.org/fhir/Patient/123</span>
+      <span class="http-verb-display-post">POST http://example.org/fhir/Observation/_search
+Content-Type: application/x-www-form-urlencoded
+subject=http://example.org/fhir/Patient/123</span>
     </span>
   </span>
-</span>
+  will match Observations with <code>subject.reference</code> values:
+  <ul>
+    <li><code>http://example.org/fhir/Patient/123</code> - exact match of search input</li>
+    <li><code>Patient/123</code> - search input with implicit reference to the local server</li>
+  </ul>
 </p>
 <p>
-In addition, searching for <code>reference=http://example.org/fhir/Patient/123</code> will also
-match both references.
+  Also, the search:
+  <span class="http-search-example">
+    <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+    <span class="http-verb-display">
+      <span class="http-verb-display-get">GET http://example.org/fhir/Observation?subject=123</span>
+      <span class="http-verb-display-post">POST http://example.org/fhir/Observation/_search
+Content-Type: application/x-www-form-urlencoded
+subject=123</span>
+    </span>
+  </span>
+  will match Observations with <code>subject.reference</code> values:
+  <ul>
+    <li><code>Patient/123</code> - search input of type Patient</li>
+    <li><code>http://example.org/fhir/Patient/123</code> - search input with implicit resolution to the local server, of type Patient</li>
+    <li><code>Practitioner/123</code> - search input of type Practitioner</li>
+    <li><code>http://example.org/fhir/Practitioner/123</code> - search input with implicit resolution to the local server, of type Practitioner</li>
+    <li>Etc.</li>
+  </ul>
 </p>
+
 <p>
-Some references may point to more than one type of resource; e.g. subject: Reference(Patient|Group|Device|..).
+Some references may point to more than one type of resource; e.g. <code>subject: Reference(Patient|Group|Device|..)</code>.
 In these cases, multiple resources may have the same logical identifier. Servers SHOULD reject a search where
 the logical id refers to more than one matching resource across different types.
 In order to allow the client to perform a search in these situations the type is specified explicitly:
@@ -3596,7 +3697,7 @@ if <code>_count</code> has the value 0, this shall be treated the same as <code>
 server returns a bundle that reports the total number of resources that match in Bundle.total,
 but with no entries, and no prev/next/last links. Note that the <code>Bundle.total</code> only
 include the total number of matching resources. It does not count extra resources such as
-<a href="OperationOutcome.html">OperationOutcome</a> or <a href="#include">included</a> resources that may also be returned.
+<a href="operationoutcome.html">OperationOutcome</a> or <a href="#include">included</a> resources that may also be returned.
 In the same way, the _count parameter only applies to resources with <code>entry.search.mode = match</code>, and does not include
 included resources or operation outcomes.
 </p>
