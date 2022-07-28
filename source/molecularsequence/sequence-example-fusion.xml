@@ -1,0 +1,61 @@
+<MolecularSequence>
+    <!-- BCR-ABL1 fusion (COSMIC https://cancer.sanger.ac.uk/cosmic/fusion/summary?id=1755). 5-prime end comprised of BCR exons 1-14. 3-prime end comprised of ABL1 exons 2-11. -->
+    <id value="sequence-example-fusion"/>
+    <type value="rna"/>
+    <relative>
+        <coordinateSystem>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="LA30102-0"/>
+                <display value="1-based character counting"/>
+            </coding>
+        </coordinateSystem>
+        <ordinalPosition value="1"/>
+        <sequenceRange>
+            <low>
+                <value value="1"/>
+            </low>
+            <high>
+                <value value="3234"/>
+            </high>
+        </sequenceRange>
+        <startingSequence>
+            <sequenceCodeableConcept>
+                <coding>
+                    <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
+                    <code value="NM_004327.4"/>
+                </coding>
+            </sequenceCodeableConcept>
+            <windowStart value="1"/>
+            <windowEnd value="3234"/>
+        </startingSequence>
+    </relative>
+    <relative>
+        <coordinateSystem>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="LA30102-0"/>
+                <display value="1-based character counting"/>
+            </coding>
+        </coordinateSystem>
+        <ordinalPosition value="2"/>
+        <sequenceRange>
+            <low>
+                <value value="3235"/>
+            </low>
+            <high>
+                <value value="8367"/>
+            </high>
+        </sequenceRange>
+        <startingSequence>
+            <sequenceCodeableConcept>
+                <coding>
+                    <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
+                    <code value="NM_005157.6"/>
+                </coding>
+            </sequenceCodeableConcept>
+            <windowStart value="174"/>
+            <windowEnd value="5306"/>
+        </startingSequence>
+    </relative>
+</MolecularSequence>

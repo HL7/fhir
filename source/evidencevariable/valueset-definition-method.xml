@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="group-measure"/>
+  <id value="definition-method"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -11,8 +11,8 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <ul>
         <li>Include all codes defined in 
-          <a href="codesystem-group-measure.html">
-            <code>http://hl7.org/fhir/group-measure</code>
+          <a href="codesystem-definition-method.html">
+            <code>http://terminology.hl7.org/CodeSystem/definition-method</code>
           </a>
         </li>
       </ul>
@@ -22,19 +22,19 @@
     <valueCode value="cds"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="draft"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/group-measure"/>
+  <url value="http://hl7.org/fhir/ValueSet/definition-method"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1345"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1452"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="GroupMeasure"/>
-  <title value="GroupMeasure"/>
+  <name value="DefinitionMethod"/>
+  <title value="DefinitionMethod"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -49,11 +49,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Possible group measure aggregates (E.g. Mean, Median)."/>
+  <description value="The method used to define, describe, or determine a characteristic value."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/group-measure"/>
+      <system value="http://terminology.hl7.org/CodeSystem/definition-method"/>
     </include>
   </compose>
 </ValueSet>
