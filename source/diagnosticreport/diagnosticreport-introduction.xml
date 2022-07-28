@@ -81,6 +81,10 @@ If you have a highly structured report, then use DiagnosticReport - it has data 
 Image and media representations of the report and supporting images and data are referenced in the DiagnosticReport resource.  The details and actual image instances can be referenced directly in Diagnostic report using the "imaging" element or by indirect reference through the <a href="imagingstudy.html">ImagingStudy</a> resources which represent the content produced in a DICOM imaging study or set of DICOM Instances for a patient.
 </p>
 
+<p>
+When a report includes genomic testing, the complex metadata about the analysis performed can be captured in a <a href="genomicstudy.html">GenomcStudy</a> resource, and can be referenced using the <code>labStudy</code> attribute. As other complex laboratory areas develop resources to capture metadata about different types of studies, this attribute will be extended to reference those.
+</p>
+
 </div>
 
 </div>

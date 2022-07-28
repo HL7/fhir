@@ -608,11 +608,11 @@
       </mapping>
     </element>
 
-    <element id="DiagnosticReport.genomicStudy">
-      <path value="DiagnosticReport.genomicStudy"/>
-      <short value="Reference to full details of genomic analysis associated with the diagnostic report"/>
-      <definition value="One or more links to full details of any genomic study performed during the diagnostic investigation. A GenomicStudy might comprise one or more analyses, each serving a specific purpose. These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted."/>
-      <comment value="GenomicStudy is use to provide additional metadata for the one or more clinical genomic analysis pipelines, where Observations and DiagnosticReport will still be used to represent the detailed information about the results of the analyses."/>
+    <element id="DiagnosticReport.labStudy">
+      <path value="DiagnosticReport.labStudy"/>
+      <short value="Reference to full details of a laboratory analysis associated with the diagnostic report"/>
+      <definition value="One or more links to full details of any laboratory study performed during the diagnostic investigation. A GenomicStudy might comprise one or more analyses, each serving a specific purpose. These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted."/>
+      <comment value="Study type resources will be used for tracking additional metadata and workflow aspects of complex laboratory studies."/>
       <min value="0"/>
       <max value="*"/>
       <type>
