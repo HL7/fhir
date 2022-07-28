@@ -107,6 +107,6 @@ merging. Therefore, these patterns described above are only examples of how a di
 	Genomic reporting makes heavy use of the DiagnosticReport and Observation resources to capture the genomic data in a highly structured and computable way.  An implementation guide describing how to represent genetic results can be found <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">here</a>.
 	</p>
 	<p>
-	Beyond the structured, computable data, metadata about the analysis pipelines are captured in the <a href="genomicstudy.html">GenomicStudy</a> resource. This resources captures details of the analysis, including the steps of the analysis pipeline that were performed and references to the unstructured files that are created and used in those pipeline steps.
+	Beyond the structured, computable data available in DiagnosticReport and Observation, metadata about the analysis performed is captured in the <a href="genomicstudy.html">GenomicStudy</a> resource. GenomicStudy aims at delineating relevant information of a genomic study. A genomic study might comprise one or more analyses, each serving a specific purpose. These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted.
 	</p>
 </div>
