@@ -770,7 +770,9 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
 <p>
   In search requests, search modifiers are used by appending the modifier as a suffix to the search parameter name, with the syntax
   of: <code>[name]:[modifier]</code>, such as <code>birthdate:missing</code>.  Note that only a single modifier is allowed on 
-  a single search parameter.
+  a single search parameter.  If multiple layers of modification are necessary, a new search parameter can be defined with
+  the appropriate behavior.  If the desired behavior is not possible to define in a search parameter without multiple stacked
+  modifiers, an operation can be defined.
 </p>
 <p>
   Since modifiers change the meaning of a search parameter, a server SHALL reject any search request that contains a search 
