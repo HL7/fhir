@@ -4451,8 +4451,8 @@ In other respects, servers have considerable discretion with regards to supporti
 <ul>
  <li>Servers can choose which parameters to support (other than <code>_id</code> above).</li>
  <li>Servers can choose when and where to implement parameter chaining, and when and where they support the <code>_include</code> parameter.</li>
- <li>Servers can declare additional parameters in the profiles referenced from their Capability statements. Servers should define search parameters
-    starting with a "-" character to ensure that the names they choose do not clash with future parameters defined by this specification.</li>
+ <li>Servers can declare additional parameters in the profiles referenced from their Capability statements. Servers SHOULD define custom search parameters
+    with codes starting with a hyphen ("-") character to ensure that the names they choose do not clash with future parameters defined by this specification. <span class="stu">TU</span></li>
  <li>Servers are not required to enforce case sensitivity on parameter names, though the names are case sensitive (and URLs are generally case-sensitive).</li>
  <li>Servers may choose how many results to return, though the client can use <code>_count</code> as above</li>
  <li>Servers can choose how to sort the return results, though they SHOULD honor the <code>_sort</code> parameter.</li>
