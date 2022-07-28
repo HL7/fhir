@@ -431,6 +431,9 @@
       </mapping>
     </element>
     <element id="CodeSystem.approvalDate">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="CodeSystem.approvalDate"/>
       <short value="When the CodeSystem was approved by publisher"/>
       <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
@@ -450,6 +453,9 @@
       </mapping>
     </element>
     <element id="CodeSystem.lastReviewDate">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="CodeSystem.lastReviewDate"/>
       <short value="When the CodeSystem was last reviewed"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
@@ -470,6 +476,9 @@
       </mapping>
     </element>
     <element id="CodeSystem.effectivePeriod">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="CodeSystem.effectivePeriod"/>
       <short value="When the CodeSystem is expected to be used"/>
       <definition value="The period during which the CodeSystem content was or is planned to be in active use."/>
@@ -491,14 +500,17 @@
       </mapping>
     </element>
     <element id="CodeSystem.topic">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Although topic could be modeled as a type of useContext, it was specifically modeled as an element because it is central to indexing support."/>
       </extension>
       <path value="CodeSystem.topic"/>
       <short value="E.g. Education, Treatment, Assessment, etc."/>
       <definition value="Descriptions related to the content of the CodeSystem. Topics provide a high-level categorization as well as keywords for the CodeSystem that can be useful for filtering and searching."/>
-      <comment value="This element provides topical categorization and keywords of the CodeSystem, as opposed to the more structured context-of-use information provided in the useContext element"/>
-      <requirements value="Repositories must be able to determine how to categorize the CodeSystem so that it can be found by topical searches."/>
+      <comment value="This element provides topical categorization and keywords for the CodeSystem, as opposed to the more structured context-of-use information provided in the useContext element"/>
+      <requirements value="Repositories must be able to determine how to categorize the CodeSystem so that it can be found by topical and keyword searches."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -513,6 +525,9 @@
       </binding>
     </element>
     <element id="CodeSystem.author">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="The author, editor, reviewer, and endorser elements were originally modeled with a Contributor data type and a contributionType for the role, but the use of explicit elements makes the relationship more clear and is easier for implementers to understand and work with. Additional contribution types should be modeled with a specific extension for the contribution type to follow this pattern"/>
       </extension>
@@ -526,6 +541,9 @@
       </type>
     </element>
     <element id="CodeSystem.editor">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="CodeSystem.editor"/>
       <short value="Who edited the CodeSystem"/>
       <definition value="An individual or organization primarily responsible for internal coherence of the CodeSystem."/>
@@ -536,6 +554,9 @@
       </type>
     </element>
     <element id="CodeSystem.reviewer">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="CodeSystem.reviewer"/>
       <short value="Who reviewed the CodeSystem"/>
       <definition value="An individual or organization primarily responsible for review of some aspect of the CodeSystem."/>
@@ -546,6 +567,9 @@
       </type>
     </element>
     <element id="CodeSystem.endorser">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="CodeSystem.endorser"/>
       <short value="Who endorsed the CodeSystem"/>
       <definition value="An individual or organization responsible for officially endorsing the CodeSystem for use in some setting."/>
@@ -556,6 +580,9 @@
       </type>
     </element>
     <element id="CodeSystem.relatedArtifact">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
       <path value="CodeSystem.relatedArtifact"/>
       <short value="Additional documentation, citations, etc."/>
       <definition value="Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts."/>
