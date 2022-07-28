@@ -2378,12 +2378,13 @@ The interpretation of a <i>reference</i> parameter is either:
   <li><b><code>[parameter]=[id]</code></b> the logical [id] of a resource using a local reference (i.e. a relative reference)</li>
   <li><b><code>[parameter]=[type]/[id]</code></b> the logical [id] of a resource of a specified type using a local reference (i.e. a relative reference),
    for when the reference can point to different types of resources (e.g. <a href="observation-definitions.html#Observation.subject">Observation.subject</a>)</li>
-  <li><b><code>[parameter]=[type]/[id]/_history/[version]</code></b> the logical [id] of a resource of a specified type using a local reference (i.e. a relative reference),
-   for when the reference can point to different types of resources and a specific version is requested. Note that server implementations MAY return an error
-   when using this syntax, if resource versions are not supported.  For more information, see <a href="#versions">References and Versions</a>.</li>
+  <li><b><code>[parameter]=[type]/[id]/_history/[version]</code></b> <span class="stu">TU</span> the logical [id] of a resource of a specified type using a 
+   local reference (i.e. a relative reference), for when the reference can point to different types of resources and a specific version is requested. Note 
+   that server implementations MAY return an error when using this syntax, if resource versions are not supported.  For more information, see 
+   <a href="#versions">References and Versions</a>.</li>
   <li><b><code>[parameter]=[url]</code></b> where the [url] is an absolute URL - a reference to a resource by its absolute location, or by its canonical URL</li>
-  <li><b><code>[parameter]=[url]|[version]</code></b> where the search element is a canonical reference, the [url] is an absolute URL, and a specific version
-  or partial version is desired.  For more information, see <a href="#versions">References and Versions</a>.</li>
+  <li><b><code>[parameter]=[url]|[version]</code></b> <span class="stu">TU</span> where the search element is a canonical reference, the [url] is an absolute URL, and a specific version
+  or partial version is desired.  For more information, see <a href="#versions">References and Versions</a>. </li>
 </ul>
 <p>
 Note: A relative reference resolving to the same value as a specified absolute URL, or vice versa, qualifies as a match.
