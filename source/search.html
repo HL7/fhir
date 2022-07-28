@@ -857,7 +857,8 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
     <td><code><a href="#modifiernot">not</a></code></td>
     <td><a href="#token">token</a></td>
     <td>
-      Tests whether the value in a resource does not match the specified parameter value.
+      Tests whether the value in a resource does not match the specified parameter value. Note that this includes 
+      resources that have no value for the parameter.
     </td>
    </tr>
    <tr>
@@ -2716,6 +2717,7 @@ need to be represented in a <a href="datatypes.html#coding">Coding</a> data type
 http://hl7.org/fhir/special-values, though there is usually no reason to use this, as a simple true or false is sufficient.
 </p>
 
+<span class="todo">Remove original modifier table when satisfied with the updated one</span>
 <p><b>Modifiers:</b></p>
 <table class="lines">
  <tr> <td><b>Modifier</b></td> <td><b>Use</b></td> </tr>
@@ -3602,6 +3604,17 @@ Technically, the <code>_type</code> parameter is a token parameter on the
 
 <a name="modifyingresults"></a>
 <h3>Modifying Search Results</h3>
+<p>
+  Along with search parameters that are used as input to search filters, there are also Search Result Parameters
+  defined by this specification to modify the results of a performed search.  These parameters control aspects 
+  of the results such as sort order, including additional resources, etc., and are defined in the following 
+  sections.
+</p>
+<p>
+  Note that with the exception of _include and _revInclude, Search result parameters SHOULD only appear once in a 
+  search.  If such a parameter appears more than once, the behavior is undefined and a server MAY treat the situation 
+  as an error <span class="stu">TU</span>.
+</p>
 
 <a name="sort"></a>
 <a name="_sort"></a>
