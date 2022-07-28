@@ -1258,7 +1258,7 @@ family:exact=Son</span>
       <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
       <span class="http-verb-display">
         <span class="http-verb-display-get">GET [base]/Observation?subject:identifier=http://example.org/fhir/mrn|12345</span>
-        <span class="http-verb-display-post">POST [base]/Patient/_search
+        <span class="http-verb-display-post">POST [base]/Observation/_search
 Content-Type: application/x-www-form-urlencoded
 subject:identifier=http://example.org/fhir/mrn|12345</span>
       </span>
@@ -2378,6 +2378,7 @@ The interpretation of a <i>reference</i> parameter is either:
  <li><b><code>[parameter]=[type]/[id]</code></b> the logical [id] of a resource of a specified type using a local reference (i.e. a relative reference),
    for when the reference can point to different types of resources (e.g. <a href="observation-definitions.html#Observation.subject">Observation.subject</a>)</li>
  <li><b><code>[parameter]=[url]</code></b> where the [url] is an absolute URL - a reference to a resource by its absolute location, or by it's canonical URL</li>
+ <li><b><code>[parameter]=[url]|[version]</code></b> where the search element is a canonical reference and the [url] is an absolute URL</li>
 </ul>
 <p>
 Note: A relative reference resolving to the same value as a specified absolute URL, or vice versa, qualifies as a match.
@@ -3070,8 +3071,8 @@ context-type-value=focus$http://snomed.info/sct|408934002</span>
 <a name="specialidentifiers"></a>
 <h4>Searching Identifiers</h4>
 <p>
-  Need to discuss the nuances of :identifier vs. chained searches, etc.  See <a href="https://jira.hl7.org/browse/FHIR-37424">FHIR-37424</a>
-  and <a href="https://jira.hl7.org/browse/FHIR-29410">FHIR-29410</a>.
+  <span class="todo">Need to discuss the nuances of :identifier vs. chained searches, etc.  See <a href="https://jira.hl7.org/browse/FHIR-37424">FHIR-37424</a>
+  and <a href="https://jira.hl7.org/browse/FHIR-29410">FHIR-29410</a>.</span>
 </p>
 
 <a name="versions"></a>
@@ -3082,16 +3083,25 @@ Elements of type <a href="references.html#Reference">Reference</a> may contain a
 <span class="fhir-example">
   <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
   <span class="example-format-display">
-    <span class="example-format-display-json">
-"evidence": {
-  "reference": "Observation/123/_history/234234"
-}
-    </span>
-    <span class="example-format-display-xml">
-&lt;evidence&gt;
-  &lt;reference value="Observation/123/_history/234234"/&gt;
-&lt;/evidence&gt;
-    </span>
+    <span class="example-format-display-json">{
+  "resourceType": "Condition",
+  ...
+  "evidence": {
+    "detail": {
+      "reference": "Observation/123/_history/234234"
+    }
+  },
+  ...
+}</span>
+    <span class="example-format-display-xml">&lt;Condition&gt;
+  ...
+  &lt;evidence&gt;
+    &lt;detail&gt;
+      &lt;reference value="Observation/123/_history/234234"/&gt;
+    &lt;/detail&gt;
+  &lt;/evidence&gt;
+  ...
+&lt;/Condition&gt;</span>
   </span>
 </span>
 </p>
@@ -3110,12 +3120,17 @@ but this version is different in both meaning and format to version specific ref
 <span class="fhir-example">
   <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
   <span class="example-format-display">
-    <span class="example-format-display-json">
-"valueSet": "http://hl7.org/fhir/ValueSet/example|3.0"
-    </span>
-    <span class="example-format-display-xml">
-&nbsp;&lt;valueSet value="http://hl7.org/fhir/ValueSet/example|3.0"/&gt;
-    </span>
+    <span class="example-format-display-json">{
+  "resourceType": "QuestionnaireResponse",
+  ...
+  "questionnaire": "http://example.org/fhir/questionnaire/patient-intake|3.0",
+  ...
+}</span>
+    <span class="example-format-display-xml">&lt;QuestionnaireResponse&gt;
+  ...
+  &lt;questionnaire value="http://example.org/fhir/questionnaire/patient-intake|3.0"/&gt;
+  ...
+&lt;/QuestionnaireResponse&gt;</span>
   </span>
 </span>
 </p>
@@ -3124,39 +3139,44 @@ This version is a reference to the business version of the resource.
 </p>
 <p>
 For canonical references, servers SHOULD support searching by Canonical URLs, and SHOULD support
-automatically detecting a |[version] portion as part of the search parameter and
+automatically detecting a <code>|[version]</code> portion as part of the search parameter and
 interpreting that portion as a search on the business version of the target resource.
 The modifier <code>:below</code> is used with canonical references, to control
 whether the version is considered in the search. The search:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/Observation?definition:below=http:http://acme.com/some-profile</span>
-    <span class="http-verb-display-post">POST [base]/Observation/_search
+    <span class="http-verb-display-get">GET [base]/QuestionnaireResponse?questionnaire:below=http://example.org/fhir/questionnaire/patient-intake</span>
+    <span class="http-verb-display-post">POST [base]/QuestionnaireResponse/_search
 Content-Type: application/x-www-form-urlencoded
-definition:below=http:http://acme.com/some-profile</span>
+questionnaire:below=http://example.org/fhir/questionnaire/patient-intake</span>
   </span>
 </span>
-matches all of these element values:
+would match QuestionnaireResponses based on Questionnaires:
 </p>
 <ul>
-<li>http://acme.com/some-profile|1.0</li>
-<li>http://acme.com/some-profile|1.1</li>
-<li>http://acme.com/some-profile|2.0</li>
+  <li>http://example.org/fhir/questionnaire/patient-intake|1.0</li>
+  <li>http://example.org/fhir/questionnaire/patient-intake|1.1</li>
+  <li>http://example.org/fhir/questionnaire/patient-intake|2.0</li>
+  <li>Etc.</li>
 </ul>
 <p>
 The search:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/Observation?definition:below=http:http://acme.com/some-profile|1</span>
-    <span class="http-verb-display-post">POST [base]/Observation/_search
+    <span class="http-verb-display-get">GET [base]/QuestionnaireResponse?questionnaire:below=http://example.org/fhir/questionnaire/patient-intake|1</span>
+    <span class="http-verb-display-post">POST [base]/QuestionnaireResponse/_search
 Content-Type: application/x-www-form-urlencoded
-definition:below=http:http://acme.com/some-profile|1</span>
+questionnaire:below=http://example.org/fhir/questionnaire/patient-intake|1</span>
   </span>
 </span>
-matches the first two element values (versions 1.0 and 1.1).
+would match QuestionnaireResponses based on Questionnaires with a major version of '1', e.g.:
 </p>
+<ul>
+  <li>http://example.org/fhir/questionnaire/patient-intake|1.0</li>
+  <li>http://example.org/fhir/questionnaire/patient-intake|1.1</li>
+</ul>
 
 <a name="recursive"></a>
 <h4>Searching Hierarchies</h4>
@@ -4493,7 +4513,7 @@ is proceeding.
 </p>
 <p>
 Performing a search operation does not change the set of
-resources on the server, with the exception of the creation
+resources on the server, with the possible exception of the creation
 of <a href="auditevent.html">Audit Event</a> resources
 auditing the search itself.
 </p>
