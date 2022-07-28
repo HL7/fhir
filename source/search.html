@@ -3641,6 +3641,10 @@ Notes:
      consistency of filtering (though even that is a little variable). The
      purpose of sorting is to provide data in a "reasonable" order for end-users.
     "Reasonable" may vary by use case and realm, particularly for accented characters.</li>
+  <li>When sorting on search parameters of <code>reference</code> and <code>token</code>
+    types, the search parameter MAY include the <a href="#modifiertexttoken">text modifier</a>
+    to request sorting based on the text or display portions of the element values.
+    For example, <code>_sort=code:text</code> or <code>_sort:-code:text</code>.</li>
 </ul>
 
 <a name="total"></a>
