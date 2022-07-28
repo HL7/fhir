@@ -55,32 +55,32 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-3dgraphictype"/>
   <content value="complete"/>
   <concept>
-    <code value="POINT"/>
+    <code value="point"/>
     <display value="POINT"/>
     <definition value="A single location denoted by a single (x,y,z) triplet."/>
   </concept>
   <concept>
-    <code value="MULTIPOINT"/>
+    <code value="multipoint"/>
     <display value="MULTIPOINT"/>
     <definition value="multiple locations each denoted by an (x,y,z) triplet; the points need not be coplanar."/>
   </concept>
   <concept>
-    <code value="POLYLINE"/>
+    <code value="polyline"/>
     <display value="POLYLINE"/>
     <definition value="a series of connected line segments with ordered vertices denoted by (x,y,z) triplets; the points need not be coplanar."/>
   </concept>
   <concept>
-    <code value="POLYGON"/>
+    <code value="polygon"/>
     <display value="POLYGON"/>
     <definition value="a series of connected line segments with ordered vertices denoted by (x,y,z) triplets, where the first and last vertices shall be the same forming a polygon; the points shall be coplanar."/>
   </concept>
   <concept>
-    <code value="ELLIPSE"/>
+    <code value="ellipse"/>
     <display value="ELLIPSE"/>
     <definition value="an ellipse defined by four (x,y,z) triplets, the first two triplets specifying the endpoints of the major axis and the second two triplets specifying the endpoints of the minor axis."/>
   </concept>
   <concept>
-    <code value="ELLIPSOID"/>
+    <code value="ellipsoid"/>
     <display value="ELLIPSOID"/>
     <definition value="a three-dimensional geometric surface whose plane sections are either ellipses or circles and contains three intersecting orthogonal axes, &quot;a&quot;, &quot;b&quot;, and &quot;c&quot;; the ellipsoid is defined by six (x,y,z) triplets, the first and second triplets specifying the endpoints of axis &quot;a&quot;, the third and fourth triplets specifying the endpoints of axis &quot;b&quot;, and the fifth and sixth triplets specifying the endpoints of axis &quot;c&quot;."/>
   </concept>

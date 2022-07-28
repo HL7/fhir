@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="research-study-statusDate-activity"/>
+  <id value="research-study-registration-activity"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -15,14 +15,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/research-study-statusDate-activity"/>
+  <url value="http://hl7.org/fhir/ValueSet/research-study-registration-activity"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1681"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="ResearchStudyStatusDateActivity"/>
-  <title value="ResearchStudyStatusDateActivity"/>
+  <name value="ResearchStudyRegistrationActivity"/>
+  <title value="ResearchStudyRegistrationActivity"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-02-10T20:40:00+00:00"/>
@@ -37,7 +37,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Codes for activity that changed study status."/>
+  <description value="Codes for study registration activities."/>
   <immutable value="true"/>
   <compose>
     <include>
@@ -45,7 +45,7 @@
 	  <filter>
 	    <property value="concept"/>
 	    <op value="descendent-of"/>
-	    <value value="research-study-statusDate-activity"/>
+	    <value value="research-study-registration-activity"/>
 	  </filter>
     </include>
   </compose>

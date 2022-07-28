@@ -33,7 +33,7 @@
       <code value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
     </sopClass>
     <imageRegion>
-      <regionType value="POLYLINE"/>
+      <regionType value="polyline"/>
       <coordinate value="0.25"/>
       <coordinate value="0.25"/>
       <coordinate value="0.75"/>
