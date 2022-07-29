@@ -27,7 +27,7 @@
     <valueCode value=".status = retired"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-    <valueString value="CanonicalResource"/>
+    <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
   <version value="4.6.0"/>
@@ -555,7 +555,7 @@
         <valueCode value="trial-use"/>
       </extension>
       <path value="ValueSet.editor"/>
-      <short value="Who edited the CodeSystem"/>
+      <short value="Who edited the ValueSet"/>
       <definition value="An individual or organization primarily responsible for internal coherence of the ValueSet."/>
       <min value="0"/>
       <max value="*"/>
