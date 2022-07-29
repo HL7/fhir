@@ -24,16 +24,16 @@
   <concept>
     <code value="F"/>
     <display value="Female"/>
-    <definition value="A value which corresponds to female ('F') has been recorded in some context."/>
+    <definition value="A value which corresponds to female (&#39;F&#39;) has been recorded in some context."/>
   </concept>
   <concept>
     <code value="M"/>
     <display value="Male"/>
-    <definition value="A value which corresponds to female ('M') has been recorded in some context. A value which corresponds to 'X' (any non-M or non-F value) has been recorded or the value is unspecified."/>
+    <definition value="A value which corresponds to female (&#39;M&#39;) has been recorded in some context. A value which corresponds to &#39;X&#39; (any non-M or non-F value) has been recorded or the value is unspecified."/>
   </concept>
   <concept>
     <code value="&lt;"/>
     <display value="X"/>
-    <definition value="A value which corresponds to 'X' (any non-M or non-F value) has been recorded or the value is unspecified."/>
+    <definition value="A value which corresponds to &#39;X&#39; (any non-M or non-F value) has been recorded or the value is unspecified."/>
   </concept>
 </CodeSystem>

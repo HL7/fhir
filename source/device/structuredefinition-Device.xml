@@ -1176,7 +1176,7 @@
       <short value="Safety Characteristics of Device"/>
       <definition value="Provides additional safety characteristics about a medical device.  For example devices containing latex."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="*"/> 
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -1185,6 +1185,13 @@
         <identity value="rim"/>
         <map value="NA"/>
       </mapping>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Safety"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-safety"/>
+      </binding>
     </element>
     <element id="Device.parent">
       <path value="Device.parent"/>

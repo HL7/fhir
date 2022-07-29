@@ -44,9 +44,9 @@
           
           </td>
           
-          <td>Watson strand of referenceSeq</td>
+          <td>Watson strand of starting sequence</td>
           
-          <td>Watson strand of reference sequence.</td>
+          <td>Watson strand of starting sequence.</td>
         
         </tr>
         
@@ -58,9 +58,9 @@
           
           </td>
           
-          <td>Crick strand of referenceSeq</td>
+          <td>Crick strand of starting sequenceq</td>
           
-          <td>Crick strand of reference sequence.</td>
+          <td>Crick strand of starting sequence.</td>
         
         </tr>
       
@@ -105,12 +105,12 @@
   <content value="complete"/>
   <concept>
     <code value="watson"/>
-    <display value="Watson strand of referenceSeq"/>
-    <definition value="Watson strand of reference sequence."/>
+    <display value="Watson strand of starting sequence"/>
+    <definition value="Watson strand of starting sequence."/>
   </concept>
   <concept>
     <code value="crick"/>
-    <display value="Crick strand of referenceSeq"/>
-    <definition value="Crick strand of reference sequence."/>
+    <display value="Crick strand of starting sequence"/>
+    <definition value="Crick strand of starting sequence."/>
   </concept>
 </CodeSystem>
