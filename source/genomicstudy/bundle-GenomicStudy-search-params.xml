@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="GenomicStudy-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="GenomicStudy-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="GenomicStudy.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/GenomicStudy-identifier"/>
+        <description value="Identifiers for the Study"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="GenomicStudy.identifier"/>
+        <xpath value="f:GenomicStudy/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="GenomicStudy-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="GenomicStudy.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/GenomicStudy-status"/>
+        <description value="The status of the study"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="GenomicStudy.status"/>
+        <xpath value="f:GenomicStudy/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="GenomicStudy-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="GenomicStudy.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/GenomicStudy-patient"/>
+        <description value="Who the study is about"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="GenomicStudy.subject.where(resolve() is Patient)"/>
+        <xpath value="f:GenomicStudy/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="GenomicStudy-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="GenomicStudy.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/GenomicStudy-subject"/>
+        <description value="Who the study is about"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="GenomicStudy.subject"/>
+        <xpath value="f:GenomicStudy/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="GenomicStudy-analysis-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="GenomicStudy.analysis.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/GenomicStudy-analysis-patient"/>
+        <description value="Who the analysis is about"/>
+        <code value="analysis-patient"/>
+        <type value="reference"/>
+        <expression value="GenomicStudy.analysis.subject.where(resolve() is Patient)"/>
+        <xpath value="f:GenomicStudy/f:analysis/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="GenomicStudy-analysis-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="GenomicStudy.analysis.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/GenomicStudy-analysis-subject"/>
+        <description value="Who the analysis is about"/>
+        <code value="analysis-subject"/>
+        <type value="reference"/>
+        <expression value="GenomicStudy.analysis.subject"/>
+        <xpath value="f:GenomicStudy/f:analysis/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>
