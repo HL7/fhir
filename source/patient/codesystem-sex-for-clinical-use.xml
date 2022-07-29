@@ -8,15 +8,16 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
-  <url value="http://hl7.org/fhir/sex-for-clinical-use"/>
+  <url value="http://terminology.hl7.org/CodeSystem/sex-for-clinical-use"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.983"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.983"/>
   </identifier>
-  <name value="SexForClinicalUse"/>
+  <name value="sexForClinicalUseCS"/>
+  <title value="Sex For Clinical Use"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <description value="This code System defines a set of codes that can be used to indicate a patient&#39;s sex for clinical use."/>
+  <description value="Codes that represent a sex characterization that can be associated with a specific clinical context"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <property> 

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="recorded-sex-or-gender-source-field"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/recorded-sex-or-gender-source-field"/>
+  <name value="recordedSexOrGenderFieldName"/>
+  <title value="Recorded Sex Or Gender Field Name"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Codes that represent the sex characterization appropriate for the associated clinical context."/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <concept>
+        <code value="46098-0"/>
+        <display value="Sex"/>
+      </concept>
+      <concept>
+        <code value="76689-9"/>
+        <display value="Sex assigned at birth"/>
+      </concept>
+      <concept>
+        <code value="76691-5"/>
+        <display value="Gender identity"/>
+      </concept>
+    </include>
+	<include>
+      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+      <concept>
+        <code value="0010,0040"/>
+        <display value="Patient's Sex"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
