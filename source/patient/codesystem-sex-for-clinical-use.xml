@@ -11,7 +11,7 @@
   <url value="http://terminology.hl7.org/CodeSystem/sex-for-clinical-use"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.983"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.983"/>
   </identifier>
   <name value="sexForClinicalUseCS"/>
   <title value="Sex For Clinical Use"/>
