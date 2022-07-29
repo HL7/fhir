@@ -2,6 +2,9 @@
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="valueset-author"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="deprecated"/>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
   </extension>
@@ -14,7 +17,7 @@
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="The entity or set of entities that create and may modify the Value Set Definition content. The name of a group or an individual, along with contact details."/>
+  <description value="The entity or set of entities that create and may modify the Value Set Definition content. The name of a group or an individual, along with contact details. (deprecated)"/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
@@ -33,9 +36,9 @@
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="Entity/entities that create and may modify the Value Set"/>
-      <definition value="The entity or set of entities that create and may modify the Value Set Definition content. The name of a group or an individual, along with contact details."/>
-      <comment value="This can be any combination of groups or individuals. When known and actively maintained, this should be populated. The information included about the Author may include contact information."/>
+      <short value="Entity/entities that create and may modify the Value Set (deprecated)"/>
+      <definition value="The entity or set of entities that create and may modify the Value Set Definition content. The name of a group or an individual, along with contact details. (deprecated)"/>
+      <comment value="This can be any combination of groups or individuals. When known and actively maintained, this should be populated. The information included about the Author may include contact information. This extension is deprecated, use the author element of the ValueSet resource instead."/>
       <min value="0"/>
       <max value="*"/>
       <isModifier value="false"/>
