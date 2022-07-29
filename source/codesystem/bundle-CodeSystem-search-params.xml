@@ -410,4 +410,66 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-effective"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CodeSystem.effectivePeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MetadataResource-effective"/>
+        <description value="The time during which the CodeSystem is intended to be in use"/>
+        <code value="effective"/>
+        <type value="date"/>
+        <expression value="CodeSystem.effectivePeriod"/>
+        <xpath value="f:CodeSystem/f:effectivePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CodeSystem.relatedArtifact.resource"/>
+        </extension>
+        <description value="A resource that the CodeSystem is derived from"/>
+        <code value="derived-from"/>
+        <type value="reference"/>
+        <expression value="CodeSystem.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
+        <xpath value="f:CodeSystem/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CodeSystem.relatedArtifact.resource"/>
+        </extension>
+        <description value="The successor of the CodeSystem"/>
+        <code value="successor"/>
+        <type value="reference"/>
+        <expression value="CodeSystem.relatedArtifact.where(type=&#39;successor&#39;).resource"/>
+        <xpath value="f:CodeSystem/f:relatedArtifact[f:type/@value=&#39;successor&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CodeSystem.topic"/>
+        </extension>
+        <description value="Topics associated with the CodeSystem"/>
+        <code value="topic"/>
+        <type value="token"/>
+        <expression value="CodeSystem.topic"/>
+        <xpath value="f:CodeSystem/f:topic"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
