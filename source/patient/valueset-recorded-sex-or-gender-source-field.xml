@@ -20,6 +20,7 @@
     </telecom>
   </contact>
   <description value="Codes that represent the sex characterization appropriate for the associated clinical context."/>
+  <copyright value="This content from LOINC&#xAE; is copyright &#xA9; 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
   <compose>
     <include>
       <system value="http://loinc.org"/>
