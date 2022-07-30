@@ -68,7 +68,7 @@
     <resource value="http://hl7.org/fhir/CodeSystem/example"/>
   </relatedArtifact>
   <relatedArtifact>
-    <type value="successor"/>
+    <type value="predecessor"/>
     <resource value="http://hl7.org/fhir/CodeSystem/example-metadata|20210701"/>
   </relatedArtifact>
   

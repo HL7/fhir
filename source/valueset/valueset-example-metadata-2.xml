@@ -4,6 +4,7 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
+  <!-- NOTE: This is supposed to be example-metadata, but the specification publisher is requiring a URL -->
   <url value="http://hl7.org/fhir/ValueSet/example-metadata-2"/>
   <version value="20220721"/>
 
@@ -68,7 +69,7 @@
     <resource value="http://hl7.org/fhir/ValueSet/example"/>
   </relatedArtifact>
   <relatedArtifact>
-    <type value="successor"/>
+    <type value="predecessor"/>
     <resource value="http://hl7.org/fhir/ValueSet/example-metadata|20210701"/>
   </relatedArtifact>
   
