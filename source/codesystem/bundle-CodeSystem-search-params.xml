@@ -450,11 +450,11 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CodeSystem.relatedArtifact.resource"/>
         </extension>
-        <description value="The successor of the CodeSystem"/>
-        <code value="successor"/>
+        <description value="The predecessor of the CodeSystem"/>
+        <code value="predecessor"/>
         <type value="reference"/>
-        <expression value="CodeSystem.relatedArtifact.where(type=&#39;successor&#39;).resource"/>
-        <xpath value="f:CodeSystem/f:relatedArtifact[f:type/@value=&#39;successor&#39;]/f:resource"/>
+        <expression value="CodeSystem.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
+        <xpath value="f:CodeSystem/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
       </SearchParameter>
     </resource>
   </entry>

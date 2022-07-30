@@ -410,11 +410,11 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ValueSet.relatedArtifact.resource"/>
         </extension>
-        <description value="The successor of the ValueSet"/>
-        <code value="successor"/>
+        <description value="The predecessor of the ValueSet"/>
+        <code value="predecessor"/>
         <type value="reference"/>
-        <expression value="ValueSet.relatedArtifact.where(type=&#39;successor&#39;).resource"/>
-        <xpath value="f:ValueSet/f:relatedArtifact[f:type/@value=&#39;successor&#39;]/f:resource"/>
+        <expression value="ValueSet.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
+        <xpath value="f:ValueSet/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
       </SearchParameter>
     </resource>
   </entry>

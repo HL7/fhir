@@ -530,4 +530,66 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ConceptMap-effective"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ConceptMap.effectivePeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MetadataResource-effective"/>
+        <description value="The time during which the ConceptMap is intended to be in use"/>
+        <code value="effective"/>
+        <type value="date"/>
+        <expression value="ConceptMap.effectivePeriod"/>
+        <xpath value="f:ConceptMap/f:effectivePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ConceptMap.relatedArtifact.resource"/>
+        </extension>
+        <description value="A resource that the ConceptMap is derived from"/>
+        <code value="derived-from"/>
+        <type value="reference"/>
+        <expression value="ConceptMap.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
+        <xpath value="f:ConceptMap/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ConceptMap.relatedArtifact.resource"/>
+        </extension>
+        <description value="The predecessor of the ConceptMap"/>
+        <code value="predecessor"/>
+        <type value="reference"/>
+        <expression value="ConceptMap.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
+        <xpath value="f:ConceptMap/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ConceptMap.topic"/>
+        </extension>
+        <description value="Topics associated with the ConceptMap"/>
+        <code value="topic"/>
+        <type value="token"/>
+        <expression value="ConceptMap.topic"/>
+        <xpath value="f:ConceptMap/f:topic"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
