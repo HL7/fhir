@@ -11107,6 +11107,11 @@
     <display value="Malignant tumour of craniopharyngeal duct"/>
     <display value="Malignant tumor of craniopharyngeal duct (disorder)"/>
   </concept>
+  <concept id="18850004" display="Laboratory hematologist">
+    <display value="Laboratory hematologist"/>
+    <display value="Laboratory haematologist"/>
+    <display value="Laboratory hematologist (occupation)"/>
+  </concept>
   <concept id="18911002" display="Penis">
     <display value="Penis"/>
     <display value="Penile structure"/>
@@ -12631,6 +12636,11 @@
   <concept id="32297006" display="Boar power pig 48">
     <display value="Boar power pig 48"/>
     <display value="Boar power pig 48 (organism)"/>
+  </concept>
+  <concept id="323418000" display="Penicillin V (as penicillin V potassium) 25 mg/mL oral solution">
+    <display value="Penicillin V (as penicillin V potassium) 25 mg/mL oral solution"/>
+    <display value="Phenoxymethylpenicillin (as phenoxymethylpenicillin potassium) 25 mg/mL oral solution"/>
+    <display value="Product containing precisely phenoxymethylpenicillin (as phenoxymethylpenicillin potassium) 25 milligram/1 milliliter conventional release oral solution (clinical drug)"/>
   </concept>
   <concept id="32361000" display="Popliteal fossa">
     <display value="Popliteal fossa"/>
