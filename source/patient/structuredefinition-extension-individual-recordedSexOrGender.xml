@@ -274,7 +274,7 @@
       <path value="Extension.extension.value[x]"/>
       <min value="1"/>
       <type>
-        <code value="CodeableReference"/>
+        <code value="Reference"/>
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
     </element>
