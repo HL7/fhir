@@ -11,21 +11,21 @@
         <text value="Homo sapiens"/>
     </species>
     <relative>
-        <reference>
-            <referenceSeqId>
+        <startingSequence>
+            <sequenceCodeableConcept>
                 <coding>
                     <system value="http://www.ensembl.org/"/>
                     <code value="ENSP00000252486"/>
                 </coding>
-            </referenceSeqId>
+            </sequenceCodeableConcept>
             <windowStart value="40"/>
             <windowEnd value="52"/>
-        </reference>
+        </startingSequence>
         <edit>
             <start value="46"/>
             <end value="47"/>
-            <observedAllele value="L"/>
-            <referenceAllele value="P"/>
+            <replacementSequence value="L"/>
+            <replacedSequence value="P"/>
         </edit>
     </relative>
 </MolecularSequence>
