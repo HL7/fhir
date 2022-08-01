@@ -27,7 +27,7 @@
     <valueCode value=".status = retired"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-    <valueString value="CanonicalResource"/>
+    <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
   <version value="4.6.0"/>
