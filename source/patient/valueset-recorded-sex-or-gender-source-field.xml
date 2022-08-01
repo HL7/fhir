@@ -9,7 +9,11 @@
     <valueCode value="pa"/>
   </extension>
   <url value="http://terminology.hl7.org/ValueSet/recorded-sex-or-gender-source-field"/>
-  <name value="recordedSexOrGenderFieldName"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.11.19757"/>
+  </identifier>
+  <name value="rsg-FieldName"/>
   <title value="Recorded Sex Or Gender Field Name"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
