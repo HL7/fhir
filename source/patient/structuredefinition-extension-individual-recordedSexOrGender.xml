@@ -122,6 +122,43 @@
 		  <valueSet value="http://terminology.hl7.org/ValueSet/international-civil-aviation-organization-sex-or-gender"/>
 	  </binding>
     </element>	
+    <element id="Extension.extension:type">
+      <path value="Extension.extension"/>
+      <sliceName value="type"/>
+      <short value="The name of the field within the source document where this sex or gender property is initially recorded."/>
+      <definition value="The name of the field within the source document where this sex or gender property is initially recorded."/>
+      <comment value="For example, if a sex value is acquired from a driver's license, and the name of the field on that driver's license is 'SEX', then a code describing that field can be provided.  If the semantics of the field are known, they may be described in the comment.  For example, if the 'SEX' field on a license in a particular state or province is populated based on an individual's indication of what gender they consider themselves to be, but the field label is 'SEX' for historical reasons, a comment describing that the semantics of the field align with gender identity, even though the field name is 'SEX' can be provided."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:type.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:type.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="type"/>
+    </element>
+    <element id="Extension.extension:type.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableConcept"/>		
+      </type>
+	  <binding>
+		  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+			<valueString value="recordedSexOrGenderType"/>
+		  </extension>
+		  <strength value="extensible"/>
+		  <valueSet value="http://terminology.hl7.org/ValueSet/recorded-sex-or-gender-type"/>
+	  </binding>
+    </element>		
 	<element id="Extension.extension:sourceField">
       <path value="Extension.extension"/>
       <sliceName value="sourceField"/>
@@ -149,15 +186,8 @@
       <path value="Extension.extension.value[x]"/>
       <min value="1"/>
       <type>
-        <code value="CodeableConcept"/>		
+        <code value="string"/>		
       </type>
-	  <binding>
-		  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-			<valueString value="recordedSexOrGenderSourceField"/>
-		  </extension>
-		  <strength value="preferred"/>
-		  <valueSet value="http://terminology.hl7.org/ValueSet/recorded-sex-or-gender-source-field"/>
-	  </binding>
     </element>
 	<element id="Extension.extension:acquisitionDate">
       <path value="Extension.extension"/>
