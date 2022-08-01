@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<CodeSystem xmlns="http://hl7.org/fhir">
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="example-metadata-2"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <url value="http://hl7.org/fhir/CodeSystem/example-metadata"/>
+  <!-- NOTE: This is supposed to be example-metadata, but the specification publisher is requiring a URL -->
+  <url value="http://hl7.org/fhir/ValueSet/example-metadata-2"/>
   <version value="20220721"/>
 
   <name value="ExampleMetadata"/>
@@ -20,7 +21,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This is an example code system that illustrates usage of the metadata resource elements introduced in R5"/>
+  <description value="This is an example value set that illustrates usage of the metadata resource elements introduced in R5"/>
 
   <approvalDate value="2021-07-21"/>
   <lastReviewDate value="2022-07-21"/>
@@ -36,63 +37,47 @@
     </coding>
   </topic>
   <author>
-    <name value="ACME CodeSystem Development"/>
+    <name value="ACME ValueSet Development"/>
     <telecom>
       <system value="url"/>
       <value value="http://acme.org/development"/>
     </telecom>
   </author>
   <editor>
-    <name value="ACME CodeSystem Management"/>
+    <name value="ACME ValueSet Management"/>
     <telecom>
       <system value="url"/>
       <value value="http://acme.org/managememnt"/>
     </telecom>
   </editor>
   <reviewer>
-    <name value="Society for Creative Codesystem Review"/>
+    <name value="Society for Creative ValueSet Review"/>
     <telecom>
       <system value="url"/>
-      <value value="http://example.org/sccr"/>
+      <value value="http://example.org/scvr"/>
     </telecom>
   </reviewer>
   <endorser>
-    <name value="National Foundation for CodeSystem Quality"/>
+    <name value="National Foundation for ValueSet Quality"/>
     <telecom>
       <system value="url"/>
-      <value value="http://example.org/nfcq"/>
+      <value value="http://example.org/nfvq"/>
     </telecom>
   </endorser>
   <relatedArtifact>
     <type value="derived-from"/>
-    <resource value="http://hl7.org/fhir/CodeSystem/example"/>
+    <resource value="http://hl7.org/fhir/ValueSet/example"/>
   </relatedArtifact>
   <relatedArtifact>
     <type value="predecessor"/>
-    <resource value="http://hl7.org/fhir/CodeSystem/example-metadata|20210701"/>
+    <resource value="http://hl7.org/fhir/ValueSet/example-metadata|20210701"/>
   </relatedArtifact>
   
-  <caseSensitive value="true"/>
-  <content value="complete"/>
-  
-  <concept>
-    <code value="A"/>
-    <display value="A"/>
-    <definition value="A"/>
-  </concept>
-  <concept>
-    <code value="B"/>
-    <display value="B"/>
-    <definition value="B"/>
-  </concept>
-  <concept>
-    <code value="C"/>
-    <display value="C"/>
-    <definition value="C"/>
-  </concept>
-  <concept>
-    <code value="D"/>
-    <display value="D"/>
-    <definition value="D"/>
-  </concept>
-</CodeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/CodeSystem/example-metadata"/>
+      <version value="20220721"/>
+    </include>
+  </compose>
+
+</ValueSet>
