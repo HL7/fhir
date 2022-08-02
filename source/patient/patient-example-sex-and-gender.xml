@@ -78,7 +78,7 @@
 				<start value="1974-12-25"/>
 			</valuePeriod>
 		</extension>
-		<extension url="aquisitionDate">
+		<extension url="acquisitionDate">
 			<valueDateTime value="2005-12-06"/>
 		</extension>
 		<extension url="sourceDocument">
@@ -138,7 +138,7 @@
 				<start value="2021-05-25"/>
 			</valuePeriod>
 		</extension>
-		<extension url="aquisitionDate">
+		<extension url="acquisitionDate">
 			<valueDateTime value="2021-06-06"/>
 		</extension>
 		<extension url="sourceDocument">
