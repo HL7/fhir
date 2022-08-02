@@ -188,6 +188,8 @@
 			<valueReference>
 				<reference value="Observation/1"/>
 			</valueReference>
+		</extension>
+		<extension url="supportingInfo">
 			<!-- MedicationUsage indicating patient underwent hormone therapy -->
 			<valueReference>
 				<reference value="MedicationUsage/2"/>
