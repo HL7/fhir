@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="shareablevalueset"/>
+  <id value="shareablenamingsystem"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="5"/>
+    <valueInteger value="1"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
@@ -15,15 +15,15 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/shareablenamingsystem"/>
   <version value="4.6.0"/>
-  <name value="ShareableValueSet"/>
-  <title value="Shareable ValueSet"/>
+  <name value="ShareableNamingSystem"/>
+  <title value="Shareable NamingSystem"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="Enforces the minimum information set for the value set metadata required by HL7 and other organizations that share and publish value sets"/>
+  <description value="Enforces the minimum information set for the naming system metadata required by HL7 and other organizations that share and publish naming systems"/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
@@ -47,17 +47,17 @@
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
-  <type value="ValueSet"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+  <type value="NamingSystem"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
   <derivation value="constraint"/>
   <differential>
-    <element id="ValueSet">
-      <path value="ValueSet"/>
+    <element id="NamingSystem">
+      <path value="NamingSystem"/>
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="ValueSet.extension:knowledgeRepresentationLevel">
-      <path value="ValueSet.extension"/>
+    <element id="NamingSystem.extension:knowledgeRepresentationLevel">
+      <path value="NamingSystem.extension"/>
       <sliceName value="knowledgeRepresentationLevel"/>
       <min value="0"/>
       <max value="*"/>
@@ -67,55 +67,48 @@
       </type>
       <mustSupport value="true"/>
     </element>
-    <element id="ValueSet.extension:authoritativeSource">
-      <path value="ValueSet.extension"/>
-      <sliceName value="authoritativeSource"/>
-      <min value="0"/>
+    <element id="NamingSystem.url">
+      <path value="NamingSystem.url"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="NamingSystem.version">
+      <path value="NamingSystem.version"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="Extension"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-authoritativeSource"/>
+        <code value="string"/>
       </type>
       <mustSupport value="true"/>
     </element>
-    <element id="ValueSet.url">
-      <path value="ValueSet.url"/>
+    <element id="NamingSystem.name">
+      <path value="NamingSystem.name"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="NamingSystem.title">
+      <path value="NamingSystem.title"/>
       <min value="1"/>
       <max value="1"/>
       <mustSupport value="true"/>
     </element>
-    <element id="ValueSet.version">
-      <path value="ValueSet.version"/>
-      <min value="1"/>
+    <element id="NamingSystem.status">
+      <path value="NamingSystem.status"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="NamingSystem.experimental">
+      <path value="NamingSystem.experimental"/>
+      <!-- TODO: This should be required, but the validator is failing instances that have an experimental... -->
+      <min value="0"/>
       <max value="1"/>
       <mustSupport value="true"/>
     </element>
-    <element id="ValueSet.name">
-      <path value="ValueSet.name"/>
+    <element id="NamingSystem.publisher">
+      <path value="NamingSystem.publisher"/>
       <mustSupport value="true"/>
     </element>
-    <element id="ValueSet.title">
-      <path value="ValueSet.title"/>
-      <min value="1"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ValueSet.status">
-      <path value="ValueSet.status"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ValueSet.experimental">
-      <path value="ValueSet.experimental"/>
-      <min value="1"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ValueSet.publisher">
-      <path value="ValueSet.publisher"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ValueSet.description">
-      <path value="ValueSet.description"/>
+    <element id="NamingSystem.description">
+      <path value="NamingSystem.description"/>
       <min value="1"/>
       <max value="1"/>
       <mustSupport value="true"/>
