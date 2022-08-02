@@ -3,13 +3,23 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="ConceptMap-core"/>
   <version value="0.01"/>
-  <name value="ConceptMap HL7 Extensions"/>
-  <title value="ConceptMap HL7 Extensions"/>
+  <name value="ConceptMapCore"/>
+  <title value="ConceptMap Core"/>
   <status value="draft"/>
   <date value="1970-01-01T10:00:00+10:00"/>
   <publisher value="HL7"/>
   <description value="Defines common extensions used with or related to the ConceptMap resource"/>
   <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/shareableconceptmap"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/publishableconceptmap"/>
+      </reference>
+    </resource>
     <resource>
       <reference>
         <reference value="StructureDefinition/concept-bidirectional"/>
