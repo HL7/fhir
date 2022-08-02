@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="publishablecodesystem"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/publishablecodesystem"/>
+  <version value="4.6.0"/>
+  <name value="PublishableCodeSystem"/>
+  <title value="Publishable CodeSystem"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="Defines and enforces the minimum expectations for publication and distribution of a code system, typically as part of an artifact repository or implementation guide publication"/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="CodeSystem"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="CodeSystem">
+      <path value="CodeSystem"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="CodeSystem.extension:sourceReference">
+      <path value="CodeSystem.extension"/>
+      <sliceName value="sourceReference"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/codesystem-sourceReference"/>
+      </type>
+    </element>
+    <element id="CodeSystem.extension:otherName">
+      <path value="CodeSystem.extension"/>
+      <sliceName value="otherName"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/codesystem-otherName"/>
+      </type>
+    </element>
+    <element id="CodeSystem.identifier">
+      <path value="CodeSystem.identifier"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="CodeSystem.date">
+      <path value="CodeSystem.date"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="CodeSystem.contact">
+      <path value="CodeSystem.contact"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="CodeSystem.useContext">
+      <path value="CodeSystem.useContext"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="CodeSystem.jurisdiction">
+      <path value="CodeSystem.jurisdiction"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="CodeSystem.purpose">
+      <path value="CodeSystem.purpose"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="CodeSystem.copyright">
+      <path value="CodeSystem.copyright"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="CodeSystem.approvalDate">
+      <path value="CodeSystem.approvalDate"/>
+    </element>
+    <element id="CodeSystem.lastReviewDate">
+      <path value="CodeSystem.lastReviewDate"/>
+    </element>
+    <element id="CodeSystem.effectivePeriod">
+      <path value="CodeSystem.effectivePeriod"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="CodeSystem.topic">
+      <path value="CodeSystem.topic"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="CodeSystem.author">
+      <path value="CodeSystem.author"/>
+    </element>
+    <element id="CodeSystem.editor">
+      <path value="CodeSystem.editor"/>
+    </element>
+    <element id="CodeSystem.reviewer">
+      <path value="CodeSystem.reviewer"/>
+    </element>
+    <element id="CodeSystem.endorser">
+      <path value="CodeSystem.endorser"/>
+    </element>
+    <element id="CodeSystem.relatedArtifact">
+      <path value="CodeSystem.relatedArtifact"/>
+    </element>
+  </differential>
+</StructureDefinition>
