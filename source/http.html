@@ -764,7 +764,7 @@ If the client wishes to request a version aware update, it submits the request w
 <code>If-Match</code> header that quotes the ETag from the server:
 </p>
 <pre class="http">
-PUT /Patient/347 HTTP/1.1
+PUT [base]/Patient/347 HTTP/1.1
 If-Match: W/"23"
 </pre>
 <p>
@@ -972,7 +972,7 @@ on how many matches are found:
 <p>
 This variant can be used to allow a stateless client (such as an interface engine) to delete
 a resource on a  server, without having to remember the logical ids that the server has assigned.
-For example, a client deleting a lab atomic result might delete the resource using <code>DELETE /Observation?identifier=http://my-lab-system|123</code>.
+For example, a client deleting a lab atomic result might delete the resource using <code>DELETE /[base]/Observation?identifier=http://my-lab-system|123</code>.
 </p>
 <p>
 Note that transactions and conditional create/update/delete are complex interactions and it is
