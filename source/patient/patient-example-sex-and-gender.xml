@@ -171,7 +171,7 @@
 			  <coding>
 				<system value="http://terminology.hl7.org/CodeSystem/sex-for-clinical-use"/>
 				<code value="specified"/>
-				<display value="Specified sex for clininical use"/>
+				<display value="Specified sex for clinical use"/>
 			  </coding>
 			</valueCodeableConcept>
 		</extension>
