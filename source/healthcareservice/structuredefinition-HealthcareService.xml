@@ -550,7 +550,7 @@
       <path value="HealthcareService.availableTime"/>
       <short value="Times the Service Site is available"/>
       <definition value="A collection of times that the Service Site is available."/>
-      <comment value="More detailed availability information may be provided in associated Schedule/Slot resources."/>
+      <comment value="More detailed availability information may be provided in associated Schedule/Slot resources.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;."/>
       <min value="0"/>
       <max value="*"/>
       <type>

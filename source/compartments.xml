@@ -17,6 +17,7 @@
   
   
   
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -70,7 +71,7 @@
     <Cell><Data ss:Type="String">Identification</Data></Cell>
     <Cell><Data ss:Type="String">Inclusion</Data></Cell>
    </Row>
-   <Row ss:Height="150">
+   <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell><Data ss:Type="String">Patient</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The set of resources associated with a particular patient</Data></Cell>
@@ -112,8 +113,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -278,9 +277,6 @@
     <Cell><Data ss:Type="String">ConceptMap</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ConceptMap2</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Condition</Data></Cell>
     <Cell><Data ss:Type="String">patient | participant-actor</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
@@ -346,7 +342,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
     <Cell><Data ss:Type="String">subject | author </Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">context</Data></Cell>
     <Cell><Data ss:Type="String">author </Data></Cell>
     <Cell><Data ss:Type="String">subject | author | attester</Data></Cell>
     <Cell><Data ss:Type="String">subject | author</Data></Cell>
@@ -697,6 +693,10 @@
     <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">GenomicStudy</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Task</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -792,7 +792,10 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceDispense</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Index="148">
+   <Row>
+    <Cell><Data ss:Type="String">FormularyItem</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Index="151">
@@ -826,10 +829,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>130</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

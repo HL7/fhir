@@ -79,6 +79,7 @@
         <expression value="ImagingSelection.subject.where(resolve() is Patient)"/>
         <xpath value="f:ImagingSelection/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>  <entry>
@@ -154,7 +155,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/ImagingSelection-derived-from"/>
         <description value="The DICOM Study Instance UID from which the images were selected"/>
         <code value="study-uid"/>
-        <type value="uri"/>
+        <type value="token"/>
         <expression value="ImagingSelection.studyUid"/>
         <xpath value="f:ImagingSelection/f:studyUid"/>
         <xpathUsage value="normal"/>

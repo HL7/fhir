@@ -432,6 +432,9 @@
 		<translation lang="fr">Drapeau</translation>
 		<translation lang="zh">标记</translation>
 	</item>
+	<item id="FormularyItem">
+		<translation lang="en">FormularyItem</translation>
+	</item>
 	<item id="GeneExpression">
 		<translation lang="en">GeneExpression</translation>
 		<translation lang="zh">基因表达</translation>
@@ -442,6 +445,9 @@
 		<translation lang="zh">基因分析</translation>
 		<translation lang="fr">AnalyseGénétique</translation>
 		<translation lang="it">AnalisiGenetica</translation>
+	</item>
+	<item id="GenomicStudy">
+		<translation lang="en">GenomicStudy</translation>
 	</item>
 	<item id="Goal">
 		<translation lang="en">Goal</translation>

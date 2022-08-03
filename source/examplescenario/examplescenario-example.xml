@@ -31,61 +31,61 @@
   <!-- Then define the resource instances -->
   <instance>
     <resourceId value="iherx001"/>
-    <resourceType value="MedicationRequest"/>
+    <type value="MedicationRequest"/>
     <name value="Initial Prescription"/>
     <description value="The initial prescription which describes &quot;medication X, 3 times per day&quot; - the exact scheduling is not   in the initial prescription (it is left for the care teams to decide on the schedule)."/>
   </instance>
   <instance>
     <resourceId value="iherx001.001"/>
-    <resourceType value="MedicationRequest"/>
+    <type value="MedicationRequest"/>
     <name value="Request for day 1, morning"/>
     <description value="The administration request for day 1, morning"/>
   </instance>
   <instance>
     <resourceId value="iherx001.002"/>
-    <resourceType value="MedicationRequest"/>
+    <type value="MedicationRequest"/>
     <name value="Request for day 1, lunch"/>
     <description value="The administration request for day 1, lunch"/>
   </instance>
   <instance>
     <resourceId value="iherx001.003"/>
-    <resourceType value="MedicationRequest"/>
+    <type value="MedicationRequest"/>
     <name value="Request for day 1, evening"/>
     <description value="The administration request for day 1, evening"/>
   </instance>
   <instance>
     <resourceId value="iherx001.004"/>
-    <resourceType value="MedicationRequest"/>
+    <type value="MedicationRequest"/>
     <name value="Request for day 2, morning"/>
     <description value="The administration request for day 2, morning"/>
   </instance>
   <instance>
     <resourceId value="iherx001.005"/>
-    <resourceType value="MedicationRequest"/>
+    <type value="MedicationRequest"/>
     <name value="Request for day 2, lunch"/>
     <description value="The administration request for day 2, lunch"/>
   </instance>
   <instance>
     <resourceId value="iherx001.006"/>
-    <resourceType value="MedicationRequest"/>
+    <type value="MedicationRequest"/>
     <name value="Request for day 2, evening"/>
     <description value="The administration request for day 2, evening"/>
   </instance>
   <instance>
     <resourceId value="iheadm001a"/>
-    <resourceType value="MedicationAdministration"/>
+    <type value="MedicationAdministration"/>
     <name value="Morning meds - taken"/>
     <description value="Administration report for day 1, morning: Taken"/>
   </instance>
   <instance>
     <resourceId value="iheadm001b"/>
-    <resourceType value="MedicationAdministration"/>
+    <type value="MedicationAdministration"/>
     <name value="Morning meds - not taken"/>
     <description value="Administration report for day 1, morning: NOT Taken"/>
   </instance>
   <instance>
     <resourceId value="iherx001bundle"/>
-    <resourceType value="MedicationRequest"/>
+    <type value="MedicationRequest"/>
     <name value="Bundle of Medication Requests"/>
     <description value="All the medication Requests for Day 1"/>
     <containedInstance>
@@ -109,7 +109,7 @@
   </instance>
   <instance>
     <resourceId value="iheadm002"/>
-    <resourceType value="MedicationAdministration"/>
+    <type value="MedicationAdministration"/>
     <name value="Lunch meds - taken"/>
     <description value="Administration report for day 1, lunch: Taken"/>
     <version>
@@ -124,7 +124,7 @@
   <!-- QUESTION: How to define search actions?-->
   <instance>
     <resourceId value="iherxqry"/>
-    <resourceType value="SearchParameter"/>
+    <type value="SearchParameter"/>
     <name value="Search query1"/>
     <description value="The search administration request for day 1, morning"/>
   </instance>

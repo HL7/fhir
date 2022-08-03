@@ -464,4 +464,13 @@
 		<sort>43</sort>
 		<publish>true</publish>
 	</space>
+	<space>
+	    <url>https://www.isbt128.org/uri/</url>
+		<link>https://www.isbt128.org/uri/</link>
+		<columnName>ISBT 128 Code</columnName>
+		<title>ISBT 128 Codes</title>
+		<id>ISBT128Code</id>
+		<sort>51</sort>
+		<publish>true</publish>
+	</space>
 </mappingSpaces>

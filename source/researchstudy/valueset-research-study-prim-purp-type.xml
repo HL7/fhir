@@ -46,7 +46,12 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/research-study-prim-purp-type"/>
+      <system value="http://hl7.org/fhir/research-study-classifiers"/>
+      <filter>
+	    <property value="concept"/>
+	    <op value="descendent-of"/>
+	    <value value="research-study-prim-purp-type"/>
+	  </filter>
     </include>
   </compose>
 </ValueSet>

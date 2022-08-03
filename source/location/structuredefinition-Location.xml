@@ -383,7 +383,7 @@
     <element id="Location.position.longitude">
       <path value="Location.position.longitude"/>
       <short value="Longitude with WGS84 datum"/>
-      <definition value="Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below)."/>
+      <definition value="Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes on Location main page)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -397,7 +397,7 @@
     <element id="Location.position.latitude">
       <path value="Location.position.latitude"/>
       <short value="Latitude with WGS84 datum"/>
-      <definition value="Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below)."/>
+      <definition value="Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes on Location main page)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -411,7 +411,7 @@
     <element id="Location.position.altitude">
       <path value="Location.position.altitude"/>
       <short value="Altitude with WGS84 datum"/>
-      <definition value="Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below)."/>
+      <definition value="Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes on Location main page)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -456,14 +456,14 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundLink[typeCode=PART].source[classCode=SDLC]"/>
+        <map value=".inboundLink[typeCode=PART].source[classCode=SDLOC]"/>
       </mapping>
     </element>
     <element id="Location.hoursOfOperation">
       <path value="Location.hoursOfOperation"/>
       <short value="What days/times during a week is this location usually open"/>
       <definition value="What days/times during a week is this location usually open."/>
-      <comment value="This type of information is commonly found published in directories and on websites informing customers when the facility is available.&#xA;&#xA;Specific services within the location may have their own hours which could be shorter (or longer) than the locations hours."/>
+      <comment value="This type of information is commonly found published in directories and on websites informing customers when the facility is available.&#xA;&#xA;Specific services within the location may have their own hours which could be shorter (or longer) than the locations hours.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;."/>
       <min value="0"/>
       <max value="*"/>
       <type>

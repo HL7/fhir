@@ -122,4 +122,18 @@ Mobile Services (kind)
     &lt;/search&gt;
 &lt;/entry&gt; 
 </pre>
+    <p>
+        Note: When sorting by the <b>near</b> search parameter the results can be considered an ordered set, 
+		even if the implementation does not provide calculated distances to the point provided. 
+		Given the variety of possible implementations, this ordering might not be dependable. 
+		If no bounding distance is provided via the search parameter, this can be considered as an ordered set of closest matches (up to an implied or explicit count).
+    </p>
+    <p>
+        If the expectation is that the response is ordered by near, then near MUST be provided as a search parameter in the request as well. 
+		A Bad Request will be returned if sorting by near is requested without the near search parameter.<br/>
+		For example:
+    </p>	
+<pre>
+ GET [base]/Location?near=-83.694810|42.256500|11.20|km&amp;_sortby=near
+</pre>	
 </div>

@@ -86,14 +86,14 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
       </constraint>
       <constraint>
         <key value="ig-2"/>
         <severity value="error"/>
-        <human value="If a resource has a fhirVersion, it must be oe of the versions defined for the Implementation Guide"/>
+        <human value="If a resource has a fhirVersion, it must be one of the versions defined for the Implementation Guide"/>
         <expression value="definition.resource.fhirVersion.all(%context.fhirVersion contains $this)"/>
         <xpath value="count(for $id in (f:resource/f:fhirVersion) return $id[not(ancestor::f:fhirVersion/@value=$id/@value)])=0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
@@ -578,7 +578,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="ImplementationGuide.definition.resource">
@@ -588,7 +588,7 @@
       <path value="ImplementationGuide.definition.resource"/>
       <short value="Resource in the implementation guide"/>
       <definition value="A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
@@ -630,7 +630,7 @@
     </element>
     <element id="ImplementationGuide.definition.resource.name">
       <path value="ImplementationGuide.definition.resource.name"/>
-      <short value="Human Name for the resource"/>
+      <short value="Human readable name for the resource"/>
       <definition value="A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name)."/>
       <min value="0"/>
       <max value="1"/>
@@ -646,7 +646,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="ImplementationGuide.definition.resource.example[x]">
@@ -668,7 +668,7 @@
       <path value="ImplementationGuide.definition.resource.groupingId"/>
       <short value="Grouping this is part of"/>
       <definition value="Reference to the id of the grouping this resource appears in."/>
-      <comment value="This must correspond to a package.id element within this implementation guide."/>
+      <comment value="This must correspond to a group.id element within this implementation guide."/>
       <min value="0"/>
       <max value="1"/>
       <type>

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="individual-recordedSexOrGender"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/individual-recordedSexOrGender"/>
+  <version value="4.6.0"/>
+  <name value="recordedSexOrGender"/>
+  <title value="recordedSexOrGender"/>
+  <status value="draft"/>
+  <date value="2022-01-28"/>
+  <publisher value="HL7"/>
+  <description value="The recorded sex and gender is to be used to differentiate existing sex or gender data. This element is used for existing 'sex' or 'gender' elements in a document or record when the intent and meaning is unclear. For example, the individual's birth certificate information, passport information, and national identity document information may all be present. This is necessary because an individual's documents may be updated at different rates or for different reasons. Sex assigned at birth (SAAB), while very common and considered essential in some jurisdictions, is considered a recorded sex and gender entry."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="Patient"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="RelatedPerson"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="Person"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="Practitioner"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="A recorded sex or gender property for the individual"/>
+      <definition value="A sex or gender property for the individual from a document or other record"/>
+      <min value="0"/>
+    </element>
+    <element id="Extension.extension:value">
+      <path value="Extension.extension"/>
+      <sliceName value="value"/>
+      <short value="The recorded sex or gender property for the individual"/>
+      <definition value="A sex or gender property for the individual from a document or other record"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:value.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:value.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="value"/>
+    </element>
+    <element id="Extension.extension:value.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+	  <binding>
+		  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+			<valueString value="recordedSexOrGender"/>
+		  </extension>
+		  <strength value="example"/>
+		  <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|4.6.0"/>
+	  </binding>
+    </element>	
+	<element id="Extension.extension:internationalEquivalent">
+      <path value="Extension.extension"/>
+      <sliceName value="internationalEquivalent"/>
+      <short value="An international representation of the value found on the document"/>
+      <definition value="An international representation of the value found on the document for interoperability and international legal purposes."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:internationalEquivalent.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:internationalEquivalent.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="internationalEquivalent"/>
+    </element>
+    <element id="Extension.extension:internationalEquivalent.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+	  <binding>
+		  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+			<valueString value="recordedSexOrGender"/>
+		  </extension>
+		  <strength value="extensible"/>
+		  <valueSet value="http://hl7.org/fhir/ValueSet/international-civil-aviation-organization-sex-or-gender"/>
+	  </binding>
+    </element>	
+	<element id="Extension.extension:type">
+      <path value="Extension.extension"/>
+      <sliceName value="type"/>
+      <short value="The source document where this sex or gender property is initially recorded."/>
+      <definition value="The source document where this sex or gender property is initially recorded."/>
+      <comment value="For example, if a driver's license is scanned, this property may reference that scanned document."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:type.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:type.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="type"/>
+    </element>
+    <element id="Extension.extension:type.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableConcept"/>		
+      </type>
+    </element>
+	<element id="Extension.extension:acquisitionDate">
+      <path value="Extension.extension"/>
+      <sliceName value="acquisitionDate"/>
+      <short value="When the sex or gender value was recorded."/>
+      <definition value="The date/time when the sex or gender value was first recorded in the system."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:acquisitionDate.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:acquisitionDate.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="acquisitionDate"/>
+    </element>
+    <element id="Extension.extension:acquisitionDate.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+	<element id="Extension.extension:effectivePeriod">
+      <path value="Extension.extension"/>
+      <sliceName value="effectivePeriod"/>
+      <short value="When the recorded sex or gender value applies"/>
+      <definition value="The time period during which the recorded sex or gender value applies to the individual"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:effectivePeriod.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:effectivePeriod.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="effectivePeriod"/>
+    </element>
+    <element id="Extension.extension:effectivePeriod.value[x]">
+      <path value="Extension.extension.value[x]"/>
+	  <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+	<element id="Extension.extension:sourceDocument">
+      <path value="Extension.extension"/>
+      <sliceName value="sourceDocument"/>
+      <short value="The document the sex or gender property was acquired from."/>
+      <definition value="The source document where this sex or gender property is initially recorded."/>
+      <comment value="For example, if a driver's license is scanned, this property may reference that scanned document."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:sourceDocument.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:sourceDocument.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="sourceDocument"/>
+    </element>
+    <element id="Extension.extension:sourceDocument.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+      </type>
+    </element>
+	<element id="Extension.extension:jurisdiction">
+      <path value="Extension.extension"/>
+      <sliceName value="jurisdiction"/>
+      <short value="Who issued the document where the sex or gender was aquired"/>
+      <definition value="The jurisdiction or organization that issued the document from which the sex or gender was aquired"/>
+      <comment value="For example, a individual's driver's license or passport would be issued by a specific state or country."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:jurisdiction.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:jurisdiction.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="jurisdiction"/>
+    </element>
+    <element id="Extension.extension:jurisdiction.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="Extension.extension:comment">
+      <path value="Extension.extension"/>
+      <sliceName value="comment"/>
+      <short value="Context or source information about the recorded sex or gender"/>
+      <definition value="Further explanation about the context or source of the recorded sex or gender value"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:comment.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:comment.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="comment"/>
+    </element>
+    <element id="Extension.extension:comment.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/individual-recordedSexOrGender"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+	  <min value="0"/>
+      <max value="0"/>
+    </element>
+  </differential>
+</StructureDefinition>

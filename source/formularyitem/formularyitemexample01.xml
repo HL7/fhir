@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FormularyItem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/formularyitem.xsd">
+  <id value="formularyitemexample01"/>
+
+  <!-- insert contents here -->
+  
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="323418000"/>
+      <display value="Phenoxymethylpenicillin 125mg/5mL oral solution (product)"/>
+    </coding>  
+    <coding>
+      <system value="http://nehta.gov.au/amt/v2"/>
+      <code value="22571011000036102"/>
+      <display value="phenoxymethylpenicillin 125 mg / 5 mL oral liquid, 5 mL measure"/>
+    </coding>  
+  </code>  
+  
+</FormularyItem>

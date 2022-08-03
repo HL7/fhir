@@ -9,10 +9,11 @@
 	<status value="completed"/>
 	<!--Encounter has finished-->
 	<class>
-		<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-		<code value="AMB"/>
-		<!-- outpatient encounter for chemotherapy -->
-		<display value="ambulatory"/>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+			<code value="AMB"/><!-- outpatient encounter for chemotherapy -->
+			<display value="ambulatory"/>
+		</coding>
 	</class>
 	<type>
 		<coding>
@@ -76,7 +77,7 @@
 		</use>
 		<rank value="1"/>
 	</diagnosis>
-	<!--No hospitalization was deemed necessary-->
+	<!--No admission was deemed necessary-->
 	<serviceProvider>
 		<reference value="Organization/f201"/>
 	</serviceProvider>

@@ -54,18 +54,6 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="ValueSet Example showing how to specify a hierarchy for UI using extensions"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="valueset-example-hierarchical"/>
-    </extension>
-    <item>
-      <reference value="ValueSet/example-hierarchical"/>
-      <display value="Hierarchical"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Common UCUM codes"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
@@ -122,6 +110,30 @@
     <item>
       <reference value="ValueSet/inactive"/>
       <display value="inactive"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Value Set Metadata"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="valueset-example-metadata"/>
+    </extension>
+    <item>
+      <reference value="ValueSet/example-metadata"/>
+      <display value="Metadata"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Value Set Metadata v2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="valueset-example-metadata-2"/>
+    </extension>
+    <item>
+      <reference value="ValueSet/example-metadata-2"/>
+      <display value="Metadata v2"/>
     </item>
   </entry>
 </List>

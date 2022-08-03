@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BiologicallyDerivedProduct xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/BiologicallyDerivedProduct.xsd">
+  <id value="autologousHCT"/>
+  <!-- <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
+  </text> -->    
+  <productCategory>
+   <code value="cells" />
+  </productCategory>
+  <productCode>
+  		<code value="S1127" />
+  </productCode>
+  <request>
+    <reference value="BiologicallyDerivedProduct/HCTcollection-servicerequest" />
+    <display value="Service Request for HCT Collection"/>    
+  </request>
+  <identifier>
+    <system value="https://www.isbt128.org/uri/SingleEuropeanCode" />
+    <value value="PL001499Z549917123456 A00T041600320171231" /> 
+  </identifier>
+  <biologicalSourceEvent>
+    <system value="https://www.isbt128.org/uri/DonationIdentificationNumber" />
+	  <value value="W000022000687" />
+  </biologicalSourceEvent>
+  <processingFacility>
+    <reference value="Organization/Example" />
+  </processingFacility>
+  <division value="A00000" />
+  <productStatus>
+       <code  value="available" />
+  </productStatus>
+  <expirationDate value="2028-08-02T23:59:00-05:00"/>
+  <collection>
+    <source>
+		  <reference value="Patient/example-a"/>
+	  <display value="HCT Collection"/>
+    </source>
+  </collection>
+  <storageTempRequirements>
+    <high>
+      <value value="-120" />
+      <unit value="degrees C" /> 
+      <system value="http://unitsofmeasure.org"/>     
+    </high>
+  </storageTempRequirements>
+  <property>
+    <type>
+      <code value="62" />
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="https://www.isbt128.org/uri/ABORhD"/>
+	  	  <code value="62" />
+        <display value="A RhD Positive" />
+      </coding>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+        <code value="CollectionType"/>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="https://www.isbt128.org/uri/CollectionType"/>
+	  	  <code value="1"/>
+        <display value="For Autologous Use Only"/>
+      </coding>
+    </valueCodeableConcept>	
+  </property>
+  <property>
+    <type>
+        <code value="BagVolume" />			
+    </type>
+    <valueQuantity>
+      <value value="50" />
+      <unit value="mL" />
+      <system value= "http://unitsofmeasure.org"/>
+    </valueQuantity>	
+  </property>
+  <property>
+    <type>
+        <code value="74838-4"/>
+    </type>
+    <valueQuantity>
+      <value value="2.6" />
+      <unit value="10*6/mL" />
+      <system value= "https://ucum.org/"/>
+    </valueQuantity>	
+  </property>
+</BiologicallyDerivedProduct>
+  

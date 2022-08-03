@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Claim"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -112,7 +112,7 @@
       <short value="active | cancelled | draft | entered-in-error"/>
       <definition value="The status of the resource instance."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
-      <requirements value="Need to track the status of the resource as &#39;draft&#39; resources may undergo further edits while &#39;active&#39; resources are immutable and may only have their status changed to &#39;cancelled&#39;."/>
+      <requirements value="Need to track the status of the resource as 'draft' resources may undergo further edits while 'active' resources are immutable and may only have their status changed to 'cancelled'."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -360,7 +360,7 @@
       <short value="For whom to reserve funds"/>
       <definition value="A code to indicate whether and for whom funds are to be reserved for future claims."/>
       <comment value="This field is only used for preauthorizations."/>
-      <requirements value="In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved (&#39;Patient&#39; or &#39;Provider&#39;) to pay for the Benefits determined on the subsequent claim(s). &#39;None&#39; explicitly indicates no funds reserving is requested."/>
+      <requirements value="In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested."/>
       <alias value="Fund pre-allocation"/>
       <min value="0"/>
       <max value="1"/>
@@ -463,7 +463,7 @@
       <path value="Claim.originalPrescription"/>
       <short value="Original prescription if superseded by fulfiller"/>
       <definition value="Original prescription which has been superseded by this prescription to support the dispensing of pharmacy services, medications or products."/>
-      <comment value="For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefore issues a new prescription for an alternate medication which has the same therapeutic intent. The prescription from the pharmacy becomes the &#39;prescription&#39; and that from the physician becomes the &#39;original prescription&#39;."/>
+      <comment value="For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefore issues a new prescription for an alternate medication which has the same therapeutic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'."/>
       <requirements value="Often required when a fulfiller varies what is fulfilled from that authorized on the original prescription."/>
       <min value="0"/>
       <max value="1"/>
@@ -518,8 +518,8 @@
       <path value="Claim.payee.party"/>
       <short value="Recipient reference"/>
       <definition value="Reference to the individual or organization to whom any payment will be made."/>
-      <comment value="Not required if the payee is &#39;subscriber&#39; or &#39;provider&#39;."/>
-      <requirements value="Need to provide demographics if the payee is not &#39;subscriber&#39; nor &#39;provider&#39;."/>
+      <comment value="Not required if the payee is 'subscriber' or 'provider'."/>
+      <requirements value="Need to provide demographics if the payee is not 'subscriber' nor 'provider'."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1011,7 +1011,7 @@
       <path value="Claim.insurance"/>
       <short value="Patient insurance information"/>
       <definition value="Financial instruments for reimbursement for the health care products and services specified on the claim."/>
-      <comment value="All insurance coverages for the patient which may be applicable for reimbursement, of the products and services listed in the claim, are typically provided in the claim to allow insurers to confirm the ordering of the insurance coverages relative to local &#39;coordination of benefit&#39; rules. One coverage (and only one) with &#39;focal=true&#39; is to be used in the adjudication of this claim. Coverages appearing before the focal Coverage in the list, and where &#39;Coverage.subrogation=false&#39;, should provide a reference to the ClaimResponse containing the adjudication results of the prior claim."/>
+      <comment value="All insurance coverages for the patient which may be applicable for reimbursement, of the products and services listed in the claim, are typically provided in the claim to allow insurers to confirm the ordering of the insurance coverages relative to local 'coordination of benefit' rules. One coverage (and only one) with 'focal=true' is to be used in the adjudication of this claim. Coverages appearing before the focal Coverage in the list, and where 'Coverage.subrogation=false', should provide a reference to the ClaimResponse containing the adjudication results of the prior claim."/>
       <requirements value="At least one insurer is required for a claim to be a claim."/>
       <min value="1"/>
       <max value="*"/>
@@ -1040,7 +1040,7 @@
       <path value="Claim.insurance.focal"/>
       <short value="Coverage to be used for adjudication"/>
       <definition value="A flag to indicate that this Coverage is to be used for adjudication of this claim when set to true."/>
-      <comment value="A patient may (will) have multiple insurance policies which provide reimbursement for healthcare services and products. For example a person may also be covered by their spouse&#39;s policy and both appear in the list (and may be from the same insurer). This flag will be set to true for only one of the listed policies and that policy will be used for adjudicating this claim. Other claims would be created to request adjudication against the other listed policies."/>
+      <comment value="A patient may (will) have multiple insurance policies which provide reimbursement for healthcare services and products. For example a person may also be covered by their spouse's policy and both appear in the list (and may be from the same insurer). This flag will be set to true for only one of the listed policies and that policy will be used for adjudicating this claim. Other claims would be created to request adjudication against the other listed policies."/>
       <requirements value="To identify which coverage in the list is being used to adjudicate this claim."/>
       <min value="1"/>
       <max value="1"/>
@@ -1053,7 +1053,7 @@
       <path value="Claim.insurance.identifier"/>
       <short value="Pre-assigned Claim number"/>
       <definition value="The business identifier to be used when the claim is sent for adjudication against this insurance policy."/>
-      <comment value="Only required in jurisdictions where insurers, rather than the provider, are required to send claims to  insurers that appear after them in the list. This element is not required when &#39;subrogation=true&#39;."/>
+      <comment value="Only required in jurisdictions where insurers, rather than the provider, are required to send claims to  insurers that appear after them in the list. This element is not required when 'subrogation=true'."/>
       <requirements value="This will be the claim number should it be necessary to create this claim in the future. This is provided so that payors may forward claims to other payors in the Coordination of Benefit for adjudication rather than the provider being required to initiate each adjudication."/>
       <min value="0"/>
       <max value="1"/>
@@ -1072,7 +1072,7 @@
     <element id="Claim.insurance.coverage">
       <path value="Claim.insurance.coverage"/>
       <short value="Insurance information"/>
-      <definition value="Reference to the insurance card level information contained in the Coverage resource. The coverage issuing insurer will use these details to locate the patient&#39;s actual coverage within the insurer&#39;s information system."/>
+      <definition value="Reference to the insurance card level information contained in the Coverage resource. The coverage issuing insurer will use these details to locate the patient's actual coverage within the insurer's information system."/>
       <requirements value="Required to allow the adjudicator to locate the correct policy and history within their information system."/>
       <min value="1"/>
       <max value="1"/>
@@ -1109,7 +1109,7 @@
       <path value="Claim.insurance.claimResponse"/>
       <short value="Adjudication results"/>
       <definition value="The result of the adjudication of the line items for the Coverage specified in this insurance."/>
-      <comment value="Must not be specified when &#39;focal=true&#39; for this insurance."/>
+      <comment value="Must not be specified when 'focal=true' for this insurance."/>
       <requirements value="An insurer need the adjudication results from prior insurers to determine the outstanding balance remaining by item for the items in the curent claim."/>
       <min value="0"/>
       <max value="1"/>
@@ -1193,7 +1193,7 @@
       </extension>
       <path value="Claim.item"/>
       <short value="Product or service provided"/>
-      <definition value="A claim line. Either a simple  product or service or a &#39;group&#39; of details which can each be a simple items or groups of sub-details."/>
+      <definition value="A claim line. Either a simple  product or service or a 'group' of details which can each be a simple items or groups of sub-details."/>
       <requirements value="The items to be processed for adjudication."/>
       <min value="0"/>
       <max value="*"/>
@@ -1298,8 +1298,8 @@
     <element id="Claim.item.productOrService">
       <path value="Claim.item.productOrService"/>
       <short value="Billing, service, product, or drug code"/>
-      <definition value="When the value is a group code then this item collects a set of related claim details, otherwise this contains the product, service, drug or other billing code for the item."/>
-      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. &#39;glasses&#39; or &#39;compound&#39;."/>
+      <definition value="When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used."/>
+      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. 'glasses' or 'compound'."/>
       <requirements value="Necessary to state what was provided or done."/>
       <alias value="Drug Code"/>
       <alias value="Bill Code"/>
@@ -1433,8 +1433,8 @@
       <path value="Claim.item.factor"/>
       <short value="Price scaling factor"/>
       <definition value="A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount."/>
-      <comment value="To show a 10% senior&#39;s discount, the value entered is: 0.90 (1.00 - 0.10)."/>
-      <requirements value="When discounts are provided to a patient (example: Senior&#39;s discount) then this must be documented for adjudication."/>
+      <comment value="To show a 10% senior's discount, the value entered is: 0.90 (1.00 - 0.10)."/>
+      <requirements value="When discounts are provided to a patient (example: Senior's discount) then this must be documented for adjudication."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1530,7 +1530,7 @@
       </extension>
       <path value="Claim.item.detail"/>
       <short value="Product or service provided"/>
-      <definition value="A claim detail line. Either a simple (a product or service) or a &#39;group&#39; of sub-details which are simple items."/>
+      <definition value="A claim detail line. Either a simple (a product or service) or a 'group' of sub-details which are simple items."/>
       <requirements value="The items to be processed for adjudication."/>
       <min value="0"/>
       <max value="*"/>
@@ -1591,8 +1591,8 @@
     <element id="Claim.item.detail.productOrService">
       <path value="Claim.item.detail.productOrService"/>
       <short value="Billing, service, product, or drug code"/>
-      <definition value="When the value is a group code then this item collects a set of related claim details, otherwise this contains the product, service, drug or other billing code for the item."/>
-      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. &#39;glasses&#39; or &#39;compound&#39;."/>
+      <definition value="When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used."/>
+      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. 'glasses' or 'compound'."/>
       <requirements value="Necessary to state what was provided or done."/>
       <alias value="Drug Code"/>
       <alias value="Bill Code"/>
@@ -1678,8 +1678,8 @@
       <path value="Claim.item.detail.factor"/>
       <short value="Price scaling factor"/>
       <definition value="A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount."/>
-      <comment value="To show a 10% senior&#39;s discount, the value entered is: 0.90 (1.00 - 0.10)."/>
-      <requirements value="When discounts are provided to a patient (example: Senior&#39;s discount) then this must be documented for adjudication."/>
+      <comment value="To show a 10% senior's discount, the value entered is: 0.90 (1.00 - 0.10)."/>
+      <requirements value="When discounts are provided to a patient (example: Senior's discount) then this must be documented for adjudication."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1719,7 +1719,7 @@
       </extension>
       <path value="Claim.item.detail.subDetail"/>
       <short value="Product or service provided"/>
-      <definition value="A claim detail line. Either a simple (a product or service) or a &#39;group&#39; of sub-details which are simple items."/>
+      <definition value="A claim detail line. Either a simple (a product or service) or a 'group' of sub-details which are simple items."/>
       <requirements value="The items to be processed for adjudication."/>
       <min value="0"/>
       <max value="*"/>
@@ -1780,8 +1780,8 @@
     <element id="Claim.item.detail.subDetail.productOrService">
       <path value="Claim.item.detail.subDetail.productOrService"/>
       <short value="Billing, service, product, or drug code"/>
-      <definition value="When the value is a group code then this item collects a set of related claim details, otherwise this contains the product, service, drug or other billing code for the item."/>
-      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. &#39;glasses&#39; or &#39;compound&#39;."/>
+      <definition value="When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used."/>
+      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. 'glasses' or 'compound'."/>
       <requirements value="Necessary to state what was provided or done."/>
       <min value="1"/>
       <max value="1"/>
@@ -1864,8 +1864,8 @@
       <path value="Claim.item.detail.subDetail.factor"/>
       <short value="Price scaling factor"/>
       <definition value="A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount."/>
-      <comment value="To show a 10% senior&#39;s discount, the value entered is: 0.90 (1.00 - 0.10)."/>
-      <requirements value="When discounts are provided to a patient (example: Senior&#39;s discount) then this must be documented for adjudication."/>
+      <comment value="To show a 10% senior's discount, the value entered is: 0.90 (1.00 - 0.10)."/>
+      <requirements value="When discounts are provided to a patient (example: Senior's discount) then this must be documented for adjudication."/>
       <min value="0"/>
       <max value="1"/>
       <type>

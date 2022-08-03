@@ -1,0 +1,218 @@
+<GenomicStudy xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+    <id value="example-lungMass"/>
+    <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+    <text>
+        <status value="additional"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">Whole exome sequencing of lung biopsy. 300 genes are examined for simple variants (SNV, MNV, InDel), and 170 genes are also examined for CNVs. For technical reasons, PIK3CB was deemed uncallable.</div>
+    </text>
+    <identifier>
+        <use value="temp"/>
+        <system value="http://www.somesystemabc.net/identifiers/genomicstudies"/>
+        <value value="urn:uuid:1111-1111-1111-1112"/>
+    </identifier>
+    <status>
+        <coding>
+            <system value="http://hl7.org/fhir/genomicstudy-status"/>
+            <code value="registered"/>
+            <display value="Registered"/>
+        </coding>
+    </status>
+    <type>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="443968007"/>
+            <display value="Whole Exome Sequencing - Sequencing of entire coding region of gene (procedure)"/>
+        </coding>
+    </type>
+    <subject>
+        <reference value="Patient/genomicPatient"/>
+    </subject>
+    <encounter>
+        <reference value="Encounter/genomicEncounter"/>
+    </encounter>
+    <startDate value="2019-03-01"/>
+    <basedOn>
+        <reference value="ServiceRequest/genomicServiceRequest2"/>
+    </basedOn>
+    <referrer>
+        <reference value="Practitioner/practitioner01"/>
+    </referrer>
+    <interpreter>
+        <reference value="Practitioner/practitioner02"/>
+    </interpreter>
+    <reason>
+        <concept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="309529002"/>
+                <display value="Lung mass (finding) "/>
+            </coding>
+        </concept>
+    </reason>
+    <note>
+        <text value="For technical reasons, PIK3CB was deemed uncallable."/>
+    </note>
+    <description value="Whole exome sequencing of lung biopsy. 300 genes are examined for simple variants (SNV, MNV, InDel), and 170 genes are also examined for CNVs. For technical reasons, PIK3CB was deemed uncallable."/> <!-- 0..1 Description of the genomic study -->
+    <analysis>
+        <identifier>
+            <use value="official"/>
+            <system value="http://www.somesystemabc.net/identifiers/genomicAnalyses"/>
+            <value value="urn:uuid:1111-1111-1111-1112"/>
+        </identifier>
+        <methodType>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="117040002"/>
+                <display value="Nucleic acid sequencing (procedure)"/>
+            </coding>
+        </methodType>
+        <changeType>
+            <coding>
+                <system value="http://sequenceontology.org"/>
+                <code value="SO:0001483"/>
+                <display value="SNV"/>
+            </coding>
+        </changeType>
+        <changeType>
+            <coding>
+                <system value="http://sequenceontology.org"/>
+                <code value="SO:0002007"/>
+                <display value="MNV"/>
+            </coding>
+        </changeType>
+        <changeType>
+            <coding>
+                <system value="http://sequenceontology.org"/>
+                <code value="SO:1000032"/>
+                <display value="delins"/>
+            </coding>
+        </changeType>
+        <genomeBuild>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="LA26806-2"/>
+                <display value="GRCh38"/>
+            </coding>
+        </genomeBuild>
+        <title value="Simple variant analysis"/><!-- 0..1 Name of the analysis event (human friendly) -->
+        <subject>
+            <reference value="Patient/genomicPatient"/>
+        </subject>
+        <specimen>
+            <reference value="Specimen/genomicSpecimen"/>
+        </specimen>
+        <date value="2019-03-01T01:01:10-06:00"/><!-- 0..1 The date of the analysis event -->
+        <note>
+            <text value="For technical reasons, PIK3CB was deemed uncallable using this method."/>
+        </note>
+        <regionsStudied>
+            <reference value="DocumentReference/WES_FullSequencedRegion_GRCh38"/>
+        </regionsStudied>
+        <regionsCalled>
+            <reference value="DocumentReference/SimpleVariantAnalysis_called"/>
+        </regionsCalled>
+        <output>  <!-- 0..* outputs for the analysis event -->
+            <file>
+                <reference value="DocumentReference/genomicVCFfile_simple"/>
+            </file>
+            <type>
+                <coding>
+                    <code value="vcf"/>
+                    <display value="VCF"/>
+                </coding>
+            </type>
+        </output>
+        <performer>  <!-- 0..* Performer for the analysis event -->
+            <actor>
+                <reference value="Practitioner/practitioner02"/>
+            </actor>
+            <role>
+                <coding>
+                    <system value="http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html"/>
+                    <code value="PRF"/>
+                    <display value="Performer"/>
+                </coding>
+            </role>
+        </performer>
+        <device>  <!-- 0..* Devices used for the analysis (e.g., instruments, software), with settings and parameters -->
+            <device>
+                <reference value="Device/NGS-device"/>
+            </device>
+            <function>
+                <coding>
+                    <display value="Next Generation Sequencing"/>
+                </coding>
+            </function>
+        </device>
+    </analysis>
+    <analysis>
+        <identifier>
+            <use value="official"/>
+            <system value="http://www.somesystemabc.net/identifiers/genomicAnalyses"/>
+            <value value="urn:uuid:1111-1111-1111-1115"/>
+        </identifier>
+        <methodType>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="117040002"/>
+                <display value="Nucleic acid sequencing (procedure)"/>
+            </coding>
+        </methodType>
+        <changeType>
+            <coding>
+                <system value="http://sequenceontology.org"/>
+                <code value="SO:0001019"/>
+                <display value="CNV"/>
+            </coding>
+        </changeType>
+        <genomeBuild>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="LA26806-2"/>
+                <display value="GRCh38"/>
+            </coding>
+        </genomeBuild>
+        <title value="CNV analysis"/><!-- 0..1 Name of the analysis event (human friendly) -->
+        <subject>
+            <reference value="Patient/genomicPatient"/>
+        </subject>
+        <specimen>
+            <reference value="Specimen/genomicSpecimen"/>
+        </specimen>
+        <date value="2019-03-01T01:01:10-06:00"/><!-- 0..1 The date of the analysis event -->
+        <note>
+            <text value="For technical reasons, PIK3CB was deemed uncallable using this method."/>
+        </note>
+        <regionsStudied>
+            <reference value="DocumentReference/WES_FullSequencedRegion_GRCh38"/>
+        </regionsStudied>
+        <regionsCalled>
+            <reference value="DocumentReference/CNVAnalysis_called"/>
+        </regionsCalled>
+        <output>  <!-- 0..* Inputs for the analysis event -->
+            <file>
+                <reference value="DocumentReference/genomicVCFfile_cnv"/>
+            </file>
+            <type>
+                <coding>
+                    <code value="vcf"/>
+                    <display value="VCF"/>
+                </coding>
+            </type>
+        </output>
+        <performer>  <!-- 0..* Performer for the analysis event -->
+            <actor>
+                <reference value="Practitioner/practitioner02"/>
+            </actor>
+            <role>
+                <coding>
+                    <system value="http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html"/>
+                    <code value="PRF"/>
+                    <display value="Performer"/>
+                </coding>
+            </role>
+        </performer>
+    </analysis>
+</GenomicStudy>
