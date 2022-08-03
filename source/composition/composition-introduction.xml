@@ -113,15 +113,15 @@ CDA is a primary design input to the Composition resource (other principal input
 differences between CDA and the Composition resource:
 </p>
 <ul>
- <li>A composition is a logical construct- its identifier matches to the CDA ClinicalDocument.setId. 
+ <li>A composition is a logical construct - its <code>identifier</code> matches to the CDA <code>ClinicalDocument.setId</code>. 
  Composition resources are wrapped into <a href="documents.html">Document</a> structures, for exchange
  of the whole package (the composition and its parts), and this wrapped, sealed entity is equivalent to a CDA document, 
- where the Bundle.id is equivalent in function to ClinicalDocument.id (but it is not identical when interconverting, since it's a transform between them).</li>
+ where the where the <code>Bundle.identifier</code> is equivalent to <code>ClinicalDocument.id</code> and <code>Bundle.meta.security</code> is equivalent to <code>ClinicalDocument.confidentialityCode</code>.</li>
  <li>The composition section defines a section (or sub-section) of the document, but unlike CDA, the section entries are 
    actually references to other <a href="resourcelist.html">resources</a> that hold the supporting data content for the section. 
    This design means that the data can be reused in many other ways. 
    </li>
-  <li>Unlike CDA, the context defined in the <code>Composition</code> (the confidentiality, subject, author, event, event period and encounter) apply to the composition and do not specifically apply to the resources referenced from 
+  <li>Unlike CDA, the context defined in the <code>Composition</code> (the subject, author, event, event period and encounter) apply to the composition and do not specifically apply to the resources referenced from 
   the <code>section.entry</code>. There is no context flow model in FHIR, so each resource referenced from 
   within a <code>Composition</code> expresses its own individual context.  In this way, clinical content can 
   safely be extracted from the composition.</li>

@@ -193,12 +193,12 @@
           <valueString value="Location.position"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Location-near"/>
-        <description value="Search for locations where the location.position is near to, or within a specified distance of, the provided coordinates expressed as [latitude]|[longitude]|[distance]|[units] (using the WGS84 datum, see notes).&#xA;Servers which support the near parameter SHALL support the unit string 'km' for kilometers and SHOULD support '[mi_us]' for miles, support for other units is optional. If the units are omitted, then kms should be assumed. If the distance is omitted, then the server can use its own discretion as to what distances should be considered near (and units are irrelevant).&#xA;&#xA;Servers may search using various techniques that might have differing accuracies, depending on implementation efficiency. If the server is unable to understand the units (and does support the near search parameter), it MAY return an OperationOutcome and fail the search with a http status 403 BadRequest. If the server does not support the near parameter, the parameter MAY report the unused parameter in a bundled OperationOutcome and still perform the search ignoring the near parameter."/>
+        <description value="Search for locations where the location.position is near to, or within a specified distance of, the provided coordinates expressed as [latitude]|[longitude]|[distance]|[units] (using the WGS84 datum, see notes).&#10;Servers which support the near parameter SHALL support the unit string 'km' for kilometers and SHOULD support '[mi_us]' for miles, support for other units is optional. If the units are omitted, then kms should be assumed. If the distance is omitted, then the server can use its own discretion as to what distances should be considered near (and units are irrelevant).&#10;If the server is unable to understand the units (and does support the near search parameter), it MIGHT return an OperationOutcome and fail the search with a http status 400 BadRequest. If the server does not support the near parameter, the parameter MIGHT report the unused parameter in a bundled OperationOutcome and still perform the search ignoring the near parameter.&#10;Note: The algorithm to determine the distance is not defined by the specification, and systems might have different engines that calculate things differently. They could consider geographic point to point, or path via road, or including current traffic conditions, or just simple neighboring postcodes/localities if that's all it had access to."/>
         <code value="near"/>
         <type value="special"/>
         <expression value="Location.position"/>
         <xpath value="f:Location/f:position"/>
-        <xpathUsage value="nearby"/>
+        <xpathUsage value="other"/>
       </SearchParameter>
     </resource>
   </entry>

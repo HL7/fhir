@@ -266,19 +266,39 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Task-performer-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Task.requestedPerformer.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Task-performer-type"/>
+        <description value="Search by recommended type of performer (e.g., Requester, Performer, Scheduler)."/>
+        <code value="performer"/>
+        <type value="token"/>
+        <expression value="Task.requestedPerformer.concept"/>
+        <xpath value="f:Task/f:requestedPerformer/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Task-performer"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Task.performerType"/>
+          <valueString value="Task.requestedPerformer.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Task-performer"/>
-        <description value="Search by recommended type of performer (e.g., Requester, Performer, Scheduler)."/>
+        <description value="Search by specific requested performer."/>
         <code value="performer"/>
-        <type value="token"/>
-        <expression value="Task.performerType"/>
-        <xpath value="f:Task/f:performerType"/>
+        <type value="reference"/>
+        <expression value="Task.requestedPerformer.reference"/>
+        <xpath value="f:Task/f:requestedPerformer/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

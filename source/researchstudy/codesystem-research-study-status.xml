@@ -42,6 +42,11 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/research-study-status"/>
   <content value="complete"/>
   <concept>
+    <code value="overall-study"/>
+    <display value="Overall study"/>
+    <definition value="Used for documenting the start and end of the overall study, distinct from progress states."/>
+  </concept>
+  <concept>
     <code value="active"/>
     <display value="Active"/>
     <definition value="Study is opened for accrual."/>

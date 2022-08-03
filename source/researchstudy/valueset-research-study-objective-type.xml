@@ -47,7 +47,12 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+      <system value="http://hl7.org/fhir/research-study-classifiers"/>
+	  <filter>
+	    <property value="concept"/>
+	    <op value="descendent-of"/>
+	    <value value="research-study-objective-type"/>
+	  </filter>
     </include>
   </compose>
 </ValueSet>

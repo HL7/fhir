@@ -188,7 +188,7 @@
       <max value="*"/>
       <type>
         <code value="uri"/>
-      </type>
+      </type> 
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -624,6 +624,30 @@
       <mapping>
         <identity value="quick"/>
         <map value="ClinicalStatement.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="ServiceRequest.focus">
+      <path value="ServiceRequest.focus"/>
+      <short value="What the service request is about, when it is not about the subject of record"/>
+      <definition value="The actual focus of a service request when it is not the subject of record representing something or someone associated with the subject such as a spouse, parent, fetus, or donor. The focus of a service request could also be an existing condition,  an intervention, the subject&#39;s diet,  another service request on the subject,  or a body structure such as tumor or implanted device."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=SBJ]"/>
       </mapping>
       <mapping>
         <identity value="w5"/>

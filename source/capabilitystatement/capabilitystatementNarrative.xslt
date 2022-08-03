@@ -337,11 +337,14 @@
               <xsl:if test="supportedProfile">
                 <p>Supported Profile(s):</p>
                 <ul>
-                  <xsl:for-each select="supportedProfile/@value">
+                  <xsl:for-each select="supportedProfile">
                     <li>
-                      <a href="{.}">
-                        <xsl:value-of select="."/>
+                      <a href="{@value}">
+                        <xsl:value-of select="@value"/>
                       </a>
+                      <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation']">
+                        <xsl:value-of select="concat(' ', valueCode/@value)"/>
+                      </xsl:for-each>
                     </li>
                   </xsl:for-each>
                 </ul>
