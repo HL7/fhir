@@ -154,7 +154,7 @@
 		  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 			<valueString value="recordedSexOrGenderType"/>
 		  </extension>
-		  <strength value="extensible"/>
+		  <strength value="preferred"/>
 		  <valueSet value="http://terminology.hl7.org/ValueSet/recorded-sex-or-gender-type"/>
 	  </binding>
     </element>		
