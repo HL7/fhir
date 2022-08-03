@@ -68,7 +68,7 @@ FHIR defines a cascade of artifacts for this purpose:
  </tr>
  <tr>
   <td>Profile</td>
-  <td>A set of constraints on a resource represented as a structure definition with kind = <code>constraint</code></td>
+  <td>A set of constraints on a resource represented as a structure definition with derivation = <code>constraint</code></td>
    <td><a href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-medicationrequest.html">DAF Medication Request</a></td>
  </tr>
 </table>
@@ -268,7 +268,7 @@ What StructureDefinitions can do when they are constraining existing resources a
 <ul>
  <li>Profiles cannot break the rules established in the base specification (e.g. cardinality as described above)</li>
  <li>Profiles cannot specify default values or meanings for elements defined in the base specification (note that data types and resources do not define default values at all, but default values may be defined for <a href="structuredefinition.html#logical">logical models</a></li>
- <li>Profiles cannot give more specific names to elements defined in the base specification, or add new elements</li>
+ <li>Profiles cannot change the name of elements defined in the base specification, or add new elements</li>
  <li>It must be safe to process a resource without knowing the profile</li>
 </ul>
 <p>
@@ -530,7 +530,7 @@ Further notes about the use of the different discriminator types:
    This provides the most power, since the full range of profiling capabilities are available,
    but it is also the hardest to implement, and requires the most processing (>1000-fold compared
    to the others). Implementers should use this only where absolutely required. 
-   Typical example: slice on the type of <code>Composition.section.entry()</code> for the profiles Current-Clinical-Condition, Past-Medical-Event, etc
+   Typical example: slice on the type of <code>Composition.section.entry().resolve()</code> for the profiles Current-Clinical-Condition, Past-Medical-Event, etc
  </td></tr>
 </table>
 
@@ -542,7 +542,7 @@ assigning an appropriate value domain, depending on the discriminator type. If t
 <ul>
  <li><a href="elementdefinition-definitions.html#ElementDefinition.fixed_x_">ElementDefinition.fixed[x]</a>, or</li>
  <li><a href="elementdefinition-definitions.html#ElementDefinition.pattern_x_">ElementDefinition.pattern[x]</a>, or</li>
- <li>if the element has a terminology binding, a required binding with a <a href="valueset.html#required">Value Set</a> that enumerates the list of possible codes in the value set ("extensional definition")</li>
+ <li>if the element has a terminology binding, a required binding with a <a href="valueset.html#required">Value Set</a> that enumerates the list of possible codes in the value set ("formally called an 'Extensional' value set")</li>
 </ul>
 <p>
 It is the composite (combined) values of the discriminators
@@ -841,6 +841,16 @@ Note that an element that has the property IsModifier is not necessarily a "key"
 the important elements to make use of the resource), nor is it automatically mustSupport - however both
 of these things are more likely to be true for IsModifier elements than for other elements.
 </p>
+<p>
+When a child element is defined as Must Support and the parent element isn't, a system must support the child if it support the parent, 
+but there's no expectation that the system must support the parent.
+</p>
+<p>
+If an Implementation Guide defines a complex element as Must Support, and does not declare any of its child elements as Must Support, 
+then the Implementation Guide should provide further guidance; if there is no further guidance, then the expectation is that
+implementers must support at least a subset of the child elements of the MS parent.
+</p>
+
 
 <a name="search"></a>
 <h3>Search Criteria</h3>

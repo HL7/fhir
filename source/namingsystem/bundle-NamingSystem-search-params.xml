@@ -173,6 +173,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="NamingSystem-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-identifier"/>
+        <description value="External identifier for the naming system"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="NamingSystem.identifier"/>
+        <xpath value="f:NamingSystem/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="NamingSystem-id-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
@@ -427,6 +447,68 @@
         <expression value="NamingSystem.version"/>
         <xpath value="f:NamingSystem/f:version"/>
         <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-effective"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NamingSystem.effectivePeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MetadataResource-effective"/>
+        <description value="The time during which the NamingSystem is intended to be in use"/>
+        <code value="effective"/>
+        <type value="date"/>
+        <expression value="NamingSystem.effectivePeriod"/>
+        <xpath value="f:NamingSystem/f:effectivePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NamingSystem.relatedArtifact.resource"/>
+        </extension>
+        <description value="A resource that the NamingSystem is derived from"/>
+        <code value="derived-from"/>
+        <type value="reference"/>
+        <expression value="NamingSystem.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
+        <xpath value="f:NamingSystem/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NamingSystem.relatedArtifact.resource"/>
+        </extension>
+        <description value="The predecessor of the NamingSystem"/>
+        <code value="predecessor"/>
+        <type value="reference"/>
+        <expression value="NamingSystem.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
+        <xpath value="f:NamingSystem/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NamingSystem.topic"/>
+        </extension>
+        <description value="Topics associated with the NamingSystem"/>
+        <code value="topic"/>
+        <type value="token"/>
+        <expression value="NamingSystem.topic"/>
+        <xpath value="f:NamingSystem/f:topic"/>
       </SearchParameter>
     </resource>
   </entry>

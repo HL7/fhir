@@ -446,6 +446,9 @@
 		<translation lang="fr">AnalyseGénétique</translation>
 		<translation lang="it">AnalisiGenetica</translation>
 	</item>
+	<item id="GenomicStudy">
+		<translation lang="en">GenomicStudy</translation>
+	</item>
 	<item id="Goal">
 		<translation lang="en">Goal</translation>
 		<translation lang="fr">But</translation>

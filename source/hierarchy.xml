@@ -324,6 +324,7 @@ signatures.html
       <page type="resource" resource="Observation"/>
       <page type="resource" resource="DocumentReference"/>
       <page type="resource" resource="DiagnosticReport"/>
+       <page type="resource" resource="GenomicStudy"/>
       <page type="resource" resource="ImagingStudy"/>
       <page type="resource" resource="ImagingSelection"/>
       <page type="resource" resource="MolecularSequence"/>
@@ -411,6 +412,8 @@ signatures.html
       <page title="Using Expressions" filename="clinicalreasoning-topics-using-expressions.html"/>
       <page title="Definitional Resources" filename="clinicalreasoning-topics-definitional-resources.html"/>
       <page title="Representing Knowledge Artifacts" filename="clinicalreasoning-knowledge-artifact-representation.html">
+        <page title="Shareable Pattern" filename="shareable.html"/>
+        <page title="Publishable Pattern" filename="publishable.html"/>
         <page title="Supporting Documentation" filename="clinicalreasoning-topics-supporting-documentation.html"/>
       </page>
       <page title="Sharing Knowledge Artifacts" filename="clinicalreasoning-knowledge-artifact-distribution.html"/>
