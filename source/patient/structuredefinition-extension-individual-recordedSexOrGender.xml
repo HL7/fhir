@@ -158,35 +158,6 @@
 		  <valueSet value="http://terminology.hl7.org/ValueSet/recorded-sex-or-gender-type"/>
 	  </binding>
     </element>		
-	<element id="Extension.extension:acquisitionDate">
-      <path value="Extension.extension"/>
-      <sliceName value="acquisitionDate"/>
-      <short value="When the sex or gender value was recorded."/>
-      <definition value="The date/time when the sex or gender value was first recorded in the system."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Extension"/>
-      </type>
-    </element>
-    <element id="Extension.extension:acquisitionDate.extension">
-      <path value="Extension.extension.extension"/>
-      <max value="0"/>
-    </element>
-    <element id="Extension.extension:acquisitionDate.url">
-      <path value="Extension.extension.url"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <fixedUri value="acquisitionDate"/>
-    </element>
-    <element id="Extension.extension:acquisitionDate.value[x]">
-      <path value="Extension.extension.value[x]"/>
-      <min value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-    </element>
 	<element id="Extension.extension:effectivePeriod">
       <path value="Extension.extension"/>
       <sliceName value="effectivePeriod"/>
@@ -214,6 +185,35 @@
 	  <max value="1"/>
       <type>
         <code value="Period"/>
+      </type>
+    </element>
+	<element id="Extension.extension:acquisitionDate">
+      <path value="Extension.extension"/>
+      <sliceName value="acquisitionDate"/>
+      <short value="When the sex or gender value was recorded."/>
+      <definition value="The date/time when the sex or gender value was first recorded in the system."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:acquisitionDate.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:acquisitionDate.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="acquisitionDate"/>
+    </element>
+    <element id="Extension.extension:acquisitionDate.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="dateTime"/>
       </type>
     </element>
 	<element id="Extension.extension:sourceDocument">
