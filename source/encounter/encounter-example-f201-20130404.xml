@@ -42,7 +42,7 @@
 		</concept>
 	</reason>
 	<!--No indication, because no referral took place-->
-	<!--No hospitalization was deemed necessary-->
+	<!--No admission was deemed necessary-->
 	<serviceProvider>
 		<reference value="Organization/f201"/>
 	</serviceProvider>
