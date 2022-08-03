@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Device xmlns="http://hl7.org/fhir">
+<id value="KinsaThermometer"/> 
+<identifier>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers"/>
+        <code value="SYSID"/>
+        <display value="System Identifier"/>
+      </coding>
+    </type>
+    <system value="urn:oid:1.2.840.10004.1.1.1.0.0.1.0.0.1.2680"/>
+    <value value="00-00-52-49-20-45-4C-42"/>
+  </identifier>
+  <identifier>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers"/>
+        <code value="BTMAC"/>
+        <display value="Bluetooth Address"/>
+      </coding>
+    </type>
+    <system value="http://hl7.org/fhir/sid/eui-48"/>
+    <value value="10-CE-A9-80-14-66"/>
+  </identifier>
+  <udiCarrier>
+    <deviceIdentifier value="18479793050726"/>
+    <issuer value="http://hl7.org/fhir/NamingSystem/gs1-di"/>
+    <jurisdiction value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
+    <carrierHRF value="(01)18479793050726(21)1i9JfKh"/>
+    <entryType value="unknown"/>
+  </udiCarrier>
+  <manufacturer value="Kinsa"/>
+  <serialNumber value="1i9JfKh"/>
+  <deviceName>
+    <name value="KS_1i9JfKh"/>
+    <type value="user-friendly-name"/>
+  </deviceName>
+  <modelNumber value="KS_1i9JfKh"/>
+  <type>
+    <coding>
+      <system value="urn:iso:std:iso:11073:10101"/>
+      <code value="65573"/>
+      <display value="MDC_MOC_VMS_MDS_SIMP"/>
+    </coding>
+    <text value="MDC_MOC_VMS_MDS_SIMP: Personal Health Device"/>
+  </type>
+  <version>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="531976"/>
+      </coding>
+      <text value="MDC_ID_PROD_SPEC_FW: Firmware revision"/>
+    </type>
+    <value value="1.00"/>
+  </version>
+  <version>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="531975"/>
+      </coding>
+      <text value="MDC_ID_PROD_SPEC_SW: Software revision"/>
+    </type>
+    <value value="V2.19"/>
+  </version>
+  <version>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="531974"/>
+      </coding>
+      <text value="MDC_ID_PROD_SPEC_SW: Hardware revision"/>
+    </type>
+    <value value="1.00"/>
+  </version>
+  <specialization>
+    <systemType>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="528392"/>
+      </coding>
+      <text value="MDC_DEV_SPEC_PROFILE_TEMP: Thermometer"/>
+    </systemType>
+    <version value="1"/>
+  </specialization>
+  <property>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="68220"/>
+      </coding>
+      <text value="MDC_TIME_SYNC_PROTOCOL: Time synchronization protocol"/>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="532224"/>
+      </coding>
+      <text value="MDC_TIME_SYNC_NONE: No time synchronization"/>
+    </valueCodeableConcept>
+  </property>
+  </Device>

@@ -508,38 +508,6 @@
         <code value="Annotation"/>
       </type>
     </element>
-    <element id="Composition.confidentiality">
-      <path value="Composition.confidentiality"/>
-      <short value="As defined by affinity domain"/>
-      <definition value="The code specifying the level of confidentiality of the Composition."/>
-      <comment value="The exact use of this element, and enforcement and issues related to highly sensitive documents are out of scope for the base specification, and delegated to implementation profiles (see security section).  This element is labeled as a modifier because highly confidential documents must not be treated as if they are not."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DocumentConfidentiality"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Codes specifying the level of confidentiality of the composition."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/v3-Confidentiality|2.0.0"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".confidentialityCode"/>
-      </mapping>
-      <mapping>
-        <identity value="cda"/>
-        <map value=".confidentialityCode"/>
-      </mapping>
-      <mapping>
-        <identity value="fhirdocumentreference"/>
-        <map value="DocumentReference.securityLabel"/>
-      </mapping>
-    </element>
     <element id="Composition.attester">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="down"/>

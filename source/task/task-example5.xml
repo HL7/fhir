@@ -1,4 +1,4 @@
-﻿<Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/observation.xsd">
+<Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<!--This is an example to demonstrate using task for actioning a servicerequest and to illustrate how to populate many of the task elements this is the first in a series of related Task examples:  example1 action lipid panel -in progress =>. example2 specimen collection subtask -accepted => example4  specimen collection subtask - completed  with output Specimen=>example 5 action lipid panel -in progress specimen collected with output Specimen => example 6 action lipid panel - completed with output Specimen and DiagnosticReport -->
 	<id value="example5"/>
 	<identifier>
@@ -23,7 +23,10 @@
 	<priority value="routine"/>
 	<!--fictive code and description elements populated for this example -->
 	<code>
-		<text value="Lipid Panel"/>
+    <coding>
+      <system value="http://hl7.org/fhir/CodeSystem/task-code"/>
+      <code value="fulfill"/>
+    </coding>
 	</code>
 	<description value="Create order for getting specimen, Set up inhouse testing,  generate order for any sendouts and submit with specimen"/>
 	<!--	Use the lipid servicerequest example -->
@@ -52,14 +55,11 @@
 			<reference value="Practitioner/example"/>
 			<display value="Dr Adam Careful"/>
 	</requester>
-	<performerType>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/task-performer-type"/>
-			<code value="performer"/>
-			<display value="Performer"/>
-		</coding>
-		<text value="Performer"/>
-	</performerType>
+	<requestedPerformer>
+    <reference>
+      <reference value="PractitionerRole/f202"/>
+    </reference>
+	</requestedPerformer>
 	<owner>
 		<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 		<display value="Clinical Laboratory @ Acme Hospital"/>

@@ -3,9 +3,10 @@
   <id value="example-multiframe-image-selection"/>
   <identifier>
     <system value="urn:dicom:uid"/>
-    <value value="urn:oid:1.2.840.113747.20080222.307765875869300489350980245024554221747.2.1"/>
+    <value value="urn:oid:1.2.840.113747.20080222.307765875869300980245024554221747.2.1"/>
   </identifier>
-  <subject>
+ <status value="available"/> 
+ <subject>
     <type value="Patient"/>
     <identifier>
       <system value="https://fhirhospital.org"/>
@@ -15,22 +16,25 @@
   <code>
     <text value="Key Frames"/>
   </code>
-  <studyUid value="urn:oid:1.2.840.113747.20080222.307765875869300489350980245024554221747"/>
+  <studyUid value="1.2.840.113747.20080222.307765875869300489345024554221747"/>
   <derivedFrom>
     <type value="ImagingStudy"/>
     <identifier>
       <system value="urn:dicom:uid"/>
-      <value value="urn:oid:1.2.840.113747.20080222.307765875869300489350980245024554221747"/>
+      <value value="urn:oid:1.2.840.113747.20080222.307765875889350980245024554221747"/>
     </identifier>
   </derivedFrom>
-  <seriesUid value="urn:oid:1.2.840.113747.20080222.307765875869300489350980245024554221747.1"/>
-  <frameOfReferenceUid value="urn:oid:1.2.840.113747.20080222.307765875869300489350980245024554221747.0"/>
+  <seriesUid value="1.2.840.113747.20080222.307765875869300489245024554221747.1"/>
+  <frameOfReferenceUid value="1.2.840.113747.20080222.307765875869350980245024554221747.0"/>
   <instance>
-    <uid value="urn:oid:1.2.840.113747.20080222.307765875869300489350980245024554221747.1.0"/>
+    <uid value="1.2.840.113747.20080222.307765875869300489355024554221747.1.0"/>
     <sopClass>
       <system value="urn:ietf:rfc:3986"/>
       <code value="urn:oid:1.2.840.10008.5.1.4.1.1.2.1"/>
     </sopClass>
-    <frameList value="1,2,3,4,5"/>
+    <subset value="1"/>
+    <subset value="2"/>
+    <subset value="3"/>
+    <subset value="4"/>
   </instance>
 </ImagingSelection>

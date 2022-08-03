@@ -61,7 +61,7 @@ In addition to a number of <a href="#general">General Considerations</a> this pa
   <tr><td><a href="#history">history</a></td><td>Retrieve the change history for a particular resource type</td></tr>
   <tr><td colspan="2"><b>Whole System Interactions</b></td></tr>
   <tr><td><a href="#capabilities">capabilities</a></td><td>Get a capability statement for the system</td></tr>
-  <tr><td><a href="#transaction">batch/transaction</a></td><td>Update, create or delete a set of resources in a single interaction</td></tr>
+  <tr><td><a href="#transaction">batch/transaction</a></td><td>Perform multiple operations (e.g. create, read, update, delete, patch, and/or [extended operations]) in a single interaction</td></tr>
   <tr><td><a href="#cdelete">delete</a></td><td>Conditional Delete across all resource types based on some filter criteria</td></tr>
   <tr><td><a href="#history">history</a></td><td>Retrieve the change history for all resources</td></tr>
   <tr><td><a href="#search">search</a></td><td>Search across all resource types based on some filter criteria</td></tr>
@@ -356,7 +356,7 @@ which version of the FHIR release a resource is based on:
   Accept: application/fhir+json; fhirVersion=4.0
 </pre>
 <p>
-The value of this parameter is the <a href="versions.html#versions">publication and major version number</a>
+The value of this parameter is the <a href="versions.html#versions">major and minor version number</a>
 for the specification:
 </p>
 <table class="grid">
@@ -392,9 +392,10 @@ Versions from before the publication of the <a href="http://hl7.org/fhir/DSTU1/i
 This parameter can be used anywhere that the FHIR Mime type is used. When used in an HTTP request, the
 version parameter may be used on either the Content-Type header, or the Accept header, or both, and
 applies to the entire interaction (the behavior of the interactions as described on ths page, the
-search parameters and functionality, and the accompanying conformance resources). It is an error for a
-client to attempt to use two different versions in the same interaction. For further information about
-specifying FHIR version, see <a href="versioning.html">Managing FHIR Versions</a>.
+search parameters and functionality, and the accompanying conformance resources). It is an error for
+the Accept header to specify a different version than the Content-Type header unless invoking an operation
+that is specifically defined to perform version conversion (e.g. <code><a href="resource-operation-convert.html">$convert</a></code>.
+For further information about specifying FHIR version, see <a href="versioning.html">Managing FHIR Versions</a>.
 </p>
 
 <a name="mime-type"></a>
@@ -493,7 +494,8 @@ Servers SHOULD return an <code>ETag</code> header with the versionId of the reso
 </p>
 <p>
 Note: Unknown resources and deleted resources are treated differently on a read: a <code>GET</code> for a deleted
-resource returns a <code>410</code> status code, whereas a <code>GET</code> for an unknown resource returns <code>404</code>. Systems that do
+resource returns a <code>410 Gone</code> status code (see the <a href="#delete">delete</a> interaction for addition details),
+whereas a <code>GET</code> for an unknown resource returns <code>404 Not Found</code>. Systems that do
 not track deleted records will treat deleted records as an unknown resource. Since deleted resources may be brought
 back to life, servers MAY include an ETag on the error response when reading a deleted record to allow version
 contention management when a resource is brought back to life.
@@ -541,7 +543,7 @@ The <a href="resource.html#metadata">Version Id</a> ("vid") is an opaque identif
 a <a href="resource.html#id">Logical Id</a>. The id may have been found by performing a history interaction (see below), by recording the
 version id from a content location returned from a <code>read</code> or from a version specific reference in a
 content model. If the version referred to is actually one where the resource was deleted, the
-server should return a <code>410</code> status code.
+server should return a <code>410 Gone</code> status code (see the <a href="#delete">delete</a> interaction for addition details).
 </p>
 <p>
 Servers are encouraged to support a version specific retrieval of the current version of the
@@ -738,7 +740,9 @@ of the <a href="https://tools.ietf.org/html/rfc7232#section-2.3">ETag</a> and
 This is also known as 'Optimistic Locking'.
 </p>
 <p>
-To support this usage, servers SHOULD always return an <code>ETag</code> header with each resource:
+Note the <a href="https://tools.ietf.org/html/rfc7232#section-3.1">RFC 7232 3.1 If-Match</a> specification
+defines the use of <code>"the strong comparison function when comparing entity-tags"</code>. FHIR diverges
+from this behavior to use the weak <code>ETag</code> representation.
 </p>
 <pre class="http">
 HTTP 200 OK
@@ -760,7 +764,7 @@ If the client wishes to request a version aware update, it submits the request w
 <code>If-Match</code> header that quotes the ETag from the server:
 </p>
 <pre class="http">
-PUT /Patient/347 HTTP/1.1
+PUT [base]/Patient/347 HTTP/1.1
 If-Match: W/"23"
 </pre>
 <p>
@@ -776,7 +780,7 @@ server detects the update cannot be done (e.g. due to server side pessimistic lo
 <a name="patch"></a>
 <h3>patch</h3>
 <p>
-As an alternative to updating an entire resource, clients can perform a patch operation.
+As an alternative to updating an entire resource, clients can perform a patch interaction.
 This can be useful when a client is seeking to minimize its bandwidth utilization, or
 in scenarios where a client has only partial access or support for a resource. The <code>patch</code>
 interaction is performed by an HTTP <code>PATCH</code> command as shown:
@@ -785,7 +789,7 @@ interaction is performed by an HTTP <code>PATCH</code> command as shown:
   PATCH [base]/[type]/[id] {?_format=[mime-type]}
 </pre>
 <p>
-The body of a PATCH operation SHALL be either:
+The body of a PATCH interaction SHALL be either:
 </p>
 <ul>
  <li>a <a href="https://tools.ietf.org/html/rfc6902.">JSON Patch</a> document with a content type of <code>application/json-patch+json</code></li>
@@ -796,15 +800,17 @@ The body of a PATCH operation SHALL be either:
 In either case, the server SHALL process its own copy of the resource in the format indicated, applying
 the operations specified in the document, following the relevant PATCH specification. When the operations
 have all been processed, the server processes the resulting document as an <a href="#update"><code>Update</code></a>
-operation; all the version and error handling etc. apply as specified, as does the <a href="#prefer">Prefer Header</a>.
+interaction; all the version and error handling etc. apply as specified, as does the <a href="#prefer">Prefer Header</a>.
 </p>
 <p>
-Processing PATCH operations may be very version sensitive. For this reason, servers SHALL support
-conditional PATCH, which works exactly the same as specified for update in <a href="#versionaware">Concurrency Management</a>.
-Clients SHOULD always consider using version specific PATCH operations so that inappropriate
+Processing PATCH interactions may be very version sensitive. For this reason, servers SHALL support
+the same <a href="#versionaware">Concurrency Management</a> process defined for UPDATE.
+Clients SHOULD always consider using version specific PATCH interactions so that inappropriate
 actions are not executed.
 </p>
 <div class="draft-content">
+<a name="cond-patch"></a>
+<h4>Conditional patch</h4>
 <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
 Unlike this rest of this page, the conditional create, update, patch and delete are trial use until
 further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
@@ -822,13 +828,13 @@ on how many matches are found:
 </ul>
 </div>
 <p>
-The server SHALL ensure that the narrative in a resource is not clinically unsafe after the PATCH operation is performed.
+The server SHALL ensure that the narrative in a resource is not clinically unsafe after the PATCH interaction is performed.
 Exactly how this is defined and can be achieved depends on the context, and how narrative is being maintained, but servers may wish to consider:
 </p>
 <ul>
- <li>If the existing narrative has a status != <code>generated</code>, the server could reject the PATCH operation</li>
- <li>The server could regenerate the narrative once the operation has been applied to the data</li>
- <li>In some limited circumstances, an XML PATCH operation could update the narrative</li>
+ <li>If the existing narrative has a status != <code>generated</code>, the server could reject the PATCH interaction</li>
+ <li>The server could regenerate the narrative once the interaction has been applied to the data</li>
+ <li>In some limited circumstances, an XML PATCH interaction could update the narrative</li>
  <li>The server could delete the narrative, on the basis that some later process will be able to populate it correctly</li>
 </ul>
 <p>
@@ -837,14 +843,52 @@ namespaces correctly, but note that FHIR resources only contain two XML namespac
 for FHIR (<code>http://hl7.org/fhir</code>) and XHTML (<code>http://www.w3.org/1999/xhtml</code>).
 </p>
 <p>
+In the case of a failing <a href="http://jsonpatch.com/#test">JSON Patch test</a> operation, the server returns a <code>422</code> Unprocessable Entity.
+</p>
+<p>
 For PATCH Examples, see <a href="test-cases.zip">the FHIR test cases</a>.
 </p>
 <p>
-Patch operations may be performed as part of Batch or Transaction Operations using the FHIRPath Patch format.
+Patch interactions may be performed as part of Batch or Transaction Operations using the FHIRPath Patch format.
 </p>
 <p>
 Patch is not defined for all resources - see <a href="binary.html#patch">note about PATCH on Binary</a>.
 </p>
+<div class="draft-content">
+<a name="jsonpatch-transaction"></a>
+<h4>Patch Using JSON Patch (batch/transaction)</h4>
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+The behavior of using <i>JSON Patch in a batch/transaction interaction</i> is trial use until further
+experience is gained with its use. Implementer feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
+</p>
+<p>
+In addition, servers may support submitting the JSON Patch as a part of a FHIR batch or transaction interaction
+using a Binary resource as the payload in order to hold the contents.
+</p>
+<p>
+The following example shows a base64 encoded JSON Path content in a Binary resource applied to a Patient resource in a transaction Bundle:
+</p>
+<pre class="json" fragment="Bundle">
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "Patient/1",
+      "resource": {
+        "resourceType": "Binary",
+        "contentType": "application/json-patch+json",
+        "data": "WyB7ICJvcCI6InJlcGxhY2UiLCAicGF0aCI6Ii9hY3RpdmUiLCAidmFsdWUiOmZhbHNlIH0gXQ=="
+      },
+      "request": {
+        "method": "PATCH",
+        "url": "Patient/1"
+      }
+    }
+  ]
+}
+</pre>
+</div>
 <a name="delete"></a>
 <h3>delete</h3>
 <p>
@@ -858,9 +902,11 @@ is performed by an HTTP <code>DELETE</code> command as shown:
 The request body SHALL be empty.
 </p>
 <p>
-A delete interaction means that subsequent <a href="#read">non-version specific reads</a> of a resource
-return a <code>410</code> HTTP status code and that the resource is no longer found through <a href="#search">search</a>
-interactions. Upon successful deletion, or if the resource does not exist at all, the server should return either a
+A delete interaction means that the resource is no longer found through a <a href="#search">search</a> interaction.
+Subsequent <a href="#read">non-version specific reads</a> of the resource return a <code>410 Gone</code> HTTP
+status code when the server wishes to indicate that the resource is deleted. For security reasons, the
+server may return other status codes as defined under <a href="security.html#AccessDenied">Access Denied Response Handling</a>.
+Upon successful deletion, or if the resource does not exist at all, the server should return either a
 <code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload,
 or a <code>202 Accepted</code> if the server wishes to be non-commital about the outcome of the delete.
 <!--, or 200 OK status code, with an <a href="operationoutcome.html">OperationOutcome</a>
@@ -926,7 +972,7 @@ on how many matches are found:
 <p>
 This variant can be used to allow a stateless client (such as an interface engine) to delete
 a resource on a  server, without having to remember the logical ids that the server has assigned.
-For example, a client deleting a lab atomic result might delete the resource using <code>DELETE /Observation?identifier=http://my-lab-system|123</code>.
+For example, a client deleting a lab atomic result might delete the resource using <code>DELETE /[base]/Observation?identifier=http://my-lab-system|123</code>.
 </p>
 <p>
 Note that transactions and conditional create/update/delete are complex interactions and it is
@@ -1121,7 +1167,8 @@ issues with a <code>fatal</code> or <code>error</code> <a href="valueset-issue-s
 </p>
 <p>
 If the search fails (cannot be executed, not that there are no matches), the return value
-SHALL be a status code 4xx or 5xx, possibly accompanied by an <a href="operationoutcome.html">OperationOutcome</a>.
+SHALL be a status code 4xx or 5xx. If the failure occurs at a FHIR-aware level of processing,
+the HTTP response SHOULD be accompanied by an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
 <p>
 Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
@@ -1246,8 +1293,8 @@ framework.
 <p>
 The <code>transaction</code> mode is especially useful where one would otherwise need multiple interactions, possibly
 with a risk of loss of referential integrity if a later interaction fails (e.g. when storing
-a Provenance resource and its corresponding target resource, or and <a href="https://profiles.ihe.net/ITI/MHD">IHE-MHD transaction "Provide Document Resources"</a>
-with a DocumentManifest, and some number of DocumentReference, List, and Binary resources).
+a Provenance resource and its corresponding target resource or <a href="https://wiki.ihe.net/index.php/Mobile_access_to_Health_Documents_(MHD)">IHE-MHD transaction "Provide Document Resources"</a> 
+with a DocumentManifest and some number of DocumentReference, List, and Binary resources).
 </p>
 <p>
 Note that transactions and conditional create/update/delete are complex interactions and it is
@@ -1370,6 +1417,24 @@ Version-specific references may create dependencies between creates and updates 
 For example, if a 'create' has a 'resolve-as-version-specific-reference' to an updated entry, even though the 'create' will
 need to happen before the 'update' (per transaction rules), the created record will need to be revised to include the
 version-specific reference to the newly updated version of the reference target.
+</p>
+<p>
+Version-specific references may create dependencies between creates and updates that the transaction will need to accommodate.
+For example, if a 'create' has a 'resolve-as-version-specific-reference' to an updated entry, even though the 'create' will
+need to happen before the 'update' (per transaction rules), the created record will need to be revised to include the
+version-specific reference to the newly updated version of the reference target.
+</p>
+<p>
+Note, the use of the <code><a href="references.html">Reference</a></code> data type standard
+<code><a href="extension-resolve-as-version-specific.html">extension resolve-as-version-specific</a></code>
+is a request to turn the non-versioned reference into a reference to the most recent version of the target
+resource. In the case of a resource created in the transaction, the reference becomes a reference to the
+initial version. In the case of an update or conditional create, the reference becomes a reference to the
+new version. Systems that support this extension SHALL remove the extension as part of the transaction
+reference resolution process.  It is not guaranteed that all systems will recognize this extension or be
+able to apply it. If the extension is not supported or versioned references are not supported, the
+resulting reference will be version-agnostic. A client can attempt to perform a subsequent update/patch to
+force a version-specific reference if they wish.
 </p>
 <p>
 When processing a <a href="#create"><code>create</code></a> (POST), the full URL is treated as the id of the resource on the
@@ -1526,6 +1591,7 @@ A <code>create</code> interaction is represented in a history interaction in the
 </p>
 <pre class="xml">
   &lt;entry&gt;
+    &lt;fullUrl value="http://example.org/fhir/Patient/23424"/&gt;
     &lt;resource&gt;
       &lt;Patient&gt;
         &lt;!-- the id of the created resource --&gt;
@@ -1549,10 +1615,11 @@ A <code>delete</code> interaction is represented in a history interaction in the
 </p>
 <pre class="xml">
   &lt;entry&gt;
+    &lt;fullUrl value="http://example.org/fhir/Patient/23424"/&gt;
     &lt;!-- no resource included for a delete --&gt;
     &lt;request&gt;
       &lt;method value="DELETE"/&gt;
-      &lt;url value="Patient/[id]"/&gt;
+      &lt;url value="Patient/23424"/&gt;
     &lt;/request&gt;
     &lt;!-- response carries the instant the server processed the delete --&gt;
     &lt;response&gt;
@@ -1580,6 +1647,13 @@ In addition to the standard <code>_format</code> parameter, the parameters to th
   <tr><td><code>_since</code></td><td><a href="search.html#date"><code>instant</code></a></td><td>Only include resource versions that were created at or after the given instant in time</td></tr>
   <tr><td><code>_at</code></td><td><a href="search.html#date"><code>date(Time)</code></a></td><td>Only include resource versions that were current at some point during the time period specified in the date time value (see <a href="search.html#date">Search notes on date searching</a>)</td></tr>
   <tr><td><a href="search.html#list"><code>_list</code></a></td><td><a href="search.html#reference"><code>reference</code></a></td><td>Only include resource versions that are referenced in the specified list (<a href="lifecycle.html#current">current list references</a> are allowed)</td></tr>
+  <tr><td><a href="search.html#sort"><code>_sort</code></a></td><td><a href="search.html#string"><code>string</code></a></td><td>Allowed sort values are limited to:
+  <ul>
+    <li><b>-_lastUpdated</b> (default) - sort in descending lastUpdated order</li>
+    <li><b>_lastUpdated</b> - sort in ascending lastUpdated order</li>
+    <li><b>none</b> - data will have no defined sort order</li>
+  </ul>
+  </td></tr>
 </table>
 <p>
 There are no prefixes or modifiers allowed on any of the History interaction parameters.

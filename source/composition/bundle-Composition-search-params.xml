@@ -65,26 +65,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Composition-confidentiality"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Composition.confidentiality"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-confidentiality"/>
-        <description value="As defined by affinity domain"/>
-        <code value="confidentiality"/>
-        <type value="token"/>
-        <expression value="Composition.confidentiality"/>
-        <xpath value="f:Composition/f:confidentiality"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="Composition-context"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
