@@ -99,7 +99,7 @@
         <reference value="Account/example"></reference>
     </account>
     <!--No indication, because no referral took place-->
-    <hospitalization>
+    <admission>
         <origin>
             <reference value="Location/2"/>
         </origin>
@@ -141,7 +141,7 @@
             <!--Fictive-->
             <reference value="Location/2"/>
         </destination>
-    </hospitalization>
+    </admission>
     <serviceProvider>
         <reference value="Organization/2"/>
     </serviceProvider>
