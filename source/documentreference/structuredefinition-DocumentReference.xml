@@ -930,7 +930,7 @@
       </binding>
       <mapping>
         <identity value="fhircomposition"/>
-        <map value="Composition.confidentiality, Composition.meta.security"/>
+        <map value="Bundle.meta.security"/>
       </mapping>
       <mapping>
         <identity value="v2"/>

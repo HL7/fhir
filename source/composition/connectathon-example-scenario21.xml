@@ -2,8 +2,14 @@
 <Bundle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xsi:schemaLocation="http://hl7.org/fhir ../../publish/bundle.xsd">
   <id value="500bee81-d973-4afe-b592-d39fe71e38"/>
   <meta>
-    <lastUpdated value="2013-05-28T22:12:21Z"/>
     <!-- Time the bundle was built -->
+    <lastUpdated value="2013-05-28T22:12:21Z"/>
+    <!-- Represents the document's overall confidentialtiy-->
+    <security>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
+      <code value="N"/>
+      <display value="normal"/>
+    </security>
     <!-- This tag specifies unambiguously that this is a FHIR document bundle -->
     <tag>
       <system value="http://hl7.org/fhir/tag"/>
@@ -40,7 +46,6 @@
         </type>
         <title value="Progress Note"/>
         <status value="final"/>
-        <confidentiality value="n"/>
         <!-- Who the document is about. The patient with the ID of sample -->
         <subject>
           <reference value="http://hl7.org.nz/fhir/Patient/patsypregnant"/>
