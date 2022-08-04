@@ -406,6 +406,24 @@
       </mapping>
       <isSummary value="true"/>
     </element>
+    <element id="ImagingSelection.seriesNumber">
+      <path value="ImagingSelection.seriesNumber"/>
+      <short value="DICOM Series Number"/>
+      <definition value="The Series Number for the DICOM Series from which the images were selected."/>
+      <comment value="See [DICOM PS3.3 C.7.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html)."/>
+      <requirements value="DICOM Series Number."/>
+      <alias value="SeriesNumber"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Series Number (0020,0011)"/>
+      </mapping>
+      <isSummary value="true"/>
+    </element>
     <element id="ImagingSelection.frameOfReferenceUid">
       <path value="ImagingSelection.frameOfReferenceUid"/>
       <short value="The Frame of Reference UID for the selected images"/>
@@ -457,6 +475,20 @@
         <map value="Body Part Examined (0018,0015)"/>
       </mapping>
     </element>
+    <element id="ImagingSelection.focus">
+      <path value="ImagingSelection.focus"/>
+      <short value="Related resource that is the focus for the imaging selection"/>
+      <definition value="The actual focus of an observation when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, fetus, or donor. For example, fetus observations in a mother&#39;s record.  The focus of an observation could also be an existing condition,  an intervention, the subject&#39;s diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child&#39;s tracheostomy tube. In this example, the child is the patient of record and the mother is the focus."/>
+      <comment value="An imaging selection may reference a DICOM resource that itself references other DICOM resources.&#xA;
+      e.g. a presentation state references a set of source images or frames."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="ImagingSelection.instance">
       <path value="ImagingSelection.instance"/>
       <short value="The selected instances"/>
@@ -489,6 +521,25 @@
       <mapping>
         <identity value="dicom"/>
         <map value="SOP Instance UID (0008,0018)"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.instance.number">
+      <path value="ImagingSelection.instance.number"/>
+      <short value="DICOM Instance Number"/>
+      <definition value="The Instance Number for the selected DICOM instance."/>
+      <comment value="See [DICOM PS3.3 C.7.6.1](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.6.html#sect_C.7.6.1).&#xA;
+      Note: A multiframe instance has a single instance number with each frame identified by a frame number."/>
+      <requirements value="DICOM Instance Number."/>
+      <alias value="InstanceNumber"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Instance Number (0020,0011)"/>
       </mapping>
     </element>
     <element id="ImagingSelection.instance.sopClass">
@@ -564,7 +615,7 @@
     </element>
     <element id="ImagingSelection.instance.imageRegion.regionType">
       <path value="ImagingSelection.instance.imageRegion.regionType"/>
-      <short value="POINT | POLYLINE | INTERPOLATED | CIRCLE | ELLIPSE"/>
+      <short value="point | polyline | interpolated | circle | ellipse"/>
       <definition value="Specifies the type of image region."/>
       <comment value="See [DICOM PS3.3 C.10.5.1.2](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.10.5.html#sect_C.10.5.1.2)."/>
       <alias value="GraphicType"/>
@@ -618,7 +669,7 @@
     </element>
     <element id="ImagingSelection.imageRegion.regionType">
       <path value="ImagingSelection.imageRegion.regionType"/>
-      <short value="POINT | MULTIPOINT | POLYLINE | POLYGON | ELLIPSE | ELLIPSOID"/>
+      <short value="point | multipoint | polyline | polygon | ellipse | ellipsoid"/>
       <definition value="Specifies the type of image region."/>
       <comment value="See [DICOM PS3.3 C.18.9.1.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html#sect_C.18.9.1.2)."/>
       <alias value="GraphicType"/>

@@ -744,7 +744,7 @@
     <element id="TestScript.fixture.resource">
       <path value="TestScript.fixture.resource"/>
       <short value="Reference of the resource"/>
-      <definition value="Reference to the resource (containing the contents of the resource needed for operations)."/>
+      <definition value="Reference to the resource (containing the contents of the resource needed for operations). This is allowed to be a Parameters resource."/>
       <comment value="See http://build.fhir.org/resourcelist.html for complete list of resource types."/>
       <min value="0"/>
       <max value="1"/>

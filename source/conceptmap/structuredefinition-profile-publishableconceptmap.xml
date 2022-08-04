@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="publishableconceptmap"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/publishableconceptmap"/>
+  <version value="4.6.0"/>
+  <name value="PublishableConceptMap"/>
+  <title value="Publishable ConceptMap"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="Defines and enforces the minimum expectations for publication and distribution of a concept map, typically as part of an artifact repository or implementation guide publication"/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="ConceptMap"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/shareableconceptmap"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="ConceptMap">
+      <path value="ConceptMap"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="ConceptMap.identifier">
+      <path value="ConceptMap.identifier"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ConceptMap.date">
+      <path value="ConceptMap.date"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ConceptMap.contact">
+      <path value="ConceptMap.contact"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ConceptMap.useContext">
+      <path value="ConceptMap.useContext"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ConceptMap.jurisdiction">
+      <path value="ConceptMap.jurisdiction"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ConceptMap.purpose">
+      <path value="ConceptMap.purpose"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ConceptMap.copyright">
+      <path value="ConceptMap.copyright"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ConceptMap.approvalDate">
+      <path value="ConceptMap.approvalDate"/>
+    </element>
+    <element id="ConceptMap.lastReviewDate">
+      <path value="ConceptMap.lastReviewDate"/>
+    </element>
+    <element id="ConceptMap.effectivePeriod">
+      <path value="ConceptMap.effectivePeriod"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ConceptMap.topic">
+      <path value="ConceptMap.topic"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ConceptMap.author">
+      <path value="ConceptMap.author"/>
+    </element>
+    <element id="ConceptMap.editor">
+      <path value="ConceptMap.editor"/>
+    </element>
+    <element id="ConceptMap.reviewer">
+      <path value="ConceptMap.reviewer"/>
+    </element>
+    <element id="ConceptMap.endorser">
+      <path value="ConceptMap.endorser"/>
+    </element>
+    <element id="ConceptMap.relatedArtifact">
+      <path value="ConceptMap.relatedArtifact"/>
+    </element>
+  </differential>
+</StructureDefinition>

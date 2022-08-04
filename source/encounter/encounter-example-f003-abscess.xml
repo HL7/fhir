@@ -56,7 +56,7 @@
       </coding>
     </concept>
 	</reason>
-	<hospitalization>
+	<admission>
 		<preAdmissionIdentifier>
 			<use value="official"/>
 			<system value="http://www.bmc.nl/zorgportal/identifiers/pre-admissions"/>
@@ -88,5 +88,5 @@
 				<display value="Discharge to home"/>
 			</coding>
 		</dischargeDisposition>
-	</hospitalization>
+	</admission>
 </Encounter>

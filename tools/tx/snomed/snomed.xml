@@ -195,6 +195,10 @@
     <display value="Prednisone"/>
     <display value="Prednisone (substance)"/>
   </concept>
+  <concept id="117040002" display="Nucleic acid sequencing">
+    <display value="Nucleic acid sequencing"/>
+    <display value="Nucleic acid sequencing (procedure)"/>
+  </concept>
   <concept id="1179448000" display="Ondansetron 4 mg oral lyophilisate">
     <display value="Ondansetron 4 mg oral lyophilisate"/>
     <display value="Product containing precisely ondansetron 4 milligram/1 each conventional release oral lyophilisate (clinical drug)"/>
@@ -476,6 +480,11 @@
     <display value="Specimen from lung obtained by bronchial washing procedure"/>
     <display value="Specimen from lung obtained by bronchial washing procedure (specimen)"/>
     <display value="Bronchial washings"/>
+  </concept>
+  <concept id="122610009" display="Specimen from lung obtained by biopsy">
+    <display value="Specimen from lung obtained by biopsy"/>
+    <display value="Specimen from lung obtained by biopsy (specimen)"/>
+    <display value="Lung biopsy sample"/>
   </concept>
   <concept id="122877000" display="Upper respiratory fluid specimen obtained by tracheal aspiration">
     <display value="Upper respiratory fluid specimen obtained by tracheal aspiration"/>
@@ -11117,6 +11126,11 @@
     <display value="Malignant tumour of craniopharyngeal duct"/>
     <display value="Malignant tumor of craniopharyngeal duct (disorder)"/>
   </concept>
+  <concept id="18850004" display="Laboratory hematologist">
+    <display value="Laboratory hematologist"/>
+    <display value="Laboratory haematologist"/>
+    <display value="Laboratory hematologist (occupation)"/>
+  </concept>
   <concept id="18911002" display="Penis">
     <display value="Penis"/>
     <display value="Penile structure"/>
@@ -12085,6 +12099,11 @@
     <display value="Lactose malabsorption"/>
     <display value="Lactose intolerance (disorder)"/>
   </concept>
+  <concept id="267431006" display="Disorder of lipid metabolism">
+    <display value="Disorder of lipid metabolism"/>
+    <display value="Disorder of lipid metabolism (disorder)"/>
+    <display value="Lipid metabolism disorder"/>
+  </concept>
   <concept id="26837006" display="American cream horse">
     <display value="American cream horse"/>
     <display value="American cream horse (organism)"/>
@@ -12519,6 +12538,10 @@
     <display value="Fetus specimen"/>
     <display value="Fetus specimen (specimen)"/>
     <display value="Foetus specimen"/>
+  </concept>
+  <concept id="309529002" display="Lung mass">
+    <display value="Lung mass"/>
+    <display value="Lung mass (finding)"/>
   </concept>
   <concept id="309898008" display="Psychogeriatric day hospital">
     <display value="Psychogeriatric day hospital"/>
@@ -13740,6 +13763,10 @@
   <concept id="398090008" display="Patient unavailable">
     <display value="Patient unavailable (finding)"/>
     <display value="Patient unavailable"/>
+  </concept>
+  <concept id="3981005" display="Carrier detection, molecular genetics">
+    <display value="Carrier detection, molecular genetics"/>
+    <display value="Carrier detection, molecular genetics (procedure)"/>
   </concept>
   <concept id="398102009" display="Acute poliomyelitis">
     <display value="Acute poliomyelitis (disorder)"/>
@@ -15092,6 +15119,10 @@
     <display value="Apgar score at 20 minutes (observable entity)"/>
     <display value="Apgar score at 20 minutes"/>
   </concept>
+  <concept id="443968007" display="Sequencing of entire coding region of gene">
+    <display value="Sequencing of entire coding region of gene (procedure)"/>
+    <display value="Sequencing of entire coding region of gene"/>
+  </concept>
   <concept id="444321000124108" display="Standard pudding oral supplement (product)">
     <display value="Standard pudding oral supplement (product)"/>
     <display value="Standard pudding oral supplement"/>
@@ -16013,6 +16044,10 @@
     <display value="Airway clearance impairment"/>
     <display value="Ineffective airway clearance (finding)"/>
   </concept>
+  <concept id="67799006" display="Cystic fibrosis, prenatal detection">
+    <display value="Cystic fibrosis, prenatal detection"/>
+    <display value="Cystic fibrosis, prenatal detection (procedure)"/>
+  </concept>
   <concept id="67889009" display="Irrigation">
     <display value="Irrigation"/>
     <display value="Lavage"/>
@@ -16171,6 +16206,10 @@
   <concept id="706052002" display="Evacuated blood collection tube">
     <display value="Evacuated blood collection tube"/>
     <display value="Evacuated blood collection tube (physical object)"/>
+  </concept>
+  <concept id="706687001" display="Software">
+    <display value="Software"/>
+    <display value="Software (physical object)"/>
   </concept>
   <concept id="70777001" display="Urine specimen collection, catheterized">
     <display value="Urine specimen collection, catheterized"/>

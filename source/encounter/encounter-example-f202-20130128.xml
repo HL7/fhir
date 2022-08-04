@@ -19,7 +19,7 @@
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="367336001"/>
-			<display value="Chemotherapy"/> 
+			<display value="Chemotherapy"/>
 		</coding>
 	</type>
 	<priority>
@@ -80,5 +80,5 @@
 		</use>
 		<rank value="1"/>
 	</diagnosis>
-	<!--No hospitalization was deemed necessary-->
+	<!--No admission was deemed necessary-->
 </Encounter>

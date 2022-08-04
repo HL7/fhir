@@ -44,7 +44,7 @@
     </participant>
     <length>
         <value value="140"/>
-        <unit value="min"/>    
+        <unit value="min"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="min"/>
     </length>
@@ -57,7 +57,7 @@
         </coding>
       </concept>
     </reason>
-    <hospitalization>
+    <admission>
         <preAdmissionIdentifier>
             <use value="official"/>
             <system value="http://www.amc.nl/zorgportal/identifiers/pre-admissions"/>
@@ -89,5 +89,5 @@
                 <display value="Discharge to home"/>
             </coding>
         </dischargeDisposition>
-    </hospitalization>
+    </admission>
 </Encounter>

@@ -25,22 +25,22 @@
               <display value="0-based interval counting"/>
           </coding>
       </coordinateSystem>
-      <reference>
-          <referenceSequenceCodeableConcept>
+      <startingSequence>
+          <sequenceCodeableConcept>
             <coding>
               <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
               <code value="NC_000002.12"/>
             </coding>
-          </referenceSequenceCodeableConcept>
+          </sequenceCodeableConcept>
           <windowStart value="128273724"/>
           <windowEnd value="128273754"/>
           <strand value="watson"/>
-      </reference>
+      </startingSequence>
       <edit>
           <start value="128273724"/>
           <end value="128273736"/>
-          <observedAllele value="CTCATTGT"/>
-          <referenceAllele value="CTCCATTGCATGCGTT"/>
+          <replacementSequence value="CTCATTGT"/>
+          <replacedSequence value="CTCCATTGCATGCGTT"/>
       </edit>    
     </relative>
 </MolecularSequence>
