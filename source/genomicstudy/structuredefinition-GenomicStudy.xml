@@ -222,6 +222,30 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
     </element>
+
+    <element id="GenomicStudy.instantiatesCanonical">
+      <path value="GenomicStudy.instantiatesCanonical"/>
+      <short value="The defined protocol that describes the analysis"/>
+      <definition value="The defined protocol that describes the analysis."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+      </type>
+    </element>
+    <element id="GenomicStudy.analysis.instantiatesUri">
+      <path value="GenomicStudy.analysis.instantiatesUri"/>
+      <short value="The URL pointing to an externally maintained protocol that describes the analysis"/>
+      <definition value="The URL pointing to an externally maintained protocol that describes the analysis."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+
     <element id="GenomicStudy.note">
       <path value="GenomicStudy.note"/>
       <short value="Comments related to the genomic study"/>
