@@ -125,8 +125,9 @@
     <element id="Extension.extension:type">
       <path value="Extension.extension"/>
       <sliceName value="type"/>
-      <short value="Type of sex or gender that is recorded."/>
-      <definition value="The type or category of sex or gender that is recorded."/>
+      <short value="Type of recorded sex or gender."/>
+      <definition value="The type or category of sex or gender that is recorded.  "/>
+	  <comment value="Because the recorded sex and gender concept exists primarily as means to exchange sex and gender data concepts that are either use-case specific, or that are not well defined, the type may often correspond to the "/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -220,7 +221,7 @@
       <path value="Extension.extension"/>
       <sliceName value="sourceDocument"/>
       <short value="The document the sex or gender property was acquired from."/>
-      <definition value="The source document where this sex or gender property is initially recorded."/>
+      <definition value="The reference to the source document or the code representing the type of document where this sex or gender property is initially recorded."/>
       <comment value="For example, if a driver's license is scanned, this property may reference that scanned document."/>
       <min value="0"/>
       <max value="1"/>
@@ -243,7 +244,7 @@
       <path value="Extension.extension.value[x]"/>
       <min value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
     </element>
