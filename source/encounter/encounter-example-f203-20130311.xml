@@ -47,6 +47,12 @@
     <basedOn>
         <reference value="ServiceRequest/myringotomy"/>
     </basedOn>
+    <partOf>
+        <reference value="Encounter/f203"/>
+    </partOf>
+    <serviceProvider>
+        <reference value="Organization/2"/>
+    </serviceProvider>
     <participant>
         <type>
             <coding>
@@ -95,7 +101,7 @@
         </coding>
       </use>
     </diagnosis>
-<account>
+    <account>
         <reference value="Account/example"></reference>
     </account>
     <!--No indication, because no referral took place-->
@@ -142,10 +148,4 @@
             <reference value="Location/2"/>
         </destination>
     </admission>
-    <serviceProvider>
-        <reference value="Organization/2"/>
-    </serviceProvider>
-    <partOf>
-        <reference value="Encounter/f203"/>
-    </partOf>
 </Encounter>

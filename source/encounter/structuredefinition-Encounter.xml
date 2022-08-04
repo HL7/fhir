@@ -75,7 +75,7 @@
       </extension>
       <path value="Encounter"/>
       <short value="An interaction during which services are provided to the patient"/>
-      <definition value="An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient."/>
+      <definition value="An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.  Encounter is primarily used to record information about the actual activities that occurred, where Appointment is used to record planned activities."/>
       <alias value="Visit"/>
       <min value="0"/>
       <max value="*"/>
@@ -506,6 +506,52 @@
         <map value=".reason.ClinicalDocument"/>
       </mapping>
     </element>
+    <element id="Encounter.partOf">
+      <path value="Encounter.partOf"/>
+      <short value="Another Encounter this encounter is part of"/>
+      <definition value="Another Encounter of which this encounter is a part of (administratively or in time)."/>
+      <comment value="This is also used for associating a child&#39;s encounter back to the mother&#39;s encounter.&#xD;&#xD;Refer to the Notes section in the Patient resource for further details."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy">
+          <valueBoolean value="true"/>
+        </extension>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.partOf"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=COMP, moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="Encounter.serviceProvider">
+      <path value="Encounter.serviceProvider"/>
+      <short value="The organization (facility) responsible for this encounter"/>
+      <definition value="The organization that is primarily responsible for this Encounter&#39;s services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PL.6  &amp; PL.1"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".particiaption[typeCode=PFM].role"/>
+      </mapping>
+    </element>
     <element id="Encounter.participant">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="370,0"/>
@@ -730,9 +776,10 @@
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -1201,52 +1248,6 @@
       <mapping>
         <identity value="rim"/>
         <map value=".time"/>
-      </mapping>
-    </element>
-    <element id="Encounter.serviceProvider">
-      <path value="Encounter.serviceProvider"/>
-      <short value="The organization (facility) responsible for this encounter"/>
-      <definition value="The organization that is primarily responsible for this Encounter&#39;s services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed separately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.performer.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="PL.6  &amp; PL.1"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".particiaption[typeCode=PFM].role"/>
-      </mapping>
-    </element>
-    <element id="Encounter.partOf">
-      <path value="Encounter.partOf"/>
-      <short value="Another Encounter this encounter is part of"/>
-      <definition value="Another Encounter of which this encounter is a part of (administratively or in time)."/>
-      <comment value="This is also used for associating a child&#39;s encounter back to the mother&#39;s encounter.&#xD;&#xD;Refer to the Notes section in the Patient resource for further details."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy">
-          <valueBoolean value="true"/>
-        </extension>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.partOf"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP].source[classCode=COMP, moodCode=EVN]"/>
       </mapping>
     </element>
   </differential>
