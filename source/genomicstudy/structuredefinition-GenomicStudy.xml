@@ -225,8 +225,8 @@
 
     <element id="GenomicStudy.instantiatesCanonical">
       <path value="GenomicStudy.instantiatesCanonical"/>
-      <short value="The defined protocol that describes the analysis"/>
-      <definition value="The defined protocol that describes the analysis."/>
+      <short value="The defined protocol that describes the study"/>
+      <definition value="The defined protocol that describes the study."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -235,10 +235,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysis.instantiatesUri">
-      <path value="GenomicStudy.analysis.instantiatesUri"/>
-      <short value="The URL pointing to an externally maintained protocol that describes the analysis"/>
-      <definition value="The URL pointing to an externally maintained protocol that describes the analysis."/>
+    <element id="GenomicStudy.instantiatesUri">
+      <path value="GenomicStudy.instantiatesUri"/>
+      <short value="The URL pointing to an externally maintained protocol that describes the study"/>
+      <definition value="The URL pointing to an externally maintained protocol that describes the study."/>
       <min value="0"/>
       <max value="1"/>
       <type>
