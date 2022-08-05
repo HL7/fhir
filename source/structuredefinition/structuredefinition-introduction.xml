@@ -73,7 +73,7 @@ find the structure when registered in repositories.
 
 <p>Notes:</p>
 <ul>
-<li>The name and title of the structure are not required to be globally unique, but the name amd title should have some scoping information (e.g. AcmeAllergies / Acme Inc. (USA), Allergy List)</li>
+<li>The name and title of the structure are not required to be globally unique, but the name and title should have some scoping information (e.g. AcmeAllergies / Acme Inc. (USA), Allergy List)</li>
 <li>Multiple keywords may be assigned to the structure. These may either describe the structure, the focus of the structure or both. They are solely to help find the structure by searching for structured concepts</li>
 <li>The 3 status codes (draft, active, and retired) are the codes that are relevant to structure consumers. Authors may wish to use the <a href="#author-status">authoring-status</a> extension to track the life cycle of a structure as it is prepared</li>
 </ul>
