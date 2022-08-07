@@ -465,6 +465,15 @@
 		<publish>true</publish>
 	</space>
 	<space>
+		<url>http://hl7.org/fhir/consent</url>
+    <link>http://hl7.org/fhir/consent.html</link>
+		<columnName>Consent Mapping</columnName>
+		<title>FHIR Consent Mapping</title>
+		<id>fhirconsent</id>
+		<sort>44</sort>
+		<publish>true</publish>
+	</space>
+	<space>
 	    <url>https://www.isbt128.org/uri/</url>
 		<link>https://www.isbt128.org/uri/</link>
 		<columnName>ISBT 128 Code</columnName>
