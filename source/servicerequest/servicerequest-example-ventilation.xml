@@ -5,12 +5,14 @@
 	<status value="completed"/>
 	<intent value="order"/>
 	<code>
+	  <concept>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="40617009"/>
 			<display value="Artificial respiration (procedure)"/>
 		</coding>
 		<text value="Mechanical Ventilation"/>
+	  </concept>
 	</code>
 	<orderDetail>
 		<coding>
