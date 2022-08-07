@@ -383,6 +383,25 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/payeetype"/>
       </binding>
     </element>
+    <element id="ClaimResponse.diagnosisRelatedGroup">
+      <path value="ClaimResponse.diagnosisRelatedGroup"/>
+      <short value="Package billing code"/>
+      <definition value="A package billing code or bundle code used to group products and services to a particular health condition (such as heart attack) which is based on a predetermined grouping code system."/>
+      <comment value="For example DRG (Diagnosis Related Group) or a bundled billing code. A patient may have a diagnosis of a Myocardial Infarction and a DRG for HeartAttack would be assigned. The Claim item (and possible subsequent claims) would refer to the DRG for those line items that were for services related to the heart attack event."/>
+      <requirements value="Required to relate the current diagnosis to a package billing code that is then referenced on the individual claim items which are specific to the health condition covered by the package code."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiagnosisRelatedGroup"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ex-diagnosisrelatedgroup"/>
+      </binding>
+    </element>
     <element id="ClaimResponse.item">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Item"/>
@@ -851,28 +870,44 @@
       </mapping>
     </element>
     <element id="ClaimResponse.addItem.bodySite">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="BodySite"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="740,500"/>
+      </extension>
       <path value="ClaimResponse.addItem.bodySite"/>
       <short value="Anatomical location"/>
+      <definition value="Physical location where the service is performed or applies."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ClaimResponse.addItem.bodySite.site">
+      <path value="ClaimResponse.addItem.bodySite.site"/>
+      <short value="Location"/>
       <definition value="Physical service site on the patient (limb, tooth, etc.)."/>
       <comment value="For example: Providing a tooth code allows an insurer to identify a provider performing a filling on a tooth that was previously removed."/>
       <requirements value="Allows insurer to validate specific procedures."/>
-      <min value="0"/>
-      <max value="1"/>
+      <min value="1"/>
+      <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="OralSites"/>
         </extension>
         <strength value="example"/>
-        <description value="The code for the teeth, quadrant, sextant and arch."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/tooth"/>
       </binding>
     </element>
-    <element id="ClaimResponse.addItem.subSite">
-      <path value="ClaimResponse.addItem.subSite"/>
-      <short value="Anatomical sub-location"/>
+    <element id="ClaimResponse.addItem.bodySite.subSite">
+      <path value="ClaimResponse.addItem.bodySite.subSite"/>
+      <short value="Sub-location"/>
       <definition value="A region or surface of the bodySite, e.g. limb region or tooth surface(s)."/>
       <requirements value="Allows insurer to validate specific procedures."/>
       <min value="0"/>
@@ -885,7 +920,6 @@
           <valueString value="Surface"/>
         </extension>
         <strength value="example"/>
-        <description value="The code for the tooth surface and surface combinations."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/surface"/>
       </binding>
     </element>
