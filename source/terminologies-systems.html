@@ -18,7 +18,7 @@
 
 <p>
 The following names (URIs) may be used in the <i>system</i> element of the <a href="datatypes.html#Coding">Coding</a> data type.
-If a URI is defined here, it SHALL be used in preference to any other identifying mechanisms. If a code system is not listed
+For URIs specified here for code systems defined as part of FHIR, they SHALL be used in preference to any other identifying mechanisms. If a code system is not listed
 here, the correct URI may be determined by working through the following list, in order:
 </p>
 <ul>
@@ -29,24 +29,17 @@ here, the correct URI may be determined by working through the following list, i
 </ul>
 
 <p>
-See also the <a href="identifier-registry.html">list of known identifier systems</a> that can be used in the <i>system</i> element of the <a href="datatypes.html#Identifier">Identifier</a> data type.
-Additional identifier systems may be registered on the HL7 FHIR registry at <a href="http://hl7.org/fhir/registry">http://hl7.org/fhir/registry</a>.
-</p>
-<p>
 <b>Important Notes:</b>
 </p>
 <ul>
  <li>This list of names is incomplete and subject to change. Some values may be dropped, and others will likely be added in the coming months as HL7 institutes formal processes around URIs in vocabulary</li>
-<li>Note that some of the URNs in this list follow the URN specification in <a href="http://tools.ietf.org/html/rfc5141">RFC 5141</a> for referring to
-standards published by ISO, such as urn:iso:std:iso:11073:10101. Where ISO standards define codes with meanings, and there is no entry in the list above,
-and they are not registered in the HL7 OID registry, the default URN for the code system is that defined by the RFC 5141.</li>
-<li>For several of the code systems in this list, multiple systems are given. This means that the variants identified are different code systems, not just variants of the same code system</li>
+ <li>The external terminology content provided in the Defined Externally tab is provided for convenience and should not be considered authoritative nor normative.</li>
+ <li>Please access the <a href="https://terminology.hl7.org/external_terminologies.html">External Code Systems</a> page of HL7 Terminology for authoritative information regarding the correct use of external terminologies with FHIR and other HL7 standards including HL7 endorsed system URI and OID identifiers.</li>
 <li>Any URL in <code>http://example.org</code> is reserved for testing and documentation purposes.</li>
 </ul>
 
 <p>
-Note that the code systems are available as FHIR resources - see the <a href="downloads.html">Downloads Page</a> (as part of the FHIR definitions) (excluding
-the External code systems.
+  Note that the HL7 code systems are available as FHIR resources - see the <a href="downloads.html">Downloads Page</a> (as part of the FHIR definitions).
 </p>
 <p>
 <b>Don't see what you're looking for here?</b> See <a href="https://confluence.hl7.org/display/TA/Request+Content+in+External+Terminologies">Registering Code Systems</a> for further advice.
@@ -101,12 +94,6 @@ the External code systems.
    <td style="color : DarkGrey">2.16.840.1.113883.6.8</td>
  </tr>
  <tr>
-   <td>http://ncimeta.nci.nih.gov <a name="http://ncimeta.nci.nih.gov"></a></td>
-   <td><a href="http://ncimeta.nci.nih.gov">NCI Metathesaurus</a></td>
-   <td>See <a href="ncimeta.html">Using NCI Metathesaurus with FHIR</a></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.3.26.1.2</td>
- </tr>
- <tr>
    <td>http://www.ama-assn.org/go/cpt <a name="http://www.ama-assn.org/go/cpt"></a></td>
    <td><a href="http://www.ama-assn.org/go/cpt">AMA CPT codes</a></td>
    <td>See <a href="cpt.html">Using CPT with FHIR</a></td>
@@ -149,24 +136,6 @@ the External code systems.
    <td>1.0.3166.1.2.2</td>
  </tr>
  <tr>
-   <td>http://hl7.org/fhir/sid/dsm5 <a name="http://hl7.org/fhir/sid/dsm5"></a></td>
-   <td><a href="https://en.wikipedia.org/wiki/DSM-5">DSM-5</a></td>
-   <td>Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition (DSM-5)</td>
-   <td>2.16.840.1.113883.6.344</td>
- </tr>
- <tr>
-   <td>http://www.nubc.org/patient-discharge <a name="http://www.nubc.org/patient-discharge"></a></td>
-   <td><a href="http://www.nubc.org">NUBC</a> code system for Patient Discharge Status</td>
-   <td>National Uniform Billing Committee, manual UB-04, UB form locator 17</td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.301.5</td>
- </tr>
- <tr>
-   <td>http://www.radlex.org <a name="http://www.radlex.org"></a></td>
-   <td><a href="http://www.radlex.org">RadLex</a></td>
-   <td>(Includes <a name="http://playbook.radlex.org">play book</a> codes)</td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.256 </td>
- </tr>
- <tr>
    <td>
      ICD-9, ICD-10
    </td>
@@ -177,213 +146,10 @@ the External code systems.
    </td>
  </tr>
  <tr>
-   <td>
-     http://hl7.org/fhir/sid/icpc-1 <a name="http://hl7.org/fhir/sid/icpc-1"></a> <br/>
-     http://hl7.org/fhir/sid/icpc-1-nl <a name="http://hl7.org/fhir/sid/icpc-1-nl"></a> <br/>
-     http://hl7.org/fhir/sid/icpc-2 <a name="http://hl7.org/fhir/sid/icpc-2"></a>
-   </td>
-   <td>ICPC (International Classification of Primary Care) (<a href="http://www.ph3c.org/">PH3C</a>)</td>
-   <td>
-     <br/>
-     <a href="https://referentiemodel.nhg.org/tabellen/nhg-tabel-24-icpc1">NHG Table 24 ICPC-1 (NL)</a><br/>
-   </td>
-   <td>
-      <br/>
-     2.16.840.1.113883.2.4.4.31.1 <br/>
-     2.16.840.1.113883.6.139
-   </td>
- </tr>
- <tr>
-   <td>http://hl7.org/fhir/sid/icf-nl <a name="http://hl7.org/fhir/sid/icf-nl"></a></td>
-   <td>ICF  (International Classification of Functioning, Disability and Health) (<a href="http://www.who.int/classifications/icf/en/">WHO</a>)</td>
-   <td></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.254</td>
- </tr>
- <tr>
-   <td>http://terminology.hl7.org/CodeSystem/v2-[X](/v) <a name="http://terminology.hl7.org/CodeSystem/v2-[X](/v"></a></td>
-   <td><a href="https://terminology.hl7.org/codesystems-v2.html">Version 2 tables</a></td>
-   <td>[X] is the 4 digit identifier for a table; e.g. http://terminology.hl7.org/CodeSystem/v2-0203<br/>
-     Note: only <a href="https://terminology.hl7.org/codesystems-v2.html">some tables</a> may be treated in this fashion.
-     For some tables, the meaning of the code is version dependent, and so additional information
-     must be included in the namespace, e.g. http://terminology.hl7.org/CodeSystem/v2-0123/2.3+, as defined in the <a href="https://terminology.hl7.org/codesystems-v2.html">v2 table namespace list</a>.
-     Version 2 codes are case sensitive.</td>
-   <td style="color : DarkGrey">2.16.840.1.113883.12.[X]</td>
- </tr>
- <tr>
-   <td>http://terminology.hl7.org/CodeSystem/v3-[X] <a name="http://terminology.hl7.org/CodeSystem/v3-[X"></a></td>
-   <td><a href="http://terminology.hl7.org/codesystems-v3.html">A <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> code system</a></td>
-   <td>[X] is the code system name; e.g. http://terminology.hl7.org/CodeSystem/v3-GenderStatus. HL7 v3 code systems are case sensitive.</td>
-   <td>see <a href="http://terminology.hl7.org/codesystems-v3.html">v3 list</a></td>
- </tr>
- <tr>
-   <td>https://www.gs1.org/gtin <a name="https://www.gs1.org/gtin"></a></td>
-   <td>GTIN (<a href="https://www.gs1.org">GS1</a>)</td>
-   <td>Note: GTINs may be used in both <a href="datatypes.html#Coding">Codes</a> and <a href="datatypes.html#Identifier">Identifiers</a></td>
-   <td style="color : DarkGrey">1.3.160</td>
- </tr>
- <tr>
-   <td>http://www.whocc.no/atc <a name="http://www.whocc.no/atc"></a></td>
-   <td>Anatomical Therapeutic Chemical Classification System (<a href="http://www.whocc.no/atc/structure_and_principles/">WHO</a>)</td>
-   <td></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.73</td>
- </tr>
- <tr>
-   <td>urn:ietf:bcp:47 <a name="urn:ietf:bcp:47"></a></td>
-   <td>IETF language (see <a href="http://tools.ietf.org/html/bcp47">Tags for Identifying Languages - BCP 47</a>)</td>
-   <td>This is used for identifying language throughout FHIR. Note that usually these codes are in a <code>code</code> and the system is assumed</td>
-   <td></td>
- </tr>
- <tr>
-   <td>urn:ietf:bcp:13 <a name="urn:ietf:bcp:47"></a></td>
-   <td>Mime Types (see <a href="http://tools.ietf.org/html/bcp13">Multipurpose Internet Mail Extensions (MIME) Part Four - BCP 13</a>)</td>
-   <td>This is used for identifying the mime type system throughout FHIR. Note that these codes are in a <code>code</code> (e.g. <a href="datatypes.html#Attachment">Attachment.contentType</a>
-   and in these elements the system is assumed). This system is defined for when constructing value sets of mime type codes</td>
-   <td></td>
- </tr>
- <tr>
    <td>urn:iso:std:iso:11073:10101 <a name="urn:iso:std:iso:11073:10101"></a></td>
    <td>Medical Device Codes (<a href="https://www.iso.org/standard/37890.html">ISO 11073-10101</a>)</td>
    <td>See <a href="mdc.html">Using MDC Codes with FHIR</a></td>
    <td style="color : DarkGrey">2.16.840.1.113883.6.24</td>
- </tr>
- <tr>
-   <td><a href="codesystem-dicom-dcim.html">http://dicom.nema.org/resources/ontology/DCM</a> <a name="http://dicom.nema.org/resources/ontology/DCM"></a></td>
-   <td>DICOM Code Definitions</td>
-   <td>The meanings of codes defined in DICOM, either explicitly or by reference to another part of DICOM or an external reference document or standard</td>
-   <td>1.2.840.10008.2.16.4</td>
- </tr>
- <tr>
-   <td>http://hl7.org/fhir/NamingSystem/ca-hc-din <a name="http://hl7.org/fhir/NamingSystem/ca-hc-din"></a></td>
-   <td><a href="http://www.hc-sc.gc.ca/dhp-mps/prodpharma/activit/fs-fi/dinfs_fd-eng.php">Health Canada Drug Identification Number</a></td>
-   <td>
-     <p>A computer-generated eight-digit number assigned by Health Canada to a drug product prior to being marketed in Canada.
-       <a href="http://www.hc-sc.gc.ca/dhp-mps/prodpharma/databasdon/index-eng.php">Canada Health Drug Product Database</a> contains
-       product specific information on drugs approved for use in Canada.
-      </p>
-    </td>
-   <td style="color : DarkGrey">2.16.840.1.113883.5.1105</td>
- </tr>
- <tr>
-   <td>http://hl7.org/fhir/sid/ca-hc-npn <a name="http://hl7.org/fhir/NamingSystem/ca-hc-npn"></a></td>
-   <td><a href="https://www.canada.ca/en/health-canada/services/drugs-health-products/natural-non-prescription/applications-submissions/product-licensing/licensed-natural-health-products-database.html">Health Canada Natural Product Number</a></td>
-   <td>
-     <p>A computer-generated number assigned by Health Canada to a natural health product prior to being marketed in Canada.
-      </p>
-    </td>
-   <td style="color : DarkGrey">2.16.840.1.113883.5.1107</td>
- </tr>
- <tr>
-   <td>http://nucc.org/provider-taxonomy <a name="http://nucc.org/provider-taxonomy"></a></td>
-   <td><a href="http://www.nucc.org/index.php/code-sets-mainmenu-41/provider-taxonomy-mainmenu-40/csv-mainmenu-57">NUCC Provider Taxonomy</a></td>
-   <td>
-     <p>The Health Care Provider Taxonomy code is a unique alphanumeric code, ten characters in length. The code set is structured into
-     three distinct "Levels" including Provider Type, Classification, and Area of Specialization.</p>
-     <p>Copyright statement for NUCC value sets: </p>
-     <blockquote>
-     This value set includes content from NUCC Health Care Provider Taxonomy Code Set for providers which is copyright © 2016+ American Medical Association. For commercial use, including sales or licensing, a license must be obtained
-     </blockquote>
-   </td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.101</td>
- </tr>
- <tr>
-   <td>http://ada.org/cdt <a name="http://ada.org/cdt"></a></td>
-   <td><a href="http://ada.org/cdt">CDT</a></td>
-   <td>CDT for dental procedures - Owned by ADA. There is a small cost to use this code system</td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.13</td>
- </tr>
- <tr>
-   <td>http://ada.org/snodent <a name="http://ada.org/snodent"></a></td>
-   <td><a href="http://ada.org/snodent">SNODENT</a></td>
-   <td>SNODENT for dental conditions, findings, disorders. Used for claims and clinical care - Owned by ADA. There is a small cost to use this code system</td>
-   <td style="color : DarkGrey">2.16.840.1.113883.3.3150</td>
- </tr>
-
- <tr>
-   <td colspan="4" style="background: #EFEFEF"><b>Code Systems for Genetics</b> <a name="genetics"></a></td>
- </tr>
- <tr>
-   <td>http://www.genenames.org<a name="http://www.genenames.org"> </a></td>
-   <td><a href="http://www.genenames.org">HGNC: Human Gene Nomenclature Committee</a></td>
-   <td></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.281</td>
- </tr>
- <tr>
-   <td>http://www.ensembl.org<a name="http://www.ensembl.org"> </a></td>
-   <td><a href="http://www.ensembl.org">ENSEMBL reference sequence identifiers</a></td>
-   <td>Maintained jointly by the European Bioinformatics Institute and Welcome Trust Sanger Institute</td>
-   <td style="color: #777777"><i>not assigned yet</i></td>
- </tr>
- <tr>
-   <td>http://www.ncbi.nlm.nih.gov/refseq<a name="http://www.ncbi.nlm.nih.gov/refseq"> </a></td>
-   <td><a href="https://www.ncbi.nlm.nih.gov/refseq/">RefSeq: National Center for Biotechnology Information (NCBI) Reference Sequences</a></td>
-   <td></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.280</td>
- </tr>
- <tr>
-   <td>http://www.ncbi.nlm.nih.gov/clinvar<a name="http://www.ncbi.nlm.nih.gov/clinvar"> </a></td>
-   <td><a href="http://www.ncbi.nlm.nih.gov/clinvar">ClinVar Variant ID</a></td>
-   <td>NCBI central repository for curating pathogenicity of potentially clinically relevant variants</td>
-   <td style="color: #777777"><i>not assigned yet</i></td>
- </tr>
- <tr>
-   <td>http://sequenceontology.org<a name="http://sequenceontology.org"> </a></td>
-   <td><a href="http://sequenceontology.org">Sequence Ontology</a></td>
-   <td></td>
-   <td style="color: #777777"><i>not assigned yet</i></td>
- </tr>
- <tr>
-   <td>http://varnomen.hgvs.org<a name="http://varnomen.hgvs.org"> </a></td>
-   <td><a href="http://varnomen.hgvs.org/">HGVS : Human Genome Variation Society </a></td>
-   <td></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.282</td>
- </tr>
- <tr>
-   <td>http://www.ncbi.nlm.nih.gov/projects/SNP<a name="http://www.ncbi.nlm.nih.gov/projects/SNP"> </a></td>
-   <td><a href="http://www.ncbi.nlm.nih.gov/projects/SNP">DBSNP : Single Nucleotide Polymorphism database</a></td>
-   <td></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.284</td>
- </tr>
- <tr>
-   <td>http://cancer.sanger.ac.uk/<br/>cancergenome/projects/cosmic<a name="http://cancer.sanger.ac.uk/cancergenome/projects/cosmic"> </a></td>
-   <td><a href="http://cancer.sanger.ac.uk/cancergenome/projects/cosmic">COSMIC : Catalogue Of Somatic Mutations In Cancer</a></td>
-   <td></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.3.912</td>
- </tr>
- <tr>
-   <td>http://www.lrg-sequence.org<a name="http://www.lrg-sequence.org"> </a></td>
-   <td><a href="http://www.lrg-sequence.org">LRG : Locus Reference Genomic Sequences</a></td>
-   <td></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.283</td>
- </tr>
- <tr>
-   <td>http://www.omim.org<a name="http://www.omim.org"> </a></td>
-   <td><a href="http://www.omim.org">OMIM : Online Mendelian Inheritance in Man</a></td>
-   <td></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.174</td>
- </tr>
- <tr>
-   <td>http://www.ncbi.nlm.nih.gov/pubmed<a name="http://www.ncbi.nlm.nih.gov/pubmed"> </a></td>
-   <td><a href="http://www.ncbi.nlm.nih.gov/pubmed">PubMed </a></td>
-   <td></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.13.191</td>
- </tr>
- <tr>
-   <td>http://www.pharmgkb.org<a name="http://www.pharmgkb.org"> </a></td>
-   <td><a href="http://www.pharmgkb.org">PHARMGKB : Pharmacogenomic Knowledge Base</a></td>
-   <td>PharmGKB Accession ID</td>
-   <td style="color : DarkGrey">2.16.840.1.113883.3.913</td>
- </tr>
- <tr>
-   <td>http://clinicaltrials.gov<a name="http://clinicaltrials.gov"> </a></td>
-   <td><a href="http://clinicaltrials.gov">ClinicalTrials.gov</a></td>
-   <td></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.3.1077</td>
- </tr>
- <tr>
-   <td>http://www.ebi.ac.uk/ipd/imgt/hla <a name="http://www.ebi.ac.uk/ipd/imgt/hla"></a></td>
-   <td><a href="http://www.ebi.ac.uk/ipd/imgt/hla">European Bioinformatics Institute</a></td>
-   <td></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.341</td>
  </tr>
 </table>
 

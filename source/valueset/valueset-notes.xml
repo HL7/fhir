@@ -202,7 +202,6 @@ This specification also defines filters for various published code systems:
  <li><a href="snomedct.html#filters">Using SNOMED CT Filters</a></li>
  <li><a href="rxnorm.html#filters">RxNorm Filters</a></li>
  <li><a href="ucum.html#filters">UCUM Filters</a></li>
- <li><a href="ncimeta.html#filters">Using Metathesaurus Filters</a></li>
  <li><a href="cpt.html#filters">CPT Filters</a></li>
  <li><a href="ndfrt.html#filters">NDF-RT Filters</a></li>
 </ul>
