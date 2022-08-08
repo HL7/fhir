@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Coverage"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -145,7 +145,7 @@
       <short value="active | cancelled | draft | entered-in-error"/>
       <definition value="The status of the resource instance."/>
       <comment value="This element is labeled as a modifier because the status contains the code entered-in-error that marks the coverage as not currently valid."/>
-      <requirements value="Need to track the status of the resource as &#39;draft&#39; resources may undergo further edits while &#39;active&#39; resources are immutable and may only have their status changed to &#39;cancelled&#39;."/>
+      <requirements value="Need to track the status of the resource as 'draft' resources may undergo further edits while 'active' resources are immutable and may only have their status changed to 'cancelled'."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -209,9 +209,9 @@
       </extension>
       <path value="Coverage.policyHolder"/>
       <short value="Owner of the policy"/>
-      <definition value="The party who &#39;owns&#39; the insurance policy."/>
-      <comment value="For example: may be an individual, corporation or the subscriber&#39;s employer."/>
-      <requirements value="This provides employer information in the case of Worker&#39;s Compensation and other policies."/>
+      <definition value="The party who 'owns' the insurance policy."/>
+      <comment value="For example: may be an individual, corporation or the subscriber's employer."/>
+      <requirements value="This provides employer information in the case of Worker's Compensation and other policies."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -248,7 +248,7 @@
       </extension>
       <path value="Coverage.subscriber"/>
       <short value="Subscriber to the policy"/>
-      <definition value="The party who has signed-up for or &#39;owns&#39; the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due."/>
+      <definition value="The party who has signed-up for or 'owns' the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due."/>
       <comment value="May be self or a parent in the case of dependants."/>
       <requirements value="This is the party who is entitled to the benfits under the policy."/>
       <min value="0"/>
@@ -380,7 +380,7 @@
       <path value="Coverage.relationship"/>
       <short value="Beneficiary relationship to the subscriber"/>
       <definition value="The relationship of beneficiary (patient) to the subscriber."/>
-      <comment value="Typically, an individual uses policies which are theirs (relationship=&#39;self&#39;) before policies owned by others."/>
+      <comment value="Typically, an individual uses policies which are theirs (relationship='self') before policies owned by others."/>
       <requirements value="The relationship between the patient and the subscriber to determine coordination of benefits."/>
       <min value="0"/>
       <max value="1"/>
@@ -403,7 +403,7 @@
     <element id="Coverage.period">
       <path value="Coverage.period"/>
       <short value="Coverage start and end dates"/>
-      <definition value="Time period during which the coverage is in force. A missing start date indicates the start date isn&#39;t known, a missing end date means the coverage is continuing to be in force."/>
+      <definition value="Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force."/>
       <requirements value="Some insurers require the submission of the coverage term."/>
       <min value="0"/>
       <max value="1"/>
@@ -480,7 +480,7 @@
     </element>
     <element id="Coverage.class.type">
       <path value="Coverage.class.type"/>
-      <short value="Type of class such as &#39;group&#39; or &#39;plan&#39;"/>
+      <short value="Type of class such as 'group' or 'plan'"/>
       <definition value="The type of classification for which an insurer-specific class label or number and optional name is provided.  For example, type may be used to identify a class of coverage or employer group, policy, or plan."/>
       <requirements value="The insurer issued label for a specific health card value."/>
       <min value="1"/>
@@ -566,7 +566,7 @@
     <element id="Coverage.network">
       <path value="Coverage.network"/>
       <short value="Insurer network"/>
-      <definition value="The insurer-specific identifier for the insurer-defined network of providers to which the beneficiary may seek treatment which will be covered at the &#39;in-network&#39; rate, otherwise &#39;out of network&#39; terms and conditions apply."/>
+      <definition value="The insurer-specific identifier for the insurer-defined network of providers to which the beneficiary may seek treatment which will be covered at the 'in-network' rate, otherwise 'out of network' terms and conditions apply."/>
       <requirements value="Used in referral for treatment and in claims processing."/>
       <min value="0"/>
       <max value="1"/>
@@ -702,8 +702,8 @@
     <element id="Coverage.subrogation">
       <path value="Coverage.subrogation"/>
       <short value="Reimbursement to insurer"/>
-      <definition value="When &#39;subrogation=true&#39; this insurance instance has been included not for adjudication but to provide insurers with the details to recover costs."/>
-      <comment value="Typically, automotive and worker&#39;s compensation policies would be flagged with &#39;subrogation=true&#39; to enable healthcare payors to collect against accident claims."/>
+      <definition value="When 'subrogation=true' this insurance instance has been included not for adjudication but to provide insurers with the details to recover costs."/>
+      <comment value="Typically, automotive and worker's compensation policies would be flagged with 'subrogation=true' to enable healthcare payors to collect against accident claims."/>
       <requirements value="See definition for when to be used."/>
       <min value="0"/>
       <max value="1"/>
@@ -741,6 +741,21 @@
         <identity value="cpha3pharm"/>
         <map value="C.35"/>
       </mapping>
+    </element>
+    <element id="Coverage.insurancePlan">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="C.35."/>
+      </extension>
+      <path value="Coverage.insurancePlan"/>
+      <short value="Insurance plan details"/>
+      <definition value="The insurance plan details, benefits and costs, which constitute this insurance coverage."/>
+      <requirements value="To associate the plan benefits and costs with the coverage which is an instance of that plan."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/InsurancePlan"/>
+      </type>
     </element>
   </differential>
 </StructureDefinition>

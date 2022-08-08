@@ -52,16 +52,18 @@
 	<healthcareService>
 		<reference value="HealthcareService/example"/>
 	</healthcareService>
-	<telecom>
-		<system value="phone" />
-		<value value="(03) 5555 6473" />
-		<use value="work"/>
-	</telecom>
-	<telecom>
-		<system value="email" />
-		<value value="adam.southern@example.org" />
-		<use value="work"/>
-	</telecom>
+	<contact>
+		<telecom>
+			<system value="phone" />
+			<value value="(03) 5555 6473" />
+			<use value="work"/>
+		</telecom>
+		<telecom>
+			<system value="email" />
+			<value value="adam.southern@example.org" />
+			<use value="work"/>
+		</telecom>
+	</contact>
 	<availableTime>
 		<daysOfWeek value="mon"/>
 		<daysOfWeek value="tue"/>
