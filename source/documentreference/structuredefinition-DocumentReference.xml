@@ -855,6 +855,10 @@
         <identity value="xds"/>
         <map value="DocumentEntry Associations type"/>
       </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="ClinicalDocument/relatedDocument/typeCode"/>
+      </mapping>
     </element>
     <element id="DocumentReference.relatesTo.target">
       <path value="DocumentReference.relatesTo.target"/>
@@ -879,7 +883,11 @@
         <identity value="xds"/>
         <map value="DocumentEntry Associations reference"/>
       </mapping>
-    </element>
+      <mapping>
+        <identity value="cda"/>
+        <map value="ClinicalDocument/relatedDocument/parentDocument"/>
+      </mapping> 
+     </element>
     <element id="DocumentReference.description">
       <path value="DocumentReference.description"/>
       <short value="Human-readable description"/>
@@ -1072,33 +1080,6 @@
       <mapping>
         <identity value="cda"/>
         <map value="derived from the IHE Profile or Implementation Guide templateID"/>
-      </mapping>
-    </element>
-    <element id="DocumentReference.sourcePatientInfo">
-      <path value="DocumentReference.sourcePatientInfo"/>
-      <short value="Patient demographics from source"/>
-      <definition value="The Patient Information as known when the document was published. May be a reference to a version specific, or contained."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-      </type>
-      <mapping>
-        <identity value="fhircomposition"/>
-        <map value="Composition.subject"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=&quot;SBJ&quot;].role[typeCode=&quot;PAT&quot;]"/>
-      </mapping>
-      <mapping>
-        <identity value="xds"/>
-        <map value="DocumentEntry.sourcePatientInfo, DocumentEntry.sourcePatientId"/>
-      </mapping>
-      <mapping>
-        <identity value="cda"/>
-        <map value="ClinicalDocument/recordTarget/"/>
       </mapping>
     </element>
   </differential>
