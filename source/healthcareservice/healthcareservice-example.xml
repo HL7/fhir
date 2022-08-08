@@ -64,16 +64,18 @@
 	<name value="Consulting psychologists and/or psychology services"/>
 	<comment value="Providing Specialist psychology services to the greater Den Burg area, many years of experience dealing with PTSD issues" />
 	<extraDetails value="Several assessments are required for these specialist services, and the waiting times can be greater than 3 months at times. Existing patients are prioritized when requesting appointments on the schedule."/>
-	<telecom>
-		<system value="phone"/>
-		<value value="(555) silent"/>
-		<use value="work" />
-	</telecom>
-	<telecom>
-		<system value="email"/>
-		<value value="directaddress@example.com"/>
-		<use value="work" />
-	</telecom>
+	<contact>
+		<telecom>
+			<system value="phone"/>
+			<value value="(555) silent"/>
+			<use value="work" />
+		</telecom>
+		<telecom>
+			<system value="email"/>
+			<value value="directaddress@example.com"/>
+			<use value="work" />
+		</telecom>
+	</contact>
 	<coverageArea>
 		<reference value="#DenBurg"/>
 		<display value="Greater Denburg area" />
