@@ -76,4 +76,40 @@
       <display value="Xray example"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="XDS Comprehensive metadata"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-comprehensive"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-comprehensive"/>
+      <display value="XDS Comprehensive Metadata example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Metadata pointing at a Composition"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-composition"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-composition"/>
+      <display value="Metadata pointing at Composition example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Metadata pointing at a FHIR Document Bundle"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-bundle"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-bundle"/>
+      <display value="Metadata pointing at a FHIR Document Bundle example"/>
+    </item>
+  </entry>
 </List>

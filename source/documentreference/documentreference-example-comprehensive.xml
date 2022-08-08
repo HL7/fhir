@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DocumentReference xmlns="http://hl7.org/fhir">
+  <id value="example-comprehensive"/>
+  <meta>
+    <security>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+      <code value="HTEST"/>
+    </security>
+  </meta>
+
+  <contained>
+    <Practitioner>
+      <id value="in-author"/>
+      <telecom>
+        <system value="email"/>
+        <value value="JohnMoehrke@gmail.com"/>
+      </telecom>
+    </Practitioner>
+  </contained>
+  <contained>
+    <Patient>
+      <id value="in-patient"/>
+    </Patient>
+  </contained>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:1.2.840.113556.1.8000.2554.58783.21864.3474.19410.44358.58254.41281.46340"/>
+  </identifier>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:uuid:0c287d32-01e3-4d87-9953-9fcc9404eb21"/>
+  </identifier>
+  <status value="current"/>
+  <type>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="55107-7"/>
+    </coding>
+  </type>
+  <category>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="11369-6"/>
+    </coding>
+  </category>
+  <subject>
+    <reference value="Patient/xcda"/>
+  </subject>
+  <event>
+    <concept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+        <code value="ACCTRECEIVABLE"/>
+      </coding>
+    </concept>
+  </event>
+  <event>
+    <reference>
+      <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:1.2.840.113556.1.8000.2554.17917.46600.21181.17878.33419.62048.57128.2759"/>
+      </identifier>
+    </reference>
+  </event>
+
+  <facilityType>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="82242000"/>
+    </coding>
+  </facilityType>
+  <practiceSetting>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="408467006"/>
+    </coding>
+  </practiceSetting>
+  <period>
+    <start value="2020-12-31T23:50:50-05:00"/>
+    <end value="2020-12-31T23:50:50-05:00"/>
+  </period>
+  <date value="2020-12-31T23:50:50-05:00"/>
+  <author>
+    <reference value="#in-author"/>
+  </author>
+  <attester>
+    <mode>
+      <coding>
+        <system value="http://hl7.org/fhir/composition-attestation-mode"/>
+        <code value="professional"/>
+      </coding>
+    </mode>
+    <party>
+      <reference value="#in-author"/>
+    </party>
+  </attester>
+  <relatesTo>
+    <code>
+      <coding>
+        <system value="http://hl7.org/fhir/document-relationship-type"/>
+        <code value="appends"/>
+      </coding>
+    </code>
+    <target>
+      <reference value="DocumentReference/example"/>
+    </target>
+  </relatesTo>
+  <description value="Example of a Comprehensive DocumentReference resource. This is fully filled for all mandatory elements and all optional elements."/>
+  <securityLabel>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
+      <code value="N"/>
+    </coding>
+  </securityLabel>
+  <content>
+    <attachment>
+      <contentType value="text/plain"/>
+      <language value="en"/>
+      <url value="http://example.com/nowhere.txt"/>
+      <size value="190"/>
+      <hash value="OGEzOGYyNjMzMDA2ZmQ1MzUxNDljNDRhM2E3M2YzMTI0MzdiMzQ3OA=="/>
+      <title value="DocumentReference for Comprehensive fully filled metadata"/>
+      <creation value="2020-12-31T23:50:50-05:00"/>
+    </attachment>
+    <profile>
+      <valueCoding>
+        <system value="http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode"/>
+        <code value="urn:ihe:iti:xds-sd:text:2008"/>      
+      </valueCoding>
+    </profile>
+  </content>
+  <sourcePatientInfo>
+    <reference value="#in-patient"/>
+  </sourcePatientInfo>
+</DocumentReference>
