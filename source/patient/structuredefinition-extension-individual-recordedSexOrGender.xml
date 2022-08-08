@@ -126,8 +126,8 @@
       <path value="Extension.extension"/>
       <sliceName value="type"/>
       <short value="Type of recorded sex or gender."/>
-      <definition value="The type or category of sex or gender that is recorded.  "/>
-	  <comment value="Because the recorded sex and gender concept exists primarily as means to exchange sex and gender data concepts that are either use-case specific, or that are not well defined, the type may often correspond to the "/>
+      <definition value="The type or category of sex or gender that is recorded."/>
+	  <comment value="Because the recorded sex and gender concept exists primarily as means to exchange sex and gender data concepts that are either use-case specific or that are historically not well defined, the type may either imply the indended use of the sex or gender value, or identify the sex or gender value as based on historical semanitcs."/>
       <min value="0"/>
       <max value="1"/>
       <type>

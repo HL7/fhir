@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="international-civil-aviation-organization-sex-or-gender"/>
+  <id value="international-civil-aviation-organization-sex"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
@@ -14,7 +14,7 @@
     <value value="urn:oid:2.16.840.1.113883.6.348"/>
   </identifier>
   <name value="icaoSex"/>
-  <title value="International Civil Aviation Organization Sex or Gender"/>
+  <title value="International Civil Aviation Organization Sex"/>
   <status value="draft"/>
   <experimental value="true"/>
   <description value="Codes representing recorded sex or gender values for international exchange as defined as specified by the International Civil Aviation Organization."/>
