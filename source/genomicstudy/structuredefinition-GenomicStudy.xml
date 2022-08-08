@@ -232,7 +232,6 @@
       <type>
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
       </type>
     </element>
     <element id="GenomicStudy.instantiatesUri">
