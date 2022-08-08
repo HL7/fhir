@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Composition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -107,8 +107,8 @@
       <path value="Composition.url"/>
       <short value="Canonical identifier for this Composition, represented as a URI (globally unique)"/>
       <definition value="An absolute URI that is used to identify this Composition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this Composition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the Composition is stored on different servers."/>
-	  <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version."/>
-	  <requirements value="Allows the Composition to be referenced by a single globally unique identifier."/>
+      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version."/>
+      <requirements value="Allows the Composition to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -130,7 +130,7 @@
       <definition value="A version-independent identifier for the Composition. This identifier stays constant as the composition is changed over time."/>
       <comment value="Similar to ClinicalDocument/setId in CDA. See discussion in resource definition for how these relate."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Identifier"/>
       </type>
@@ -159,7 +159,7 @@
     <element id="Composition.version">
       <path value="Composition.version"/>
       <short value="An explicitly assigned identifer of a variation of the content in the Composition"/>
-      <comment value="While each resource, including the composition itself, has its own version identifier, this is a formal identifier for the logical version of the Composition as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example." />
+      <comment value="While each resource, including the composition itself, has its own version identifier, this is a formal identifier for the logical version of the Composition as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -170,7 +170,6 @@
         <identity value="cda"/>
         <map value=".versionNumber"/>
       </mapping>
-      <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Definition.version"/>
@@ -182,7 +181,7 @@
     </element>
     <element id="Composition.status">
       <path value="Composition.status"/>
-      <short value="preliminary | final | amended | entered-in-error | deprecated"/>
+      <short value="registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | deprecated | unknown"/>
       <definition value="The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document."/>
       <comment value="If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag &quot;entered-in-error&quot; is why this element is labeled as a modifier of other elements.   &#xA;&#xA;Some reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required."/>
       <requirements value="Need to be able to mark interim, amended, or withdrawn compositions or documents."/>
@@ -271,7 +270,6 @@
       <path value="Composition.category"/>
       <short value="Categorization of Composition"/>
       <definition value="A categorization for the type of the composition - helps for indexing and searching. This may be implied by or derived from the code specified in the Composition Type."/>
-      <comment value="This is a metadata field from [XDS/MHD](https://profiles.ihe.net/ITI/MHD/index.html)."/>
       <requirements value="Helps humans to assess whether the composition is of interest when viewing an index of compositions or documents."/>
       <min value="0"/>
       <max value="*"/>
@@ -287,10 +285,6 @@
         <description value="High-level kind of a clinical document at a macro level."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/referenced-item-category"/>
       </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.subject"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.class"/>
@@ -315,7 +309,7 @@
       <comment value="For clinical documents, this is usually the patient."/>
       <requirements value="Essential metadata for searching for the composition. Identifies who and/or what the composition/document is about."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
@@ -332,6 +326,10 @@
       <mapping>
         <identity value="cda"/>
         <map value=".recordTarget"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.subject"/>
       </mapping>
       <mapping>
         <identity value="fhirdocumentreference"/>
@@ -356,7 +354,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.context"/>
+        <map value="Event.encounter"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -379,8 +377,8 @@
       <path value="Composition.date"/>
       <short value="Composition editing time"/>
       <definition value="The composition editing time, when the composition was last logically changed by the author."/>
-      <comment value="The Last Modified Date on the composition may be after the date of the document was attested without being changed."/>
-      <requirements value="dateTime is used for tracking, organizing versions and searching. Note that this is the time of *authoring*. When packaged in a document, [Bundle.timestamp](bundle-definitions.html#Bundle.timestamp) is the date of packaging."/>
+      <comment value="The Last Modified Date on the composition may be after the date of the document was attested without being changed. This means that the date on an amended document is the date of the amendment, not the date of original authorship."/>
+      <requirements value="dateTime is used for tracking, organizing versions and searching. Note that this is the time of authoring this version of the Composition. When packaged in a document, [Bundle.timestamp](bundle-definitions.html#Bundle.timestamp) is the date of packaging."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -467,7 +465,7 @@
       <path value="Composition.name"/>
       <short value="Name for this Composition (computer friendly)"/>
       <definition value="A natural language name identifying the {{title}}. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-	  <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
       <requirements value="Support human navigation and code generation."/>
       <min value="0"/>
       <max value="1"/>
@@ -503,44 +501,12 @@
     <element id="Composition.note">
       <path value="Composition.note"/>
       <short value="For any additional notes"/>
-	  <comment value="A comment, general note or annotation not coded elsewhere."/>
+      <comment value="A comment, general note or annotation not coded elsewhere."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Annotation"/>
       </type>
-    </element>
-    <element id="Composition.confidentiality">
-      <path value="Composition.confidentiality"/>
-      <short value="As defined by affinity domain"/>
-      <definition value="The code specifying the level of confidentiality of the Composition."/>
-      <comment value="The exact use of this element, and enforcement and issues related to highly sensitive documents are out of scope for the base specification, and delegated to implementation profiles (see security section).  This element is labeled as a modifier because highly confidential documents must not be treated as if they are not."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DocumentConfidentiality"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Codes specifying the level of confidentiality of the composition."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/v3-Confidentiality|2.0.0"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".confidentialityCode"/>
-      </mapping>
-      <mapping>
-        <identity value="cda"/>
-        <map value=".confidentialityCode"/>
-      </mapping>
-      <mapping>
-        <identity value="fhirdocumentreference"/>
-        <map value="DocumentReference.securityLabel"/>
-      </mapping>
     </element>
     <element id="Composition.attester">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">

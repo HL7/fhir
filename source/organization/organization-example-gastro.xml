@@ -18,14 +18,16 @@
     <value value="Gastro"/>
   </identifier>
   <name value="Gastroenterology"/>
-  <telecom>
-    <system value="phone"/>
-    <value value="+1 555 234 3523"/>
-    <use value="mobile"/>
-  </telecom>
-  <telecom>
-    <system value="email"/>
-    <value value="gastro@acme.org"/>
-    <use value="work"/>
-  </telecom>
+  <contact>
+    <telecom>
+      <system value="phone"/>
+      <value value="+1 555 234 3523"/>
+      <use value="mobile"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="gastro@acme.org"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
 </Organization>

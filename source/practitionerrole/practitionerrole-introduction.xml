@@ -12,7 +12,7 @@ The role, specialty, Location telecom and HealthcareService properties can be re
 of the PractitionerRole. Some systems record a collection of service values for a single location, others record the 
 single service and the list of locations it is available. Both are acceptable options for representing this data.<br/>
 Where availability, telecom, or other details are not the same across all healthcareservices, or locations 
-a seperate PractitionerRole instance should be created.
+a separate PractitionerRole instance should be created.
 </p>
 <p>
 For use cases where an organization has activities where a practitioner is not defined/pre-allocated for a specific role 

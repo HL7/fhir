@@ -183,7 +183,7 @@
       <mapping>
         <identity value="fhirprovenance"/>
         <map value="Provenance.activity"/>
-      </mapping>    
+      </mapping>
       <mapping>
         <identity value="dicom"/>
         <map value="EventTypeCode"/>
@@ -383,7 +383,7 @@
         <identity value="dicom"/>
         <map value="EventOutcomeIndicator EventOutcomeIndicator"/>
       </mapping>
-    </element>    
+    </element>
 	<element id="AuditEvent.outcome.detail">
       <path value="AuditEvent.outcome.detail"/>
       <short value="Additional outcome detail"/>
@@ -411,7 +411,7 @@
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=OUT].target.text"/>
       </mapping>
-    </element>    
+    </element>
 	<element id="AuditEvent.authorization">
       <path value="AuditEvent.authorization"/>
       <short value="Authorization related to the event"/>
@@ -490,7 +490,7 @@
         <identity value="w3c.prov"/>
         <map value="Activity.Activity"/>
       </mapping>
-    </element>    
+    </element>
 	<element id="AuditEvent.patient">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>
@@ -695,7 +695,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>		
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -1038,7 +1038,7 @@
     <element id="AuditEvent.entity.what">
       <path value="AuditEvent.entity.what"/>
       <short value="Specific instance of resource"/>
-      <definition value="Identifies a specific instance of the entity. The reference should be version specific."/>
+      <definition value="Identifies a specific instance of the entity. The reference should be version specific. This is allowed to be a Parameters resource."/>
 	  <comment value="Use .what.display when all you have is a string (e.g. ParticipantObjectName)."/>
       <min value="0"/>
       <max value="1"/>
@@ -1260,7 +1260,7 @@
       </type>
       <type>
         <code value="base64Binary"/>
-      </type>	  
+      </type>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.context"/>
