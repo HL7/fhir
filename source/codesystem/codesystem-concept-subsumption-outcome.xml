@@ -16,7 +16,7 @@
   <version value="4.6.0"/>
   <name value="ConceptSubsumptionOutcome"/>
   <title value="Concept Subsumption Outcome code system"/>
-  <description value="Codes indicating the results of a subsumption check between codes. In the context of this CodeSystem, subsumption is defined in the FHIR specification at the following [link](codesystem.html#subsumption)."/>
+  <description value="Codes indicating the results of a subsumption check between codes. In the context of this CodeSystem, subsumption is defined in the FHIR specification under Resource Types - CodeSystem."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
