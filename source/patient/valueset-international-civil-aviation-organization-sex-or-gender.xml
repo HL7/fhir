@@ -26,8 +26,12 @@
   <description value="Concepts representing recorded sex or gender values for international exchange."/>
   <copyright value="ICAO 2021"/>
   <compose>
-    <include>
-      <system value="http://terminology.hl7.org/CodeSystem/icaosex"/>
+	<include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-NullFlavor"/>
+      <concept>
+        <code value="UNK"/>
+        <display value="Unknown"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>
