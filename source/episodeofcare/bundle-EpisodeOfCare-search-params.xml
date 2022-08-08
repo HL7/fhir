@@ -31,14 +31,55 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EpisodeOfCare.diagnosis.condition"/>
+          <valueString value="EpisodeOfCare.diagnosis.condition.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-condition"/>
-        <description value="Conditions/problems/diagnoses this episode of care is for"/>
+        <description value="Conditions/problems/diagnoses this episode of care is for (legacy)"/>
+        <comment value="(retained for backward compatibility)"/>
         <code value="condition"/>
         <type value="reference"/>
-        <expression value="EpisodeOfCare.diagnosis.condition"/>
-        <xpath value="f:EpisodeOfCare/f:diagnosis/f:condition"/>
+        <expression value="EpisodeOfCare.diagnosis.condition.reference"/>
+        <xpath value="f:EpisodeOfCare/f:diagnosis/f:condition/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EpisodeOfCare-condition-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EpisodeOfCare.diagnosis.condition.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-condition-reference"/>
+        <description value="Conditions/problems/diagnoses this episode of care is for (resource reference)"/>
+        <code value="condition-reference"/>
+        <type value="reference"/>
+        <expression value="EpisodeOfCare.diagnosis.condition.reference"/>
+        <xpath value="f:EpisodeOfCare/f:diagnosis/f:condition/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EpisodeOfCare-condition-coding"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EpisodeOfCare.diagnosis.condition.coding"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-condition"/>
+        <description value="Conditions/problems/diagnoses this episode of care is for (coded)"/>
+        <code value="condition-coding"/>
+        <type value="token"/>
+        <expression value="EpisodeOfCare.diagnosis.condition.coding"/>
+        <xpath value="f:EpisodeOfCare/f:diagnosis/f:condition/f:coding"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
