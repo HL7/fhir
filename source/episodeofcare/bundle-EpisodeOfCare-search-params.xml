@@ -67,19 +67,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="EpisodeOfCare-condition-coding"/>
+        <id value="EpisodeOfCare-condition-concept"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EpisodeOfCare.diagnosis.condition.coding"/>
+          <valueString value="EpisodeOfCare.diagnosis.condition.concept"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-condition"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-condition-concept"/>
         <description value="Conditions/problems/diagnoses this episode of care is for (coded)"/>
-        <code value="condition-coding"/>
+        <code value="condition-concept"/>
         <type value="token"/>
-        <expression value="EpisodeOfCare.diagnosis.condition.coding"/>
-        <xpath value="f:EpisodeOfCare/f:diagnosis/f:condition/f:coding"/>
+        <expression value="EpisodeOfCare.diagnosis.condition.concept"/>
+        <xpath value="f:EpisodeOfCare/f:diagnosis/f:condition/f:concept"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
