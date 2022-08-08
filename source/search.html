@@ -882,7 +882,8 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
     <td><a href="#reference">reference</a> <span class="stu">TU</span> , <a href="#token">token</a></td>
     <td>
       Tests whether the textual value in a resource (e.g., <code>CodeableConcept.text</code>, <code>Coding.display</code>, 
-      <code>Identifier.type.text</code>, or <code>Reference.display</code>) matches the supplied parameter value.
+      <code>Identifier.type.text</code>, or <code>Reference.display</code>) matches the supplied parameter value using 
+      basic string matching (begins with or is, case-insensitive).
     </td>
    </tr>
    <tr>
@@ -1680,7 +1681,8 @@ identifier:of-type=http://terminology.hl7.org/CodeSystem/v2-0203|MR|12345</span>
     The <code>text</code> modifier on search parameters of type <a href="#reference">reference</a> and <a href="#token">token</a>
     allows clients to indicate that a supplied <code>string</code> should be used to perform a string-search against the text
     associated with a code or value.  For example, <code>CodeableConcept.text</code>, <code>Coding.display</code>, 
-    <code>Identifier.type.text</code>, or <code>Identifier.assigner.display</code>.
+    <code>Identifier.type.text</code>, or <code>Identifier.assigner.display</code>. Search matching is performed using basic string matching 
+    rules - begins with or is, case-insensitive.
   </p>
   <p>
     In this context, the <code>text</code> modifier is only allowed on <a href="#reference">reference</a> and <a href="#token">token</a>
@@ -2002,10 +2004,10 @@ url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124,125</spa
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124%2CValueSet/125</span>
+    <span class="http-verb-display-get">GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124%2C125</span>
     <span class="http-verb-display-post">POST [base]/ValueSet/_search
 Content-Type: application/x-www-form-urlencoded
-url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124%2CValueSet/125</span>
+url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124%2C125</span>
   </span>
 </span>
 </p>
@@ -2900,7 +2902,7 @@ A server defined search (link to search page) that may consider matching any of 
  <h4>uri</h4>
  <p>
  The uri parameter refers to an element that contains a URI (<a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>).
- By default, matches are precise (e.g. case, accent, and escape) sensitive, and the entire URI must match.
+ By default, matches are precise, case and accent sensitive, and the entire URI must match.
  The modifier <code>:above</code> or <code>:below</code> can be used to indicate
  that partial matching is used. For example:
  <span class="http-search-example">
@@ -4400,9 +4402,8 @@ search results. The client may have to examine the resource to determine
 which path contains the match.
 </p>
 <p>
-Servers are not required to implement any of the standard search parameters
-(except for the <code>_id</code> parameter described above).  Servers may also define their own
- parameters.
+Servers are not required to implement any of the standard search parameters. However, servers SHOULD
+support the <a href="#id"><code>_id</code></a> parameter <span class="stu">TU</span>.  Servers MAY also define their own parameters.
 </p>
 
 
