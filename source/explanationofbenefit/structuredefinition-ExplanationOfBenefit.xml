@@ -574,6 +574,18 @@
         <map value="FiveWs.cause"/>
       </mapping>
     </element>
+    <element id="ExplanationOfBenefit.encounter">
+      <path value="ExplanationOfBenefit.encounter"/>
+      <short value="Encounters related to this billed item"/>
+      <definition value="A billed item may include goods or services provided in multiple encounters."/>
+      <requirements value="Used in some jurisdictions to link clinical events to claim items."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+    </element>
     <element id="ExplanationOfBenefit.facility">
       <path value="ExplanationOfBenefit.facility"/>
       <short value="Servicing Facility"/>
@@ -1240,6 +1252,17 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
     </element>
+    <element id="ExplanationOfBenefit.patientPaid">
+      <path value="ExplanationOfBenefit.patientPaid"/>
+      <short value="Paid by the patient"/>
+      <definition value="The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services."/>
+      <requirements value="Necessary to demonstrate that copayments, co-insurance and similar patient payments have been made or accounted for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
     <element id="ExplanationOfBenefit.item">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Item"/>
@@ -1462,6 +1485,17 @@
         <map value="FiveWs.where[x]"/>
       </mapping>
     </element>
+    <element id="ExplanationOfBenefit.item.patientPaid">
+      <path value="ExplanationOfBenefit.item.patientPaid"/>
+      <short value="Paid by the patient"/>
+      <definition value="The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services."/>
+      <requirements value="Necessary to demonstrate that copayments, co-insurance and similar patient payments have been made or accounted for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
     <element id="ExplanationOfBenefit.item.quantity">
       <path value="ExplanationOfBenefit.item.quantity"/>
       <short value="Count of products or services"/>
@@ -1495,6 +1529,17 @@
       <max value="1"/>
       <type>
         <code value="decimal"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.item.tax">
+      <path value="ExplanationOfBenefit.item.tax"/>
+      <short value="Total tax"/>
+      <definition value="The total of taxes applicable for this product or service."/>
+      <requirements value="Required when taxes are not embedded in the unit price or provided as a separate service."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.net">
@@ -1811,6 +1856,17 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-program-code"/>
       </binding>
     </element>
+    <element id="ExplanationOfBenefit.item.detail.patientPaid">
+      <path value="ExplanationOfBenefit.item.detail.patientPaid"/>
+      <short value="Paid by the patient"/>
+      <definition value="The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services."/>
+      <requirements value="Necessary to demonstrate that copayments, co-insurance and similar patient payments have been made or accounted for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
     <element id="ExplanationOfBenefit.item.detail.quantity">
       <path value="ExplanationOfBenefit.item.detail.quantity"/>
       <short value="Count of products or services"/>
@@ -1844,6 +1900,17 @@
       <max value="1"/>
       <type>
         <code value="decimal"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.item.detail.tax">
+      <path value="ExplanationOfBenefit.item.detail.tax"/>
+      <short value="Total tax"/>
+      <definition value="The total of taxes applicable for this product or service."/>
+      <requirements value="Required when taxes are not embedded in the unit price or provided as a separate service."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.detail.net">
@@ -2021,6 +2088,17 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-program-code"/>
       </binding>
     </element>
+    <element id="ExplanationOfBenefit.item.detail.subDetail.patientPaid">
+      <path value="ExplanationOfBenefit.item.detail.subDetail.patientPaid"/>
+      <short value="Paid by the patient"/>
+      <definition value="The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services."/>
+      <requirements value="Necessary to demonstrate that copayments, co-insurance and similar patient payments have been made or accounted for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
     <element id="ExplanationOfBenefit.item.detail.subDetail.quantity">
       <path value="ExplanationOfBenefit.item.detail.subDetail.quantity"/>
       <short value="Count of products or services"/>
@@ -2054,6 +2132,17 @@
       <max value="1"/>
       <type>
         <code value="decimal"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.item.detail.subDetail.tax">
+      <path value="ExplanationOfBenefit.item.detail.subDetail.tax"/>
+      <short value="Total tax"/>
+      <definition value="The total of taxes applicable for this product or service."/>
+      <requirements value="Required when taxes are not embedded in the unit price or provided as a separate service."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.detail.subDetail.net">
@@ -2287,6 +2376,17 @@
         <map value="FiveWs.where[x]"/>
       </mapping>
     </element>
+    <element id="ExplanationOfBenefit.addItem.patientPaid">
+      <path value="ExplanationOfBenefit.addItem.patientPaid"/>
+      <short value="Paid by the patient"/>
+      <definition value="The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services."/>
+      <requirements value="Necessary to demonstrate that copayments, co-insurance and similar patient payments have been made or accounted for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
     <element id="ExplanationOfBenefit.addItem.quantity">
       <path value="ExplanationOfBenefit.addItem.quantity"/>
       <short value="Count of products or services"/>
@@ -2320,6 +2420,17 @@
       <max value="1"/>
       <type>
         <code value="decimal"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.addItem.tax">
+      <path value="ExplanationOfBenefit.addItem.tax"/>
+      <short value="Total tax"/>
+      <definition value="The total of taxes applicable for this product or service."/>
+      <requirements value="Required when taxes are not embedded in the unit price or provided as a separate service."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.addItem.net">
@@ -2478,6 +2589,17 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-modifiers"/>
       </binding>
     </element>
+    <element id="ExplanationOfBenefit.addItem.detail.patientPaid">
+      <path value="ExplanationOfBenefit.addItem.detail.patientPaid"/>
+      <short value="Paid by the patient"/>
+      <definition value="The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services."/>
+      <requirements value="Necessary to demonstrate that copayments, co-insurance and similar patient payments have been made or accounted for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
     <element id="ExplanationOfBenefit.addItem.detail.quantity">
       <path value="ExplanationOfBenefit.addItem.detail.quantity"/>
       <short value="Count of products or services"/>
@@ -2511,6 +2633,17 @@
       <max value="1"/>
       <type>
         <code value="decimal"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.addItem.detail.tax">
+      <path value="ExplanationOfBenefit.addItem.detail.tax"/>
+      <short value="Total tax"/>
+      <definition value="The total of taxes applicable for this product or service."/>
+      <requirements value="Required when taxes are not embedded in the unit price or provided as a separate service."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.addItem.detail.net">
@@ -2612,6 +2745,17 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-modifiers"/>
       </binding>
     </element>
+    <element id="ExplanationOfBenefit.addItem.detail.subDetail.patientPaid">
+      <path value="ExplanationOfBenefit.addItem.detail.subDetail.patientPaid"/>
+      <short value="Paid by the patient"/>
+      <definition value="The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services."/>
+      <requirements value="Necessary to demonstrate that copayments, co-insurance and similar patient payments have been made or accounted for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
     <element id="ExplanationOfBenefit.addItem.detail.subDetail.quantity">
       <path value="ExplanationOfBenefit.addItem.detail.subDetail.quantity"/>
       <short value="Count of products or services"/>
@@ -2645,6 +2789,17 @@
       <max value="1"/>
       <type>
         <code value="decimal"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.addItem.detail.subDetail.tax">
+      <path value="ExplanationOfBenefit.addItem.detail.subDetail.tax"/>
+      <short value="Total tax"/>
+      <definition value="The total of taxes applicable for this product or service."/>
+      <requirements value="Required when taxes are not embedded in the unit price or provided as a separate service."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.addItem.detail.subDetail.net">

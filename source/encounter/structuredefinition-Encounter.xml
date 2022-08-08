@@ -630,8 +630,9 @@
     </element>
     <element id="Encounter.participant.actor">
       <path value="Encounter.participant.actor"/>
-      <short value="Persons involved in the encounter (including patient)"/>
-      <definition value="Persons involved in the encounter, the patient/group is also included here to indicate that the patient was actually participating in the encounter. Not including the patient here covers use cases such as a case meeting between practitioners about a patient - non contact times."/>
+      <short value="The individual, device, or service participating in the encounter"/>
+      <definition value="Person involved in the encounter, the patient/group is also included here to indicate that the patient was actually participating in the encounter. Not including the patient here covers use cases such as a case meeting between practitioners about a patient - non contact times."/>
+      <comment value="For planning purposes, Appointments may include a CareTeam participant to indicate that one specific person from the CareTeam will be assigned, but that assignment might not happen until the Encounter begins. Hence CareTeam is not included in Encounter.participant, as the specific individual should be assigned and represented as a Practitioner or other person resource.&#xD;&#xD;Similarly, Location can be included in Appointment.participant to assist with planning.  However, the patient location is tracked on the Encounter in the Encounter.location property to allow for additional metadata and history to be recorded."/>
       <min value="0"/>
       <max value="1"/>
       <type>

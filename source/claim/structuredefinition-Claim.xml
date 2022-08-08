@@ -550,6 +550,19 @@
         <map value="FiveWs.cause"/>
       </mapping>
     </element>
+    <element id="Claim.encounter">
+      <path value="Claim.encounter"/>
+      <short value="Encounters related to this billed item"/>
+      <definition value="The Encounters during which this Claim was created or to which the creation of this record is tightly associated."/>
+      <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."/>
+      <requirements value="Used in some jurisdictions to link clinical events to claim items."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+    </element>
     <element id="Claim.facility">
       <path value="Claim.facility"/>
       <short value="Servicing facility"/>
@@ -1182,6 +1195,17 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
     </element>
+    <element id="Claim.patientPaid">
+      <path value="Claim.patientPaid"/>
+      <short value="Paid by the patient"/>
+      <definition value="The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services."/>
+      <requirements value="Necessary to demonstrate that copayments, co-insurance and similar patient payments have been made or accounted for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
     <element id="Claim.item">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Item"/>
@@ -1407,6 +1431,17 @@
         <map value="FiveWs.where[x]"/>
       </mapping>
     </element>
+    <element id="Claim.item.patientPaid">
+      <path value="Claim.item.patientPaid"/>
+      <short value="Paid by the patient"/>
+      <definition value="The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services."/>
+      <requirements value="Necessary to demonstrate that copayments, co-insurance and similar patient payments have been made or accounted for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
     <element id="Claim.item.quantity">
       <path value="Claim.item.quantity"/>
       <short value="Count of products or services"/>
@@ -1440,6 +1475,17 @@
       <max value="1"/>
       <type>
         <code value="decimal"/>
+      </type>
+    </element>
+    <element id="Claim.item.tax">
+      <path value="Claim.item.tax"/>
+      <short value="Total tax"/>
+      <definition value="The total of taxes applicable for this product or service."/>
+      <requirements value="Required when taxes are not embedded in the unit price or provided as a separate service."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
       </type>
     </element>
     <element id="Claim.item.net">
@@ -1667,6 +1713,17 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-program-code"/>
       </binding>
     </element>
+    <element id="Claim.item.detail.patientPaid">
+      <path value="Claim.item.detail.patientPaid"/>
+      <short value="Paid by the patient"/>
+      <definition value="The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services."/>
+      <requirements value="Necessary to demonstrate that copayments, co-insurance and similar patient payments have been made or accounted for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
     <element id="Claim.item.detail.quantity">
       <path value="Claim.item.detail.quantity"/>
       <short value="Count of products or services"/>
@@ -1700,6 +1757,17 @@
       <max value="1"/>
       <type>
         <code value="decimal"/>
+      </type>
+    </element>
+    <element id="Claim.item.detail.tax">
+      <path value="Claim.item.detail.tax"/>
+      <short value="Total tax"/>
+      <definition value="The total of taxes applicable for this product or service."/>
+      <requirements value="Required when taxes are not embedded in the unit price or provided as a separate service."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
       </type>
     </element>
     <element id="Claim.item.detail.net">
@@ -1853,6 +1921,17 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-program-code"/>
       </binding>
     </element>
+    <element id="Claim.item.detail.subDetail.patientPaid">
+      <path value="Claim.item.detail.subDetail.patientPaid"/>
+      <short value="Paid by the patient"/>
+      <definition value="The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services."/>
+      <requirements value="Necessary to demonstrate that copayments, co-insurance and similar patient payments have been made or accounted for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
     <element id="Claim.item.detail.subDetail.quantity">
       <path value="Claim.item.detail.subDetail.quantity"/>
       <short value="Count of products or services"/>
@@ -1886,6 +1965,17 @@
       <max value="1"/>
       <type>
         <code value="decimal"/>
+      </type>
+    </element>
+    <element id="Claim.item.detail.subDetail.tax">
+      <path value="Claim.item.detail.subDetail.tax"/>
+      <short value="Total tax"/>
+      <definition value="The total of taxes applicable for this product or service."/>
+      <requirements value="Required when taxes are not embedded in the unit price or provided as a separate service."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
       </type>
     </element>
     <element id="Claim.item.detail.subDetail.net">
